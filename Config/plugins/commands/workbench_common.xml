@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="VehicleDataSample"/>
+
+	<Plugin Class="CmdVehicleDataLoader" Group="" ID="Vehicle Data Loader">
+		<Param Name="Service Name" Type="STRING">Vehicle Data Socket</Param>
+	</Plugin>
+
+
+	<Plugin Class="CmdConstant" Group="" ID="Layout Constants">
+		<Include File="workbench_common_views"/>
+	</Plugin>
+
+	<Plugin Class="CmdCopyToD" Group="" ID="View Layout Commands">
+		<Param Name="View Layout" Type="STRING">0</Param>
+	</Plugin>
+
+	<Plugin Class="CmdCopyToD" Group="" ID="Video Feeds">
+		<Param Name="Video Feed 1" Type="INTEGER">0</Param>
+		<Param Name="Video Feed 2" Type="INTEGER">0</Param>
+		<Param Name="Video Feed 3" Type="INTEGER">0</Param>
+		<Param Name="Video Feed 4" Type="INTEGER">0</Param>
+	</Plugin>
+
+	<Plugin Class="CmdConstant" ID="Video Source Icon Constants">
+		<Param Name="Icon Camera Front-Center" Type="STRING">camera_frontcenter</Param>
+		<Param Name="Icon Camera Front-Left" Type="STRING">camera_frontleft</Param>
+		<Param Name="Icon Camera Front-Right" Type="STRING">camera_frontright</Param>
+		<Param Name="Icon Camera Left" Type="STRING">camera_left</Param>
+		<Param Name="Icon Camera Left-Forward" Type="STRING">camera_leftfront</Param>
+		<Param Name="Icon Camera Left-Rear" Type="STRING">camera_leftrear</Param>
+		<Param Name="Icon Camera Left-View-Rear" Type="STRING">camera_leftviewrear</Param>
+		<Param Name="Icon Camera Lost" Type="STRING">camera_lost</Param>
+		<Param Name="Icon Camera Observer" Type="STRING">camera_observer</Param>
+		<Param Name="Icon Camera PC" Type="STRING">camera_pc</Param>
+		<Param Name="Icon Camera Rear" Type="STRING">camera_rear</Param>
+		<Param Name="Icon Camera Right" Type="STRING">camera_right</Param>
+		<Param Name="Icon Camera Right-Forward" Type="STRING">camera_rightfront</Param>
+		<Param Name="Icon Camera Right-Rear" Type="STRING">camera_rightrear</Param>
+		<Param Name="Icon Camera Right-View-Rear" Type="STRING">camera_rightviewrear</Param>
+	</Plugin>
+
+	<Plugin Class="CmdConstant" Group="" ID="Camera Control Constants">
+		<Param Name="Off" Type="STRING">Off</Param>
+		<Param Name="On" Type="STRING">On</Param>
+		<Param Name="Toggle" Type="STRING">Toggle</Param>
+		<Param Name="Control" Type="STRING">Control</Param>
+		<Param Name="Standard" Type="STRING">Standard</Param>
+		<Param Name="Unsupported" Type="STRING">Unsupported</Param>
+		<Param Name="Increase" Type="STRING">Increase</Param>
+		<Param Name="Decrease" Type="STRING">Decrease</Param>
+		<Param Name="White" Type="STRING">White</Param>
+		<Param Name="Black" Type="STRING">Black</Param>
+		<Param Name="LAP" Type="STRING">LAP</Param>
+	</Plugin>
+
+	<Plugin Class="CmdCopyToD" Group="" ID="Edit Start Commands">
+		<Param Name="Edit Camera" Type="STRING">0</Param>
+	</Plugin>
+
+	<Plugin Class="CmdReturnTrue" Group="" ID="Camera Edit Commands">
+		<Param Name="Camera Auto Calibration" Type="INTEGER">0</Param>
+		<Param Name="Camera One Point Calibration" Type="INTEGER">0</Param>
+		<Param Name="Camera Polarity" Type="INTEGER">0</Param>
+		<Param Name="Camera Zoom Mode" Type="INTEGER">0</Param>
+		<Param Name="Camera Zoom" Type="INTEGER">0</Param>
+		<Param Name="Camera Brightness" Type="INTEGER">0</Param>
+		<Param Name="Camera Contrast" Type="INTEGER">0</Param>
+		<Param Name="Camera Sharpness" Type="INTEGER">0</Param>
+		<Param Name="Camera Mode Control" Type="INTEGER">0</Param>
+		<Param Name="Reverse" Type="INTEGER">0</Param>
+	</Plugin>
+
+	<Plugin Class="CmdConstantD" Group="" ID="Camera Capabilities">
+		<Param Name="Camera Cap Auto Calibration" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap Polarity" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap Zoom Mode" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap Zoom" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap Brightness" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap Contrast" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap Sharpness" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap Mode Control" Type="STRING">Standard</Param>
+		<Param Name="Camera Cap One Point Calibration" Type="STRING">Standard</Param>
+	</Plugin>
+
+</Plugins>
+

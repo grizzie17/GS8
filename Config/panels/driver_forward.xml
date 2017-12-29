@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<Panel id="driver">
+	<!-- Video feeds -->
+	<GaugeInstance Name="view-select" X="0" Y="0" />
+	<GaugeInstance Name="view-layout" X="0" Y="0" />
+
+	<GaugeInstance Name="speed"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="(S:SCREEN HEIGHT) height -" />
+	
+	<!-- heading -->
+	<GaugeInstance Name="compass"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="0" />
+	<GaugeInstance Name="steeringangle"
+				   X="(S:SCREEN WIDTH) width - 5 -" Y="2" />
+	<GaugeInstance Name="alert"
+				   X="5" Y="(S:SCREEN HEIGHT) 5 -" />
+
+	<GaugeInstance Name="time"
+				   X="(S:SCREEN WIDTH) 20 -" Y="5" />
+	<GaugeInstance Name="transmission-selector" 
+				   X="(S:SCREEN WIDTH) 2 / 50 +" Y="(S:SCREEN HEIGHT) height - 5 -" />
+
+	
+	
+	<GaugeInstance Name="gaugestogglenotice"
+				   X="5" Y="5" />
+
+	<GaugeInstance Name="icon-fuel"
+				   X="10" Y="40" />
+	<GaugeInstance Name="slider-fuel"
+					X="50" Y="30" />
+	<GaugeInstance Name="slider-engine-coolant-temp"
+					X="77" Y="30" />
+	<GaugeInstance Name="icon-temperature-coolant"
+				   X="105" Y="40" />
+
+	<GaugeInstance Name="icon-engine-oil-pressure"
+				   X="3" Y="150" />
+	<GaugeInstance Name="slider-engine-oil-pressure"
+					X="50" Y="130" />
+	<GaugeInstance Name="slider-engine-oil-temp"
+					X="77" Y="130" />
+	<GaugeInstance Name="icon-temperature-oil"
+				   X="105" Y="140" />
+
+	<GaugeInstance Name="icon-trans-oil-pressure"
+				   X="3" Y="250" />
+	<GaugeInstance Name="slider-trans-oil-pressure"
+					X="50" Y="230" />
+	<GaugeInstance Name="slider-trans-oil-temp"
+					X="77" Y="230" />
+	<GaugeInstance Name="icon-temperature-trans"
+				   X="105" Y="240" />
+
+	<GaugeInstance Name="icon-battery"
+				   X="10" Y="350" />
+	<GaugeInstance Name="slider-battery-voltage"
+				   X="50" Y="330" />
+	
+
+	<!--GaugeInstance Name="temphoriz"
+				   X="5" Y="(S:SCREEN HEIGHT) height - 2 -" />
+	<GaugeInstance Name="oiltemphoriz"
+				   X="20" Y="(S:SCREEN HEIGHT) 60 -" />
+
+	<GaugeInstance Name="fuelhoriz"
+				   X="(S:SCREEN WIDTH) width -" Y="(S:SCREEN HEIGHT) height - 2 -" />
+	<GaugeInstance Name="engoilpressurehoriz" X="0" Y="0" />
+	<GaugeInstance Name="oillevellight" X="0" Y="0" />
+	<GaugeInstance Name="battlevelhoriz" X="0" Y="0" />
+	<GaugeInstance Name="battlevellight" X="0" Y="0" /-->
+
+	<KeyEventMap>
+		<OnDown>
+			<!--
+				E:GAUGE TOGGLE is a three way switch
+				zero = Auto - display gauge when in yellow or red
+				one = On - always display gauge regardless of state
+				two = Off - always hide gauge
+			-->
+			<Key id="F5" Event="E:GAUGE TOGGLE" />
+		</OnDown>
+	</KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:GAUGE TOGGLE</KeyEvent>
+			<Script>(U:GAUGE SWITCH) 1 + 3 % (&gt;U:GAUGE SWITCH)</Script>
+		</Trigger>
+	</KeyMap>
+
+</Panel>

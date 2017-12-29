@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="button-shutdown">
+		<Update>
+			<Script>
+				// Define the button text
+
+				true s0
+
+				"Shut-" s6 both
+				"Down" s7 both
+				" " s8 both
+
+				(U:COLOR_ButtonTextSelected) 
+				(U:COLOR_ButtonText) 
+				0 (U:Shutdown Mouse Down Time) LT 
+				0 (U:Shutdown Button Down Time) LT OR
+				? s1 s2 s3 both
+
+
+				1 (=E:VEHICLE SHUTDOWN)
+				0 (=U:Shutdown Mouse Down Time)
+				both
+
+				false
+
+				0 (U:Shutdown Mouse Down Time) LT
+				(U:Shutdown Mouse Down Time) (S:MILLI) LT AND
+				?
+
+				both
+
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					(S:MILLI) 5000 + (=U:Shutdown Mouse Down Time)
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					1 (=E:VEHICLE SHUTDOWN)
+					false
+					0 (U:Shutdown Mouse Down Time) LT
+					(U:Shutdown Mouse Down Time) (S:MILLI) LT AND
+					?
+
+					0 (=U:Shutdown Mouse Down Time)
+					both
+
+				</Script>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

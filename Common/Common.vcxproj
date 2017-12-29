@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B6BAAE41-D864-4526-AC72-B54464DA7791}</ProjectGuid>
+    <RootNamespace>Common</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\LogFile;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>Advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\LogFile;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>Ws2_32.lib;Advapi32.lib;Kernel32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\LogFile;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>ws2_32.lib;Advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CConfiguration.cpp" />
+    <ClCompile Include="CEventManager.cpp" />
+    <ClCompile Include="CFactoryConfiguration.cpp" />
+    <ClCompile Include="CFactoryPlugin.cpp" />
+    <ClCompile Include="Chronos.cpp" />
+    <ClCompile Include="CMatrix3x3.cpp" />
+    <ClCompile Include="CMatrix3x3d.cpp" />
+    <ClCompile Include="CPluginConfiguration.cpp" />
+    <ClCompile Include="CPluginLibrary.cpp" />
+    <ClCompile Include="CPluginLoader.cpp" />
+    <ClCompile Include="CUnitsOfMeasure.cpp" />
+    <ClCompile Include="CVariables.cpp" />
+    <ClCompile Include="CVariantData.cpp" />
+    <ClCompile Include="IExternalXML.cpp" />
+    <ClCompile Include="IPlugin.cpp" />
+    <ClCompile Include="IPluginLibrary.cpp" />
+    <ClCompile Include="IPluginLoadConfiguration.cpp" />
+    <ClCompile Include="ISupports.cpp" />
+    <ClCompile Include="ISupportsLocal.cpp" />
+    <ClCompile Include="IXOParse.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="VFactory.cpp" />
+    <ClCompile Include="VFactoryLite.cpp" />
+    <ClCompile Include="VPlugin.cpp" />
+    <ClCompile Include="VPluginWithAggregate.cpp" />
+    <ClCompile Include="VPluginWithAggregateList.cpp" />
+    <ClCompile Include="VSupports.cpp" />
+    <ClCompile Include="XMLLiteImpl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CCharStringHash.h" />
+    <ClInclude Include="CConfiguration.h" />
+    <ClInclude Include="CEventManager.h" />
+    <ClInclude Include="CFactoryConfiguration.h" />
+    <ClInclude Include="CFactoryPlugin.h" />
+    <ClInclude Include="Chronos.h" />
+    <ClInclude Include="CMatrix3x3.h" />
+    <ClInclude Include="CMatrix3x3d.h" />
+    <ClInclude Include="CPluginConfiguration.h" />
+    <ClInclude Include="CPluginLibrary.h" />
+    <ClInclude Include="CPluginLoader.h" />
+    <ClInclude Include="CUnitsOfMeasure.h" />
+    <ClInclude Include="CVariables.h" />
+    <ClInclude Include="CVariantData.h" />
+    <ClInclude Include="IExternalXML.h" />
+    <ClInclude Include="IPlugin.h" />
+    <ClInclude Include="IPluginLibrary.h" />
+    <ClInclude Include="IPluginLoadConfiguration.h" />
+    <ClInclude Include="ISupports.h" />
+    <ClInclude Include="ISupportsLocal.h" />
+    <ClInclude Include="IXID.h" />
+    <ClInclude Include="IXOParse.h" />
+    <ClInclude Include="NamespaceCommon.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TArray.h" />
+    <ClInclude Include="TCharDescriptor.h" />
+    <ClInclude Include="TComPointer.h" />
+    <ClInclude Include="TDictionaryIndexed.h" />
+    <ClInclude Include="TEnumerator.h" />
+    <ClInclude Include="THash.h" />
+    <ClInclude Include="TPointer.h" />
+    <ClInclude Include="TQueue.h" />
+    <ClInclude Include="UNResult.h" />
+    <ClInclude Include="UPluginConfiguration.h" />
+    <ClInclude Include="VConfiguration.h" />
+    <ClInclude Include="VFactory.h" />
+    <ClInclude Include="VFactoryLite.h" />
+    <ClInclude Include="VObject.h" />
+    <ClInclude Include="VPlugin.h" />
+    <ClInclude Include="VPluginConfiguration.h" />
+    <ClInclude Include="VPluginFactory.h" />
+    <ClInclude Include="VPluginFilter.h" />
+    <ClInclude Include="VPluginLibrary.h" />
+    <ClInclude Include="VPluginWithAggregate.h" />
+    <ClInclude Include="VPluginWithAggregateList.h" />
+    <ClInclude Include="VSupports.h" />
+    <ClInclude Include="XMLLite.h" />
+    <ClInclude Include="XMLLiteExtImpl.h" />
+    <ClInclude Include="XMLLiteImpl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <!--ItemGroup>
+    <ProjectReference Include="..\LogFile\LogFile.vcxproj">
+      <Project>{21a4a643-a268-4d79-81d7-4b64c6c03e1f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup-->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

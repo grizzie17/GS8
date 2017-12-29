@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="icon-oil">
+		<Size>70,70</Size>
+		<!--Visible>(A:Engine Oil Pressure) (B:Engine Oil Pressure.Green.Low) &lt;</Visible-->
+		<Element>
+			<Visible>(T:MILLI) 2000 % 1500 &lt;</Visible>
+			<!--Position X="(S:SCREEN WIDTH) 240 - 160 -" Y="(S:SCREEN HEIGHT) 60 -" /-->
+			<Element>
+				<Polyline LineColor="orange" LineWidth="2">
+					<Point X="3" Y="0" />
+					<Point X="10" Y="5" />
+					<Point X="10" Y="10" />
+					<Point X="0" Y="8" />
+					<Point X="3" Y="0" />
+				</Polyline>
+				<Polyline LineColor="orange" LineWidth="2">
+					<Point X="10" Y="5" />
+					<Point X="10 40 +" Y="5" />
+					<Point X="10 32 +" Y="5" />
+					<Point X="10 20 +" Y="17" />
+					<Point X="10 1 +" Y="17" />
+					<Point X="10" Y="5" />
+				</Polyline>
+				<Line LineColor="orange" LineWidth="2">
+					<Point X="10 13 +" Y="5" />
+					<Point X="10 13 +" Y="0" />
+				</Line>
+				<Line LineColor="orange" LineWidth="2">
+					<Point X="10 5 +" Y="0" />
+					<Point X="10 20 +" Y="0" />
+				</Line>
+				<Element>
+					<Position X="10 41 +" Y="6" />
+					<Polygon FillColor="orange" LineColor="orange">
+						<Point X="0" Y="0" />
+						<Point X="2" Y="8" />
+						<Point X="3" Y="12" />
+						<Point X="0" Y="14" />
+						<Point X="-3" Y="12" />
+						<Point X="-2" Y="8" />
+						<Point X="0" Y="0" />
+					</Polygon>
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Panel id="dummy">
+	<GaugeInstance Name="slider-engine-oil-temp"
+					X="(S:SCREEN WIDTH) 135 - 77 +"
+				   Y="(S:SCREEN HEIGHT) 110 -" />
+
+
+	<KeyEventMap>
+		<OnDown>
+			<!--
+				E:GAUGE TOGGLE is a three way switch
+				zero = Auto - display gauge when in yellow or red
+				one = On - always display gauge regardless of state
+				two = Off - always hide gauge
+			-->
+			<Key id="F5" Event="E:GAUGE TOGGLE" />
+			<Key id="BEZEL5" Event="E:GAUGE TOGGLE" />
+		</OnDown>
+	</KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:GAUGE TOGGLE</KeyEvent>
+			<Script>(U:GAUGE SWITCH) 1 + 3 % (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+	</KeyMap>
+
+</Panel>

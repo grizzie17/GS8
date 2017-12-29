@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="MPC_view-select-single">
+       <!-- "K:" (U:Video Feed 1) + @ (=U:Video Feed 1) -->
+	<Update>
+	<!--Frequency>2</Frequency-->
+      <!--Script>
+
+        (K:View Single) (=U:View Layout)
+
+      </Script-->
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

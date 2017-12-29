@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="pan-tilt-joy-stick">
+		<Update>
+			<Script>
+
+				(U:X JOY) (U:JOYSTICK RADIUS) * s11
+				(U:Y JOY) (U:JOYSTICK RADIUS) * s12 both
+
+				(S:MILLI) (=C:EPTM CALCULATE) both
+
+			</Script>
+		</Update>
+		<Element Context="group">
+			<Position X="(U:JOYSTICK ORIGIN X)" Y="(U:JOYSTICK ORIGIN Y)"/>
+			<Element Context="background">
+				<Circle>
+					<Origin>0,0</Origin>
+					<RadiusScript>(U:JOYSTICK RADIUS)</RadiusScript>
+					<LineColorScript>(U:COLOR_Icon) (U:COLOR_IconDisabled) (U:EPTM FLAGS) (K:EPTM ACCEPT INPUT) BITAND ?</LineColorScript>
+					<LineWidth>3</LineWidth>
+				</Circle>
+			</Element>
+			<Element Context="foreground">
+				<Circle>
+					<OriginXScript>(U:JOYSTICK POSITION X)</OriginXScript>
+					<OriginYScript>(U:JOYSTICK POSITION Y)</OriginYScript>
+					<RadiusScript>(U:JOYSTICK RADIUS) 4 /</RadiusScript>
+					<LineColorScript>(U:COLOR_Icon) (U:COLOR_IconDisabled) (U:EPTM FLAGS) (K:EPTM ACCEPT INPUT) BITAND ?</LineColorScript>
+					<LineWidth>2</LineWidth>
+					<FillColor>background</FillColor>
+				</Circle>
+			</Element>
+			<Element Context="foreground">
+				<Rotation>
+					(U:EPTM POSITION X) /-/
+				</Rotation>
+				<Polygon LineWidth="3" LineColor="(U:COLOR_Icon) (U:COLOR_IconDisabled) (U:EPTM FLAGS) (K:EPTM ACCEPT INPUT) BITAND ?">
+					<Point X="0" Y="(U:JOYSTICK RADIUS) /-/ 14 +" />
+					<Point Y="(U:JOYSTICK RADIUS) /-/" X="8" />
+					<Point Y="(U:JOYSTICK RADIUS) /-/" X="-8" />
+				</Polygon>
+			</Element>
+			<Element Context="foreground">
+				<Rotation>
+					(U:EPTM POSITION Y)
+				</Rotation>
+				<Polygon LineWidth="3" LineColor="(U:COLOR_Icon) (U:COLOR_IconDisabled) (U:EPTM FLAGS) (K:EPTM ACCEPT INPUT) BITAND ?">
+					<Point X="(U:JOYSTICK RADIUS) 10 +" Y="0" />
+					<Point X="(U:JOYSTICK RADIUS)" Y="8" />
+					<Point X="(U:JOYSTICK RADIUS)" Y="-8" />
+				</Polygon>
+			</Element>
+			<Element Context="foreground">
+				<Position X="(U:JOYSTICK RADIUS) /-/" Y="(U:JOYSTICK RADIUS) 20 -" />
+				<GaugeText X="0" Y="0"
+						   Font="sans-serif" Height="20"
+						   Align="left" VerticalAlign="top"
+						   Color="(U:COLOR_Text)" HaloColor="(U:COLOR_TextMask)">
+					<String>%( (U:EPTM POSITION X) )%!3.1f!</String>
+				</GaugeText>
+			</Element>
+			<Element Context="foreground">
+				<Position X="(U:JOYSTICK RADIUS)" Y="(U:JOYSTICK RADIUS) 20 -" />
+				<GaugeText X="0" Y="0"
+						   Font="sans-serif" Height="20"
+						   Align="right" VerticalAlign="top"
+						   Color="(U:COLOR_Text)" HaloColor="(U:COLOR_TextMask)">
+					<String>%( (U:EPTM POSITION Y) )%!3.1f!</String>
+				</GaugeText>
+			</Element>
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					0 (=C:JOYSTICK START)
+					true
+					(I:Mouse X) (U:JOYSTICK ORIGIN X) - abs (U:JOYSTICK RADIUS) LT
+					(I:Mouse Y) (U:JOYSTICK ORIGIN Y) - abs (U:JOYSTICK RADIUS) LT AND
+					?
+
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseMove id="MouseMove">
+				<Script>
+					1 (=C:JOYSTICK MOVE)
+
+				</Script>
+			</MouseMove>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					1 (=C:JOYSTICK STOP)
+
+				</Script>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

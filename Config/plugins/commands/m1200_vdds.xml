@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+
+	<!--Plugin Class="CmdM1200" Group="" ID="Send Point External">
+		<Param Name="Video Source" Type="STRING">PC Video</Param>
+	</Plugin-->
+	<Include File="vdds_common.xml"/>
+
+</Plugins>
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="workbench_common"/>
+
+
+
+	<Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="Camera Front" Type="STRING">Camera Front</Param>
+		<Param Name="Camera Front.Icon" Type="STRING">Icon Camera Front-Center</Param>
+		<Param Name="Camera Front-Center" Type="STRING">Camera Front-Center</Param>
+		<Param Name="Camera Front-Center.Icon" Type="STRING">Icon Camera Front-Center</Param>
+		<Param Name="Camera Front-Left" Type="STRING">Camera Front-Left</Param>
+		<Param Name="Camera Front-Left.Icon" Type="STRING">Icon Camera Front-Left</Param>
+		<Param Name="Camera Front-Right" Type="STRING">Camera Front-Right</Param>
+		<Param Name="Camera Front-Right.Icon" Type="STRING">Icon Camera Front-Right</Param>
+		<Param Name="Camera Rear IR" Type="STRING">Camera Rear IR</Param>
+		<Param Name="Camera Rear IR.Icon" Type="STRING">Icon Camera Rear</Param>
+		<Param Name="Camera Rear Color" Type="STRING">Camera Rear Color</Param>
+		<Param Name="Camera Rear Color.Icon" Type="STRING">Icon Camera Rear</Param>
+		<Param Name="Camera Left" Type="STRING">Camera Left</Param>
+		<Param Name="Camera Left.Icon" Type="STRING">Icon Camera Left</Param>
+		<Param Name="Camera Right" Type="STRING">Camera Right</Param>
+		<Param Name="Camera Right.Icon" Type="STRING">Icon Camera Right</Param>
+		<Param Name="Camera Observer" Type="STRING">Camera Observer</Param>
+		<Param Name="Camera Observer.Icon" Type="STRING">Icon Camera Observer</Param>
+		<Param Name="Camera DVD Player" Type="STRING">Camera DVD</Param>
+		<Param Name="Camera DVD Player.Icon" Type="STRING">Icon Camera DVD</Param>
+		<Param Name="PC Video" Type="STRING">PC Video</Param>
+		<Param Name="PC Video.Icon" Type="STRING">Icon PC Video</Param>
+		<Param Name="Camera DCM Text" Type="STRING">PC Video</Param>
+		<Param Name="Camera DCM Text.Icon" Type="STRING">Icon PC Video</Param>
+		<Param Name="Camera Aux 1" Type="STRING">Camera Aux 1</Param>
+		<Param Name="Camera Aux 1.Icon" Type="STRING">Icon Camera Aux 1</Param>
+		<Param Name="Camera Aux 2" Type="STRING">Camera Aux 2</Param>
+		<Param Name="Camera Aux 2.Icon" Type="STRING">Icon Camera Aux 2</Param>
+	</Plugin>
+
+
+	<Include File="VehicleDataSample"/>
+
+
+
+	<Plugin Class="CmdEptm" Group="" ID="Pan and Tilt control">
+		<!-- -->
+	</Plugin>
+
+
+</Plugins>
+

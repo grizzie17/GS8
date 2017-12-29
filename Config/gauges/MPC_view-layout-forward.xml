@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="MPC_view-layout-driver-forward">
+		<Update>
+			<!--Frequency>3</Frequency-->
+			<Script>
+				/*
+				R8 is set to 33.3% of the screen height or an axis located 33.3% from the top
+				R9 is set to 66.7% of the screen height or an axis located 66.7% from the top
+				*/
+				(S:SCREEN HEIGHT) 7 * 10 / s9
+				(S:SCREEN HEIGHT) r9 - s8
+				//(S:SCREEN HEIGHT) 3 / s8
+				//(S:SCREEN HEIGHT) 2 * 3 / s9
+				both
+
+			</Script>
+		</Update>
+		<Element Context="group">
+			<Visibility>
+				(U:View Layout) (K:View Forward) ==
+			</Visibility>
+			<Element>
+				<!--
+				View Left, display an ICON representing the camera position active
+				located 20% from the left of the screen, 33.3% down from top + 5 pixels
+				-->
+				<Position X="0" Y="0" />
+				<Element Context="application">
+					<Video>
+						<Origin>0,0</Origin>
+						<HeightScript>r9</HeightScript>
+						<WidthScript>(S:SCREEN WIDTH) 0.20 *</WidthScript>
+						<LineColor>darkblue</LineColor>
+						<LineWidth>1</LineWidth>
+						<SourceScript>(U:Video Feed 1)</SourceScript>
+					</Video>
+				</Element>
+				<Element Context="background">
+					<Position X="(S:SCREEN WIDTH) 0.20 * 30 -" Y="r9 45 -" />
+					<Include File="MPC_view-feed-1" />
+				</Element>
+			</Element>
+			<Element Context="group">
+				<!--
+				Center View, display an ICON representing the camera position active
+				located 20% + 5 pixels from the left of the screen, 33.3% down from top + 5 pixels
+				-->
+				<Position X="(S:SCREEN WIDTH) 0.20 *" Y="0" />
+				<Element Context="application">
+					<Video>
+						<Origin>0,0</Origin>
+						<HeightScript>r9</HeightScript>
+						<WidthScript>(S:SCREEN WIDTH) 0.60 *</WidthScript>
+						<LineColor>darkblue</LineColor>
+						<LineWidth>1</LineWidth>
+						<SourceScript>(U:Video Feed 2)</SourceScript>
+					</Video>
+				</Element>
+				<Element Context="background">
+					<Position X="5" Y="r9 45 -" />
+					<Include File="MPC_view-feed-2" />
+				</Element>
+
+			</Element>
+			<Element>
+				<!--
+				View Right, display an ICON representing the camera position active
+				located 80% + 5 pixels from the left of the screen, 33.3% down from top + 5 pixels
+				-->
+				<Position X="(S:SCREEN WIDTH) 0.80 *" Y="0" />
+				<Element Context="application">
+					<Video>
+						<Origin>0,0</Origin>
+						<HeightScript>r9</HeightScript>
+						<WidthScript>(S:SCREEN WIDTH) 0.20 *</WidthScript>
+						<LineColor>darkblue</LineColor>
+						<LineWidth>1</LineWidth>
+						<SourceScript>(U:Video Feed 3)</SourceScript>
+					</Video>
+				</Element>
+				<Element Context="background">
+					<Position X="5" Y="r9 45 -" />
+					<Include File="MPC_view-feed-3" />
+				</Element>
+			</Element>
+			<Element>
+				<!--
+				View Reverse, display an ICON representing the camera position active
+				located 19% + 5 pixels from the left of the screen, 33.3% down from top - 45 pixels
+				-->
+				<Position X="(S:SCREEN WIDTH) 0.19 *" Y="r9" />
+				<Element Context="application">
+					<Video>
+						<Origin>0,0</Origin>
+						<HeightScript>r8</HeightScript>
+						<WidthScript>(S:SCREEN WIDTH) 0.62 *</WidthScript>
+						<LineColor>darkblue</LineColor>
+						<LineWidth>1</LineWidth>
+						<SourceScript>(U:Video Feed 4)</SourceScript>
+						<Mirror>true</Mirror>
+					</Video>
+				</Element>
+				<Element Context="background">
+					<Position X="5" Y="5" />
+					<Include File="MPC_view-feed-4" />
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

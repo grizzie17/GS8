@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-eptm">
+		<Update>
+			<Script>
+				// Define the button text
+				"Move" s6
+				"Home" s7	both
+				" " s8 both
+
+				// Define the button text colors
+				(U:COLOR_ButtonText) (U:COLOR_ButtonTextDisabled) (U:EPTM FLAGS) 0x01 BITAND ? s1 s2 s3 both
+
+				(U:BLACKOUT SELECTED) ! s0 both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					true (=G:Pressed)
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					false (=G:Pressed)
+					1 (=E:EPTM HOME) both
+				</Script>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+	<!-- 
+	"Active Commands" identifies the name of the xml file in the
+	'plugins/commands' folder that should.  If this tag is not
+	specified then the 'default.xml' will be used.
+	-->
+	<Item ID="Active Commands" Type="STRING">workbench_ESS</Item>
+
+	<Include File="ESS_config"/>
+
+
+
+	<!--<Include File="vehicledataconfiguration" />-->
+</Configuration>

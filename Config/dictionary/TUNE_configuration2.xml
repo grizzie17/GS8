@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="configuration.xsd">
+	
+	<Include File="tune_config"/>
+	
+  <Item ID="Display" Type="STRING">Commander Position 2</Item>
+  <Item ID="Device ID" Type="INTEGER" >25</Item>
+  <Item ID="Monitor Type" Type="STRING">UkCtd_10</Item>
+  <Item ID="Network Port" Type="INTEGER" >1554</Item>
+  <Item ID="DSP IP Address" Type="STRING">192.168.0.208</Item>
+  <Item ID="DSP IP Port" Type="INTEGER">5389</Item>
+</Configuration>

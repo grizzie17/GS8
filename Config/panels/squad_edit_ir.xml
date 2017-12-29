@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<Panel id="squad_edit_ir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+  <Layout>
+    <Script>
+      (U:SCREEN TOP PAD) s15    // Fudge
+      (S:SCREEN HEIGHT) (U:SCREEN TOP PAD) - 8 / s10   //  Height of button area
+      both
+      r10 2 / s11						// center of button area
+      both
+
+      5 s0	// left screen margin
+      both
+    </Script>
+  </Layout>
+
+	<GaugeInstance Name="button-camera_frontcenter" X="5" Y="r15 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_frontleft" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_frontright" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_rear" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_observer" X="5" Y="(S:SCREEN HEIGHT) height - "/>
+
+	<GaugeInstance Name="button-daynight" X="(S:SCREEN WIDTH) width -" Y="r15 r10 + s14 height -"/>
+  <GaugeInstance Name="button-gain" X="(S:SCREEN WIDTH) 65 -" Y="(S:SCREEN HEIGHT) 8 / 2 * height -"/>
+	<GaugeInstance Name="button-level" X="(S:SCREEN WIDTH) 65 -" Y="(S:SCREEN HEIGHT) 8 / 3 * height -"/>
+	<GaugeInstance Name="button-zoom" X="(S:SCREEN WIDTH) 65 -" Y="(S:SCREEN HEIGHT) 8 / 4 * height -"/>
+	<GaugeInstance Name="button-LAPSigma" X="(S:SCREEN WIDTH) 65 -" Y="(S:SCREEN HEIGHT) 8 / 5 * height -"/>
+	<GaugeInstance Name="button-editpage" X="(S:SCREEN WIDTH) 65 -" Y="(S:SCREEN HEIGHT) 8 / 6 * height -"/>
+	<GaugeInstance Name="button-camera-edit" X="(S:SCREEN WIDTH) 65 -" Y="(S:SCREEN HEIGHT) 8 / 7 * height -"/>
+	<GaugeInstance Name="button-blackout" X="(S:SCREEN WIDTH) width -" Y="(S:SCREEN HEIGHT) height -"/>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL1" Event="E:CAMERAFC SELECTED" />
+			<Key id="BEZEL2" Event="E:CAMERAFL SELECTED" />
+			<Key id="BEZEL3" Event="E:CAMERAFR SELECTED" />
+			<Key id="BEZEL4" Event="E:CAMERALF SELECTED" />
+			<Key id="BEZEL5" Event="E:CAMERARF SELECTED" />
+			<Key id="BEZEL6" Event="E:CAMERALR SELECTED" />
+			<Key id="BEZEL7" Event="E:CAMERARR SELECTED" />
+			<Key id="BEZEL8" Event="E:CAMERAR SELECTED" />
+			<Key id="BEZEL9" Event="E:TOGGLE IR" />
+			<Key id="BEZEL10" Event="E:BRIGHTNESS SELECTED" />
+			<Key id="BEZEL11" Event="E:CONTRAST SELECTED" />
+			<Key id="BEZEL12" Event="E:SHARPNESS SELECTED" />
+			<Key id="BEZEL14" Event="E:CHANGE EDIT PAGE" />
+			<Key id="BEZEL15" Event="E:TOGGLE CAMERA SETTINGS" />
+			<Key id="BEZEL16" Event="E:TOGGLE BLACKOUT" />
+		</OnDown>
+	</KeyEventMap>
+	<KeyMap>
+		<!--
+		<Trigger>
+			<KeyEvent>E:Camera Position 1</KeyEvent>
+			<Script>Let's do something here</Script>
+		</Trigger>
+		-->
+	</KeyMap>
+</Panel>

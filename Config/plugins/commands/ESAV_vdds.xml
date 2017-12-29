@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="vdds_common"/>
+	<Include File="vcb_constants"/>
+	
+	<Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="Camera Front" Type="STRING">Camera Front</Param>
+		<Param Name="Camera Left" Type="STRING">Camera Left</Param>
+		<Param Name="Camera Right" Type="STRING">Camera Right</Param>
+		<Param Name="Camera Rear Color" Type="STRING">Camera Rear Color</Param>
+		<Param Name="Camera Rear IR" Type="STRING">Camera Rear IR</Param>
+    <Param Name="Camera DVD Player" Type="STRING">Camera DVD Player</Param>
+    <Param Name="Camera DCM Text" Type="STRING">Camera DCM Text</Param>
+    <Param Name="Camera Observer" Type="STRING">Camera Observer</Param>
+  </Plugin>
+
+	<Plugin Class="CmdEptm" Group="" ID="Pan and Tilt control">
+		<!-- -->
+	</Plugin>
+</Plugins>
+

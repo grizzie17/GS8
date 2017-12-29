@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+	<!--
+	"Screen" identifies the name of the xml file in the 'screens'
+	folder that should be loaded and processed
+	-->
+	<Item ID="Screen" Type="STRING">MPC_commander_screen</Item>
+
+	<!-- 
+	"Active Commands" identifies the name of the xml file in the
+	'plugins/commands' folder that should.  If this tag is not
+	specified then the 'default.xml' will be used.
+	-->
+	<Item ID="Active Commandsxx" Type="STRING">workbench_m1200</Item>
+	<Item ID="Active Commandsxx" Type="STRING">workbench_NVL</Item>
+	<Item ID="Active Commands" Type="STRING">workbench_LAV3</Item>
+	<Item ID="Active Commandsxx" Type="STRING">workbench_mpc</Item>
+	<!--
+
+	"Startup Events" identifies a semicolon separated list of event
+	names that should be triggered upon application startup.
+	<Item ID="Startup Events" Type="STRING">E:UNITS IMPERIAL</Item>
+	-->
+	<Item ID="Startup Events" Type="STRING">
+		E:INIT CAMERA
+		E:UNITS IMPERIAL
+	</Item>
+	<!--
+
+	"Active Dictionary Timeout" identifies the amount of time that we
+	should wait for new 'active' data to arrive.  Beyond the specified
+	timeout value we will affectively zero the 'active' dictionary page.
+	-->
+	<Item ID="Active Dictionary Timeout" Type="FLOAT" Units="seconds">5</Item>
+	<Item ID="Active Dictionary Check Stale" Type="FLOAT" Units="seconds">5</Item>
+	<!--
+
+	"Calculate Frequency" identifies the number of times per second
+	that we should assure that we recalculate the gauges.
+	-->
+	<Item ID="Calculate Frequency" Type="FLOAT">0</Item>
+	<!--
+
+	"Simulate Data Frequency" identifies the number of times per second
+	that we should simulate data.
+	-->
+	<Item ID="Simulate Data Frequency" Type="FLOAT">0</Item>
+	<!--
+
+	"Display Dirty Rectangle" is actually a special debug display mode
+	that will draw a magenta rectangle on the screen representing the
+	last displayed rectangle.
+	-->
+	<Item ID="Display Dirty Rectangle" Type="BOOLEAN">false</Item>
+	<Item ID="Double Backingstore" Type="BOOLEAN">true</Item>
+
+	<Item ID="Background Color" Type="COLOR">background</Item>
+	<Item ID="RS422 Port" Type="STRING">COM5</Item>
+	
+	
+	
+	<Item ID="Video Source 1" Type="STRING">rtsp://192.168.0.150:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 2" Type="STRING">rtsp://192.168.0.151:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 3" Type="STRING">rtsp://192.168.0.152:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 4" Type="STRING">rtsp://192.168.0.153:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 5" Type="STRING">rtsp://192.168.0.154:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 6" Type="STRING">rtsp://192.168.0.155:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 7" Type="STRING">rtsp://192.168.0.156:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 8" Type="STRING">rtsp://192.168.0.157:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 9" Type="STRING">rtsp://192.168.0.158:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 10" Type="STRING">rtsp://192.168.0.159:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 11" Type="STRING">rtsp://192.168.0.160:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 12" Type="STRING">rtsp://192.168.0.161:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 13" Type="STRING">rtsp://192.168.0.162:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 14" Type="STRING">rtsp://192.168.0.163:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 15" Type="STRING">rtsp://192.168.0.164:554/ch0_multicast_firststream</Item>
+	<Item ID="Video Source 16" Type="STRING">rtsp://192.168.0.165:554/ch0_multicast_firststream</Item>
+
+	<Include File="vehicledataconfiguration" />
+</Configuration>

@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="SimBase.Document">
+		<xs:complexType>
+			<xs:all>
+				<xs:element minOccurs="1" maxOccurs="1" name="SimGauge.Gauge">
+					<xs:complexType>
+						<xs:group ref="GaugeContent_" />
+						<xs:attribute name="id" type="xs:string" use="optional" />
+						<xs:attribute name="Name" type="xs:string" />
+						<xs:attribute name="Crop" type="xs:boolean" use="optional" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" name="Descr" type="xs:string" />
+			</xs:all>
+			<xs:attribute name="Type" type="xs:string" use="optional" />
+			<xs:attribute name="version" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Gauge">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="GaugeContent_" />
+			</xs:sequence>
+			<xs:attribute name="Name" type="xs:string" />
+			<xs:attribute name="Version" type="xs:float" />
+			<xs:attribute name="Crop" type="xs:boolean" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="Float2">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="Equation">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="AttributeEquation">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:attributeGroup name="AttributeStyle_">
+		<xs:attribute name="Color" type="AttributeEquation" />
+		<xs:attribute name="LineColor" type="AttributeEquation" />
+		<xs:attribute name="FillColor" type="AttributeEquation" />
+		<xs:attribute name="LineWidth" type="AttributeEquation" />
+		<xs:attribute name="HaloColor" type="AttributeEquation" />
+	</xs:attributeGroup>
+	<xs:attributeGroup name="AttributeXY_">
+		<xs:attribute name="X" type="AttributeEquation" />
+		<xs:attribute name="Y" type="AttributeEquation" />
+	</xs:attributeGroup>
+	<xs:group name="GaugeContent_">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:group minOccurs="0" maxOccurs="1" ref="Position_" />
+				<xs:group minOccurs="0" maxOccurs="1" ref="Size_" />
+				<xs:group minOccurs="0" maxOccurs="1" ref="Element_" />
+				<xs:group minOccurs="0" maxOccurs="1" ref="Update_" />
+				<xs:group minOccurs="0" maxOccurs="1" ref="MouseArea_" />
+				<xs:group minOccurs="0" maxOccurs="1" ref="KeyMap_" />
+				<xs:group minOccurs="0" maxOccurs="1" ref="Comment_" />
+				<!--xs:group minOccurs="0" maxOccurs="1" ref="Visibility_" /-->
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Comment_">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="Comment">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice minOccurs="0" maxOccurs="unbounded">
+							<xs:any minOccurs="0" maxOccurs="unbounded" />
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Graphic_">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Polyline">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:group ref="PointList_" />
+						</xs:sequence>
+						<xs:attributeGroup ref="AttributeStyle_" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Line">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:group maxOccurs="2" ref="Point_" />
+						</xs:sequence>
+						<xs:attributeGroup ref="AttributeStyle_" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Circle">
+					<xs:complexType>
+						<xs:attribute name="Radius" type="xs:unsignedByte" use="optional" />
+						<xs:attributeGroup ref="AttributeXY_" />
+						<xs:attributeGroup ref="AttributeStyle_" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Pie">
+					<xs:complexType>
+						<xs:attribute name="X" type="xs:unsignedByte" use="optional" />
+						<xs:attribute name="Y" type="xs:unsignedByte" use="optional" />
+						<xs:attribute name="Radius" type="xs:unsignedByte" use="optional" />
+						<xs:attribute name="EndAngle" type="xs:string" use="optional" />
+						<xs:attribute name="StartAngle" type="xs:string" use="optional" />
+						<xs:attribute name="FillColor" type="xs:string" use="optional" />
+						<xs:attribute name="LineColor" type="xs:string" use="optional" />
+						<xs:attribute name="LineWidth" type="xs:unsignedByte" use="optional" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Arc">
+					<xs:complexType>
+						<xs:attribute name="Radius" type="xs:unsignedByte" use="optional" />
+						<xs:attribute name="EndAngle" type="AttributeEquation" use="optional" />
+						<xs:attribute name="StartAngle" type="AttributeEquation" use="optional" />
+						<xs:attributeGroup ref="AttributeXY_" />
+						<xs:attributeGroup ref="AttributeStyle_" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Polygon">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:group ref="PointList_" />
+						</xs:sequence>
+						<xs:attribute name="FillColor" type="xs:string" use="optional" />
+						<xs:attribute name="LineColor" type="xs:string" use="optional" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Image">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:choice minOccurs="0" maxOccurs="unbounded">
+								<xs:element minOccurs="0" name="Transparent" type="xs:boolean" />
+							</xs:choice>
+						</xs:sequence>
+						<xs:attribute name="id" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+				<xs:group minOccurs="0" maxOccurs="unbounded" ref="GaugeText_" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Rectangle">
+					<xs:complexType>
+						<xs:attribute name="Width" type="AttributeEquation" />
+						<xs:attribute name="Height" type="AttributeEquation" />
+						<xs:attribute name="Corner" type="AttributeEquation" />
+						<xs:attribute name="CornerStyle" type="CornerStyle_" />
+						<xs:attributeGroup ref="AttributeXY_" />
+						<xs:attributeGroup ref="AttributeStyle_" />
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="KeyMap_">
+		<xs:choice>
+			<xs:element minOccurs="0" maxOccurs="1" name="KeyMap">
+				<xs:complexType>
+					<xs:group ref="Trigger_" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" maxOccurs="1" name="ActionMap">
+				<xs:complexType>
+					<xs:group ref="Trigger_" />
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="MouseArea_">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="MouseArea">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:group ref="Position_" />
+						<xs:group ref="Size_" />
+						<xs:element minOccurs="1" maxOccurs="unbounded" name="MouseClick">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:choice>
+										<xs:element minOccurs="0" name="KeyEvent" type="xs:string" />
+										<xs:element name="Event" type="xs:string" />
+									</xs:choice>
+									<xs:group ref="Script_" />
+								</xs:sequence>
+								<xs:attribute name="id" type="xs:string" use="optional" />
+							</xs:complexType>
+						</xs:element>
+						<xs:group maxOccurs="1" ref="Visibility_" />
+						<xs:group ref="MouseArea_" />
+						<xs:group ref="Comment_" />
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string" use="optional" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Trigger_">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="Trigger">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="KeyEvent" type="xs:string" />
+							<xs:element name="Event" type="xs:string" />
+						</xs:choice>
+						<xs:element minOccurs="0" name="Script" type="Equation" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Position_">
+		<xs:choice>
+			<xs:element minOccurs="0" name="Position">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="Float2">
+							<xs:attribute name="X" type="AttributeEquation" use="optional" />
+							<xs:attribute name="Y" type="AttributeEquation" use="optional" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:choice>
+				<xs:element minOccurs="0" name="FloatPosition" type="Float2" />
+				<xs:element minOccurs="0" name="LeftScript" type="Equation" />
+				<xs:element minOccurs="0" name="RightScript" type="Equation" />
+			</xs:choice>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="Script_">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Script" type="Equation" />
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Size_">
+		<xs:choice>
+			<xs:element minOccurs="0" name="Size">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="Float2" />
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="LineColor_">
+		<xs:choice>
+			<xs:element name="LineColor">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string" />
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="Color_">
+		<xs:choice>
+			<xs:element name="Color">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string" />
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="LineColorScript_">
+		<xs:choice>
+			<xs:element name="LineColorScript" type="Equation"/>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="Update_">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="Update">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice minOccurs="0" maxOccurs="unbounded">
+							<xs:group ref="Script_" />
+							<xs:element minOccurs="0" name="Frequency" type="xs:float" />
+						</xs:choice>
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Visibility_">
+		<xs:choice>
+			<xs:element minOccurs="0" name="Visible" type="Equation" />
+			<xs:element minOccurs="0" name="Visibility" type="Equation" />
+		</xs:choice>
+	</xs:group>
+	<xs:group name="Point_">
+		<xs:sequence>
+			<xs:element name="Point">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="Float2">
+							<xs:attributeGroup ref="AttributeXY_" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="PointList_">
+		<xs:sequence>
+			<xs:group maxOccurs="unbounded" ref="Point_" />
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="ElementContent_">
+		<xs:sequence>
+			<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:group ref="Element_" />
+				<xs:group ref="Position_" />
+				<xs:group ref="Graphic_" />
+				<xs:group ref="Visibility_" />
+				<xs:group ref="Select_" />
+				<xs:group ref="Choose_" />
+				<xs:group ref="ForLoop_" />
+				<xs:group ref="Rotation_" />
+				<xs:group ref="Include_" />
+				<xs:group ref="Shift_" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Element_">
+		<xs:sequence>
+			<xs:element name="Element">
+				<xs:complexType>
+					<xs:group ref="ElementContent_" />
+					<xs:attribute name="id" type="xs:string" />
+					<xs:attribute name="Context" type="Context_" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Expression_">
+		<xs:sequence>
+			<xs:element name="Expression">
+				<xs:complexType>
+					<xs:all>
+						<xs:element minOccurs="0" maxOccurs="1" name="Minimum" type="xs:float" />
+						<xs:element minOccurs="0" maxOccurs="1" name="Maximum" type="xs:float" />
+						<xs:element minOccurs="1" maxOccurs="1" name="Script" type="Equation" />
+					</xs:all>
+					<xs:attribute name="id" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Select_">
+		<xs:sequence>
+			<xs:element name="Select">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:group maxOccurs="1" ref="Expression_" />
+						<xs:element minOccurs="1" maxOccurs="unbounded" name="Case">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:choice>
+										<xs:element name="ExpressionResult" type="xs:string" />
+										<xs:group ref="Expression_" />
+									</xs:choice>
+									<xs:group ref="ElementContent_" />
+								</xs:sequence>
+								<xs:attribute name="id" type="xs:string" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" maxOccurs="1" name="CaseElse">
+							<xs:complexType>
+								<xs:group ref="ElementContent_" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Choose_">
+		<xs:sequence>
+			<xs:element name="Choose">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="unbounded" name="When">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:choice>
+										<xs:group ref="Expression_" />
+									</xs:choice>
+									<xs:group ref="ElementContent_" />
+								</xs:sequence>
+								<xs:attribute name="id" type="xs:string" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" maxOccurs="1" name="Otherwise">
+							<xs:complexType>
+								<xs:group ref="ElementContent_" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="ForLoop_">
+		<xs:sequence>
+			<xs:element name="ForLoop">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="InitialExpression">
+							<xs:complexType>
+								<xs:group ref="Script_" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TestExpression">
+							<xs:complexType>
+								<xs:group ref="Script_" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="IncrementExpression">
+							<xs:complexType>
+								<xs:group ref="Script_" />
+							</xs:complexType>
+						</xs:element>
+						<xs:group ref="ElementContent_" />
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Value_">
+		<xs:sequence>
+			<xs:element name="Value" type="xs:string" />
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="GaugeText_">
+		<xs:sequence>
+			<xs:element name="GaugeText">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="unbounded" name="String" type="xs:string" />
+					</xs:sequence>
+					<xs:attribute name="X" type="AttributeEquation" />
+					<xs:attribute name="Y" type="AttributeEquation" />
+					<xs:attribute name="Align" type="TextAlign_" />
+					<xs:attribute name="VerticalAlign" type="TextVerticalAlign_" />
+					<xs:attribute name="Font" type="xs:string" />
+					<xs:attribute name="Height" type="xs:float" />
+					<xs:attribute name="LineColor" type="AttributeEquation" />
+					<xs:attribute name="Color" type="AttributeEquation" />
+					<xs:attribute name="HaloColor" type="AttributeEquation" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:simpleType name="TextAlign_">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="center" />
+			<xs:enumeration value="left" />
+			<xs:enumeration value="right" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TextVerticalAlign_">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="top" />
+			<xs:enumeration value="middle" />
+			<xs:enumeration value="center" />
+			<xs:enumeration value="baseline" />
+			<xs:enumeration value="bottom" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Context_" >
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="group" />
+			<xs:enumeration value="foreground" />
+			<xs:enumeration value="background" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CornerStyle_">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="square" />
+			<xs:enumeration value="bevel" />
+			<xs:enumeration value="round" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:group name="Rotation_">
+		<xs:sequence>
+			<xs:element name="Rotation" type="Equation" />
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Include_">
+		<xs:sequence>
+			<xs:element name="Include">
+				<xs:complexType>
+					<xs:attribute name="File" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Shift_">
+		<xs:sequence>
+			<xs:element name="Shift">
+				<xs:complexType>
+					<xs:attributeGroup ref="AttributeXY_" />
+					<xs:attribute name="Maximum" type="AttributeEquation" />
+					<xs:attribute name="Minimum" type="AttributeEquation" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+</xs:schema>

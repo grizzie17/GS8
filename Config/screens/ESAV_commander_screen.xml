@@ -1,0 +1,555 @@
+<?xml version="1.0"?>
+<Screen Active="'ESAV_commander_main' (U:PANEL) '' (U:PANEL) == ? " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+	<Update>
+		<Script>
+			(S:MILLI) 2000 % 1500 &lt; (=U:FLASH)
+		</Script>
+	</Update>
+	<PanelInstance Name="ESAV_commander_main"/>
+	<PanelInstance Name="ESAV_commander_eptm"/>
+	<PanelInstance Name="ESAV_commander_eptm_slew"/>
+	<PanelInstance Name="ESAV_commander_camera_select"/>
+	<PanelInstance Name="ESAV_commander_adjust_camera_page01"/>
+	<PanelInstance Name="ESAV_commander_adjust_camera_page02"/>
+	<PanelInstance Name="ESAV_commander_adjust_up_down"/>
+	<PanelInstance Name="ESAV_commander_adjust_zoom_up_down"/>
+	<PanelInstance Name="ESAV_full_gauges"/>
+	<!--<PanelInstance Name="touch_calibrate" />-->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+			<Key id="M" Event="E:MAIN PANEL"/>
+			<Key id="C" Event="E:CAMERA SELECT"/>
+			<Key id="L" Event="E:TOGGLE LOADER"/>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN"/>
+			<Key id="U" Event="E:TOGGLE UNITS"/>
+			<Key id="B" Event="E:TOGGLE BLACKOUT"/>
+			<Key id="F7" Event="E:TOGGLE IR CAMERA TYPE"/>
+		</OnDown>
+	</KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:MAIN PANEL</KeyEvent>
+			<Script> 'ESAV_commander_main' (=U:PANEL)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERA SELECT</KeyEvent>
+			<Script>"ESAV_commander_camera_select" (=U:PANEL)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE LOADER</KeyEvent>
+			<Script>1 (=C:Toggle Loader)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS IMPERIAL</KeyEvent>
+			<Script>0 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS METRIC</KeyEvent>
+			<Script>1 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE UNITS</KeyEvent>
+			<Script>(U:UNITS) 1 + 2 % (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE BLACKOUT</KeyEvent>
+			<Script>(U:BLACKOUT SELECTED) ! (=U:BLACKOUT SELECTED)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Quadrant</Event>
+			<Script>
+				(U:Current Quadrant Selected) 1 + 4 % (=U:Current Quadrant Selected)
+//				0 (=E:DISABLE ADJUST CAMERA SETTINGS) both					// Always disable if button pressed
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Adjust Quadrant</Event>
+			<Script>
+				(U:Current Adjust Quadrant Selected) 1 + 4 % (=U:Current Adjust Quadrant Selected)
+					
+				6 (=E:UPDATE ADJUST PAGE) both
+			</Script>
+		</Trigger>
+		<!--
+				E:GAUGE TOGGLE is a three way switch
+				zero = Auto - display gauge when in yellow or red
+				one = On - always display gauge regardless of state
+				two = Off - always hide gauge
+			-->
+		<Trigger>
+			<KeyEvent>E:TOGGLE GAUGE STATE</KeyEvent>
+			<Script>
+				(U:GAUGE SWITCH) 1 + 3 % (=U:GAUGE SWITCH)
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE AUTO</KeyEvent>
+			<Script>0 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE ON</KeyEvent>
+			<Script>1 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE OFF</KeyEvent>
+			<Script>2 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<!--
+			This event will raise the appropriate event (based on the current 
+			quadrant selected) to change a camera feed in a defined quadrant
+		-->
+		<Trigger>
+			<Event>E:Change Camera Feed</Event>
+			<Script>
+					0 (=E:Change Camera Feed SINGLE View)
+					0 (=E:Change Camera Feed QUAD View)
+				(U:View Layout) (K:View Single) == ?
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS) both					// Always disable if button pressed
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed SINGLE View</Event>
+			<Script>
+				0 (=E:Change Camera Feed 1)
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed QUAD View</Event>
+			<Script>
+				/*
+					0 (=E:Change Camera Feed 4)
+					0 (=E:Change Camera Feed 3)
+					0 (=E:Change Camera Feed 2)
+					0 (=E:Change Camera Feed 1)
+				4 (U:Current Quadrant Selected) case
+				*/
+					
+					0 (=E:Change Camera Feed 1)
+						0 (=E:Change Camera Feed 2)
+							0 (=E:Change Camera Feed 3)
+								0 (=E:Change Camera Feed 4)
+								false
+							3 (U:Current Quadrant Selected) == ?
+						2 (U:Current Quadrant Selected) == ?
+					1 (U:Current Quadrant Selected) == ?
+				0 (U:Current Quadrant Selected) == ?
+			</Script>
+		</Trigger>
+		<!--
+			For simplicity, each camera feed has it's own event handler. The camera position are defined
+			as enumerated value ranging from 0 to 7 (8 cameras). The camera selection will update the
+			camera feed in a clockwise direction where 0 is the front center camera. (See the event handler
+			E:INIT CAMERA for a list of the camera names in the prescribed order.
+		-->
+		<Trigger>
+			<Event>E:Change Camera Feed 1</Event>
+			<Script>
+        (U:Feed 1 Position No) 1 + 7 % (=U:Feed 1 Position No)
+        "Camera Front"
+        "Camera Left"
+        "Camera Right"
+        "Camera Rear"
+        "Camera DVD Player"
+        "Camera DCM Text"
+        "Camera Observer"
+        7 (U:Feed 1 Position No) case (=U:Feed 1 Position) both
+      </Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 2</Event>
+			<Script>
+        (U:Feed 2 Position No) 1 + 7 % (=U:Feed 2 Position No)
+        "Camera Front "
+        "Camera Left "
+        "Camera Right "
+        "Camera Rear"
+        "Camera DVD Player "
+        "Camera DCM Text"
+        "Camera Observer"
+        7 (U:Feed 2 Position No) case (=U:Feed 2 Position) both
+      </Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 3</Event>
+			<Script>
+        (U:Feed 3 Position No) 1 + 7 % (=U:Feed 3 Position No)
+        "Camera Front "
+        "Camera Left "
+        "Camera Right "
+        "Camera Rear"
+        "Camera DVD Player "
+        "Camera DCM Text"
+        "Camera Observer"
+        7 (U:Feed 3 Position No) case (=U:Feed 3 Position) both
+      </Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 4</Event>
+			<Script>
+        (U:Feed 4 Position No) 1 + 7 % (=U:Feed 4 Position No)
+        "Camera Front "
+        "Camera Left "
+        "Camera Right "
+        "Camera Rear"
+        "Camera DVD Player "
+        "Camera DCM Text"
+        "Camera Observer"
+        7 (U:Feed 4 Position No) case (=U:Feed 4 Position) both
+      </Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:INIT CAMERA</KeyEvent>
+			<Script>
+        /* Default Color/IR setting is IR */
+        false (=U:DAY SELECTED)
+
+        /*
+        The following are the possible camera positions in a clockwise position starting at 12 O'clock
+        "Camera Front"
+        "Camera Left"
+        "Camera Right"
+        "Camera Rear"
+        "Camera DVD Player"
+        */
+        "Camera Front" (=U:Feed 1 Position) both
+        "Camera Rear" (=U:Feed 2 Position) both
+        "Camera Left" (=U:Feed 3 Position) both
+        "Camera Right" (=U:Feed 4 Position) both
+
+        0 (=U:Feed 1 Position No) both
+        3 (=U:Feed 2 Position No) both
+        1 (=U:Feed 3 Position No) both
+        2 (=U:Feed 4 Position No) both
+
+        0 (=U:Current Quadrant Selected) both
+        3 (=U:SCREEN MODE) both
+
+
+        0 (=E:DISABLE ADJUST CAMERA SETTINGS) both
+
+        /* Time to update the screen with the default layout */
+        (K:View Quad) (=U:View Layout) both
+      </Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE SCREEN MODE</KeyEvent>
+			<Script>
+				(U:SCREEN MODE) 1 + 4 % (=U:SCREEN MODE)
+					(K:View Quad)
+					(K:View Reverse)
+					(K:View Single)
+					(K:View Forward) 
+				4 (U:SCREEN MODE) case (=E:Change Layout) both
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS) both					// Always disable if button pressed
+			</Script>
+		</Trigger>
+		<!--
+			Update the UI to reflect adjustment/edit page state. 
+			
+			TBD- Need to make this generic. Need to determine which feed to utilize 
+			automatically. For a  D:View Layout == "single-layout", then D:Video Feed 1
+			will always be true. Otherwise you may be able to utilize the
+			current camera selection stored in U:THE CAMERA SELECTION
+			-->
+		<Trigger>
+			<KeyEvent>E:UPDATE ADJUST PAGE</KeyEvent>
+			<Script>
+        /*
+        The camera adjust/edit page has been opened. Define the
+        correct camera feed before sending adjustment commands.
+        */
+        (D:Video Feed 1) 													// Set video feed to edit for Reverse mode
+        (D:Video Feed 3) 												// Set video feed to edit for Forward mode
+        (D:Video Feed 1) 											// Set video feed to edit for Single mode
+
+        (D:Video Feed 4)
+        (D:Video Feed 3)
+        (D:Video Feed 2)
+        (D:Video Feed 1)
+        4 (U:Current Adjust Quadrant Selected) case 		// Set video feed to edit for Quad mode
+
+        (D:Video Feed 1)										// Default feed to edit (i.e. Layout == K:View Dual)
+        (U:View Layout) (K:View Quad) == ?
+        (U:View Layout) (K:View Single) == ?
+        (U:View Layout) (K:View Forward) == ?
+        (U:View Layout) (K:View Reverse) == ? (=C:Edit Camera)
+        (C:Edit Camera) (=U:BYRON Edit Camera) both
+        'ESAV_commander_adjust_camera_page01' (=U:PANEL) both
+
+        'ESAV_commander_main' (=U:PANEL)
+        (U:CAMERA ADJUST SELECTED) ?
+      </Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:SET VIDEO FEED</KeyEvent>
+			<Script>
+				// Define the default if (U:THE CAMERA LOCATION) is not defined.
+					'Camera Front'
+					(U:THE CAMERA LOCATION)
+				'' (U:THE CAMERA LOCATION) == ? (=U:THE CAMERA LOCATION)
+				// DETERMINE WHICH FEED POISTION TO UPDATE BASED ON THE SCREEN MODE
+					(U:THE CAMERA LOCATION) (=U:Feed 1 Position)  													// Set video feed for Reverse mode
+						(U:THE CAMERA LOCATION) (=U:Feed 3 Position)												// Set video feed for Forward mode
+							(U:THE CAMERA LOCATION) (=U:Feed 1 Position)											// Set video feed for Single mode
+									
+									(U:THE CAMERA LOCATION) (=U:Feed 4 Position)
+									(U:THE CAMERA LOCATION) (=U:Feed 3 Position)
+									(U:THE CAMERA LOCATION) (=U:Feed 2 Position)
+									(U:THE CAMERA LOCATION) (=U:Feed 1 Position)
+								4 (U:Current Quadrant Selected) case 		// Set video feed for Quad mode
+								
+								(U:THE CAMERA LOCATION) (=U:Feed 1 Position)										// Set video feed for Single mode (Default)
+							(U:View Layout) (K:View Quad) == ?
+						(U:View Layout) (K:View Single) == ?
+					(U:View Layout) (K:View Forward) == ?
+				(U:View Layout) (K:View Reverse) == ? both
+
+			</Script>
+		</Trigger>
+<!--				
+				// Define the default if (U:THE CAMERA LOCATION) is not defined.
+					'Camera Front-Center '
+					(U:THE CAMERA LOCATION)
+				'' (U:THE CAMERA LOCATION) == ? (=U:THE CAMERA LOCATION) both
+					
+					
+				both
+					 
+					"K:" (U:THE CAMERA SELECTION) + @ (?U:Video Feed)@
+				both
+					
+				(K:View Single) (=C:View Layout)
+				both
+ 				
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS)
+			</Script>
+		</Trigger>
+-->
+		<!--
+			=========================================================
+			This event will 
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:EXIT ADJUST</KeyEvent>
+			<!--
+				Need to return to the correct page number. 
+				-->
+			<Script>
+        "ESAV_commander_adjust_camera_page02"
+        "ESAV_commander_adjust_camera_page01"
+        2
+        (U:EditPageNo)
+        case (=U:PANEL)
+      </Script>
+		</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down brightness screen. If we have gotten 
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:BRIGHTNESS SELECTED</KeyEvent>
+				<Script>
+          'Bright' (=U:EDIT BUTTON SELECTED)
+		1 (=U:ADJUST ACTIVE) both
+          'ESAV_commander_adjust_up_down' (=U:PANEL)
+          both
+        </Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down control screen. If we have gotten 
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:CONTRAST SELECTED</KeyEvent>
+				<Script>
+          'Cntrst' (=U:EDIT BUTTON SELECTED)
+		1 (=U:ADJUST ACTIVE) both
+          'ESAV_commander_adjust_up_down' (=U:PANEL)
+          both
+        </Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down sharpness screen. If we have gotten 
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:SHARPNESS SELECTED</KeyEvent>
+				<Script>
+          'Sharp' (=U:EDIT BUTTON SELECTED)
+          'ESAV_commander_adjust_up_down' (=U:PANEL)
+          both
+        </Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down zoom screen. If we have gotten this far
+			the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:ZOOM SELECTED</KeyEvent>
+				<Script>
+          (K:On) (=C:Camera Zoom Mode)				// TBD, Auto enable is bad! Need to add function to enable/disable zoom..
+          'Zoom' (=U:EDIT BUTTON SELECTED)
+          both
+
+          'ESAV_commander_adjust_zoom_up_down' (=U:PANEL)
+          both
+        </Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will update the edit page selection
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:CHANGE EDIT PAGE</KeyEvent>
+				<Script>
+          // At this date and time, there is no method to force a bezel input as "invisibile"
+          // Prevent updates if the edit items on the other page are not supported.
+          (D:Camera Cap Mode Control) (K:Unsupported) !=
+          (D:Camera Cap Auto Calibration) (K:Unsupported) != OR
+          (D:Camera Cap Zoom) (K:Unsupported) != OR (=U:Next Page Available)
+
+          (U:EditPageNo) 1 + 2 % (=U:EditPageNo)
+          0 (=U:EditPageNo)
+          (U:Next Page Available) ? both
+
+          "ESAV_commander_adjust_camera_page02"
+          "ESAV_commander_adjust_camera_page01"
+          2 (U:EditPageNo) case (=U:PANEL) both
+        </Script>
+		</Trigger>
+		<!--
+			=========================================================
+			Process the Camera Rear selection
+			=========================================================
+		-->
+		<Trigger>
+			<KeyEvent>E:CAMERAR SELECTED</KeyEvent>
+			<Script>
+        "Camera Rear Color" "Camera Rear IR" (U:DAY SELECTED) ? (=U:REAR CAMERA)
+        (U:REAR CAMERA) (=U:THE CAMERA LOCATION) both
+        6 (=E:SET VIDEO FEED) both
+      </Script>
+		</Trigger>
+		<!--
+			=========================================================
+			Process the Camera Right selection
+			=========================================================
+		-->
+		<Trigger>
+			<KeyEvent>E:CAMERART SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Right" (=U:THE CAMERA LOCATION)
+			    3 (=E:SET VIDEO FEED) both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			Process the Camera Left selection
+			=========================================================
+		-->
+		<Trigger>
+			<KeyEvent>E:CAMERAL SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Left" (=U:THE CAMERA LOCATION)
+			    1 (=E:SET VIDEO FEED) both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			Process the Camera Front selection
+			=========================================================
+		-->
+		<Trigger>
+			<KeyEvent>E:CAMERAF SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Front" (=U:THE CAMERA LOCATION)
+			    1 (=E:SET VIDEO FEED) both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			Process the Camera Observer selection
+			=========================================================
+		-->
+		<Trigger>
+			<KeyEvent>E:CAMERAO SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Observer" (=U:THE CAMERA LOCATION)
+			    5 (=E:SET VIDEO FEED) both
+			</Script>
+		</Trigger>
+    <!--
+			=========================================================
+			Process the Camera DVD Player selection
+			=========================================================
+		-->
+    <Trigger>
+      <KeyEvent>E:CAMERADP SELECTED</KeyEvent>
+      <Script>
+        "Camera DVD Player" (=U:THE CAMERA LOCATION)
+        5 (=E:SET VIDEO FEED) both
+      </Script>
+    </Trigger>
+    <!--
+			=========================================================
+			Process the Camera DCM Text selection
+			=========================================================
+		-->
+    <Trigger>
+      <KeyEvent>E:CAMERADT SELECTED</KeyEvent>
+      <Script>
+        "Camera DCM Text" (=U:THE CAMERA LOCATION)
+        5 (=E:SET VIDEO FEED) both
+      </Script>
+    </Trigger>
+    <!--
+			=========================================================
+			Exit the camera select panel
+			=========================================================
+		-->
+		<Trigger>
+			<KeyEvent>E:EXIT CAMERA SELECT</KeyEvent>
+			<Script>
+        'ESAV_commander_main' (=U:PANEL)
+      </Script>
+		</Trigger>
+		<!--Trigger>
+			<KeyEvent>E:VEHICLE SHUTDOWN</KeyEvent>
+			<Script>
+				true (=C:System Shutdown)
+				"Shutdown in progress" (=U:System Shutdown) both
+			</Script>
+		</Trigger-->
+		<Trigger>
+			<KeyEvent>E:TOGGLE EPTM</KeyEvent>
+			<Script>
+				"ESAV_commander_eptm" (=U:PANEL)
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE EPTM EXIT</KeyEvent>
+			<Script>
+				"ESAV_commander_main" (=U:PANEL)
+			</Script>
+		</Trigger>
+	</KeyMap>
+</Screen>

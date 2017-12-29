@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="label-trans">
+		<Element>
+			<GaugeText X="0" Y="0"
+					   Font="Arial" Height="20"
+					   VerticalAlign="top"
+					   Color="orange">
+				<String>TRANS</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

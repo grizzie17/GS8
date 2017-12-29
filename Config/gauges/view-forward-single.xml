@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-forward-single">
+		<ActionMap>
+			<Trigger>
+				<Event>E:Change Layout</Event>
+				<Script>
+					(K:View Forward) (=U:View Layout)
+					false
+					(K:View Forward) (E:Change Layout) == ?
+				</Script>
+			</Trigger>
+		</ActionMap>
+		<Update>
+			<Script>
+				0
+				2
+				1
+				(B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ?
+				(B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ?
+				s0
+
+
+				(K:Camera Front-Right IR)
+				(K:Camera Front-Center IR)
+				(K:Camera Front-Left IR)
+				3
+				r0
+				case (?C:Video Feed 1)
+				both
+
+				(K:View Forward) (=C:View Layout)
+				both
+
+
+				true
+
+
+				(U:View Layout) (K:View Single) == ?
+
+			</Script>
+			<Frequency>2</Frequency>
+		</Update>
+		<Element Context="background">
+		<Visibility>(U:View Layout) (D:View Single xxxx) ==</Visibility>
+			<Element>
+				<!--Center View-->
+				<Position X="0" Y="0" />
+				<Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) s0" Y="0" />
+					<Point X="r0" Y="(S:SCREEN HEIGHT) s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline>
+				<Element>
+					<Position X="(S:SCREEN WIDTH) 35 -" Y="45" />
+					<Select>
+						<Expression>
+							<Script>(D:Video Feed 1)</Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>(K:Camera Front-Left IR)</Script>
+							</Expression>
+							<Include File="camera_frontleft" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>(K:Camera Front-Center IR)</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>(K:Camera Front-Right IR)</Script>
+							</Expression>
+							<Include File="camera_frontright" />
+						</Case>
+					</Select>
+				</Element>
+
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

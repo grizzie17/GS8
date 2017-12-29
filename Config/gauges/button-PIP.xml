@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-PIP">
+		<Update>
+			<Script>
+				(U:Current PIP Selected) s1
+						(U:Feed 1 Position)
+						(U:Feed 2 Position)
+					2 (U:Current PIP Selected) case (=C:Edit Camera)
+					0		// Do nothing
+				(U:View Layout) (K:View PIP) == (U:BLACKOUT SELECTED) ! AND s0 ? both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-PIP" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>
+				(U:View Layout) (K:View PIP) == (U:BLACKOUT SELECTED) ! AND
+			</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:Change Camera PIP</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

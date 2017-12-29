@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="Workbench" Database="./Workbench.tags" Version="10.0.0">
+  <Project Name="Common" Path="Common/Common.project" Active="No"/>
+  <Project Name="Gadget" Path="Gadget/Gadget.project" Active="No"/>
+  <Project Name="VSASahred" Path="VSAShared/VSAShared.project"/>
+  <Project Name="CmdCameraSelector" Path="CmdPlugins/CmdCameraSelector/CmdCameraSelector.project" Active="No"/>
+  <Project Name="CmdConstant" Path="CmdPlugins/CmdConstant/CmdConstant.project" Active="No"/>
+  <Project Name="CmdTouchCalibrate" Path="CmdPlugins/CmdTouchCalibrate/CmdTouchCalibrate.project" Active="No"/>
+  <Project Name="CmdConstantD" Path="CmdPlugins/CmdConstantD/CmdConstantD.project" Active="No"/>
+  <Project Name="CmdConstantD" Path="CmdPlugins/CmdConstantD/CmdConstantD.project" Active="No"/>
+  <Project Name="CmdConstantD" Path="CmdPlugins/CmdConstantD/CmdConstantD.project" Active="No"/>
+  <Project Name="CmdCopyToD" Path="CmdPlugins/CmdCopyToD/CmdCopyToD.project" Active="No"/>
+  <Project Name="GenericContainer" Path="GenericContainer/GenericContainer.project" Active="No"/>
+  <Project Name="CmdKeyName" Path="CmdPlugins/CmdKeyName/CmdKeyName.project" Active="No"/>
+  <Project Name="ExternalXML" Path="ExternalXML/ExternalXML.project" Active="No"/>
+  <Project Name="XMLEverythingGauge" Path="ExternalXML/XMLEverythingGauge/XMLEverythingGauge.project" Active="No"/>
+  <Project Name="XMLEverythingColor" Path="ExternalXML/XMLEverythingColor/XMLEverythingColor.project" Active="No"/>
+  <Project Name="WorkbenchShared" Path="WorkbenchShared/WorkbenchShared.project" Active="No"/>
+  <Project Name="ServiceRstaEptm" Path="Services/ServiceRstaEptm/ServiceRstaEptm.project" Active="No"/>
+  <Project Name="CmdEptm" Path="CmdPlugins/CmdEptm/CmdEptm.project" Active="No"/>
+  <Project Name="ServiceVehicleSocket" Path="Services/ServiceVehicleSocket/ServiceVehicleSocket.project" Active="No"/>
+  <Project Name="CmdOmniScapeESS" Path="CmdPlugins/CmdOmniScapeESS/CmdOmniScapeESS.project" Active="No"/>
+  <Project Name="CmdSystemShutdown" Path="CmdPlugins/CmdSystemShutdown/CmdSystemShutdown.project" Active="No"/>
+  <Project Name="ServiceVehicleDataSample" Path="Services/ServiceVehicleDataSample/ServiceVehicleDataSample.project" Active="No"/>
+  <Project Name="CmdVehicleDataSample" Path="CmdPlugins/CmdVehicleDataSample/CmdVehicleDataSample.project" Active="No"/>
+  <Project Name="CmdVehicleDataLoader" Path="CmdPlugins/CmdVehicleDataLoader/CmdVehicleDataLoader.project" Active="No"/>
+  <Project Name="ServiceVehicleDirectLoad" Path="Services/ServiceVehicleDirectLoad/ServiceVehicleDirectLoad.project" Active="No"/>
+  <Project Name="VDraw" Path="Draw/VDraw/VDraw.project" Active="No"/>
+  <Project Name="CDrawOpenGL" Path="Draw/CDrawOpenGL/CDrawOpenGL.project" Active="No"/>
+  <Project Name="LogFile" Path="LogFile/LogFile.project" Active="No"/>
+  <Project Name="SOIL" Path="3rdParty/SOIL/SOIL.project"/>
+  <Project Name="CmdReturnTrue" Path="CmdPlugins/CmdReturnTrue/CmdReturnTrue.project" Active="No"/>
+  <Project Name="XMLEverythingAlert" Path="ExternalXML/XMLEverythingAlert/XMLEverythingAlert.project" Active="No"/>
+  <Project Name="CDrawTmxWin" Path="Draw/CDrawTmxWin/CDrawTmxWin.project" Active="No"/>
+  <Project Name="Common_specs" Path="Common/Common_specs/Common_specs.project" Active="No"/>
+  <Project Name="Gadget_specs" Path="Gadget/Gadget_specs/Gadget_specs.project" Active="No"/>
+  <Project Name="CmdServiceClog" Path="CmdPlugins/CmdServiceClog/CmdServiceClog.project" Active="No"/>
+  <Project Name="ServiceClogTest" Path="Services/ServiceClogTest/ServiceClogTest.project" Active="No"/>
+  <Project Name="ServiceCycler" Path="Services/ServiceCycler/ServiceCycler.project" Active="No"/>
+  <Project Name="VSAShared_specs" Path="VSAShared/VSAShared_specs/VSAShared_specs.project" Active="No"/>
+  <Project Name="CDrawWorkbench" Path="Draw/CDrawWorkbench/CDrawWorkbench.project" Active="No"/>
+  <Project Name="WorkbenchGLUT" Path="WorkbenchGLUT/WorkbenchGLUT.project" Active="No"/>
+  <Project Name="WorkbenchGTK" Path="WorkbenchGTK/WorkbenchGTK.project" Active="No"/>
+  <Project Name="WorkbenchWin" Path="WorkbenchWin/WorkbenchWin.project" Active="Yes"/>
+  <Project Name="CDrawGTK" Path="Draw/CDrawGTK/CDrawGTK.project" Active="No"/>
+  <Project Name="CDrawWin" Path="Draw/CDrawWin/CDrawWin.project" Active="No"/>
+  <Environment>
+    <![CDATA[#OPENGL=1
+#PlatformName=`$(if $(findstring Windows,$(OS)),Windows,$(shell uname -s)-$(shell uname -m))`
+#PlatformName=Linux-x86_64
+BuildDirectory=`$(WorkspacePath)`/`$(ConfigurationName)`-`$(PlatformName)`
+ObjectsDirectory=`$(BuildDirectory)`/obj/`$(ProjectName)`
+# PWD is $(ObjectsDirectory) for debug
+LD_LIBRARY_PATH=../../
+CXXFLAGS_GLOBAL=-Wno-non-virtual-dtor]]>
+  </Environment>
+  <Project Name="VGDI" Path="Draw/VGDI/VGDI.project" Active="No"/>
+  <Project Name="Platform" Path="Platform/Platform.project" Active="No"/>
+  <Project Name="Platform_specs" Path="Platform/Platform_specs/Platform_specs.project" Active="No"/>
+  <Project Name="VDrawOpenGL" Path="Draw/VDrawOpenGL/VDrawOpenGL.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="no">
+      <Environment>#OPENGL=1
+#PlatformName=`$(if $(findstring Windows,$(OS)),Windows,$(shell uname -s)-$(shell uname -m))`
+#PlatformName=Linux-x86_64
+BuildDirectory=`$(WorkspacePath)`/`$(ConfigurationName)`-`$(PlatformName)`
+ObjectsDirectory=`$(BuildDirectory)`/obj/`$(ProjectName)`
+# PWD is $(ObjectsDirectory) for debug
+LD_LIBRARY_PATH=../../
+CXXFLAGS_GLOBAL=-Wno-non-virtual-dtor</Environment>
+      <Project Name="CDrawGTK" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawWin" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdConstant" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdConstantD" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdEptm" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdKeyName" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug_Linux64"/>
+      <Project Name="Common" ConfigName="Debug_Linux64"/>
+      <Project Name="Common_specs" ConfigName="Debug_Linux64"/>
+      <Project Name="ExternalXML" ConfigName="Debug_Linux64"/>
+      <Project Name="Gadget" ConfigName="Debug_Linux64"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_Linux64"/>
+      <Project Name="GenericContainer" ConfigName="Debug_Linux64"/>
+      <Project Name="LogFile" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceCycler" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug_Linux64"/>
+      <Project Name="SOIL" ConfigName="Debug_Linux64"/>
+      <Project Name="VDraw" ConfigName="Debug_Linux64"/>
+      <Project Name="VSAShared" ConfigName="Debug_Linux64"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchGTK" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug_Linux64"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug_Linux64"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug_Linux64"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_Win32"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_x64"/>
+      <Project Name="Common" ConfigName="Debug_Win32"/>
+      <Project Name="Common" ConfigName="Debug_x64"/>
+      <Project Name="Gadget" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget" ConfigName="Debug x64_x64"/>
+      <Project Name="Gadget" ConfigName="Debug_Win32"/>
+      <Project Name="Gadget" ConfigName="Debug_x64"/>
+      <Project Name="VSAShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="VSAShared" ConfigName="Debug x64_x64"/>
+      <Project Name="VSAShared" ConfigName="Debug_Win32"/>
+      <Project Name="VSAShared" ConfigName="Debug_x64"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug_Win32"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug_x64"/>
+      <Project Name="CmdConstant" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstant" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdConstant" ConfigName="Debug_Win32"/>
+      <Project Name="CmdConstant" ConfigName="Debug_x64"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug_Win32"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug_x64"/>
+      <Project Name="CmdConstantD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstantD" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdConstantD" ConfigName="Debug_Win32"/>
+      <Project Name="CmdConstantD" ConfigName="Debug_x64"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug_Win32"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug_x64"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug_Win32"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug_x64"/>
+      <Project Name="GenericContainer" ConfigName="Debug x64_Win32"/>
+      <Project Name="GenericContainer" ConfigName="Debug x64_x64"/>
+      <Project Name="GenericContainer" ConfigName="Debug_Win32"/>
+      <Project Name="GenericContainer" ConfigName="Debug_x64"/>
+      <Project Name="CmdKeyName" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdKeyName" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdKeyName" ConfigName="Debug_Win32"/>
+      <Project Name="CmdKeyName" ConfigName="Debug_x64"/>
+      <Project Name="ExternalXML" ConfigName="Debug x64_Win32"/>
+      <Project Name="ExternalXML" ConfigName="Debug x64_x64"/>
+      <Project Name="ExternalXML" ConfigName="Debug_Win32"/>
+      <Project Name="ExternalXML" ConfigName="Debug_x64"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug x64_x64"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug_Win32"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug_x64"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug x64_x64"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug_Win32"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug_x64"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug x64_x64"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug_Win32"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug_x64"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug x64_x64"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug_Win32"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug_x64"/>
+      <Project Name="CmdEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdEptm" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdEptm" ConfigName="Debug_Win32"/>
+      <Project Name="CmdEptm" ConfigName="Debug_x64"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug x64_x64"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug_x64"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug_Win32"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug_x64"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug_Win32"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug_x64"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug_Win32"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug_x64"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug x64_x64"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug_x64"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug x64_x64"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug_x64"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug_Win32"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug_x64"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug x64_x64"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug_x64"/>
+      <Project Name="VDraw" ConfigName="Debug_Win32"/>
+      <Project Name="VDraw" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWin" ConfigName="Debug_x64"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWinDD" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWinDD" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWinGL" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWinGL" ConfigName="Debug_x64"/>
+      <Project Name="LogFile" ConfigName="Debug_Win32"/>
+      <Project Name="LogFile" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_x64"/>
+      <Project Name="SOIL" ConfigName="Debug_Win32"/>
+      <Project Name="SOIL" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWinGLTex" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWinGLTex" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWinGLES" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWinGLES" ConfigName="Debug_x64"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_x64"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_x64"/>
+      <Project Name="eglThunk" ConfigName="Debug_Win32"/>
+      <Project Name="eglThunk" ConfigName="Debug_x64"/>
+      <Project Name="Common_specs" ConfigName="Debug_Win32"/>
+      <Project Name="Common_specs" ConfigName="Debug_x64"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_Win32"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_x64"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug x64_x64"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug_x64"/>
+      <Project Name="ServiceCycler" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceCycler" ConfigName="Debug x64_x64"/>
+      <Project Name="ServiceCycler" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceCycler" ConfigName="Debug_x64"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug x64_x64"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug_Win32"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug_x64"/>
+      <Project Name="VGDI" ConfigName="Debug_Win32"/>
+      <Project Name="VGDI" ConfigName="Debug_x64"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_Win32"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_x64"/>
+      <Project Name="VGDI" ConfigName="Debug_Win32"/>
+      <Project Name="Platform" ConfigName="Debug_Win32"/>
+      <Project Name="Platform_specs" ConfigName="Debug_Win32"/>
+      <Project Name="LogFileLib" ConfigName="Debug_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_Win32"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="no">
+      <Environment/>
+      <Project Name="XMLEverythingGauge" ConfigName="Release_Linux64"/>
+      <Project Name="XMLEverythingColor" ConfigName="Release_Linux64"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Release_Linux64"/>
+      <Project Name="WorkbenchShared" ConfigName="Release_Linux64"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Release_Linux64"/>
+      <Project Name="VSAShared_specs" ConfigName="Release_Linux64"/>
+      <Project Name="VSAShared" ConfigName="Release_Linux64"/>
+      <Project Name="VDraw" ConfigName="Release_Linux64"/>
+      <Project Name="SOIL" ConfigName="Release_Linux64"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Release_Linux64"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Release_Linux64"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Release_Linux64"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Release_Linux64"/>
+      <Project Name="ServiceCycler" ConfigName="Release_Linux64"/>
+      <Project Name="ServiceClogTest" ConfigName="Release_Linux64"/>
+      <Project Name="LogFile" ConfigName="Release_Linux64"/>
+      <Project Name="GenericContainer" ConfigName="Release_Linux64"/>
+      <Project Name="Gadget_specs" ConfigName="Release_Linux64"/>
+      <Project Name="Gadget" ConfigName="Release_Linux64"/>
+      <Project Name="ExternalXML" ConfigName="Release_Linux64"/>
+      <Project Name="Common_specs" ConfigName="Release_Linux64"/>
+      <Project Name="Common" ConfigName="Release_Linux64"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Release_Linux64"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Release_Linux64"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Release_Linux64"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Release_Linux64"/>
+      <Project Name="CmdServiceClog" ConfigName="Release_Linux64"/>
+      <Project Name="CmdReturnTrue" ConfigName="Release_Linux64"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Release_Linux64"/>
+      <Project Name="CmdKeyName" ConfigName="Release_Linux64"/>
+      <Project Name="CmdEptm" ConfigName="Release_Linux64"/>
+      <Project Name="CmdCopyToD" ConfigName="Release_Linux64"/>
+      <Project Name="CmdConstantD" ConfigName="Release_Linux64"/>
+      <Project Name="CmdConstant" ConfigName="Release_Linux64"/>
+      <Project Name="CmdCameraSelector" ConfigName="Release_Linux64"/>
+      <Project Name="CDrawWorkbench" ConfigName="Release_Linux64"/>
+      <Project Name="CDrawTmxWin" ConfigName="Release_Linux64"/>
+      <Project Name="CDrawOpenGL" ConfigName="Release_Linux64"/>
+      <Project Name="WorkbenchGTK" ConfigName="Release_Linux64"/>
+      <Project Name="CDrawGTK" ConfigName="Release_Linux64"/>
+      <Project Name="CDrawWin" ConfigName="Release_Linux64"/>
+      <Project Name="WorkbenchWin" ConfigName="Release_Win32"/>
+      <Project Name="WorkbenchWin" ConfigName="Release_x64"/>
+      <Project Name="Common" ConfigName="Release_Win32"/>
+      <Project Name="Common" ConfigName="Release_x64"/>
+      <Project Name="Gadget" ConfigName="Release_Win32"/>
+      <Project Name="Gadget" ConfigName="Release_x64"/>
+      <Project Name="VSAShared" ConfigName="Release_Win32"/>
+      <Project Name="VSAShared" ConfigName="Release_x64"/>
+      <Project Name="CmdCameraSelector" ConfigName="Release_Win32"/>
+      <Project Name="CmdCameraSelector" ConfigName="Release_x64"/>
+      <Project Name="CmdConstant" ConfigName="Release_Win32"/>
+      <Project Name="CmdConstant" ConfigName="Release_x64"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Release_Win32"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Release_x64"/>
+      <Project Name="CmdConstantD" ConfigName="Release_Win32"/>
+      <Project Name="CmdConstantD" ConfigName="Release_x64"/>
+      <Project Name="CmdCopyToD" ConfigName="Release_Win32"/>
+      <Project Name="CmdCopyToD" ConfigName="Release_x64"/>
+      <Project Name="CmdReturnTrue" ConfigName="Release_Win32"/>
+      <Project Name="CmdReturnTrue" ConfigName="Release_x64"/>
+      <Project Name="GenericContainer" ConfigName="Release_Win32"/>
+      <Project Name="GenericContainer" ConfigName="Release_x64"/>
+      <Project Name="CmdKeyName" ConfigName="Release_Win32"/>
+      <Project Name="CmdKeyName" ConfigName="Release_x64"/>
+      <Project Name="ExternalXML" ConfigName="Release_Win32"/>
+      <Project Name="ExternalXML" ConfigName="Release_x64"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Release_Win32"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Release_x64"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Release_Win32"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Release_x64"/>
+      <Project Name="XMLEverythingColor" ConfigName="Release_Win32"/>
+      <Project Name="XMLEverythingColor" ConfigName="Release_x64"/>
+      <Project Name="WorkbenchShared" ConfigName="Release_Win32"/>
+      <Project Name="WorkbenchShared" ConfigName="Release_x64"/>
+      <Project Name="CmdEptm" ConfigName="Release_Win32"/>
+      <Project Name="CmdEptm" ConfigName="Release_x64"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Release_Win32"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Release_x64"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Release_Win32"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Release_x64"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Release_Win32"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Release_x64"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Release_Win32"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Release_x64"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Release_Win32"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Release_x64"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Release_Win32"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Release_x64"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Release_Win32"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Release_x64"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Release_Win32"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Release_x64"/>
+      <Project Name="VDraw" ConfigName="Release_Win32"/>
+      <Project Name="VDraw" ConfigName="Release_x64"/>
+      <Project Name="CDrawWin" ConfigName="Release_Win32"/>
+      <Project Name="CDrawWin" ConfigName="Release_x64"/>
+      <Project Name="CDrawOpenGL" ConfigName="Release_Win32"/>
+      <Project Name="CDrawOpenGL" ConfigName="Release_x64"/>
+      <Project Name="CDrawWinDD" ConfigName="Release_Win32"/>
+      <Project Name="CDrawWinDD" ConfigName="Release_x64"/>
+      <Project Name="CDrawWinGL" ConfigName="Release_Win32"/>
+      <Project Name="CDrawWinGL" ConfigName="Release_x64"/>
+      <Project Name="LogFile" ConfigName="Release_Win32"/>
+      <Project Name="LogFile" ConfigName="Release_x64"/>
+      <Project Name="CDrawWorkbench" ConfigName="Release_Win32"/>
+      <Project Name="CDrawWorkbench" ConfigName="Release_x64"/>
+      <Project Name="SOIL" ConfigName="Release_Win32"/>
+      <Project Name="SOIL" ConfigName="Release_x64"/>
+      <Project Name="CDrawWinGLTex" ConfigName="Release_Win32"/>
+      <Project Name="CDrawWinGLTex" ConfigName="Release_x64"/>
+      <Project Name="CDrawWinGLES" ConfigName="Release_Win32"/>
+      <Project Name="CDrawWinGLES" ConfigName="Release_x64"/>
+      <Project Name="CDrawTmxWin" ConfigName="Release_Win32"/>
+      <Project Name="CDrawTmxWin" ConfigName="Release_x64"/>
+      <Project Name="VDrawOpenGL" ConfigName="Release_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Release_x64"/>
+      <Project Name="eglThunk" ConfigName="Release_Win32"/>
+      <Project Name="eglThunk" ConfigName="Release_x64"/>
+      <Project Name="Common_specs" ConfigName="Release_Win32"/>
+      <Project Name="Common_specs" ConfigName="Release_x64"/>
+      <Project Name="Gadget_specs" ConfigName="Release_Win32"/>
+      <Project Name="Gadget_specs" ConfigName="Release_x64"/>
+      <Project Name="ServiceClogTest" ConfigName="Release_Win32"/>
+      <Project Name="ServiceClogTest" ConfigName="Release_x64"/>
+      <Project Name="ServiceCycler" ConfigName="Release_Win32"/>
+      <Project Name="ServiceCycler" ConfigName="Release_x64"/>
+      <Project Name="CmdServiceClog" ConfigName="Release_Win32"/>
+      <Project Name="CmdServiceClog" ConfigName="Release_x64"/>
+      <Project Name="VGDI" ConfigName="Release_Win32"/>
+      <Project Name="VGDI" ConfigName="Release_x64"/>
+      <Project Name="VSAShared_specs" ConfigName="Release_Win32"/>
+      <Project Name="VSAShared_specs" ConfigName="Release_x64"/>
+      <Project Name="VGDI" ConfigName="Debug_Win32"/>
+      <Project Name="Platform" ConfigName="Debug_Win32"/>
+      <Project Name="Platform_specs" ConfigName="Debug_Win32"/>
+      <Project Name="LogFileLib" ConfigName="Debug_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_Win32"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Debug_Win32" Selected="no">
+      <Environment/>
+      <Project Name="CDrawGTK" ConfigName="Debug"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_Win32"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstant" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstantD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdKeyName" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="Common" ConfigName="Debug_Win32"/>
+      <Project Name="Common_specs" ConfigName="Debug_Win32"/>
+      <Project Name="ExternalXML" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_Win32"/>
+      <Project Name="GenericContainer" ConfigName="Debug x64_Win32"/>
+      <Project Name="LogFile" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceCycler" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug x64_Win32"/>
+      <Project Name="SOIL" ConfigName="Debug_Win32"/>
+      <Project Name="VDraw" ConfigName="Debug_Win32"/>
+      <Project Name="VSAShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_Win32"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Debug"/>
+      <Project Name="WorkbenchGTK" ConfigName="Debug"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_Win32"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug x64_Win32"/>
+      <Project Name="VGDI" ConfigName="Debug_Win32"/>
+      <Project Name="Platform" ConfigName="Debug_Win32"/>
+      <Project Name="Platform_specs" ConfigName="Debug_Win32"/>
+      <Project Name="LogFileLib" ConfigName="Debug_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_Win32"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Debug_Win64" Selected="yes">
+      <Environment>#Debug_Win64
+
+_WIN64=1
+OS_MSWIN=1
+
+LibraryPrefix=
+LibrarySuffix=.lib
+SharedLibSuffix=.dll
+ExeSuffix=.exe
+LibraryFile=$$(VS_OutDir)/$$(LibraryPrefix)$$(ProjectName)$$(LibrarySuffix)
+SharedLibFile=$$(VS_OutDir)/$$(LibraryPrefix)$$(ProjectName)$$(SharedLibSuffix)
+ExeFile=$$(VS_OutDir)/$$(ProjectName)$$(ExeSuffix)
+MainExeFile=$$(VS_OutDir)/$(VS_WorkspaceName)$(ExeSuffix)
+
+VS_WorkspaceName=WorkbenchWin
+VS_Configuration=$$(WorkspaceConfiguration)
+
+VS_BuildDir=$$(VS_OutDir)/build
+VS_OutDir=$(WorkspacePath)/$(WorkspaceConfiguration)
+VS_SolutionDir=$(WorkspacePath)
+WorkspaceName=WorkbenchWin
+
+IncludeDirs=$$(WorkspacePath)/Common -I$$(WorkspacePath)/LogFile -I$$(WorkspacePath)/Platform -I$$(WorkspacePath)/Gadget -I$$(WorkspacePath)/VSAShared -I$$(WorkspacePath)/Draw/VDraw
+Defines=WIN64 -D_WIN64
+LibraryDirs=$$(VS_OutDir) -L$$(IntermediateDir)
+IntermediateDir=$$(VS_BuildDir)/$$(ProjectName)
+
+
+CPPFLAGS_GLOBAL=" "
+
+CXXFLAGS_GLOBAL=-std=c++14 -Wall -Wno-non-virtual-dtor
+CFLAGS_GLOBAL=-Wall
+LDFLAGS_GLOBAL=-L$$(VS_OutDir) -L$$(VS_BuildDir)/$(ProjectName)
+
+
+#OPENGL=1
+#BuildDirectory=`$(WorkspacePath)`/`$(ConfigurationName)`-`$(PlatformName)`
+#ObjectsDirectory=`$(BuildDirectory)`/obj/`$(ProjectName)`
+# PWD is $(ObjectsDirectory) for debug
+#LD_LIBRARY_PATH=../../</Environment>
+      <Project Name="CDrawGTK" ConfigName="Debug_x64"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_x64"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWin" ConfigName="Debug_x64"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_x64"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug_x64"/>
+      <Project Name="CmdConstant" ConfigName="Debug_x64"/>
+      <Project Name="CmdConstantD" ConfigName="Debug_x64"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug_x64"/>
+      <Project Name="CmdEptm" ConfigName="Debug_x64"/>
+      <Project Name="CmdKeyName" ConfigName="Debug_x64"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug_x64"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug_x64"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug_x64"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug_x64"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug_x64"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug_x64"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug_x64"/>
+      <Project Name="Common" ConfigName="Debug_x64"/>
+      <Project Name="Common_specs" ConfigName="Debug_x64"/>
+      <Project Name="ExternalXML" ConfigName="Debug_x64"/>
+      <Project Name="Gadget" ConfigName="Debug_x64"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_x64"/>
+      <Project Name="GenericContainer" ConfigName="Debug_x64"/>
+      <Project Name="LogFile" ConfigName="Debug_x64"/>
+      <Project Name="Platform" ConfigName="Debug_x64"/>
+      <Project Name="Platform_specs" ConfigName="Debug_x64"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug_x64"/>
+      <Project Name="ServiceCycler" ConfigName="Debug_x64"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug_x64"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug_x64"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug_x64"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug_x64"/>
+      <Project Name="SOIL" ConfigName="Debug_x64"/>
+      <Project Name="VDraw" ConfigName="Debug_x64"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_x64"/>
+      <Project Name="VGDI" ConfigName="Debug_x64"/>
+      <Project Name="VSAShared" ConfigName="Debug_x64"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_x64"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Debug_x64"/>
+      <Project Name="WorkbenchGTK" ConfigName="Debug_x64"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug_x64"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_x64"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug_x64"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug_x64"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug_x64"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Debug_Linux64" Selected="no">
+      <Environment>#Debug_Linux64
+
+LibraryPrefix=lib
+LibrarySuffix=.a
+SharedLibSuffix=.so
+ExeSuffix=
+
+linux=1
+PlatformName=Linux64
+
+OPENGL=1
+# PWD is $(ObjectsDirectory) for debug
+CXXFLAGS_GLOBAL=-Wno-non-virtual-dtor
+
+
+VS_WorkspaceName=WorkbenchGLUT
+VS_Configuration=Debug_Linux64
+
+VS_BuildDir=$$(VS_OutDir)/build
+VS_OutDir=$$(VS_SolutionDir)/$$(VS_Configuration)
+VS_SolutionDir=..
+WorkspaceName=WorkbenchGLUT
+
+LD_LIBRARY_PATH=/home/jgriswold/Documents/GS8/Debug_Linux64
+
+CPPFLAGS_GLOBAL=-Dlinux -DOPENGL -I../Platform -I../../Platform -I../Common -I../../Common -I../LogFile -I../../LogFile
+
+CXXFLAGS_GLOBAL=-Wno-non-virtual-dtor -fPIC
+
+
+#OPENGL=1
+#BuildDirectory=`$(WorkspacePath)`/`$(ConfigurationName)`-`$(PlatformName)`
+#ObjectsDirectory=`$(BuildDirectory)`/obj/`$(ProjectName)`
+# PWD is $(ObjectsDirectory) for debug
+#LD_LIBRARY_PATH=../../</Environment>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug_Linux64"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug_Linux64"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchGTK" ConfigName="Debug_Linux64"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Debug_Linux64"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_Linux64"/>
+      <Project Name="VSAShared" ConfigName="Debug_Linux64"/>
+      <Project Name="VGDI" ConfigName="Debug_Linux64"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_Linux64"/>
+      <Project Name="VDraw" ConfigName="Debug_Linux64"/>
+      <Project Name="SOIL" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceCycler" ConfigName="Debug_Linux64"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug_Linux64"/>
+      <Project Name="Platform_specs" ConfigName="Debug_Linux64"/>
+      <Project Name="Platform" ConfigName="Debug_Linux64"/>
+      <Project Name="LogFile" ConfigName="Debug_Linux64"/>
+      <Project Name="GenericContainer" ConfigName="Debug_Linux64"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_Linux64"/>
+      <Project Name="Gadget" ConfigName="Debug_Linux64"/>
+      <Project Name="ExternalXML" ConfigName="Debug_Linux64"/>
+      <Project Name="Common_specs" ConfigName="Debug_Linux64"/>
+      <Project Name="Common" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdKeyName" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdEptm" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdConstantD" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdConstant" ConfigName="Debug_Linux64"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawWin" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_Linux64"/>
+      <Project Name="CDrawGTK" ConfigName="Debug_Linux64"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release_Win32" Selected="yes">
+      <Environment/>
+      <Project Name="CDrawGTK" ConfigName="Debug"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_Win32"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstant" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstantD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdKeyName" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="Common" ConfigName="Debug_Win32"/>
+      <Project Name="Common_specs" ConfigName="Debug_Win32"/>
+      <Project Name="ExternalXML" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_Win32"/>
+      <Project Name="GenericContainer" ConfigName="Debug x64_Win32"/>
+      <Project Name="LogFile" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceCycler" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug x64_Win32"/>
+      <Project Name="SOIL" ConfigName="Debug_Win32"/>
+      <Project Name="VDraw" ConfigName="Debug_Win32"/>
+      <Project Name="VSAShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_Win32"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Debug"/>
+      <Project Name="WorkbenchGTK" ConfigName="Debug"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_Win32"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug x64_Win32"/>
+      <Project Name="VGDI" ConfigName="Release_Win32"/>
+      <Project Name="Platform" ConfigName="Release_Win32"/>
+      <Project Name="Platform_specs" ConfigName="Release_Win32"/>
+      <Project Name="LogFileLib" ConfigName="Release_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Release_Win32"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release_Win64" Selected="yes">
+      <Environment/>
+      <Project Name="CDrawGTK" ConfigName="Debug"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_Win32"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstant" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstantD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdKeyName" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="Common" ConfigName="Debug_Win32"/>
+      <Project Name="Common_specs" ConfigName="Debug_Win32"/>
+      <Project Name="ExternalXML" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_Win32"/>
+      <Project Name="GenericContainer" ConfigName="Debug x64_Win32"/>
+      <Project Name="LogFile" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceCycler" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug x64_Win32"/>
+      <Project Name="SOIL" ConfigName="Debug_Win32"/>
+      <Project Name="VDraw" ConfigName="Debug_Win32"/>
+      <Project Name="VSAShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_Win32"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Debug"/>
+      <Project Name="WorkbenchGTK" ConfigName="Debug"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_Win32"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug x64_Win32"/>
+      <Project Name="VGDI" ConfigName="Debug_Win32"/>
+      <Project Name="Platform" ConfigName="Debug_Win32"/>
+      <Project Name="Platform_specs" ConfigName="Debug_Win32"/>
+      <Project Name="LogFileLib" ConfigName="Debug_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_Win32"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release_Linux64" Selected="yes">
+      <Environment/>
+      <Project Name="CDrawGTK" ConfigName="Debug"/>
+      <Project Name="CDrawOpenGL" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawTmxWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWin" ConfigName="Debug_Win32"/>
+      <Project Name="CDrawWorkbench" ConfigName="Debug_Win32"/>
+      <Project Name="CmdCameraSelector" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstant" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdConstantD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdCopyToD" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdKeyName" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdOmniScapeESS" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdReturnTrue" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdServiceClog" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdSystemShutdown" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdTouchCalibrate" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataLoader" ConfigName="Debug x64_Win32"/>
+      <Project Name="CmdVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="Common" ConfigName="Debug_Win32"/>
+      <Project Name="Common_specs" ConfigName="Debug_Win32"/>
+      <Project Name="ExternalXML" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget" ConfigName="Debug x64_Win32"/>
+      <Project Name="Gadget_specs" ConfigName="Debug_Win32"/>
+      <Project Name="GenericContainer" ConfigName="Debug x64_Win32"/>
+      <Project Name="LogFile" ConfigName="Debug_Win32"/>
+      <Project Name="ServiceClogTest" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceCycler" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceRstaEptm" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDataSample" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleDirectLoad" ConfigName="Debug x64_Win32"/>
+      <Project Name="ServiceVehicleSocket" ConfigName="Debug x64_Win32"/>
+      <Project Name="SOIL" ConfigName="Debug_Win32"/>
+      <Project Name="VDraw" ConfigName="Debug_Win32"/>
+      <Project Name="VSAShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="VSAShared_specs" ConfigName="Debug_Win32"/>
+      <Project Name="WorkbenchGLUT" ConfigName="Debug"/>
+      <Project Name="WorkbenchGTK" ConfigName="Debug"/>
+      <Project Name="WorkbenchShared" ConfigName="Debug x64_Win32"/>
+      <Project Name="WorkbenchWin" ConfigName="Debug_Win32"/>
+      <Project Name="XMLEverythingAlert" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingColor" ConfigName="Debug x64_Win32"/>
+      <Project Name="XMLEverythingGauge" ConfigName="Debug x64_Win32"/>
+      <Project Name="VGDI" ConfigName="Debug_Win32"/>
+      <Project Name="Platform" ConfigName="Debug_Win32"/>
+      <Project Name="Platform_specs" ConfigName="Debug_Win32"/>
+      <Project Name="LogFileLib" ConfigName="Debug_Win32"/>
+      <Project Name="VDrawOpenGL" ConfigName="Debug_Win32"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

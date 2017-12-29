@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<Panel id="MPC_commander_adjust_camera_page02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 8 / s10		// Height of button area
+			r10 2 / s11						// center of button area
+			both
+
+			5 s0	// left screen margin
+			both
+		</Script>
+	</Layout>
+	<!-- Define the BEZEL buttons -->
+	<GaugeInstance Name="button-gauge_state" X="5" Y="r10 1 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-screen_mode" X="5" Y="r10 2 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-quadrant_adjust_camera" X="5" Y="r10 6 * r11 + height 2 / -"/>
+
+	<GaugeInstance Name="button-daynight" X="(S:SCREEN WIDTH) width -" Y="r10 0 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-zoom" X="(S:SCREEN WIDTH) width -" Y="r10 1 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-OnePointCal" X="(S:SCREEN WIDTH) width -" Y="r10 2 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-ir-camera-mode" X="(S:SCREEN WIDTH) width -" Y="r10 3 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-editpage" X="(S:SCREEN WIDTH) width -" Y="r10 5 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-adjust-camera" X="(S:SCREEN WIDTH) width -" Y="r10 6 * r11 + height 2 / -"/>
+	<GaugeInstance Name="monitor_edit_camera_events"/>
+
+	<GaugeInstance Name="monitor_edit_camera_events.xml"/>
+	
+	<!-- Video feeds -->
+	<GaugeInstance Name="MPC_view-select" X="0" Y="0" />
+	<GaugeInstance Name="MPC_view-layout" X="0" Y="0" />
+
+	<!--GaugeInstance Name="view-forward"
+				   X="0" Y="0" />
+	<GaugeInstance Name="view-reverse"
+				   X="0" Y="0" />
+	<GaugeInstance Name="view-single_commander"
+				   X="0" Y="0" />
+	<GaugeInstance Name="view-quad"
+				   X="0" Y="0" /-->
+
+	<!-- Speedometer/RPM -->
+	<GaugeInstance Name="speed"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="(S:SCREEN HEIGHT) height -" />
+	
+	<!-- heading -->
+	<GaugeInstance Name="compass"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="0" />
+
+	<!-- time/lat-lon      NOTE: The entry "60 -" is used to move the gauge from the BEZEL button text -->
+	<GaugeInstance Name="time"
+				   X="(S:SCREEN WIDTH) width - 20 - 60 -" Y="5" />
+	<GaugeInstance Name="latlong"
+				   X="(S:SCREEN WIDTH) width - 20 - 60 -" Y="25" />
+
+	<!-- Every where you see " 60 +" in the X position is an attempt to relocate a gauge so that the BEZEL button text can be displayed. -->
+	<GaugeInstance Name="alert-everything"
+				   X="5 60 +" Y="(S:SCREEN HEIGHT) height - 5 -" />
+
+	<GaugeInstance Name="icon-fuel"
+				   X="10 60 +" Y="40" />
+	<GaugeInstance Name="slider-fuel"
+					X="50 60 +" Y="30" />
+
+	<!-- Define the button assignments -->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL2" Event="E:TOGGLE GAUGE STATE" />
+			<Key id="BEZEL3" Event="E:TOGGLE SCREEN MODE" />
+			<Key id="BEZEL4" Event="E:Change Camera Quadrant" />
+			<Key id="BEZEL7" Event="E:Change Camera Feed" />
+			<Key id="BEZEL8" Event="E:TOGGLE DAYNIGHT" />
+			<Key id="BEZEL9" Event="E:ZOOM SELECTED" />
+			<Key id="BEZEL10" Event="E:CLICK ONE POINT CAL DOWN" />
+			<Key id="1" Event="E:CLICK ONE POINT CAL DOWN" />		
+			<Key id="BEZEL11" Event="E:TOGGLE IR CAMERA MODE" />
+			<Key id="BEZEL13" Event="E:CHANGE EDIT PAGE" />
+			<Key id="BEZEL14" Event="E:TOGGLE ADJUST CAMERA SETTINGS" />
+		</OnDown>
+		<OnUp>
+			<Key id="BEZEL10" Event="E:CLICK ONE POINT CAL UP" />
+			<Key id="1" Event="E:CLICK ONE POINT CAL UP" />		
+		</OnUp>
+	</KeyEventMap>
+
+</Panel>

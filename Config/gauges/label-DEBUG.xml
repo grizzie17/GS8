@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="label-DEBUG">
+		<Size>600,30</Size>
+		<Element>
+		<!--Visible>(U:DEBUG Msg Timeout) (S:MILLI) &gt;</Visible-->
+			<GaugeText X="0" Y="0" 
+					   Font="sans-serif" Height="20" 
+					   Align="left" VerticalAlign="top" 
+					   Color="lime">
+				<String>The %((U:THE CAMERA SELECTION))%!s! is ready to process the %( (U:DIRECTION) )%!s! %( (U:EDIT BUTTON SELECTED) )%!s! button</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

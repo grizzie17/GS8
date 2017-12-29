@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<Gauge Name="slider" Version="1.0">
+	<Update>
+		<Frequency>4</Frequency>
+	</Update>
+	<Size X="110" Y="202" />
+	<Element>
+		<Position X="5" Y="0" />
+		<Element>
+			<Position X="8" Y="0" />
+			<Polygon FillColor="'orange' 'lightgreen' (G:OPTION) ? s9">
+				<Point X="0" Y="(T:PULSER) 10.0 / 0.3 + floor 20.0 *  s1" />
+				<Point X="30" Y="l1" />
+				<Point X="30" Y="200" />
+				<Point X="0" Y="200" />
+				<Point X="0" Y="l1" />
+			</Polygon>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="20" />
+				<Point X="30" Y="20" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="40" />
+				<Point X="30" Y="40" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="60" />
+				<Point X="30" Y="60" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="80" />
+				<Point X="30" Y="80" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="100" />
+				<Point X="30" Y="100" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="120" />
+				<Point X="30" Y="120" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="140" />
+				<Point X="30" Y="140" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="160" />
+				<Point X="30" Y="160" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point X="0" Y="180" />
+				<Point X="30" Y="180" />
+			</Line>
+		</Element>
+		<Element>
+			<Position X="2" Y="0" />
+			<Line LineColor="l9" LineWidth="4">
+				<Point X="0" Y="0" />
+				<Point X="0" Y="200" />
+			</Line>
+		</Element>
+		<Element>
+			<Position X="45" Y="0" />
+			<Polyline LineColor="l9" LineWidth="4">
+				<Point X="10" Y="0" />
+				<Point X="0" Y="0" />
+				<Point X="0" Y="200" />
+				<Point X="10" Y="200" />
+			</Polyline>
+			<Line LineColor="l9" LineWidth="2">
+				<Point X="0" Y="100" />
+				<Point X="8" Y="100" />
+			</Line>
+			<GaugeText X="14" Y="0" Font="Arial" Height="24" VerticalAlign="top" LineColor="l9">
+				<String>F</String>
+			</GaugeText>
+			<GaugeText X="14" Y="200" Font="Arial" Height="24" LineColor="l9">
+				<String>E</String>
+			</GaugeText>
+		</Element>
+	</Element>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:FUEL COLOR</KeyEvent>
+			<Script>(G:OPTION) ! (&gt;G:OPTION)</Script>
+		</Trigger>
+	</KeyMap>
+</Gauge>

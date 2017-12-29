@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<PluginInclude
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<!-- Parameter set for VideoSourceAnalogVdds -->
+	<Parameters>
+
+		<!-- The following should be defined in "Plugin" tag
+			Video Input Port
+			ServerID 
+		-->
+		<!--VIP Generic NTSC camera settings for Frame Operation (Fields Merged)-->
+		<Param Name="Height" Type="INTEGER">480</Param>
+		<Param Name="Width" Type="INTEGER">720</Param>
+		<Param Name="Video Data Mode Flags" Type="ENUM">NO_MODS</Param>
+		<Param Name="Capture Profile" Type="ENUM">CAP_NTSC_CUSTOM</Param>
+		<Param Name="Capture Profile ID" Type="ENUM">FIELDS_MERGED</Param>
+		<Param Name="Capture Mode" Type="ENUM">VPORT_MODE_BT656_8BIT</Param>
+		<Param Name="Field Frame Op" Type="ENUM">VPORT_FLDOP_FRAME</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Enable" Type="ENUM">DECOMBING_ENABLED</Param>
+		<Param Name="Decomb Threshold" Type="INTEGER">7</Param>
+	</Parameters>
+
+</PluginInclude>

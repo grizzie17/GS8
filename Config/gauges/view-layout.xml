@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-layout">
+		<Element Context="group">
+			<Select>
+				<Expression>
+					<Script>(U:View Layout)</Script>
+				</Expression>
+				<Case>
+					<Expression>
+						<Script>(K:View Forward)</Script>
+					</Expression>
+					<Include File="view-layout-forward"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:View Reverse)</Script>
+					</Expression>
+					<Include File="view-layout-reverse"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:View Single)</Script>
+					</Expression>
+					<Include File="view-layout-single"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:View Single Auto)</Script>
+					</Expression>
+					<Include File="view-layout-single"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:View Quad)</Script>
+					</Expression>
+					<Include File="view-layout-quad"/>
+				</Case>
+			</Select>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

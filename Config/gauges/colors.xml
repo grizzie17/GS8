@@ -1,0 +1,3444 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:MOVE LEFT</KeyEvent>
+				<Script>(G:POSITION) 150 + (&gt;G:POSITION)</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:MOVE RIGHT</KeyEvent>
+				<Script>(G:POSITION) 150 - (&gt;G:POSITION)</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:MOVE HOME</KeyEvent>
+				<Script>0 (&gt;G:POSITION)</Script>
+			</Trigger>
+		</KeyMap>
+		<Element>
+			<Element Context="background">
+				<Polyline LineColor="gray" LineWidth="2">
+					<Point X="0" Y="0" />
+					<Point X="800" Y="0" />
+					<Point X="800" Y="600" />
+					<Point X="0" Y="600" />
+					<Point X="0" Y="0" />
+				</Polyline>
+			</Element>
+			<Element Context="foreground">
+				<Position X="(G:POSITION)" Y="0" />
+				<Element>
+					<Position X="5 s1" Y="0 s0 22 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>Red Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="snow" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="snow" Font="Arial" Height="18">
+						<String>snow</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="seashell" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="seashell" Font="Arial" Height="18">
+						<String>seashell</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lavenderblush" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lavenderblush" Font="Arial" Height="18">
+						<String>lavenderblush</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mistyrose" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mistyrose" Font="Arial" Height="18">
+						<String>mistyrose</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="linen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="linen" Font="Arial" Height="18">
+						<String>linen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="pink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="pink" Font="Arial" Height="18">
+						<String>pink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightpink" Font="Arial" Height="18">
+						<String>lightpink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="red" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="red" Font="Arial" Height="18">
+						<String>red</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="fireenginered" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="fireenginered" Font="Arial" Height="18">
+						<String>fireenginered</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="crimson" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="crimson" Font="Arial" Height="18">
+						<String>crimson</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cardinal" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cardinal" Font="Arial" Height="18">
+						<String>cardinal</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="hotpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="hotpink" Font="Arial" Height="18">
+						<String>hotpink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 s0 19 * 5 +" />
+					<Polygon FillColor="tomato" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="tomato" Font="Arial" Height="18">
+						<String>tomato</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="burntorange" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="burntorange" Font="Arial" Height="18">
+						<String>burntorange</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="coralred" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="coralred" Font="Arial" Height="18">
+						<String>coralred</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 s0 19 * 5 +" />
+					<Polygon FillColor="orangered" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="orangered" Font="Arial" Height="18">
+						<String>orangered</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="deeppink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="deeppink" Font="Arial" Height="18">
+						<String>deeppink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="indianred" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="indianred" Font="Arial" Height="18">
+						<String>indianred</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="rosybrown" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="rosybrown" Font="Arial" Height="18">
+						<String>rosybrown</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumvioletred" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumvioletred" Font="Arial" Height="18">
+						<String>mediumvioletred</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="firebrick" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="firebrick" Font="Arial" Height="18">
+						<String>firebrick</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brickred" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brickred" Font="Arial" Height="18">
+						<String>brickred</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="carmine" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="carmine" Font="Arial" Height="18">
+						<String>carmine</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brown" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brown" Font="Arial" Height="18">
+						<String>brown</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="sienna" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="sienna" Font="Arial" Height="18">
+						<String>sienna</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="saddlebrown" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="saddlebrown" Font="Arial" Height="18">
+						<String>saddlebrown</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="burntumber" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="burntumber" Font="Arial" Height="18">
+						<String>burntumber</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkred" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkred" Font="Arial" Height="18">
+						<String>darkred</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="burgundy" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="burgundy" Font="Arial" Height="18">
+						<String>burgundy</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="falured" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="falured" Font="Arial" Height="18">
+						<String>falured</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="maroon" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="maroon" Font="Arial" Height="18">
+						<String>maroon</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>XXXXXX Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightsalmon" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightsalmon" Font="Arial" Height="18">
+						<String>lightsalmon</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="alizarin" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" Font="Arial" Height="18" LineColor="alizarin">
+						<String>alizarin</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="amaranth" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="amaranth" Font="Arial" Height="18">
+						<String>amaranth</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brightred" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brightred" Font="Arial" Height="18">
+						<String>brightred</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="blackrose" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="blackrose" Font="Arial" Height="18">
+						<String>blackrose</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="carnationpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="carnationpink" Font="Arial" Height="18">
+						<String>carnationpink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="amaranthpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="amaranthpink" Font="Arial" Height="18">
+						<String>amaranthpink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cherryblossompink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cherryblossompink" Font="Arial" Height="18">
+						<String>cherryblossompink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brilliantrose" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brilliantrose" Font="Arial" Height="18">
+						<String>brilliantrose</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brightpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brightpink" Font="Arial" Height="18">
+						<String>brightpink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkpink" Font="Arial" Height="18">
+						<String>darkpink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="atomictangerine" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="atomictangerine" Font="Arial" Height="18">
+						<String>atomictangerine</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="coralpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="coralpink" Font="Arial" Height="18">
+						<String>coralpink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brinkpink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brinkpink" Font="Arial" Height="18">
+						<String>brinkpink</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>Orange Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="floralwhite" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="floralwhite" Font="Arial" Height="18">
+						<String>floralwhite</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cornsilk" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cornsilk" Font="Arial" Height="18">
+						<String>cornsilk</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="oldlace" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="oldlace" Font="Arial" Height="18">
+						<String>oldlace</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="champagne" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="champagne" Font="Arial" Height="18">
+						<String>champagne</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="papayawhip" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="papayawhip" Font="Arial" Height="18">
+						<String>papayawhip</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="blanchedalmond" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="blanchedalmond" Font="Arial" Height="18">
+						<String>blanchedalmond</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bisque" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="bisque" Font="Arial" Height="18">
+						<String>bisque</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="moccasin" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="moccasin" Font="Arial" Height="18">
+						<String>moccasin</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="navajowhite" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="navajowhite" Font="Arial" Height="18">
+						<String>navajowhite</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="peachpuff" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="peachpuff" Font="Arial" Height="18">
+						<String>peachpuff</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="wheat" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="wheat" Font="Arial" Height="18">
+						<String>wheat</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="beeswax" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="beeswax" Font="Arial" Height="18">
+						<String>beeswax</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="antiquewhite" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="antiquewhite" Font="Arial" Height="18">
+						<String>antiquewhite</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="gold" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="gold" Font="Arial" Height="18">
+						<String>gold</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="orange" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="orange" Font="Arial" Height="18">
+						<String>orange</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darksalmon" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darksalmon" Font="Arial" Height="18">
+						<String>lightsalmon</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkorange" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkorange" Font="Arial" Height="18">
+						<String>darkorange</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="amber2" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="amber2" Font="Arial" Height="18">
+						<String>amber2</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="carrotorange" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="carrotorange" Font="Arial" Height="18">
+						<String>carrotorange</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="deepsaffron" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="deepsaffron" Font="Arial" Height="18">
+						<String>deepsaffron</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 s0 19 * 5 +" />
+					<Polygon FillColor="coral" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="coral" Font="Arial" Height="18">
+						<String>coral</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="salmon" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="salmon" Font="Arial" Height="18">
+						<String>salmon</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="sandybrown" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="sandybrown" Font="Arial" Height="18">
+						<String>sandybrown</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightcoral" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightcoral" Font="Arial" Height="18">
+						<String>lightcoral</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darksalmon" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darksalmon" Font="Arial" Height="18">
+						<String>darksalmon</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="burlywood" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="burlywood" Font="Arial" Height="18">
+						<String>burlywood</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="tan" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="tan" Font="Arial" Height="18">
+						<String>tan</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="chocolate" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="chocolate" Font="Arial" Height="18">
+						<String>chocolate</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="peru" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="peru" Font="Arial" Height="18">
+						<String>peru</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>XXXXXX Colors</String>
+					</GaugeText>
+				</Element>
+
+
+
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darktan" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darktan" Font="Arial" Height="18">
+						<String>darktan</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="coolcopper" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="coolcopper" Font="Arial" Height="18">
+						<String>coolcopper</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="copper" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="copper" Font="Arial" Height="18">
+						<String>copper</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="antiquebrass" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="antiquebrass" Font="Arial" Height="18">
+						<String>antiquebrass</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brass" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brass" Font="Arial" Height="18">
+						<String>brass</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bronze" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="bronze" Font="Arial" Height="18">
+						<String>bronze</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="antiquebronze" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="antiquebronze" Font="Arial" Height="18">
+						<String>antiquebronze</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bakerschocolate" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="bakerschocolate" Font="Arial" Height="18">
+						<String>bakerschocolate</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bistre" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="white" Font="Arial" Height="18">
+						<String>bistre</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="auburn" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="auburn" Font="Arial" Height="18">
+						<String>auburn</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkbrown" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkbrown" Font="Arial" Height="18">
+						<String>darkbrown</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bole" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="bole" Font="Arial" Height="18">
+						<String>bole</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="caputmortuum" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="caputmortuum" Font="Arial" Height="18">
+						<String>caputmortuum</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>Yellow Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="ivory" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="ivory" Font="Arial" Height="18">
+						<String>ivory</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightyellow" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightyellow" Font="Arial" Height="18">
+						<String>lightyellow</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lemonchiffon" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lemonchiffon" Font="Arial" Height="18">
+						<String>lemonchiffon</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightgoldenrodyellow" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightgoldenrodyellow" Font="Arial" Height="18">
+						<String>lightgoldenrodyellow</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="beige" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="beige" Font="Arial" Height="18">
+						<String>beige</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="palegoldenrod" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="palegoldenrod" Font="Arial" Height="18">
+						<String>palegoldenrod</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightkhaki" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightkhaki" Font="Arial" Height="18">
+						<String>lightkhaki</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="buff" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="buff" Font="Arial" Height="18">
+						<String>buff</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="buttermilk" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="buttermilk" Font="Arial" Height="18">
+						<String>buttermilk</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="corn" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="corn" Font="Arial" Height="18">
+						<String>corn</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="yellow" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="yellow" Font="Arial" Height="18">
+						<String>yellow</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lemon" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lemon" Font="Arial" Height="18">
+						<String>lemon</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="khaki" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="khaki" Font="Arial" Height="18">
+						<String>khaki</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="goldenrod" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="goldenrod" Font="Arial" Height="18">
+						<String>goldenrod</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="buttercup" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="buttercup" Font="Arial" Height="18">
+						<String>buttercup</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="amber" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="amber" Font="Arial" Height="18">
+						<String>amber</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkgoldenrod" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkgoldenrod" Font="Arial" Height="18">
+						<String>darkgoldenrod</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="goldmetallic" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="goldmetallic" Font="Arial" Height="18">
+						<String>goldmetallic</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>Green Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mintcream" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mintcream" Font="Arial" Height="18">
+						<String>mintcream</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="azure" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="azure" Font="Arial" Height="18">
+						<String>azure</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="honeydew" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="honeydew" Font="Arial" Height="18">
+						<String>honeydew</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightcyan" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightcyan" Font="Arial" Height="18">
+						<String>lightcyan</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="greenyellow" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="greenyellow" Font="Arial" Height="18">
+						<String>greenyellow</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="chartreusetraditional" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="chartreusetraditional" Font="Arial" Height="18">
+						<String>chartreusetraditional</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="electriclime" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="electriclime" Font="Arial" Height="18">
+						<String>electriclime</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkseagreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkseagreen" Font="Arial" Height="18">
+						<String>darkseagreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkkhaki" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkkhaki" Font="Arial" Height="18">
+						<String>darkkhaki</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="yellowgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="yellowgreen" Font="Arial" Height="18">
+						<String>yellowgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="springgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="springgreen" Font="Arial" Height="18">
+						<String>springgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumspringgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumspringgreen" Font="Arial" Height="18">
+						<String>mediumspringgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lime" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lime" Font="Arial" Height="18">
+						<String>lime</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="chartreuse" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="chartreuse" Font="Arial" Height="18">
+						<String>chartreuse</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lawngreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lawngreen" Font="Arial" Height="18">
+						<String>lawngreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brightgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brightgreen" Font="Arial" Height="18">
+						<String>brightgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="electricgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="electricgreen" Font="Arial" Height="18">
+						<String>electricgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="limegreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="limegreen" Font="Arial" Height="18">
+						<String>limegreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="apple" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="apple" Font="Arial" Height="18">
+						<String>apple</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="kellygreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="kellygreen" Font="Arial" Height="18">
+						<String>kellygreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkslategray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkslategray" Font="Arial" Height="18">
+						<String>darkslategray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="seagreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="seagreen" Font="Arial" Height="18">
+						<String>seagreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumseagreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumseagreen" Font="Arial" Height="18">
+						<String>mediumseagreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="forestgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="forestgreen" Font="Arial" Height="18">
+						<String>forestgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkolivegreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkolivegreen" Font="Arial" Height="18">
+						<String>darkolivegreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="olive" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="olive" Font="Arial" Height="18">
+						<String>olive</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="olivedrab" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="olivedrab" Font="Arial" Height="18">
+						<String>olivedrab</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="green" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="green" Font="Arial" Height="18">
+						<String>green</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lime" Font="Arial" Height="18">
+						<String>darkgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="britishracinggreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lime" Font="Arial" Height="18">
+						<String>britishracinggreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkgreen2" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lime" Font="Arial" Height="18">
+						<String>darkgreen2</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>Green Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="paleturquoise" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="paleturquoise" Font="Arial" Height="18">
+						<String>paleturquoise</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightgreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightgreen" Font="Arial" Height="18">
+						<String>lightgreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="palegreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="palegreen" Font="Arial" Height="18">
+						<String>palegreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="aquamarine" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="aquamarine" Font="Arial" Height="18">
+						<String>aquamarine</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumaquamarine" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumaquamarine" Font="Arial" Height="18">
+						<String>mediumaquamarine</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cadetblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cadetblue" Font="Arial" Height="18">
+						<String>cadetblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightseagreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightseagreen" Font="Arial" Height="18">
+						<String>lightseagreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkturquoise" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkturquoise" Font="Arial" Height="18">
+						<String>darkturquoise</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkcyan" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkcyan" Font="Arial" Height="18">
+						<String>darkcyan</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="teal" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="teal" Font="Arial" Height="18">
+						<String>teal</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>XXXXXX Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="emerald" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="emerald" Font="Arial" Height="18">
+						<String>emerald</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="camouflagegreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="camouflagegreen" Font="Arial" Height="18">
+						<String>camouflagegreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="ferngreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="ferngreen" Font="Arial" Height="18">
+						<String>ferngreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="huntergreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="huntergreen" Font="Arial" Height="18">
+						<String>huntergreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="armygreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="armygreen" Font="Arial" Height="18">
+						<String>armygreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="asparagus" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="asparagus" Font="Arial" Height="18">
+						<String>asparagus</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>Blue Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="aeroblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" Font="Arial" Height="18" LineColor="aeroblue">
+						<String>aeroblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="babyblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="babyblue" Font="Arial" Height="18">
+						<String>babyblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="aliceblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" Font="Arial" Height="18" LineColor="aliceblue">
+						<String>aliceblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="powderblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="powderblue" Font="Arial" Height="18">
+						<String>powderblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightblue" Font="Arial" Height="18">
+						<String>lightblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightsteelblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightsteelblue" Font="Arial" Height="18">
+						<String>lightsteelblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="deepskyblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="deepskyblue" Font="Arial" Height="18">
+						<String>deepskyblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="dodgerblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="dodgerblue" Font="Arial" Height="18">
+						<String>dodgerblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cornflowerblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cornflowerblue" Font="Arial" Height="18">
+						<String>cornflowerblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="aqua" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="aqua" Font="Arial" Height="18">
+						<String>aqua</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cyan" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cyan" Font="Arial" Height="18">
+						<String>cyan</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumturquoise" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumturquoise" Font="Arial" Height="18">
+						<String>mediumturquoise</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="steelblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="steelblue" Font="Arial" Height="18">
+						<String>steelblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="airforceblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" Font="Arial" Height="18" LineColor="airforceblue">
+						<String>airforceblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightskyblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightskyblue" Font="Arial" Height="18">
+						<String>lightskyblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="skyblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="skyblue" Font="Arial" Height="18">
+						<String>skyblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumslateblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumslateblue" Font="Arial" Height="18">
+						<String>mediumslateblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="slateblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="slateblue" Font="Arial" Height="18">
+						<String>slateblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="royalblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="royalblue" Font="Arial" Height="18">
+						<String>royalblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="denim" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="denim" Font="Arial" Height="18">
+						<String>denim</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="azuredark" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="azuredark" Font="Arial" Height="18">
+						<String>azuredark</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="blue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="blue" Font="Arial" Height="18">
+						<String>blue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumblue" Font="Arial" Height="18">
+						<String>mediumblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkslateblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkslateblue" Font="Arial" Height="18">
+						<String>darkslateblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="indigo" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="indigo" Font="Arial" Height="18">
+						<String>indigo</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkblue" Font="Arial" Height="18">
+						<String>darkblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="dukeblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="dukeblue" Font="Arial" Height="18">
+						<String>dukeblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="navy" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="navy" Font="Arial" Height="18">
+						<String>navy</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="midnightblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="midnightblue" Font="Arial" Height="18">
+						<String>midnightblue</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>XXXXXX Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brightturquoise" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brightturquoise" Font="Arial" Height="18">
+						<String>brightturquoise</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="aquamarineblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="aquamarineblue" Font="Arial" Height="18">
+						<String>aquamarineblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bluegreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="bluegreen" Font="Arial" Height="18">
+						<String>bluegreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="turquoise" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="turquoise" Font="Arial" Height="18">
+						<String>turquoise</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cambridgeblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cambridgeblue" Font="Arial" Height="18">
+						<String>cambridgeblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bondiblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="bondiblue" Font="Arial" Height="18">
+						<String>bondiblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="brandeisblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="brandeisblue" Font="Arial" Height="18">
+						<String>brandeisblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="cerulean" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="cerulean" Font="Arial" Height="18">
+						<String>cerulean</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="ceruleanblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="ceruleanblue" Font="Arial" Height="18">
+						<String>ceruleanblue</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkcerulean" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkcerulean" Font="Arial" Height="18">
+						<String>darkcerulean</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="indigodye" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="indigodye" Font="Arial" Height="18">
+						<String>indigodye</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>Purple Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="ghostwhite" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="ghostwhite" Font="Arial" Height="18">
+						<String>ghostwhite</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lavender" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lavender" Font="Arial" Height="18">
+						<String>lavender</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lavenderblush" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lavenderblush" Font="Arial" Height="18">
+						<String>lavenderblush</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="violet" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="violet" Font="Arial" Height="18">
+						<String>violet</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="plum" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="plum" Font="Arial" Height="18">
+						<String>plum</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="thistle" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="thistle" Font="Arial" Height="18">
+						<String>thistle</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="fuchsiapink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="fuchsiapink" Font="Arial" Height="18">
+						<String>fuchsiapink</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="fuchsia" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="fuchsia" Font="Arial" Height="18">
+						<String>fuchsia</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="magenta" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="magenta" Font="Arial" Height="18">
+						<String>magenta</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="deepmagenta" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="deepmagenta" Font="Arial" Height="18">
+						<String>deepmagenta</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="orchid" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="orchid" Font="Arial" Height="18">
+						<String>orchid</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="palevioletred" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="palevioletred" Font="Arial" Height="18">
+						<String>palevioletred</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkmagenta" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkmagenta" Font="Arial" Height="18">
+						<String>darkmagenta</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumorchid" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumorchid" Font="Arial" Height="18">
+						<String>mediumorchid</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkorchid" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkorchid" Font="Arial" Height="18">
+						<String>darkorchid</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkviolet" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkviolet" Font="Arial" Height="18">
+						<String>darkviolet</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="amethyst" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="amethyst" Font="Arial" Height="18">
+						<String>amethyst</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="mediumpurple" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="mediumpurple" Font="Arial" Height="18">
+						<String>mediumpurple</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="blueviolet" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="blueviolet" Font="Arial" Height="18">
+						<String>blueviolet</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="purple" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="plum" Font="Arial" Height="18">
+						<String>purple</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="byzantium" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="plum" Font="Arial" Height="18">
+						<String>byzantium</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="eggplant" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="plum" Font="Arial" Height="18">
+						<String>eggplant</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="blackberry" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="plum" Font="Arial" Height="18">
+						<String>blackberry</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>White Colors</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 s0 19 * 5 +" />
+					<Polygon FillColor="white" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" Font="Arial" Height="18" LineColor="white">
+						<String>white</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="whitesmoke" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="whitesmoke" Font="Arial" Height="18">
+						<String>whitesmoke</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="gainsboro" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="gainsboro" Font="Arial" Height="18">
+						<String>gainsboro</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightgray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightgray" Font="Arial" Height="18">
+						<String>lightgray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lavendergray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lavendergray" Font="Arial" Height="18">
+						<String>lavendergray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkgray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkgray" Font="Arial" Height="18">
+						<String>darkgray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="silver" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="silver" Font="Arial" Height="18">
+						<String>silver</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="aluminium" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="aluminium" Font="Arial" Height="18">
+						<String>aluminium</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="ash" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="ash" Font="Arial" Height="18">
+						<String>ash</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="gray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="gray" Font="Arial" Height="18">
+						<String>gray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lightslategray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lightslategray" Font="Arial" Height="18">
+						<String>lightslategray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="slategray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="slategray" Font="Arial" Height="18">
+						<String>slategray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="feldgray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="feldgray" Font="Arial" Height="18">
+						<String>feldgray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="dimgray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="dimgray" Font="Arial" Height="18">
+						<String>dimgray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="davysgray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="davysgray" Font="Arial" Height="18">
+						<String>davysgray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 s0 19 * 5 +" />
+					<Polygon FillColor="abbey" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="gray" Font="Arial" Height="18">
+						<String>abbey</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="charcoal" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="gray" Font="Arial" Height="18">
+						<String>charcoal</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="arsenic" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="gray" Font="Arial" Height="18">
+						<String>arsenic</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="asphalt" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="gray" Font="Arial" Height="18">
+						<String>asphalt</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="black" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="white" Font="Arial" Height="18">
+						<String>black</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="20">
+						<String>XXXXXX Colors</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="battleshipgray" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="battleshipgray" Font="Arial" Height="18">
+						<String>battleshipgray</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="background" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="white" Font="Arial" Height="18">
+						<String>background</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+
+
+
+
+
+
+
+
+				<Element>
+					<Position X="r1 150 + s1" Y="0 s0 19 * 5 +" />
+					<GaugeText X="0" Y="18" LineColor="white" Font="Arial" Height="18">
+						<String>Other Colors</String>
+					</GaugeText>
+				</Element>
+
+
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="applegreen" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="applegreen" Font="Arial" Height="18">
+						<String>applegreen</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="apricot" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="apricot" Font="Arial" Height="18">
+						<String>apricot</String>
+					</GaugeText>
+				</Element>
+
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="bone" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="bone" Font="Arial" Height="18">
+						<String>bone</String>
+					</GaugeText>
+				</Element>
+
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="burntsienna" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="burntsienna" Font="Arial" Height="18">
+						<String>burntsienna</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="carminepink" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="carminepink" Font="Arial" Height="18">
+						<String>carminepink</String>
+					</GaugeText>
+				</Element>
+
+
+
+
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="darkcoral" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="darkcoral" Font="Arial" Height="18">
+						<String>darkcoral</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="fallow" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="fallow" Font="Arial" Height="18">
+						<String>fallow</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="jade" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="jade" Font="Arial" Height="18">
+						<String>jade</String>
+					</GaugeText>
+				</Element>
+				<Element>
+					<Position X="r1" Y="r0 ++ s0 19 * 5 +" />
+					<Polygon FillColor="lavenderblue" >
+						<Point X="0" Y="0" />
+						<Point X="18" Y="0" />
+						<Point X="18" Y="18" />
+						<Point X="0" Y="18" />
+						<Point X="0" Y="0" />
+					</Polygon>
+					<GaugeText X="24" Y="18" LineColor="lavenderblue" Font="Arial" Height="18">
+						<String>lavenderblue</String>
+					</GaugeText>
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

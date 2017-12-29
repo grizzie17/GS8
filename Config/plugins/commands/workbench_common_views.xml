@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<PluginInclude Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+
+	<!--<Parameters>
+		<Param Name="View Forward" Type="STRING">View Forward</Param>
+		<Param Name="View Reverse" Type="STRING">View Reverse</Param>
+		<Param Name="View Single" Type="STRING">View Single</Param>
+		<Param Name="View Single Auto" Type="STRING">View Single Auto</Param>
+		<Param Name="View Quad" Type="STRING">View Quad</Param>
+		<Param Name="View Dual" Type="STRING">View Dual</Param>
+		<Param Name="View PIP" Type="STRING">View PIP</Param>
+	</Parameters>-->
+
+    <Parameters>
+    <Param Name="View Forward" Type="INTEGER">41</Param>
+    <Param Name="View Reverse" Type="INTEGER">42</Param>
+    <Param Name="View Single" Type="INTEGER">10</Param>
+    <Param Name="View Single Auto" Type="INTEGER">11</Param>
+    <Param Name="View Quad" Type="INTEGER">40</Param>
+    <Param Name="View Dual" Type="INTEGER">20</Param>
+    <Param Name="View PIP" Type="INTEGER">22</Param>
+    </Parameters>
+
+
+  
+
+</PluginInclude>
+

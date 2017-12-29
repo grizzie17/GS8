@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="NVL_SubSub_Menu_Entry_1">
+
+		<Update>
+			<Script>
+				0 s7
+				0x00FF00 s1 both
+			</Script>
+		</Update>
+
+		<Size>130,20</Size>
+		<Element>
+			<Visible>(U:SUBSUB Menu Active)</Visible>
+			<Select>
+				<Expression>
+					<Script>(U:SUBSUB Menu Active)</Script>
+				</Expression>
+				<Case>
+					<Expression>
+						<Script>(K:SubSub Menu ID ADJUST LEVEL)</Script>
+					</Expression>
+					<Include File="NVL_SubSub_Menu_Items_Adjust_Level"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:SubSub Menu ID ADJUST GAIN)</Script>
+					</Expression>
+					<Include File="NVL_SubSub_Menu_Items_Adjust_Gain"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:SubSub Menu ID CONFIRM SHUTDOWN)</Script>
+					</Expression>
+					<Include File="NVL_SubSub_Menu_Items_Confirm_Shutdown"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:SubSub Menu ID AGC MODE)</Script>
+					</Expression>
+					<Include File="NVL_SubSub_Menu_Items_AGC"/>
+				</Case>
+			</Select>
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>
+				TRUE
+			</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>130,20</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent></KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

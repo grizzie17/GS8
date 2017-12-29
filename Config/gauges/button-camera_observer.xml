@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Gauge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd" Name="button-camera_observer">
+	<Size>30,40</Size>
+	<Update>
+		<Script>
+			(K:Camera Observer) (D:Video Feed 1) == (K:Camera Observer) (D:Video Feed 1) == OR
+			(K:Camera Observer) (D:Video Feed 4) == (K:Camera Observer) (D:Video Feed 4) == OR
+			(K:Camera Observer) (D:Video Feed 3) == (K:Camera Observer) (D:Video Feed 3) == OR
+			(K:Camera Observer) (D:Video Feed 2) == (K:Camera Observer) (D:Video Feed 2) == OR
+			(K:Camera Observer) (D:Video Feed 1) == (K:Camera Observer) (D:Video Feed 1) == OR
+			4 (U:Current Quadrant Selected) case
+			0
+			(U:View Layout) (K:View Quad) == ?
+			(U:View Layout) (K:View Single) == ? s4
+
+			(U:COLOR_ButtonIconSelected) (U:COLOR_ButtonIcon) r4 ? s1 both
+
+			(U:BLACKOUT SELECTED) ! s0
+			both
+		</Script>
+	</Update>
+	<Element>
+		<Include File="icon-camera-observer"/>
+	</Element>
+	<MouseArea id="MouseArea">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>70,60</Size>
+		<MouseClick id="MouseClick">
+			<KeyEvent>E:CAMERAO SELECTED</KeyEvent>
+		</MouseClick>
+	</MouseArea>
+</Gauge>

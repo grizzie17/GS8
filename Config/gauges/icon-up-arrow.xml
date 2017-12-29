@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-up-arrow" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>65,45</Size>
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Polygon LineColor="r1" FillColor="r2">
+			<Point X="20" Y="0"/>
+			<Point X="35" Y="40"/>
+			<Point X="5" Y="40"/>
+			<Point X="20" Y="0"/>
+		</Polygon>
+	</Element>
+</Gauge>

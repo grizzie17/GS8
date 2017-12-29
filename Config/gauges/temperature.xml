@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<Gauge Name="temperature" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>45,200</Size>
+	<Element>
+		<Position X="30" Y="15" />
+		<Circle X="0" Y="0" Radius="15" FillColor="gray" LineColor="gray" />
+		<Circle X="0" Y="150 s9 12 +" Radius="20" FillColor="gray" LineColor="gray" />
+		<Polygon FillColor="gray" LineColor="gray" >
+			<Point X="-15" Y="0" />
+			<Point X="15" Y="0" />
+			<Point X="15" Y="l9" />
+			<Point X="-15" Y="l9" />
+			<Point X="-15" Y="0" />
+		</Polygon>
+		<Line LineColor="darkgray" LineWidth="7">
+			<Point X="6" Y="0" />
+			<Point X="6" Y="l9" />
+		</Line>
+		<Line LineColor="black" LineWidth="1">
+			<Point X="-15" Y="l9 l9 (T:SLIDER.RED) 100 / * - s0" />
+			<Point X="15" Y="l0" />
+		</Line>
+		<Line LineColor="black" LineWidth="1">
+			<Point X="-15" Y="l9 l9 (T:SLIDER.YELLOW) 100 / * - s1" />
+			<Point X="15" Y="l1" />
+		</Line>
+		<Circle X="0" Y="l9 12 +" Radius="15" LineColor="'royalblue' 'limegreen' (T:PULSER) (T:SLIDER.YELLOW) &lt; ? 'red' (T:PULSER) (T:SLIDER.RED) &lt; ? s5" FillColor="l5" />
+		<Polygon FillColor="l5" LineColor="l5">
+			<Point X="-10" Y="l9" />
+			<Point X="10" Y="l9" />
+			<Point X="10" Y="l9 l9 (T:PULSER) 100 / * - s2" />
+			<Point X="-10" Y="l2" />
+			<Point X="-10" Y="l9" />
+		</Polygon>
+		<Circle X="0" Y="l2" Radius="10" FillColor="l5" LineColor="l5" />
+		<Line LineColor="white" LineWidth="3" >
+			<Point X="-5" Y="l9 2 +" />
+			<Point X="-5" Y="l2" />
+		</Line>
+		<Arc X="0" Y="l2" Radius="5" StartAngle="180 0.65 *" EndAngle="180" LineColor="white" LineWidth="3" />
+		<Arc X="0" Y="l9 12 +" Radius="12" StartAngle="180 0.68 *" EndAngle="180 0.85 *" LineColor="white" LineWidth="3" />
+	</Element>
+</Gauge>

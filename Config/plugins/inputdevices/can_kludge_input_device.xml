@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+	<Plugin Class="InputCanKludge" ID="UK CTD 10 CAN">
+		<!-- Avalex touch screen input device -->
+			<!--IDataStream plugin -->
+      <Param Name="CAN Port" Type="STRING">/dev/can1</Param>
+      <Param Name="CAN Port Num" Type="INTEGER">2</Param>
+      <!--CAN Port Num is 1 based -->
+      <Param Name="Baud Rate" Type="INTEGER">250</Param>
+      <Param Name="Display 2 Port" Type="INTEGER">1</Param>
+      <Param Name="Display 1 Port" Type="INTEGER">3</Param>
+         <!--"Display # Port" is 1 based: indicates which monitor port is connected -->
+      <Param Name="Display 2 CAN ID" Type="INTEGER">32</Param>
+      <Param Name="Display 1 CAN ID" Type="INTEGER">34</Param>
+      <Param Name="Termination" Type="INTEGER">1</Param>
+		</Plugin>
+</Plugins>

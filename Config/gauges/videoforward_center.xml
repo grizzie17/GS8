@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="videoforward-center">
+		<Update>
+			<Script>
+				(D:Camera Front-Right IR)
+				(D:Camera Front-Center IR)
+				(D:Camera Front-Left IR)
+				3
+				(A:Steering Wheel Angle) (B:Steering Wheel Angle.Low) /-/ +
+				(B:Steering Wheel Angle.High) (B:Steering Wheel Angle.Low) -
+				/
+				3
+				*
+				case (?C:Video Feed 1)
+			</Script>
+		</Update>
+		<Element>
+			<!--Position X="(S:SCREEN WIDTH) 4 /" Y="(S:SCREEN HEIGHT) 0.35 *" /-->
+			<Polyline LineColor="dimgray" LineWidth="1">
+				<Point X="0" Y="0" />
+				<Point X="(S:SCREEN WIDTH) 2 / s0" Y="0" />
+				<Point X="r0" Y="(S:SCREEN HEIGHT) 0.65 * s1" />
+				<Point X="0" Y="r1" />
+				<Point X="0" Y="0" />
+			</Polyline>
+			<Element>
+				<Position X="5" Y="5" />
+				<Select>
+					<Expression>
+						<Script>(D:Video Feed 1)</Script>
+					</Expression>
+					<Case>
+						<Expression>
+							<Script>(D:Camera Front-Left IR)</Script>
+						</Expression>
+						<Include File="camera_frontleft" />
+					</Case>
+					<Case>
+						<Expression>
+							<Script>(D:Camera Front-Center IR)</Script>
+						</Expression>
+						<Include File="camera_frontcenter" />
+					</Case>
+					<Case>
+						<Expression>
+							<Script>(D:Camera Front-Right IR)</Script>
+						</Expression>
+						<Include File="camera_frontright" />
+					</Case>
+				</Select>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

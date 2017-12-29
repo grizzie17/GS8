@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="workbench_common"/>
+
+
+	<Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="Camera Front Right" Type="STRING">Camera Front Right</Param>
+		<Param Name="Camera Front Left" Type="STRING">Camera Front Left</Param>
+		<Param Name="Camera Front" Type="STRING">Camera Front</Param>
+		<Param Name="Camera Rear IR" Type="STRING">Camera Rear IR</Param>
+		<Param Name="Camera Rear Color" Type="STRING">Camera Rear Color</Param>
+		<Param Name="Camera Rear Right" Type="STRING">Camera Rear Right</Param>
+		<Param Name="Camera Rear Left" Type="STRING">Camera Rear Left</Param>
+		<Param Name="Camera Observer" Type="STRING">Camera Observer</Param>
+	</Plugin>
+
+	<!--
+	Define constant values describing user input direction pressed
+	-->
+	<Plugin Class="CmdConstant" Group="" ID="VCB Input Constants">
+		<Param Name="UP" Type="INTEGER">0</Param>
+		<Param Name="DOWN" Type="INTEGER">1</Param>
+		<Param Name="LEFT" Type="INTEGER">2</Param>
+		<Param Name="RIGHT" Type="INTEGER">3</Param>
+	</Plugin>
+
+	<!--
+		NOTE: The Main Menu ID may be changed to suite the user. It will change the order
+		of the display only. At this time, the Sub and SubSubmenu items cannot be updated in 
+		this manner. Changing the SubSub Menu ID values below will not have an affect on 
+		order. The ID's uniquelly identifies each possbile menu only. The only 
+		requirement is that they each have a unique value. "Main Menu ID MAX" identifies
+		the number of Main Menu IDs and must be left unchanged.
+	-->
+	<Plugin Class="CmdConstant" Group="" ID="Menu ID Constants">
+		<Param Name="SubSub Menu ID None" Type="INTEGER">0</Param>
+		<Param Name="SubSub Menu ID CONFIRM SHUTDOWN" Type="INTEGER">1</Param>
+		<Param Name="SubSub Menu ID AGC MODE" Type="INTEGER">2</Param>
+		<Param Name="SubSub Menu ID ADJUST LEVEL" Type="INTEGER">3</Param>
+		<Param Name="SubSub Menu ID ADJUST GAIN" Type="INTEGER">4</Param>
+		<Param Name="Main Menu ID SCREEN MODE" Type="INTEGER">0</Param>
+		<Param Name="Main Menu ID CAMERA SETTINGS" Type="INTEGER">1</Param>
+		<Param Name="Main Menu ID QUADRANT" Type="INTEGER">2</Param>
+		<Param Name="Main Menu ID MISC" Type="INTEGER">3</Param>
+		<Param Name="Main Menu ID EXIT" Type="INTEGER">4</Param>
+		<Param Name="Main Menu ID MAX" Type="INTEGER">5</Param>
+	</Plugin>
+
+	<!--
+	<Plugin Class="CmdWBReturnTrue" Group="" ID="Extra Commands">
+		<Param Name="Send Point External" Type="INTEGER">0</Param>
+	</Plugin>
+	-->
+
+	<Include File="../videosources/active"/>
+
+</Plugins>
+

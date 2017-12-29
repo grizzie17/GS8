@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Gauge>
+	<Comment>
+		The Update script adjusts for the steering angle
+		to create 0=left 1=center 2=right
+		The result is stored in register-0
+	</Comment>
+	<Update>
+		<Script>
+			2 1 0 3
+			(A:Steering Angle) (B:Steering Angle.Low) /-/ +
+			(B:Steering Angle.High) (B:Steering Angle.Low) -
+			/ 
+			3 *
+			case s0
+
+			(D:Camera Front-Right IR)
+			(D:Camera Front-Center IR)
+			(D:Camera Front-Left IR)
+			3
+			r0 case (=C:Video Feed 1)
+			
+			r0
+			
+			both
+			r0 
+			 r0 (G:Sel) != ? (=G:Sel)
+			 
+			 both
+
+		</Script>
+	</Update>
+	<Element>
+		
+	</Element>
+</Gauge>

@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="icon-temperature">
+		<!--
+		Registers are used to drive the various parameters
+	
+		NOTE: The gauge is green from bottom up.
+		R5	- height of slider
+		R6	- width of slider
+		R7	- green separator (highest green reading)
+		R8	- yellow separator (highest yellow reading)
+		R9	- current position
+		-->
+		<Update>
+			<Frequency>4</Frequency>
+			<Script>
+				(B:Engine Coolant Temp.Green.High) s7
+				(B:Engine Coolant Temp.Yellow.High) s8 both
+				(A:Engine Coolant Temp) s9 both
+
+				/*
+					Determine if the icon is to be displayed. If the temperature is below
+				*/
+					(U:FLASH)				// Yellow or Red reading, flash the gauge (false state will turn the gauge off)
+					true								// else default to show gauge (based on the "visibility" tag below)
+				r7 r9 &lt; ? s0
+				both
+			</Script>
+		</Update>
+		<Size>18,47</Size>
+		<Element Context="foreground">
+		<!--
+		switch (U:GAUGE SWITCH)
+		0:	if r9 > r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+		-->
+		<Visibility>
+			false
+			r0
+			r0 false r7 r9 &lt; 5 (A:RPM) &lt; AND ?
+			3 (U:GAUGE SWITCH) case
+			
+		</Visibility>
+			<Element>
+				<Arc X="3 3 +" Y="3" 
+					 Radius="3"
+					 StartAngle="0" EndAngle="180" 
+					 LineWidth="2" LineColor="(U:COLOR_IconSafe) (U:COLOR_IconAlert) (U:COLOR_IconWarning) r9 r8 &lt; ? r9 r7 &lt; ? s9"/>
+				<Line LineWidth="2" LineColor="r9">
+					<Point X="3" Y="3" />
+					<Point X="3" Y="40" />
+				</Line>
+				<Line LineWidth="2" LineColor="r9">
+					<Point X="3 6 +" Y="3" />
+					<Point X="3 6 +" Y="40" />
+				</Line>
+				<Line LineWidth="1" LineColor="r9">
+					<Point X="3 6 +" Y="7" />
+					<Point X="3 15 +" Y="7" />
+				</Line>
+				<Line LineWidth="1" LineColor="r9">
+					<Point X="3 6 +" Y="17" />
+					<Point X="3 15 +" Y="17" />
+				</Line>
+				<Line LineWidth="1" LineColor="r9">
+					<Point X="3 6 +" Y="27" />
+					<Point X="3 15 +" Y="27" />
+				</Line>
+				<Circle X="3 3 +" Y="40" Radius="7" FillColor="r9"/>
+				<Polygon LineColor="r9" FillColor="r9">
+					<Point X="3" Y="14" />
+					<Point X="3 6 +" Y="14" />
+					<Point X="3 6 +" Y="40" />
+					<Point X="3" Y="40" />
+					<Point X="3" Y="14" />
+				</Polygon>
+			</Element>
+			<Element>
+				<Visibility>(U:GAUGE DETAIL)</Visibility>
+				<GaugeText X="10" Y="50"
+						   Font="Arial" Height="20" Align="center"
+						   Color="r9" VerticalAlign="top">
+					<String>%((A:Engine Coolant Temp) 'celsius' 'fahrenheit' 2 (U:UNITS) case unitcnv)%!d!</String>
+				</GaugeText>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

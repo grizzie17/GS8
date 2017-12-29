@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-NVL_Screen_Mode">
+
+		<Update>
+			<Script>
+				(U:Main Menu Ptr) 2 + (K:Main Menu ID MAX) % s7
+				0x00FF00 s1 both
+			</Script>
+		</Update>
+
+		<Size>130,20</Size>
+		<Element>
+			<Include File="NVL_Main_Menu_Item" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>
+				TRUE
+			</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>130,20</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent></KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<Gauge Name="slider" Version="1.0">
+	<Size Y="25" X="240" />
+	<Update>
+		<!-- frequency of 1 means update once a second -->
+		<Frequency>1</Frequency>
+	</Update>
+	<Element>
+		<!--Position Y="(S:SCREEN HEIGHT) 25 -" X="(S:SCREEN WIDTH) 240 -" /-->
+		<Element>
+			<Position Y="5" X="14" />
+			<Polygon FillColor=" 'lightgreen' 'orange' (B:Fuel Level.Green.Low) (B:Fuel Level.Green.High) (A:Fuel Level) range ? s9">
+				<Point Y="0" X="100 (A:Fuel Level) - 10.0 / 0.3 + floor 20.0 *  s8" />
+				<Point Y="12" X="r8" />
+				<Point Y="12" X="200" />
+				<Point Y="0" X="200" />
+				<Point Y="0" X="r8" />
+			</Polygon>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="20" />
+				<Point Y="20" X="20" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="40" />
+				<Point Y="20" X="40" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="60" />
+				<Point Y="20" X="60" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="80" />
+				<Point Y="20" X="80" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="100" />
+				<Point Y="20" X="100" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="120" />
+				<Point Y="20" X="120" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="140" />
+				<Point Y="20" X="140" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="160" />
+				<Point Y="20" X="160" />
+			</Line>
+			<Line LineColor="background" LineWidth="4">
+				<Point Y="0" X="180" />
+				<Point Y="20" X="180" />
+			</Line>
+		</Element>
+		<Element>
+			<Position Y="0" X="14" />
+			<Line LineColor="l9" LineWidth="4">
+				<Point Y="0" X="2" />
+				<Point Y="0" X="198" />
+			</Line>
+		</Element>
+		<Element>
+			<Position Y="-4" X="0" />
+			<GaugeText Y="0" X="11" Font="Arial" Height="26" Align="right" VerticalAlign="top" LineColor="l9">
+				<String>F</String>
+			</GaugeText>
+			<GaugeText Y="0" X="218" Font="Arial" Height="26" VerticalAlign="top" LineColor="l9">
+				<String>E</String>
+			</GaugeText>
+		</Element>
+	</Element>
+</Gauge>

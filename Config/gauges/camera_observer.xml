@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Gauge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>30,40</Size>
+	<Element>
+		<Rectangle X="10" Y="10" Width="10" Height="20" LineColor="lightgreen" LineWidth="2"/>
+		<Circle LineColor="lightgreen" LineWidth="2" X="15" Y="12" Radius="12" Color="lightgreen" />
+	</Element>
+</Gauge>

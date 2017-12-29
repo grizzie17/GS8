@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<Gauge Name="dial" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<!--
+			r0 = port #
+			r1 = ESS_#
+			r2 = ESS_TIME
+			-->
+	<Element Context="background">
+		<Visibility>(K:ESS COUNT) 0 LE</Visibility>
+
+		<GaugeText>
+					<FontFace>Arial</FontFace>
+					<FontHeight>50</FontHeight>
+					<FontColor>gold</FontColor>
+					<HorizontalAlign>left</HorizontalAlign>
+					<VerticalAlign>top</VerticalAlign>
+					<GaugeString>No COM ports found</GaugeString>
+				</GaugeText>
+	</Element>
+</Gauge>

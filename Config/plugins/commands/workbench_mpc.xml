@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="workbench_common"/>
+	<Include File="touch_calibrate"/>
+
+
+	<Plugin Class="CmdCopyToD" ID="Shutdown">
+		<Param Name="System Shutdown" Type="BOOLEAN">false</Param>
+	</Plugin>
+
+
+
+	<Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="Camera Front-Center IR" Type="STRING">MPC-Front-Center.jpg</Param>
+		<Param Name="Camera Front-Center Color" Type="STRING">MPC-Front-Center.jpg</Param>
+		<Param Name="Camera Front-Left IR" Type="STRING">MPC-Front-Left.jpg</Param>
+		<Param Name="Camera Front-Left Color" Type="STRING">MPC-Front-Left.jpg</Param>
+		<Param Name="Camera Front-Right IR" Type="STRING">MPC-Front-Right.jpg</Param>
+		<Param Name="Camera Front-Right Color" Type="STRING">MPC-Front-Right.jpg</Param>
+		<Param Name="Camera Rear IR" Type="STRING">MPC-Rear.jpg</Param>
+		<Param Name="Camera Rear Color" Type="STRING">MPC-Rear.jpg</Param>
+		<Param Name="Camera Left-Forward IR" Type="STRING">MPC-Left-Forward.jpg</Param>
+		<Param Name="Camera Left-Forward Color" Type="STRING">MPC-Left-Forward.jpg</Param>
+		<Param Name="Camera Left-Rear IR" Type="STRING">MPC-Left-Rear IR</Param>
+		<Param Name="Camera Left-Rear Color" Type="STRING">MPC-Left-Rear Color</Param>
+		<Param Name="Camera Right-Forward IR" Type="STRING">MPC-Right-Forward.jpg</Param>
+		<Param Name="Camera Right-Forward Color" Type="STRING">MPC-Right-Forward.jpg</Param>
+		<Param Name="Camera Right-Rear IR" Type="STRING">MPC-Right-Rear IR</Param>
+		<Param Name="Camera Right-Rear Color" Type="STRING">MPC-Right-Rear Color</Param>
+		<Param Name="Camera Observer IR" Type="STRING">MPC-Observer IR</Param>
+		<Param Name="Camera Observer Color" Type="STRING">MPC-Observer Color</Param>
+	</Plugin>
+
+
+
+</Plugins>
+

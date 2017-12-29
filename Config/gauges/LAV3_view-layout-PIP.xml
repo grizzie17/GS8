@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="LAV3_view-layout-PIP">
+		<Update>
+			<Script>
+				/*
+				R8 is defines the height of the PiP video
+				R9 is defines the width of the PiP video
+				R1 defines the Xorigin of the PiP video
+				R2 defines the Yorigin of the PiP video
+				*/
+				(S:SCREEN HEIGHT) 4 / s8
+				(S:SCREEN WIDTH) 4 / s9 both
+					10 s1
+					10 s2 both
+					(S:SCREEN WIDTH) r9 - 10 - s1
+					10 s2 both
+					(S:SCREEN WIDTH) r9 - 10 - s1
+					(S:SCREEN HEIGHT) r8 - 10 - s2 both
+					10 s1
+					(S:SCREEN HEIGHT) r8 - 10 -  s2 both
+					(S:SCREEN WIDTH) 2 / r9 2 / - s1
+					(S:SCREEN HEIGHT) 2 / r8 2 / - s2 both
+				5 (U:Current PIP Position) case both
+			</Script>
+		</Update>
+		<Element Context="group">
+			<Visibility>
+				(U:View Layout) (K:View PIP) ==
+			</Visibility>
+			<Element Context="application">
+				<Video>
+					<Origin>0,0</Origin>
+					<WidthScript>(S:SCREEN WIDTH)</WidthScript>
+					<HeightScript>(S:SCREEN HEIGHT)</HeightScript>
+					<LineColor>darkblue</LineColor>
+					<LineWidth>1</LineWidth>
+					<SourceScript>(U:Video Feed 1)</SourceScript>
+				</Video>
+				<Video>
+					<OriginXScript>r1</OriginXScript>
+					<OriginYScript>r2</OriginYScript>
+					<HeightScript>r8</HeightScript>
+					<WidthScript>r9</WidthScript>
+					<LineColor>darkblue</LineColor>
+					<LineWidth>1</LineWidth>
+					<SourceScript>(U:Video Feed 2)</SourceScript>
+				</Video>
+			</Element>
+			<Element Context="background">
+
+				<!--
+					Draw the appropriate camera icon for video feed 1 (full screen feed)
+				-->
+				<Element>
+					<Position X="(S:SCREEN WIDTH) 150 -" Y="(S:SCREEN HEIGHT) 75 -" />
+					<Include File="LAV3_view-feed-1" />
+				</Element>
+				<!--
+					Draw the appropriate camera icon for video feed 2 (Inset feed)
+				-->
+				<Element>
+					<Position X="r1 r9 + 25 -" Y="r2 r8 + 45 -"/>
+					<Include File="LAV3_view-feed-2" />
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

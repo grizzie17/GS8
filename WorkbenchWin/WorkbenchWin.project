@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="WorkbenchWin" Version="10.0.0">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0013Debug_Linux640000000000000001N0009Debug_x64000000000000]]>
+    </Plugin>
+    <Plugin Name="CMakePlugin">
+      <![CDATA[[{
+  "name": "Debug_Linux64",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }, {
+  "name": "Debug_x64",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }]]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="Source Files">
+    <File Name="CApplicationGaugeWorkbench.cpp"/>
+    <File Name="CWinCEApp.cpp"/>
+    <File Name="CWinCEDlg.cpp"/>
+    <File Name="winmain.cpp"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="Header Files">
+    <File Name="CApplicationGaugeWorkbench.h"/>
+    <File Name="CWinCEApp.h"/>
+    <File Name="CWinCEDlg.h"/>
+    <VirtualDirectory Name="Application">
+      <File Name="resource.h"/>
+      <File Name="resource2.h"/>
+      <File Name="stdafx.h"/>
+      <File Name="targetver.h"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="Resource Files">
+    <File Name="icon1.ico"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="resource">
+    <File Name="../MPCMFC.cdm"/>
+    <File Name="MPCMFC.reg"/>
+    <File Name="ReadMe.txt"/>
+    <File Name="../.clang-format"/>
+  </VirtualDirectory>
+  <Dependencies Name="Debug_x64">
+    <Project Name="LogFile"/>
+    <Project Name="Common"/>
+    <Project Name="Platform"/>
+    <Project Name="Gadget"/>
+    <Project Name="VSAShared"/>
+    <Project Name="VDraw"/>
+    <Project Name="WorkbenchShared"/>
+  </Dependencies>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="$(CXXFLAGS_GLOBAL)" C_Options="" Assembler="">
+        <IncludePath Value="$(WorkspacePath)/WorkbenchShared"/>
+        <IncludePath Value="$(IncludeDirs)"/>
+        <Preprocessor Value="$(Defines)"/>
+      </Compiler>
+      <Linker Options="-mwindows;$(LDFLAGS_GLOBAL)">
+        <LibraryPath Value="$(LibraryDirs)"/>
+        <Library Value="WorkbenchShared"/>
+        <Library Value="VSAShared"/>
+        <Library Value="Gadget"/>
+        <Library Value="VDraw"/>
+        <Library Value="Common"/>
+        <Library Value="LogFile"/>
+        <Library Value="Platform"/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug_Linux64" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <Preprocessor Value="WIN64"/>
+        <Preprocessor Value="_WINDOWS"/>
+        <Preprocessor Value="_DEBUG"/>
+      </Compiler>
+      <Linker Options="-mwindows;-O0" Required="yes">
+        <Library Value="gdi32"/>
+        <Library Value="stdc++"/>
+        <Library Value="gcc"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="../$(VS_Configuration)/$(ProjectName).exe" IntermediateDirectory="../$(VS_Configuration)/build/$(ProjectName)" Command="$(WorkspacePath)/$(VS_Configuration)/$(ProjectName).exe" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(WorkspacePath)/$(VS_Configuration)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="no"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="\TDM-GCC-64\bin\gdb64.exe" IsExtended="no">
+        <DebuggerSearchPaths>C:\Users\jgriswold\Documents\Toys\GS8\Debug_x64
+C:\Windows\System32
+C:\Windows\SysWOW64
+C:\TDM-GCC-64\bin
+C:\TDM-GCC-64\x86_64-w64-mingw32\bin
+C:\cygwin64\bin
+C:\TDM-GCC-64\lib
+C:\TDM-GCC-64\x86_64-w64-mingw32\lib</DebuggerSearchPaths>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Debug_Win32" CompilerType="MinGW ( TDM-GCC-32 )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g -Wall" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="serial"/>
+        <IncludePath Value="../Gadget"/>
+        <IncludePath Value="../VSAShared"/>
+        <IncludePath Value="../WorkbenchShared"/>
+        <IncludePath Value="../Common"/>
+        <IncludePath Value="../PluginSample"/>
+        <IncludePath Value="../VideoSource"/>
+        <IncludePath Value="../Draw/VDraw"/>
+        <Preprocessor Value="WIN32"/>
+        <Preprocessor Value="_WINDOWS"/>
+        <Preprocessor Value="_DEBUG"/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName).exe" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./$(IntermediateDirectory)" PauseExecWhenProcTerminates="no" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Workspace Settings&gt;" DbgSetName="&lt;Use Global Settings&gt;">
+        <![CDATA[VS_Configuration=Debug
+VS_IntDir=./Debug/
+VS_OutDir=./Debug/
+VS_Platform=Win32
+VS_ProjectDir=C:/Users/jgriswold/Documents/Toys/GS8/WorkbenchWin/
+VS_ProjectName=WorkbenchWin
+VS_SolutionDir=C:/Users/jgriswold/Documents/Toys/GS8/
+]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Debug_x64" CompilerType="TDM-GCC-64" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <Preprocessor Value="WIN64"/>
+        <Preprocessor Value="_WINDOWS"/>
+        <Preprocessor Value="_DEBUG"/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <Library Value="LogFile"/>
+        <Library Value="Platform"/>
+        <Library Value="Common"/>
+        <Library Value="VDraw"/>
+        <Library Value="Gadget"/>
+        <Library Value="VSAShared"/>
+        <Library Value="WorkbenchShared"/>
+        <Library Value="kernel32"/>
+        <Library Value="user32"/>
+        <Library Value="gdi32.a"/>
+        <Library Value="winspool"/>
+        <Library Value="comdlg32"/>
+        <Library Value="advapi32"/>
+        <Library Value="shell32"/>
+        <Library Value="ole32"/>
+        <Library Value="oleaut32"/>
+        <Library Value="uuid"/>
+        <Library Value="odbc32"/>
+        <Library Value="odbccp32"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(ExeFile)" IntermediateDirectory="$(IntermediateDir)" Command="$(OutputFile)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(VS_OutDir)" PauseExecWhenProcTerminates="yes" IsGUIProgram="yes" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="\TDM-GCC-64\bin\gdb64.exe" IsExtended="no">
+        <DebuggerSearchPaths>C:\Users\jgriswold\Documents\Toys\GS8\Debug_x64
+C:\Windows\System32
+C:\Windows\SysWOW64
+C:\TDM-GCC-64\bin
+C:\TDM-GCC-64\x86_64-w64-mingw32\bin
+C:\cygwin64\bin
+C:\TDM-GCC-64\lib
+C:\TDM-GCC-64\x86_64-w64-mingw32\lib</DebuggerSearchPaths>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release_Win32" CompilerType="MinGW ( TDM-GCC-32 )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g -Wall" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="serial"/>
+        <IncludePath Value="../Gadget"/>
+        <IncludePath Value="../VSAShared"/>
+        <IncludePath Value="../WorkbenchShared"/>
+        <IncludePath Value="../Common"/>
+        <IncludePath Value="../PluginSample"/>
+        <IncludePath Value="../VideoSource"/>
+        <IncludePath Value="../Draw/VDraw"/>
+        <Preprocessor Value="WIN32"/>
+        <Preprocessor Value="_WINDOWS"/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+        <Library Value="ws2_32.a"/>
+        <Library Value="Gdi32.a"/>
+        <Library Value="User32.a"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName).exe" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Workspace Settings&gt;" DbgSetName="&lt;Use Global Settings&gt;">
+        <![CDATA[VS_Configuration=Release
+VS_IntDir=./Release/
+VS_OutDir=./Release/
+VS_Platform=Win32
+VS_ProjectDir=C:/Users/jgriswold/Documents/Toys/GS8/WorkbenchWin/
+VS_ProjectName=WorkbenchWin
+VS_SolutionDir=C:/Users/jgriswold/Documents/Toys/GS8/
+]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release_x64" CompilerType="MinGW ( TDM-GCC-32 )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g -Wall" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="serial"/>
+        <IncludePath Value="../Gadget"/>
+        <IncludePath Value="../VSAShared"/>
+        <IncludePath Value="../WorkbenchShared"/>
+        <IncludePath Value="../Common"/>
+        <IncludePath Value="../PluginSample"/>
+        <IncludePath Value="../VideoSource"/>
+        <IncludePath Value="../Draw/VDraw"/>
+        <Preprocessor Value="WIN32"/>
+        <Preprocessor Value="_WINDOWS"/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+        <Library Value="ws2_32.a"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName).exe" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Workspace Settings&gt;" DbgSetName="&lt;Use Global Settings&gt;">
+        <![CDATA[VS_Configuration=Release
+VS_IntDir=./Release/
+VS_OutDir=./Release/
+VS_Platform=x64
+VS_ProjectDir=C:/Users/jgriswold/Documents/Toys/GS8/WorkbenchWin/
+VS_ProjectName=WorkbenchWin
+VS_SolutionDir=C:/Users/jgriswold/Documents/Toys/GS8/
+]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="color-theme">
+		<Update>
+			<Script>
+				// Define the button text
+				"Color" s6
+				"Theme" s7	both
+				" " s8 both
+
+				// Define the button text colors
+				(U:COLOR_ButtonText) s1 s2 s3 both
+
+				(U:BLACKOUT SELECTED) ! s0 both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Element Context="application">
+				<Select>
+					<Expression>
+						<Script>(U:Color Theme)</Script>
+					</Expression>
+					<Case>
+						<ExpressionResult>'green'</ExpressionResult>
+						<Include File="color-theme-green" />
+					</Case>
+					<Case>
+						<ExpressionResult>'yellow'</ExpressionResult>
+						<Include File="color-theme-yellow" />
+					</Case>
+					<Case>
+						<ExpressionResult>'red'</ExpressionResult>
+						<Include File="color-theme-red" />
+					</Case>
+					<Case>
+						<ExpressionResult>'magenta'</ExpressionResult>
+						<Include File="color-theme-magenta" />
+					</Case>
+					<Case>
+						<ExpressionResult>'blue'</ExpressionResult>
+						<Include File="color-theme-blue" />
+					</Case>
+					<Case>
+						<ExpressionResult>'cyan'</ExpressionResult>
+						<Include File="color-theme-cyan" />
+					</Case>
+					<Case>
+						<ExpressionResult>'white'</ExpressionResult>
+						<Include File="color-theme-white" />
+					</Case>
+					<Case>
+						<ExpressionResult>'black'</ExpressionResult>
+						<Include File="color-theme-black" />
+					</Case>
+					<CaseElse>
+						<Include File="color-theme-green" />
+					</CaseElse>
+				</Select>
+			</Element>
+			<Element Context="background">
+				<Include File="icon-text" />
+			</Element>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:TOGGLE COLOR THEME</KeyEvent>
+				<Script>
+					'green'
+					'yellow'
+					'red'
+					'magenta'
+					'blue'
+					'cyan'
+					'white'
+					'black'
+					8 (U:Color Theme) find
+
+					++ 8 % s0
+
+					'green'
+					'yellow'
+					'red'
+					'magenta'
+					'blue'
+					'cyan'
+					'white'
+					'black'
+					8 r0 case (=U:Color Theme)
+					both
+				</Script>
+			</Trigger>
+		</KeyMap>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:TOGGLE COLOR THEME</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

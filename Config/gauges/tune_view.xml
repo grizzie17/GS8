@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="tune_view">
+		<Update>
+			<Script>
+				(S:SCREEN WIDTH) 2 / s0
+				(S:SCREEN HEIGHT) 2 / s1
+				both
+			</Script>
+		</Update>
+		<Element Context="foreground">
+			<Rectangle>
+				<Origin>0,0</Origin>
+				<HeightScript>(S:SCREEN HEIGHT)</HeightScript>
+				<WidthScript>(S:SCREEN WIDTH)</WidthScript>
+				<LineWidth>4</LineWidth>
+				<LineColor>lime</LineColor>
+			</Rectangle>
+			<Line LineColor="lime" LineWidth="2">
+				<Point X="0" Y="r1" />
+				<Point X="(S:SCREEN WIDTH)" Y="r1" />
+			</Line>
+			<Line LineColor="lime" LineWidth="2">
+				<Point X="r0" Y="0" />
+				<Point X="r0" Y="(S:SCREEN HEIGHT)" />
+			</Line>
+			<Polygon LineColor="yellow" LineWidth="2">
+				<Point X="r0" Y="0" />
+				<Point X="(S:SCREEN WIDTH)" Y="r1" />
+				<Point X="r0" Y="(S:SCREEN HEIGHT)" />
+				<Point X="0" Y="r1" />
+				<Point X="r0" Y="0" />
+			</Polygon>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

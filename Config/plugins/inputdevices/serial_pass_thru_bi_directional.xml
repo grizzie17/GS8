@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+  <!-- Pass through inputs between 2 serial devices
+       Inputs from the Controller Module (CM) are passed to the 
+       Electronic Pand and Tilt Module (EPTM)
+       
+       Inputs from the EPTM are passed to the CM-->
+
+  <Plugin Class="InputSerialPassThruBiDirectionalVDDS" ID="CM - EPTM">
+
+    <Plugin Class="CommSerialPassThruBiDirectional" ID="RS485">
+        <!-- CM  - 485 serial port configuration-->
+        <Param Name="Port1" Type="STRING">/dev/ttyVDDS4852</Param>
+        <Param Name="Baud1" Type="INTEGER">19200</Param>
+        <Param Name="Parity1" Type="STRING">None</Param>
+        <Param Name="Stop Bits1" Type="INTEGER">1</Param>
+        <Param Name="Data Bits1" Type="INTEGER">8</Param>
+        <Param Name="Flow Control1" Type="STRING">None</Param>
+
+        <!-- EPTM - 485 serial port configuration -->
+        <Param Name="Port2" Type="STRING">/dev/ttyVDDS4850</Param>
+        <Param Name="Baud2" Type="INTEGER">19200</Param>
+        <Param Name="Parity2" Type="STRING">None</Param>
+        <Param Name="Stop Bits2" Type="INTEGER">1</Param>
+        <Param Name="Data Bits2" Type="INTEGER">8</Param>
+        <Param Name="Flow Control2" Type="STRING">None</Param>
+    </Plugin>
+  </Plugin>
+</Plugins>

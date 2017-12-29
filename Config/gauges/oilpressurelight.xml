@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<Gauge Name="oilpressurelight" Version="1.0">
+	<Size X="70" Y="70" />
+	<Element>
+		
+  <Visible>(T:SLIDER.YELLOW) (T:PULSER) &lt;</Visible>
+	<Element>
+		<Visible>(T:MILLI) 2000 % 1500 &lt;</Visible>
+		<Element>
+			<Polyline LineColor="orange" LineWidth="2">
+				<Point X="4" Y="0" />
+				<Point X="15" Y="5" />
+				<Point X="15" Y="15" />
+				<Point X="0" Y="12" />
+				<Point X="4" Y="0" />
+			</Polyline>
+			<Polyline LineColor="orange" LineWidth="4">
+				<Point X="15" Y="10" />
+				<Point X="15 23 +" Y="10" />
+				<Point X="15 27 +" Y="15" />
+				<Point X="15 50 +" Y="8" />
+				<Point X="15 30 +" Y="27" />
+				<Point X="15" Y="27" />
+				<Point X="15" Y="10" />
+			</Polyline>
+			<Polyline LineColor="orange" LineWidth="3">
+				<Point X="15 50 +" Y="8" />
+				<Point X="15 54 +" Y="6" />
+				<Point X="15 58 +" Y="5" />
+			</Polyline>
+			<Line LineColor="orange" LineWidth="2">
+				<Point X="15 15 +" Y="10" />
+				<Point X="15 15 +" Y="3" />
+			</Line>
+			<Line LineColor="orange" LineWidth="3">
+				<Point X="15 5 +" Y="3" />
+				<Point X="15 21 +" Y="3" />
+			</Line>
+			<Element>
+				<Position X="15 60 +" Y="8" />
+				<Polygon FillColor="orange" LineColor="orange">
+					<Point X="0" Y="0" />
+					<Point X="3" Y="15" />
+					<Point X="3" Y="18" />
+					<Point X="0" Y="20" />
+					<Point X="-3" Y="18" />
+					<Point X="-3" Y="15" />
+					<Point X="0" Y="0" />
+				</Polygon>
+			</Element>
+			<GaugeText X="36" Y="30" Align="center" VerticalAlign="top" Font="Arial" Height="24" LineColor="orange">
+				<String>OIL</String>
+			</GaugeText>
+		</Element>
+	</Element>
+	</Element>
+</Gauge>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-zoom">
+		<Size>70,60</Size>
+		<Update>
+			<!-- s1 defines the icon color -->
+			<Script> 
+				0x00FF00 s1
+				(D:Camera Cap Zoom) (K:Unsupported) != (U:BLACKOUT SELECTED) ! AND s0
+				both
+			</Script>
+		</Update>
+		<Element>
+			<Include File="icon-zoom"/>
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>
+				(D:Camera Cap Zoom) (K:Unsupported) != (U:BLACKOUT SELECTED) ! AND
+			</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:ZOOM SELECTED</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

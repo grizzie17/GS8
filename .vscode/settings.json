@@ -1,0 +1,5 @@
+{
+	"uncrustify.configPath": "uncrustify.cfg",
+	"C_Cpp.formatting": "Disabled",
+	"github.repositories": ["GS8"]
+}

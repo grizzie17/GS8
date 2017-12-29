@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Screen Active="'everything'"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+  <Update>
+    <Script>
+      (S:MILLI) 2000 % 1500 &lt; (=U:FLASH)
+    </Script>
+  </Update>
+  <PanelInstance Name="everything" />
+  <KeyEventMap>
+    <OnDown>
+      <Key id="BEZEL1" Event="E:CHANGE PANEL" />
+      <Key id="F1" Event="E:CHANGE PANEL" />
+      <Key id="F8" Event="E:TOGGLE LOADER" />
+      <Key id="SPACE" Event="E:CHANGE PANEL" />
+      <Key id="ESCAPE" Event="E:RELOAD SCREEN" />
+      <Key id="A" Event="E:TOGGLE AUTO STEER"/>
+      <Key id="B" Event="E:BLACKOUT" />
+      <Key id="D" Event="E:DUMP DICTIONARY"/>
+      <Key id="G" Event="E:GAUGES PANEL"/>
+      <Key id="L" Event="E:TOGGLE LOADER"/>
+      <Key id="M" Event="E:MAIN PANEL"/>
+      <Key id="S" Event="E:TOGGLE SEAT POSITION"/>
+      <Key id="U" Event="E:TOGGLE UNITS"/>
+    </OnDown>
+  </KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE LOADER</KeyEvent>
+			<Script>1 (=C:Toggle Loader)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS IMPERIAL</KeyEvent>
+			<Script>0 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS METRIC</KeyEvent>
+			<Script>1 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE UNITS</KeyEvent>
+			<Script>
+				1 (=E:UNITS IMPERIAL)
+				0 (=E:UNITS METRIC)
+				2 (U:UNITS) case
+			</Script>
+		</Trigger>
+	</KeyMap>
+</Screen>

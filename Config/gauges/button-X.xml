@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-X">
+		<Update>
+			<Script>
+				'Change' s6
+				"Station" s7	both
+				" " s8 both
+				
+				0x00FF00 s1 both
+				r1 s2 both 
+				r1 s3 both 
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:CHANGE STATION</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+		<ActionMap>
+		<Trigger>
+			<KeyEvent>E:CHANGE STATION</KeyEvent>
+			<Script>
+				(G:STATION ID) 1 + 2 % (=G:STATION ID)
+				'driver'
+				'squad_main' 
+				2 (G:STATION ID) case (=U:PANEL) both
+			</Script>
+		</Trigger>
+		</ActionMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

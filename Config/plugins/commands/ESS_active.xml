@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Plugin Class="CmdConstant" Group="" ID="SAMPLE">
+		<Param Name="GEORGE1" Type="STRING">abcdefghi</Param>
+		<Param Name="FRED1" Type="INTEGER">12345</Param>
+	</Plugin>
+
+
+	<Plugin Class="CmdOmniScapeESS" Group="" ID="ESS START">
+		<Param Name="Static Display" Type="BOOLEAN">false</Param>
+
+		<Param Name="Server IP" Type="STRING">192.168.0.141</Param>
+
+		<Param Name="Baud" Type="INTEGER">115200</Param>
+		<Param Name="Data Bits" Type="INTEGER">8</Param>
+		<Param Name="Stop Bits" Type="INTEGER">1</Param>
+		<Param Name="Parity" Type="ENUM">NONE</Param>
+		<Param Name="Handshaking" Type="ENUM">OFF</Param>
+
+		<Param Name="Port Count" Type="INTEGER">1</Param>
+		<Param Name="Port 1" Type="STRING">COM3</Param>
+		<Param Name="Port 2" Type="STRING">COM4</Param>
+		<Param Name="Port 3" Type="STRING">COM5</Param>
+		<Param Name="Port 4" Type="STRING">COM6</Param>
+		<Param Name="Port 5" Type="STRING">COM11</Param>
+		<Param Name="Port 6" Type="STRING">COM12</Param>
+		<Param Name="Port 7" Type="STRING">COM13</Param>
+		<Param Name="Port 8" Type="STRING">COM14</Param>
+	</Plugin>
+
+	<Plugin Class="CmdSystemShutdown" Group="" ID="System Shutdown">
+		<Param Name="Time" Type="INTEGER">1</Param>
+	</Plugin>
+</Plugins>
+

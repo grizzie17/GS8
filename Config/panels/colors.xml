@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Panel id="colors" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<GaugeInstance Name="@color-everything" X="0" Y="0" />
+	<KeyEventMap>
+		<OnDown>
+			<Key id="RIGHT" Event="E:MOVE RIGHT" />
+			<Key id="LEFT" Event="E:MOVE LEFT" />
+			<Key id="HOME" Event="E:MOVE HOME" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

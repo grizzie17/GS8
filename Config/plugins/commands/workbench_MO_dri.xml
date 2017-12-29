@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="workbench_common"/>
+	<Include File="touch_calibrate"/>
+
+
+
+	<Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="Camera Front" Type="STRING">Camera Front</Param>
+		<Param Name="Camera Left" Type="STRING">Camera Left</Param>
+		<Param Name="Camera Right" Type="STRING">Camera Right</Param>
+		<Param Name="Camera Rear Color" Type="STRING">Camera Rear Day</Param>
+		<Param Name="Camera Rear IR" Type="STRING">Camera Rear Night</Param>
+    <Param Name="Camera DVD Player" Type="STRING">DVD Player</Param>
+	</Plugin>
+</Plugins>
+

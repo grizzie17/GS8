@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<Screen Active="'NVL_main' (U:PANEL) '' (U:PANEL) == ? " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+	<Update>
+		<Script>
+			(S:MILLI) 2000 % 1500 &lt; (=U:FLASH)
+		</Script>
+	</Update>
+	<PanelInstance Name="NVL_main"/>
+	<PanelInstance Name="NVL_menu"/>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+			<Key id="M" Event="E:MAIN PANEL"/>
+			<Key id="L" Event="E:TOGGLE LOADER"/>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN"/>
+		</OnDown>
+	</KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:MENU PANEL</KeyEvent>
+			<Script> 'NVL_menu' (=U:PANEL)</Script>
+		</Trigger>
+
+		<Trigger>
+			<KeyEvent>E:MAIN PANEL</KeyEvent>
+			<Script> 'NVL_main' (=U:PANEL)</Script>
+		</Trigger>
+
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+
+		<Trigger>
+			<KeyEvent>E:TOGGLE LOADER</KeyEvent>
+			<Script>1 (=C:Toggle Loader)</Script>
+		</Trigger>
+
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+
+		<Trigger>
+			<Event>E:INIT MISC</Event>
+			<Script>
+				"Top Left" (=U:Active Quadrant)							// Default quad selected it TOP/LEFT
+
+				// Define the MAIN MENU IDs
+
+				// Misc other constants
+				0 (=U:SUB MENU MAX ITEMS) both						// Number of sub menus at menu initialization
+				(K:SubSub Menu ID None) (=U:SUBSUB Menu Active) both						// Number of sub menus at menu initialization
+				(K:Main Menu ID EXIT) (=U:Main Menu Ptr) both	// Starting point in menu. NOTE: Make sure (=U:SUB MENU MAX ITEMS) is set properly if changed
+				0 (=U:ENTER PRESSED TIMEOUT STARTED)  both
+
+
+			</Script>
+		</Trigger>
+
+		<Trigger>
+			<KeyEvent>E:INIT CAMERA</KeyEvent>
+			<Script>
+				/* Default Day/Night setting is Night */
+				"Camera Front" (=U:Feed 1 Position)
+				"Camera Rear IR" (=U:Feed 2 Position) both
+				"Camera Front Left" (=U:Feed 3 Position) both
+				"Camera Front Right" (=U:Feed 4 Position) both
+
+				/* Time to update the screen with the default layout */
+				(K:View Quad) (=U:View Layout) both
+
+				(U:Feed 1 Position) (=C:Edit Camera) both
+
+				0 (=E:INIT MISC) both
+			</Script>
+		</Trigger>
+
+		<!--Trigger>
+			<KeyEvent>E:VEHICLE SHUTDOWN</KeyEvent>
+			<Script>
+				true (=C:System Shutdown)
+				"Shutdown in progress" (=U:System Shutdown) both
+			</Script>
+		</Trigger-->
+	</KeyMap>
+</Screen>

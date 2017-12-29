@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Front-Center IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Front-Center Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Front-Left IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Front-Left Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Front-Right IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Front-Right Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Left-Forward IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Left-Forward Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Right-Forward IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Right-Forward Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Left-Rear IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Left-Rear Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Right-Rear IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Right-Rear Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Rear IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Rear Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Observer IR">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+	<Plugin Class="VideoSourceAnalogVdds" ID="Camera Observer Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+		<Param Name="Capture Profile" Type="INTEGER">4</Param>
+		<Param Name="Capture Profile ID" Type="INTEGER">1</Param>
+		<Param Name="Capture Mode" Type="INTEGER">0</Param>
+		<Param Name="Field Frame Op" Type="INTEGER">4</Param>
+		<Param Name="X Start Field 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 1" Type="INTEGER">3</Param>
+		<Param Name="X Start Field 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Field 2" Type="INTEGER">3</Param>
+		<Param Name="X Stop Field 1" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 1" Type="INTEGER">242</Param>
+		<Param Name="X Stop Field 2" Type="INTEGER">719</Param>
+		<Param Name="Y Stop Field 2" Type="INTEGER">242</Param>
+		<Param Name="Threshold" Type="INTEGER">88</Param>
+		<Param Name="Decomb Filter" Type="INTEGER">0x87</Param>
+		<Param Name="Video Input Port" Type="INTEGER">9</Param>
+		<Param Name="Width" Type="INTEGER">0</Param>
+		<Param Name="Height" Type="INTEGER">0</Param>
+	</Plugin>
+
+</Plugins>

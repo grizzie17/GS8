@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="NVL_Event_Handlers_Camera_Select">
+		<ActionMap>
+			<Trigger>
+				<KeyEvent>E:NVL CAMERA SELECT RIGHT</KeyEvent>
+				<Script>
+					(K:RIGHT) (=E:NVL CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:NVL CAMERA SELECT LEFT</KeyEvent>
+				<Script>
+					(K:LEFT) (=E:NVL CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:NVL CAMERA SELECT UP</KeyEvent>
+				<Script>
+					(K:UP) (=E:NVL CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:NVL CAMERA SELECT DOWN</KeyEvent>
+				<Script>
+					(K:DOWN) (=E:NVL CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<!--
+			NOTE: The event handler below will be replaced with a plug-in in the future.
+			-->
+			<Trigger>
+				<KeyEvent>E:NVL CHANGE CAMERA</KeyEvent>
+				<Script>
+					// Determine which video feed that will be changed. Currently if the FWD and REV are 
+					// selected, then the video feed is always 1. 
+							(E:NVL CHANGE CAMERA) (=E:NVL CHANGE Video Feed 1)
+								(E:NVL CHANGE CAMERA) (=E:NVL CHANGE Video Feed 2)
+									(E:NVL CHANGE CAMERA) (=E:NVL CHANGE Video Feed 3)
+									(E:NVL CHANGE CAMERA) (=E:NVL CHANGE Video Feed 4)
+								(U:Active Quadrant) "Bottom Left" == ?
+							(U:Active Quadrant) "Top Right" == ?
+						(U:Active Quadrant) "Top Left" == ?
+						(E:NVL CHANGE CAMERA) (=E:NVL CHANGE Video Feed 1)
+					(U:View Layout) (K:View Quad) == ? 
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:NVL CHANGE Video Feed 1</KeyEvent>
+				<Script>
+ 					(E:NVL CHANGE Video Feed 1) (=C:Camera Selector)
+					(D:Camera Selector)(=U:Feed 1 Position) both
+				</Script>
+			</Trigger>	
+			<Trigger>
+				<KeyEvent>E:NVL CHANGE Video Feed 2</KeyEvent>
+				<Script>
+					(E:NVL CHANGE Video Feed 2) (=C:Camera Selector) 
+					(D:Camera Selector)(=U:Feed 2 Position) both
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:NVL CHANGE Video Feed 3</KeyEvent>
+				<Script>
+					(E:NVL CHANGE Video Feed 3) (=C:Camera Selector) 
+					(D:Camera Selector)(=U:Feed 3 Position) both
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:NVL CHANGE Video Feed 4</KeyEvent>
+				<Script>
+					(E:NVL CHANGE Video Feed 4) (=C:Camera Selector) 
+					(D:Camera Selector)(=U:Feed 4 Position) both
+				</Script>
+			</Trigger>
+		</ActionMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

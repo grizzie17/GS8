@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="shuttingdown">
+		<Update>
+			<Frequency>2</Frequency>
+			<Script>
+				""
+				(U:System Shutdown)
+				"" (U:System Shutdown) !=
+				(G:TIMEOUT) (S:MILLI) &lt; AND ? (=U:System Shutdown)
+			</Script>
+		</Update>
+		<Size>300,30</Size>
+		<Element Context="foreground" >
+			<Visibility>
+				(U:System Shutdown) "" !=
+				(S:MILLI) (G:TIMEOUT) &lt;  AND
+			</Visibility>
+			<Rectangle>
+				<Origin>0,0</Origin>
+				<Size>300,30</Size>
+				<FillColor>maroon</FillColor>
+				<Corner>5</Corner>
+				<CornerStyle>bevel</CornerStyle>
+			</Rectangle>
+			<GaugeText>
+				<Origin>150,0</Origin>
+				<FontFace>sans-serif</FontFace>
+				<FontHeight>24</FontHeight>
+				<FontColor>white</FontColor>
+				<HorizontalAlign>center</HorizontalAlign>
+				<VerticalAlign>top</VerticalAlign>
+				<BackgroundColor>maroon</BackgroundColor>
+				<GaugeString>%((U:System Shutdown))%!s!</GaugeString>
+			</GaugeText>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:VEHICLE SHUTDOWN</KeyEvent>
+				<Script>
+					(S:MILLI) 20000 + (=G:TIMEOUT)
+					true "C:System Shutdown" =@ both
+					"Shutdown in progress" (=U:System Shutdown) both
+				</Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

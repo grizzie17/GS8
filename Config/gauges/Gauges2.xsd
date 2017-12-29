@@ -1,0 +1,1239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" 
+		   elementFormDefault="qualified" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+	<!-- 
+	###########################################################
+	||	Types
+	###########################################################
+	-->
+	<!--
+	Some basic building blocks
+	-->
+	<xs:simpleType name="FLOAT">
+		<xs:restriction base="xs:float" />
+	</xs:simpleType>
+	<xs:simpleType name="FLOAT2">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="EQUATION">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="VARIANT">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="AttributeEquation">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+
+	<xs:simpleType name="COLORNAME">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="COLORNUMBER">
+		<xs:restriction base="xs:hexBinary" />
+	</xs:simpleType>
+
+
+	<xs:simpleType name="COLORVALUE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="^([a-z]+|0x[0-9A-Fa-f]+|#[0-9A-Fa-f]{6})$" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<!-- enumerations -->
+
+	<xs:simpleType name="enumAlign">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="center" />
+			<xs:enumeration value="left" />
+			<xs:enumeration value="right" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumVerticalAlign">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="top" />
+			<xs:enumeration value="middle" />
+			<xs:enumeration value="center" />
+			<xs:enumeration value="baseline" />
+			<xs:enumeration value="bottom" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="enumFitment">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="fill" />
+			<xs:enumeration value="original" />
+			<xs:enumeration value="scaled" />
+			<xs:enumeration value="zoom" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Element Context-types -->
+	<xs:simpleType name="enumContext" >
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="group" />
+			<xs:enumeration value="foreground" />
+			<xs:enumeration value="background" />
+			<xs:enumeration value="application" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Rectangle Corner-types -->
+	<xs:simpleType name="enumCornerStyle">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="square" />
+			<xs:enumeration value="bevel" />
+			<xs:enumeration value="rabbet" />
+			<xs:enumeration value="round" />
+			<xs:enumeration value="cove" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Rotation Direction -->
+	<xs:simpleType name="enumPointsTo">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="north" />
+			<xs:enumeration value="east" />
+			<xs:enumeration value="south" />
+			<xs:enumeration value="west" />
+			<xs:enumeration value="NORTH" />
+			<xs:enumeration value="EAST" />
+			<xs:enumeration value="SOUTH" />
+			<xs:enumeration value="WEST" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+	<!-- 
+	###########################################################
+	||	Attributes
+	###########################################################
+	-->
+
+	<xs:attributeGroup name="attrXY">
+		<xs:attribute name="X" type="AttributeEquation" />
+		<xs:attribute name="Y" type="AttributeEquation" />
+	</xs:attributeGroup>
+
+
+	<!-- 
+	###########################################################
+	||	Properties
+	###########################################################
+	-->
+
+	<xs:element name="Descr" type="xs:string" />
+	<xs:element name="Filename" type="xs:string" />
+
+	<xs:element name="Name" type="xs:string" />
+	<xs:element name="File" type="xs:string" />
+	<xs:element name="Value" type="xs:string" />
+	<xs:element name="Class" type="xs:string" />
+	<xs:element name="Source" type="xs:string" />
+	<xs:element name="SourceScript" type="EQUATION" />
+	
+
+
+	<xs:element name="Frequency" type="FLOAT" />
+
+	<xs:element name="Maximum" type="FLOAT" />
+	<xs:element name="Minimum" type="FLOAT" />
+	<xs:element name="ExpressionResult" type="VARIANT" />
+	<xs:element name="Script" type="EQUATION" />
+
+	<xs:element name="Radians" type="FLOAT" />
+	<xs:element name="Degrees" type="FLOAT" />
+
+	
+	<!-- position -->
+	<xs:element name="FloatPosition" type="FLOAT2" />
+	<xs:element name="LeftScript" type="EQUATION" />
+	<xs:element name="TopScript" type="EQUATION" />
+
+	<xs:element name="Position">
+		<xs:complexType>
+			<xs:attributeGroup ref="attrXY" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Axis" type="FLOAT2" />
+	<xs:element name="Origin" type="FLOAT2" />
+	<xs:element name="OriginX" type="FLOAT" />
+	<xs:element name="OriginXScript" type="EQUATION" />
+	<xs:element name="OriginY" type="FLOAT" />
+	<xs:element name="OriginYScript" type="EQUATION" />
+	
+	<!-- point -->
+	<xs:element name="Point2" type="FLOAT2" />
+
+	<!-- size -->
+	<xs:element name="Size" type="FLOAT2" />
+
+	<xs:element name="Width" type="FLOAT" />
+	<xs:element name="WidthScript" type="EQUATION" />
+
+	<xs:element name="Height" type="FLOAT" />
+	<xs:element name="HeightScript" type="EQUATION" />
+
+	<xs:element name="Scale" type="FLOAT2" />
+	<xs:element name="SizeScale" type="FLOAT" />
+	
+	<!-- shift properties -->
+	<xs:element name="WrapMax" type="FLOAT2" />
+	<xs:element name="WrapMin" type="FLOAT2" />
+
+	<!-- rotation properties -->
+	<xs:element name="PointsTo" type="enumPointsTo" />
+	<xs:element name="DegreesPointsTo" type="FLOAT" />
+	
+	
+	<!-- alignment/fitment properties -->
+	<xs:element name="HorizontalAlign" type="enumAlign" />
+	<xs:element name="Align" type="enumAlign" />
+	<xs:element name="VerticalAlign" type="enumVerticalAlign" />
+
+	<xs:element name="Fitment" type="enumFitment" />
+
+
+	<!-- styles -->
+	<xs:element name="Color" type="COLORVALUE" />
+	<xs:element name="ColorScript" type="EQUATION" />
+
+	<xs:element name="LineColor" type="COLORVALUE" />
+	<xs:element name="LineColorScript" type="EQUATION" />
+
+	<xs:element name="FillColor" type="COLORVALUE" />
+	<xs:element name="FillColorScript" type="EQUATION" />
+
+	<xs:element name="HaloColor" type="COLORVALUE" />
+	<xs:element name="HaloColorScript" type="EQUATION" />
+
+	<xs:element name="LineWidth" type="FLOAT" />
+	<xs:element name="LineWidthScript" type="EQUATION" />
+
+	<xs:element name="Transparency" type="FLOAT" />
+
+
+	<!-- Circle, Arc, Pie -->
+	<xs:element name="Radius" type="FLOAT" />
+	<xs:element name="RadiusScript" type="EQUATION" />
+	<xs:element name="RadiusY" type="FLOAT" />
+
+	<!-- Arc, Pie -->
+	<xs:element name="StartAngle" type="FLOAT" />
+	<xs:element name="StartAngleScript" type="EQUATION" />
+
+	<xs:element name="EndAngle" type="FLOAT" />
+	<xs:element name="EndAngleScript" type="EQUATION" />
+
+	<!-- Rectangle -->
+	<xs:element name="CornerStyle" type="enumCornerStyle" />
+	<xs:element name="Corner" type="FLOAT" />
+	<xs:element name="CornerScript" type="EQUATION" />
+
+	<!-- GaugeText -->
+	<xs:element name="FontFace" type="xs:string" />
+	<xs:element name="FontHeight" type="FLOAT" />
+	<xs:element name="FontHeightScript" type="EQUATION" />
+
+
+	<xs:element name="FontWeight" type="xs:string" />
+	<xs:element name="Bold" type="xs:boolean" />
+	<xs:element name="Italic" type="xs:boolean" />
+	<xs:element name="Underline" type="xs:boolean" />
+
+	<xs:element name="WidthFit" type="xs:boolean" />
+	<xs:element name="LineSpacing" type="FLOAT" />
+	<xs:element name="Multiline" type="xs:boolean" />
+	<xs:element name="Length" type="xs:long" />
+	<xs:element name="Tabs" type="xs:string" />
+
+	<xs:element name="GaugeString" type="EQUATION" />
+
+	<!-- same as LineColor -->
+	<xs:element name="FontColor" type="COLORVALUE" />
+	<xs:element name="FontColorScript" type="EQUATION" />
+
+	<!-- same as FillColor -->
+	<xs:element name="BackgroundColor" type="COLORVALUE" />
+	<xs:element name="BackgroundColorScript" type="EQUATION" />
+	
+	<!-- Mirror properties -->
+	<xs:element name="Mirror" type="xs:boolean" />
+	<xs:element name="MirrorScript" type="EQUATION" />
+
+	<!-- Events -->
+	<xs:element name="KeyEvent" type="xs:string" />
+	<xs:element name="Event" type="xs:string" />
+	
+	<!-- Visibility -->
+	<xs:element name="Visibility" type="EQUATION" />
+	<xs:element name="Visible" type="EQUATION" />
+
+
+	<xs:element name="ClickType" type="xs:string" />
+	<xs:element name="ClickRepeat" type="xs:boolean" />
+
+
+	<xs:element name="DelayUnits" type="xs:string" />
+	<xs:element name="DelayValue" type="FLOAT" />
+
+
+	<!-- 
+	###########################################################
+	||	Property Sets
+	###########################################################
+	-->
+
+	<!-- Gauge [root] -->
+	<xs:element name="SimBase.Document">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Filename" minOccurs="0" />
+					<xs:element ref="Descr" minOccurs="0" />
+					<xs:element ref="SimGauge.Gauge" minOccurs="1" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="Type" type="xs:string" use="optional" />
+			<xs:attribute name="version" type="xs:string" use="optional" />
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="SimGauge.Gauge">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="Descr" minOccurs="0" maxOccurs="1" />
+					<xs:group ref="grpGauge" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="Type" type="xs:string" use="optional" />
+			<xs:attribute name="version" type="xs:string" use="optional" />
+			<xs:attribute name="id" type="xs:string" use="optional" />
+			<xs:attribute name="Crop" type="xs:boolean" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Gauge">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="grpGauge" />
+			</xs:sequence>
+			<xs:attribute name="Name" type="xs:string" />
+			<xs:attribute name="Version" type="xs:float" />
+			<xs:attribute name="id" type="xs:string" use="optional" />
+			<xs:attribute name="Crop" type="xs:boolean" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+	<!-- 
+	###########################################################
+	||	Property Containers
+	###########################################################
+	-->
+	<!-- 
+	===========================================================
+	||	Components
+	===========================================================
+	-->
+
+	<xs:element name="Comment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:any minOccurs="0" maxOccurs="unbounded" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Element">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="grpElement" />
+			</xs:sequence>
+			<xs:attribute name="Context" type="enumContext" />
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="MouseArea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:group ref="grpVisibility" />
+					<xs:group ref="grpPosition" />
+					<xs:group ref="grpSize" />
+					<xs:group ref="grpMouseClick" />
+					<xs:element ref="MouseArea" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:group name="grpMouseClick">
+		<xs:choice>
+			<xs:element ref="MouseClick" />
+			<xs:element ref="MouseDown" />
+			<xs:element ref="MouseUp" />
+			<xs:element ref="MouseMove" />
+			<xs:element ref="MouseHover" />
+			<xs:element ref="MouseOver" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:element name="MouseClick">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpMouseAction" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="MouseDown">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpMouseAction" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="MouseUp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpMouseAction" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="MouseMove">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpMouseAction" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="MouseHover">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpMouseAction" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="MouseOver">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpMouseAction" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:group name="grpMouseAction">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="Comment" />
+				<xs:element ref="KeyEvent" />
+				<xs:element ref="Script" />
+				<xs:element ref="ClickType" />
+				<xs:element ref="ClickRepeat" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+	<xs:element name="KeyMap">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Trigger" minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ActionMap">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Trigger" minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Trigger">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:group ref="grpEvent" />
+					<xs:element ref="Script" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Update">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:element ref="Script" />
+					<xs:element ref="Frequency" />
+					<xs:element ref="Update" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<!-- 
+	===========================================================
+	||	Control
+	===========================================================
+	-->
+
+	<xs:element name="Include">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:element ref="File" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Delay">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="DelayUnits" />
+					<xs:element ref="DelayValue" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Expression">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="Script" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="Comment" minOccurs="0" />
+				<xs:element ref="Minimum" minOccurs="0" />
+				<xs:element ref="Maximum" minOccurs="0" />
+			</xs:all>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="InitialExpression">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="Script" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="Comment" minOccurs="0" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="TestExpression">
+		<xs:complexType>
+			<xs:all>				
+				<xs:element ref="Script" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="Comment" minOccurs="0" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="IncrementExpression">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="Script" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="Comment" minOccurs="0" />				
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Rotation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Comment" minOccurs="0" />
+					<xs:element ref="Delay" minOccurs="0" />
+					<xs:choice>
+						<xs:element ref="Expression" />
+						<xs:element ref="ExpressionResult" />
+					</xs:choice>
+					<xs:choice>
+						<xs:element ref="PointsTo" minOccurs="0" />
+						<xs:element ref="DegreesPointsTo" minOccurs="0" />
+					</xs:choice>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Select">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Expression" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="Case" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="CaseElse" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Case">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="ExpressionResult" />
+					<xs:element ref="Expression" />
+				</xs:choice>
+				<xs:group ref="grpElementContent" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="CaseElse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="grpElementContent" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Choose">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="When" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="Otherwise" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="When">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Expression" />
+				<xs:choice maxOccurs="unbounded">
+					<xs:group ref="grpElementContent" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Otherwise">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:group ref="grpElementContent" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="ForLoop">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="InitialExpression" />
+					<xs:element ref="TestExpression" />
+					<xs:element ref="IncrementExpression" />
+					<xs:group ref="grpElement" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Shift">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:element ref="Delay" />
+					<xs:element ref="Scale" />
+					<xs:element ref="Expression" />
+					<xs:element ref="WrapMin" />
+					<xs:element ref="WrapMax" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<!-- 
+	===========================================================
+	||	Graphics
+	===========================================================
+	-->
+
+
+	<xs:element name="Arc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpRadius" />
+					<xs:group ref="grpLineStyle" />
+					<xs:group ref="grpStartAngle" />
+					<xs:group ref="grpEndAngle" />
+					<xs:element ref="Comment" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Pie">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpRadius" />
+					<xs:group ref="grpFillStyle" />
+					<xs:group ref="grpLineStyle" />
+					<xs:group ref="grpStartAngle" />
+					<xs:group ref="grpEndAngle" />
+					<xs:element ref="Comment" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Circle">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpFillStyle" />
+					<xs:group ref="grpRadius" />
+					<xs:element ref="Comment" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="HorizontalLine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:group ref="grpLineStyle" />
+					<xs:group ref="grpOrigin" />
+					<xs:element ref="Width" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="VerticalLine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:group ref="grpLineStyle" />
+					<xs:group ref="grpOrigin" />
+					<xs:element ref="Height" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Line">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:group ref="grpLineStyle" />
+					<xs:group ref="grpPoint" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Polygon">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:group ref="grpFillStyle" />
+					<xs:group ref="grpPoint" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Polyline">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Comment" />
+					<xs:group ref="grpLineStyle" />
+					<xs:group ref="grpPoint" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Point">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Comment" minOccurs="0" />
+					<xs:group ref="grpPosition" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Rectangle">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpSize" />
+					<xs:group ref="grpFillStyle" />
+					<xs:element ref="CornerStyle" />
+					<xs:element ref="Corner" />
+					<xs:element ref="CornerScript" />
+					<xs:element ref="Comment" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Video">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpSize" />
+					<xs:group ref="grpSource" />
+					<xs:group ref="grpFillStyle" />
+					<xs:group ref="grpMirror" />
+					<xs:element ref="Fitment" />
+					<xs:element ref="HorizontalAlign" />
+					<xs:element ref="VerticalAlign" />
+					<xs:element ref="Comment" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Image">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpSize" />
+					<xs:element ref="File" />
+					<xs:element ref="Fitment" />
+					<xs:element ref="HorizontalAlign" />
+					<xs:element ref="VerticalAlign" />
+					<xs:element ref="Comment" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="Param">
+		<xs:complexType>
+			<xs:attribute name="ID" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Embed">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpSize" />
+					<xs:element ref="Class" />
+					<xs:element ref="Param" />
+					<xs:element ref="Comment" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+
+
+	<xs:element name="GaugeText">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:group ref="grpOrigin" />
+					<xs:group ref="grpBackgroundColor" />
+					<xs:group ref="grpFontColor" />
+					<xs:element ref="Bold" />
+					<xs:element ref="Comment" />
+					<xs:element ref="FontFace" />
+					<xs:group ref="grpFontHeight" />
+					<xs:element ref="FontWeight" />
+					<xs:element ref="HorizontalAlign" />
+					<xs:element ref="Italic" />
+					<xs:element ref="Length" />
+					<xs:element ref="LineSpacing" />
+					<xs:element ref="Multiline" />
+					<xs:group ref="grpSize" />
+					<xs:element ref="Tabs" />
+					<xs:element ref="VerticalAlign" />
+					<xs:element ref="WidthFit" />
+					<xs:element ref="GaugeString" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+	<!-- 
+	###########################################################
+	||	Property Groups
+	###########################################################
+	-->
+
+	<xs:group name="grpGauge">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<!--xs:element ref="FloatPosition" maxOccurs="1" /-->
+				<xs:element ref="Comment" />
+				<xs:group ref="grpSize" maxOccurs="1" />
+				<xs:element ref="Element" />
+				<xs:element ref="Update" maxOccurs="1" />
+				<xs:element ref="MouseArea" />
+				<xs:group ref="grpKeyMap" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="grpElement">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="Comment" />
+				<xs:group ref="grpElementControl" />
+				<xs:group ref="grpElementContent" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+	<xs:group name="grpElementContent">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="Element" />
+				<xs:element ref="Include" />
+				<xs:element ref="Select" />
+				<xs:element ref="Choose" />
+				<xs:element ref="ForLoop" />
+				<xs:group ref="grpGraphic" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+	<xs:group name="grpElementControl">
+		<xs:sequence>
+			<xs:choice maxOccurs="1">
+				<xs:group ref="grpPosition" />
+				<xs:group ref="grpVisibility" />
+				<xs:element ref="Rotation" />
+				<xs:element ref="SizeScale" />
+				<xs:element ref="Shift" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+	<xs:group name="grpGraphic">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="Arc" />
+				<xs:element ref="Circle" />
+				<!--xs:element ref="Ellipse" /-->
+				<xs:element ref="Embed" />
+				<xs:element ref="GaugeText" />
+				<xs:element ref="HorizontalLine" />
+				<xs:element ref="Image" />
+				<xs:element ref="Line" />
+				<xs:element ref="Pie" />
+				<xs:element ref="Polygon" />
+				<xs:element ref="Polyline" />
+				<xs:element ref="Rectangle" />
+				<xs:element ref="VerticalLine" />
+				<xs:element ref="Video" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+
+	<xs:group name="grpOrigin">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="Axis" />
+				<xs:element ref="Origin" />
+				<xs:element ref="OriginX" />
+				<xs:element ref="OriginY" />
+				<xs:element ref="OriginXScript" />
+				<xs:element ref="OriginYScript" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="grpPosition">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="Position" />
+				<xs:element ref="FloatPosition" />
+				<xs:element ref="LeftScript" />
+				<xs:element ref="TopScript" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+	<xs:group name="grpPoint">
+		<xs:choice>
+			<xs:element ref="Point" />
+			<xs:element ref="Point2" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:group name="grpWidth">
+		<xs:choice>
+			<xs:element ref="Width" />
+			<xs:element ref="WidthScript" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:group name="grpHeight">
+		<xs:choice>
+			<xs:element ref="Height" />
+			<xs:element ref="HeightScript" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:group name="grpSize">
+		<xs:choice>
+			<xs:element ref="Size" />
+			<xs:sequence>
+				<xs:choice maxOccurs="1">
+					<xs:group ref="grpWidth" />
+					<xs:group ref="grpHeight" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:group name="grpLineStyle">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="LineColor" />
+				<xs:element ref="LineColorScript" />
+				<xs:element ref="LineWidth" />
+				<xs:element ref="LineWidthScript" />
+				<xs:group ref="grpHaloStyle" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="grpFillStyle">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:group ref="grpLineStyle" />
+				<xs:element ref="FillColor" />
+				<xs:element ref="FillColorScript" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="grpHaloStyle">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="HaloColor" />
+				<xs:element ref="HaloColorScript" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+	<xs:group name="grpFontColor">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="FontColor" />
+				<xs:element ref="FontColorScript" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="grpBackgroundColor">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="BackgroundColor" />
+				<xs:element ref="BackgroundColorScript" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+
+	<xs:group name="grpFontHeight">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="FontHeight" />
+				<xs:element ref="FontHeightScript" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="grpRadius">
+		<xs:choice>
+			<xs:element ref="Radius" />
+			<xs:element ref="RadiusScript" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:group name="grpStartAngle">
+		<xs:choice>
+			<xs:element ref="StartAngle" />
+			<xs:element ref="StartAngleScript" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:group name="grpEndAngle">
+		<xs:choice>
+			<xs:element ref="EndAngle" />
+			<xs:element ref="EndAngleScript" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:group name="grpSource">
+		<xs:choice>
+			<xs:element ref="Source" />
+			<xs:element ref="SourceScript" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:group name="grpMirror">
+		<xs:choice>
+			<xs:element ref="Mirror" />
+			<xs:element ref="MirrorScript" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:group name="grpEvent">
+		<xs:choice>
+			<xs:element ref="KeyEvent" />
+			<xs:element ref="Event" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:group name="grpVisibility">
+		<xs:choice>
+			<xs:element ref="Visibility" />
+			<xs:element ref="Visible" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:group name="grpKeyMap">
+		<xs:choice>
+			<xs:element ref="KeyMap" />
+			<xs:element ref="ActionMap" />
+		</xs:choice>
+	</xs:group>
+
+
+
+</xs:schema>

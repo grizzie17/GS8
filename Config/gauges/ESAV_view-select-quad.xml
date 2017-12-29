@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="ESAV_view-select-quad">
+		<Update>
+			<Script>
+        /*
+        R10 is set to the current camera type of "IR" or "Color"
+        */
+        "Color" "IR" (U:DAY SELECTED) ? s10
+		
+
+        /*
+        Update the video feeds if changed
+        */
+        "Camera Rear Color" "Camera Rear IR" (U:DAY SELECTED) ? (=U:REAR CAMERA) both
+        (U:REAR CAMERA) (U:Feed 1 Position) "Camera Rear" 0 11 (U:Feed 1 Position) substr == ? (=U:Feed 1 Position)  both
+        (U:REAR CAMERA) (U:Feed 2 Position) "Camera Rear" 0 11 (U:Feed 2 Position) substr == ? (=U:Feed 2 Position)  both
+        (U:REAR CAMERA) (U:Feed 3 Position) "Camera Rear" 0 11 (U:Feed 3 Position) substr == ? (=U:Feed 3 Position)  both
+        (U:REAR CAMERA) (U:Feed 4 Position) "Camera Rear" 0 11 (U:Feed 4 Position) substr == ? (=U:Feed 4 Position)  both
+        "K:" (U:Feed 1 Position)  + @ (?U:Video Feed 1) both
+        "K:" (U:Feed 2 Position)  + @ (?U:Video Feed 2) both
+        "K:" (U:Feed 3 Position)  + @ (?U:Video Feed 3) both
+        "K:" (U:Feed 4 Position)  + @ (?U:Video Feed 4) both
+
+        /*
+        Set (C:View Layout) to FORWARD to activate the camera positions defined above
+        */
+        (K:View Quad) (=U:View Layout) both
+
+
+
+      </Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

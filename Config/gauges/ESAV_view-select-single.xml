@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="ESAV_view-select-single">
+		<Update>
+			<!--
+              "K:" (U:Feed 1 Position)  + @ (?U:Video Feed 1) both
+
+      "K:" (U:Feed 1 Position)  + @ (?U:Video Feed 1)
+				(A:Steering Wheel Angle) (B:Steering Wheel Angle.Low) /-/ +
+				(B:Steering Wheel Angle.High) (B:Steering Wheel Angle.Low) -
+				/
+				3
+				*
+			-->
+			<!--Frequency>2</Frequency-->
+			<Script>
+				"Camera Rear Color" "Camera Rear IR" (U:DAY SELECTED) ? (=U:REAR CAMERA)
+				(U:REAR CAMERA)
+				(U:Feed 1 Position)
+				"Camera Rear" 0 11 (U:Feed 1 Position) substr == ? (=U:Feed 1 Position)
+				both
+
+
+
+				"K:" (U:Feed 1 Position)  + @ (=U:Video Feed 1) both
+				(K:View Single) (=U:View Layout) both
+
+
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

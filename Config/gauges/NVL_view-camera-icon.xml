@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="NVL_view-camera-icon">
+		<!--
+		Load R15 with the value of (D:Video Feed #)
+		-->
+		<Element Context="background">
+			<Choose>
+				<When>
+					<Expression>
+						<Script>
+						  (K:Camera Front) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_frontcenter"/>
+				</When>
+				<When>
+					<Expression>
+						<Script>
+						  (K:Camera Rear Color) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_rear"/>
+				</When>
+				<When>
+					<Expression>
+						<Script>
+						  (K:Camera Rear IR) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_rear"/>
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Front Left) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_frontleft"/>
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Front Right) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_frontright"/>
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Observer) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_observer"/>
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Rear Left) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_rearleft"/>
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Rear Right) r15 ==
+						</Script>
+					</Expression>
+					<Include File="camera_rearright"/>
+				</When>
+				<Otherwise>
+					<Include File="camera_lost"/>
+				</Otherwise>
+			</Choose>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

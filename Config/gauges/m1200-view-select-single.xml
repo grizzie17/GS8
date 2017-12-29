@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-select-single">
+		<Update>
+			<!--
+				(A:Steering Wheel Angle) (B:Steering Wheel Angle.Low) /-/ +
+				(B:Steering Wheel Angle.High) (B:Steering Wheel Angle.Low) -
+				/
+				3
+				*
+			-->
+			<!--Frequency>2</Frequency-->
+			<Script>
+				"K:" (U:Feed 1 Position) + @ (?U:Video Feed 1)
+
+
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

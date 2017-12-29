@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-quad">
+		<ActionMap>
+			<Trigger>
+				<Event>E:Change Layout</Event>
+				<Script>
+					/*
+						Determine if new layout has been updated to K:View Quad. If so
+						update U:View Layout with the new state so that the next UPDATE
+						cycle will result in a new layout to be displayed.
+					*/
+					(K:View Quad) (=U:View Layout)
+					false
+					(K:View Quad) (E:Change Layout) == ?
+				</Script>
+			</Trigger>
+		</ActionMap>
+		<Update>
+			<Frequency>3</Frequency>
+			<Script>
+					/*
+					Refer to IMPORTANT COMMENT below
+					*/
+					/*
+						R8 is set to 50% of the screen height or an axis located 50% from the top
+						R9 is set to 50% of the screen width or an axis located 50% from the left
+						R10 is set to the current camera type of "IR" or "Color"
+					*/
+					"Color" "IR" (U:DAY SELECTED) ? s10
+					(S:SCREEN HEIGHT) 2 / s8 
+					both
+					(S:SCREEN WIDTH) 2 / s9 
+					both
+					
+					/*
+						Update the video feeds if changed
+					*/
+					"K:" (U:Feed 1 Position) + r10 + @ (?C:Video Feed 1) both
+					"K:" (U:Feed 2 Position) + r10 + @ (?C:Video Feed 2) both
+					"K:" (U:Feed 3 Position) + r10 + @ (?C:Video Feed 3) both
+					"K:" (U:Feed 4 Position) + r10 + @ (?C:Video Feed 4) both
+					
+					/*
+						Set (C:View Layout) to FORWARD to activate the camera positions defined above
+					*/ 
+					(K:View Quad) (=C:View Layout) both
+					
+					/*
+						DUMMY return, aka "Do nothing"
+					*/
+					true
+				
+				/*
+				**************************
+				IMPORTANT COMMENT
+				**************************
+				The above camera selections are made iff the layout is configured for FORWARD
+				If this is TRUE, then the condition starts at the beginning of this script!
+				*/
+				(U:View Layout) (K:View Quad) == ?
+
+
+			</Script>
+		</Update>
+		<Element Context="background">
+			<Visibility>
+				(U:View Layout) (K:View Quad) ==
+				(U:View Layout) (K:View Quad) ==
+				AND
+			</Visibility>
+			<Element>
+				<!--
+					Define a point in the middle of the screen
+				-->
+				<Position X="r9" Y="r8"/>
+				<Line LineColor="lightgreen" LineWidth="2">
+					<Point X="200" Y="0"/>
+					<Point X="-200" Y="0"/>
+				</Line>
+				<Line LineColor="lightgreen" LineWidth="2">
+					<Point X="0" Y="200"/>
+					<Point X="0" Y="-200"/>
+				</Line>
+				<!--
+					Draw the appropriate camera icon for video feed 1
+				-->
+				<Element>
+					<Position X="-43" Y="-50"/>
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 1) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Observer " r10 + @</Script>
+							</Expression>
+							<Include File="camera_observer"/>
+						</Case>
+						<CaseElse>
+							<Include File="camera_lost"/>
+						</CaseElse>
+					</Select>
+				</Element>
+				<!--
+					Draw the appropriate camera icon for video feed 2
+				-->
+				<Element>
+					<Position X="8" Y="-50"/>
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 2) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Observer " r10 + @</Script>
+							</Expression>
+							<Include File="camera_observer"/>
+						</Case>
+						<CaseElse>
+							<Include File="camera_lost"/>
+						</CaseElse>
+					</Select>
+				</Element>
+				<!--
+					Draw the appropriate camera icon for video feed 3
+				-->
+				<Element>
+					<Position X="-43" Y="10"/>
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 3) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Observer " r10 + @</Script>
+							</Expression>
+							<Include File="camera_observer"/>
+						</Case>
+						<CaseElse>
+							<Include File="camera_lost"/>
+						</CaseElse>
+					</Select>
+				</Element>
+				<!--
+					Draw the appropriate camera icon for video feed 4
+				-->
+				<Element>
+					<Position X="8" Y="10"/>
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 4) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Observer " r10 + @</Script>
+							</Expression>
+							<Include File="camera_observer"/>
+						</Case>
+						<CaseElse>
+							<Include File="camera_lost"/>
+						</CaseElse>
+					</Select>
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

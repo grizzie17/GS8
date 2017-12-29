@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-shutter">
+		<Update>
+			<Script>
+				'Open'
+				'Closed'
+				(U:SHUTTER OPEN SELECTED) ? (=G:ShutterLabel)
+				(U:COLOR_ButtonIcon) s1
+				both
+				
+				(U:BLACKOUT SELECTED) ! s0
+				both
+			</Script>
+		</Update>
+		<Size>75,45</Size>
+		<Element>
+			<Include File="icon-shutter" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>40,45</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:TOGGLE SHUTTER</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

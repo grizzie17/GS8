@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" 
+				  version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="speed">
+	<Size>80,80</Size>
+	<Update>
+		<Frequency>5</Frequency>
+		<Script>
+			/* 
+				R0 - Vehical speed adjusted for gaugle range limits
+				R1 - Engine RPM adjusted for gauge range limits
+				R2 - Vehicle speed in the selected units for display ("km/h" or "mph")
+				R5 - 225 degrees (Reverse sweep starting at about 8 oclock)
+				R6 - 270 degrees c/w sweep from point R5 on a circle (ending at about 4 oclock)
+					(R7 calculation method)
+					R7 = R5 - ((R6 * (2550/3000) ) + 2))
+					R7 = R5 - ((R6 * 0.85) + 2)
+					R7 = R5 - ((270 * 0.85) + 2)
+					R7 = R5 - (229.5 + 2)
+					R7 = R5 - 231.5
+					R7 = 225 - 231.5
+					R7 = -6.5
+				R7 - -6.5 degrees (location of the green/red boundry on a circle)
+				R8 - -47 degrees (location of the end of the red area)
+			*/
+			(A:Vehicle Speed)  s0
+			(A:RPM)  s1
+			both
+			(A:Vehicle Speed) 'km/h' 'mph' 2 (U:UNITS) case unitcnv s2
+			both
+			180 1.25 * s5
+			both
+			180 1.5 * s6
+			both
+			r5 r6 (B:RPM.Green.High) (B:RPM.High) / * 2 + - s7 
+			both
+			r5 r6 (B:RPM.Red.High) (B:RPM.High) / * 2 + - s8
+			both
+		</Script>
+	</Update>
+	<Element Context="group">
+		<Visibility>5 (A:RPM) &lt;</Visibility>
+		<!--
+			Define the "background" portion of the gauge...
+			Position the gauge text
+				define the font, 
+				define the color 
+				Display the units (ASSUMPTION - "unitabbrev" gets units)???
+		-->
+		<Element Context="background">
+			<FloatPosition>0,0</FloatPosition>
+			<Circle>
+				<OriginXScript>width 2 /</OriginXScript>
+				<OriginY>42</OriginY>
+				<Radius>20</Radius>
+				<FillColorScript>(U:COLOR_IconMask)</FillColorScript>
+				<LineWidth>0</LineWidth>
+			</Circle>
+			<GaugeText>
+				<OriginXScript>width 2 /</OriginXScript>
+				<OriginY>50</OriginY>
+				<FontFace>sans-serif</FontFace>
+				<FontHeight>18</FontHeight>
+				<HorizontalAlign>center</HorizontalAlign>
+				<VerticalAlign>top</VerticalAlign>
+				<FontColor>lightgreen</FontColor>
+				<GaugeString>%(r2 unitabbrev)%!s!</GaugeString>
+			</GaugeText>
+			<!--
+				Display the background for the RPM arc with 2 separate arcs 
+				The first arc is green and the second arc is red
+			-->
+			<Arc>
+				<OriginXScript>width 2 /</OriginXScript>
+				<OriginY>42</OriginY>
+				<Radius>37</Radius>
+				<StartAngleScript>r7</StartAngleScript>
+				<EndAngleScript>r5</EndAngleScript>
+				<LineColorScript>0x004000</LineColorScript>
+				<LineWidth>7</LineWidth>
+			</Arc>
+			<Arc>
+				<OriginXScript>width 2 /</OriginXScript>
+				<OriginY>42</OriginY>
+				<Radius>37</Radius>
+				<StartAngleScript>r8</StartAngleScript>
+				<EndAngleScript>r7</EndAngleScript>
+				<LineColorScript>0x800000</LineColorScript>
+				<LineWidth>7</LineWidth>
+			</Arc>
+			<ForLoop>
+				<InitialExpression>
+					<Script>
+						0 s12																	// Initialize a 0
+						270 s6 both														// Gauge sweeps 270 degrees
+						100 (=G:Resolution) both								// Set to a harmonic of 500
+						(B:RPM.High) (G:Resolution) / s13 both	// Number of divisions on the gauge
+						r6 r13 / s14 both												// degrees per division
+						0 (=G:RPM) both												// Current RPM calcuation
+					</Script>
+				</InitialExpression>
+				<TestExpression>
+					<Script>
+						r12 r6 1 + &lt;										// Continue over the gauge spread of 270+1 degrees, don't stop at 
+					</Script> 
+				</TestExpression>
+				<IncrementExpression>
+					<Script>
+						r12 r14 + s12
+						225 r12 + s15 both
+						(G:RPM) (G:Resolution) + (=G:RPM) both
+					</Script>
+				</IncrementExpression>
+				<Position X="width 2 /" Y="42" />
+				<Rotation>315 r12 -</Rotation>
+				<Line LineColor="0x00FF00 0x808080 225 r12 - 0 &gt; ?" LineWidth="1 2 3 (G:RPM)  1000 % ?  (G:RPM)  500 % ?">
+					<Point X="0" Y="34" />
+					<Point X="0" Y="37 39 41 (G:RPM)  1000 % ?  (G:RPM)  500 % ?" />
+				</Line>
+			</ForLoop>
+		</Element>
+		<!--
+			Define the "forground" portion of the gauge...
+			Position the gauge reading (text)
+				define the font, 
+				define the color 
+				Display the current value
+		-->
+		<Element Context="foreground">
+			<FloatPosition>0,0</FloatPosition>
+			<!--GaugeText>
+				<OriginXScript>width 2 /</OriginXScript>
+				<OriginY>20</OriginY>
+				<FontFace>sans-serif</FontFace>
+				<FontHeight>36</FontHeight>
+				<FontColor>lightgreen</FontColor>
+				<HorizontalAlign>center</HorizontalAlign>
+				<VerticalAlign>top</VerticalAlign>
+				<GaugeString>%(r2)%!d!</GaugeString>
+			</GaugeText-->
+			<Element>
+				<FloatPosition>20,24</FloatPosition>
+				<Include File="led-number" />
+			</Element>
+			<!--
+				Display the current speed in the appropriate units if the reading if != 0
+			-->
+			<Choose>
+				<When>
+					<Expression>
+						<Script>r0</Script>
+					</Expression>
+					<Arc>
+						<OriginXScript>width 2 /</OriginXScript>
+						<OriginY>42</OriginY>
+						<Radius>32</Radius>
+						<StartAngleScript>r5 r6 r0 (B:Vehicle Speed.High) / * 2 + -</StartAngleScript>
+						<EndAngleScript>r5</EndAngleScript>
+						<LineColorScript>(U:COLOR_Icon)</LineColorScript>
+						<LineWidth>4</LineWidth>
+					</Arc>
+					<!--Arc X="width 2 /" Y="42" Radius="32" 
+						 StartAngle="r5 r6 r0 (B:Vehicle Speed.High) / * 2 + -" 
+						 EndAngle="r5" LineColor="lightgreen" LineWidth="4" /-->
+				</When>
+			</Choose>
+			<!--
+				Display the current engine RPM reading if != 0 RPMS
+			-->
+			<Choose>
+				<When>
+					<Expression>
+						<Script>r1</Script>
+					</Expression>
+					<Arc>
+						<OriginXScript>width 2 /</OriginXScript>
+						<OriginY>42</OriginY>
+						<Radius>37</Radius>
+						<StartAngleScript>r5 r6 r1 (B:RPM.High) / * 2 + -</StartAngleScript>
+						<EndAngleScript>r5</EndAngleScript>
+						<LineColorScript>
+									'lightgreen' 
+									'buttercup' 
+								r1 (B:RPM.Green.High) &lt; ? 
+								'carminepink' 
+							r1 (B:RPM.Red.Low) &lt; ?</LineColorScript>
+						<LineWidth>3</LineWidth>
+					</Arc>
+				</When>
+			</Choose>
+		</Element>
+	</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

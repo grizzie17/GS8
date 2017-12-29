@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-quadrant">
+		<Update>
+			<Script>
+				(U:Current Quadrant Selected) s1
+						(U:Feed 4 Position)
+						(U:Feed 3 Position)
+						(U:Feed 2 Position)
+						(U:Feed 1 Position)
+					4 (U:Current Quadrant Selected) case (=C:Edit Camera)
+					0		// Do nothing
+				(U:View Layout) (K:View Quad) == (U:BLACKOUT SELECTED) ! AND s0 ? both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-quadrant" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>
+        (U:View Layout) (K:View Quad) == (U:BLACKOUT SELECTED) ! AND
+      </Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:Change Camera Quadrant</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

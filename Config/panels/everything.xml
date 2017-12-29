@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Panel id="everything">
+	<GaugeInstance Name="everything" X="0" Y="0" />
+	<GaugeInstance Name="proprietary" X="5" Y="(S:SCREEN HEIGHT) height -" />
+	<KeyEventMap>
+		<OnDown>
+			<Key id="RIGHT" Event="E:MOVE RIGHT" />
+			<Key id="UP" Event="E:MOVE UP" />
+			<Key id="DOWN" Event="E:MOVE DOWN" />
+			<Key id="LEFT" Event="E:MOVE LEFT" />
+			<Key id="HOME" Event="E:MOVE HOME" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-LAPSigma">
+		<Update>
+			<Frequency>5</Frequency>
+		</Update>
+		<Size>40,45</Size>
+		<Element>
+			<Visible>(U:BLACKOUT SELECTED) !</Visible>
+			<GaugeText X="0" Y="0" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="lime">
+				<String>Sigma</String>
+			</GaugeText>
+			<Polyline LineColor="lime">
+				<Point X="0" Y="35"/>
+				<Point X="40" Y="35"/>
+				<Point X="40" Y="20"/>
+				<Point X="0" Y="35"/>
+			</Polyline>
+		</Element>
+	<MouseArea id="MouseArea">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>30,40</Size>
+		<MouseClick id="MouseClick">
+			<KeyEvent>E:SIGMA SELECTED</KeyEvent>
+		</MouseClick>
+	</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

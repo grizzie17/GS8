@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Include File="vdds_common.xml"/>
+	<!--Include File="touch_calibrate"/-->
+	<Plugin Class="CmdShutdownMonitor" ID="System Shutdown">
+		<Param Name="Dummy" Type="STRING">george</Param>
+	</Plugin>
+
+	<!--Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="Camera Front-Center Color" Type="STRING">Camera Front-Center Color</Param>
+		<Param Name="Camera Front-Center IR" Type="STRING">Camera Front-Center IR</Param>
+		<Param Name="Camera Front-Left Color" Type="STRING">Camera Front-Left Color</Param>
+		<Param Name="Camera Front-Left IR" Type="STRING">Camera Front-Left IR</Param>
+		<Param Name="Camera Front-Right Color" Type="STRING">Camera Front-Right Color</Param>
+		<Param Name="Camera Front-Right IR" Type="STRING">Camera Front-Right IR</Param>
+    		<Param Name="Camera Right-Forward Color" Type="STRING">Camera Right-Forward Color</Param>
+    		<Param Name="Camera Right-Forward IR" Type="STRING">Camera Right-Forward IR</Param>
+		<Param Name="Camera Rear Color" Type="STRING">Camera Rear Color</Param>
+		<Param Name="Camera Rear IR" Type="STRING">Camera Rear IR</Param>
+		<Param Name="Camera Left-Rear Color" Type="STRING">Camera Left-Rear Color</Param>
+		<Param Name="Camera Left-Rear IR" Type="STRING">Camera Left-Rear IR</Param>
+		<Param Name="Camera Observer Color" Type="STRING">Camera Observer Color</Param>
+		<Param Name="Camera Observer IR" Type="STRING">Camera Observer IR</Param>
+		<Param Name="Camera Left-Forward Color" Type="STRING">Camera Left-Forward Color</Param>
+		<Param Name="Camera Left-Forward IR" Type="STRING">Camera Left-Forward IR</Param>
+  	</Plugin-->
+</Plugins>
+

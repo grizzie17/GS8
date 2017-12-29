@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" 
+		   elementFormDefault="qualified" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="../shared.xsd" />
+
+	<xs:element name="Screen">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="PanelInstance" />
+					<xs:element ref="KeyEventMap" />
+					<xs:element ref="KeyMap" />
+					<xs:element ref="Update" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="Active" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="PanelInstance">
+		<xs:complexType>
+			<xs:attribute name="Name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	
+
+	
+	
+	
+</xs:schema>

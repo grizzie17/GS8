@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Screen Active="'everything' (U:PANEL) '' (U:PANEL) == ? " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+	<PanelInstance Name="everything" />
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE LOADER</KeyEvent>
+			<Script>1 (=C:Toggle Loader)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS IMPERIAL</KeyEvent>
+			<Script>0 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS METRIC</KeyEvent>
+			<Script>1 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE UNITS</KeyEvent>
+			<Script>(U:UNITS) 1 + 2 % (=U:UNITS)</Script>
+		</Trigger>
+	</KeyMap>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL1" Event="E:CHANGE PANEL" />
+			<Key id="F1" Event="E:CHANGE PANEL" />
+			<Key id="F8" Event="E:TOGGLE LOADER" />
+			<Key id="SPACE" Event="E:CHANGE PANEL" />
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN" />
+			<Key id="U" Event="E:TOGGLE UNITS" />
+		</OnDown>
+	</KeyEventMap>
+</Screen>

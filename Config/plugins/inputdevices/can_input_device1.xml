@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+	<Plugin Class="InputUkCtdCAN" ID="UK CTD 10 CAN">
+		<!-- Avalex touch screen input device -->
+		<Plugin Class="CommCanVDDS" ID="CAN 2">
+			<!--IDataStream plugin -->
+			<Param Name="Port" Type="STRING">/dev/can2</Param>
+			<Param Name="Baud" Type="INTEGER">250</Param>
+			<Param Name="Port" Type="INTEGER">3</Param>
+			<Param Name="Termination" Type="INTEGER">1</Param>
+		</Plugin>
+		<Plugin Class="MsgCAN" ID="CAN Msg 2">
+			<!--IDataLink plugin -->
+		</Plugin>
+		<Plugin Class="EventGraphicsVDDS" ID="Graphic Events 0">
+			<!--IGraphicsEvent plugin -->
+		</Plugin>
+	</Plugin>
+</Plugins>

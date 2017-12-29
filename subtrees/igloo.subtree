@@ -1,0 +1,3 @@
+TREE="igloo"
+LOCAL="3rdParty/igloo"
+URL="https://github.com/joakimkarlsson/igloo.git"

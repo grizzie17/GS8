@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
+<title>VSA To Do List</title>
+<style type="text/css">
+
+html
+{
+	font-family: Sans-Serif;
+}
+
+.done
+{
+	text-decoration: line-through;
+	color: #009933;
+}
+
+.inprogress
+{
+	font-style: italic;
+	color: #800080;
+}
+
+
+
+.cancelled
+{
+	color: #C0C0C0;
+	text-decoration: line-through;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+    <h1>Vehicular Situational Awareness (VSA) <br>To Do List</h1>
+<!--
+    <h2>MPC Vehicle</h2>
+	<ul>
+		<li>Touch Screen support for the SDU monitors</li>
+		<li>ServerVDDS changes to correctly support TCP dialog to the Atkins server</li>
+		<li>Plugin to interface to the Atkins server.</li>
+		<li class="done">Plugin supporting the shutdown command</li>
+		<li class="done">Motion Detection command for Cameras (and Atkins server)</li>
+		<li>Update Driver to allow camera edit</li>
+		<li class="inprogress">Patch GUI XML as needed</li>
+		<li class="done">&quot;Seat Up&quot; panel not allowing switch day/night cameras</li>
+		<li class="done">Incoming XML wrong for &quot;Current Gear&quot;</li>
+		<li>Support for IPVideo within OmniScape</li>
+	</ul>
+	<h2 class="done">
+        LAV3 Demo</h2>
+	<ul>
+		<li class="done">Camera Feature control plug-ins project cameras</li>
+		<li class="done">Monitor XML for project monitors</li>
+		<li class="done">Monitor Communication/Control plug-ins for project monitors and project 
+		joysticks</li>
+		<li class="done">new Gadget XML for new joystick driven NVL menu system</li>
+		<li class="done">Special communication plug-in to pass-through (and later control) remote 
+		video camera joystick</li>
+	</ul>
+-->
+	<h2>
+        ESA Vehicle</h2>
+	<ul>
+		<li class="done">Load ESA Vehicle with current VSA OmniScape Application</li>
+		<li class="done">Implement Camera Feature control plug-ins for ESA vehicle cameras</li>
+		<li class="done">Create Monitor XML for ESA vehicle monitors</li>
+		<li class="done">Picture-in-picture XML</li>
+		<li>Implement double-tap in quad-layout to transition to full-view XML (requires 
+			Panel-Division implementation)</li>
+		<li>Floating View Layout XML</li>
+		<li>Touch Screen for the 13&quot; display</li>
+		<li>Pan &amp; Tilt Module support<ul>
+			<li class="done">New plugin to replace the old pass through<ul>
+				<li>Parse EPTM messages</li>
+				<li>Provide command interface to EPTM functionality</li>
+				<li>Provide feedback in the form of Dictionary entries</li>
+			</ul>
+			</li>
+			<li>Touch Gesture support<ul>
+				<li>Allow dragging the screen to send commands to the EPTM 
+				interface</li>
+			</ul>
+			</li>
+			<li class="inprogress">Slew to touched point</li>
+			<li class="done">Auto-pan</li>
+			<li class="done">Graphic overlay depicting pan angle and tilt angle</li>
+		</ul>
+		</li>
+	</ul>
+	<h2>OmniScape Application</h2>
+    <ul>
+        <li>Code Cleanup<ul>
+            <li class="done">Re-enable all of the graphic threads (see configuration section)</li>
+            <li>Remove dead code</li>
+            <li>Remove commented dead code</li>
+            <li class="inprogress">Assure that we are consistent on our coding style</li>
+            </ul>
+        </li>
+        <li>Development Environment<ul>
+            <li class="done">Get NFS working with VMWare (Ubuntu) so we can remote mount the VMWare session
+                from OmniScape</li>
+            <li class="done">Get CodeLite debugging working with the OmniScape</li>
+			<li class="done">Provide document that describes the settings and procedures needed to debug the 
+			OmniScape using our VMWare (Ubuntu) solution.</li>
+            </ul>
+        </li>
+        <li>Configuration<ul>
+            <li>Allow graphic thread creation to be controlled from the configuration#.xml file<ul>
+				<li>Add a Configuration Item to the &quot;Master&quot; config file that 
+				contains the number of DSPs that are to be used in this 
+				OmniScape</li>
+				<li>Create a base class from which all DSP service threads are 
+				derived.&nbsp; This base would primarily implement access to the 
+				&quot;Configuration#.xml&quot; and processing of the Posix messages.</li>
+				<li class="inprogress">The &quot;main&quot; thread would look at the &quot;Configuration#.xml&quot; 
+				files and determine what type of subclass to create.</li>
+			</ul>
+			</li>
+            </ul>
+        </li>
+        <ul>
+			<li class="done">Get Monitor size from the new Monitor interface for the Gadget SDK</li>
+			<li class="inprogress">Implement the necessary XML configuration so we can dispose of the older CFG
+                files</li>
+			<li class="done">Support for enumerations in XML configuration and plug-ins</li>
+		</ul>
+		<li class="done">Local Server to serialize edits to local cameras</li>
+		<li>Plug-ins<ul>
+			<li class="done">Use a single shared plugin-library so we don't try to load the 
+			same 'so' files multiple times.&nbsp; The plugin-library is already 
+			mutex protected for the load operation.</li>
+			<li>Implement VideoSource object for IP decoding</li>
+			<li>VideoSource XML<ul>
+				<li class="inprogress">Start creating named XMLs that we can &lt;Include&gt; into our project configuration
+                    xml</li>
+				<li>Consider treating day/night as an editable camera feature -
+			this would be handled by wrapping the two individual objects with another
+			object that would control access to the the lower objects</li>
+				<li>Alternate to day/night: create a grouping list that allows for a 
+			primary name and a sub-name.  We would use the primary name
+			as the position on the vehicle and the sub-name as the 
+			camera type.  The Video tag would be enhanced to allow either the
+			true Video-source or the alias name/sub-name mapping.  Hopefully
+			we could also use this "mapping" to identify the icon that should
+			be used.</li>
+			</ul>
+			</li>
+			<li>&quot;Active&quot; Dictionary page creation and maintenance (see 
+			Dictionary topic).</li>
+			<li class="done">Camera Feature Control externalization</li>
+			<li class="done">Monitor Communication/Control externalization<ul>
+				<li>Move existing code from vdds_main to individual plug-ins</li>
+			</ul>
+			</li>
+			<li class="done">Finish externalizing any commands that are specific to a project (Such as
+                &quot;C:System Shutdown&quot;)</li>
+			<li class="done">Touch Screen Calibration Command</li>
+		</ul>
+		</li>
+		<li>DSP communication<ul>
+			<li>Use TCP for graphics</li>
+			<li>Use TCP for commands</li>
+			<li>Status feedback</li>
+			<li>DSP Boot Loader - use xml configuration files</li>
+		</ul>
+		</li>
+		<li>Dead Camera Notification (Min Li code)</li>
+		<li>Video tag feature completion<ul>
+			<li class="done">Implement Fitment for &quot;fitaspect&quot; and &quot;fillaspect&quot;</li>
+			<li class="done">Implement Vertical and Horizontal alignment</li>
+			<li>Support name/sub-name mapping to video-source</li>
+		</ul>
+		</li>
+		<li>Draw Object Enhancements<ul>
+			<li class="inprogress">Implement support for &lt;Image&gt; tag which should include support for BMP and JPG
+                file formats</li>
+			<li>Add support for bigger and more fonts</li>
+		</ul>
+		</li>
+		<li>Rework &quot;main()&quot; so that we have a CMain class that controls the 
+		starting of all threads and creation of all objects.</li>
+    </ul>
+    <h2>
+        Gadget SDK</h2>
+    <ul>
+        <li class="done">Implement &lt;Image&gt; tag</li>
+		<li>Support &lt;Include&gt; tag for Gauge, Panel, PanelDivision, Screen.</li>
+		<li class="done">Add Configuration variables to the dictionary<ul>
+            <li class="done">Modify Configuration object to support TDictionaryIndexed for the data.</li>
+            <li class="done">Provide a &quot;glue&quot; class that will wrapper the existing configuration object and 
+                treat it as a dictionary-page</li>
+            </ul>
+        </li>
+		<li class="done">Allow Any &lt;Include&gt; tag to use dictionary variables as part of the 
+		filename</li>
+		<li>Correctly support relative paths for the &lt;Include&gt; tag.</li>
+        <li>Finish conversion to V2 Gadget Schema (property tags instead of attributes)<ul>
+			<li>(See proposed <a href="XML%20Objects.htm" target="_blank">XML 
+			Objects</a>)</li>
+		</ul>
+		</li>
+        <li>Finish implementing the PanelDivision object (and tag) so we can have a better way of
+            representing nested gauges (needed for double-tap implementation of video control)</li>
+		<li>Dictionary<ul>
+			<li class="done">Add new "F" dictionary page that acts similar to "C" page but it is synchronous</li>
+			<li>Allow for the &quot;A&quot;, &quot;B&quot; &amp; &quot;N&quot; pages to be shared between all instances 
+			of the DSP threads.&nbsp; These pages should be created from a 
+			plugin that also determines the classes that will be created to 
+			service the pages.</li>
+		</ul>
+		</li>
+        <li>Enhance Gadget Schema to include new constructs that will make building gauges
+            and forms easier<ul>
+                <li>Dial</li>
+                <li>Slider</li>
+                <li>Button</li>
+            </ul>
+        </li>
+        <li>Consider supporting HTML5 as the base schema so we can use this for good text, 
+		forms
+            and many other things</li>
+		<li>Provide Intelligent Input Processor to deal with more advanced input 
+		metaphors for mouse and bezel/key input.<ul>
+			<li>Bezel/Key Input Events<ul>
+				<li>Key Down</li>
+				<li>Long Key Down - user is holding key down for some specified 
+				amount of time</li>
+				<li>Key Click ** Most actions should be tied to this type of key 
+				event</li>
+				<li>Long Key Click - user held key down key for at least the 
+				&quot;long&quot; time and then released (Long Key Click will always 
+				produce &quot;Key Click&quot;)</li>
+				<li>Double Key Click</li>
+			</ul>
+			</li>
+			<li>Mouse/Touch Events<ul>
+				<li>Mouse Down / Touch</li>
+				<li>Drag</li>
+				<li>Scroll</li>
+				<li>Tap</li>
+				<li>Rotate</li>
+				<li>Flick</li>
+				<li>Press-and-hold</li>
+				<li>Double Tap</li>
+				<li>Mouse Click / Tap</li>
+				<li>Long Mouse Click</li>
+				<li>Mouse Drag / Pan / Drag</li>
+				<li>Mouse Up</li>
+				<li>Double Mouse Click / Double Tap</li>
+				<li>Mouse Guesture</li>
+			</ul>
+			</li>
+		</ul>
+		</li>
+    </ul>
+    <h2>
+        VSA Client Application (Windows)</h2>
+    <ul>
+        <li class="inprogress">Move Windows Client application to VSA project in StarTeam (should be a minimal
+            effort)</li>
+		<li>Investigate using SilverLight as an alternative to DirectShow</li>
+        <li>Remove Live555 Kludge</li>
+        <li>Provide proper filter support that includes handling a wide variety of formats</li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<Gauge Name="dial" Version="1.0">
+	<Size X="220" Y="228" />
+	<Element>
+	<Visible>(G:HIDE/SHOW) !</Visible>
+		<Position X="10" Y="10" />
+		<Circle X="100" Y="100" Radius="110" FillColor="dimgray" />
+		<Circle X="103" Y="103" Radius="100" LineWidth="4" LineColor="black" />
+		<Circle X="100" Y="100" Radius="100" LineWidth="4" LineColor="darkgray" />
+		<Element>
+			<Rotation>360 (T:SLIDER) 50 % 50 / 360 * -</Rotation>
+			<Position X="100" Y="100" />
+			<Polygon FillColor="lightgray">
+				<Point X="80" Y="0" />
+				<Point X="105" Y="-8" />
+				<Point X="106" Y="0" />
+				<Point X="105" Y="8" />
+				<Point X="80" Y="0" />
+			</Polygon>
+		</Element>
+		<Element>
+			<Rotation>(T:SPIN) rddg s0</Rotation>
+			<Position X="104" Y="104" />
+			<Polygon FillColor="black">
+				<Point X="-20" Y="-6" />
+				<Point X="90" Y="0" />
+				<Point X="-20" Y="6" />
+				<Point X="-20" Y="-6" />
+			</Polygon>
+		</Element>
+		<Element>
+			<Rotation>r0</Rotation>
+			<Position X="100" Y="100" />
+			<Polygon FillColor="red" LineColor="red">
+				<Point X="-20" Y="-6" />
+				<Point X="90" Y="0" />
+				<Point X="-20" Y="6" />
+				<Point X="-20" Y="-6" />
+			</Polygon>
+		</Element>
+	</Element>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:DIAL HIDE/SHOW</KeyEvent>
+			<Script>(G:HIDE/SHOW) ! (&gt;G:HIDE/SHOW)</Script>
+		</Trigger>
+	</KeyMap>
+</Gauge>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge>
+	<!--
+		Registers are used to drive the various parameters
+	
+		R5	- height of slider
+		R6	- width of slider
+		R7	- green separator
+		R8	- yellow separator
+		R9	- current position
+	-->
+	<Update>
+		<Script>
+			80 s5
+			10 s6		both
+			r5 (B:Trans Oil Temp.Green.High) (B:Trans Oil Temp.High) / r5 * - s7 both
+			r5 (B:Trans Oil Temp.Yellow.High) (B:Trans Oil Temp.High) / r5 * - s8 both
+			r5 (A:Trans Oil Temp) (B:Trans Oil Temp.High) / r5 * - s9 both
+        </Script>
+		<Frequency>2</Frequency>
+    </Update>
+	<Size>25,82</Size>
+	<Element>
+	<!--
+		switch (U:GAUGE SWITCH)
+		0:	if r9 > r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+	-->
+	<Visibility>
+		false
+		true
+		r7 r9 &gt; 5 (A:RPM) &lt; AND
+		3 (U:GAUGE SWITCH) case
+		
+	</Visibility>
+		<Include File="slider-red-yellow-green" />
+    </Element>
+</Gauge>

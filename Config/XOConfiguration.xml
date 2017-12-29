@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<XmlObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="XmlObjects.xsd">
+
+	<TypeDefs>
+		<TypeDef Name="STRING" Factory="Type::String"/>
+		<TypeDef Name="enumType" Factory="Type::EnumType"/>
+	</TypeDefs>
+
+
+	<AttributeDefs>
+		<AttributeDef Name="ID" Type="STRING"/>
+		<AttributeDef Name="Type" Type="enumType"/>
+		<AttributeDef Name="Units" Type="STRING"/>
+	</AttributeDefs>
+
+
+	<PropertyDefs>
+		<PropertyDef Name="Item" Type="STRING" Factory="Property::Item">
+			<Attribute Ref="ID" Required="true"/>
+			<Attribute Ref="Type" Required="true"/>
+			<Attribute Ref="Units"/>
+		</PropertyDef>
+	</PropertyDefs>
+
+
+
+	<SetDefs>
+		<SetDef Name="Configuration"
+				Factory="Set::Configuration"
+				Root="true">
+			<Property Ref="Item"/>
+		</SetDef>
+	</SetDefs>
+
+</XmlObjects>

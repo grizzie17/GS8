@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+	<!--
+	"Screen" identifies the name of the xml file in the 'screens'
+	folder that should be loaded and processed
+	-->
+	<Item ID="Screen" Type="STRING">tune_screen</Item>
+
+	<!-- 
+	"Active Commands" identifies the name of the xml file in the
+	'plugins/commands' folder that should.  If this tag is not
+	specified then the 'default.xml' will be used.
+	-->
+	<Item ID="Active Commands" Type="STRING">tune</Item>
+	
+	<Item ID="Client" Type="STRING">vdds_client</Item>
+	<Item ID="Video Sources" Type="STRING" >tune_sources</Item>
+
+
+	<!--
+	"Startup Events" identifies a semicolon or newline separated list 
+	of event 	names that should be triggered upon application startup.
+	-->
+	<Item ID="Startup Events" Type="STRING">
+		E:INIT CAMERA
+		E:UNITS IMPERIAL
+	</Item>
+</Configuration>

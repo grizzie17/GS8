@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<Gauge Name="sliderhider" Version="1.0">
+	<Size X="200" Y="40" />
+	<Element>
+	<Visible>(A:Engine Oil Temp) s0 (B:Engine Oil Temp.Yellow.Low) &gt;</Visible>
+		<!--Position X="20" Y="(S:SCREEN HEIGHT) 60 -" /-->
+		<Element>
+			<Polyline LineWidth="3" LineColor=" 'green' 'darkorange' r0 (B:Engine Oil Temp.Yellow.Low) &lt; ? 'red' r0 (B:Engine Oil Temp.Red.Low) &lt; ? s9">
+				<Point X="0" Y="10" />
+				<Point X="(B:Engine Oil Temp.Yellow.Low) (B:Engine Oil Temp.High) s1 / 200 *" Y="10" />
+				<Point X="(B:Engine Oil Temp.Red.Low) r1 / 200 *" Y="0" />
+				<Point X="200" Y="0" />
+				<Point X="200" Y="20" />
+				<Point X="0" Y="20" />
+				<Point X="0" Y="10" />
+			</Polyline>
+		</Element>
+		<Element>
+			<GaugeText X="200" Y="0" Align="left" VerticalAlign="top" Font="Arial" Height="25" LineColor="r9">
+				<String><![CDATA[ %((B:Engine Oil Temp.Label))%!s!]]></String>
+			</GaugeText>
+		</Element>
+		<Element>
+			<Position X="0" Y="5" />
+			<Shift Y="0" X="r0 (B:Engine Oil Temp.High) / 200.0f *" />
+			<Polygon FillColor=" 'green' 'orange' r0 (B:Engine Oil Temp.Yellow.Low) &lt; ? 'red' r0 (B:Engine Oil Temp.Red.Low) &lt; ?">
+				<Point Y="0" X="0" />
+				<Point Y="20" X="-6" />
+				<Point Y="20" X="6" />
+				<Point Y="0" X="0" />
+			</Polygon>
+		</Element>
+	</Element>
+</Gauge>

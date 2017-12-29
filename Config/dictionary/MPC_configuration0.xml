@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<!-- Crew -->
+
+	<Include File="MPC_config_none"/>
+
+	<Item ID="Display" Type="STRING">Crew Position 1</Item>
+	<Item ID="Device ID" Type="INTEGER" >25</Item>
+	<Item ID="Monitor Type" Type="STRING">ATLAS_ATM1500T_800x600_60Hz</Item>
+	<Item ID="Monitor COM Port" Type="STRING">/dev/ttyVDDS0</Item>
+	<!--<Item ID="Input Devices" Type="STRING">gdc_cfpd10_input_device</Item>-->
+	<Item ID="Network Port" Type="INTEGER" >1555</Item>
+	<Item ID="DSP IP Address" Type="STRING">192.168.0.206</Item>
+	<Item ID="DSP IP Port" Type="INTEGER">5389</Item>
+</Configuration>

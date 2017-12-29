@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="rotary" Crop="true">
+		<Size>220,100</Size>
+		<!--<Size>220,228</Size>-->
+		<Element>
+			<Position X="110" Y="160" />
+			<Element Context="background">
+				<Visible>(G:HIDE/SHOW) !</Visible>
+				<Pie X="0" Y="0" Radius="150" StartAngle="180 0.25 * s0" EndAngle="180 0.75 * s1" FillColor="gray" LineColor="gray" LineWidth="2" />
+				<Pie X="0" Y="0" Radius="150" StartAngle="r1 180 0.5 * (T:SLIDER.YELLOW) 100 / * - s2" EndAngle="r1" FillColor="green" LineColor="white" LineWidth="2" />
+				<Pie X="0" Y="0" Radius="150" StartAngle="r1 180 0.5 * (T:SLIDER.RED) 100 / * - s3" EndAngle="r2" FillColor="gold" LineColor="white" LineWidth="2" />
+				<Pie X="0" Y="0" Radius="150" StartAngle="r0" EndAngle="l3" FillColor="red" LineColor="white" LineWidth="2" />
+				<Pie X="0" Y="0" Radius="120" StartAngle="r0 2 -" EndAngle="r1 2 +" FillColor="background" LineColor="background" LineWidth="2" />
+				<Arc X="0" Y="0" Radius="120" StartAngle="r0" EndAngle="r1" LineColor="white" LineWidth="2" />
+			</Element>
+			<Element Context="foreground">
+				<Element>
+					<Position X="6" Y="6" />
+					<Rotation>r1 180 0.5 * (T:PULSER) 100 / * - s5</Rotation>
+					<Polygon FillColor="black">
+						<Point X="30" Y="0" />
+						<Point X="28" Y="-10" />
+						<Point X="153" Y="-2" />
+						<Point X="155" Y="0" />
+						<Point X="153" Y="2" />
+						<Point X="28" Y="10" />
+						<Point X="30" Y="0" />
+					</Polygon>
+				</Element>
+				<Circle X="0" Y="0" Radius="30" FillColor="gray" LineColor="lightgray" LineWidth="8" />
+				<Element>
+					<Rotation>r5</Rotation>
+					<Polygon FillColor="darkred">
+						<Point X="30" Y="0" />
+						<Point X="28" Y="-10" />
+						<Point X="153" Y="-2" />
+						<Point X="155" Y="0" />
+						<Point X="153" Y="2" />
+						<Point X="28" Y="10" />
+						<Point X="30" Y="0" />
+					</Polygon>
+					<Polygon FillColor="red" LineColor="darkred">
+						<Point X="30" Y="0" />
+						<Point X="28" Y="-10" />
+						<Point X="153" Y="-2" />
+						<Point X="155" Y="0" />
+						<Point X="30" Y="0" />
+					</Polygon>
+				</Element>
+			</Element>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:ROTARY HIDE/SHOW</KeyEvent>
+				<Script>(G:HIDE/SHOW) ! (&gt;G:HIDE/SHOW)</Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

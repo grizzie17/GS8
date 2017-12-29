@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-camera-icon">
+		<!--
+		Load R15 with the value of (D:Video Feed #)
+		-->
+		<Element Context="background">
+			<Choose>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Front-Center IR) r15 ==
+							(K:Camera Front-Center Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_frontcenter" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Front-Left IR) r15 ==
+							(K:Camera Front-Left Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_frontleft" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Front-Right IR) r15 ==
+							(K:Camera Front-Right Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_frontright" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Left-Forward IR) r15 ==
+							(K:Camera Left-Forward Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_leftfront" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Right-Forward IR) r15 ==
+							(K:Camera Right-Forward Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_rightfront" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Left-Rear IR) r15 ==
+							(K:Camera Left-Rear Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_leftrear" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Right-Rear IR) r15 ==
+							(K:Camera Right-Rear Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_rightrear" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Rear IR) r15 ==
+							(K:Camera Rear Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_rear" />
+				</When>
+				<When>
+					<Expression>
+						<Script>
+							(K:Camera Observer IR) r15 ==
+							(K:Camera Observer Color) r15 ==
+							OR
+						</Script>
+					</Expression>
+					<Include File="camera_observer" />
+				</When>
+				<Otherwise>
+					<Include File="camera_lost" />
+				</Otherwise>
+			</Choose>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

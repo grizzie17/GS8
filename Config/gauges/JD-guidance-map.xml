@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="JD-guidance-map">
+		<Element>
+			<Rectangle>
+				<Origin>0,0</Origin>
+				<WidthScript>width</WidthScript>
+				<HeightScript>height</HeightScript>
+				<CornerScript>height 3 /</CornerScript>
+				<CornerStyle>rabbet</CornerStyle>
+				<FillColor>purple</FillColor>
+			</Rectangle>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

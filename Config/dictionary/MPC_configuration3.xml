@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<!-- Not used -->
+
+	<Include File="MPC_config_none"/>
+	<Item ID="Display" Type="STRING">none</Item>
+	<Item ID="Device ID" Type="INTEGER" >28</Item>
+	<Item ID="Monitor Type" Type="STRING">GDC_CFPD</Item>
+	<!--Item ID="Input Devices" Type="STRING">gdc_sdu16_1_input_device</Item-->
+	<Item ID="Client" Type="STRING">vdds_client</Item>
+	<Item ID="Network Port" Type="INTEGER" >1553</Item>
+	<Item ID="DSP IP Address" Type="STRING">192.168.0.209</Item>
+	<Item ID="DSP IP Port" Type="INTEGER">5389</Item>
+
+</Configuration>

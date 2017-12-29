@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Avalex Display Configuration -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+	<Plugin Class="MonGeneric">
+		<Param Name="Name" Type="STRING">GDC_CFDP</Param>	<!-- Legacy entry that is not utilized at this time -->
+		<Param Name="Description" Type="STRING">GD Canada Color Flat Panel Display</Param>	<!-- Legacy entry that is not utilized at this time -->
+		<Param Name="Display Profile" Type="ENUM">DIS_RGB_800x600_CUSTOM</Param>
+		<Param Name="Pixel Freq" Type="ENUM">FRQ_40_00_MHZ</Param>
+		<Param Name="Commanded State" Type="INTEGER">0</Param>	<!-- Legacy entry that is not utilized at this time -->
+		<Param Name="Horizontal Numerator" Type="INTEGER">1</Param>	<!-- Legacy entry that is not utilized at this time -->
+		<Param Name="Horizontal Denominator" Type="INTEGER">1</Param>	<!-- Legacy entry that is not utilized at this time -->
+		<Param Name="Vertical Numerator" Type="INTEGER">1</Param>	<!-- Legacy entry that is not utilized at this time -->
+		<Param Name="Vertical Denominator" Type="INTEGER">1</Param>	<!-- Legacy entry that is not utilized at this time -->
+		<Param Name="Width" Type="INTEGER">800</Param>
+		<Param Name="Height" Type="INTEGER">600</Param>
+		<Param Name="D Mode" Type="ENUM">VPORT_MODE_YCBCR_8BIT</Param>	<!-- #define VPORT_MODE_YCBCR_8BIT		0x00000004 -->
+		<Param Name="Fld Op" Type="ENUM">VPORT_FLDOP_PROGRESSIVE</Param>		<!-- #define VPORT_FLDOP_PROGRESSIVE		0x00000005 -->
+		<Param Name="Frm HSize" Type="INTEGER">1056</Param>
+		<Param Name="Frm VSize" Type="INTEGER">625</Param>
+		<Param Name="Img HOffset Fld 1" Type="INTEGER">0</Param>
+		<Param Name="Img VOffset Fld 1" Type="INTEGER">0</Param>
+		<Param Name="Img HSize Fld 1" Type="INTEGER">800</Param>	<!-- SVGA pixels per line -->
+		<Param Name="Img VSize Fld 1" Type="INTEGER">600</Param>	<!-- SVGA lines per frame -->
+		<Param Name="Img HOffset Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Img VOffset Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Img HSize Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Img VSize Fld 2" Type="INTEGER">0</Param>
+		<Param Name="H Blnk Start" Type="INTEGER">800</Param>
+		<Param Name="H Blnk Stop" Type="INTEGER">1001</Param>
+		<Param Name="V Blnk X Start Fld 1" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Start Fld 1" Type="INTEGER">1</Param>
+		<Param Name="V Blnk X Stop Fld 1" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Stop Fld 1" Type="INTEGER">26</Param>
+		<Param Name="V Blnk X Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Blnk X Stop Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Stop Fld 2" Type="INTEGER">0</Param>
+		<Param Name="X Start Fld 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Fld 1" Type="INTEGER">1</Param>
+		<Param Name="X Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="H Sync Start" Type="INTEGER">837</Param>	<!-- (840 - 3) -->
+		<Param Name="H Sync Stop" Type="INTEGER">917</Param>	<!-- (920 - 3) -->
+		<Param Name="V Sync X Start Fld 1" Type="INTEGER">837</Param>	<!-- (840 - 3) -->
+		<Param Name="V Sync Y Start Fld 1" Type="INTEGER">2</Param>
+		<Param Name="V Sync X Stop Fld 1" Type="INTEGER">837</Param>	<!-- (840 - 3) -->
+		<Param Name="V Sync Y Stop Fld 1" Type="INTEGER">5</Param>
+		<Param Name="V Sync X Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Sync Y Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Sync X Stop Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Sync Y Stop Fld 2" Type="INTEGER">0</Param>
+	</Plugin>
+</Plugins>
+

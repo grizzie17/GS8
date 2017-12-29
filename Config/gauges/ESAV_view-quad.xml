@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="ESAV_view-layout-quad">
+		<Update>
+			<Script>
+				/*
+				R8 is set to 50% of the screen height or an axis located 50% from the top
+				R9 is set to 50% of the screen width or an axis located 50% from the left
+				*/
+				(S:SCREEN HEIGHT) 2 / s8
+				(S:SCREEN WIDTH) 2 / s9
+				both
+
+			</Script>
+		</Update>
+		<Element Context="group">
+			<Visibility>
+				(U:View Layout) (K:View Quad) ==
+			</Visibility>
+			<Element Context="application">
+				<Video>
+					<Origin>0,0</Origin>
+					<HeightScript>r8</HeightScript>
+					<WidthScript>r9</WidthScript>
+					<LineColor>darkblue</LineColor>
+					<LineWidth>1</LineWidth>
+					<Mirror>false</Mirror>
+					<SourceScript>(U:Video Feed 1)</SourceScript>
+				</Video>
+				<Video>
+					<OriginXScript>r9</OriginXScript>
+					<OriginY>0</OriginY>
+					<HeightScript>r8</HeightScript>
+					<WidthScript>r9</WidthScript>
+					<LineColor>darkblue</LineColor>
+					<LineWidth>1</LineWidth>
+					<Mirror>false</Mirror>
+					<SourceScript>(U:Video Feed 2)</SourceScript>
+				</Video>
+				<Video>
+					<OriginX>0</OriginX>
+					<OriginYScript>r8</OriginYScript>
+					<HeightScript>r8</HeightScript>
+					<WidthScript>r9</WidthScript>
+					<LineColor>darkblue</LineColor>
+					<LineWidth>1</LineWidth>
+					<Mirror>false</Mirror>
+					<SourceScript>(U:Video Feed 3)</SourceScript>
+				</Video>
+				<Video>
+					<OriginXScript>r9</OriginXScript>
+					<OriginYScript>r8</OriginYScript>
+					<HeightScript>r8</HeightScript>
+					<WidthScript>r9</WidthScript>
+					<LineColor>darkblue</LineColor>
+					<LineWidth>1</LineWidth>
+					<Mirror>false</Mirror>
+					<SourceScript>(U:Video Feed 4)</SourceScript>
+				</Video>
+			</Element>
+			<Element Context="background">
+
+				<!--
+					Define a point in the middle of the screen
+				-->
+				<Position X="r9" Y="r8"/>
+				<Line LineColor="lightgreen" LineWidth="2">
+					<Point X="100" Y="0"/>
+					<Point X="-100" Y="0"/>
+				</Line>
+				<Line LineColor="lightgreen" LineWidth="2">
+					<Point X="0" Y="100"/>
+					<Point X="0" Y="-100"/>
+				</Line>
+				<!--
+					Draw the appropriate camera icon for video feed 1
+				-->
+				<Element>
+					<Position X="-43" Y="-50"/>
+					<Include File="ESAV_view-feed-1" />
+				</Element>
+				<!--
+					Draw the appropriate camera icon for video feed 2
+				-->
+				<Element>
+					<Position X="8" Y="-50"/>
+					<Include File="ESAV_view-feed-2" />
+				</Element>
+				<!--
+					Draw the appropriate camera icon for video feed 3
+				-->
+				<Element>
+					<Position X="-43" Y="10"/>
+					<Include File="ESAV_view-feed-3" />
+				</Element>
+				<!--
+					Draw the appropriate camera icon for video feed 4
+				-->
+				<Element>
+					<Position X="8" Y="10"/>
+					<Include File="ESAV_view-feed-4" />
+				</Element>
+			</Element>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<Event>E:Select Quad Feed 1</Event>
+				<Script></Script>
+			</Trigger>
+			<Trigger>
+				<Event>E:Select Quad Feed 2</Event>
+				<Script></Script>
+			</Trigger>
+			<Trigger>
+				<Event>E:Select Quad Feed 3</Event>
+				<Script></Script>
+			</Trigger>
+			<Trigger>
+				<Event>E:Select Quad Feed 4</Event>
+				<Script></Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

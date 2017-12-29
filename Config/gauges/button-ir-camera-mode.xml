@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-ir-camera-mode">
+		<Update>
+			<Script>
+
+
+				"Change" s6
+
+				"AGC Mode" s7
+				both
+
+				" " s8
+				both
+
+				0x00FF00 0x00FFFF (S:MILLI) (U:Blink IR Mode Timeout) &gt; ? s2
+				both
+
+				r2 s1
+				both
+
+				(D:Camera Cap Mode Control) (K:Unsupported) != (U:BLACKOUT SELECTED) ! AND s0
+				both
+
+				0x00FF00 0x00FFFF (S:MILLI) (U:Blink IR Mode Timeout) &gt; ? s1
+				both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>(D:Camera Cap Mode Control) (K:Unsupported) != (U:BLACKOUT SELECTED) ! AND</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:TOGGLE IR CAMERA MODE</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

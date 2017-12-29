@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<Include File="DEMO_config_common"/>
+
+	<Item ID="Screen" Type="STRING">DEMO_screen</Item>
+
+	<Item ID="Sample" Type="STRING">Sample</Item>
+
+</Configuration>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-shutdown" Version="1.0" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<Size>60,60</Size>
+	<Element Context="background">
+		<Circle>
+			<Origin>30,30</Origin>
+			<Radius>20</Radius>
+			<LineColor>firebrick</LineColor>
+			<LineWidth>4</LineWidth>
+		</Circle>
+		<Line LineColor="firebrick" LineWidth="4">
+			<Point X="30" Y="20" />
+			<Point X="30" Y="40" />			
+		</Line>
+	</Element>
+	<MouseArea>
+		<FloatPosition>0,0</FloatPosition>
+		<Size>60,60</Size>
+		<MouseUp>
+			<Script>1 (=C:System Shutdown)</Script>
+		</MouseUp>
+	</MouseArea>
+</Gauge>

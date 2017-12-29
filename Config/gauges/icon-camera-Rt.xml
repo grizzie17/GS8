@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-camera-RF" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Rectangle X="10" Y="10" Width="10" Height="20" LineColor="r1" LineWidth="2"/>
+		<Line LineColor="r1" LineWidth="4">
+			<Point X="20" Y="15"/>
+			<Point X="30" Y="15"/>
+		</Line>
+	</Element>
+</Gauge>

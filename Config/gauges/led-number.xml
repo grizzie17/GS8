@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<!--
+		This gauge is used as a building block for other gauges
+		Registers are used to drive the various parameters
+	
+		R5	- height of slider
+		R6	- width of slider
+		R7	- green separator
+		R8	- yellow separator (not used in this gauge)
+		R9	- current position
+	-->
+	<Element>
+		<Element>
+			<!-- units -->
+			<Visibility>
+				r2 near s2
+				r2 10 % s15  both
+				true both
+			</Visibility>
+			<FloatPosition>20,0</FloatPosition>
+			<Element>
+				<!-- top bar -->
+				<Visibility>
+					r15 1 "0 23 56789" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="4" Y="0" />
+					<Point X="16" Y="0" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- left top bar -->
+				<Visibility>
+					r15 1 "0   456 89" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="4" Y="0" />
+					<Point X="2" Y="12" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- right top bar -->
+				<Visibility>
+					r15 1 "01234  789" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="16" Y="0" />
+					<Point X="14" Y="12" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- middle bar -->
+				<Visibility>
+					r15 1 "  23456 89" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="2" Y="12" />
+					<Point X="14" Y="12" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- left bottom bar -->
+				<Visibility>
+					r15 1 "0 2   6 8 " substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="2" Y="12" />
+					<Point X="0" Y="24" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- right bottom bar -->
+				<Visibility>
+					r15 1 "01 3456789" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="14" Y="12" />
+					<Point X="12" Y="24" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- bottom bar -->
+				<Visibility>
+					r15 1 "0 23 56 89" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="0" Y="24" />
+					<Point X="12" Y="24" />
+				</Line>
+			</Element>
+		</Element>
+		<Element>
+			<!-- tens -->
+			<Visibility>
+				r2 10 / 10 % s15
+				9 r2 LT both
+			</Visibility>
+			<Element>
+				<!-- top bar -->
+				<Visibility>
+					r15 1 "0 23 56789" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="4" Y="0" />
+					<Point X="16" Y="0" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- left top bar -->
+				<Visibility>
+					r15 1 "0   456 89" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="4" Y="0" />
+					<Point X="2" Y="12" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- right top bar -->
+				<Visibility>
+					r15 1 "01234  789" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="16" Y="0" />
+					<Point X="14" Y="12" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- middle bar -->
+				<Visibility>
+					r15 1 "  23456 89" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="2" Y="12" />
+					<Point X="14" Y="12" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- left bottom bar -->
+				<Visibility>
+					r15 1 "0 2   6 8 " substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="2" Y="12" />
+					<Point X="0" Y="24" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- right bottom bar -->
+				<Visibility>
+					r15 1 "01 3456789" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="14" Y="12" />
+					<Point X="12" Y="24" />
+				</Line>
+			</Element>
+			<Element>
+				<!-- bottom bar -->
+				<Visibility>
+					r15 1 "0 23 56 89" substr " " NE
+				</Visibility>
+				<Line LineColor="(U:COLOR_Icon)" LineWidth="3">
+					<Point X="0" Y="24" />
+					<Point X="12" Y="24" />
+				</Line>
+			</Element>
+		</Element>
+	</Element>
+</Gauge>

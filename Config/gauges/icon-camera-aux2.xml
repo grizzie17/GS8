@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-camera-aux1" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Rectangle X="4" Y="4"
+				   Width="34" Height="34"
+				   LineColor="r1" LineWidth="2"/>
+
+		<Circle X="12" Y="12" Radius="6" LineColor="r1" LineWidth="2" />
+		<Circle X="26" Y="26" Radius="6" LineColor="r1" LineWidth="2" />
+	</Element>
+</Gauge>

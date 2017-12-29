@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified"
+		   elementFormDefault="qualified"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+	<!--
+	###########################################################
+	||	Types
+	###########################################################
+	-->
+
+
+	<!-- enumerations -->
+
+	<xs:simpleType name="enumType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BOOLEAN" />
+			<xs:enumeration value="COLOR" />
+			<xs:enumeration value="DATETIME" />
+			<xs:enumeration value="ENUM" />
+			<xs:enumeration value="FLOAT" />
+			<xs:enumeration value="INTEGER" />
+			<xs:enumeration value="STRING" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:element name="Plugins">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Plugin" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="Group" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="PluginInclude">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Parameters" />
+					<xs:element ref="Plugin" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="Plugin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Param" />
+					<xs:element ref="Plugin" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="Class" type="xs:string" use="required" />
+			<xs:attribute name="ID" type="xs:string" use="optional" />
+			<xs:attribute name="Group" type="xs:string" use="optional" />
+			<xs:attribute name="Filter" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Parameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Param" />
+					<xs:element ref="Plugin" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+
+
+
+
+	<xs:element name="Param">
+		<xs:complexType mixed="true">
+			<xs:attribute name="Name" type="xs:string" use="required" />
+			<xs:attribute name="Type" type="enumType" use="required" />
+			<xs:attribute name="Units" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Include">
+		<xs:complexType>
+			<xs:attribute name="File" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</xs:schema>

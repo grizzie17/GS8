@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="ESS_1">
+		<Update>
+			<!--
+			r0 = port #
+			r1 = ESS_STATE
+			r2 = ESS_MILLI
+      r3 = ESS_PORT_OPEN
+      r4 = ESS_MESSAGE
+	  r5 = ESS_PORT_NAME
+			-->
+			<Script>
+				1 s0
+				(D:ESS 1 STATE) s1 both
+				(D:ESS 1 MILLI) s2 both
+				(D:ESS 1 PORT OPEN) s3 both
+				(D:ESS 1 MESSAGE) s4 both
+				(D:ESS 1 PORT NAME) s5 both
+				(D:ESS 1 ACTIVE) s6 both
+				(D:ESS 1 TESTED) s7 both
+				(D:ESS 1 FAILED) s8 both
+
+			</Script>
+		</Update>
+		<Size>240,240</Size>
+		<Element>
+			<Include File="ESS_spinner" />
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>
+

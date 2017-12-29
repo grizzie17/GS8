@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configuration.xsd">
+	<Include File="ESAV_config_none" />
+  <Item ID="Display" Type="STRING">Driver Position 2</Item>
+  <Item ID="Device ID" Type="INTEGER" >28</Item>
+  <Item ID="Monitor Type" Type="STRING">Avalex</Item>
+  <Item ID="Input Devices" Type="STRING">ESAV_input_devices_3</Item>
+  <Item ID="Client" Type="STRING">vdds_client</Item>
+  <Item ID="Network Port" Type="INTEGER" >1553</Item>
+  <Item ID="Video Sources" Type="STRING" >ESAV_video_sources</Item>
+  <Item ID="DSP IP Address" Type="STRING">192.168.0.209</Item>
+  <Item ID="DSP IP Port" Type="INTEGER">5389</Item>
+
+</Configuration>

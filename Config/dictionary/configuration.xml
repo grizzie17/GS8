@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<Include File="configurationPROJ"/>
+
+	<Include File="$(PROJ)_configuration"/>
+
+	
+	<!--
+
+	"Active Dictionary Timeout" identifies the amount of time that we
+	should wait for new 'active' data to arrive.  Beyond the specified
+	timeout value we will affectively zero the 'active' dictionary page.
+	-->
+	<Item ID="Active Dictionary Timeout" Type="FLOAT" Units="seconds">5</Item>
+	<Item ID="Active Dictionary Check Stale" Type="FLOAT" Units="seconds">5</Item>
+	<!--
+
+	"Calculate Frequency" identifies the number of times per second
+	that we should assure that we recalculate the gauges.
+	-->
+	<Item ID="Calculate Frequency" Type="FLOAT">0</Item>
+	<!--
+
+	"Simulate Data Frequency" identifies the number of times per second
+	that we should simulate data.
+	-->
+	<Item ID="Simulate Data Frequency" Type="FLOAT">0</Item>
+	<!--
+
+	"Display Dirty Rectangle" is actually a special debug display mode
+	that will draw a magenta rectangle on the screen representing the
+	last displayed rectangle.
+	-->
+	<Item ID="Display Dirty Rectangle" Type="BOOLEAN">false</Item>
+	<Item ID="Double Backingstore" Type="BOOLEAN">true</Item>
+
+	<Item ID="Background Color" Type="COLOR">background</Item>
+
+	<Include File="vehicledataconfiguration" />
+</Configuration>

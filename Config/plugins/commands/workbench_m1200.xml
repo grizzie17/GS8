@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="workbench_common"/>
+	<Include File="touch_calibrate"/>
+
+
+	<Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="PC Video" Type="STRING">pc video color</Param>
+		<Param Name="Camera Front" Type="STRING">Camera Front</Param>
+		<Param Name="Camera Left" Type="STRING">Camera Left</Param>
+		<Param Name="Camera Right" Type="STRING">Camera Right</Param>
+		<Param Name="Camera Rear" Type="STRING">Camera Rear</Param>
+	</Plugin>
+
+	<Plugin Class="CmdReturnTrue" Group="" ID="Extra Commands">
+		<Param Name="Send Point External" Type="INTEGER">0</Param>
+	</Plugin>
+
+	<!--Plugin Class="CmdTouchCalibrate" ID="Touch Calibrate" >
+		<Param Name="Dummy" Type="INTEGER">123</Param>
+	</Plugin-->
+
+
+</Plugins>
+

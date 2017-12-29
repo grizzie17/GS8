@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="latlong">
+		<Update>
+			<Script>(S:MILLI) (=C:EPTM CALCULATE)</Script>
+		</Update>
+		<Size>250,20</Size>
+		<Element Context="foreground">
+			<Position X="0" Y="0" />
+			<GaugeText X="0" Y="0"
+					   Font="sans-serif" Height="20"
+					   Align="left" VerticalAlign="top"
+					   Color="(U:COLOR_Text)" HaloColor="(U:COLOR_TextMask)">
+				<String>%( (U:EPTM POSITION X) )%!3.2f! P / %( (U:EPTM POSITION Y) )%!3.2f! T</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

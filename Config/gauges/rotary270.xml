@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="dial">
+		<Size>220,228</Size>
+		<Element>
+			<Visible>(G:HIDE/SHOW) !</Visible>
+			<Position X="110" Y="110" />
+			<Element Context="background">
+				<Circle X="0" Y="0" Radius="110" FillColor="dimgray" />
+				<Circle X="2" Y="2" Radius="100" LineWidth="4" LineColor="black" />
+				<Circle X="0" Y="0" Radius="100" LineWidth="4" LineColor="darkgray" />
+				<Pie X="0" Y="0" Radius="80" EndAngle="r0" StartAngle="180 1.25 * s0 180 1.5 * s9 (T:SLIDER.YELLOW) 100 / * - s1" FillColor="green" LineColor="white" LineWidth="3" />
+				<Pie X="0" Y="0" Radius="80" EndAngle="r1" StartAngle="r0 r9 (T:SLIDER.RED) 100 / * - s2" FillColor="gold" LineColor="white" LineWidth="3" />
+				<Pie X="0" Y="0" Radius="80" EndAngle="r2" StartAngle="r0 r9 - s3" FillColor="red" LineColor="white" LineWidth="3" />
+				<Circle X="0" Y="0" Radius="60" FillColor="dimgray" LineColor="dimgray" />
+				<Arc X="0" Y="0" Radius="60" EndAngle="r0" StartAngle="r3" LineColor="white" LineWidth="3" />
+			</Element>
+			<Element Context="foreground">
+				<Element>
+					<Rotation>l0 l9 (T:PULSER) 100 / * - s5</Rotation>
+					<Position X="6" Y="6" />
+					<Polygon FillColor="black">
+						<Point X="-20" Y="-8" />
+						<Point X="87" Y="-2" />
+						<Point X="90" Y="0" />
+						<Point X="87" Y="2" />
+						<Point X="-20" Y="8" />
+						<Point X="-20" Y="-8" />
+					</Polygon>
+				</Element>
+				<Element>
+					<Rotation>l5</Rotation>
+					<Polygon FillColor="red" LineColor="red">
+						<Point X="-20" Y="-8" />
+						<Point X="87" Y="-2" />
+						<Point X="90" Y="0" />
+						<Point X="87" Y="2" />
+						<Point X="-20" Y="8" />
+						<Point X="-20" Y="-8" />
+					</Polygon>
+				</Element>
+				<Arc X="0" Y="0" Radius="6" StartAngle="pi 1.4 *" EndAngle="pi 0.25 *" LineColor="darkred" LineWidth="2" />
+			</Element>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:ROTARY270 HIDE/SHOW</KeyEvent>
+				<Script>(G:HIDE/SHOW) ! (&gt;G:HIDE/SHOW)</Script>
+			</Trigger>
+		</KeyMap>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>110,110</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:ROTARY270 HIDE/SHOW</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

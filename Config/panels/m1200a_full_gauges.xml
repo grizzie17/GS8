@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<Panel id="m1200a_full_gauges" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 8 / s10		// Height of button area
+			r10 2 / s11						// center of button area
+			both
+
+			5 s0	// left screen margin
+			both
+		</Script>
+	</Layout>
+
+	<GaugeInstance Name="icon-fuel"
+				   X="(S:SCREEN WIDTH) 2 / width - 115 -"
+				   Y="(S:SCREEN HEIGHT) height - 230 -" />
+	<GaugeInstance Name="dial-fuel"
+				   X="(S:SCREEN WIDTH) width - 2 / 50 -"
+				   Y="(S:SCREEN HEIGHT) height - 200 -" />
+	
+	<GaugeInstance Name="dial-temperature"
+				   X="(S:SCREEN WIDTH) 2 / width - 160 -"
+				   Y="(S:SCREEN HEIGHT) height -" />
+	
+	<GaugeInstance Name="dial-oil"
+				   X="(S:SCREEN WIDTH) 2 / 175 +"
+				   Y="(S:SCREEN HEIGHT) height - 25 -" />
+	
+	<GaugeInstance Name="dial-rpm"
+				   X="(S:SCREEN WIDTH) 2 / width - 10 +" 
+				   Y="(S:SCREEN HEIGHT) height -" />
+	<GaugeInstance Name="dial-speed"
+				   X="(S:SCREEN WIDTH) 2 / 60 -" 
+				   Y="(S:SCREEN HEIGHT) height -" />
+
+	<!-- heading -->
+	<GaugeInstance Name="compass"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="0" />
+	<!--GaugeInstance Name="steeringangle"
+				   X="(S:SCREEN WIDTH) width - 5 -" Y="2" /-->
+	<GaugeInstance Name="@alert-everything"
+				   X="(S:SCREEN WIDTH) 2 / 100 -" 
+				   Y="(S:SCREEN HEIGHT) 320 - height -" />
+
+	<GaugeInstance Name="time"
+				   X="(S:SCREEN WIDTH) width - 5 -" 
+				   Y="(S:SCREEN HEIGHT) height - 5 -" />
+	
+	
+	<GaugeInstance Name="slider-engine-oil-temp"
+					X="(S:SCREEN WIDTH) 135 - 77 +" 
+				   Y="(S:SCREEN HEIGHT) 110 -" />
+	<GaugeInstance Name="icon-temperature-oil"
+				   X="(S:SCREEN WIDTH) 30 -" 
+				   Y="(S:SCREEN HEIGHT) 95 -" />
+
+	<GaugeInstance Name="icon-trans-oil-pressure"
+				   X="(S:SCREEN WIDTH) 135 - 3 +" 
+				   Y="(S:SCREEN HEIGHT) 210 - 10 +" />
+	<GaugeInstance Name="slider-trans-oil-pressure"
+					X="(S:SCREEN WIDTH) 135 - 50 +" 
+				   Y="(S:SCREEN HEIGHT) 210 -" />
+	<GaugeInstance Name="slider-trans-oil-temp"
+					X="(S:SCREEN WIDTH) 135 - 77 +" 
+				   Y="(S:SCREEN HEIGHT) 210 -" />
+	<GaugeInstance Name="icon-temperature-trans"
+				   X="(S:SCREEN WIDTH) 135 - 105 +" 
+				   Y="(S:SCREEN HEIGHT) 210 - 10 +" />
+
+	<GaugeInstance Name="icon-battery"
+				   X="10 60 +" 
+				   Y="(S:SCREEN HEIGHT) 85 - " />
+	<GaugeInstance Name="slider-battery-voltage"
+				   X="50 60 +"
+				   Y="(S:SCREEN HEIGHT) 105 -" />
+
+	<!-- Define the BEZEL buttons -->
+	<GaugeInstance Name="button-gauge_state" X="5" Y="r10 1 * r11 + height 2 / -"/>
+	<GaugeInstance Name="m1200-button-panel" X="5" Y="r10 0 * r11 + height 2 / -"/>
+	<!--<GaugeInstance Name="touch-recalibrate" />-->
+
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL2" Event="E:TOGGLE GAUGE STATE" />
+			<Key id="BEZEL7" Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL8" Event="E:TOGGLE DAYNIGHT" />
+			<Key id="F2" Event="E:TOGGLE GAUGE STATE" />
+			<Key id="F7" Event="E:TOGGLE SEAT POSITION" />
+			<Key id="F8" Event="E:TOGGLE DAYNIGHT" />
+		</OnDown>
+	</KeyEventMap>
+
+</Panel>
+

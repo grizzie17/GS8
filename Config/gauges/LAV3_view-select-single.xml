@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="LAV3_view-select-single">
+		<Update>
+			<!--Frequency>2</Frequency-->
+			<Script>
+				(U:Feed 1 Position) (?U:Video Feed 1)
+
+				/*
+					Set (C:View Single) to single view to
+					activate the camera position defined above
+				*/
+				(K:View Single) (=U:View Layout) both
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

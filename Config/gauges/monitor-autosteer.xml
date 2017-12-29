@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="monitor-autosteer">
+		<Update>
+			<!--
+			Logically this function would be built into "button-autosteer.xml". The problem you have is the button state
+			is important even thoiugh it is not visible on the panel. When the button is ON, it becomes an "active" 
+			device that responds to external stimulus (steering) regardless if the AUTO-STEER button is visible or not.
+
+			If auto steer is enabled, then determine which camera should be in control. The camera will be selected
+			by setting the appropriate event. The event is defined as if a button was pressed. To see the actual event
+			implementation, see one of the following:
+				button-camera_frontcenter.xml
+				button-camera_frontleft.xml
+				button-camera_frontright.xml
+			-->
+			<Script>
+				1 (=E:CAMERAFL SELECTED)
+				1 (=E:CAMERAFR SELECTED)
+				1 (=E:CAMERAFC SELECTED)
+				(B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ?
+				(B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ?
+			
+				true
+				
+				(U:AUTO STEER SELECTED) ?
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

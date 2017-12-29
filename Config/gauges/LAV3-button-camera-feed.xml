@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="LAV3-button-camera-feed">
+		<Size>70,60</Size>
+		<Update>
+			<!-- s1 defines the icon color -->
+			<Script>
+        // Define the 3 lines of text on the button
+        "Change" s6
+        "Camera" s7
+        both
+        " " s8
+        both
+
+        // Each of the 3 lines of texts may have its own color
+        0x00FF00 s1
+        both
+        r1 s2
+        both
+        r1 s3
+        both
+
+        // Make sure the arrows are also hidden if the button is hidden.
+        " " 0 (=U:CAMERA SELECT ACTIVE)
+        (U:View Layout) (K:View PIP) == (U:View Layout) (K:View Quad) == (U:View Layout) (K:View Single) == OR OR ?
+        both
+
+        (U:View Layout) (K:View PIP) == (U:View Layout) (K:View Quad) == (U:View Layout) (K:View Single) == OR OR s0
+        both
+      </Script>
+		</Update>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:CAMERA SELECT</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

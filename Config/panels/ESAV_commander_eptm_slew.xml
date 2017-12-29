@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<Panel id="ESAV_commander_eptm_slew" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 6 / s10		// Height of button area
+			r10 4 / s11						// center of button area
+			both
+
+			5 s0	// left screen margin
+			both
+
+
+			(K:Camera Front) (=U:Feed 1 Position) (=U:Video Feed 1) both
+			(K:Camera Observer) (=U:Feed 2 Position) (=U:Video Feed 2 ) both
+			(K:View PIP) (=U:View Layout) both
+
+		</Script>
+	</Layout>
+	<!-- Define the BEZEL buttons -->
+	<GaugeInstance Name="button-eptm-exit" X="5" Y="r10 0 * r11 + "/>
+	<GaugeInstance Name="button-eptm-home" X="5" Y="r10 1 * r11 +  "/>
+	<GaugeInstance Name="button-eptm-set-slew-center" X="5" Y="r10 2 * r11 +  "/>
+
+
+	
+	<!-- Video feeds -->
+	<GaugeInstance Name="ESAV_view-layout-pip" X="0" Y="0" />
+
+
+	<GaugeInstance Name="eptm-slew" X="0" Y="0"/>
+
+
+	
+
+<!-- time/lat-lon      NOTE: The entry "60 -" is used to move the gauge from the BEZEL button text -->
+	<GaugeInstance Name="time"
+				   X="(S:SCREEN WIDTH) width - 20 - 60 -" Y="5" />
+	<GaugeInstance Name="latlong"
+				   X="(S:SCREEN WIDTH) width - 20 - 60 -" Y="25" />
+	<GaugeInstance Name="eptm-position"
+				   X="60" Y="5" />
+
+
+
+  <!-- Define the button assignments -->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL1" Event="E:TOGGLE EPTM EXIT"/>
+			<Key id="BEZEL2" Event="E:EPTM HOME" />
+			<Key id="BEZEL3" Event="E:EPTM SET SLEW CENTER" />
+		</OnDown>
+	</KeyEventMap>
+
+	<KeyMap>
+		<Trigger>
+			<Event>E:EPTM HOME</Event>
+			<Script>1 (=C:EPTM HOME)</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM SET HOME</Event>
+			<Script>1 (=C:EPTM SET HOME)</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM AUTOPAN TOGGLE</Event>
+			<Script>
+				1 (=C:AUTOPAN STOP)
+				1 (=C:AUTOPAN START)
+				(U:EPTM FLAGS) (K:EPTM SCAN ACTIVE) BITAND ?
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM AUTOPAN FASTER</Event>
+			<Script>
+				0.125 (=C:AUTOPAN CHANGE SPEED)
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM AUTOPAN SLOWER</Event>
+			<Script>
+				-0.125 (=C:AUTOPAN CHANGE SPEED)
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM AUTOPAN UP</Event>
+			<Script>
+				1 (=E:EPTM AUTOPAN DEFINE LEFT)
+				1 (=E:EPTM AUTOPAN FASTER)
+				(U:EPTM FLAGS) (K:EPTM SCAN ACTIVE) BITAND 0 EQ ?
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM AUTOPAN DOWN</Event>
+			<Script>
+				1 (=E:EPTM AUTOPAN DEFINE RIGHT)
+				1 (=E:EPTM AUTOPAN SLOWER)
+				(U:EPTM FLAGS) (K:EPTM SCAN ACTIVE) BITAND 0 EQ ?
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM AUTOPAN DEFINE LEFT</Event>
+			<Script>1 (=C:AUTOPAN DEFINE LEFT)</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM AUTOPAN DEFINE RIGHT</Event>
+			<Script>1 (=C:AUTOPAN DEFINE RIGHT)</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:EPTM SET SLEW CENTER</Event>
+			<Script>1 (=C:EPTM SET SLEW CENTER)</Script>
+		</Trigger>
+	</KeyMap>
+
+</Panel>

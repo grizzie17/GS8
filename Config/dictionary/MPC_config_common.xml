@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<Item ID="Client" Type="STRING">vdds_client</Item>
+	<!--<Item ID="Video Sources" Type="STRING" >MO_video_sources</Item>-->
+	<Item ID="Video Sources" Type="STRING" >MPC_video_sources</Item>
+	<!--<Item ID="Active Commands" Type="STRING">MO_vdds</Item>-->
+	<Item ID="Active Commands" Type="STRING">MPC_vdds</Item>
+	<Item ID="Dictionary Settings" Type="STRING">MPC_Settings_metric</Item>
+	<Item ID="Startup Events" Type="STRING">
+		E:INIT CAMERA
+		E:UNITS IMPERIAL
+	</Item>
+
+
+	<!--
+
+	"Active Dictionary Timeout" identifies the amount of time that we
+	should wait for new 'active' data to arrive.  Beyond the specified
+	timeout value we will affectively zero the 'active' dictionary page.
+	-->
+	<Item ID="Active Dictionary Timeout" Type="FLOAT" Units="seconds">5</Item>
+	<Item ID="Active Dictionary Check Stale" Type="FLOAT" Units="seconds">5</Item>
+
+
+</Configuration>

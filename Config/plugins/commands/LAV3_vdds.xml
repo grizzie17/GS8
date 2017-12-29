@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Include File="vdds_common.xml"/>
+
+	<Plugin Class="CmdConstantD" Group="" ID="Current Camera and Feed">
+		<Param Name="Camera Selector" Type="STRING">Camera Front-Center IR</Param>
+	</Plugin>
+
+</Plugins>
+

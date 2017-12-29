@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="MPC_monitor_edit_camera_events">
+		<ActionMap>
+			<!--
+			=========================================================
+			This event will toggle the shutter state.
+			NOTE: Currently not supported by the Client.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:TOGGLE SHUTTER</KeyEvent>
+				<Script>
+					(U:SHUTTER OPEN SELECTED) ! (=U:SHUTTER OPEN SELECTED)
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will start a timer for the One point Cal in the pressed state.
+			The pressed states are DOWN and UP. If the buttone is pressed for a
+			duration greater than a prescribed time then the AUTO/MAN mode is
+			toggled. Else a one point cal is performed.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:CLICK ONE POINT CAL DOWN</KeyEvent>
+				<Script>
+					(S:MILLI) 300 + (=U:OnePtCal Mode Change Timeout)
+					true (=U:OnePtCal DOWN Button Active)
+					both
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:CLICK ONE POINT CAL UP</KeyEvent>
+				<!--
+				If the One Point Cal toggle button was pressed for less than the
+				prescribed time it takes to toggle the states (MAN/AUTO) then it
+				is assumed that a one point cal is to occur. Set the flash flash
+				timeout duration.
+				-->
+				<Script>
+					true (=U:OnePtCal DOWN Button Released)
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will toggle the calibration setting and output command to camera
+			NOTE: If this event is generated then it indicates the adjust/edit function is
+			available. Hence no need to check for "K:Unsupported"
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:TOGGLE CALIBRATION</KeyEvent>
+				<Script>
+					(U:AUTO CAL SELECTED) ! (=U:AUTO CAL SELECTED)
+
+
+					(S:MILLI) 300 + (=U:Blink Calibration Timeout) both
+
+					// Support Control or Toggle only.
+					(K:On) (K:Off) (U:AUTO CAL SELECTED) ?
+					(K:Toggle)
+					(K:Control) (D:Camera Cap Auto Calibration) == ? (=C:Camera Auto Calibration)
+
+					both
+
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will set the camera polarity
+			NOTE: If this event is generated then it indicates the adjust/edit function is
+			available. Hence no need to check for "K:Unsupported"
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:TOGGLE POLARITY</KeyEvent>
+				<Script>
+					(U:BLACK POLARITY SELECTED) ! (=U:BLACK POLARITY SELECTED)
+
+					(K:Black) (K:White) (U:BLACK POLARITY SELECTED) ?
+					(K:Toggle)
+					(K:Control) (D:Camera Cap Polarity) == ? (=C:Camera Polarity)
+					both
+
+					(S:MILLI) 300 + (=U:Blink Polarity Timeout) both
+					0 (=U:ADJUST ACTIVE) both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will set the camera polarity
+			NOTE: If this event is generated then it indicates the adjust/edit function is
+			available. Hence no need to check for "K:Unsupported"
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:TOGGLE IR CAMERA MODE</KeyEvent>
+				<Script>
+
+					(K:LAP)	(K:Toggle) (K:Control) (D:Camera Cap Mode Control) == ? (=C:Camera Mode Control)
+					0 (=U:ADJUST ACTIVE) both
+
+					(S:MILLI) 300 + (=U:Blink IR Mode Timeout) both
+
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will toggle the enable function
+			TBD, this button supports only ZOOM at this time. It needs to be generic
+			NOTE: If this event is generated then it indicates the adjust/edit function is
+			available. Hence no need to check for "K:Unsupported"
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:TOGGLE ENABLE</KeyEvent>
+				<Script>
+					(U:ZOOM ENABLE SELECTED) ! (=U:ZOOM ENABLE SELECTED)
+
+					(K:On) (K:Off) (U:ZOOM ENABLE SELECTED) ?
+					(K:Toggle)
+					(K:Control) (D:Camera Cap Zoom Mode) == ? (=C:Camera Zoom Mode)
+					both
+
+					(S:MILLI) 300 + (=U:Zoom Toggle Timeout)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will output camera adjust command for the UP arrow.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:UP SELECTED</KeyEvent>
+				<!--
+				The local variable G:Timeout is utilized to blink the UP selection
+				-->
+				<Script>
+					(K:Increase) (=C:Camera Sharpness)
+
+						(K:Increase) (=C:Camera Zoom)
+
+							(K:Increase) (=C:Camera Contrast)
+
+								(K:Increase) (=C:Camera Brightness)
+								false
+								'Bright' (U:EDIT BUTTON SELECTED) == ?
+
+							'Cntrst' (U:EDIT BUTTON SELECTED) == ?
+
+						'Zoom' (U:EDIT BUTTON SELECTED) == ?
+
+					'Sharp' (U:EDIT BUTTON SELECTED) == ?
+
+					'UP' (=U:THE DIRECTION PRESSED)						// This is not required, for debug only
+					both
+
+					(S:MILLI) 300 + (=U:UP Timeout)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will output camera adjust command for the DOWN arrow.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:DOWN SELECTED</KeyEvent>
+				<!--
+				The local variable G:Timeout is utilized to blink the DOWN selection
+				-->
+				<Script>
+					(K:Decrease) (=C:Camera Sharpness)
+
+						(K:Decrease) (=C:Camera Zoom)
+
+							(K:Decrease) (=C:Camera Contrast)
+
+								(K:Decrease) (=C:Camera Brightness)
+								false
+								'Bright' (U:EDIT BUTTON SELECTED) == ?
+
+							'Cntrst' (U:EDIT BUTTON SELECTED) == ?
+
+						'Zoom' (U:EDIT BUTTON SELECTED) == ?
+
+					'Sharp' (U:EDIT BUTTON SELECTED) == ?
+
+					'DOWN' (=U:THE DIRECTION PRESSED)					// This is not required, for debug only
+					both
+
+					(S:MILLI) 300 + (=U:DOWN Timeout)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will
+			==========================================================
+			-->
+			<!--
+			=========================================================
+			This event will
+			==========================================================
+			-->
+			<!--
+			This event initiates the camera adjustment (edit) panel
+			-->
+			<Trigger>
+				<KeyEvent>E:TOGGLE ADJUST CAMERA SETTINGS</KeyEvent>
+				<Script>
+					(U:CAMERA ADJUST SELECTED) ! (=U:CAMERA ADJUST SELECTED)
+					0 (=U:ADJUST ACTIVE) both
+					2 (=E:UPDATE ADJUST PAGE)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:DISABLE ADJUST CAMERA SETTINGS</KeyEvent>
+				<Script>
+					0 (=U:CAMERA ADJUST SELECTED)
+					2 (=E:UPDATE ADJUST PAGE)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:TOGGLE DAYNIGHT</KeyEvent>
+				<Script>
+          (U:DAY SELECTED) ! (=U:DAY SELECTED)
+          1 (=E:SET VIDEO FEED)	both
+          1 (=E:SET SINGLE VIDEO FEED) both
+        </Script>
+			</Trigger>
+		</ActionMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

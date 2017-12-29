@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<Gauge Name="sliderhider" Version="1.0">
+	<Size X="200" Y="40" />
+	<Element>
+	<Visible>(A:Engine Oil Pressure) (B:Engine Oil Pressure.Green.Low) &lt;</Visible>
+		<Position X="(S:SCREEN WIDTH) 240 - 14 +" Y="(S:SCREEN HEIGHT) 60 -" />
+		<Element>
+			<Polyline LineWidth="3" LineColor=" 'green' 'red' (A:Engine Oil Pressure) (B:Engine Oil Pressure.Low) &lt; ? s9">
+				<Point X="0" Y="0" />
+				<Point X="1.0 (B:Engine Oil Pressure.Green.Low) (B:Engine Oil Pressure.High) / - 200 *" Y="00" />
+				<Point X="200" Y="10" />
+				<Point X="200" Y="20" />
+				<Point X="0" Y="20" />
+				<Point X="0" Y="0" />
+			</Polyline>
+		</Element>
+		<Element>
+			<GaugeText X="0" Y="-2" Align="right" VerticalAlign="top" Font="Arial" Height="25" LineColor="r9">
+				<String><![CDATA[%((B:Engine Oil Pressure.Label))%!s! ]]></String>
+			</GaugeText>
+		</Element>
+		<Element>
+			<Position X="0" Y="5" />
+			<Shift Y="0" X="1.0 (A:Engine Oil Pressure) (B:Engine Oil Pressure.High) / - 200.0f *" />
+			<Polygon FillColor="r9">
+				<Point Y="0" X="0" />
+				<Point Y="20" X="-6" />
+				<Point Y="20" X="6" />
+				<Point Y="0" X="0" />
+			</Polygon>
+		</Element>
+	</Element>
+</Gauge>

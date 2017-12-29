@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="BuildPath_tests"
+	UseMFC="FALSE"
+	OutputDirectory="$(SolutionDir)\(ConfigurationName)-$(PlatformName)"
+	IntermediateDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)\objs_tests\$(ProjectName)"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(SolutionDir)3rdParty\unittest-cpp\UnitTest++\src&quot;"
+		UsePrecompiledHeader="0"
+		WarningLevel="4"
+	/>
+	<Tool
+		Name="VCBscMakeTool"
+		OutputFile="$(IntDir)$(ProjectName).bsc"
+	/>
+</VisualStudioPropertySheet>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Panel id="squad">
+	<GaugeInstance Name="view-single"
+				   X="0" Y="0" />
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL1" Event="E:Camera Position 1" />
+			<Key id="BEZEL2" Event="E:Camera Position 2" />
+			<Key id="BEZEL3" Event="E:Camera Position 3" />
+			<Key id="BEZEL4" Event="E:Camera Position 4" />
+			<Key id="BEZEL5" Event="E:Camera Position 5" />
+			<Key id="BEZEL6" Event="E:Camera Position 6" />
+			<Key id="BEZEL7" Event="E:Camera Position 7" />
+			<Key id="BEZEL8" Event="E:Camera Position 8" />
+			<Key id="1" Event="E:Camera Position 1" />
+			<Key id="2" Event="E:Camera Position 2" />
+			<Key id="3" Event="E:Camera Position 3" />
+			<Key id="4" Event="E:Camera Position 4" />
+			<Key id="5" Event="E:Camera Position 5" />
+			<Key id="6" Event="E:Camera Position 6" />
+			<Key id="7" Event="E:Camera Position 7" />
+			<Key id="8" Event="E:Camera Position 8" />
+			<Key id="BEZEL9" Event="E:Toggle Camera" />
+			<Key id="BEZEL16" Event="E:Black Out" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

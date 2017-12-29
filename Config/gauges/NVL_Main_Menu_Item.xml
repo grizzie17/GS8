@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="menu_item">
+		<Update>
+			<!--
+				The registers are utilized to pass in menu item attributes. The registers are as follows:
+				r0 = Visibility (1=ON, 0=OFF)
+				r1 = text color
+				r2 = label width (Place holder for now, Don't know how to make work in NVL_Menu_Item.XML)
+				r3 = label height (Place holder for now, Don't know how to make work in NVL_Menu_Item.XML)
+				r4 = fill box color
+				r6 = Menu Label (string)
+				r7 = Current active label (1-5). See "K:Main Menu ID xxxx" for a definition of each label value. 
+			-->
+			<Script>
+					"Exit"
+						"Misc"
+							"Quadrant"
+								"Camera Settings"
+									"Screen Mode"
+									"UNKNOWN"
+								(K:Main Menu ID SCREEN MODE) r7 == ?
+							(K:Main Menu ID CAMERA SETTINGS) r7 == ?
+						(K:Main Menu ID QUADRANT) r7 == ?
+					(K:Main Menu ID MISC) r7 == ?
+				(K:Main Menu ID EXIT) r7 == ? s6
+				
+				1 s0 both
+			</Script>
+		</Update>
+		<Element Context="background">
+			<Include File="NVL_Menu_Item" />
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

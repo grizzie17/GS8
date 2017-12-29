@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<!--
+		This gauge is used as a building block for other gauges
+		Registers are used to drive the various parameters
+	
+		R5	- height of slider
+		R6	- width of slider
+		R7	- green separator
+		R8	- yellow separator (not used in this gauge)
+		R9	- current position
+	-->
+	<Element Context="background">
+		<Polygon LineColor="(U:COLOR_IconSafe)" FillColor="(U:COLOR_IconSafe)">
+			<Point X="0" Y="0" />
+			<Point X="r6" Y="0" />
+			<Point X="r6" Y="r7" />
+			<Point X="0" Y="r7" />
+			<Point X="0" Y="0" />
+        </Polygon>
+		<Polygon LineColor="(U:COLOR_IconWarning)" FillColor="(U:COLOR_IconWarning)">
+			<Point X="0" Y="r7" />
+			<Point X="r6" Y="r7" />
+			<Point X="r6" Y="r5" />
+			<Point X="0" Y="r5" />
+			<Point X="0" Y="r7" />
+        </Polygon>
+    </Element>
+	<Element Context="foreground">
+		<Position X="r6 0.66 *" Y="r5" />
+		<Shift X="0" Y="r5 r9 -" Minimum="0" Maximum="r5" />
+		<Polygon FillColor=" (U:COLOR_IconSafe) (U:COLOR_IconWarning) r9 r7 &lt; ? 'purple' 0 r5 r9 rng ?"
+				 LineColor="background" LineWidth="1">
+			<Point X="0" Y="0" />
+			<Point X="r6 1.5 *" Y="r6 2 / /-/" />
+			<Point X="r6 1.5 *" Y="r6 2 /" />
+			<Point X="0" Y="0" />
+        </Polygon>
+    </Element>
+</Gauge>

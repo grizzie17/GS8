@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<Panel id="m1200a_camera_select" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 8 / s10		// Height of button area
+			r10 2 / s11						// center of button area
+			both
+			
+			5 s0	// left screen margin
+			both
+		</Script>
+	</Layout>
+	<!-- Video feeds -->
+	<GaugeInstance Name="m1200-view-select" X="0" Y="0" />
+	<GaugeInstance Name="m1200-view-layout" X="0" Y="0" />
+
+	<!-- Define the BEZEL buttons -->
+	<GaugeInstance Name="button-quadrant" X="5" Y="r10 6 * r11 + height 2 / -"/>
+	
+	<GaugeInstance Name="button-camera_front" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 1 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-camera_left" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 2 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-camera_right" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 3 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-camera_rears" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 4 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-camera_pc" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 5 * r11 + height 2 / -"/>
+	<GaugeInstance Name="button-exit_camera_select" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 6 * r11 + height 2 / -"/>
+
+	
+	<GaugeInstance Name="monitor_edit_camera_events"/>
+	
+	<!--GaugeInstance Name="view-forward"
+				   X="0" Y="0" />
+	<GaugeInstance Name="view-reverse"
+				   X="0" Y="0" />
+	<GaugeInstance Name="view-single_commander"
+				   X="0" Y="0" />
+	<GaugeInstance Name="view-quad"
+				   X="0" Y="0" /-->
+
+	<!-- Speedometer/RPM -->
+	<GaugeInstance Name="speed"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="(S:SCREEN HEIGHT) height -" />
+	
+	<!-- heading -->
+	<GaugeInstance Name="compass"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="0" />
+
+<!-- time/lat-lon      NOTE: The entry "60 -" is used to move the gauge from the BEZEL button text -->
+	<GaugeInstance Name="time"
+				   X="(S:SCREEN WIDTH) width - 20 - 60 -" Y="5" />
+	<GaugeInstance Name="latlong"
+				   X="(S:SCREEN WIDTH) width - 20 - 60 -" Y="25" />
+
+	<!-- Every where you see " 60 +" in the X position is an attempt to relocate a gauge so that the BEZEL button text can be displayed. -->
+	<GaugeInstance Name="@alert-everything"
+				   X="5 60 +" Y="(S:SCREEN HEIGHT) height - 5 -" />
+	<!--<GaugeInstance Name="touch-recalibrate" />-->
+
+	<!-- Define the button assignments -->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL2" Event="E:CAMERAF SELECTED" />
+			<Key id="BEZEL3" Event="E:CAMERAFL SELECTED" />
+			<Key id="BEZEL4" Event="E:CAMERAFR SELECTED" />
+			<Key id="BEZEL5" Event="E:CAMERAO SELECTED" />
+      <Key id="BEZEL7" Event="E:Change Camera Quadrant" />
+			
+			<Key id="BEZEL9" Event="E:CAMERAF SELECTED" />
+			<Key id="BEZEL10" Event="E:CAMERAL SELECTED" />
+			<Key id="BEZEL11" Event="E:CAMERAR SELECTED" />
+			<Key id="BEZEL12" Event="E:CAMERAR SELECTED" />
+			<Key id="BEZEL13" Event="E:CAMERAPC SELECTED" />
+			<Key id="BEZEL14" Event="E:EXIT CAMERA SELECT" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

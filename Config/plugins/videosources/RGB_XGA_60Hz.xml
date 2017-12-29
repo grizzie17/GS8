@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<PluginInclude
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+  <!-- Parameter set for VideoSourceAnalogVdds -->
+  <Parameters>
+    <!--XGA 1024x768 progressive 16 bit operation-->
+    <Param Name="Height" Type="INTEGER">768</Param>
+    <Param Name="Width" Type="INTEGER">1024</Param>
+    <Param Name="Video Data Mode Flags" Type="INTEGER">0</Param>
+    <Param Name="Capture Profile" Type="INTEGER">7</Param>
+    <Param Name="Capture Profile ID" Type="INTEGER">2</Param>
+    <Param Name="Capture Mode" Type="INTEGER">4</Param>
+    <Param Name="Field Frame Op" Type="INTEGER">5</Param>
+    <Param Name="X Start Field 1" Type="INTEGER">315</Param>
+    <Param Name="Y Start Field 1" Type="INTEGER">1</Param>
+    <Param Name="X Start Field 2" Type="INTEGER">0</Param>
+    <Param Name="Y Start Field 2" Type="INTEGER">0</Param>
+    <Param Name="X Stop Field 1" Type="INTEGER">1338</Param>
+    <Param Name="Y Stop Field 1" Type="INTEGER">767</Param>
+    <Param Name="X Stop Field 2" Type="INTEGER">0</Param>
+    <Param Name="Y Stop Field 2" Type="INTEGER">0</Param>
+    <Param Name="Threshold" Type="INTEGER">128</Param>
+    <Param Name="Decomb Threshold" Type="INTEGER">0</Param>
+  </Parameters>
+
+</PluginInclude>

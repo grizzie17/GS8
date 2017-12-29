@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-OnePointCal">
+		<Update>
+			<Script>
+				/*
+				The OnePoint Cal button serves two functions. If the button is pressed temporarly then One Point Cal is to occur.
+				If the button is held down long enough, then AUTO/MAN calibration is toggled. The button positions are defined
+				by "U:OnePtCal DOWN Button Active" and "U:OnePtCal DOWN Position Released". They are set by the Bezel 
+				button up/down event handlers. 
+				
+				A state machine will define the operation of this button. There are 3 state flags utilized to define the state of 
+				the state machinge. Two of the flags are "U:OnePtCal DOWN Button Active" and "U:OnePtCal DOWN Position Released". 
+				A third state flag will be "U:OnePtCal Toggle Mode". This occurs when the state "U:OnePtCal DOWN Button Active"
+				is continously active for a specific period of time.
+				
+			        STATE                  				U:OnePtCal DOWN Button Active   U:OnePtCal DOWN Position Released     U:OnePtCal Toggle Mode
+				0) No Action                        		    	FALSE                                                  FALSE                                              FALSE
+				1) INVALID											FALSE                                                  FLASE                                               TRUE
+				2) Button UP					        			FALSE                                                  TRUE                                                 FALSE
+				3) INVALID											FALSE                                                  TRUE	                                               TRUE
+				4) Button DOWN just pressed			TRUE                                                    FALSE                                              FALSE
+				5) Button DOWN held for timeout		TRUE                                                    FALSE                                               TRUE
+				6) Button UP while in state 4				TRUE                                                    TRUE                                                 FALSE
+				7) Button UP while is state 5				TRUE                                                    TRUE                                                 TRUE	
+				*/
+				
+				// Get the state based on the state table defined above:
+				0
+					1
+						2
+							3
+								4
+									5
+										6
+										7
+										(U:OnePtCal DOWN Button Active) (U:OnePtCal DOWN Button Released) AND (U:OnePtCal Toggle Mode)! AND ?
+									(U:OnePtCal DOWN Button Active) (U:OnePtCal DOWN Button Released)! AND (U:OnePtCal Toggle Mode) AND ?
+								(U:OnePtCal DOWN Button Active) (U:OnePtCal DOWN Button Released)! AND (U:OnePtCal Toggle Mode)! AND ? 
+							(U:OnePtCal DOWN Button Active)! (U:OnePtCal DOWN Button Released) AND (U:OnePtCal Toggle Mode) AND ?
+						(U:OnePtCal DOWN Button Active)! (U:OnePtCal DOWN Button Released) AND (U:OnePtCal Toggle Mode)! AND ?
+					(U:OnePtCal DOWN Button Active)! (U:OnePtCal DOWN Button Released)! AND (U:OnePtCal Toggle Mode) AND ?
+				(U:OnePtCal DOWN Button Active)! (U:OnePtCal DOWN Button Released)! AND (U:OnePtCal Toggle Mode)! AND ?  (=G:OnePtCal State)
+					
+				//
+				// TBD, I attempted to use the "case" statement but was not successful.
+				// Rather than fight it I elected to use conditional expressions YUK!.
+				//
+					" " s6											// No text necessary. Too fast. Occurs during one cycle only.
+					" " s7
+					both
+					" " s8											// State 7 (Release DOWN after holding for extended period. Return to a quite state.)
+					both
+					(U:COLOR_ButtonText) s1
+					both
+					false (=U:OnePtCal DOWN Button Active) 
+					both
+					false (=U:OnePtCal DOWN Button Released)
+					both
+					false (=U:OnePtCal Toggle Mode)
+					both
+				 
+					false
+					
+				7 (G:OnePtCal State) == ?
+				both
+					
+					" " s6											// No text necessary. Too fast. Occurs during one cycle only.
+					" " s7
+					both
+					" " s8											// State 6 (Relased DOWN after a short period of time. Perform One Point Cal.)
+					both
+					(U:COLOR_ButtonTextSelected) s1
+					both
+					false (=U:OnePtCal DOWN Button Active)
+					both
+						
+						false
+						
+						0 (=C:Camera One Point Calibration)
+						(S:MILLI) 300 + (=U:OnePtCal Flash Timeout)
+						both
+						(U:OnePtCal Flash Timeout Count) ++ (=U:OnePtCal Flash Timeout Count)
+						both
+						
+					(U:OnePtCal Toggle Mode) ?		// If button was pressed for a short duration, then perfom the one point cal
+					both
+					
+					false
+					
+				6 (G:OnePtCal State) == ?
+				both
+					
+					"Cal" s6
+					"Mode" s7
+					both
+					"Updated" s8							// State 5 (DOWN more than a short time. Wait for DOWN to be released)
+					both
+					(U:COLOR_ButtonTextSelected) s1
+					both
+					
+					false
+					
+				5 (G:OnePtCal State) == ?
+				both
+					
+					"One Pt" s6
+					"Cal" s7
+					both
+					"Started" s8											// State 4 (DOWN for short time. Check for extended time to have timed out)
+					both
+					(U:COLOR_ButtonText) s1
+					both
+						
+						false
+						
+						true (=U:OnePtCal Toggle Mode)
+						0 (=E:TOGGLE CALIBRATION)
+						both 
+						(U:OnePtCal Toggle Count) ++ (=U:OnePtCal Toggle Count)
+						both
+						
+					(S:MILLI) (U:OnePtCal Mode Change Timeout) &lt; ?  // Time to change state 2?
+					both
+					
+					false
+					
+				4 (G:OnePtCal State) == ?
+				both
+					
+					
+					"One Pt" s6
+					"Cal" s7
+					both
+					"State 3" s8								// State 3 is INVALID
+					both
+					(U:COLOR_ButtonTextDisabled) s1
+					both
+				 
+					false
+					
+				3 (G:OnePtCal State) == ?
+				both
+					
+				
+					"One Pt" s6
+					"Cal" s7
+					both
+					"Done" s8											// State 2 (performed one point cal)
+					both
+					(U:COLOR_ButtonTextSelected) s1									//		Keep the button color active to show one point cal has taken place
+					both
+					(U:OnePtCal Flash Timeout) (S:MILLI) &gt; (=U:OnePtCal DOWN Button Released)    // Eventually timeout this state and reset this state
+					both
+					
+					false
+				2 (G:OnePtCal State) == ?
+				both
+				
+					"One Pt" s6
+					"Cal" s7
+					both
+					"State 1" s8								// State 1 is INVALID
+					both
+					(U:COLOR_ButtonTextDisabled) s1
+					both
+				 
+					false
+					
+				1 (G:OnePtCal State) == ?
+				both
+				
+					
+					"One Pt" s6
+					"Cal" s7
+					both
+					" " s8											// State 0 (No Action, quite state)
+					both
+					(U:COLOR_ButtonText) s1
+					both
+				 
+					false
+					
+				0 (G:OnePtCal State) == ?				// Update the current state
+				both
+				
+				// Update the icon text and color r6, r7, r8 and r0, r1, r2 respectively
+				r1 s2
+				both
+				r1 s3
+				both
+				
+				(D:Camera Cap Auto Calibration) (K:Unsupported) != (U:BLACKOUT SELECTED) ! AND s0
+				both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text"/>
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>
+				(D:Camera Cap Auto Calibration) (K:Unsupported) != (U:BLACKOUT SELECTED) ! AND
+			</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<!--
+			You must utilize the predefined bezel key to properly execute this command. Holding the key down for more than 1 second
+			will change the MAN/AUTO mode. Less than 1 second initiates a one point calibration.
+			A mouse click over the designated area will simulate a <1 second bezel selection
+			-->
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:CLICK ONE POINT CAL DOWN UP</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+		<KeyMap>
+		<Trigger>
+			<KeyEvent>E:CLICK ONE POINT CAL DOWN UP</KeyEvent>
+			<Script>
+				0 (=E:CLICK ONE POINT CAL DOWN)
+				0 (=E:CLICK ONE POINT CAL UP) both
+				0 (=U:ADJUST ACTIVE) both
+			</Script>
+		</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

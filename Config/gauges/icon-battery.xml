@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<Gauge Name="icon-battery" Version="1.0">
+	<!--
+		Registers are used to drive the various parameters
+	
+		R5	- height of slider
+		R6	- width of slider
+		R7	- green separator
+		R8	- yellow separator
+		R9	- current position
+		-->
+	<Update>
+		<Frequency>4</Frequency>
+		<Script>
+			(B:Battery Voltage.Green.Low) s7
+			(A:Battery Voltage) s9 both
+
+			(U:FLASH)
+			true
+			r9 r7 &lt; ? s0
+			both
+
+		</Script>
+	</Update>
+	<Size X="36" Y="26" />
+	<Element Context="foreground">
+	<!--
+		switch (U:GAUGE SWITCH)
+		0:	if r9 > r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+		-->
+	<Visibility>
+		false
+		r0
+		r0 false r9 r7 LT  5 (A:RPM) LT  AND ?
+		3 (U:GAUGE SWITCH) case
+	</Visibility>
+		<Element>
+			<Position X="1" Y="0" />
+			<Polyline LineColor="(U:COLOR_IconSafe) (U:COLOR_IconAlert) r7 r9 &lt; ? s0" LineWidth="2">
+				<Point X="0" Y="5" />
+				<Point X="5" Y="5" />
+				<Point X="5" Y="0" />
+				<Point X="10" Y="0" />
+				<Point X="10" Y="5" />
+				<Point X="25" Y="5" />
+				<Point X="25" Y="0" />
+				<Point X="30" Y="0" />
+				<Point X="30" Y="5" />
+				<Point X="35" Y="5" />
+				<Point X="35" Y="25" />
+				<Point X="0" Y="25" />
+				<Point X="0" Y="5" />
+			</Polyline>
+			<Line LineColor="r0" LineWidth="2">
+				<Point X="7" Y="7" />
+				<Point X="7" Y="15" />
+			</Line>
+			<Line LineColor="r0" LineWidth="2">
+				<Point X="3" Y="11" />
+				<Point X="11" Y="11" />
+			</Line>
+			<Line LineColor="r0" LineWidth="2">
+				<Point X="24" Y="11" />
+				<Point X="31" Y="11" />
+			</Line>
+		</Element>
+		<Element>
+			<Visibility>(U:GAUGE DETAIL)</Visibility>
+			<GaugeText X="15" Y="30"
+					   Font="Arial" Height="20" Align="center"
+					   Color="r0" VerticalAlign="top">
+				<String>%((A:Battery Voltage))%!d!</String>
+			</GaugeText>
+		</Element>
+	</Element>
+</Gauge>

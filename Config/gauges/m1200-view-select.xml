@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-select">
+		<ActionMap>
+			<Trigger>
+				<KeyEvent>E:Change Layout</KeyEvent>
+				<Script>(E:Change Layout) (=U:View Layout)</Script>
+			</Trigger>
+		</ActionMap>
+		<Element Context="background">
+			<Select>
+				<Expression>
+					<Script>(U:View Layout)</Script>
+				</Expression>
+				<Case>
+					<Expression>
+						<Script>(K:View Forward)</Script>
+					</Expression>
+					<Include File="m1200-view-select-forward"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:View Reverse)</Script>
+					</Expression>
+					<Include File="m1200-view-select-reverse"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:View Single)</Script>
+					</Expression>
+					<Include File="m1200-view-select-single"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:View Quad)</Script>
+					</Expression>
+					<Include File="m1200-view-select-quad"/>
+				</Case>
+			</Select>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

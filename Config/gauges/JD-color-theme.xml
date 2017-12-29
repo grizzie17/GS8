@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="JD-color-theme">
+		<Update>
+			<Script>
+				// Define the button text
+				"Color" s6
+				"Theme" s7	both
+				" " s8 both
+
+				// Define the button text colors
+				(U:COLOR_ButtonText) s1 s2 s3 both
+
+				height (=G:Height) both
+				width (=G:Width) both
+			</Script>
+		</Update>
+		<Element>
+			<Element Context="application">
+				<Select>
+					<Expression>
+						<Script>(U:Color Theme)</Script>
+					</Expression>
+					<Case>
+						<ExpressionResult>'day'</ExpressionResult>
+						<Include File="JD-color-theme-day" />
+					</Case>
+					<Case>
+						<ExpressionResult>'night'</ExpressionResult>
+						<Include File="JD-color-theme-night" />
+					</Case>
+					<CaseElse>
+						<Include File="JD-color-theme-day" />
+					</CaseElse>
+				</Select>
+			</Element>
+			<Element Context="background">
+				<Include File="JD-icon-text" />
+			</Element>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:TOGGLE COLOR THEME</KeyEvent>
+				<Script>
+					'day'
+					'night'
+					2 (U:Color Theme) find
+
+					++ 2 % s0
+
+					'day'
+					'night'
+					2 r0 case (=U:Color Theme)
+					both
+				</Script>
+			</Trigger>
+		</KeyMap>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>1000,1000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					true (=G:Pressed)
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>1000,1000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					false (=G:Pressed)
+					1 (=E:TOGGLE COLOR THEME) both
+				</Script>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

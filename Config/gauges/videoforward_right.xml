@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<Gauge>
+	<Comment><![CDATA[
+		Revision History:	(Most Recent First)
+		
+		31-Aug-2009		J.Griswold
+			Change case statement to use Expression instead of 
+			ExpressionResult.
+	]]></Comment>
+	<Update>
+		<Script>
+			(D:Camera Right-Forward IR)
+			(D:Camera Front-Right IR)
+			(D:Camera Front-Center IR)
+			3
+			(A:Steering Wheel Angle) (B:Steering Wheel Angle.Low) /-/ +
+			(B:Steering Wheel Angle.High) (B:Steering Wheel Angle.Low) -
+			/
+			3
+			*
+			case (=C:Video Feed 3)
+		</Script>
+	</Update>
+	<Element>
+		<!--Position X="(S:SCREEN WIDTH) 0.75 *" Y="(S:SCREEN HEIGHT) 0.35 *" /-->
+		<Polyline LineColor="dimgray" LineWidth="1">
+			<Point X="0" Y="0" />
+			<Point X="(S:SCREEN WIDTH) 4 / s0" Y="0" />
+			<Point X="r0" Y="(S:SCREEN HEIGHT) 0.65 * s1" />
+			<Point X="0" Y="r1" />
+			<Point X="0" Y="0" />
+		</Polyline>
+		<Element>
+			<Position X="5" Y="5" />
+			<Select>
+				<Expression>
+					<Script>(D:Video Feed 3)</Script>
+				</Expression>
+				<Case>
+					<Expression>
+						<Script>(D:Camera Front-Center IR)</Script>
+					</Expression>
+					<Include File="camera_frontcenter" />
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(D:Camera Front-Right IR)</Script>
+					</Expression>
+					<Include File="camera_frontright" />
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(D:Camera Right-Forward IR)</Script>
+					</Expression>
+					<Include File="camera_rightfront" />
+				</Case>
+			</Select>
+		</Element>
+	</Element>
+</Gauge>

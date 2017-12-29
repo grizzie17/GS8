@@ -1,0 +1,135 @@
+<html>
+
+<head>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<style type="text/css">
+html
+{
+	font-family: sans-serif;
+}
+
+.note
+{
+	font-size: smaller;
+	margin-left: 2em;
+}
+
+h1
+{
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-bottom-color: #000000;
+	background-color: #CEE7FF;
+}
+
+h2
+{
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-bottom-color: #C0C0C0;
+}
+
+.keyin
+{
+	font-size: large;
+	color: #0000FF;
+}
+
+h3
+{
+	color: #808080;
+}
+
+.hex2
+{
+	background-color: #EEEEEE;
+	border: solid 1px #DDDDDD;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>OmniScape Booting from VMware</h1>
+<p>Before we get into the details it will help if we identify a couple 
+of terms that will be used in our discussion.</p>
+<p>Virtual Machine - A PC/Operating System running inside of an application on a 
+PC.&nbsp; In our case the virtual machine is running Ubuntu Linux with our development 
+tools preinstalled.</p>
+<p>Host PC - The PC on which the Virtual Machine will run.&nbsp; This is usually 
+a WindowsPC but VMWare can be loaded on a Linux box as well.</p>
+<h2>Connect PC to OmniScape</h2>
+<p>Connect the Host PC ethernet to a switch.</p>
+<p>Connect ethernet switch to top ethernet port on OmniScape</p>
+<p>Connect Serial port on PC to OmniScape RS232 -Port 1</p>
+<p>The laptop does not have a serial port so you will need to get hold of a USB 
+to Serial adaptor and a null-modem.</p>
+<h2>Start Ubuntu Virtual Machine</h2>
+<p>Click on VMware icon on desktop &quot;Shortcut to ubuntu 1004 desktop&quot;</p>
+<p>Wait until the bottom and top menus appear within the window.</p>
+<p>You can change to full screen mode for more room.</p>
+<h2>Confirm &quot;Host PC&quot; IP Address is 192.168.0.140</h2>
+<p>The *.140 IP address needs to be confirmed that it is not used somewhere else 
+on the network</p>
+<p class="note">Note: the IP addresses of the OmniScape are as follows (reassignable 
+via config file):<br>192.168.0.205 - Application processor<br>192.168.0.206-209 
+- DSP1-4</p>
+<h2>Confirm Operating Environment</h2>
+<p>All of the following steps are within the Ubuntu VM.</p>
+<p>Open a console window by selecting the first black square icon in the top 
+menu.</p>
+<p>Confirm that your VM can see the Host PC by using &quot;ping 192.168.0.140&quot;</p>
+<p>Select the &quot;Virtual Machine&quot; menu and confirm that the &quot;Removable Devices&quot; 
+show a checkmark next to the USB to Serial adaptor.&nbsp; If not then select to 
+connect the adaptor.</p>
+<p>Open Serial Console by selecting the second black square icon in the top menu 
+(its tool-tip will display as &quot;minicom&quot;).&nbsp; You will be prompted to enter 
+your password.&nbsp; The password is &quot;password&quot;.</p>
+<p>The Serial Console very closes the first couple of times after you have 
+connected the serial adaptor.&nbsp; Simply reopen the Serial Console until you 
+see the &quot;Inializing Modem&quot; message.&nbsp; The port settings should already be 
+set, but if you need to reenter them use the following:</p>
+<p>Baud: 
+115200<br>Data Bits: 8<br>Parity: None<br>Stop Bits: 1<br>Flow Control: None</p>
+<h2>Confirm Networking is “Bridged”</h2>
+<p>Select the VMWare “VM” menu and select “Settings...”<br>Select the “Network Adapter” 
+option<br>Change the Network Connection to “Bridged”<br>and select the “Replicate 
+the physical connection state” option</p>
+<h2>Verify Network</h2>
+<p>Open a regular console on the virtual-machine.</p>
+<p>Ping the current application processor IP address</p>
+<p class="keyin">ping 192.168.0.205<br />
+</p>
+<p>If the ping fails, try disconnecting and reconnecting the virtual-machine from 
+the network.&nbsp; In most cases this will correct the problem.&nbsp; If not you 
+may need to change the ip address of the OmniScape (which will be addressed in 
+the next step)</p>
+<h2>Set OmniScape to boot from Ubuntu</h2>
+<p>Make sure that the Serial Console has entry focus.</p>
+<p>Power Cycle the OmniScape</p>
+<p>interrupt boot by hitting space-bar</p>
+<p>On the Ubuntu VM desktop you should see a folder titled &quot;NFSBootCmds&quot;</p>
+<p>Open that folder and then open the boot_from_om1.txt and copy and paste its 
+contents into the Serial Console and press enter.&nbsp; Then open the 
+boot_from_om2.txt and do the same.</p>
+<p>type &quot;saveenv&quot;</p>
+<p>type &quot;printenv&quot; and look for ipaddress and consoleip.&nbsp; If these are not 
+192.168.0.205 and 192.168.0.141 respectively then enter </p>
+<p class="keyin">setenv ipaddr 
+192.168.0.205<br>saveenv</p>
+<p class="keyin">setenv serverip 192.168.0.141<br>saveenv</p>
+<p>Now let's restart the OmniScape so it can boot from Ubuntu.</p>
+<p class="keyin">reset</p>
+<h2>Start the Application</h2>
+<p>Let the OmniScape boot up and wait until the Serial Console displays a login 
+prompt.</p>
+<p>Login as the root user.&nbsp; Note: there is no password.</p>
+<p class="keyin">root</p>
+<p>Start the vdds application</p>
+<p class="keyin">cd /omniscape</p>
+<p class="keyin">./vdds_start.sh</p>
+
+</body>
+
+</html>

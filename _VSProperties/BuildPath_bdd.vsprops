@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="BuildPath_tests"
+	UseMFC="FALSE"
+	OutputDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)"
+	IntermediateDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)\objs_specs\$(ProjectName)"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(SolutionDir)3rdParty\igloo&quot;"
+		UsePrecompiledHeader="0"
+		MinimalRebuild="false"
+		WarningLevel="3"
+	/>
+  <Tool
+    Name="VCLinkerTool"
+    GenerateManifest="false"
+	/>
+  <Tool
+		Name="VCBscMakeTool"
+		OutputFile="$(IntDir)$(ProjectName).bsc"
+	/>
+	<Tool
+		Name="VCPostBuildEventTool"
+		Description="$(ProjectName) Testing..."
+		CommandLine="&quot;$(TargetPath)&quot;"
+	/>
+</VisualStudioPropertySheet>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge>
+	<Update>
+		<Frequency>1</Frequency>
+		<Script>
+			/*
+				R5 - Gauge height in pixel
+				R6 - gauge width
+			*/
+			80 s5
+			10 s6		
+			both
+			
+			/*
+				Define the Green region
+				R7 - The gauge is 80 pixels (R5). How many pixels define the GREEN region.
+				R7 = R5 - ((B:Fuel Level.Green.Low) / (B:Fuel Level.High) * R5)
+				R7 = R5 - ((12.6% / 100.0%) * R5)
+				R7 = 69.92
+				Therefore, the GREEN area is 0 thru 69.92. Green separator located at pixel 69.92 from top.
+			*/
+			r5 (B:Fuel Level.Green.Low) (B:Fuel Level.High) / r5 * - s7 
+			both
+			r7 (=U:SLIDER FUEL A)
+			both
+			
+			/*
+				Assume fuel level is 50%
+				R9 = R5 - ((A:Fuel Level) / (B:Fuel Level.High) * R5)
+				R9 = R5 - ((50/100.0) *R5
+				R9 = 40.0
+				Assume fuel level is 25%
+				R9 = R5 - ((A:Fuel Level) / (B:Fuel Level.High) * R5)
+				R9 = R5 - ((25/100.0) *R5
+				R9 = 60.0
+				R9 - The current position of the fuel gauge. It is the number of pixels from the top of the gauge.
+			*/
+			r5 (A:Fuel Level) (B:Fuel Level.High) / r5 * - s9 
+			both
+			r9 (=U:SLIDER FUEL B)
+			both
+        </Script>
+    </Update>
+	<Size>25,82</Size>
+	<Element>
+		<!--
+			switch (U:GAUGE SWITCH)
+			0:	If the fuel level is within the GREEN range (r7 > r9) rb, do not display (FALSE) else display (TRUE)
+			1:	visible is true
+			2:	visible is false
+		-->
+		<Visibility>
+			false
+			true
+			true false  r7 r9 &lt;  5 (A:RPM) LT  AND ?
+			3 (U:GAUGE SWITCH) case
+		</Visibility>
+		<!-- The colors are arranged from top to bottom in the order defined by the file name -->
+		<Include File="slider-green-red" />
+    </Element>
+</Gauge>

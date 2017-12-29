@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited by Bob Tomihiro (Noregon Systems Noregon Systems) -->
+<VehicleData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="VehicleData.xsd">
+	<Alerts>
+		<Alert ID="VEHICLE SHUTDOWN" Value="N"/>
+		<Alert ID="Forward Bilge Pump" Value="Y"/>
+		<Alert ID="Rear Bilge Pump indicator Icon" Value="Y"/>
+		<Alert ID="Engine J1939 No Comm Fault" Value="N" />
+		<Alert ID="Transmission J1939 No Comm Fault" Value="N" />
+		<Alert ID="Vehicle Network Down" Value="N" />
+		<Alert ID="Trans Oil Level Low" Value="N" />
+		<Alert ID="Trans Oil Level High" Value="N" />
+		<Alert ID="Hydraulic Temp High" Value="N" />
+		<Alert ID="Hydraulic Fluid Level Low" Value="N" />
+		<Alert ID="Battery Voltage Low" Value="N" />
+		<Alert ID="Engine Oil Level Low" Value="N" />
+		<Alert ID="Engine Coolant Level Low" Value="N" />
+	</Alerts>
+	<Parameters>
+		<Param ID="Vehicle Speed" Value="50"/>
+		<Param ID="RPM" Value="1200"/>
+		<Param ID="Terrain Mode indicator" Value="0"/>
+		<Param ID="Date/Time" Value="2009-11-30 1432Z"/>
+		<Param ID="Engine Hours" Value="28.4"/>
+		<Param ID="Battle Mode" Value="N" />
+		<Param ID="Compass" Value="145" />
+		<Param ID="Fuel Level" Value="85"/>
+		<Param ID="Engine Coolant Temp" Value="120"/>
+		<Param ID="Engine Oil Temp" Value="135"/>
+		<Param ID="Engine Oil Pressure" Value="52"/>
+		<Param ID="Trans Oil Temp" Value="150"/>
+		<Param ID="Trans Oil Pressure" Value="130"/>
+		<Param ID="Rear Ramp Status" Value="0" />
+		<Param ID="Steering Wheel Angle" Value="15.3"/>
+		<Param ID="Current Gear" Value="1"/>
+		<Param ID="Battery Voltage" Value="23.7"/>
+		<Param ID="Latitude" Value="18.3764"/>
+		<Param ID="Longitude" Value="43.8722"/>
+	</Parameters>
+</VehicleData>

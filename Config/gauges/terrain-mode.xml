@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="transmission-selector">
+		<Update>
+			<Frequency>2</Frequency>
+			<Script>
+				(A:Terrain Mode indicator) s9
+
+
+
+				(S:MILLI) 5000 +
+
+				(G:Timeout)
+
+				(A:Terrain Mode indicator) (G:Previous Selector) != ? (=G:Timeout)
+				both
+
+				/*
+				Store off the current xmsn state for next update
+				*/
+				r9 (=G:Previous Selector)
+				both
+			</Script>
+		</Update>
+		<Size>250,26</Size>
+		<Element Context="foreground">
+			<!--
+				Visible if a change is detected. Will be visible for 5000 mSec.
+			-->
+			<Visibility>
+				(S:MILLI) (G:Timeout) &lt;
+				true
+				(S:MILLI) (G:Timeout) &lt;
+				3 (U:GAUGE SWITCH) case
+			</Visibility>
+			<Element>
+				<Position X="0" Y="0" />
+				<GaugeText X="0" Y="0" Font="Arial" Height="24"
+						   VerticalAlign="top" Align="left"
+						   Color="(U:COLOR_Text)"
+						   HaloColor="(U:COLOR_TextMask)">
+					<String>%(r9)%!s!</String>
+				</GaugeText>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

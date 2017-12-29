@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-camera_edit">
+		<Update>
+			<Script>
+				'Exit'
+				'Adjust'
+				(U:CAMERA EDIT SELECTED) ? (=G:EditLabel)
+			</Script>
+		</Update>
+		<Size>60,50</Size>
+		<Element>
+			<Visible>(U:BLACKOUT SELECTED) !</Visible>
+			<GaugeText X="0" Y="0" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="'gold' 'lime' (U:CAMERA EDIT SELECTED) ? s0">
+				<String>%( (G:EditLabel) )%!s!</String>
+			</GaugeText>
+			<GaugeText X="0" Y="20" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="r0">
+				<String>Camera</String>
+			</GaugeText>
+			<!--GaugeText X="0" Y="40" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="r0">
+				<String>Settings</String>
+			</GaugeText-->
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>60,50</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:TOGGLE CAMERA SETTINGS</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

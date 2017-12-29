@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Panel id="MPC_squad_main" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+  <Layout>
+    <Script>
+      (U:SCREEN TOP PAD) s15    // Fudge
+      (S:SCREEN HEIGHT) (U:SCREEN TOP PAD) - 8 / s10   //  Height of button area
+      both
+      r10 2 / s11						// center of button area
+      both
+
+      5 s0	// left screen margin
+      both
+    </Script>
+  </Layout>
+	<GaugeInstance Name="MPC_view-select" X="0" Y="0" />
+	<GaugeInstance Name="MPC_view-layout" X="0" Y="0" />
+
+	<GaugeInstance Name="MPC_button-camera_frontcenter" X="5" Y="r15 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_frontleft" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_frontright" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_rear" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="MPC_button-camera_observer" X="5" Y="(S:SCREEN HEIGHT) height - "/>
+
+	<GaugeInstance Name="button-daynight" X="(S:SCREEN WIDTH) width -" Y="r15 r10 + s14 height -"/>
+	<GaugeInstance Name="color-theme" X="(S:SCREEN WIDTH) width -" Y="r10 7 * r15 + height -"/>
+	<!--<GaugeInstance Name="button-adjust-camera" X="(S:SCREEN WIDTH) width -" Y="r10 7 * r15 + height -"/>-->
+	<GaugeInstance Name="button-blackout" X="(S:SCREEN WIDTH) width -" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="MPC_monitor_edit_camera_events"/>
+	<KeyEventMap>
+		<!--
+		Define the BEZEL keys for this panel.
+		-->
+		<OnDown>
+			<Key id="BEZEL14" Event="E:TOGGLE COLOR THEME" />
+			<Key id="BEZEL15" Event="E:TOGGLE COLOR THEME" />
+			<Key id="BEZEL16" Event="E:TOGGLE BLACKOUT" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

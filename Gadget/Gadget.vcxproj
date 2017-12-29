@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug x64|Win32">
+      <Configuration>Debug x64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug x64|x64">
+      <Configuration>Debug x64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{29123DB0-DAC8-48CE-AD49-954FF93C43BB}</ProjectGuid>
+    <RootNamespace>Gadget</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)_VSProperties\BuildPath.props" />
+    <Import Project="..\_VSProperties\CompilerShared.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\Common;..\Draw\VDraw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;..\Draw\VDraw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\Common;..\Draw\VDraw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\Common;..\Draw\VDraw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\Common;..\Draw\VDraw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\Common;..\Draw\VDraw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CApplicationGauge.cpp" />
+    <ClCompile Include="CApplicationGaugeOpenGL.cpp" />
+    <ClCompile Include="CApplicationGaugeWin.cpp" />
+    <ClCompile Include="CCommandProcessor.cpp" />
+    <ClCompile Include="CDrawQueue.cpp" />
+    <ClCompile Include="CFunctionProcessor.cpp" />
+    <ClCompile Include="CKeyProcessorOpenGL.cpp" />
+    <ClCompile Include="CKeyProcessorWin.cpp" />
+    <ClCompile Include="CMouseProcessorWin.cpp" />
+    <ClCompile Include="IApplicationUser.cpp" />
+    <ClCompile Include="IMouseTransform.cpp" />
+    <ClCompile Include="CAction.cpp" />
+    <ClCompile Include="CChoose.cpp" />
+    <ClCompile Include="CChooseWhen.cpp" />
+    <ClCompile Include="CElement.cpp" />
+    <ClCompile Include="CForLoop.cpp" />
+    <ClCompile Include="CGauge.cpp" />
+    <ClCompile Include="CKeyEventMap.cpp" />
+    <ClCompile Include="CKeyNames.cpp" />
+    <ClCompile Include="CMouseArea.cpp" />
+    <ClCompile Include="CMouseAreaList.cpp" />
+    <ClCompile Include="CMouseLocate.cpp" />
+    <ClCompile Include="CPanel.cpp" />
+    <ClCompile Include="CPanelDivision.cpp" />
+    <ClCompile Include="CPosition.cpp" />
+    <ClCompile Include="CQueue.cpp" />
+    <ClCompile Include="CRotation.cpp" />
+    <ClCompile Include="CScreen.cpp" />
+    <ClCompile Include="CSelect.cpp" />
+    <ClCompile Include="CSelectCase.cpp" />
+    <ClCompile Include="CShift.cpp" />
+    <ClCompile Include="CSize.cpp" />
+    <ClCompile Include="CTrigger.cpp" />
+    <ClCompile Include="CVisible.cpp" />
+    <ClCompile Include="VControl.cpp" />
+    <ClCompile Include="VControlEventMap.cpp" />
+    <ClCompile Include="VElement.cpp" />
+    <ClCompile Include="VOwnership.cpp" />
+    <ClCompile Include="VPanelChild.cpp" />
+    <ClCompile Include="CDictHandlerTime.cpp" />
+    <ClCompile Include="CDictionary.cpp" />
+    <ClCompile Include="CDictionaryMemory.cpp" />
+    <ClCompile Include="CDictionarySelector.cpp" />
+    <ClCompile Include="CDictPageActive.cpp" />
+    <ClCompile Include="CDictPageAlerts.cpp" />
+    <ClCompile Include="CDictPageCommands.cpp" />
+    <ClCompile Include="CDictPageConfigWrapper.cpp" />
+    <ClCompile Include="CDictPageEvents.cpp" />
+    <ClCompile Include="CDictPageFunctions.cpp" />
+    <ClCompile Include="CDictPageLazyLoad.cpp" />
+    <ClCompile Include="CDictPageP.cpp" />
+    <ClCompile Include="CDictPageSelector.cpp" />
+    <ClCompile Include="CDictPageSystem.cpp" />
+    <ClCompile Include="CDictPageT.cpp" />
+    <ClCompile Include="CDictPageVariant.cpp" />
+    <ClCompile Include="CDictPageVariantRead.cpp" />
+    <ClCompile Include="CDictPageVariantWrite.cpp" />
+    <ClCompile Include="IDictionaryUser.cpp" />
+    <ClCompile Include="VDictionaryPage.cpp" />
+    <ClCompile Include="VDictionaryPageServer.cpp" />
+    <ClCompile Include="CFactoryDictActive.cpp" />
+    <ClCompile Include="CFactoryDictionary.cpp" />
+    <ClCompile Include="CFactoryEquation.cpp" />
+    <ClCompile Include="CFactoryExternalXML.cpp" />
+    <ClCompile Include="CFactoryGauge.cpp" />
+    <ClCompile Include="CFactoryPanel.cpp" />
+    <ClCompile Include="CFactoryScreen.cpp" />
+    <ClCompile Include="CFactoryVehicleData.cpp" />
+    <ClCompile Include="VFactoryComponent.cpp" />
+    <ClCompile Include="CArc.cpp" />
+    <ClCompile Include="CAxis.cpp" />
+    <ClCompile Include="CCircle.cpp" />
+    <ClCompile Include="CEllipse.cpp" />
+    <ClCompile Include="CGaugeString.cpp" />
+    <ClCompile Include="CGaugeText.cpp" />
+    <ClCompile Include="CImage.cpp" />
+    <ClCompile Include="CLine.cpp" />
+    <ClCompile Include="CPie.cpp" />
+    <ClCompile Include="CPoint.cpp" />
+    <ClCompile Include="CPolygon.cpp" />
+    <ClCompile Include="CPolyline.cpp" />
+    <ClCompile Include="CRectangle.cpp" />
+    <ClCompile Include="CStyle.cpp" />
+    <ClCompile Include="CVideo.cpp" />
+    <ClCompile Include="VCoordinate.cpp" />
+    <ClCompile Include="VGraphic.cpp" />
+    <ClCompile Include="VPolylist.cpp" />
+    <ClCompile Include="CEqConstant.cpp" />
+    <ClCompile Include="CEqConstGaugeHeight.cpp" />
+    <ClCompile Include="CEqConstGaugeLeft.cpp" />
+    <ClCompile Include="CEqConstGaugeTop.cpp" />
+    <ClCompile Include="CEqConstGaugeWidth.cpp" />
+    <ClCompile Include="CEqOpAbs.cpp" />
+    <ClCompile Include="CEqOpAdd.cpp" />
+    <ClCompile Include="CEqOpAnd.cpp" />
+    <ClCompile Include="CEqOpBitAnd.cpp" />
+    <ClCompile Include="CEqOpBitOr.cpp" />
+    <ClCompile Include="CEqOpBoth.cpp" />
+    <ClCompile Include="CEqOpCase.cpp" />
+    <ClCompile Include="CEqOpCeil.cpp" />
+    <ClCompile Include="CEqOpColorname.cpp" />
+    <ClCompile Include="CEqOpDecrement.cpp" />
+    <ClCompile Include="CEqOpDegFromRad.cpp" />
+    <ClCompile Include="CEqOpDegreeNorm.cpp" />
+    <ClCompile Include="CEqOpDivide.cpp" />
+    <ClCompile Include="CEqOpEqual.cpp" />
+    <ClCompile Include="CEqOpFind.cpp" />
+    <ClCompile Include="CEqOpFloor.cpp" />
+    <ClCompile Include="CEqOpFormatString.cpp" />
+    <ClCompile Include="CEqOpGreaterOrEqual.cpp" />
+    <ClCompile Include="CEqOpGreaterThan.cpp" />
+    <ClCompile Include="CEqOpIncrement.cpp" />
+    <ClCompile Include="CEqOpLessOrEqual.cpp" />
+    <ClCompile Include="CEqOpLessThan.cpp" />
+    <ClCompile Include="CEqOpMax.cpp" />
+    <ClCompile Include="CEqOpMin.cpp" />
+    <ClCompile Include="CEqOpModulo.cpp" />
+    <ClCompile Include="CEqOpMultiply.cpp" />
+    <ClCompile Include="CEqOpNear.cpp" />
+    <ClCompile Include="CEqOpNegate.cpp" />
+    <ClCompile Include="CEqOpNot.cpp" />
+    <ClCompile Include="CEqOpNotEqual.cpp" />
+    <ClCompile Include="CEqOpOr.cpp" />
+    <ClCompile Include="CEqOpQuestion.cpp" />
+    <ClCompile Include="CEqOpRadFromDeg.cpp" />
+    <ClCompile Include="CEqOpRadianNorm.cpp" />
+    <ClCompile Include="CEqOpRange.cpp" />
+    <ClCompile Include="CEqOpRegisters.cpp" />
+    <ClCompile Include="CEqOpRegLoad.cpp" />
+    <ClCompile Include="CEqOpRegStore.cpp" />
+    <ClCompile Include="CEqOpRGB.cpp" />
+    <ClCompile Include="CEqOpRGBA.cpp" />
+    <ClCompile Include="CEqOpSquare.cpp" />
+    <ClCompile Include="CEqOpStrCat.cpp" />
+    <ClCompile Include="CEqOpSubStr.cpp" />
+    <ClCompile Include="CEqOpSubtract.cpp" />
+    <ClCompile Include="CEqOpUnitAbbrev.cpp" />
+    <ClCompile Include="CEqOpUnitConvert.cpp" />
+    <ClCompile Include="CEqOpUnitName.cpp" />
+    <ClCompile Include="CEqOpUnitPlural.cpp" />
+    <ClCompile Include="CEqVariable.cpp" />
+    <ClCompile Include="CEqVariableAssign.cpp" />
+    <ClCompile Include="CEqVariableAssignCond.cpp" />
+    <ClCompile Include="CEqVariableAssignIndirect.cpp" />
+    <ClCompile Include="CEqVariableIndirect.cpp" />
+    <ClCompile Include="CResultValue.cpp" />
+    <ClCompile Include="VEqConstGauge.cpp" />
+    <ClCompile Include="VEqOpBinary.cpp" />
+    <ClCompile Include="VEqOpQuaternary.cpp" />
+    <ClCompile Include="VEqOpTrinary.cpp" />
+    <ClCompile Include="VEqOpUnary.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Platform\UFile.h" />
+    <ClInclude Include="..\Platform\UFloat.h" />
+    <ClInclude Include="..\Platform\UMachine.h" />
+    <ClInclude Include="..\Platform\UOSIncludes.h" />
+    <ClInclude Include="..\Platform\UPlatform.h" />
+    <ClInclude Include="..\Platform\UPlatformTime.h" />
+    <ClInclude Include="..\Platform\UTypes.h" />
+    <ClInclude Include="VEquation.h" />
+    <ClInclude Include="NamespaceGadget.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="CApplicationGauge.h" />
+    <ClInclude Include="CApplicationGaugeOpenGL.h" />
+    <ClInclude Include="CApplicationGaugeWin.h" />
+    <ClInclude Include="CCommandProcessor.h" />
+    <ClInclude Include="CDrawQueue.h" />
+    <ClInclude Include="CFunctionProcessor.h" />
+    <ClInclude Include="CKeyNames.h" />
+    <ClInclude Include="CKeyProcessorOpenGL.h" />
+    <ClInclude Include="CKeyProcessorWin.h" />
+    <ClInclude Include="CMouseProcessorWin.h" />
+    <ClInclude Include="CQueue.h" />
+    <ClInclude Include="IApplicationUser.h" />
+    <ClInclude Include="IMouseTransform.h" />
+    <ClInclude Include="UKeys.h" />
+    <ClInclude Include="UVehicleData.h" />
+    <ClInclude Include="VDrawQueue.h" />
+    <ClInclude Include="VFunctionProcessor.h" />
+    <ClInclude Include="VMouseProcessorWin.h" />
+    <ClInclude Include="CAction.h" />
+    <ClInclude Include="CChoose.h" />
+    <ClInclude Include="CChooseWhen.h" />
+    <ClInclude Include="CElement.h" />
+    <ClInclude Include="CForLoop.h" />
+    <ClInclude Include="CGauge.h" />
+    <ClInclude Include="CKeyEventMap.h" />
+    <ClInclude Include="CMouseArea.h" />
+    <ClInclude Include="CMouseAreaList.h" />
+    <ClInclude Include="CMouseLocate.h" />
+    <ClInclude Include="CPanel.h" />
+    <ClInclude Include="CPanelDivision.h" />
+    <ClInclude Include="CPosition.h" />
+    <ClInclude Include="CRotation.h" />
+    <ClInclude Include="CScreen.h" />
+    <ClInclude Include="CSelect.h" />
+    <ClInclude Include="CSelectCase.h" />
+    <ClInclude Include="CShift.h" />
+    <ClInclude Include="CSize.h" />
+    <ClInclude Include="CTrigger.h" />
+    <ClInclude Include="CVisible.h" />
+    <ClInclude Include="VAction.h" />
+    <ClInclude Include="VControl.h" />
+    <ClInclude Include="VControlEventMap.h" />
+    <ClInclude Include="VElement.h" />
+    <ClInclude Include="VOwnership.h" />
+    <ClInclude Include="VPanelChild.h" />
+    <ClInclude Include="VRenderable.h" />
+    <ClInclude Include="CDictHandlerTime.h" />
+    <ClInclude Include="CDictionary.h" />
+    <ClInclude Include="CDictionaryMemory.h" />
+    <ClInclude Include="CDictionarySelector.h" />
+    <ClInclude Include="CDictPageActive.h" />
+    <ClInclude Include="CDictPageAlerts.h" />
+    <ClInclude Include="CDictPageCommands.h" />
+    <ClInclude Include="CDictPageConfigWrapper.h" />
+    <ClInclude Include="CDictPageEvents.h" />
+    <ClInclude Include="CDictPageFunctions.h" />
+    <ClInclude Include="CDictPageLazyLoad.h" />
+    <ClInclude Include="CDictPageP.h" />
+    <ClInclude Include="CDictPageSelector.h" />
+    <ClInclude Include="CDictPageSystem.h" />
+    <ClInclude Include="CDictPageT.h" />
+    <ClInclude Include="CDictPageVariant.h" />
+    <ClInclude Include="CDictPageVariantRead.h" />
+    <ClInclude Include="CDictPageVariantWrite.h" />
+    <ClInclude Include="IDictionaryUser.h" />
+    <ClInclude Include="VDictionary.h" />
+    <ClInclude Include="VDictionaryPage.h" />
+    <ClInclude Include="VDictionaryPageServer.h" />
+    <ClInclude Include="CFactoryDictActive.h" />
+    <ClInclude Include="CFactoryDictionary.h" />
+    <ClInclude Include="CFactoryEquation.h" />
+    <ClInclude Include="CFactoryExternalXML.h" />
+    <ClInclude Include="CFactoryGauge.h" />
+    <ClInclude Include="CFactoryPanel.h" />
+    <ClInclude Include="CFactoryScreen.h" />
+    <ClInclude Include="CFactoryVehicleData.h" />
+    <ClInclude Include="VFactoryComponent.h" />
+    <ClInclude Include="VFactoryGauge.h" />
+    <ClInclude Include="VFactoryPanel.h" />
+    <ClInclude Include="VFactoryScreen.h" />
+    <ClInclude Include="CArc.h" />
+    <ClInclude Include="CAxis.h" />
+    <ClInclude Include="CCircle.h" />
+    <ClInclude Include="CEllipse.h" />
+    <ClInclude Include="CGaugeString.h" />
+    <ClInclude Include="CGaugeText.h" />
+    <ClInclude Include="CImage.h" />
+    <ClInclude Include="CLine.h" />
+    <ClInclude Include="CPie.h" />
+    <ClInclude Include="CPoint.h" />
+    <ClInclude Include="CPolygon.h" />
+    <ClInclude Include="CPolyline.h" />
+    <ClInclude Include="CRectangle.h" />
+    <ClInclude Include="CStyle.h" />
+    <ClInclude Include="CVideo.h" />
+    <ClInclude Include="VCoordinate.h" />
+    <ClInclude Include="VGraphic.h" />
+    <ClInclude Include="VPolylist.h" />
+    <ClInclude Include="VStyle.h" />
+    <ClInclude Include="CEqConstant.h" />
+    <ClInclude Include="CEqConstGaugeHeight.h" />
+    <ClInclude Include="CEqConstGaugeLeft.h" />
+    <ClInclude Include="CEqConstGaugeTop.h" />
+    <ClInclude Include="CEqConstGaugeWidth.h" />
+    <ClInclude Include="CEqOpAbs.h" />
+    <ClInclude Include="CEqOpAdd.h" />
+    <ClInclude Include="CEqOpAnd.h" />
+    <ClInclude Include="CEqOpBitAnd.h" />
+    <ClInclude Include="CEqOpBitOr.h" />
+    <ClInclude Include="CEqOpBoth.h" />
+    <ClInclude Include="CEqOpCase.h" />
+    <ClInclude Include="CEqOpCeil.h" />
+    <ClInclude Include="CEqOpColorname.h" />
+    <ClInclude Include="CEqOpDecrement.h" />
+    <ClInclude Include="CEqOpDegFromRad.h" />
+    <ClInclude Include="CEqOpDegreeNorm.h" />
+    <ClInclude Include="CEqOpDivide.h" />
+    <ClInclude Include="CEqOpEqual.h" />
+    <ClInclude Include="CEqOpFind.h" />
+    <ClInclude Include="CEqOpFloor.h" />
+    <ClInclude Include="CEqOpFormatString.h" />
+    <ClInclude Include="CEqOpGreaterOrEqual.h" />
+    <ClInclude Include="CEqOpGreaterThan.h" />
+    <ClInclude Include="CEqOpIncrement.h" />
+    <ClInclude Include="CEqOpLessOrEqual.h" />
+    <ClInclude Include="CEqOpLessThan.h" />
+    <ClInclude Include="CEqOpMax.h" />
+    <ClInclude Include="CEqOpMin.h" />
+    <ClInclude Include="CEqOpModulo.h" />
+    <ClInclude Include="CEqOpMultiply.h" />
+    <ClInclude Include="CEqOpNear.h" />
+    <ClInclude Include="CEqOpNegate.h" />
+    <ClInclude Include="CEqOpNot.h" />
+    <ClInclude Include="CEqOpNotEqual.h" />
+    <ClInclude Include="CEqOpOr.h" />
+    <ClInclude Include="CEqOpQuestion.h" />
+    <ClInclude Include="CEqOpRadFromDeg.h" />
+    <ClInclude Include="CEqOpRadianNorm.h" />
+    <ClInclude Include="CEqOpRange.h" />
+    <ClInclude Include="CEqOpRegisters.h" />
+    <ClInclude Include="CEqOpRegLoad.h" />
+    <ClInclude Include="CEqOpRegStore.h" />
+    <ClInclude Include="CEqOpRGB.h" />
+    <ClInclude Include="CEqOpRGBA.h" />
+    <ClInclude Include="CEqOpSquare.h" />
+    <ClInclude Include="CEqOpStrCat.h" />
+    <ClInclude Include="CEqOpSubStr.h" />
+    <ClInclude Include="CEqOpSubtract.h" />
+    <ClInclude Include="CEqOpUnitAbbrev.h" />
+    <ClInclude Include="CEqOpUnitConvert.h" />
+    <ClInclude Include="CEqOpUnitName.h" />
+    <ClInclude Include="CEqOpUnitPlural.h" />
+    <ClInclude Include="CEqVariable.h" />
+    <ClInclude Include="CEqVariableAssign.h" />
+    <ClInclude Include="CEqVariableAssignCond.h" />
+    <ClInclude Include="CEqVariableAssignIndirect.h" />
+    <ClInclude Include="CEqVariableIndirect.h" />
+    <ClInclude Include="CResultValue.h" />
+    <ClInclude Include="VEqConstGauge.h" />
+    <ClInclude Include="VEqOpBinary.h" />
+    <ClInclude Include="VEqOpQuaternary.h" />
+    <ClInclude Include="VEqOpTrinary.h" />
+    <ClInclude Include="VEqOpUnary.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.vcxproj">
+      <Project>{b6baae41-d864-4526-ac72-b54464da7791}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

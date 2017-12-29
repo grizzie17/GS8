@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<SimBase.Document version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="battlevelhoriz">
+		<Size>200,40</Size>
+		<Update>
+			<Frequency>2</Frequency>
+		</Update>
+		<Element>
+			<Visible>(T:SLIDER.YELLOW) (T:PULSER) &lt;</Visible>
+			<Position X="(S:SCREEN WIDTH) 240 - 14 +" Y="(S:SCREEN HEIGHT) 90 -" />
+			<Element>
+				<Polyline LineWidth="3" LineColor=" 'green' 'darkorange' (T:PULSER) (T:SLIDER.YELLOW) &lt; ? 'red' (T:PULSER) (T:SLIDER.RED) &lt; ? s9">
+					<Point X="0" Y="0" />
+					<Point X="(T:SLIDER.YELLOW) 2 *" Y="0" />
+					<Point X="(T:SLIDER.RED) 2 *" Y="10" />
+					<Point X="200" Y="10" />
+					<Point X="200" Y="20" />
+					<Point X="0" Y="20" />
+					<Point X="0" Y="0" />
+				</Polyline>
+			</Element>
+			<Element>
+				<GaugeText X="0" Y="0" Align="right" VerticalAlign="top" Font="Arial" Height="24" LineColor="r9">
+					<String><![CDATA[BATT ]]></String>
+				</GaugeText>
+			</Element>
+			<Element>
+				<Position X="0" Y="5" />
+				<Shift Y="0" X="(T:PULSER)  2.0f *" />
+				<Polygon FillColor=" 'limegreen' 'orange' (T:PULSER) (T:SLIDER.YELLOW) &lt; ? 'red' (T:PULSER) (T:SLIDER.RED) &lt; ?">
+					<Point Y="0" X="0" />
+					<Point Y="20" X="-6" />
+					<Point Y="20" X="6" />
+					<Point Y="0" X="0" />
+				</Polygon>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

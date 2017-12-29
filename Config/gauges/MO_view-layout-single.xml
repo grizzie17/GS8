@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="MO_view-layout-single">
+		<Element Context="group">
+			<Visibility>
+				(U:View Layout) (K:View Single) ==
+				(U:View Layout) (K:View Single Auto) == OR
+			</Visibility>
+			<Element Context="application">
+			<Video>
+				<Origin>0,0</Origin>
+				<WidthScript>(S:SCREEN WIDTH)</WidthScript>
+				<HeightScript>(S:SCREEN HEIGHT)</HeightScript>
+				<LineColor>darkblue</LineColor>
+				<LineWidth>1</LineWidth>
+				<SourceScript>(U:Video Feed 1)</SourceScript>
+			</Video>
+			</Element>
+			<Element Context="background">
+				<Position X="(S:SCREEN WIDTH) 150 -" Y="(S:SCREEN HEIGHT) 75 -" />
+				<Include File="MO_view-feed-1" />
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

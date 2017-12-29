@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="menu_item">
+		<Size>130,20</Size>
+		<Element Context="background">
+			<!-- NOTE: See "NVL_Main_Menu_Item.XML" for register definitions -->
+			<Rectangle X="0" Y="0" Width="width" Height="height" LineColor="r1" LineWidth="1" FillColor="r4"/>
+			<Visible>r0</Visible>
+			<GaugeText X="width 2 /" Y="1" Font="sans-serif" Height="20" Align="center" VerticalAlign="top" Color="r1">
+				<String>%(r6)%!s!</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

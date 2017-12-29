@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Screen Active="'mouse_panel' (U:PANEL) '' (U:PANEL) == ? "
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:noNamespaceSchemaLocation="screens.xsd">
+	
+	<PanelInstance Name="mouse_panel" />
+	<PanelInstance Name="touch_calibrate" />
+
+
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+	</KeyMap>
+	
+	
+	<KeyEventMap>
+		<OnDown>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN" />
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+		</OnDown>
+	</KeyEventMap>
+</Screen>

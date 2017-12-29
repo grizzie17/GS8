@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Gauge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>40,40</Size>
+	<Element>
+		<Circle LineColor="lightgreen" LineWidth="2" 
+				X="20" Y="20" Radius="17" 
+				Color="lightgreen" />
+		<Polyline LineColor="lightgreen" LineWidth="2">
+			<Point X="12" Y="10"/>
+			<Point X="30" Y="20"/>
+			<Point X="12" Y="30"/>
+			<Point X="12" Y="10"/>
+		</Polyline>
+	</Element>
+</Gauge>

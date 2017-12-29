@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<Panel id="MPC_everything">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 8 / s10		// Height of button area
+			r10 2 / s11						// center of button area
+			both
+
+			5 s0	// left screen margin
+			both
+
+			"Everything" (=C:Window Title)
+			both
+		</Script>
+	</Layout>
+	<GaugeInstance Name="@everything-gauge" X="0" Y="0" />
+	<GaugeInstance Name="button-exit-everything" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 5 * r11 + height 2 / -"/>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="RIGHT" Event="E:MOVE RIGHT" />
+			<Key id="UP" Event="E:MOVE UP" />
+			<Key id="DOWN" Event="E:MOVE DOWN" />
+			<Key id="LEFT" Event="E:MOVE LEFT" />
+			<Key id="HOME" Event="E:MOVE HOME" />
+			<Key id="BEZEL1"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL2"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL3"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL4"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL5"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL6"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL8"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL9"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL10"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL11"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL12"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL13"	Event="E:TOGGLE SEAT POSITION" />
+			<Key id="BEZEL14"	Event="E:TOGGLE SEAT POSITION" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

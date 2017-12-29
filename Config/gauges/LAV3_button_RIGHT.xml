@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="LAV3_button_RIGHT">
+		<Update>
+			<Script>
+        0x004000 0x00FF00 (S:MILLI) (U:Camera RIGHT Timeout) &gt; ? s2
+        0x00FF00 s1 both
+        (U:CAMERA SELECT ACTIVE) (U:BLACKOUT SELECTED) ! AND s0 both
+      </Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-selector-arrow-right" />
+		</Element>
+		<MouseArea id="MouseArea">
+      <Visible>(U:CAMERA SELECT ACTIVE) (U:BLACKOUT SELECTED) ! AND</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>40,40</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:CAMERA SELECT RIGHT</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="time">
+		<Update>
+			<Frequency>1</Frequency>
+		</Update>
+		<Size>350,20</Size>
+		<Element Context="foreground">
+			<Position X="350" Y="0" />
+			<!--GaugeText X="-2 1 +" Y="0 1 +"
+					   Font="sans-serif" Height="20"
+					   Align="right" VerticalAlign="top"
+					   Color="(U:COLOR_TextMask)">
+				<String>%( (A:Date/Time) )%!t!</String>
+			</GaugeText-->
+			<GaugeText X="-2" Y="0"
+					   Font="sans-serif" Height="20"
+					   Align="right" VerticalAlign="top"
+					   Color="(U:COLOR_Text)" HaloColor="(U:COLOR_TextMask)">
+				<String>%( (A:Date/Time) )%!t!</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Panel id="MO_pc_main" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<GaugeInstance Name="MO_view-layout-pc" X="0" Y="0" />
+
+</Panel>

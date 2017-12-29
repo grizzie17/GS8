@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+    <Plugin Class="ClientVDDS" ID="VDDS Client 1">
+        <Param Name="Client ID" Type="INTEGER">1</Param>
+        <Param Name="Timeout" Type="INTEGER">10</Param>
+        <Param Name="Server IP Address" Type="STRING">192.168.0.205</Param>
+        <Param Name="Server Port" Type="INTEGER">2500</Param>
+        <Param Name="Max Pending Req" Type="INTEGER">32</Param>
+		<Plugin Class="EventGraphicsVDDS" ID="Graphic Events 0">
+			<!--IGraphicsEvent plugin -->
+		</Plugin>
+    </Plugin>
+</Plugins>

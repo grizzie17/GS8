@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+<SimGauge.Gauge id="alert-everything">
+<Element>
+	<Include File="@alert-everything"/>
+</Element>
+</SimGauge.Gauge>
+</SimBase.Document>

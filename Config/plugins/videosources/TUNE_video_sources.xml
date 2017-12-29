@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	
+	<Plugin Class="VideoSourceAggregate" ID="Camera Tune">
+        <Param Name="Server ID" Type="INTEGER">0</Param>
+        <Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog Camera 0">
+			<!--
+			DVE Video Parameters
+			-->
+            <Include File="NTSC_GENERIC_Frame"/>
+            <Param Name="Video Input Port" Type="INTEGER">1</Param>
+        </Plugin>
+        <Plugin Class="CamDve" Filter="Client" ID="Client DVE Camera 0">
+            <!-- Client side DVE camera -->
+        </Plugin>
+		<Plugin Class="CamDveServerVDDS" Filter="Server" ID="Camera Server 1">
+		<!-- no params yet-->
+			<Plugin Class="MsgDve" Filter="Server" ID="Msg Dve 1">
+			<!-- no params yet-->
+			</Plugin>
+			<Plugin Class="CommSerialVDDS" Filter="Server" ID="Comm Serial VDDS 1">
+				<!--IDataStream plugin -->
+				<Param Name="Port" Type="STRING">/dev/tts/2</Param> <!-- Change this to /dev/tts/1 when on vehicle -->
+				<Param Name="Baud" Type="INTEGER">57600</Param>
+				<Param Name="Parity" Type="STRING">None</Param>
+				<Param Name="Stop Bits" Type="INTEGER">1</Param>
+				<Param Name="Data Bits" Type="INTEGER">8</Param>
+				<Param Name="Flow Control" Type="STRING">None</Param>
+				<Param Name="Non Blocking" Type="BOOL">true</Param>
+			</Plugin>
+        </Plugin>
+		<Plugin Class="CmdCameraSelector">
+   			<Param Name="Up" Type="STRING">Camera Front-Center IR</Param>
+			<Param Name="Down" Type="STRING">Camera Observer IR</Param>
+			<Param Name="Left" Type="STRING">Camera Front-Left IR</Param>
+   			<Param Name="Right" Type="STRING">Camera Front-Right IR</Param>
+		</Plugin>
+	</Plugin>
+
+
+</Plugins>

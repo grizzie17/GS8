@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="icon-fuel">
+		<!--
+		Registers are used to drive the various parameters
+		R7	- green separator
+		R9	- current position
+		R0	- gauge visibility 
+		-->
+		<Update>
+			<Frequency>4</Frequency>
+			<Script>
+				(B:Fuel Level.Green.Low) s7
+				(A:Fuel Level) s9 both
+
+					(U:FLASH)
+					true
+				r9 r7 &lt; ? s0
+				both
+
+			</Script>
+		</Update>
+		<Size>30,45</Size>
+		<Element Context="foreground">
+		<!--
+		Refer to "gaugetogglenotice.xml" for definitions of the 3 (U:GAUGE SWITCH) states.
+
+		switch (U:GAUGE SWITCH)
+		0:	if r9 > r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+		-->
+		<Visibility>
+				false
+				r0
+					r0 
+					false 
+				r9 r7 &lt;  5 (A:RPM) LT  AND ?
+			3 (U:GAUGE SWITCH) case
+		</Visibility>
+			<!--
+				Draw the color coded fuel icon.
+			-->
+			<Element>
+				<Polygon FillColor="(U:COLOR_IconSafe) (U:COLOR_IconAlert) r7 r9 &lt; ? s0" >
+					<Point X="3" Y="0" />
+					<Point X="17" Y="0" />
+					<Point X="20" Y="3" />
+					<Point X="20" Y="45" />
+					<Point X="0" Y="45" />
+					<Point X="0" Y="3" />
+					<Point X="3" Y="0" />
+				</Polygon>
+				<Polygon FillColor="background">
+					<Point X="5" Y="5" />
+					<Point X="15" Y="5" />
+					<Point X="15" Y="17" />
+					<Point X="5" Y="17" />
+					<Point X="5" Y="5" />
+				</Polygon>
+				<Polyline LineWidth="2" LineColor="r0">
+					<Point X="20" Y="30" />
+					<Point X="22" Y="33" />
+					<Point X="23" Y="35" />
+					<Point X="22" Y="40" />
+					<Point X="23" Y="42" />
+					<Point X="25" Y="42" />
+					<Point X="27" Y="39" />
+					<Point X="28" Y="30" />
+					<Point X="27" Y="27" />
+					<Point X="24" Y="23" />
+					<Point X="25" Y="18" />
+					<Point X="23" Y="13" />
+					<Point X="22" Y="11" />
+					<Point X="21" Y="10" />
+				</Polyline>
+			</Element>
+			<Element>
+				<Visibility>(U:GAUGE DETAIL)</Visibility>
+				<GaugeText X="15" Y="48"
+						   Font="Arial" Height="20" Align="center"
+						   Color="r0" VerticalAlign="top">
+					<String>%((A:Fuel Level))%!d!</String>
+				</GaugeText>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

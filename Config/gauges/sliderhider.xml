@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<Gauge Name="sliderhider" Version="1.0">
+	<Size X="40" Y="200" />
+	<Element>
+	<Visible>(T:SLIDER.YELLOW) (T:PULSER) &lt;</Visible>
+		<Element>
+			<Polyline LineWidth="3" LineColor=" 'green' 'darkorange' (T:PULSER) (T:SLIDER.YELLOW) &lt; ? 'red' (T:PULSER) (T:SLIDER.RED) &lt; ?">
+				<Point X="0" Y="0" />
+				<Point X="25" Y="0" />
+				<Point X="25" Y="200" />
+				<Point X="20" Y="200" />
+				<Point X="0" Y="(T:SLIDER.YELLOW) 2 *" />
+				<Point X="0" Y="0" />
+			</Polyline>
+		</Element>
+		<Element>
+			<Position X="10" Y="0" />
+			<Shift X="0" Y="(T:PULSER)  2.0f * /-/ (&gt;G:TEST)" />
+			<Polygon FillColor=" 'limegreen' 'orange' (T:PULSER) (T:SLIDER.YELLOW) &lt; ? 'red' (T:PULSER) (T:SLIDER.RED) &lt; ?">
+				<Point X="0" Y="0" />
+				<Point X="24" Y="-6" />
+				<Point X="24" Y="6" />
+				<Point X="0" Y="0" />
+			</Polygon>
+		</Element>
+	</Element>
+</Gauge>

@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<!-- 
+	The first two lines of the "real" content must be SimBase.Document
+	and SimGauge.Gauge.
+	
+	Change the id value below to be the name of the file (minus .xml)
+	-->
+	<SimGauge.Gauge id="template">
+		<Update>
+			<!-- 
+			The Update Script is executed before the rest of the
+			gauge scripts/equations are evaluated.
+			-->
+			<Script>
+				
+			</Script>
+			<!-- 
+			Use the Frequency tag to limit the amount that the gauge
+			is processed.  The number indicates the number of times
+			per second that the gauge will be evaluated.
+			-->
+			<Frequency>5</Frequency>
+		</Update>
+		<!-- 
+		Specify the size of the gauge in pixels (x,y)
+		This size is reflected in the built in special variables
+		'height' and 'width'.
+		-->
+		<Size>360,40</Size>
+		<!-- 
+		For a gauge to contain graphic tags it must contain an
+		Element tag with the graphic tags nested within.
+		
+		In general an Element tag is used to group tags and to support
+		alternate coordinate transformations.
+		-->
+		<Element>
+			<!--
+			The coordinate system for the gauge package defines the
+			origin at the upper-left of the screen/window with ascending
+			Y values progressing down the screen and 
+			ascending X value progressing left-to-right.
+			-->
+			<!-- 
+			The X and Y values of the Position tag may either be a 
+			constant value or an equation.
+			-->
+			<Position X="180" Y="0" />
+			<Element>
+				<Position X="180" Y="0" />
+				<ForLoop>
+					<InitialExpression>
+						<Script>
+							360 (A:Compass) - dnor s0
+							r0 15.0 % r0 - floor 90 - dnor s5
+							both
+							90 r0 15 % - 2 * /-/ s9
+							both
+							r5 dnor s5
+							both
+						</Script>
+					</InitialExpression>
+					<TestExpression>
+						<Script>r9 180 &lt;</Script>
+					</TestExpression>
+					<IncrementExpression>
+						<Script>
+							r9 30 + s9
+							r5 15 + dnor s5
+							both
+						</Script>
+					</IncrementExpression>
+					<Line LineColor="lime" LineWidth="2">
+						<Point X="r9" Y="6" />
+						<Point X="r9" Y="1" />
+					</Line>
+					<Select>
+						<Expression>
+							<Script>r5</Script>
+						</Expression>
+						<Case>
+							<ExpressionResult>0</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="24" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>N</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>45</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="20" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>NE</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>90</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="24" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>E</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>135</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="20" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>SE</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>180</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="24" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>S</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>225</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="20" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>SW</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>270</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="24" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>W</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>315</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="20" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>NW</String>
+							</GaugeText>
+						</Case>
+						<!--CaseElse>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="24" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>%(r5)%!d!</String>
+							</GaugeText>
+						</CaseElse-->
+					</Select>
+				</ForLoop>
+			</Element>
+			<Element>
+				<Position X="180" Y="0" />
+				<Polygon FillColor="lime" LineColor="lime">
+					<Point X="0" Y="10" />
+					<Point X="5" Y="0" />
+					<Point X="-5" Y="0" />
+					<Point X="0" Y="10" />
+				</Polygon>
+				<Element>
+					<Rectangle X="-25" Y="5" Height="24" Width="50" LineColor="lime" FillColor="background"/>
+					<GaugeText X="0" Y="6" Font="sans-serif" Height="24"
+							   Align="center" VerticalAlign="top"
+							   Color="lime">
+						<String>%((A:Compass) near dnor)%!03d!</String>
+					</GaugeText>
+				</Element>
+			</Element>
+		</Element>
+		<!-- 
+		The 'KeyMap' also known as an 'EventMap' provides the
+		mechanism that is used to handle events in the system.
+		-->
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:Alert</KeyEvent>
+				<Script>
+					(E:Alert) (=G:Alert)
+					"N:" (E:Alert) + @ (=G:AlertActive)
+					both
+					"B:" (E:Alert) + ".Label" + @ (=G:AlertLabel)
+					both
+					"B:" (E:Alert) + ".Level" + @ (=G:AlertLevel)
+					both
+					"B:" (E:Alert) + ".Color" + @ (=G:AlertColor)
+					both
+					(S:MILLI) 15000 + (=G:Timeout)
+					both
+				</Script>
+			</Trigger>
+		</KeyMap>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>110,110</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:ROTARY270 HIDE/SHOW</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

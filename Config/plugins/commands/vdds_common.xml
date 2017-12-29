@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VDDS Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Include File="VehicleDataSample"/>
+
+	<!--
+	The View Layout constants are defined such that the number of
+	video feeds to a given layout is defined as a multiple of 10.
+	As an example 40 equates to a layout with 4 video feeds.
+	If all views within a layout are equal sized then the units
+	will be zero (0).
+
+	This is just a convention that we are using.  No internal code
+	should depend on these conventions.
+	-->
+	<Plugin Class="CmdConstant" Group="" ID="View Layout Constants">
+		<Param Name="View Single" Type="INTEGER">10</Param>
+		<Param Name="View Single Auto" Type="INTEGER">11</Param>
+		<Param Name="View Dual" Type="INTEGER">20</Param>
+		<Param Name="View PIP" Type="INTEGER">22</Param>
+		<Param Name="View Quad" Type="INTEGER">40</Param>
+		<Param Name="View Forward" Type="INTEGER">41</Param>
+		<Param Name="View Reverse" Type="INTEGER">42</Param>
+	</Plugin>
+
+
+	<Plugin Class="CmdVehicleDataLoader" Group="" ID="Vehicle Data Loader">
+		<Param Name="Service Name" Type="STRING">Vehicle Data Socket</Param>
+	</Plugin>
+
+
+</Plugins>

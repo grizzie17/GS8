@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="icon-zoom">
+		<Size>70,30</Size>
+		<Element Context="background">
+			<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+			<Visible>r0</Visible>
+			<Position X="0" Y="7" />
+			<Circle X="10" Y="15" Radius="11" LineColor="r1" LineWidth="2"/>
+			<Circle X="35" Y="15" Radius="11" LineColor="r1" LineWidth="2"/>
+			<Line Color="r1" LineWidth="2">
+				<Point X="30" Y="15"/>
+				<Point X="40" Y="15"/>
+			</Line>
+			<Line Color="r1" LineWidth="2">
+				<Point X="5" Y="15"/>
+				<Point X="15" Y="15"/>
+			</Line>
+			<Line Color="r1" LineWidth="2">
+				<Point X="10" Y="10"/>
+				<Point X="10" Y="20"/>
+			</Line>
+			<Line Color="r1" LineWidth="4">
+				<Point X="16" Y="24"/>
+				<Point X="19" Y="29"/>
+			</Line>
+			<Line Color="r1" LineWidth="4">
+				<Point X="41" Y="24"/>
+				<Point X="44" Y="29"/>
+			</Line>
+			<!--
+			<GaugeText X="0" Y="0" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="r1">
+				<String>Zoom</String>
+			</GaugeText>
+			<Polyline LineColor="r1">
+				<Point X="0" Y="35"/>
+				<Point X="40" Y="35"/>
+				<Point X="40" Y="20"/>
+				<Point X="0" Y="35"/>
+			</Polyline>
+			-->
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

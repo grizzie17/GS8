@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="ESAV_view-select-single">
+		<Update>
+			<!--
+				(A:Steering Wheel Angle) (B:Steering Wheel Angle.Low) /-/ +
+				(B:Steering Wheel Angle.High) (B:Steering Wheel Angle.Low) -
+				/
+				3
+				*
+			-->
+			<!--Frequency>2</Frequency-->
+			<Script>
+					/*
+					Refer to IMPORTANT COMMENT below
+					*/
+					/*
+						R10 is set to the current camera type of "IR" or "Color"
+					*/
+					"Color" "IR" (U:DAY SELECTED) ? s10
+
+						3						// Always select rear camera if current gear is selected for reverse (R) or the seat is UP
+								/*
+									Check the Steering wheel position.
+									R0 contains one of the following:
+										0 - Within YELLOW1 range
+										1 - Not within any of the YELLOW ranges
+										2 - Within YELLOW2 range
+										3 - Rear camera
+								*/
+								0
+									2
+									1
+								(B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ?
+							(B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ?
+							1					// Utilize center camera if **NOT** auto steer
+						(U:AUTO STEER SELECTED) ?
+					(A:Current Gear) 0 LT  (U:SEAT POSITION UP) OR ? s0
+					both
+
+					// Iinitialize the previous steering position if not already defined.
+					// NOTE: THIS MAY NOT BE NEEDED SINCE IT IS UNLIKLY THE CAMERA WILL BE IN ADJUST MODE ON THE FIRST UPDATE CYCLE
+						r0
+						(U:Previous Steering Position)
+					'' (U:Previous Steering Position) == ? (=U:Previous Steering Position) both
+
+					// Deterimine if the video feed is about to change. If so, disable adjusting camera (regardless of current state)
+						true
+						0 (=E:DISABLE ADJUST CAMERA SETTINGS)
+					r0 (U:Previous Steering Position) == ? both
+
+					/*
+							Set (C:Video Feed 1) to one of the 3 front cameras based on the value of R0. R10 contains the camera type.
+							The following camera is selected for the 3 possible values of R0
+								0 - K:Camera Front-Left IR/Color
+								1 - K:Camera Front-Center IR/Color
+								2 - K:Camera Front-Right IR/Color
+						*/
+						"K:Camera Rear "
+						"K:Camera Front "
+						"K:Camera Front-Center "
+						"K:Camera Front-Left "
+					4
+					r0
+					case r10 + @ (=U:Video Feed 1)
+					both
+
+					/*
+						Set (C:View Single) to single view to
+						activate the camera position defined above
+					*/
+					(K:View Single Auto) (=U:View Layout) both
+					r0 (=U:Previous Steering Position) both
+
+
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

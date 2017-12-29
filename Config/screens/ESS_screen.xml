@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Screen Active="'ESS_main' (U:PANEL) '' (U:PANEL) == ? " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+	<Update>
+		<Script>
+			(S:MILLI) 2000 % 1500 &lt; (=U:FLASH)
+			(S:MILLI) (=C:ESS CALCULATE) both
+			"OmniScape(R) Application Loader" (=C:Window Title) both
+		</Script>
+	</Update>
+	<PanelInstance Name="ESS_main"/>
+	<KeyEventMap>
+		<OnUp>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN"/>
+			<Key id="SPACE" Event="E:ESS RESET"/>
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+		</OnUp>
+	</KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<Event>E:ESS RESET</Event>
+			<Script>
+				1 (=C:ESS RESET)
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:PANEL MAIN</Event>
+			<Script> 'ESS_main' + (=U:PANEL)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:MAIN PANEL</KeyEvent>
+			<Script> 'ESS_main' (=U:PANEL)</Script>
+		</Trigger>
+		
+		
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+	</KeyMap>
+</Screen>

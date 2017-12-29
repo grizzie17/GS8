@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+	<Plugin Class="InputAtlasVDDS" ID="Touch Screen 0">
+		<!-- Avalex touch screen input device -->
+		<Plugin Class="CommSerialVDDS" ID="RS-422 3">
+			<!--IDataStream plugin -->
+			<Param Name="Port" Type="STRING">/dev/ttyVDDS3</Param>
+			<Param Name="Baud" Type="INTEGER">9600</Param>
+			<Param Name="Parity" Type="STRING">None</Param>
+			<Param Name="Stop Bits" Type="INTEGER">1</Param>
+			<Param Name="Data Bits" Type="INTEGER">8</Param>
+			<Param Name="Flow Control" Type="STRING">None</Param>
+			<Param Name="Non Blocking" Type="BOOL">false</Param>
+		</Plugin>
+		<Plugin Class="MsgAtlas" ID="Avalex Msg 0">
+			<!--IDataLink plugin -->
+		</Plugin>
+		<Plugin Class="EventGraphicsVDDS" ID="Graphic Events 0">
+			<!--IGraphicsEvent plugin -->
+		</Plugin>
+	</Plugin>
+
+</Plugins>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" 
+		   elementFormDefault="qualified" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+	<xs:include schemaLocation="../shared.xsd" />
+
+
+
+	<xs:element name="Panel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="GaugeInstance" />
+					<xs:element ref="KeyEventMap" />
+					<xs:element ref="KeyMap" />
+					<xs:element ref="Update" />
+					<xs:element ref="Layout" />
+					<xs:group ref="grpSize" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="GaugeInstance">
+		<xs:complexType>
+			<xs:attribute name="Name" type="xs:string" use="required" />
+			<xs:attribute name="X" type="xs:string" />
+			<xs:attribute name="Y" type="xs:string" />
+			<xs:attribute name="Width" type="xs:string" />
+			<xs:attribute name="Height" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Layout">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Script" />
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Size" type="xs:string" />
+
+	<xs:element name="Width" type="xs:float" />
+	<xs:element name="WidthScript" type="xs:string" />
+
+	<xs:element name="Height" type="xs:float" />
+	<xs:element name="HeightScript" type="xs:string" />
+
+	<xs:group name="grpWidth">
+		<xs:choice>
+			<xs:element ref="Width" />
+			<xs:element ref="WidthScript" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:group name="grpHeight">
+		<xs:choice>
+			<xs:element ref="Height" />
+			<xs:element ref="HeightScript" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:group name="grpSize">
+		<xs:choice>
+			<xs:element ref="Size" />
+			<xs:sequence>
+				<xs:choice maxOccurs="1">
+					<xs:group ref="grpWidth" />
+					<xs:group ref="grpHeight" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:choice>
+	</xs:group>
+
+</xs:schema>

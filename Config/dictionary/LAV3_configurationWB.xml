@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+	<!--
+	"Screen" identifies the name of the xml file in the 'screens'
+	folder that should be loaded and processed
+	-->
+  <Item ID="Screen" Type="STRING">LAV3_screen</Item>
+
+	<!-- 
+	"Active Commands" identifies the name of the xml file in the
+	'plugins/commands' folder that should.  If this tag is not
+	specified then the 'default.xml' will be used.
+	-->
+	<Item ID="Active Commands" Type="STRING">workbench_LAV3</Item>
+
+	<!--
+	"Dictionary Settings" identifies the name of the Settings file 
+	that is used to initialize the Dictionary "A", "B", and "N" pages
+	-->
+	<Item ID="Dictionary Settings" Type="STRING">Settings_LAV3</Item>
+
+	<!--
+	"Startup Events" identifies a semicolon or newline separated list 
+	of event 	names that should be triggered upon application startup.
+	-->
+	<Item ID="Startup Events" Type="STRING">
+		E:INIT CAMERA
+		E:UNITS IMPERIAL
+	</Item>
+
+	<Include File="vehicledataconfiguration" />
+</Configuration>

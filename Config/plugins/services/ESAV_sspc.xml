@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Task Plugins -->
+<Plugins Group="" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Plugin Class="ServiceSSPC" ID="Service SSPC">
+		<Param Name="Port" Type="STRING">/dev/can0</Param>
+		<Param Name="Baud" Type="INTEGER">500</Param>
+		<Param Name="Channels" Type="STRING">6,7,14,15</Param>
+		<Param Name="Delay" Type="INTEGER">8</Param>
+		<Param Name="Retries" Type="INTEGER">3</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceRstaEptm" ID="Service EPTM">
+		<Param Name="EPTM::Port" Type="STRING">/dev/ttyVDDS4853</Param>
+		<Param Name="EPTM::Baud" Type="INTEGER">19200</Param>
+		<Param Name="EPTM::Parity" Type="STRING">None</Param>
+		<Param Name="EPTM::StopBits" Type="INTEGER">1</Param>
+		<Param Name="EPTM::DataBits" Type="INTEGER">8</Param>
+		<Param Name="EPTM::Flow" Type="STRING">None</Param>
+
+		<!-- EPTM - 485 serial port configuration -->
+		<Param Name="CMM::Port" Type="STRING">/dev/ttyVDDS4850</Param>
+		<Param Name="CMM::Baud" Type="INTEGER">19200</Param>
+		<Param Name="CMM::Parity" Type="STRING">None</Param>
+		<Param Name="CMM::StopBits" Type="INTEGER">1</Param>
+		<Param Name="CMM::DataBits" Type="INTEGER">8</Param>
+		<Param Name="CMM::Flow" Type="STRING">None</Param>
+
+		<Param Name="Auto Pan Row Spacing" Type="FLOAT">15.0</Param>
+	</Plugin>
+</Plugins>

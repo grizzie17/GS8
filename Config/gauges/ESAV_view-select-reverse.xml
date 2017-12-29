@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="ESAV_view-select-reverse">
+		<Update>
+			<!--
+				r8	- middle divisor (also height of upper section)
+				r9	- height of lower section
+			-->
+			<Script>
+					/*
+						R10 is set to the current camera type of "IR" or "Color"
+					*/
+					"Color" "IR" (U:DAY SELECTED) ? s10
+
+					"K:Camera Front" @ (=U:Video Feed 3)
+					both
+
+					"K:Camera Left" @ (=U:Video Feed 2)
+					both
+
+					"K:Camera Right" @ (=U:Video Feed 4)
+					both
+
+					/*
+						Set (C:Video Feed 1) to K:Camera Rear Color/IR based on R10
+					*/
+					"K:Camera Rear " r10 + @ (=U:Video Feed 1)
+					both
+
+					/*
+						Set (C:View Layout) to REVERSE to activate the camera positions defined above
+					*/
+					(K:View Reverse) (=U:View Layout)
+					both
+
+
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-camera-FC" Version="1.0"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<!--<WidthScript>(S:SCREEN WIDTH) 4 /</WidthScript>
+	<HeightScript>(S:SCREEN HEIGHT) 3 /</HeightScript>-->
+	<Element Context="background">
+		<Image>
+			<File>yogi.jpg</File>
+			<HeightScript>height</HeightScript>
+			<WidthScript>width</WidthScript>
+			<Fitment>scaled</Fitment>
+			<HorizontalAlign>center</HorizontalAlign>
+			<VerticalAlign>middle</VerticalAlign>
+		</Image>
+	</Element>
+</Gauge>

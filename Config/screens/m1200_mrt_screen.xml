@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<Screen Active="'m1200a_full_gauges' (U:PANEL) '' (U:PANEL) == ? " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+	<PanelInstance Name="m1200a_full_gauges" />
+	<PanelInstance Name="m1200a_everything" />
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE LOADER</KeyEvent>
+			<Script>1 (=C:Toggle Loader)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS IMPERIAL</KeyEvent>
+			<Script>0 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS METRIC</KeyEvent>
+			<Script>1 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE SEAT POSITION</KeyEvent>
+			<Script>
+				// TBD, Need to update layouts so that they remember last setting once seat is returned back to prev state.
+				(U:SEAT POSITION UP) !  (=U:SEAT POSITION UP)
+
+				'm1200a_full_gauges'
+				'm1200a_everything'
+				(U:SEAT POSITION UP) ? (=U:PANEL)
+				both
+
+			</Script>
+		</Trigger>
+			<Trigger>
+				<KeyEvent>E:UNITS IMPERIAL</KeyEvent>
+				<Script>0 (=U:UNITS)</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:UNITS METRIC</KeyEvent>
+				<Script>1 (=U:UNITS)</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:TOGGLE UNITS</KeyEvent>
+				<Script>
+					1 (=E:UNITS IMPERIAL)
+					0 (=E:UNITS METRIC)
+					2 (U:UNITS) case
+				</Script>
+			</Trigger>
+		<!--
+				E:GAUGE TOGGLE is a three way switch
+				zero = Auto - display gauge when in yellow or red
+				one = On - always display gauge regardless of state
+				two = Off - always hide gauge
+			-->
+		<Trigger>
+			<KeyEvent>E:TOGGLE GAUGE STATE</KeyEvent>
+			<Script>
+				(U:GAUGE SWITCH) 1 + 3 % (=U:GAUGE SWITCH)
+			</Script>
+
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE AUTO</KeyEvent>
+			<Script>0 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE ON</KeyEvent>
+			<Script>1 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE OFF</KeyEvent>
+			<Script>2 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+	</KeyMap>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+			<Key id="M" Event="E:MAIN PANEL"/>
+			<Key id="G" Event="E:GAUGES PANEL"/>
+			<Key id="L" Event="E:TOGGLE LOADER"/>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN"/>
+			<Key id="U" Event="E:TOGGLE UNITS"/>
+			<Key id="A" Event="E:TOGGLE AUTO STEER"/>
+			<Key id="S" Event="E:TOGGLE SEAT POSITION"/>
+		</OnDown>
+	</KeyEventMap>
+</Screen>

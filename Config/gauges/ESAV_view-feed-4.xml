@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-feed-4">
+		<Update>
+			<Script>
+				// r15 is the video feed
+				(D:Video Feed 4) s15
+			
+			</Script>
+		</Update>
+		<Element>
+			<Include File="ESAV_view-camera-icon" />
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

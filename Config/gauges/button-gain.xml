@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-gain">
+		<Update>
+			<!-- s1 defines the icon color -->
+			<Script> 
+				0x00FF00 s1
+				(U:BLACKOUT SELECTED) ! s0
+				both
+			</Script>
+		</Update>
+		<Size>70,45</Size>
+		<Element>
+			<Include File="icon-brightness" />
+		</Element>
+	<MouseArea id="MouseArea">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>30,40</Size>
+		<MouseClick id="MouseClick">
+			<KeyEvent>E:GAIN SELECTED</KeyEvent>
+		</MouseClick>
+	</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

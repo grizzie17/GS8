@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="GS3TargetDefs"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;X:\BoardServices\WinCE-SDK\WinCE-GS3Target\Include\Crossplatform&quot;;&quot;X:\BoardServices\WinCE-SDK\WinCE-GS3Target\Include\Armv4i&quot;;&quot;X:\BoardServices&quot;"
+		PreprocessorDefinitions="_ARM_;_WIN32_WCE=0x0600;UNDER_CE;_CRT_SECURE_NO_DEPRECATE"
+		RuntimeLibrary="1"
+		UsePrecompiledHeader="0"
+		WarningLevel="4"
+    DisableSpecificWarnings="4514;4061"
+	/>
+	<Tool
+		Name="VCLibrarianTool"
+		AdditionalLibraryDirectories="&quot;X:\BoardServices\WinCE-SDK\WinCE-GS3Target\Lib\ARMV4I&quot;"
+	/>
+</VisualStudioPropertySheet>

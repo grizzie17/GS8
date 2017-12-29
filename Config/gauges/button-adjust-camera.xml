@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-adjust-camera">
+		<Update>
+			<Script>
+				'Exit' 'Adjust' (U:CAMERA ADJUST SELECTED) ? s6
+				"Camera" s7
+				both
+				
+				"Settings" s8
+				both
+				
+				(U:COLOR_ButtonTextSelected) (U:COLOR_ButtonText) (U:CAMERA ADJUST SELECTED) ? s3
+				both
+				
+				r3 s2
+				both
+				
+				r3 s1
+				both
+				
+				(U:BLACKOUT SELECTED) ! s0
+				both				
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:TOGGLE ADJUST CAMERA SETTINGS</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

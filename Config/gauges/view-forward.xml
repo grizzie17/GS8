@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-forward">
+		<ActionMap>
+			<Trigger>
+				<Event>E:Change Layout</Event>
+				<Script>
+					/*
+						Determine if new layout has been updated to K:View Forward. If so
+						update U:View Layout with the new state so that the next UPDATE
+						cycle will result in a new layout to be displayed.
+					*/
+					(K:View Forward) (=U:View Layout)
+					false
+					(K:View Forward) (E:Change Layout) == ?
+				</Script>
+			</Trigger>
+		</ActionMap>
+		<Update>
+			<Frequency>3</Frequency>
+			<Script>
+					/*
+					Refer to IMPORTANT COMMENT below
+					*/
+					/*
+						R8 is set to 33.3% of the screen height or an axis located 33.3% from the top
+						R9 is set to 66.7% of the screen height or an axis located 66.7% from the top
+						R10 is set to the current camera type of "IR" or "Color"
+					*/
+					"Color" "IR" (U:DAY SELECTED) ? s10
+					(S:SCREEN HEIGHT) 3 / s8 
+					both
+					(S:SCREEN HEIGHT) 2 * 3 / s9 
+					both
+					
+							/*
+								Check the Steering wheel position.
+								R0 contains one of the following:
+									0 - Within YELLOW1 range
+									1 - Not within any of the YELLOW ranges
+									2 - Within YELLOW2 range
+							*/
+							0
+								2
+								1
+							(B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ?
+						(B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ?
+						1			// Force a 1 value indicating not within any of the YELLOW ranges... always selecting front-center camera 
+					(U:AUTO STEER SELECTED) ? s0
+					both
+						
+					// Iinitialize the previous steering position if not already defined.
+					// NOTE: THIS MAY NOT BE NEEDED SINCE IT IS UNLIKLY THE CAMERA WILL BE IN ADJUST MODE ON THE FIRST UPDATE CYCLE
+						r0
+						(G:Previous Steering Position)
+					'' (G:Previous Steering Position) == ? (=G:Previous Steering Position) both
+					
+					// Deterimine if the video feed is about to change. If so, disable adjusting camera (regardless of current state)
+						true
+						0 (=E:DISABLE ADJUST CAMERA SETTINGS)
+					r0 (G:Previous Steering Position) == ? both
+
+						/*
+							Set (C:Video Feed 3) to one of the 3 front cameras based on the value of R0. R10 contains the camera type.
+							The following camera is selected for the 3 possible values of R0
+								0 - K:Camera Front-Left IR/Color
+								1 - K:Camera Front-Center IR/Color
+								2 - K:Camera Front-Right IR/Color
+						*/
+						"K:Camera Front-Right "
+						"K:Camera Front-Center "
+						"K:Camera Front-Left "
+					3
+					r0
+					case r10 + @ (?C:Video Feed 3)
+					both
+					
+						/*
+							Set (C:Video Feed 2) to cameras right of the camera on video feed 3.
+							The following camera is selected for the 3 possible values of R0
+								0 - K:Camera Front-Center IR/Color
+								1 - K:Camera Front-Right IR/Color
+								2 - K:Camera Left-Forward IR/Color
+						*/
+						"K:Camera Front-Center "
+						"K:Camera Front-Left "
+						"K:Camera Left-Forward "
+					3
+					r0
+					case r10 + @ (?C:Video Feed 2)
+					both
+					
+						/*
+							Set (C:Video Feed 2) to cameras left of the camera on video feed 3.
+							The following camera is selected for the 3 possible values of R0
+								0 - K:Camera Front-Center IR/Color
+								1 - K:Camera Front-Right IR/Color
+								2 - K:Camera Right-Forward IR/Color
+						*/
+						"K:Camera Right-Forward "
+						"K:Camera Front-Right "
+						"K:Camera Front-Center "
+					3
+					r0
+					case r10 + @ (?C:Video Feed 4)
+					both
+					
+					/*
+						Set (C:Video Feed 1) to rear camera always.
+					*/ 
+					"K:Camera Rear " r10 + @ (?C:Video Feed 1)
+					both
+					
+					/*
+						Set (C:View Layout) to FORWARD to activate the camera positions defined above
+					*/ 
+					(K:View Forward) (=C:View Layout) both
+					r0 (=G:Previous Steering Position) both
+					
+					/*
+						DUMMY return, aka "Do nothing"
+					*/
+					true
+				
+				/*
+				**************************
+				IMPORTANT COMMENT
+				**************************
+				The above camera selections are made if the 
+				layout is configured for FORWARD
+				If this is TRUE, then the condition starts 
+				at the beginning of this script!
+				*/
+				(U:View Layout) (K:View Forward) == ?
+
+
+			</Script>
+		</Update>
+		<Element Context="background">
+			<Visibility>
+				(U:View Layout) (K:View Forward) ==
+				(U:View Layout) (K:View Forward) ==
+				AND
+			</Visibility>
+			<Element>
+				<!--
+				Center View, display an ICON representing the camera postion active 
+				located 28% + 5 pixels from the left of the screen, 33.3% down from top + 5 pixels
+				-->
+				<Position X="(S:SCREEN WIDTH) 0.28 *" Y="0" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.44 * s0" Y="0" />
+					<Point X="r0" Y="r9 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="5" Y="r9 45 -" />
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 3) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright" />
+						</Case>
+						<CaseElse>
+							<Include File="camera_lost" />
+						</CaseElse>
+					</Select>
+				</Element>
+
+			</Element>
+			<Element>
+				<!--
+				View Left, display an ICON representing the camera postion active 
+				located 28% from the left of the screen, 33.3% down from top + 5 pixels
+				-->
+				<Position X="0" Y="0" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.28 * s0" Y="0" />
+					<Point X="r0" Y="r9 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+                  <Position X="(S:SCREEN WIDTH) 0.28 * 30 -" Y="r9 45 -" />
+					<Select>
+						<Expression>
+							<Script>(D:Video Feed 2)</Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftfront" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+					</Select>
+				</Element>
+			</Element>
+			<Element>
+				<!--
+				View Right, display an ICON representing the camera postion active 
+				located 72% + 5 pixels from the left of the screen, 33.3% down from top + 5 pixels
+				-->
+				<Position X="(S:SCREEN WIDTH) 0.72 *" Y="0" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.28 * s0" Y="0" />
+					<Point X="r0" Y="r9 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="5" Y="r9 45 -" />
+					<Select>
+						<Expression>
+							<Script>(D:Video Feed 4)</Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightfront" />
+						</Case>
+					</Select>
+				</Element>
+			</Element>
+			<Element>
+				<!--
+				View Reverse, display an ICON representing the camera postion active 
+				located 19% + 5 pixels from the left of the screen, 33.3% down from top - 45 pixels
+				-->
+				<Position X="(S:SCREEN WIDTH) 0.19 *" Y="r9" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.62 * s0" Y="0" />
+					<Point X="r0" Y="r8 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="5" Y="5" />
+					<Include File="camera_rear" />
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

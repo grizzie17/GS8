@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="ESAV_view-layout-single-reverse">
+		<Element Context="group">
+			<Element Context="application">
+			<Video>
+				<Origin>0,0</Origin>
+				<WidthScript>(S:SCREEN WIDTH)</WidthScript>
+				<HeightScript>(S:SCREEN HEIGHT)</HeightScript>
+				<LineColor>darkblue</LineColor>
+				<LineWidth>1</LineWidth>
+				<SourceScript>(K:Camera DCM Text)</SourceScript>
+			</Video>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

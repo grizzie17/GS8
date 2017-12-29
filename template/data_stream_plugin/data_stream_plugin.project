@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="data_stream_plugin">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00040001N0005Debug0000000000000001N0010Debug-VDDS0000000000000001N0007Release0000000000000001N0012Release-VDDS000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="Source Files">
+  </VirtualDirectory>
+  <VirtualDirectory Name="Header Files">
+  </VirtualDirectory>
+  <Dependencies Name="Debug">
+    <Project Name="Common"/>
+  </Dependencies>
+  <Dependencies Name="Release">
+    <Project Name="Common"/>
+  </Dependencies>
+  <Dependencies Name="Release-VDDS">
+    <Project Name="Common"/>
+  </Dependencies>
+  <Settings Type="Dynamic Library">
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" Required="yes" PreCompiledHeader="">
+        <Preprocessor Value="_DEBUG"/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <Library Value="$(NoInherit)"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(WorkspacePath)/$(ConfigurationName)/lib$(ProjectName).a" IntermediateDirectory="$(ConfigurationName)" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Debug-VDDS" CompilerType="arm-linux-g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" Required="no" PreCompiledHeader="">
+        <Preprocessor Value="__VDDS_LINUX__"/>
+        <Preprocessor Value="_DEBUG"/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="$(WorkspacePath)/$(ConfigurationName)/"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(WorkspacePath)/$(ConfigurationName)/$(ProjectName).so" IntermediateDirectory="$(ConfigurationName)" Command="/tftpboot/omniscape/$(ProjectName).so" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">cp $(WorkspacePath)/$(ConfigurationName)/$(ProjectName).so $(TFTPBOOT)</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2" Required="yes" PreCompiledHeader="">
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes">
+        <Library Value="$(NoInherit)"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(WorkspacePath)/$(ConfigurationName)/lib$(ProjectName).a" IntermediateDirectory="$(ConfigurationName)" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Release-VDDS" CompilerType="arm-linux-g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2" Required="yes" PreCompiledHeader="">
+        <Preprocessor Value="NDEBUG"/>
+        <Preprocessor Value="__VDDS_LINUX__"/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes">
+        <LibraryPath Value="$(WorkspacePath)$(ConfigurationName)"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(WorkspacePath)/$(ConfigurationName)/$(ProjectName).so" IntermediateDirectory="$(ConfigurationName)" Command="/tftpboot/omniscape/$(ProjectName).so" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">cp $(WorkspacePath)/$(ConfigurationName)/$(ProjectName).so $(TFTPBOOT)</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <GlobalSettings>
+      <Compiler Options="-Wall">
+        <IncludePath Value="."/>
+        <IncludePath Value="../../../Common"/>
+        <IncludePath Value="../"/>
+        <IncludePath Value="../../"/>
+        <IncludePath Value="../../../Gadget"/>
+      </Compiler>
+      <Linker Options="-Wl,--export-dynamic">
+        <LibraryPath Value="$(WorkspacePath)/$(ConfigurationName)"/>
+        <Library Value="Communication"/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+  </Settings>
+  <Dependencies Name="Debug-VDDS">
+    <Project Name="Common"/>
+    <Project Name="Communication"/>
+  </Dependencies>
+</CodeLite_Project>

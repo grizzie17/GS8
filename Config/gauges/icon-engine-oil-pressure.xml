@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="icon-engine-oil-pressure">
+		<!--
+		Registers are used to drive the various parameters
+	
+		R5	- height of slider
+		R6	- width of slider
+		R7	- green separator
+		R8	- yellow separator
+		R9	- current position
+		-->
+		<Update>
+			<Frequency>4</Frequency>
+			<Script>
+				(B:Engine Oil Pressure.Green.Low) s7
+				(A:Engine Oil Pressure) s9 both
+
+				(U:FLASH)
+				true
+				r9 r7 &lt; ? s0
+				both
+
+			</Script>
+		</Update>
+		<Size>44,40</Size>
+		<Element Context="foreground">
+		<!--
+		switch (U:GAUGE SWITCH)
+		0:	if r9 > r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+		-->
+		<Visibility>
+			false
+			r0
+			r0 false r9 r7 &lt; 5 (A:RPM) &lt; AND ?
+			3 (U:GAUGE SWITCH) case
+			
+		</Visibility>
+			<Element>
+				<Polyline LineColor="(U:COLOR_IconSafe) (U:COLOR_IconAlert) r7 r9 &lt; ? s0" LineWidth="2">
+					<Point X="5" Y="0" />
+					<Point X="10" Y="5" />
+					<Point X="10" Y="9" />
+					<Point X="3" Y="7" />
+					<Point X="5" Y="0" />
+				</Polyline>
+				<Polyline LineColor="r0" LineWidth="2">
+					<Point X="10" Y="5" />
+					<Point X="10 28 +" Y="5" />
+					<Point X="10 23 +" Y="5" />
+					<Point X="10 15 +" Y="15" />
+					<Point X="10 1 +" Y="15" />
+					<Point X="10" Y="5" />
+				</Polyline>
+				<Line LineColor="r0" LineWidth="2">
+					<Point X="10 8 +" Y="5" />
+					<Point X="10 8 +" Y="0" />
+				</Line>
+				<Line LineColor="r0" LineWidth="2">
+					<Point X="10 5 +" Y="0" />
+					<Point X="10 12 +" Y="0" />
+				</Line>
+				<Element>
+					<Position X="10 29 +" Y="6" />
+					<Polygon FillColor="r0" LineColor="r0">
+						<Point X="0" Y="0" />
+						<Point X="1" Y="5" />
+						<Point X="2" Y="8" />
+						<Point X="0" Y="10" />
+						<Point X="-2" Y="8" />
+						<Point X="-1" Y="5" />
+						<Point X="0" Y="0" />
+					</Polygon>
+				</Element>
+				<GaugeText X="5" Y="17" Font="Arial" Height="20" Color="r0" VerticalAlign="top">
+					<String>ENG</String>
+				</GaugeText>
+			</Element>
+			<Element>
+				<Visibility>(U:GAUGE DETAIL)</Visibility>
+				<GaugeText X="20" Y="35"
+						   Font="Arial" Height="20" Align="center"
+						   Color="r0" VerticalAlign="top">
+					<String>%((A:Engine Oil Pressure) 'kpa' 'psi' 2 (U:UNITS) case unitcnv)%!d!</String>
+				</GaugeText>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

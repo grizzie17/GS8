@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="MPC_monitor-camera_icons">
+		<Update>
+			<!--
+			The video layout will be monitored. The appropriate camera position icon is displayed for the corresponging video feed displayed on 
+			the selected layout. Currently there are 5 layouts: 1)Single, 2) Forward, 3) Reverse, 4) Dual, and 5) Quad
+			-->
+			<Script>
+				(D:Video Feed 1)
+				(D:Video Feed 2)
+				(D:Video Feed 3)
+				(D:Video Feed 4)
+				
+				(K:Camera Front-Center Color)
+				(K:Camera Front-Center IR)
+				(K:Camera Front-Right Color
+				(K:Camera Front-Right IR)
+				(K:Camera Front-Left Color)
+				(K:Camera Front-Left IR)
+				(K:Camera Right-Forward Color)
+				(K:Camera Right-Forward IR)
+				(K:Camera Left-Forward Color)
+				(K:Camera Left-Forward IR)
+				(K:Camera Right-Rear Color)
+				(K:Camera Right-Rear IR)
+				(K:Camera Left-Rear Color)
+				(K:Camera Left-Rear IR)
+				(K:Camera Rear Color)
+				(K:Camera Rear IR)
+										
+									
+									
+									false														// Unknown Layout Detected
+								(U:View Layout) (K:View Reverse) ==?
+							(U:View Layout) (K:View Forward) ==?
+						(U:View Layout) (K:View Dual) ==?
+					(U:View Layout) (K:View Quad) ==?
+				(U:View Layout) (K:View Single) ==?
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

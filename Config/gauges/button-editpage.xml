@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-editpage">
+		<Update>
+			<Script>
+				'Next'
+				'Prev'
+				2
+				(U:EditPageNo) case s6
+				
+				"Page" s7
+				both
+				
+				" " s8
+				both
+				
+				(U:COLOR_ButtonText) s1
+				both
+				
+				r1 s2
+				both 
+				
+				// Determine if one of the page 2 buttons are utilized. 
+				// TBD, This is ugly but live with it for now.
+				(D:Camera Cap Mode Control) (K:Unsupported) !=
+				(D:Camera Cap Auto Calibration) (K:Unsupported) != OR
+				(D:Camera Cap Zoom) (K:Unsupported) != OR
+				(U:BLACKOUT SELECTED) ! AND s0
+				both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:CHANGE EDIT PAGE</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

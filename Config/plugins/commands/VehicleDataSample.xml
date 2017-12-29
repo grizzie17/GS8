@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VDDS Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Plugin Class="CmdVehicleDataSample" Group="" ID="Vehicle Data Sample" >
+		<Param Name="Service Name" Type="STRING">Vehicle Data Sample</Param>
+	</Plugin>
+
+</Plugins>

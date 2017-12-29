@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Gauge Name="button-daynight" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>70,60</Size>
+	<!--
+	FOR SOME REASON, THE INCLUDE OF THE ICON WILL NOT WORK PROPERLY. ONCE AN "ARC" IS ADDED TO THE INCLUDE FILE IT CRASHES
+	-->
+	<Update>
+		<Script>
+			(U:COLOR_ButtonIcon) (U:COLOR_ButtonIconSelected) (U:DAY SELECTED) ? s2
+			(U:COLOR_ButtonIconSelected) (U:COLOR_ButtonIcon) (U:DAY SELECTED) ? s1
+			both
+
+			(U:BLACKOUT SELECTED) ! s0
+			both
+		</Script>
+	</Update>
+	<Element>
+		<Include File="icon-daynight" />
+	</Element>
+	<MouseArea id="MouseArea">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>70,60</Size>
+		<MouseClick id="MouseClick">
+			<!--
+			The event TOGGLE IR is defined in "squad_screen.xml"
+			-->
+			<KeyEvent>E:TOGGLE DAYNIGHT</KeyEvent>
+		</MouseClick>
+	</MouseArea>
+</Gauge>

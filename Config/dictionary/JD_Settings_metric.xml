@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited by Matt Whitehorn 10/7/10 to change to metric values -->
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Settings.xsd">
+	<Alerts>
+		<!--<Alert ID="VEHICLE SHUTDOWN" Label="VEHICLE SHUTDOWN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65429</PGN>
+				<SPN>6121</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="Forward Bilge Pump" Label="FWD BILGE ON" Level="1" Color="Green" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="90" Duration="45"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6108</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="Rear Bilge Pump" Label="REAR BILGE ON" Level="1" Color="Green" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="130" Duration="20"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6109</SPN>
+			</Data>
+		</Alert>-->
+		<Alert ID="Engine J1939 No Comm Fault" Label="ENGINE FAULT NO COMM" Level="9" Color="Red" Condition="ECUComm" Value="5000" Units="MILLISECONDS">
+			<AlertSim Frequency="60" Duration="20"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<Source>0</Source>
+			</Data>
+		</Alert>
+		<Alert ID="Transmission J1939 No Comm Fault" Label="TRANS FAULT NO COMM" Level="9" Color="Red" Condition="ECUComm" Value="5000" Units="MILLISECONDS">
+			<AlertSim Frequency="500" Duration="15"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<Source>3</Source>
+			</Data>
+		</Alert>
+		<Alert ID="Vehicle Network Down" Label="VEH NETWORK DOWN" Level="9" Color="Red" Condition="NetworkComm" Value="5000" Units="MILLISECONDS">
+			<AlertSim Frequency="600" Duration="17"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+			</Data>
+		</Alert>
+		<Alert ID="Trans Oil Level Low" Label="LOW TRANS OIL LVL" Level="5" Color="Yellow" Condition="MinValue" Value="-1.5" Units="LITERS">
+			<AlertSim Frequency="200" Duration="23"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65272</PGN>
+				<SPN>3027</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Trans Oil Level High" Label="HIGH TRANS OIL LVL" Level="5" Color="Yellow" Condition="MaxValue" Value="1.5" Units="LITERS">
+			<AlertSim Frequency="340" Duration="25"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65272</PGN>
+				<SPN>3027</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Hydraulic Temp High" Label="HYDR TEMP HIGH" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="500" Duration="30"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6107</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Hydraulic Fluid Level Low" Label="LOW HYDR FLUID LVL" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="200" Duration="15"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6106</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Battery Voltage Low" Label="BATTERY VOLTAGE LOW" Level="5" Color="Yellow" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="250" Duration="10"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6104</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Engine Oil Level Low" Label="LOW ENGINE OIL LVL" Level="9" Color="Red" Condition="MinValue" Value="80" Units="PERCENT">
+			<AlertSim Frequency="450" Duration="20"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65263</PGN>
+				<SPN>98</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Engine Coolant Level Low" Label="LOW ENGINE COOLANT" Level="9" Color="Red" Condition="MinValue" Value="80" Units="PERCENT">
+			<AlertSim Frequency="120" Duration="25"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65263</PGN>
+				<SPN>111</SPN>
+			</Data>
+		</Alert>
+		<!--<Alert ID="OBVP Health" Label="OBVP HEALTH" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6174</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="MAN DOOR OPEN" Label="MAN DOOR OPEN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="200" Duration="45"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6162</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="RAMP OPEN" Label="RAMP OPEN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="210" Duration="40"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6163</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="TRIM VANE DEPLOYED" Label="TRIM VANE DEPLOYED" Level="1" Color="Green" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="400" Duration="100"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6164</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="Fuel Tanks Differential Level" Label="FUEL DIFF LVL" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="300" Duration="30"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6165</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="Driver Hatch Open" Label="DRVR HATCH OPEN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6166</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="VC Hatch Open" Label="VC HATCH OPEN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6167</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="Troop Leader Hatch Open" Label="TL HATCH OPEN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6168</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="Crew Right Hatch Open" Label="CREW R HATCH OPEN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6169</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="Crew Left Hatch Open" Label="CREW L HATCH OPEN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6170</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="REAR STEER ENABLED" Label="REAR STEER ENABLED" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6171</SPN>
+			</Data>
+		</Alert>-->
+		<!--<Alert ID="SWIM PUMP SYNC Timeout" Label="SWIM PUMP SYNC T/O" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6172</SPN>
+			</Data>
+		</Alert>-->
+		<Alert ID="ENG SHUTDOWN OVERRIDE" Label="ENG SHUTDOWN OVERRIDE" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="500" Duration="100"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6173</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="WINCH IN USE" Label="WINCH IN USE" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<AlertSim Frequency="300" Duration="40"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6175</SPN>
+			</Data>
+		</Alert>
+		<!--<Alert ID="do not enter water indicator" Label="WATER ENTRY UNSAFE!" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6176</SPN>
+			</Data>
+		</Alert>-->
+		<Alert ID="Left tank fuel level sensor failure" Label="L FUEL LVL FAIL" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6151</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Right tank fuel level sensor failure" Label="R FUEL LVL FAIL" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6152</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Brake fluid level low" Label="BRAKE FLUID LOW" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6153</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Alternator charge fault" Label="CHARGE SYS FAULT" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6154</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Air cleaner clogged" Label="AIR CLEANER CLOGGED" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6155</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Coolant Level Warning" Label="COOLANT LVL WARN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6158</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Coolant Level Shutdown" Label="COOLANT LVL SHUTDOWN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6159</SPN>
+			</Data>
+		</Alert>
+		<Alert ID="Coolant Circulation Shutdown" Label="COOLANT CIRC SHUTDOWN" Level="9" Color="Red" Condition="ExactValue" Value="1" Units="ENUM">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65419</PGN>
+				<SPN>6160</SPN>
+			</Data>
+		</Alert>
+	</Alerts>
+	<Parameters>
+		<Param ID="RPM" Units="RPM" Type="INTEGER" Default="0" Reset="0">
+			<Range ID="HiLo" Low="0" Hi="3000"/>
+			<Range ID="Green" Low="0" Hi="2550"/>
+			<Range ID="Red" Low="2550" Hi="3000"/>
+			<ParamSim Wave="sine" Frequency="30"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>61444</PGN>
+				<SPN>190</SPN>
+			</Data>
+		</Param>
+		<Param ID="Vehicle Speed" Units="Km/H" Type="FLOAT" Unavailable="256">
+			<Range ID="HiLo" Low="0" Hi="80"/>
+			<ParamSim Wave="triangle" Frequency="60" />
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65265</PGN>
+				<SPN>84</SPN>
+			</Data>
+		</Param>
+		<Param ID="Terrain Mode indicator" Units="ENUM" Type="ENUM">
+			<Range Type="ENUM" Low="0" Hi="8">
+				<Enum ID="0" Value="Paved Road"/>
+				<Enum ID="1" Value="Secondary"/>
+				<Enum ID="2" Value="X-Country"/>
+				<Enum ID="3" Value="Ice/Snow"/>
+				<Enum ID="4" Value="Deep Mud"/>
+				<Enum ID="5" Value="Desert Sand"/>
+				<Enum ID="6" Value="Water Ford"/>
+				<Enum ID="7" Value="Swim Transition"/>
+				<Enum ID="8" Value="Swim Mode"/>
+			</Range>
+			<ParamSim Wave="sawtooth" Frequency="120" />
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65421</PGN>
+				<SPN>6110</SPN>
+			</Data>
+		</Param>
+		<Param ID="Date/Time" Type="DATETIME" Units="UTC">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65254</PGN>
+				<SPN>964</SPN>
+				<SPN>963</SPN>
+				<SPN>962</SPN>
+				<SPN>961</SPN>
+				<SPN>960</SPN>
+			</Data>
+		</Param>
+		<Param ID="Engine Hours" Type="FLOAT" Units="HOURS">
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65253</PGN>
+				<SPN>247</SPN>
+			</Data>
+		</Param>
+		<!--<Param ID="Battle Mode" Type="BOOLEAN" Units="BOOLEAN">
+			<ParamSim Wave="square" Frequency="250"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65420</PGN>
+				<SPN>6103</SPN>
+			</Data>
+		</Param>-->
+		<Param ID="Compass" Units="DEGREES" Type="FLOAT" Unavailable="511.992">
+			<Range ID="HiLo" Low="0" Hi="360"/>
+			<ParamSim Wave="sine" Frequency="120" />
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65256</PGN>
+				<SPN>165</SPN>
+			</Data>
+		</Param>
+		<Param ID="Fuel Level" Units="PERCENT" Type="FLOAT" Label="FUEL">
+			<Range ID="HiLo" Low="0" Hi="100"/>
+			<Range ID="Green" Low="12.6" Hi="100"/>
+			<Range ID="Red" Low="0" Hi="12.5"/>
+			<ParamSim Wave="sawtooth-inverted" Frequency="200"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65276</PGN>
+				<SPN>96</SPN>
+			</Data>
+		</Param>
+		<Param ID="Engine Coolant Temp" Type="FLOAT" Units="CELSIUS" Label="COOLANT" Default="50">
+			<Range ID="HiLo" Low="0" Hi="149"/>
+			<Range ID="Green" Low="0" Hi="99"/>
+			<Range ID="Yellow" Low="99.1" Hi="110"/>
+			<Range ID="Red" Low="110.1" Hi="149"/>
+			<ParamSim Wave="sine" Frequency="90"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65262</PGN>
+				<SPN>110</SPN>
+			</Data>
+		</Param>
+		<Param ID="Engine Oil Temp" Type="FLOAT" Units="CELSIUS" Label="ENG OIL" Default="50" Unavailable="1774.969">
+			<Range ID="HiLo" Low="0" Hi="149"/>
+			<Range ID="Green" Low="0" Hi="99"/>
+			<Range ID="Yellow" Low="99.1" Hi="110"/>
+			<Range ID="Red" Low="110.1" Hi="149"/>
+			<ParamSim Wave="triangle" Frequency="80"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65262</PGN>
+				<SPN>175</SPN>
+			</Data>
+		</Param>
+		<Param ID="Engine Oil Pressure" Type="FLOAT" Units="kPa" Label="ENG OIL" Unavailable="1020.000">
+			<Range ID="HiLo" Low="0" Hi="689"/>
+			<Range ID="Green" Low="172" Hi="689"/>
+			<Range ID="Red" Low="0" Hi="171.9"/>
+			<ParamSim Wave="sine" Frequency="100"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65263</PGN>
+				<SPN>100</SPN>
+			</Data>
+		</Param>
+		<Param ID="Trans Oil Temp" Type="FLOAT" Units="Celsius" Label="TRN OIL" Default="50">
+			<Range ID="HiLo" Low="0" Hi="149"/>
+			<Range ID="Green" Low="0" Hi="127"/>
+			<Range ID="Yellow" Low="127.1" Hi="138"/>
+			<Range ID="Red" Low="138.1" Hi="149"/>
+			<ParamSim Wave="triangle" Frequency="100"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65272</PGN>
+				<SPN>177</SPN>
+			</Data>
+		</Param>
+		<Param ID="Trans Oil Pressure" Type="FLOAT" Units="kPa" Label="TRN OIL" Unavailable="4080.000">
+			<Range ID="HiLo" Low="0" Hi="3069"/>
+			<Range ID="Green" Low="1240" Hi="3069"/>
+			<Range ID="Red" Low="0" Hi="1239.9"/>
+			<ParamSim Wave="triangle" Frequency="100"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65272</PGN>
+				<SPN>127</SPN>
+			</Data>
+		</Param>
+		<!--<Param ID="Rear Ramp Status" Units="ENUM" Type="ENUM">
+			<Range ID="ENUM" Low="0" Hi="1">
+				<Enum ID="0" Value="Up"/>
+				<Enum ID="1" Value="Down"/>
+			</Range>
+			<ParamSim Wave="square" Frequency="120"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN/>
+				<SPN/>
+			</Data>
+		</Param>-->
+		<Param ID="Steering Wheel Angle" Type="FLOAT" Units="DEGREES" Label="">
+			<Range ID="HiLo" Low="-35" Hi="35" />
+			<Range ID="Yellow" Low="25" Hi="35" />
+			<Range ID="Green" Low="-25" Hi="25" />
+			<Range ID="Yellow" Low="-35" Hi="-25" />
+			<ParamSim Wave="sine" Frequency="45"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>61449</PGN>
+				<SPN>1807</SPN>
+			</Data>
+		</Param>
+		<Param ID="Current Gear" Alias="Transmission Selector" 
+			   Type="INTEGER" Units="NUMBER" Label="" Default="0" Unavailable="125">
+			<Range ID="HiLo" Low="-2" Hi="7" />
+			<ParamSim Wave="sawtooth" Frequency="200"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>61445</PGN>
+				<SPN>525</SPN>
+			</Data>
+		</Param>
+		<Param ID="Battery Voltage" Type="FLOAT" Units="VOLTS" Label="">
+			<Range ID="HiLo" Low="0" Hi="32"/>
+			<Range ID="Green" Low="18.05" Hi="32"/>
+			<Range ID="Red" Low="0" Hi="18"/>
+			<ParamSim Wave="sine" Frequency="300"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65271</PGN>
+				<SPN>168</SPN>
+			</Data>
+		</Param>
+		<Param ID="Latitude" Units="DEGREES" Type="FLOAT" Default="0" Unavailable="219.497">
+			<Range ID="HiLo" Low="-180" Hi="180" />
+			<ParamSim Wave="sawtooth" Frequency="900"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65267</PGN>
+				<SPN>584</SPN>
+			</Data>
+		</Param>
+		<Param ID="Longitude" Units="DEGREES" Type="FLOAT" Default="0" Unavailable="219.497">
+			<Range ID="HiLo" Low="-180" Hi="180" />
+			<ParamSim Wave="sine" Frequency="600"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>65267</PGN>
+				<SPN>165</SPN>
+			</Data>
+		</Param>
+		<Param ID="Driver Position" Type="ENUM" Units="ENUM">
+			<Range ID="ENUM" Low="0" Hi="1">
+				<Enum ID="0" Value="Down"/>
+				<Enum ID="1" Value="Up"/>
+			</Range>
+			<ParamSim Wave="square" Frequency="400"/>
+		</Param>
+		<Param ID="Requested Gear"  Type="INTEGER">
+			<Range ID="HiLo" Low="-125" Hi="251"/>
+			<ParamSim Wave="triangle" Frequency="150"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>256</PGN>
+				<SPN>524</SPN>
+			</Data>
+		</Param>
+		<Param ID="Starter Health" Units="PERCENT" Type="FLOAT">
+			<Range ID="HiLo" Low="0" Hi="100"/>
+			<Range ID="Green" Low="60" Hi="100"/>
+			<Range ID="Yellow" Low="20" Hi="60"/>
+			<Range ID="Red" Low="0" Hi="20"/>
+			<ParamSim Wave="sine" Frequency="400"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>0</PGN>
+				<SPN>0</SPN>
+			</Data>
+		</Param>
+		<Param ID="Capacitor Health" Units="PERCENT" Type="FLOAT">
+			<Range ID="HiLo" Low="0" Hi="100"/>
+			<Range ID="Green" Low="50" Hi="100"/>
+			<Range ID="Yellow" Low="10" Hi="50"/>
+			<Range ID="Red" Low="0" Hi="10"/>
+			<ParamSim Wave="sine" Frequency="320"/>
+			<Data>
+				<Protocol>J1939</Protocol>
+				<PGN>0</PGN>
+				<SPN>0</SPN>
+			</Data>
+		</Param>
+	</Parameters>
+	<Glossary>
+		<Types>
+			<BOOLEAN/>
+			<INTEGER/>
+			<FLOAT/>
+			<TEXT/>
+			<DATETIME/>
+		</Types>
+		<Units>
+			<SCALER/>
+			<MASK/>
+			<ENUM/>
+			<BOOLEAN/>
+			<PERCENT/>
+			<PERCENT_OVER_100/>
+			<PERMILLE/>
+			<RATIO/>
+			<TEXT/>
+			<COLOR/>
+		</Units>
+		<Distance>
+			<METERS/>
+			<CENTIMETERS/>
+			<KILOMETERS/>
+			<MILES/>
+			<YARDS/>
+			<FEET/>
+			<INCHES/>
+		</Distance>
+		<Area>
+			<SQUARE_INCHES/>
+			<SQUARE_FEET/>
+			<SQUARE_METERS/>
+			<SQUARE_CENTIMETERS/>
+		</Area>
+		<Volume>
+			<CUBIC_INCHES/>
+			<CUBIC_FEET/>
+			<CUBIC_CENTIMETERS/>
+			<CUBIC_METERS/>
+			<GALLONS/>
+			<LITERS/>
+		</Volume>
+		<VolumeRate>
+			<GALLONS_PER_HOUR/>
+			<LITERS_PER_HOUR/>
+			<MILES_PER_GALLON/>
+			<KILOMETERS_PER_LITER/>
+		</VolumeRate>
+		<Angle>
+			<RADIANS/>
+			<DEGREES/>
+			<PER_RADIAN/>
+			<PER_DEGREE/>
+		</Angle>
+		<GlobalPosition>
+			<LATITUDE/>
+			<LONGITUDE/>
+		</GlobalPosition>
+		<AngularVelocity>
+			<RPM/>
+			<RADIANS_PER_SECOND/>
+			<DEGREES_PER_SECOND/>
+		</AngularVelocity>
+		<Speed>
+			<METERS_PER_SECOND/>
+			<METERS_PER_MINUTE/>
+			<KPH/>
+			<FEET_PER_SECOND/>
+			<FEET_PER_MINUTE/>
+			<MPH/>
+			<KPH/>
+		</Speed>
+		<Acceleration>
+			<METERS_PER_SECOND_SQUARED/>
+			<FEET_PER_SECOND_SQUARED/>
+			<GFORCE/>
+		</Acceleration>
+		<Time>
+			<MILLISECONDS/>
+			<SECONDS/>
+			<MINUTES/>
+			<HOURS/>
+			<DAYS/>
+			<YEARS/>
+			<HOURS_OVER_10/>
+		</Time>
+		<Date>
+			<GREGORIAN/>
+			<GREGORIAN_UTC/>
+			<JULIAN/>
+			<JULIAN_UTC/>
+		</Date>
+		<Weight>
+			<POUNDS/>
+			<KILOGRAMS/>
+		</Weight>
+		<WeightRate>
+			<KILOGRAMS_PER_SECOND/>
+			<POUNDS_PER_HOUR/>
+		</WeightRate>
+		<Temperature>
+			<KELVIN/>
+			<RANKINE/>
+			<FAHRENHEIT/>
+			<CELSIUS/>
+		</Temperature>
+		<Power>
+			<WATTS/>
+			<FOOT_POUNDS_PER_SECOND/>
+		</Power>
+		<ElectricalCurrent>
+			<AMPERES/>
+		</ElectricalCurrent>
+		<ElectricalPotential>
+			<VOLTS/>
+		</ElectricalPotential>
+		<Frequency>
+			<HERTZ/>
+			<KILOHERTZ/>
+			<MEGAHERTZ/>
+			<MILLIHERTZ/>
+		</Frequency>
+		<Pressure>
+			<KPA/>
+			<PASCALS/>
+			<MILLIBARS/>
+			<INHG/>
+			<MMHG/>
+			<PSI/>
+			<PSF/>
+		</Pressure>
+		<Torque>
+			<NEWTON_METERS/>
+			<FOOT_POUNDS/>
+		</Torque>
+		<Color>
+			<Red R="255" G="0" B="0"/>
+			<Green R="0" G="255" B="0"/>
+			<Yellow R="255" G="255" B="0"/>
+		</Color>
+	</Glossary>
+	<VersionInfo>3</VersionInfo>
+</Settings>

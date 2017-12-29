@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="proprietary">
+		<Size>120,64</Size>
+		<Element Context="background">
+			<GaugeText X="0" Y="0"
+					   Font="sans-serif" Height="16"
+					   VerticalAlign="top"
+					   Color="white">
+				<String>This data or other information is proprietary to and a confidential trade secret of DRS TEM. It should not be</String>
+			</GaugeText>
+			<GaugeText X="0" Y="16"
+					   Font="sans-serif" Height="16"
+					   VerticalAlign="top"
+					   Color="white">
+				<String>revealed or disclosed to anyone outside of the U.S. Government or the company to which it was initially</String>
+			</GaugeText>
+			<GaugeText X="0" Y="32"
+					   Font="sans-serif" Height="16"
+					   VerticalAlign="top"
+					   Color="white">
+				<String>sent for any purpose under authority of the third and fourth exemptions to the Freedom of Information Act,</String>
+			</GaugeText>
+			<GaugeText X="0" Y="48"
+					   Font="sans-serif" Height="16"
+					   VerticalAlign="top"
+					   Color="white">
+				<String>Trade Secrets Act, and the Administration Procedure Act.</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>
+
+

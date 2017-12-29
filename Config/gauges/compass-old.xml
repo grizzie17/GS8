@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="compass">
+		<Size>400,40</Size>
+		<Element>
+			<Element>
+				<Position X="200" Y="0" />
+				<ForLoop>
+					<InitialExpression>
+						<Script>
+							(A:Compass) dnor s0
+							(B:Compass.High) r0 - 5 % 10 * 200 - s9
+							both
+						</Script>
+					</InitialExpression>
+					<TestExpression>
+						<Script>r9 200 &lt;</Script>
+					</TestExpression>
+					<IncrementExpression>
+						<Script>r9 50 + s9</Script>
+					</IncrementExpression>
+					<Line LineColor="lightgreen" LineWidth="2">
+						<Point X="r9" Y="0" />
+						<Point X="r9" Y="7" />
+					</Line>
+				</ForLoop>
+				<ForLoop>
+					<InitialExpression>
+						<Script>
+							(B:Compass.High) r0 - s8 10 % 10 * 200 - s9
+							r8 floor s7 10 % r7 - 360 + 20 - dnor s5
+							both
+						</Script>
+					</InitialExpression>
+					<TestExpression>
+						<Script>r9 200 &lt;</Script>
+					</TestExpression>
+					<IncrementExpression>
+						<Script>
+							r9 100 + s9
+							r5 10 + dnor s5
+							both
+						</Script>
+					</IncrementExpression>
+					<Line LineColor="lightgreen" LineWidth="4">
+						<Point X="r9" Y="0" />
+						<Point X="r9" Y="5" />
+					</Line>
+					<Select>
+						<Expression>
+							<Script>r5</Script>
+						</Expression>
+						<Case>
+							<ExpressionResult>0</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="28" Align="center" VerticalAlign="top" LineColor="lightgreen">
+								<String>N</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>90</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="28" Align="center" VerticalAlign="top" LineColor="lightgreen">
+								<String>E</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>180</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="28" Align="center" VerticalAlign="top" LineColor="lightgreen">
+								<String>S</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>270</ExpressionResult>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="28" Align="center" VerticalAlign="top" LineColor="lightgreen">
+								<String>W</String>
+							</GaugeText>
+						</Case>
+						<CaseElse>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="24" Align="center" VerticalAlign="top" LineColor="lightgreen">
+								<String>%(r5)%!d!</String>
+							</GaugeText>
+						</CaseElse>
+					</Select>
+				</ForLoop>
+			</Element>
+			<Element>
+				<Position X="200" Y="0" />
+				<Polygon FillColor="lightgreen" LineColor="lightgreen">
+					<Point X="0" Y="10" />
+					<Point X="5" Y="0" />
+					<Point X="-5" Y="0" />
+					<Point X="0" Y="10" />
+				</Polygon>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

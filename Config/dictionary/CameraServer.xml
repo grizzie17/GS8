@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration>
+	<Item ID="Camera Server IP" Type="STRING">10.120.29.233</Item>
+</Configuration>

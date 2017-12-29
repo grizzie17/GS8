@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="latlong">
+		<Update>
+			<Frequency>2</Frequency>
+		</Update>
+		<Size>250,20</Size>
+		<Element Context="foreground">
+			<Position X="250" Y="0" />
+			<GaugeText X="0" Y="0"
+					   Font="sans-serif" Height="20"
+					   Align="right" VerticalAlign="top"
+					   Color="(U:COLOR_Text)" HaloColor="(U:COLOR_TextMask)">
+				<String>%( (A:Latitude) abs )%!3.4f! %( 'S' 'N' (A:Latitude) 0.0 &lt; ?)%!s! / %( (A:Longitude) abs)%!3.4f! %( 'W' 'E' (A:Longitude) 0.0 &lt; ? )%!s!</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

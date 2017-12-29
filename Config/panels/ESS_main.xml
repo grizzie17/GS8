@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<Panel id="ESS_main" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			10 s1		// left margin
+			10 s2 both	// top margin
+
+			0 "C:ESS START" =@
+			both
+			"OmniScape(R) Application Loader" (=C:Window Title)
+			both
+		</Script>
+	</Layout>
+	<Update>
+		<Frequency>1</Frequency>
+		<Script>
+			"OmniScape(R) Application Loader" (=C:Window Title)
+		</Script>
+	</Update>
+
+
+	<GaugeInstance Name="ESS_1" X="width 0 * r2 +" Y="r2" />
+	<GaugeInstance Name="ESS_2" X="width 1 * r1 +" Y="r2" />
+	<GaugeInstance Name="ESS_3" X="width 2 * r1 +" Y="r2" />
+	<GaugeInstance Name="ESS_4" X="width 3 * r1 +" Y="r2" />
+
+	<GaugeInstance Name="ESS_5" X="width 0 * r2 +" Y="height r2 +" />
+	<GaugeInstance Name="ESS_6" X="width 1 * r1 +" Y="height r2 +" />
+	<GaugeInstance Name="ESS_7" X="width 2 * r1 +" Y="height r2 +" />
+	<GaugeInstance Name="ESS_8" X="width 3 * r1 +" Y="height r2 +" />
+
+	<GaugeInstance Name="ESS_noports" X="r1" Y="r2" />
+	<GaugeInstance Name="ESS_instructions" X="r1" Y="(S:SCREEN HEIGHT) r2 -" />
+	<!--<GaugeInstance Name="ess-label-reset" X="(S:SCREEN WIDTH) 2 /" Y="(S:SCREEN HEIGHT) 3 /" />-->
+
+	<GaugeInstance Name="icon-shutdown" X="(S:SCREEN WIDTH) width - r1 -" Y="(S:SCREEN HEIGHT) height - r2 -"/>
+
+
+	<KeyEventMap>
+		<OnUp>
+			<Key id="V" Event="C:ESS VIRGIN"/>
+		</OnUp>
+	</KeyEventMap>
+
+
+</Panel>

@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="LAV3_Event_Handlers_Camera_Select">
+		<ActionMap>
+      <Trigger>
+        <KeyEvent>E:CAMERA SELECT</KeyEvent>
+        <Script>
+          (U:CAMERA SELECT ACTIVE) ! (=U:CAMERA SELECT ACTIVE)
+        </Script>
+      </Trigger>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT RIGHT</KeyEvent>
+				<Script>
+          (S:MILLI) (=U:Camera RIGHT Timeout)
+          (K:RIGHT) (=E:Change Camera Feed) both
+        </Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT LEFT</KeyEvent>
+				<Script>
+          (S:MILLI) (=U:Camera LEFT Timeout)
+          (K:LEFT) (=E:Change Camera Feed) both
+        </Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT UP</KeyEvent>
+				<Script>
+          (S:MILLI) (=U:Camera UP Timeout)
+          (K:UP) (=E:Change Camera Feed) both
+        </Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT DOWN</KeyEvent>
+				<Script>
+          (S:MILLI) (=U:Camera DOWN Timeout)
+          (K:DOWN) (=E:Change Camera Feed) both
+        </Script>
+			</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed</Event>
+			<Script>
+					(E:Change Camera Feed) (=E:Change Camera Feed SINGLE View)
+						(E:Change Camera Feed) (=E:Change Camera Feed QUAD View)
+						(E:Change Camera Feed) (=E:Change Camera Feed PIP View)
+						""
+						(U:View Layout) (K:View PIP) == ?
+					(U:View Layout) (K:View Quad) == ?
+				(U:View Layout) (K:View Single) == ?
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed SINGLE View</Event>
+			<Script>
+				(E:Change Camera Feed SINGLE View) (=E:Change Camera Feed 1)
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed PIP View</Event>
+			<Script>
+					(E:Change Camera Feed PIP View) (=E:Change Camera Feed 1)
+					(E:Change Camera Feed PIP View) (=E:Change Camera Feed 2)
+				2 (U:Current PIP Selected) case
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed QUAD View</Event>
+			<Script>
+					(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 1)
+						(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 2)
+							(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 3)
+								(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 4)
+								false
+							3 (U:Current Quadrant Selected) == ?
+						2 (U:Current Quadrant Selected) == ?
+					1 (U:Current Quadrant Selected) == ?
+				0 (U:Current Quadrant Selected) == ?
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 1</Event>
+			<Script>
+			"Video Feed 1" (=U:Current Video Feed)
+			(E:Change Camera Feed 1) "C:Selector " (D:Camera Selector) + =@
+			both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 2</Event>
+			<Script>
+			"Video Feed 2" (=U:Current Video Feed)
+			(E:Change Camera Feed 2) "C:Selector " (D:Camera Selector) + =@
+			both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 3</Event>
+			<Script>
+			"Video Feed 3" (=U:Current Video Feed)
+			(E:Change Camera Feed 3) "C:Selector " (D:Camera Selector) + =@
+			both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 4</Event>
+			<Script>
+			"Video Feed 4" (=U:Current Video Feed)
+			(E:Change Camera Feed 4) "C:Selector " (D:Camera Selector) + =@
+			both
+			</Script>
+		</Trigger>
+		</ActionMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

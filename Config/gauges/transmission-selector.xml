@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="transmission-selector">
+		<Update>
+			<Frequency>2</Frequency>
+			<Script>
+				<![CDATA[
+				/*
+					r0 - normalized into "D-N-R-P"
+					r1 - D - 1-125
+					r2 - N - 0
+					r3 - R -1 - -126
+					r4 - P - 126
+					r9 - (Current Gear)
+					r10 - Display for "D"
+				*/
+				(A:Current Gear) s9
+				"P"
+				"D" "N" "R" 3 r9 1 + case s0
+				125 r9 LT ? s0
+				both
+				//"D" "N" "R" "P" 4 r9 2 + case s0
+				//both
+				r9 "%d" format "D" 0 r9 LT ? s10
+				both
+				"D" s1 
+				both
+				"N" s2 
+				both
+				"R" s3 
+				both
+				"P" s4 
+				both
+
+				/*
+					Determine if the current gear selection is valid. 
+					If not, set to a default state of "X"
+					NOTE: The workbench driver did not consistantly 
+					report the same UNINITIALIZED value when the 
+					screen mode was updated within the first 5 seconds 
+					of powerup. This may not be a problem on the actual 
+					hardware but will not take a chance.  FIX, 1/26/10
+				*/
+					false
+					"X" s0
+				r0 "D" == r0 "N" == OR r0 "R" == OR r0 "P" == OR ?
+					
+				both
+					
+				/*
+					If the previous xmsn does not  match the current xmsn, 
+						If the seat position is **NOT** in the UP position 
+							If D or N is selected then
+								(K:View Forward) (=E:Change Layout)
+							else if R is selected then
+								(K:View Reverse) (=E:Change Layout)
+							else (P is implied)
+								(K:View Single) (=E:Change Layout)
+						else
+							DO NOTHING. The video layout has already been updated by the event E:TOGGLE SEAT POSITION and shall not change due to xmission changes.
+							
+						G:Timeout += 5000
+					else 
+						G:Timeout is unchanged.
+				*/
+						false						// Do nothing, the seat is UP or camera ADJUST is active
+						
+								(K:View Single) 
+								0 (=U:SCREEN MODE)				// Update screen mode button state to 0 (FWD)
+								(K:View Forward) both
+							1 (U:SCREEN MODE) == ?			// Maintain FULL mode if selected
+									(K:View Single) 
+									2 (=U:SCREEN MODE)			// Update screen mode button state to 2 (REV)
+									(K:View Reverse) both
+								1 (U:SCREEN MODE) == ?		// Maintain FULL mode if selected
+								(K:View Forward)																// Default state if "P" or "X"
+							"R" r0 == ?
+						"D" r0 ==  "N" r0 == || ? (=E:Change Layout)
+					(U:SEAT POSITION UP) (U:CAMERA ADJUST SELECTED) OR ?
+
+					(S:MILLI) 5000 +
+					both
+
+					(G:Timeout)
+
+				(A:Current Gear) (G:Previous Selector) != ? (=G:Timeout)
+				both
+
+				/*
+					Store off the current xmsn state for next update
+				*/
+				r9 (=G:Previous Selector)
+				both
+			]]>
+			</Script>
+		</Update>
+		<Size>106,26</Size>
+		<Element Context="foreground">
+			<!--
+				Visible if a change is detected. Will be visible for 5000 mSec.
+			-->
+			<Visibility>
+				(S:MILLI) (G:Timeout) &lt;
+				true
+				(S:MILLI) (G:Timeout) &lt;
+				3 (U:GAUGE SWITCH) case
+			</Visibility>
+			<Element>
+				<!--
+					Display the possible xmsn selection while highlighting the current selected position.
+				-->
+				<!--[D] DRIVE-->
+				<Position X="0" Y="0" />
+				<Rectangle X="0" Y="0"
+						   Width="24" Height="24"
+						   Corner="3" CornerStyle="bevel"
+						   LineColor="'lime' 'gray' r1 r0 == ?" LineWidth="1"
+							FillColor="'black' 'background' r1 r0 == ?" />
+				<GaugeText X="12" Y="1" Font="Arial" Height="24"
+						   VerticalAlign="top" Align="center"
+						   Color="'lime' 'gray' r1 r0 == ?">
+					<String>%(r10)%!s!</String>
+				</GaugeText>
+			</Element>
+			<Element>
+				<!--[N] NEUTRAL-->
+				<Position X="26" Y="0" />
+				<Rectangle X="0" Y="0"
+						   Width="24" Height="24"
+						   Corner="3" CornerStyle="bevel"
+						   LineColor="'lime' 'gray' r2 r0 == ?" LineWidth="1"
+							FillColor="'navy' 'background' r2 r0 == ?" />
+				<GaugeText X="12" Y="1" Font="Arial" Height="24"
+						   VerticalAlign="top" Align="center"
+						   Color="'lime' 'gray' r2 r0 == ?">
+					<String>N</String>
+				</GaugeText>
+			</Element>
+			<Element>
+				<!--[R] REVERSE-->
+				<Position X="52" Y="0" />
+				<Rectangle X="0" Y="0"
+						   Width="24" Height="24"
+						   Corner="3" CornerStyle="bevel"
+						   LineColor="'gold' 'gray' r3 r0 == ?" LineWidth="1"
+							FillColor="'black' 'background' r3 r0 == ?" />
+				<GaugeText X="12" Y="1" Font="Arial" Height="24"
+						   VerticalAlign="top" Align="center"
+						   Color="'gold' 'gray' r3 r0 == ?">
+					<String>R</String>
+				</GaugeText>
+			</Element>
+			<Element>
+				<!--[P] PARK-->
+				<Position X="82" Y="0" />
+				<Rectangle X="0" Y="0"
+						   Width="24" Height="24"
+						   Corner="3" CornerStyle="bevel"
+						   LineColor="'lime' 'gray' r4 r0 == ?" LineWidth="1"
+							FillColor="'black' 'background' r4 r0 == ?" />
+				<GaugeText X="12" Y="1" Font="Arial" Height="24"
+						   VerticalAlign="top" Align="center"
+						   Color="'lime' 'gray' r4 r0 == ?">
+					<String>P</String>
+				</GaugeText>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="mouse">
+		<Element Context="foreground">
+			<Circle>
+				<OriginXScript>(G:X)</OriginXScript>
+				<OriginYScript>(G:Y)</OriginYScript>
+				<Radius>20</Radius>
+				<LineColor>darkred</LineColor>
+				<LineWidth>4</LineWidth>
+			</Circle>
+			<Line LineColor="darkred" LineWidth="2">
+				<Point X="(G:X)" Y="0" />
+				<Point X="(G:X)" Y="(S:SCREEN HEIGHT)" />
+			</Line>
+			<Line LineColor="darkred" LineWidth="2">
+				<Point X="0" Y="(G:Y)" />
+				<Point X="(S:SCREEN WIDTH)" Y="(G:Y)" />
+			</Line>
+			<Line LineColor="red" LineWidth="5">
+				<Point X="(G:X)" Y="(G:Y) 20 -" />
+				<Point X="(G:X)" Y="(G:Y) 20 +" />
+			</Line>
+			<Line LineColor="red" LineWidth="5">
+				<Point X="(G:X) 20 -" Y="(G:Y)" />
+				<Point X="(G:X) 20 +" Y="(G:Y)" />
+			</Line>
+			<GaugeText>
+				<Origin>5,5</Origin>
+				<FontColor>yellow</FontColor>
+				<FontHeight>24</FontHeight>
+				<FontFace>sans-serif</FontFace>
+				<VerticalAlign>top</VerticalAlign>
+				<GaugeString>%((G:X))%!d!, %((G:Y))%!d!</GaugeString>
+			</GaugeText>
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-10000,-10000</FloatPosition>
+			<Size>20000,20000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					(I:Mouse X) (=G:X)
+					(I:Mouse Y) (=G:Y)
+					both
+				</Script>
+			</MouseUp>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-10000,-10000</FloatPosition>
+			<Size>20000,20000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					(I:Mouse X) (=G:X)
+					(I:Mouse Y) (=G:Y)
+					both
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-10000,-10000</FloatPosition>
+			<Size>20000,20000</Size>
+			<MouseMove id="MouseMove">
+				<Script>
+					(I:Mouse X) (=G:X)
+					(I:Mouse Y) (=G:Y)
+					both
+				</Script>
+			</MouseMove>
+		</MouseArea>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:ACTIVATE PANEL</KeyEvent>
+				<Script>
+					(S:SCREEN WIDTH) 2 / (=G:X)
+					(S:SCREEN HEIGHT) 2 / (=G:Y)
+					both
+				</Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-exit-adjust">
+		<Size>70,60</Size>
+		<Update>
+			<!-- s1 defines the icon color -->
+			<Script>
+				// Define the 3 lines of text on the button
+				" " s6
+				"EXIT" s7
+				both
+				" " s8
+				both
+				
+				// Each of the 3 lines of texts may have its own color
+				0x00FF00 s1
+				both
+				r1 s2
+				both
+				r1 s3
+				both
+				
+				(U:BLACKOUT SELECTED) ! s0
+				both
+			</Script>
+		</Update>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:EXIT ADJUST</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

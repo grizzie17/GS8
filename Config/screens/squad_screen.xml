@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<Screen Active="'squad_main' (U:PANEL) '' (U:PANEL) == ? " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+	<Update>
+		<Script>
+			(S:MILLI) 2000 % 1500 &lt; (=U:FLASH)
+      25 (=U:SCREEN TOP PAD)
+      both
+		</Script>
+	</Update>
+	<PanelInstance Name="squad_main"/>
+	<PanelInstance Name="squad_adjust_camera_page01"/>
+	<PanelInstance Name="squad_adjust_camera_page02"/>
+	<PanelInstance Name="squad_adjust_up_down"/>
+	<PanelInstance Name="squad_adjust_zoom_up_down"/>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL1" Event="E:CAMERAFC SELECTED" />
+			<Key id="BEZEL2" Event="E:CAMERAFL SELECTED" />
+			<Key id="BEZEL3" Event="E:CAMERAFR SELECTED" />
+			<Key id="BEZEL4" Event="E:CAMERALF SELECTED" />
+			<Key id="BEZEL5" Event="E:CAMERARF SELECTED" />
+			<Key id="BEZEL6" Event="E:CAMERALR SELECTED" />
+			<Key id="BEZEL7" Event="E:CAMERARR SELECTED" />
+			<Key id="BEZEL8" Event="E:CAMERAR SELECTED" />
+			<Key id="BEZEL9" Event="E:TOGGLE IR" />
+			<Key id="1" Event="E:CAMERAFC SELECTED" />
+			<Key id="2" Event="E:CAMERAFL SELECTED" />
+			<Key id="3" Event="E:CAMERAFR SELECTED" />
+			<Key id="4" Event="E:CAMERALF SELECTED" />
+			<Key id="5" Event="E:CAMERARF SELECTED" />
+			<Key id="6" Event="E:CAMERALR SELECTED" />
+			<Key id="7" Event="E:CAMERARR SELECTED" />
+			<Key id="8" Event="E:CAMERAR SELECTED" />
+			<Key id="9" Event="E:TOGGLE IR" />
+			
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+			<Key id="M" Event="E:MAIN PANEL"/>
+			<Key id="L" Event="E:TOGGLE LOADER"/>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN"/>
+			<Key id="U" Event="E:TOGGLE UNITS"/>
+			<Key id="B" Event="E:TOGGLE BLACKOUT"/>
+			<Key id="F7" Event="E:TOGGLE IR CAMERA TYPE"/>
+		</OnDown>
+	</KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:MAIN PANEL</KeyEvent>
+			<Script> 'squad_main' (=U:PANEL)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE LOADER</KeyEvent>
+			<Script>1 (=C:Toggle Loader)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS IMPERIAL</KeyEvent>
+			<Script>0 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS METRIC</KeyEvent>
+			<Script>1 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE UNITS</KeyEvent>
+			<Script>(U:UNITS) 1 + 2 % (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE BLACKOUT</KeyEvent>
+			<Script>(U:BLACKOUT SELECTED) ! (=U:BLACKOUT SELECTED)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERAFC SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Front-Center " (=U:THE CAMERA LOCATION)
+			    2 (=E:SET VIDEO FEED)
+			    both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERARR SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Right-Rear " (=U:THE CAMERA LOCATION)
+			    5 (=E:SET VIDEO FEED)
+			    both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERARF SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Right-Forward " (=U:THE CAMERA LOCATION)
+			    4 (=E:SET VIDEO FEED)
+			    both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERAR SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Rear " (=U:THE CAMERA LOCATION)
+			    6 (=E:SET VIDEO FEED)
+			    both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERALR SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Left-Rear " (=U:THE CAMERA LOCATION)
+			    7 (=E:SET VIDEO FEED)
+			    both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERALF SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Left-Forward " (=U:THE CAMERA LOCATION)
+			    8 (=E:SET VIDEO FEED)
+			    both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERAFR SELECTED</KeyEvent>
+			<Script> 
+			    "Camera Front-Right " (=U:THE CAMERA LOCATION)
+			    3 (=E:SET VIDEO FEED)
+			    both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERAFL SELECTED</KeyEvent>
+			<Script>
+				"Camera Front-Left " (=U:THE CAMERA LOCATION)
+				1 (=E:SET VIDEO FEED)
+				both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:CAMERAO SELECTED</KeyEvent>
+			<Script>
+				"Camera Observer " (=U:THE CAMERA LOCATION)
+				9 (=E:SET VIDEO FEED)
+				both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:INIT CAMERA</KeyEvent>
+			<Script>
+				false (=U:DAY SELECTED)
+				"Camera Front-Center " (=U:THE CAMERA LOCATION)
+				both
+
+				false (=U:SEAT POSITION UP)
+				both
+
+				false (=U:AUTO STEER SELECTED)
+				both
+
+				10 (=E:SET VIDEO FEED)
+				both
+
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS)
+				both
+			</Script>
+		</Trigger>
+		<!--
+			Update the UI to reflect adjustment/edit page state. 
+			
+			TBD- Need to make this generic. Need to determine which feed to utilize 
+			automatically. For a  D:View Layout == "single-layout", then D:Video Feed 1
+			will always be true. Otherwise you may be able to utilize the
+			current camera selection stored in U:THE CAMERA SELECTION
+			-->
+		<Trigger>
+			<KeyEvent>E:UPDATE ADJUST PAGE</KeyEvent>
+			<Script>
+					/*
+					The camera adjust/edit page has been opened. Define the 
+					correct camera feed before sending adjustment commands.
+					*/
+					'squad_adjust_camera_page01' (?U:PANEL)				// TBD, Not generic
+					(D:Video Feed 1) (=C:Edit Camera)								// TBD, Not generic
+					both
+					/*
+					The camera adjust/edit page has been exitted.
+					*/
+					'squad_main' (?U:PANEL)
+					(U:CAMERA ADJUST SELECTED) ? 
+				</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:SET VIDEO FEED</KeyEvent>
+			<Script>
+				'Camera Front-Center '
+				(U:THE CAMERA LOCATION)
+				'' (U:THE CAMERA LOCATION) == ?
+				
+				'Color' 'IR' (U:DAY SELECTED) ? + (=U:THE CAMERA SELECTION) 
+				 
+				"K:" (U:THE CAMERA SELECTION) + @ (=U:Video Feed 1) both
+				
+				(K:View Single) (=U:View Layout)	both
+				
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS)
+				both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will 
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:EXIT ADJUST</KeyEvent>
+			<!--
+				Need to return to the correct page number. 
+				-->
+			<Script>
+					"squad_adjust_camera_page02"
+					"squad_adjust_camera_page01"
+					2
+					(U:EditPageNo) 
+					case (=U:PANEL)
+				</Script>
+		</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down brightness screen. If we have gotten 
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:BRIGHTNESS SELECTED</KeyEvent>
+				<Script>
+					'Bright' (=U:EDIT BUTTON SELECTED)
+					'squad_adjust_up_down' (=U:PANEL)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down control screen. If we have gotten 
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:CONTRAST SELECTED</KeyEvent>
+				<Script> 
+					'Cntrst' (=U:EDIT BUTTON SELECTED)
+					'squad_adjust_up_down' (=U:PANEL)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down sharpness screen. If we have gotten 
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:SHARPNESS SELECTED</KeyEvent>
+				<Script> 
+					'Sharp' (=U:EDIT BUTTON SELECTED)
+					'squad_adjust_up_down' (=U:PANEL)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will display the up/down zoom screen. If we have gotten this far
+			the Up/Down function is supported.
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:ZOOM SELECTED</KeyEvent>
+				<Script> 
+					(K:On) (=C:Camera Zoom Mode)				// TBD, Auto enable is bad! Need to add function to enable/disable zoom..
+					'Zoom' (=U:EDIT BUTTON SELECTED)
+					both
+					
+					'squad_adjust_zoom_up_down' (=U:PANEL)
+					both
+				</Script>
+			</Trigger>
+			<!--
+			=========================================================
+			This event will update the edit page selection
+			==========================================================
+			-->
+			<Trigger>
+				<KeyEvent>E:CHANGE EDIT PAGE</KeyEvent>
+				<Script>
+					// At this date and time, there is no method to force a bezel input as "invisibile"
+					// Prevent updates if the edit items on the other page are not supported.
+					(D:Camera Cap Mode Control) (K:Unsupported) !=
+					(D:Camera Cap Auto Calibration) (K:Unsupported) != OR
+					(D:Camera Cap Zoom) (K:Unsupported) != OR (=G:IGNORE_INPUT)
+					
+					0 (=U:EditPageNo)
+					(U:EditPageNo) 1 + 2 % (=U:EditPageNo)
+					(G:IGNORE_INPUT) ?
+					both
+					
+					"squad_adjust_camera_page02"
+					"squad_adjust_camera_page01"
+					2
+					(U:EditPageNo) 
+					case (=U:PANEL)
+					both
+				</Script>
+			</Trigger>
+	</KeyMap>
+</Screen>

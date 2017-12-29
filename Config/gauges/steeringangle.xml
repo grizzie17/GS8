@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="steeringangle">
+		<Update>
+			<Frequency>1</Frequency>
+		</Update>
+		<Size>20,20</Size>
+		<Element Context="foreground">
+			<Element>
+				<!--
+					Define the top left location of the steering angle icon (just a line representing direction of steering)
+					Rotate the top left by the current steering angle and
+					draw a 10 pixel length line based on the rotation.
+				<Rotation>(A:Steering Wheel Angle) /-/</Rotation>
+				-->
+				<Position X="15" Y="10" />
+				<Rotation>(A:Steering Wheel Angle) /-/</Rotation>
+				<Line LineColor="royalblue" LineWidth="2">
+					<Point X="0" Y="5" />
+					<Point X="0" Y="-5" />
+				</Line>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0"
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="touch-recalibrate">
+		<Update>
+			<Script>
+				1 "C:Touch Calibrate" =@
+				0 (=U:Touch Recalibrate Mouse Down Time)
+				both
+
+				0 (=U:Touch Recalibrate X) both
+				0 (=U:Touch Recalibrate Y) both
+
+				false
+				
+				1 (S:MILLI) (U:Touch Recalibrate Mouse Down Time) range
+				//(I:Mouse X) (U:Touch Recalibrate X) - abs 20 LT AND
+				//(I:Mouse Y) (U:Touch Recalibrate Y) - abs 20 LT AND
+				?
+			</Script>
+		</Update>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					(I:Mouse X) (=U:Touch Recalibrate X)
+					(I:Mouse Y) (=U:Touch Recalibrate Y)
+					both
+
+					(S:MILLI) 8000 + (=U:Touch Recalibrate Mouse Down Time)
+					both
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseMove id="MouseMove">
+				<Script>
+					0 (=U:Touch Recalibrate Mouse Down Time)
+					true
+					0 (U:Touch Recalibrate Mouse Down Time) LT
+					20 (I:Mouse X) (U:Touch Recalibrate X) - abs LT AND
+					20 (I:Mouse Y) (U:Touch Recalibrate Y) - abs LT AND
+					?
+				</Script>
+			</MouseMove>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					1 "C:Touch Calibrate" =@
+					true
+					1 (S:MILLI) (U:Touch Recalibrate Mouse Down Time) range
+					(I:Mouse X) (U:Touch Recalibrate X) - abs 20 LT AND
+					(I:Mouse Y) (U:Touch Recalibrate Y) - abs 20 LT AND
+					?
+
+					0 (=U:Touch Recalibrate Mouse Down Time)
+					both
+					
+					0 (=U:Touch Recalibrate X) both
+					0 (=U:Touch Recalibrate Y) both
+
+
+				</Script>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="NVL_Event_Handlers_Menu">
+	<Update>
+		<Script>
+			// If the ENTER key is pressed with a timer then determine if the timer has timed out.
+			// 		If it has timed out then return to the main screen removing the menu screen and simulate ENTER button released to UP state. This must be
+			//			done to since the event handler to return to UP state will not be called once the main panel is displayed.
+			// 		Else do nothing
+				"up" (=U:ENTER state)
+				0 (=E:MAIN PANEL) both
+				0 			// Do Nothing
+			(U:ENTER state) "down" == (S:MILLI) (U:RETURN TO MAIN MENU TIMEOUT) > AND ?
+			
+		</Script>
+	</Update>
+		<ActionMap>
+		
+			<Trigger>
+				<KeyEvent>E:NVL MENU ENTER PRESSED</KeyEvent>
+				<Script>
+					0 (=E:START ENTER TIMEOUT TIMER)
+					"down" (=U:ENTER state) both
+					(S:MILLI)(=U:ENTER PRESSED TIME) both
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:PERFORM ENTER ACTION</KeyEvent>
+				<Script>
+					// Check for an active SUBSUB menu first!. If not active then act upon the active Sub menu item. 
+						// Determine what action to take whilst in menu and ENTER is pressed/selected
+							0 																								// ENTER was pressed from Quadrant menu item,  do nothing since action has already been taken
+								0 (=E:MAIN PANEL)																// ENTER was pressed from EXIT menu item,  EXIT from the menu system
+									0																						// ENTER was pressed from Quadrant menu item,  do nothing since action has already been taken
+										0	(=E:PERFORM MISC ACTION)									// ENTER was pressed from MISC menu item,  act upon it
+											0	(=E:PERFORM CAMERA SETTINGS ACTION)		// ENTER was pressed from CAMERA SETTINGS menu item,  act upon it
+											0 																				// Do nothing if main menu ptr points to an invalid entry ID
+										(U:Main Menu Ptr) (K:Main Menu ID CAMERA SETTINGS) == ?
+									(U:Main Menu Ptr) (K:Main Menu ID MISC) == ?
+								(U:Main Menu Ptr) (K:Main Menu ID SCREEN MODE) == ?
+							(U:Main Menu Ptr) (K:Main Menu ID EXIT) == ?
+						(U:Main Menu Ptr) (K:Main Menu ID QUADRANT) == ?
+						
+						// SubSub Menu is active. Time to perform the requested action
+						1 (=E:PERFORM SUBSUB ACTION)
+					(U:SUBSUB Menu Active) (K:SubSub Menu ID None) == ?
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL MENU ENTER RELEASED</KeyEvent>
+				<Script>
+					0 (=E:PERFORM ENTER ACTION)
+					"up" (=U:ENTER state) both
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:PERFORM SUBSUB ACTION</KeyEvent>
+				<Script>
+					// Perform the SUBSUB menu selection defined by the main.
+						0 (=E:PERFORM GAIN ACTION)
+							0 (=E:PERFORM LEVEL ACTION)
+								0 (=E:PERFORM AGC ACTION)
+									0 (=E:PERFORM CONFIRM SHUTDOWN ACTION)
+									0 (=E:PERFORM UNSUPPORTED ACTION)
+								(K:SubSub Menu ID CONFIRM SHUTDOWN) (U:SUBSUB Menu Active) == ?
+							(K:SubSub Menu ID AGC MODE) (U:SUBSUB Menu Active) == ?
+						(K:SubSub Menu ID ADJUST LEVEL) (U:SUBSUB Menu Active) == ?
+					(K:SubSub Menu ID ADJUST GAIN) (U:SUBSUB Menu Active) == ?
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:PERFORM CONFIRM SHUTDOWN ACTION</KeyEvent>
+				<Script>
+					// If ENTER has been selected the act upon the active menu entry as pointed to by (U:Sub Menu Ptr)
+						"Shutdown has been selected" (=U:BYRON Perform ACTION Message)
+						"Shutdown has been aborted" (=U:BYRON Perform ACTION Message)
+					2 (U:SubSub Menu Ptr) case
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:PERFORM AGC ACTION</KeyEvent>
+				<Script>
+					// If ENTER has been selected the act upon the active menu entry as pointed to by (U:Sub Menu Ptr)
+						"Set AGC Mode LAP" (=U:BYRON Perform ACTION Message)
+						"Set AGC Mode MAN" (=U:BYRON Perform ACTION Message)
+						"Set AGC Mode STD" (=U:BYRON Perform ACTION Message)
+						"Set AGC mode OFF" (=U:BYRON Perform ACTION Message)
+					4 (U:SubSub Menu Ptr) case
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:START ENTER TIMEOUT TIMER</KeyEvent>
+				<Script>
+					(S:MILLI) 500 + (=U:RETURN TO MAIN MENU TIMEOUT)
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:PERFORM GAIN ACTION</KeyEvent>
+				<Script>
+					// If ENTER has been selected the act upon the active menu entry as pointed to by (U:Sub Menu Ptr)
+						"DECREASE camera Gain" (=U:BYRON Perform ACTION Message)
+						"INCREASE camera Gain" (=U:BYRON Perform ACTION Message)
+					2 (U:SubSub Menu Ptr) case
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:PERFORM LEVEL ACTION</KeyEvent>
+				<Script>
+					// If ENTER has been selected the act upon the active menu entry as pointed to by (U:Sub Menu Ptr)
+						"DECREASE camera Level" (=U:BYRON Perform ACTION Message)
+						"INCREASE camera Level" (=U:BYRON Perform ACTION Message)
+					2 (U:SubSub Menu Ptr) case
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:PERFORM UNSUPPORTED ACTION</KeyEvent>
+				<Script>
+					"Action not supported at this time" (=U:BYRON Perform ACTION Message)
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:PERFORM NOTHING ACTION</KeyEvent>
+				<Script>
+					"No Action" (=U:BYRON Perform ACTION Message)
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:PERFORM MISC ACTION</KeyEvent>
+				<Script>
+					// If ENTER has been selected the act upon the active menu entry as pointed to by (U:Sub Menu Ptr)
+						"Toggle VCB Backlight has been selected" (=U:BYRON Perform ACTION Message)
+						(K:SubSub Menu ID CONFIRM SHUTDOWN) (=U:SUBSUB Menu Active)
+					2 (U:Sub Menu Ptr) case
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:PERFORM CAMERA SETTINGS ACTION</KeyEvent>
+				<Script>
+					// If ENTER has been selected the act upon the active menu entry as pointed to by (U:Sub Menu Ptr)
+					// Activate/Deactivate required SubSub menus
+						"Toggle Polarity" (=U:BYRON Perform ACTION Message)												// Polarity
+						(K:SubSub Menu ID AGC MODE) (=U:SUBSUB Menu Active)			// AGC Mode
+						(K:SubSub Menu ID ADJUST LEVEL) (=U:SUBSUB Menu Active)		// Level Mode
+						(K:SubSub Menu ID ADJUST GAIN) (=U:SUBSUB Menu Active)		// Gain Mode
+					4 (U:Sub Menu Ptr) case
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL DO IT</KeyEvent>
+				<Script> 
+						'NVL_main' (=U:PANEL)
+						3 (=E:NVL Process Main Menu Misc)
+						2 (=E:NVL Process Main Menu Quadrant)
+						1 (=E:NVL Process Main Menu Camera Settings)
+						0 (=E:NVL Process Main Menu Screen Mode)
+					5 (U:Main Menu Ptr) case
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL Process Main Menu Camera Settings</KeyEvent>
+				<Script>
+						"Polarity Selected"
+						"AGC Selected"
+						"Level Selected"
+						"GAIN MODE Selected"
+					4 (U:Sub Menu Ptr) case (=U:BYRON_Camera_Setting)
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL Process Main Menu Misc</KeyEvent>
+				<Script>
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL Process Main Menu Screen Mode</KeyEvent>
+				<Script>
+					// The assignment is based on the order of the sub menu items. See "NVL_Screen_Mode_menu_item.XML"
+						(K:View Reverse)
+						(K:View Forward)
+						(K:View Quad)
+						(K:View Single)
+					4 (U:Sub Menu Ptr) case (=U:View Layout)
+					0 (=E:NVL Define Edit Camera) both
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL Process Main Menu Quadrant</KeyEvent>
+				<Script>
+							"Bottom Left"
+							"Bottom Right"
+							"Top Right"
+							"Top Left"
+						4 (U:Sub Menu Ptr) case (=U:Active Quadrant)
+						0 (=E:NVL Define Edit Camera From Quad Layout) both
+						0			// Do Nothing
+					(U:View Layout) (K:View Quad) == ?
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:NVL Define Edit Camera From Quad Layout</KeyEvent>
+				<Script>
+							(D:Video Feed 1) 	
+								(D:Video Feed 2)
+									(D:Video Feed 3)
+									(D:Video Feed 4)
+								"Bottom Left" (U:Active Quadrant) == ? 
+							"Top Right" (U:Active Quadrant) == ? 
+						"Top Left" (U:Active Quadrant) == ? (=C:Edit Camera)
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:NVL Define Edit Camera</KeyEvent>
+				<Script>
+						0 (=E:NVL Define Edit Camera From Quad Layout)
+							(D:Video Feed 1) (=C:Edit Camera)
+								(D:Video Feed 1) (=C:Edit Camera)
+								(D:Video Feed 2) (=C:Edit Camera)
+							(K:View Reverse) (U:View Layout) == ?
+						(K:View Single) (U:View Layout) == ?
+					(K:View Quad) (U:View Layout) == ?
+				</Script>
+			</Trigger>
+
+			<Trigger>
+				<KeyEvent>E:NVL MENU RIGHT PRESSED</KeyEvent>
+				<Script>
+					// If the Sub-Sub menu is not active then move RIGHT on the main menu panel as required
+						(U:Main Menu Ptr) 1 + (K:Main Menu ID MAX) % (=U:Main Menu Ptr)
+						0 (=E:NVL INIT SUB MENU PTR) both
+						(K:SubSub Menu ID None) (=U:SUBSUB Menu Active) both
+					// Else do nothing. Do not advance main menu if Sub-Sub menu is active
+						0
+					(U:SUBSUB Menu Active) 0 == ?
+					" " (=U:BYRON Perform ACTION Message) both
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL MENU LEFT PRESSED</KeyEvent>
+				<Script>
+					// If the Sub-Sub menu is not active then move LEFT on the main menu panel as required
+						(U:Main Menu Ptr) (K:Main Menu ID MAX) 1 - + (K:Main Menu ID MAX) % (=U:Main Menu Ptr)
+						0 (=E:NVL INIT SUB MENU PTR) both
+						(K:SubSub Menu ID None) (=U:SUBSUB Menu Active) both
+					// Else remove the Sub-Sub menu and reset the subsub menu ptr
+						(K:SubSub Menu ID None) (=U:SUBSUB Menu Active)
+						0 (=U:SubSub Menu Ptr) both
+					(U:SUBSUB Menu Active) 0 == ?
+					" " (=U:BYRON Perform ACTION Message) both
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL MENU UP PRESSED</KeyEvent>
+				<Script>
+					// If the Sub-Sub menu is not active then move UP on the sub menu panel as required
+						(U:Sub Menu Ptr) (U:SUB MENU MAX ITEMS)1 - + (U:SUB MENU MAX ITEMS) % (=U:Sub Menu Ptr)
+					// Else move UP on the Sub-Sub menu panel as required
+						(U:SubSub Menu Ptr) (U:SUBSUB MENU MAX ITEMS)1 - + (U:SUBSUB MENU MAX ITEMS) % (=U:SubSub Menu Ptr)
+					(U:SUBSUB Menu Active) 0 == ?
+					" " (=U:BYRON Perform ACTION Message) both
+				</Script>
+			</Trigger>
+			
+			<Trigger>
+				<KeyEvent>E:NVL MENU DOWN PRESSED</KeyEvent>
+				<Script>
+					// If the Sub-Sub menu is not active then move DOWN on the sub menu panel as required
+						(U:Sub Menu Ptr) 1 + (U:SUB MENU MAX ITEMS) % (=U:Sub Menu Ptr)
+					// Else move DOWN on the Sub-Sub menu panel as required
+						(U:SubSub Menu Ptr) (U:SUBSUB MENU MAX ITEMS)1 + + (U:SUBSUB MENU MAX ITEMS) % (=U:SubSub Menu Ptr)
+					(U:SUBSUB Menu Active) 0 == ?
+					" " (=U:BYRON Perform ACTION Message) both
+				</Script>
+			</Trigger>
+			
+			
+			<Trigger>
+				<Event>E:NVL INIT SUB MENU PTR</Event>
+				<Script>
+							// The assignment is based on the order of the sub menu items. See "NVL_Screen_Mode_menu_item.XML"
+							0
+								1
+									2
+										3
+										4
+									(K:View Reverse) (U:View Layout) == ?
+								(K:View Forward) (U:View Layout) == ?
+							(K:View Quad) (U:View Layout) == ?
+						(K:View Single) (U:View Layout) == ?
+							// The assignment is based on the order of the sub menu items. See "NVL_Quadrant_menu_item.XML"
+								0
+									1
+										2
+										3
+									(U:Active Quadrant) "Bottom Right" == ?
+								(U:Active Quadrant) "Top Right" == ?
+							(U:Active Quadrant) "Top Left" == ?
+							0
+						(U:Main Menu Ptr) (K:Main Menu ID QUADRANT) == ?
+					(U:Main Menu Ptr) (K:Main Menu ID SCREEN MODE) == ? (=U:Sub Menu Ptr) 
+				</Script>
+			</Trigger>
+			
+		</ActionMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

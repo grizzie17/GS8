@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Screen Active="'tune_view_panel' (U:PANEL) '' (U:PANEL) == ? "
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:noNamespaceSchemaLocation="screens.xsd">
+
+	<PanelInstance Name="tune_view_panel" />
+	<PanelInstance Name="tune_video_panel" />
+	<PanelInstance Name="tune_key_panel" />
+	<PanelInstance Name="mouse_panel" />
+
+
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE PANEL</KeyEvent>
+			<Script>
+				(U:PANEL NO) ++ 4 % (=U:PANEL NO)
+				
+				"tune_key_panel"
+				"mouse_panel"
+				"tune_video_panel"
+				"tune_view_panel"
+				4
+				(U:PANEL NO)
+				case
+				(=U:PANEL)
+				
+				both
+			</Script>
+		</Trigger>
+	</KeyMap>
+	
+	
+	<KeyEventMap>
+		<OnDown>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN" />
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+			<Key id="SPACE" Event="E:TOGGLE PANEL"/>
+			<Key id="F1" Event="E:TOGGLE PANEL"/>
+			<Key id="BEZEL1" Event="E:TOGGLE PANEL"/>
+		</OnDown>
+	</KeyEventMap>
+</Screen>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="configuration.xsd">
+	
+	<Include File="tune_config"/>
+	
+  <Item ID="Display" Type="STRING">Driver Position 1</Item>
+  <Item ID="Device ID" Type="INTEGER" >26</Item>
+  <!--Item ID="Monitor Type" Type="STRING">UkCtd_13</Item-->
+	<Item ID="Monitor Type" Type="STRING">Avalex</Item>
+	<Item ID="Input Devices" Type="STRING">avelex_input_device</Item>
+  <Item ID="Network Port" Type="INTEGER" >1556</Item>
+  <Item ID="DSP IP Address" Type="STRING">192.168.0.207</Item>
+  <Item ID="DSP IP Port" Type="INTEGER">5389</Item>
+  <!--<Item ID="Display" Type="STRING">Driver Position 1</Item>
+  <Item ID="Device ID" Type="INTEGER" >26</Item>
+  <Item ID="Monitor Type" Type="STRING">UkCtd_13</Item>
+  <Item ID="Input Devices" Type="STRING">ukctd13_input_device</Item>
+  <Item ID="Network Port" Type="INTEGER" >1556</Item>
+  <Item ID="DSP IP Address" Type="STRING">192.168.0.207</Item>
+  <Item ID="DSP IP Port" Type="INTEGER">5389</Item>-->
+</Configuration>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+    <Plugin Class="ServerVDDS" ID="VDDS Camera Server">
+        <Param Name="Port" Type="INTEGER">2500</Param>
+        <Param Name="Timeout" Type="INTEGER">3</Param>
+        <Param Name="Max Registered Services" Type="INTEGER">20</Param>
+        <Param Name="Max Pending Requests" Type="INTEGER">32</Param>
+        <Param Name="Max Client Connections" Type="INTEGER">8</Param>
+    </Plugin>
+</Plugins>

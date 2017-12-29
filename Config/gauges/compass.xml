@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="compass">
+		<Update>
+			<Frequency>4</Frequency>
+		</Update>
+		<Size>380,40</Size>
+		<Element Context="foreground">
+			<Element>
+				<!-- Start in the middle top of the gauge -->
+				<Position X="width 2 /" Y="0" />
+				<ForLoop>
+					<InitialExpression>
+						<!--
+							r0 - dnor(360 - A:Compass)
+							r5 - dnor(90 - floor(r0 - (r0 % 15.0)))
+							r9 = -(2 * (90 - (r0%15)))
+							r5 = dnor(r5)
+						-->
+						<Script>
+							360 (A:Compass) - dnor s0
+							r0 15.0 % r0 - floor 90 - dnor s5
+							both
+							90 r0 15 % - 2 * /-/ s9
+							both
+							r5 dnor s5
+							both
+						</Script>
+					</InitialExpression>
+					<TestExpression>
+						<Script>r9 180 &lt;</Script>
+					</TestExpression>
+					<IncrementExpression>
+						<Script>
+							r9 30 + s9
+							r5 15 + dnor s5
+							both
+						</Script>
+					</IncrementExpression>
+					<Line LineColor="(U:COLOR_Icon)" HaloColor="(U:COLOR_IconMask)" LineWidth="2">
+						<Point X="r9" Y="6" />
+						<Point X="r9" Y="1" />
+					</Line>
+					<Select>
+						<Expression>
+							<Script>r5</Script>
+						</Expression>
+						<Case>
+							<ExpressionResult>0</ExpressionResult>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="24"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>N</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>45</ExpressionResult>
+							<GaugeText X="r9 1 +" Y="6 1 +" Font="sans-serif" Height="20" Align="center" VerticalAlign="top" LineColor="(U:COLOR_TextMask)">
+								<String>NE</String>
+							</GaugeText>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="20"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>NE</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>90</ExpressionResult>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="24"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>E</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>135</ExpressionResult>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="20"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>SE</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>180</ExpressionResult>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="24"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>S</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>225</ExpressionResult>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="20"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>SW</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>270</ExpressionResult>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="24"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>W</String>
+							</GaugeText>
+						</Case>
+						<Case>
+							<ExpressionResult>315</ExpressionResult>
+							<GaugeText X="r9" Y="6"
+									   Font="sans-serif" Height="20"
+									   Align="center" VerticalAlign="top"
+									   LineColor="(U:COLOR_Text)"
+									   HaloColor="(U:COLOR_TextMask)">
+								<String>NW</String>
+							</GaugeText>
+						</Case>
+						<!--CaseElse>
+							<GaugeText X="r9" Y="6" Font="sans-serif" Height="24" Align="center" VerticalAlign="top" LineColor="lime">
+								<String>%(r5)%!d!</String>
+							</GaugeText>
+						</CaseElse-->
+					</Select>
+				</ForLoop>
+			</Element>
+			<Element>
+				<Position X="width 2 /" Y="0" />
+				<Polygon FillColor="(U:COLOR_Icon)" LineColor="(U:COLOR_Icon)">
+					<Point X="0" Y="10" />
+					<Point X="5" Y="0" />
+					<Point X="-5" Y="0" />
+					<Point X="0" Y="10" />
+				</Polygon>
+				<Element>
+					<Rectangle X="-25" Y="7"
+							   Height="27" Width="50"
+							   LineColor="(U:COLOR_Icon)" LineWidth="2"
+							   FillColor="(U:COLOR_IconMask)"/>
+					<GaugeText X="0" Y="5 12 +" Font="sans-serif" Height="24"
+							   Align="center" VerticalAlign="middle"
+							   Color="(U:COLOR_Text)">
+						<String>%((A:Compass) near dnor)%!03d!</String>
+					</GaugeText>
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

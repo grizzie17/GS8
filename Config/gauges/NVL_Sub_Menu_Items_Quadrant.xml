@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="NVL_Quadrant_menu_item">
+		<Update>
+			<!--
+				The registers are utilized to pass in menu item attributes. The registers are as follows:
+				r0 = Visibility (1=ON, 0=OFF)
+				r1 = text colot
+				r2 = label width (Place holder for now, Don't know how to make work in NVL_Menu_Item.XML)
+				r3 = label height (Place holder for now, Don't know how to make work in NVL_Menu_Item.XML)
+				r4 = selected sub menu fill box color
+				r6 = Menu Label (string)
+				r7 = Current active label (1-5). See U:MAIN MENU xxxx ID for a definition of each label value. 
+			-->
+			<Script>
+					4 (=U:SUB MENU MAX ITEMS)
+						"Bottom Left"
+						"Bottom Right"
+						"Top Right"
+						"Top Left"
+					4 r7 case s6 both
+					(U:SUB MENU MAX ITEMS) r7 > s0 both
+					0x000000 0x00FF00 r7 (U:Sub Menu Ptr) == ? s1 both
+					0x00c0c0 0x000000 r7 (U:Sub Menu Ptr) == ? s4 both
+					0 (=E:NVL DO IT) both
+					0				// Do Nothing, No menu items presented if not in QUAD mode
+				(U:View Layout) (K:View Quad) == ?
+			</Script>
+		</Update>
+		<Element Context="background">
+			<Include File="NVL_Menu_Item" />
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-exit" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>70,50</Size>
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<GaugeText X="0" Y="0" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="r1">
+			<String>EXIT</String>
+		</GaugeText>
+	</Element>
+</Gauge>

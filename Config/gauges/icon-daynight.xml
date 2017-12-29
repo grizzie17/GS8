@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Gauge Name="button-daynight" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>70,50</Size>
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Circle X="20" Y="30" Radius="10" LineColor="r1" LineWidth="2"/>
+		<Line Color="r1" LineWidth="2">
+			<Point X="20" Y="10"/>
+			<Point X="20" Y="17"/>
+		</Line>
+		<Line Color="r1" LineWidth="2">
+			<Point X="0" Y="30"/>
+			<Point X="7" Y="30"/>
+		</Line>
+		<Line Color="r1" LineWidth="2">
+			<Point X="33" Y="30"/>
+			<Point X="40" Y="30"/>
+		</Line>
+		<Line Color="r1" LineWidth="2">
+			<Point X="20" Y="43"/>
+			<Point X="20" Y="50"/>
+		</Line>
+		<Line Color="r1" LineWidth="2">
+			<Point X="10" Y="20"/>
+			<Point X="5" Y="15"/>
+		</Line>
+		<Line Color="r1" LineWidth="2">
+			<Point X="30" Y="20"/>
+			<Point X="35" Y="15"/>
+		</Line>
+		<Line Color="r1" LineWidth="2">
+			<Point X="10" Y="40"/>
+			<Point X="5" Y="45"/>
+		</Line>
+		<Line Color="r1" LineWidth="2">
+			<Point X="30" Y="40"/>
+			<Point X="35" Y="45"/>
+		</Line>
+		<Arc X="10" Y="37" Radius="12" StartAngle="180 1.5 *" EndAngle="180 2.1 /" LineColor="r2" LineWidth="2"/>
+		<Arc X="10" Y="37" Radius="12" StartAngle="180 1.5 *" EndAngle="180 2.1 /" LineColor="r2" LineWidth="2"/>
+		<Arc X="12" Y="37" Radius="12" StartAngle="180 1.5 *" EndAngle="180 2.1 /" LineColor="r2" LineWidth="2"/>
+		<Arc X="14" Y="37" Radius="12" StartAngle="180 1.5 *" EndAngle="180 2.1 /" LineColor="r2" LineWidth="2"/>
+		<Arc X="8" Y="37" Radius="12" StartAngle="180 1.6 *" EndAngle="180 2.1 /" LineColor="r2" LineWidth="1"/>
+		<!--
+
+		WHY DOES THE FOLLOWING "ARC" TAGS CAUSE THE MPC TO CRASH????
+
+		-->
+	</Element>
+</Gauge>

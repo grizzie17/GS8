@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="none">
+		<Update>
+			<Frequency>0.1</Frequency>
+		</Update>
+		<Element Context="background">
+			<FloatPosition>0,0</FloatPosition>
+			<GaugeText>
+				<Origin>0,0</Origin>
+				<FontColor>yellow</FontColor>
+				<FontFace>sans-serif</FontFace>
+				<FontHeight>20</FontHeight>
+				<VerticalAlign>top</VerticalAlign>
+				<GaugeString>None</GaugeString>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

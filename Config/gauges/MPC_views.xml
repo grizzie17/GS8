@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="view-forward">
+		<ActionMap>
+			<Trigger>
+				<Event>E:Change Layout</Event>
+				<Script>
+					(K:View Forward) (=U:View Layout)
+					false
+					(K:View Forward) (E:Change Layout) == ?
+				</Script>
+			</Trigger>
+			<Trigger>
+				<Event>E:TOGGLE CAMERA TYPE</Event>
+				<Script>(U:CAMERA TYPE) ! (=U:CAMERA TYPE)</Script>
+			</Trigger>
+		</ActionMap>
+		<Update>
+			<Frequency>3</Frequency>
+			<Script>
+				"IR"
+				"Color"
+				(U:CAMERA TYPE) ? s10
+
+				(S:SCREEN HEIGHT) 3 / s8 both
+				(S:SCREEN HEIGHT) 2 * 3 / s9 both
+
+				0
+				2
+				1
+				(B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ?
+				(B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ?
+				s0
+				both
+
+
+				"K:Camera Front-Right "
+				"K:Camera Front-Center "
+				"K:Camera Front-Left "
+				3
+				r0
+				case r10 + @ (?C:Video Feed 3)
+				both
+
+				"K:Camera Front-Center "
+				"K:Camera Front-Left "
+				"K:Camera Left-Forward "
+				3
+				r0
+				case r10 + @ (?C:Video Feed 2)
+				both
+
+				"K:Camera Right-Forward "
+				"K:Camera Front-Right "
+				"K:Camera Front-Center "
+				3
+				r0
+				case r10 + @ (?C:Video Feed 4)
+				both
+
+				"K:Camera Rear " r10 + @ (?C:Video Feed 1)
+				both
+
+				(K:View Forward) (=C:View Layout)
+				both
+
+
+				true
+
+
+				(U:View Layout) (K:View Forward) == ?
+
+
+			</Script>
+		</Update>
+		<Element Context="background">
+			<Visibility>
+				(U:View Layout) (K:View Forward) ==
+				(U:View Layout) (K:View Forward) ==
+				AND
+			</Visibility>
+			<Element>
+				<!--Center View-->
+				<Position X="(S:SCREEN WIDTH) 0.28 *" Y="r8" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.44 * s0" Y="0" />
+					<Point X="r0" Y="r9 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="5" Y="5" />
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 3) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright" />
+						</Case>
+					</Select>
+				</Element>
+
+			</Element>
+			<Element>
+				<!--View Left-->
+				<Position X="0" Y="r8" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.28 * s0" Y="0" />
+					<Point X="r0" Y="r9 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+                  <Position X="(S:SCREEN WIDTH) 0.28 * 30 -" Y="5" />
+					<Select>
+						<Expression>
+							<Script>(D:Video Feed 2)</Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftfront" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+					</Select>
+				</Element>
+			</Element>
+			<Element>
+				<!--View Right-->
+				<Position X="(S:SCREEN WIDTH) 0.72 *" Y="r8" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.28 * s0" Y="0" />
+					<Point X="r0" Y="r9 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="5" Y="5" />
+					<Select>
+						<Expression>
+							<Script>(D:Video Feed 4)</Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightfront" />
+						</Case>
+					</Select>
+				</Element>
+			</Element>
+			<Element>
+				<!--View Reverse-->
+				<Position X="(S:SCREEN WIDTH) 0.19 *" Y="0" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) 0.62 * s0" Y="0" />
+					<Point X="r0" Y="r8 s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="5" Y="r8 45 -" />
+					<Include File="camera_rear" />
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

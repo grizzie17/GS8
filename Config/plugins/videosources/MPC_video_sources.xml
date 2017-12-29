@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Front-Center Color">
+		<Param Name="Server ID" Type="INTEGER">0</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 0">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">4</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.153</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+		<Plugin Class="MsgDve" Filter="Server" ID="Msg Dve 1">
+			<!-- no params yet-->
+		</Plugin>
+		<Plugin Class="CommSerialVDDS" Filter="Server" ID="Comm Serial VDDS 1">
+			<!--IDataStream plugin -->
+			<Param Name="Port" Type="STRING">/dev/tts/2</Param>
+			<Param Name="Baud" Type="INTEGER">57600</Param>
+			<Param Name="Parity" Type="STRING">None</Param>
+			<Param Name="Stop Bits" Type="INTEGER">1</Param>
+			<Param Name="Data Bits" Type="INTEGER">8</Param>
+			<Param Name="Flow Control" Type="STRING">None</Param>
+			<Param Name="Non Blocking" Type="BOOL">true</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Front-Center IR">
+		<Param Name="Server ID" Type="INTEGER">1</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 1">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">2</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.152</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Front-Left Color">
+		<Param Name="Server ID" Type="INTEGER">2</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 2">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">6</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.151</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Front-Left IR">
+		<Param Name="Server ID" Type="INTEGER">3</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 3">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">7</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.150</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Front-Right Color">
+		<Param Name="Server ID" Type="INTEGER">4</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 4">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">10</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.155</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Front-Right IR">
+		<Param Name="Server ID" Type="INTEGER">5</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 5">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">5</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.154</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Right-Forward Color">
+		<Param Name="Server ID" Type="INTEGER">8</Param>
+		<Plugin Class="VideoSourceIPVdds" Filter="Client" ID="Analog 8">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">9</Param><!--14-->
+			<Param Name="IP Address" Type="STRING">192.168.0.157</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Right-Forward IR">
+		<Param Name="Server ID" Type="INTEGER">9</Param>
+		<Plugin Class="VideoSourceIPVdds" Filter="Client" ID="Analog 9">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">10</Param><!--13-->
+			<Param Name="IP Address" Type="STRING">192.168.0.156</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Rear Color">
+		<Param Name="Server ID" Type="INTEGER">10</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 10">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">9</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.161</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Rear IR">
+		<Param Name="Server ID" Type="INTEGER">11</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 11">
+			<Include File="NTSC_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">3</Param>
+			<Param Name="IP Address" Type="STRING">192.168.0.160</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Left-Rear Color">
+		<Param Name="Server ID" Type="INTEGER">12</Param>
+		<Plugin Class="VideoSourceIPVdds" Filter="Client" ID="Analog 12">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">13</Param><!--16-->
+			<Param Name="IP Address" Type="STRING">192.168.0.163</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Left-Rear IR">
+		<Param Name="Server ID" Type="INTEGER">13</Param>
+		<Plugin Class="VideoSourceIPVdds" Filter="Client" ID="Analog 13">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">14</Param><!--15-->
+			<Param Name="IP Address" Type="STRING">192.168.0.162</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Observer Color">
+		<Param Name="Server ID" Type="INTEGER">14</Param>
+		<Plugin Class="VideoSourceIPVdds" Filter="Client" ID="Analog 14">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">15</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Observer IR">
+		<Param Name="Server ID" Type="INTEGER">15</Param>
+		<Plugin Class="VideoSourceIPVdds" Filter="Client" ID="Analog 15">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">16</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Right-Rear Color">
+		<Param Name="Server ID" Type="INTEGER">16</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 16">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">7</Param><!--8-->
+			<Param Name="IP Address" Type="STRING">192.168.0.159</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Right-Rear IR">
+		<Param Name="Server ID" Type="INTEGER">17</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 17">
+			<Include File="VIP_GENERIC_Frame"/>
+			<Param Name="Video Input Port" Type="INTEGER">8</Param><!--1-->
+			<Param Name="IP Address" Type="STRING">192.168.0.158</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Left-Forward Color">
+		<Param Name="Server ID" Type="INTEGER">18</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 17">
+			<Include File="RGB_XGA_60Hz"/>
+			<Param Name="Video Input Port" Type="INTEGER">17</Param><!--12-->
+			<Param Name="IP Address" Type="STRING">192.168.0.165</Param>
+			<Param Name="Width" Type="INTEGER">640</Param>
+			<Param Name="Height" Type="INTEGER">480</Param>
+		</Plugin>
+	</Plugin>
+
+	<Plugin Class="VideoSourceAggregate" ID="Camera Left-Forward IR">
+		<Param Name="Server ID" Type="INTEGER">19</Param>
+		<Plugin Class="VideoSourceAnalogVdds" Filter="Client" ID="Analog 17">
+			<Include File="RGB_XGA_60Hz"/>
+			<Param Name="Video Input Port" Type="INTEGER">18</Param><!--11-->
+			<Param Name="IP Address" Type="STRING">192.168.0.164</Param>
+			<Param Name="Width" Type="INTEGER">0</Param>
+			<Param Name="Height" Type="INTEGER">0</Param>
+		</Plugin>
+	</Plugin>
+
+</Plugins>

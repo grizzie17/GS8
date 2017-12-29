@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<!--<Item ID="PROJ" Type="STRING">DEMO</Item>-->
+	<!--<Item ID="PROJ" Type="STRING">ESAV</Item>-->
+	<!--<Item ID="PROJ" Type="STRING">ESS</Item>-->
+	<!--<Item ID="PROJ" Type="STRING">JD</Item>-->
+	<!--<Item ID="PROJ" Type="STRING">LAV3</Item>-->
+	<!--<Item ID="PROJ" Type="STRING">M1200</Item>-->
+	<!--<Item ID="PROJ" Type="STRING">MO</Item>-->
+	<Item ID="PROJ" Type="STRING">MPC</Item>
+	<!--<Item ID="PROJ" Type="STRING">TEST</Item>-->
+	<!--<Item ID="PROJ" Type="STRING">TUNE</Item>-->
+
+
+
+</Configuration>

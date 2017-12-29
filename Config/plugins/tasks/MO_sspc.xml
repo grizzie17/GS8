@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Task Plugins -->
+<Plugins Group="" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<!--<Plugin Class="TaskSSPC" ID="Start ESA Cameras">
+		<Param Name="Port" Type="STRING">/dev/can0</Param>
+		<Param Name="Baud" Type="INTEGER">500</Param>
+		<Param Name="Channels" Type="STRING">6,7,14,15</Param>
+		<Param Name="Delay" Type="INTEGER">8</Param>
+		<Param Name="Retries" Type="INTEGER">3</Param>
+	</Plugin>-->
+</Plugins>

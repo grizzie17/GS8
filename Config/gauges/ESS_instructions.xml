@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Gauge Name="dial" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<!--
+			r0 = port #
+			r1 = ESS_#
+			r2 = ESS_TIME
+			-->
+	<Element>
+
+				<GaugeText>
+					<FontFace>Arial</FontFace>
+					<FontHeight>30</FontHeight>
+					<FontColor>dimgray</FontColor>
+					<HorizontalAlign>left</HorizontalAlign>
+					<VerticalAlign>bottom</VerticalAlign>
+					<GaugeString>Press SPACE-BAR to reset</GaugeString>
+				</GaugeText>
+	</Element>
+</Gauge>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Plugin Class="CmdConstant" Group="" ID="VCB Input Constants">
+		<Param Name="UP" Type="INTEGER">0</Param>
+		<Param Name="DOWN" Type="INTEGER">1</Param>
+		<Param Name="LEFT" Type="INTEGER">2</Param>
+		<Param Name="RIGHT" Type="INTEGER">3</Param>
+	</Plugin>
+
+</Plugins>
+

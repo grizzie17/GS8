@@ -1,0 +1,367 @@
+<?xml version="1.0"?>
+<Screen Active="'m1200_panel' (U:PANEL) '' (U:PANEL) == ? " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="screens.xsd">
+	<Update>
+		<Script>
+			(S:MILLI) 2000 % 1500 &lt; (=U:FLASH)
+		</Script>
+	</Update>
+	<PanelInstance Name="m1200_panel"/>
+	<PanelInstance Name="m1200_adjust_camera_page01"/>
+	<PanelInstance Name="m1200_adjust_camera_page02"/>
+	<PanelInstance Name="m1200_adjust_up_down"/>
+	<PanelInstance Name="m1200_adjust_zoom_up_down"/>
+	<PanelInstance Name="m1200_full_gauges"/>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="D" Event="E:DUMP DICTIONARY"/>
+			<Key id="M" Event="E:MAIN PANEL"/>
+			<Key id="G" Event="E:GAUGES PANEL"/>
+			<Key id="L" Event="E:TOGGLE LOADER"/>
+			<Key id="ESCAPE" Event="E:RELOAD SCREEN"/>
+			<Key id="U" Event="E:TOGGLE UNITS"/>
+			<Key id="A" Event="E:TOGGLE AUTO STEER"/>
+			<Key id="S" Event="E:TOGGLE SEAT POSITION"/>
+		</OnDown>
+	</KeyEventMap>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:TOGGLE SEAT POSITION</KeyEvent>
+			<Script>
+				// TBD, Need to update layouts so that they remember last setting once seat is returned back to prev state.
+				(U:SEAT POSITION UP) !  (=U:SEAT POSITION UP)
+
+					/*
+						The seat poition is UP, Save off the current settings before changing video layout
+					*/
+					'm1200_full_gauges' (?U:PANEL)
+					(U:View Layout) (=U:Previous Seat Down Layout) both
+  				    (U:DAY SELECTED) (=U:Previous DAY SELECTED) both
+					false (=U:DAY SELECTED) both
+					(K:View Single) (=E:Change Layout) both
+
+					/*
+						The seat poition is DOWN, Restore previous settings before changing video layout. Make sure
+						to initialize the
+					*/
+					'm1200_panel' (?U:PANEL)
+					(U:Previous DAY SELECTED) (=U:DAY SELECTED) both
+					"K:" (U:Previous Seat Down Layout) + @ (=E:Change Layout) both
+
+				(U:SEAT POSITION UP) ?	both
+//				0 (=E:DISABLE ADJUST CAMERA SETTINGS) both					// Always disable if button pressed
+			</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:DUMP DICTIONARY</KeyEvent>
+			<Script>1 (=C:Dump Dictionary)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:MAIN PANEL</KeyEvent>
+			<Script> 'm1200_panel' (?U:PANEL)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGES PANEL</KeyEvent>
+			<Script> 'm1200_full_gauges' (?U:PANEL)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE LOADER</KeyEvent>
+			<Script>1 (=C:Toggle Loader)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:RELOAD SCREEN</KeyEvent>
+			<Script>1 (=C:Reload Screens)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS IMPERIAL</KeyEvent>
+			<Script>0 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:UNITS METRIC</KeyEvent>
+			<Script>1 (=U:UNITS)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE UNITS</KeyEvent>
+			<Script>
+					1 (=E:UNITS IMPERIAL)
+					0 (=E:UNITS METRIC)
+				2 (U:UNITS) case
+			</Script>
+		</Trigger>
+		<!--
+				E:GAUGE TOGGLE is a three way switch
+				zero = Auto - display gauge when in yellow or red
+				one = On - always display gauge regardless of state
+				two = Off - always hide gauge
+			-->
+		<Trigger>
+			<KeyEvent>E:TOGGLE GAUGE STATE</KeyEvent>
+			<Script>
+				(U:GAUGE SWITCH) 1 + 3 % (=U:GAUGE SWITCH)
+			</Script>
+
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE AUTO</KeyEvent>
+			<Script>0 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE ON</KeyEvent>
+			<Script>1 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:GAUGE STATE OFF</KeyEvent>
+			<Script>2 (=U:GAUGE SWITCH)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE AUTO STEER</KeyEvent>
+			<Script>
+				(U:AUTO STEER SELECTED) ! (=U:AUTO STEER SELECTED)
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS) both					// Always disable if button pressed
+			</Script>
+		</Trigger>
+		<!--
+				E:TOGGLE SCREEN MODE DN is a two way switch for Drive/Neutral mode
+				zero = FWD
+				one = Full
+		<Trigger>
+			<KeyEvent>E:TOGGLE SCREEN MODE DN</KeyEvent>
+			<Script>(U:SCREEN MODE DN) 1 + 2 % (=U:SCREEN MODE DN)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE SCREEN MODE R</KeyEvent>
+			<Script>(U:SCREEN MODE R) 1 + 2 % (=U:SCREEN MODE R)</Script>
+		</Trigger>
+		<Trigger>
+			<KeyEvent>E:TOGGLE SCREEN MODE P</KeyEvent>
+			<Script>(U:SCREEN MODE P) 1 + 3 % (=U:SCREEN MODE P)</Script>
+		</Trigger>
+			-->
+		<!--
+				E:TOGGLE SCREEN MODE is up to a three way switch depending on the
+				transmission selection. The following swith positions are valid for the
+				defined transmission state:
+				D/N - FWD, Full
+				R - REV, Full
+				P - FWD, Full, REV
+
+				The possible values of U:Screen Mode are
+				zero = FWD
+				one = Full
+				two = REV
+			-->
+		<Trigger>
+			<KeyEvent>E:TOGGLE SCREEN MODE</KeyEvent>
+			<Script>
+						0
+						1
+					(U:SCREEN MODE) 1 == ?					// Update logic while in D/N mode
+							2
+							1
+						(U:SCREEN MODE) 1 == ?				// Update logic while in R mode
+							0
+							2
+							1
+						3 (U:SCREEN MODE) case				// Update logic while in P or X (UNKNOWN) mode
+					(A:Current Gear) 0 LT ?
+				0 (A:Current Gear) LT  ? (=U:SCREEN MODE)
+
+					(K:View Reverse)
+					(K:View Single)
+					(K:View Forward)
+				3 (U:SCREEN MODE) case (=E:Change Layout) both
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS) both					// Always disable if button pressed
+			</Script>
+		</Trigger>
+		<!--
+			Update the UI to reflect adjustment/edit page state.
+
+			TBD- Need to make this generic. Need to determine which feed to utilize
+			automatically. For a  D:View Layout == "single-layout", then D:Video Feed 1
+			will always be true. Otherwise you may be able to utilize the
+			current camera selection stored in U:THE CAMERA SELECTION
+			-->
+		<Trigger>
+			<KeyEvent>E:UPDATE ADJUST PAGE</KeyEvent>
+			<Script>
+
+					/*
+						The camera adjust/edit page has been opened. Define the
+						correct camera feed before sending adjustment commands.
+						The camera feed logic is based on the current layout
+							View Forward		Video Feed 3
+							View Single			Video Feed 1
+							View Reverse		Video Feed 1
+					*/
+						(D:Video Feed 3)
+						(D:Video Feed 1)
+					(U:View Layout) (K:View Forward) == ? (=C:Edit Camera)
+					'm1200_adjust_camera_page01'
+					both
+
+					/*
+						The camera adjust/edit page has been exitted. Determine which page to show based on the seat position.
+					*/
+						'm1200_full_gauges'
+						'm1200_panel'
+					(U:SEAT POSITION UP) ?
+				(U:CAMERA ADJUST SELECTED) ? (?U:PANEL)
+			</Script>
+		</Trigger>
+		<!--
+		=========================================================
+		Set the video feed based on the variable U:THE CAMERA LOCATION
+		==========================================================
+		-->
+		<Trigger>
+			<KeyEvent>E:SET VIDEO FEED</KeyEvent>
+			<Script>
+// THE FOLLOWING COMMENTED OUT SCRIPT ORIGINATED FROM SQUAD POSITION. IT IS NOT NEEDED FOR
+// DRIVER POSITION. BOTH POSITIONS IMPLEMENT THIS EVENT BECAUSE IT IS THROWN BY THE SHARED
+// XML FILE "monitor_edit_camera_events". THE DRIVER POSITION WILL SIMPLY DISABLE THE CAMERA
+// ADJUSTMENT IF ENABLED.
+//
+//				// Define the default if (U:THE CAMERA LOCATION) is not defined.
+//					'Camera Front-Center '
+//					(U:THE CAMERA LOCATION)
+//				'' (U:THE CAMERA LOCATION) == ? (=U:THE CAMERA LOCATION)
+//
+//				// Take the resluts of the above two condtions and add them together to derive (U:THE CAMERA SELECTION)
+//				(U:THE CAMERA LOCATION)  "Color" "IR" (U:DAY SELECTED) ? + (=U:THE CAMERA SELECTION)
+//				both
+//
+//				"K:" (U:THE CAMERA SELECTION) + @ (?C:Video Feed 1)
+//				both
+//
+//				(K:View Single) (=C:View Layout)
+//				both
+//
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS)
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:EXIT ADJUST</KeyEvent>
+			<!--
+				Need to return to the correct page number.
+				-->
+			<Script>
+					"m1200_adjust_camera_page02"
+					"m1200_adjust_camera_page01"
+				2	(U:EditPageNo) case (=U:PANEL)
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will display the up/down brightness screen. If we have gotten
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:BRIGHTNESS SELECTED</KeyEvent>
+			<Script>
+				'Bright' (=U:EDIT BUTTON SELECTED)
+				'm1200_adjust_up_down' (=U:PANEL)
+				both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will display the up/down control screen. If we have gotten
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:CONTRAST SELECTED</KeyEvent>
+			<Script>
+				'Cntrst' (=U:EDIT BUTTON SELECTED)
+				'm1200_adjust_up_down' (=U:PANEL)
+				both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will display the up/down sharpness screen. If we have gotten
+			this far the Up/Down function is supported.
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:SHARPNESS SELECTED</KeyEvent>
+			<Script>
+				'Sharp' (=U:EDIT BUTTON SELECTED)
+				'm1200_adjust_up_down' (=U:PANEL)
+				both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will display the up/down zoom screen. If we have gotten this far
+			the Up/Down function is supported.
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:ZOOM SELECTED</KeyEvent>
+			<Script>
+				(K:On) (=C:Camera Zoom Mode)				// TBD, Auto enable is bad! Need to add function to enable/disable zoom..
+				'Zoom' (=U:EDIT BUTTON SELECTED)
+				both
+
+				'm1200_adjust_zoom_up_down' (=U:PANEL)
+				both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will update the edit page selection
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:CHANGE EDIT PAGE</KeyEvent>
+			<Script>
+				// At this date and time, there is no method to force a bezel input as "invisibile"
+				// Prevent updates if the edit items on the other page are not supported.
+					(D:Camera Cap Mode Control) (K:Unsupported) !=
+					(D:Camera Cap Auto Calibration) (K:Unsupported) != OR
+					(D:Camera Cap Zoom) (K:Unsupported) != OR (=U:Next Page Available)
+
+						(U:EditPageNo) 1 + 2 % (=U:EditPageNo)
+						0 (=U:EditPageNo)
+					(U:Next Page Available) ? both
+
+					"m1200_adjust_camera_page02"
+					"m1200_adjust_camera_page01"
+				2 (U:EditPageNo) case (?U:PANEL)
+				both
+			</Script>
+		</Trigger>
+		<!--
+			=========================================================
+			This event will initialize the screen interface
+			==========================================================
+			-->
+		<Trigger>
+			<KeyEvent>E:INIT CAMERA</KeyEvent>
+			<Script>
+				/*
+					Initialize the driver screen to View Forward with IR with camera adjustment disabled.
+					NOTE: It is important that (E:Change Layout) is called so that the seat position (UP/DOWN)
+					will work properly at powerup. If not, the "Previous XXXX" variables is E:TOGGLE SEAT POSITION
+					will be at an unknown state.
+				*/
+				true (=U:DAY SELECTED)
+				0 (=E:DISABLE ADJUST CAMERA SETTINGS) both
+				(K:View Forward) (=E:Change Layout) both
+			</Script>
+		</Trigger>
+		<!--Trigger>
+			<KeyEvent>E:VEHICLE SHUTDOWN</KeyEvent>
+			<Script>
+				true (=C:System Shutdown)
+				"Shutdown in progress" (=U:System Shutdown) both
+			</Script>
+		</Trigger-->
+	</KeyMap>
+</Screen>

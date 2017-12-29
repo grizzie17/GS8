@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="label-trans">
+		<Element>
+			<Visibility>
+				0 (G:WAITING) LT
+			</Visibility>
+			<GaugeText>
+				<Origin>0,0</Origin>
+				<FontFace>sans-serif</FontFace>
+				<FontColor>yellow</FontColor>
+				<FontHeight>50</FontHeight>
+				<HorizontalAlign>center</HorizontalAlign>
+				<VerticalAlign>middle</VerticalAlign>
+				<GaugeString>Please Wait ...</GaugeString>
+			</GaugeText>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<Event>E:ESS RESET PRIMER</Event>
+				<Script>
+					1 (E:ESS RESET)
+				</Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

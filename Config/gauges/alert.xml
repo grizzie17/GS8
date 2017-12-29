@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="alert">
+		<Update>
+			<Frequency>4</Frequency>
+			<Script>
+				"N:" (G:Alert) + @ (=G:AlertActive)
+				true
+				(G:AlertActive) ?
+			</Script>
+		</Update>
+		<Size>300,25</Size>
+		<Element Context="foreground">
+			<Visibility> (G:AlertActive) </Visibility>
+			<Element>
+				<Visibility> (U:FLASH) </Visibility>
+				<GaugeText Y="0" X="0" 
+						   Font="Arial" Height="24" 
+						   Align="left" VerticalAlign="bottom" 
+						   Color="'red' 'orange' 'lime' 3 (G:AlertLevel) 3 / case">
+					<String>%( (G:AlertLabel) )%!s!</String>
+				</GaugeText>
+			</Element>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:Alert</KeyEvent>
+				<Script>
+					(E:Alert) (=G:Alert)
+					"N:" (E:Alert) + @ (=G:AlertActive)
+					both
+					"B:" (E:Alert) + ".Label" + @ (=G:AlertLabel)
+					both
+					"B:" (E:Alert) + ".Level" + @ (=G:AlertLevel)
+					both
+					"B:" (E:Alert) + ".Color" + @ (=G:AlertColor)
+					both
+					(S:MILLI) 15000 + (=G:Timeout)
+					both
+				</Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

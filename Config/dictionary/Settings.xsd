@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" 
+		   elementFormDefault="qualified" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+	<!-- 
+	###########################################################
+	||	Types
+	###########################################################
+	-->
+
+	
+	<!-- enumerations -->
+
+	<xs:simpleType name="enumRangeID">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ENUM" />
+			<xs:enumeration value="HiLo" />
+			<xs:enumeration value="Green" />
+			<xs:enumeration value="Yellow" />
+			<xs:enumeration value="Red" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="enumType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BOOLEAN" />
+			<xs:enumeration value="COLOR" />
+			<xs:enumeration value="DATETIME" />
+			<xs:enumeration value="ENUM" />
+			<xs:enumeration value="FLOAT" />
+			<xs:enumeration value="INTEGER" />
+			<xs:enumeration value="TEXT" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="enumWave">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="sawtooth" />
+			<xs:enumeration value="sawtooth-inverted" />
+			<xs:enumeration value="sine" />
+			<xs:enumeration value="square" />
+			<xs:enumeration value="triangle" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+	<!-- root node -->
+	<xs:element name="Settings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Alerts" />
+					<xs:element ref="Parameters" />
+					<xs:element ref="Glossary" />
+					<xs:element ref="VersionInfo" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="Alerts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Alert" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="Alert">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Data" minOccurs="0" />
+					<xs:element ref="AlertSim" minOccurs="0" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="ID" type="xs:string" use="required" />
+			<xs:attribute name="Label" type="xs:string" use="optional" />
+			<xs:attribute name="Level" type="xs:integer" use="optional" />
+			<xs:attribute name="Color" type="xs:string" />
+			<xs:attribute name="Condition" type="xs:string" />
+			<xs:attribute name="Value" type="xs:string" />
+			<xs:attribute name="Units" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="AlertSim">
+		<xs:complexType>
+			<xs:attribute name="Duration" type="xs:float" />
+			<xs:attribute name="Frequency" type="xs:float" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="Data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Protocol" />
+					<xs:element ref="PGN" />
+					<xs:element ref="SPN" />
+					<xs:element ref="Source" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Protocol" type="xs:string" />
+	<xs:element name="PGN" type="xs:unsignedLong" />
+	<xs:element name="SPN" type="xs:unsignedLong" />
+	<xs:element name="Source" type="xs:unsignedLong" />
+
+
+
+
+	<xs:element name="Parameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Param" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Param">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Range" minOccurs="0" />
+					<xs:element ref="Data" minOccurs="0" />
+					<xs:element ref="ParamSim" minOccurs="0" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="ID" type="xs:string" use="required" />
+			<xs:attribute name="Type" type="enumType" use="required" />
+			<xs:attribute name="Units" type="xs:string" use="optional" />
+			<xs:attribute name="Label" type="xs:string" use="optional" />
+			<xs:attribute name="Alias" type="xs:string" use="optional" />
+			<xs:attribute name="Default" type="xs:string" use="optional" />
+			<xs:attribute name="Reset" type="xs:string" use="optional" />
+			<xs:attribute name="Unavailable" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Range">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Enum" minOccurs="0" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="ID" type="enumRangeID" />
+			<xs:attribute name="Type" type="xs:string" />
+			<xs:attribute name="Hi" type="xs:float" />
+			<xs:attribute name="Low" type="xs:float" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="ParamSim">
+		<xs:complexType>
+			<xs:attribute name="Wave" type="enumWave" />
+			<xs:attribute name="Frequency" type="xs:float" />
+		</xs:complexType>
+	</xs:element>
+	
+
+	<xs:element name="Enum">
+		<xs:complexType>
+			<xs:attribute name="ID" type="xs:unsignedInt" />
+			<xs:attribute name="Value" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Glossary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:group name="AnyNested">
+		<xs:choice>
+			<xs:any processContents="lax" />
+		</xs:choice>
+	</xs:group>
+
+
+	<xs:element name="VersionInfo" type="xs:integer" />
+
+
+	<xs:element name="Include">
+		<xs:complexType>
+			<xs:attribute name="File" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+</xs:schema>

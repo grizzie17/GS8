@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<Panel id="LAV3_Camera_Settings_Squad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			(S:SCREEN WIDTH) 8 / s10				// r10 - Width of button area
+			r10 2 / s11											// r11 - Width Center of button area
+			both
+
+			5 s0														// r0 - top/bottom screen margin
+			both
+
+			50 s15													// r15 - Height of the button area
+			both
+
+			//1 (=C:Camera State) both
+
+		</Script>
+	</Layout>
+	<!-- Video feeds -->
+	<GaugeInstance Name="LAV3_view-select" X="0" Y="0" />
+	<GaugeInstance Name="LAV3_view-layout" X="0" Y="0" />
+	<GaugeInstance Name="LAV3_Event_Handlers_Camera_Select" X="0" Y="0" />
+	<GaugeInstance Name="monitor_edit_camera_events" X="0" Y="0" />
+
+	<GaugeInstance Name="mouse" X="0" Y="0" />
+
+    <GaugeInstance Name="LAV3_button_UP" X="(S:SCREEN WIDTH) 4 / 21 -" Y="(S:SCREEN HEIGHT) 2 / 60 -"/>
+    <GaugeInstance Name="LAV3_button_DOWN" X="(S:SCREEN WIDTH) 4 / 21 -" Y="(S:SCREEN HEIGHT) 2 / 25 +"/>
+    <GaugeInstance Name="LAV3_button_LEFT" X="(S:SCREEN WIDTH) 4 / 60 -" Y="(S:SCREEN HEIGHT) 2 / 21 -"/>
+    <GaugeInstance Name="LAV3_button_RIGHT" X="(S:SCREEN WIDTH) 4 / 25 +" Y="(S:SCREEN HEIGHT) 2 / 21 -"/>
+
+	<GaugeInstance Name="button-adjust-up" X="r10 0 * r11 +" Y="r0"/>
+	<GaugeInstance Name="label-adjust" X="r10" Y="r0"/>
+	<GaugeInstance Name="button-adjust-down" X="r10 1 * r11 +" Y="r0"/>
+	<GaugeInstance Name="button-LAV3_PIP" X="r10 2 * r11 +" Y="r0"/>
+	<GaugeInstance Name="button-PIP-Position" X="r10 2 * r11 +" Y="r0"/>
+	<GaugeInstance Name="button-LAV3_Single" X="r10 3 * r11 +" Y="r0"/>
+	<GaugeInstance Name="button-LAV3_Quad" X="r10 6 * r11 +" Y="r0"/>
+	<GaugeInstance Name="button-quadrant" X="r10 7 * r11 +" Y="r0"/>
+	<GaugeInstance Name="button-PIP" X="r10 7 * r11 +" Y="r0"/>
+
+
+	<GaugeInstance Name="button-brightness" X="r10 0 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="button-contrast" X="r10 1 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+    <GaugeInstance Name="LAV3-button-camera-feed" X="r10 2 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="button-autocal" X="r10 3 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="button-OnePointCal" X="r10 4 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="button-ir-camera-mode" X="r10 5 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="button-polarity" X="r10 6 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="button-LAV3_exit" X="r10 7 * r11 +" Y="(S:SCREEN HEIGHT) height -"/>
+
+	<!-- Define the button assignments -->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="UP" Event="E:CAMERA SELECT UP" />
+			<Key id="DOWN" Event="E:CAMERA SELECT DOWN" />
+			<Key id="LEFT" Event="E:CAMERA SELECT LEFT" />
+			<Key id="RIGHT" Event="E:CAMERA SELECT RIGHT" />
+			<Key id="BEZEL1" Event="E:BRIGHTNESS SELECTED" />
+			<Key id="BEZEL2" Event="E:CONTRAST SELECTED" />
+			<Key id="BEZEL3" Event="E:CAMERA SELECT" />
+			<Key id="BEZEL4" Event="E:TOGGLE CALIBRATION" />
+			<Key id="BEZEL5" Event="E:CLICK ONE POINT CAL DOWN UP" />
+			<Key id="BEZEL6" Event="E:TOGGLE IR CAMERA MODE" />
+			<Key id="BEZEL7" Event="E:TOGGLE POLARITY" />
+			<Key id="BEZEL8" Event="E:LAV3 EXIT BUTTON SELECTED" />
+
+			<Key id="BEZEL9" Event="E:UP SELECTED" />
+			<Key id="BEZEL10" Event="E:DOWN SELECTED" />
+			<Key id="BEZEL11" Event="E:SET VIEW PIP" />
+			<Key id="BEZEL11" Event="E:Change PIP Position" />
+			<Key id="BEZEL12" Event="E:SET VIEW SINGLE" />
+			<Key id="BEZEL13" Event="E:SET VIEW DRV" />
+			<Key id="BEZEL14" Event="E:SET VIEW REV" />
+			<Key id="BEZEL15" Event="E:SET VIEW QUAD" />
+			<Key id="BEZEL16" Event="E:Change Camera Quadrant" />
+			<Key id="BEZEL16" Event="E:Change Camera PIP" />
+		</OnDown>
+	</KeyEventMap>
+
+</Panel>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Gauge>
+	<Size X="30" Y="40" />
+	<Element>
+		<Rectangle X="10" Y="10" Width="10" Height="20" LineColor="red" FillColor="yellow" LineWidth="2"/>
+	</Element>
+</Gauge>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="JD-button-1">
+		<Update>
+			<Script>
+				// Define the button text
+				"Gauge" s6
+				'OFF' 'ON' 'AUTO' 3 (U:GAUGE SWITCH) case s7 both
+				" " s8	both
+
+				// Define the button text colors
+				(U:COLOR_ButtonText) s1 both
+				r1 s2 both
+				r1 s3 both
+
+				height (=G:Height) both
+				width (=G:Width) both
+
+			</Script>
+		</Update>
+		<Element>
+			<Include File="JD-icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>1000,1000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					true (=G:Pressed)
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>1000,1000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					false (=G:Pressed)
+					1 (=E:TOGGLE GAUGE STATE) both
+				</Script>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

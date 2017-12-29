@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0"
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="mouse-passthrough">
+		<Element Context="foreground">
+			<Line LineColor="darkred" LineWidth="1">
+				<Point X="(G:X)" Y="(G:Y) 3 -" />
+				<Point X="(G:X)" Y="(G:Y) 3 +" />
+			</Line>
+			<Line LineColor="darkred" LineWidth="1">
+				<Point X="(G:X) 3 -" Y="(G:Y)" />
+				<Point X="(G:X) 3 +" Y="(G:Y)" />
+			</Line>
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>2000,2000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					(M:X) (=G:X)
+					(M:Y) (=G:Y)
+					both
+					1 (=C:Send Point External)
+					both
+				</Script>
+			</MouseUp>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>2000,2000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					(M:X) (=G:X)
+					(M:Y) (=G:Y)
+					both
+					1 (=C:Send Point External)
+					both
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>2000,2000</Size>
+			<MouseMove id="MouseMove">
+				<Script>
+					(M:X) (=G:X)
+					(M:Y) (=G:Y)
+					both
+					1 (=C:Send Point External)
+					both
+				</Script>
+			</MouseMove>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

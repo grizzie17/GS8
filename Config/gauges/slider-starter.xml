@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="slider-starter">
+		<Update>
+			<Frequency>2</Frequency>
+			<Script>
+				80 s5
+				10 s6		both
+				r5 (B:Starter Health.Green.Low) (B:Starter Health.High) / r5 * - s7 both
+				r5 (B:Starter Health.Yellow.Low) (B:Starter Health.High) / r5 * - s8 both
+				r5 (A:Starter Health) (B:Starter Health.High) / r5 * - s9 both
+			</Script>
+		</Update>
+		<Size>25,82</Size>
+		<Element>
+		<!--
+		switch (U:GAUGE SWITCH)
+		0:	if r9 < r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+		
+		0:	if red  and  engine running
+	-->
+		<Visibility>
+			false
+			true
+			r9 r7 GT  5 (A:RPM) LT  AND
+			3 (U:GAUGE SWITCH) case
+		</Visibility>
+			<Include File="slider-green-yellow-red" />
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

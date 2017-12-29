@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<Gauge Name="oilpressurelight" Version="1.0">
+	<Size X="70" Y="70" />
+	<Element>
+		
+  <Visible>(T:SLIDER.YELLOW) (T:PULSER) &lt;</Visible>
+	<Element>
+		<Visible>(T:MILLI) 2000 % 1500 &lt;</Visible>
+		<Position X="(S:SCREEN WIDTH) 240 - 100 -" Y="(S:SCREEN HEIGHT) 95 -" />
+		<Element>
+			<Polyline LineColor="orange" LineWidth="2">
+				<Point X="0" Y="5" />
+				<Point X="5" Y="5" />
+				<Point X="5" Y="0" />
+				<Point X="10" Y="0" />
+				<Point X="10" Y="5" />
+				<Point X="30" Y="5" />
+				<Point X="30" Y="0" />
+				<Point X="35" Y="0" />
+				<Point X="35" Y="5" />
+				<Point X="40" Y="5" />
+				<Point X="40" Y="25" />
+				<Point X="0" Y="25" />
+				<Point X="0" Y="5" />
+			</Polyline>
+			<Line LineColor="orange" LineWidth="2">
+				<Point X="7" Y="7" />
+				<Point X="7" Y="15" />
+			</Line>
+			<Line LineColor="orange" LineWidth="2">
+				<Point X="3" Y="11" />
+				<Point X="11" Y="11" />
+			</Line>
+			<Line LineColor="orange" LineWidth="2">
+				<Point X="29" Y="11" />
+				<Point X="36" Y="11" />
+			</Line>
+		</Element>
+	</Element>
+	</Element>
+</Gauge>

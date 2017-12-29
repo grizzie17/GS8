@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>XO-HTML</title>
+<style type="text/css">
+html
+{
+	font-family: sans-serif;
+}
+
+.code
+{
+	font-family: monospace;
+	color: #003300;
+	background: #EEEEF4;
+}
+
+ul.code
+{
+	list-style-type: none;
+}
+
+.code li, .code ul
+{
+	list-style-type: none;
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<h1>XO-HTML</h1>
+<p>XML Object - HTML</p>
+<p>These are some notes that identify a new project that will create a portable 
+and extendable engine for rendering HTML-5 like objects.&nbsp; The goal is to 
+allow embedded use of this engine such that each &quot;page&quot; is displayed just like a 
+web-page.&nbsp; With the exceptions of any specialized extensions another goal 
+is to support HTML well enough that we should be able to use almost any HTML-5 
+editor to create the content.</p>
+<h2>Schema and Page Loader</h2>
+<p>Instead of creating yet another HTML parser, we will be using XML Object 
+parser.&nbsp; The XML Object parser not only defines the &quot;schema&quot; but also a 
+binding to objects that will be created as a result of parsing the XO-HTML.</p>
+<h3>XO Parser</h3>
+<p>XO Parser does not actually have any intrinsic knowledge of the types of 
+objects that will be created or their usage once created.&nbsp; The system will 
+use a psuedo schema that is defined using XML.&nbsp; This schema is greatly 
+simplified relative to XSD.&nbsp; The XOSD (XML Object Schema Definition) 
+defines data-types, attributes, properties and sets (objects that contain 
+properties).</p>
+<p>The schema will be an xml file that may resemble something like:</p>
+<ul class="code">
+	<li>&lt;?xml?&gt;</li>
+	<li>&lt;XmlObjects&gt;<ul>
+		<li>&lt;RootDefs<ul>
+			<li>Name=&quot;Gadgets&quot;</li>
+		</ul>
+		</li>
+		<li>&lt;TypeDefs&gt;<ul>
+			<li>&lt;TypeDef<ul>
+				<li>Name=&quot;FLOAT&quot;</li>
+				<li>Factory=&quot;FLOATClass&quot;</li>
+				<li>Descr=&quot;Floating Point Value&quot; /&gt;</li>
+			</ul>
+			</li>
+		</ul>
+		</li>
+		<li>&lt;/TypeDefs&gt;</li>
+		<li>&lt;PropertyDefs&gt;<ul>
+			<li>&lt;PropertyDef<ul>
+				<li>Name=&quot;SizeScale&quot;</li>
+				<li>Type=&quot;FLOAT&quot;</li>
+				<li>Default=&quot;1.0&quot;</li>
+				<li>Descr=&quot;X, Y Scaling&quot; /&gt;</li>
+			</ul>
+			</li>
+		</ul>
+		</li>
+		<li>&lt;/PropertyDefs&gt;</li>
+		<li>&lt;AttributeDefs&gt;<ul>
+			<li>&lt;AttributeDef<ul>
+				<li>Name=&quot;SomeAttribute&quot;</li>
+				<li>Type=&quot;TEXT&quot;</li>
+				<li>Descr=&quot;Some Generic Attribute&quot; /&gt;</li>
+			</ul>
+			</li>
+		</ul>
+		</li>
+		<li>&lt;/AttributeDefs&gt;</li>
+		<li>&lt;SetDefs&gt;<ul>
+			<li>&lt;SetDef<ul>
+				<li>Name=&quot;Element&quot;</li>
+				<li>Factory=&quot;FactoryElement&quot;</li>
+				<li>Descr=&quot;Container for coordinate system&quot;<ul>
+					<li>&gt;</li>
+				</ul>
+				</li>
+				<li>&lt;Attribute Name=&quot;SomeAttribute&quot; /&gt;</li>
+				<li>&lt;Property Name=&quot;SizeScale&quot; /&gt;</li>
+				<li>&lt;Property Name=&quot;xxx&quot; /&gt;</li>
+				<li>&lt;Set Name=&quot;Element&quot; /&gt;</li>
+			</ul>
+			</li>
+			<li>&lt;/SetDef&gt;</li>
+		</ul>
+		</li>
+		<li>&lt;/SetDefs&gt;</li>
+	</ul>
+	</li>
+	<li>&lt;/XmlObjects&gt;</li>
+</ul>
+<p>The real XML described by this simple schema definition might look something 
+like:</p>
+<ul class="code">
+	<li>&lt;Gadgets&gt;<ul>
+		<li>&lt;Element&gt;<ul>
+			<li>&lt;SizeScale&gt;1.5&lt;/SizeScale&gt;</li>
+		</ul>
+		</li>
+		<li>&lt;/Element&gt;</li>
+	</ul>
+	</li>
+	<li>&lt;/Gadgets&gt;</li>
+</ul>
+<h3>Thoughts on Tags</h3>
+<h4>TypeDefs</h4>
+<p>The TypeDef tag should define a handler/parser for the data type.&nbsp; This 
+way we can even extend the data types that we can support.&nbsp; The parser will 
+be responsible for validating the content of a tag and producing a single data 
+object result (with foreknowledge that arrays can be a single object).</p>
+<h4>PropertyDefs</h4>
+<p>The PropertyDef tag defines a handler that maps the data of the identified 
+tag to a loader function on an object.&nbsp; The PropertyDef&#39;s main job is to 
+identify the name of the XML tag for this property.</p>
+<h4>SetDefs</h4>
+<p>The SetDef tag identifies the name of the &quot;real&quot; tag that contains a set of property tags.&nbsp; 
+This tag also identifies the class that will be instantiated and used as a factory for this set.</p>
+<h3>Thoughts on Classes</h3>
+<p>We will most likely use classes that are partially modeled on our 
+Command-Plugins.</p>
+<p>For the TypeDef parsers the &quot;plugin&quot; will register which types that it is 
+willing to handle.</p>
+<p>For SetDefs the &quot;plugin&quot; will register which classes for which it is willing 
+to server up instances.</p>
+<p>An open question is how to map/load the property objects into the Set 
+objects.</p>
+<h3>The Factories</h3>
+<h4>XOSchema</h4>
+<p>Read in schema XML file and create an XOParser</p>
+<h4>XOLibrary</h4>
+<p>Provides access to component factories</p>
+<ul>
+	<li>Type factories</li>
+	<li>Property factories</li>
+	<li>Set factories</li>
+	<li>Root factories</li>
+</ul>
+<h4>XOParser</h4>
+<ul>
+	<li>XOParserRoot</li>
+	<li>XOParserType</li>
+	<li>XOParserAttribute</li>
+	<li>XOParserProperty</li>
+	<li>XOParserSet</li>
+</ul>
+<p>Accepts XML file and produces an object list.</p>
+<p>&nbsp;</p>
+<h2>Document Object Model</h2>
+<p>The DOM is nothing more than an ownership hierarchy that generally reflects 
+the nested structure of a given XO-Html file.</p>
+<h2>Layout and Rendering Engine</h2>
+<h2>Event Engine</h2>
+<h2>Scripting</h2>
+<h2>Data Binding</h2>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

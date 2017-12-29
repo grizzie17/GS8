@@ -1,0 +1,187 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="speed-dial">
+		<Update>
+			<!-- 
+			r0 =	starting angle
+			r1 =	total sweep angle (clockwise)
+			r2 =	numbers for dial
+			r3 =	current angle
+			r5 =	sweep value for #10
+			r6 =	normalized value of #10
+			r7 =	normalized current value (range: 0-1)
+			r8 =	high value
+			r9 =	current value
+			-->
+			<Script>
+				180 1.75 * s0
+				180 0.75 * s1 both
+
+				(A:Engine Coolant Temp) s9 both
+				(B:Engine Coolant Temp.High) s8 both
+				(B:Engine Coolant Temp.Green.High) s10 both
+				(B:Engine Coolant Temp.Yellow.High) s11 both
+				r9 r8 / s7 both
+
+			</Script>
+			<Frequency>4</Frequency>
+		</Update>
+		<Size>122,122</Size>
+		<Element>
+			<Position X="60" Y="60" />
+			<Element Context="background">
+			<Circle X="0" Y="0" Radius="60" FillColor="charcoal" />
+			<Circle X="2" Y="2" Radius="58" LineWidth="4" LineColor="black" />
+			<Arc X="0" Y="0"
+				 Radius="53"
+			 EndAngle="r0 (B:Engine Coolant Temp.Red.Low) r8 / r1 * -"
+			 StartAngle="r0 r1 -"
+			 LineColor="red" LineWidth="5" />
+			<Arc X="0" Y="0"
+				 Radius="53"
+				 EndAngle="r0 (B:Engine Coolant Temp.Yellow.Low) r8 / r1 * -"
+				 StartAngle="r0 (B:Engine Coolant Temp.Yellow.High) r8 / r1 * -"
+				 LineColor="orange" LineWidth="5" />
+			<Circle X="0" Y="0" Radius="58" LineWidth="4" LineColor="darkgray" />
+				<Element>
+					<Position X="-30" Y="-40" />
+					<Element>
+						<Arc X="3 3 +" Y="3"
+							 Radius="3"
+							 StartAngle="0" EndAngle="180"
+							 LineWidth="2" LineColor="'white' 'orange' 'red' r9 r11 &lt; ? 'white' (U:FLASH) ? r9 r10 &lt; ? s14"/>
+						<Line LineWidth="2" LineColor="r14">
+							<Point X="3" Y="3" />
+							<Point X="3" Y="30" />
+						</Line>
+						<Line LineWidth="2" LineColor="r14">
+							<Point X="3 6 +" Y="3" />
+							<Point X="3 6 +" Y="30" />
+						</Line>
+						<Line LineWidth="1" LineColor="r14">
+							<Point X="3 6 +" Y="7" />
+							<Point X="3 15 +" Y="7" />
+						</Line>
+						<Line LineWidth="1" LineColor="r14">
+							<Point X="3 6 +" Y="17" />
+							<Point X="3 15 +" Y="17" />
+						</Line>
+						<!--Line LineWidth="1" LineColor="r14">
+							<Point X="3 6 +" Y="27" />
+							<Point X="3 15 +" Y="27" />
+						</Line-->
+						<Circle X="3 3 +" Y="30" Radius="7" FillColor="r14" LineColor="r14" />
+						<Polygon LineColor="r14" FillColor="r14">
+							<Point X="3" Y="10" />
+							<Point X="3 6 +" Y="10" />
+							<Point X="3 6 +" Y="30" />
+							<Point X="3" Y="30" />
+							<Point X="3" Y="10" />
+						</Polygon>
+					</Element>
+				</Element>
+
+			</Element>
+			<Element>
+				<Position X="0" Y="0" />
+				<!--Arc X="0" Y="0"
+					 Radius="50"
+					 EndAngle="r0" StartAngle="r0 r1 -"
+					 LineColor="white" LineWidth="2" /-->
+				<ForLoop>
+					<InitialExpression>
+						<Script>
+							180 1.75 * s0
+							180 0.75 * s1 both
+							0 s2 both
+							0.0 s3 both
+
+							(A:Engine Coolant Temp) s9 both
+							(B:Engine Coolant Temp.High) s8 both
+							r9 r8 / s7 both
+							r1 8 / s5 both
+						</Script>
+					</InitialExpression>
+					<TestExpression>
+						<Script>
+							r3 r1 &lt;=
+						</Script>
+					</TestExpression>
+					<IncrementExpression>
+						<Script>
+							r2 1 + s2
+							r3 r5 + s3 both
+						</Script>
+					</IncrementExpression>
+					<Rotation>r0 r3 -</Rotation>
+					<Line LineColor="white" LineWidth="1">
+						<Point X="54" Y="0" />
+						<Point X="46" Y="0" />
+					</Line>
+				</ForLoop>
+				<ForLoop>
+					<InitialExpression>
+						<Script>
+							180 1.75 * s0
+							180 0.75 * s1 both
+							0 s2 both
+							0.0 s3 both
+
+							(A:Engine Coolant Temp) s9 both
+							(B:Engine Coolant Temp.High) s8 both
+							r9 r8 / s7 both
+							r1 2 / s5 both
+						</Script>
+					</InitialExpression>
+					<TestExpression>
+						<Script>
+							r3 r1 &lt;=
+						</Script>
+					</TestExpression>
+					<IncrementExpression>
+						<Script>
+							r2 1 + s2
+							r3 r5 + s3 both
+						</Script>
+					</IncrementExpression>
+					<Rotation>r0 r3 -</Rotation>
+					<Line LineColor="white" LineWidth="3">
+						<Point X="54" Y="0" />
+						<Point X="44" Y="0" />
+					</Line>
+				</ForLoop>
+			</Element>
+			<Element Context="foreground">
+				<Element>
+					<Rotation>r0 r7 r1 * - s5</Rotation>
+					<Position X="3" Y="3" />
+					<Polygon FillColor="black">
+						<Point X="0" Y="-3" />
+						<Point X="45" Y="-1" />
+						<Point X="47" Y="0" />
+						<Point X="45" Y="1" />
+						<Point X="0" Y="3" />
+						<Point X="0" Y="-3" />
+					</Polygon>
+				</Element>
+				<Circle X="3" Y="3"
+						Radius="10" FillColor="black"
+						LineColor="black" LineWidth="2" />
+				<Element>
+					<Rotation>r5</Rotation>
+					<Polygon FillColor="red" LineColor="crimson">
+						<Point X="0" Y="-3" />
+						<Point X="45" Y="-1" />
+						<Point X="47" Y="0" />
+						<Point X="45" Y="1" />
+						<Point X="0" Y="3" />
+						<Point X="0" Y="-3" />
+					</Polygon>
+				</Element>
+				<Circle X="0" Y="0"
+						Radius="10" FillColor="gray"
+						LineColor="silver" LineWidth="2" />
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

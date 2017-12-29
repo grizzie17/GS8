@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+	<!--
+	"Screen" identifies the name of the xml file in the 'screens'
+	folder that should be loaded and processed
+	-->
+	<Item ID="Screenxx" Type="STRING">none</Item>
+	<Item ID="Screenxx" Type="STRING">squad_screen</Item>
+	<Item ID="Screenxx" Type="STRING">tune_screen</Item>
+	<Item ID="Screenxx" Type="STRING">mouse_screen</Item>
+	<Item ID="Screenxx" Type="STRING">driver_screen</Item>
+	<Item ID="Screenxx" Type="STRING">commander_screen</Item>
+	<Item ID="Screenxx" Type="STRING">everything</Item>
+	<Item ID="Screenxx" Type="STRING">m1200a_screen</Item>
+	<Item ID="Screenxx" Type="STRING">m1200_screen</Item>
+	<Item ID="Screenxx" Type="STRING">m1200_mrt_screen</Item>
+	<Item ID="Screen" Type="STRING">test</Item>
+
+	<!-- 
+	"Active Commands" identifies the name of the xml file in the
+	'plugins/commands' folder that should.  If this tag is not
+	specified then the 'default.xml' will be used.
+	-->
+	<Item ID="Active Commandsxx" Type="STRING">workbench_m1200</Item>
+	<Item ID="Active Commands" Type="STRING">workbench_mpc</Item>
+	<Item ID="Active Commandsxx" Type="STRING">tune</Item>
+
+	<!--
+	"Dictionary Settings" identifies the name of the Settings file 
+	that is used to initialize the Dictionary "A", "B", and "N" pages
+	-->
+	<Item ID="Dictionary Settingsxx" Type="STRING">Settings_m1200</Item>
+	<Item ID="Dictionary Settings" Type="STRING">mpc_Settings_metric</Item>
+
+	<!--
+	"Startup Events" identifies a semicolon or newline separated list 
+	of event 	names that should be triggered upon application startup.
+	-->
+	<Item ID="Startup Events" Type="STRING">
+		E:INIT CAMERA
+		E:UNITS IMPERIAL
+	</Item>
+	<!--
+
+	"Active Dictionary Timeout" identifies the amount of time that we
+	should wait for new 'active' data to arrive.  Beyond the specified
+	timeout value we will affectively zero the 'active' dictionary page.
+	-->
+	<Item ID="Active Dictionary Timeout" Type="FLOAT" Units="seconds">5</Item>
+	<Item ID="Active Dictionary Check Stale" Type="FLOAT" Units="seconds">5</Item>
+	<!--
+
+	"Calculate Frequency" identifies the number of times per second
+	that we should assure that we recalculate the gauges.
+	-->
+	<Item ID="Calculate Frequency" Type="FLOAT">2</Item>
+	<!--
+
+	"Simulate Data Frequency" identifies the number of times per second
+	that we should simulate data.
+	-->
+	<Item ID="Simulate Data Frequency" Type="FLOAT">5</Item>
+	<!--
+
+	"Display Dirty Rectangle" is actually a special debug display mode
+	that will draw a magenta rectangle on the screen representing the
+	last displayed rectangle.
+	-->
+	<Item ID="Display Dirty Rectangle" Type="BOOLEAN">false</Item>
+	<Item ID="Double Backingstore" Type="BOOLEAN">true</Item>
+
+	<Item ID="Background Color" Type="COLOR">background</Item>
+	<Item ID="RS422 Port" Type="STRING">COM5</Item>
+	
+	
+
+	<Include File="vehicledataconfiguration" />
+</Configuration>

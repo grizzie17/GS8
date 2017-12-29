@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<Panel id="NVL_menu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			20 s10							// Height of button 
+			r10 2 / s11 both			// center of button 
+			130 s12 both				// Width of the button
+			10 s0 both					// left screen margin
+		</Script>
+	</Layout>
+	<!-- Define the menu items -->
+	<GaugeInstance Name="NVL_Main_Menu_Entry_1"            X="r12 2 * r0 +" Y="r10 1 *"/>
+	<GaugeInstance Name="NVL_Main_Menu_Entry_2"            X="r12 3 * r0 +" Y="r10 1 *"/>
+	<GaugeInstance Name="NVL_Main_Menu_Entry_3"            X="r12 4 * r0 +" Y="r10 1 *"/>
+	<GaugeInstance Name="NVL_Main_Menu_Entry_4"            X="r12 0 * r0 +" Y="r10 1 *"/>
+	<GaugeInstance Name="NVL_Main_Menu_Entry_5"            X="r12 1 * r0 +" Y="r10 1 *"/>
+	<GaugeInstance Name="NVL_Sub_Menu_Entry_1"             X="r12 2 * r0 +" Y="r10 2 *"/>
+	<GaugeInstance Name="NVL_Sub_Menu_Entry_2"             X="r12 2 * r0 +" Y="r10 3 *"/>
+	<GaugeInstance Name="NVL_Sub_Menu_Entry_3"             X="r12 2 * r0 +" Y="r10 4 *"/>
+	<GaugeInstance Name="NVL_Sub_Menu_Entry_4"             X="r12 2 * r0 +" Y="r10 5 *"/>
+	<GaugeInstance Name="NVL_Sub_Menu_Entry_5"             X="r12 2 * r0 +" Y="r10 6 *"/>
+	<GaugeInstance Name="NVL_SubSub_Menu_Entry_1"       X="r12 3 * r0 +" Y="r10 2.5 *"/>
+	<GaugeInstance Name="NVL_SubSub_Menu_Entry_2"       X="r12 3 * r0 +" Y="r10 3.5 *"/>
+	<GaugeInstance Name="NVL_SubSub_Menu_Entry_3"       X="r12 3 * r0 +" Y="r10 4.5 *"/>
+	<GaugeInstance Name="NVL_SubSub_Menu_Entry_4"       X="r12 3 * r0 +" Y="r10 5.5 *"/>
+	<GaugeInstance Name="NVL_SubSub_Menu_Entry_5"       X="r12 3 * r0 +" Y="r10 6.5 *"/>
+	<GaugeInstance Name="NVL_DEBUG"   					    X="(S:SCREEN WIDTH) 2 / 50 + " Y="15"/>
+
+	<!-- Video feeds -->
+	<GaugeInstance Name="NVL_view-select" X="0" Y="0" />
+	<GaugeInstance Name="NVL_view-layout" X="0" Y="0" />
+	<GaugeInstance Name="NVL_Event_Handlers_Menu" X="0" Y="0" />
+
+	<!-- Define the button assignments -->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="UP" Event="E:NVL MENU UP PRESSED"/>
+			<Key id="DOWN" Event="E:NVL MENU DOWN PRESSED"/>
+			<Key id="LEFT" Event="E:NVL MENU LEFT PRESSED"/>
+			<Key id="RIGHT" Event="E:NVL MENU RIGHT PRESSED"/>
+			<Key id="ENTER" Event="E:NVL MENU ENTER PRESSED"/>
+		</OnDown>
+		<OnUp>
+			<Key id="ENTER" Event="E:NVL MENU ENTER RELEASED"/>
+		</OnUp>
+	</KeyEventMap>
+
+</Panel>

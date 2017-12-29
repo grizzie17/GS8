@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="edit-label">
+		<Size>60,20</Size>
+		<Element>
+		<Visible>(U:BLACKOUT SELECTED) !</Visible>
+			<GaugeText X="0" Y="0" 
+					   Font="sans-serif" Height="20" 
+					   Align="left" VerticalAlign="top" 
+					   Color="lime">
+				<String>%( (U:EDIT BUTTON SELECTED) )%!s!</String>
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

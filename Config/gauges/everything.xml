@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+<SimGauge.Gauge id="everything">
+<Element>
+<Element Context='background'>
+<Position X='0' Y='0' />
+<Line LineColor='gray' LineWidth='1'>
+<Point X='0' Y='0' />
+<Point X='0' Y='600' />
+</Line>
+<GaugeText X='10' Y='18' Font='sans-serif' Height='18' Color="(B:VEHICLE SHUTDOWN.Color) 'white' (N:VEHICLE SHUTDOWN) ?" >
+<String>VEHICLE SHUTDOWN</String>
+</GaugeText>
+<GaugeText X='10' Y='36' Font='sans-serif' Height='18' Color="(B:Forward Bilge Pump.Color) 'white' (N:Forward Bilge Pump) ?" >
+<String>Forward Bilge Pump</String>
+</GaugeText>
+<GaugeText X='10' Y='54' Font='sans-serif' Height='18' Color="(B:Rear Bilge Pump.Color) 'white' (N:Rear Bilge Pump) ?" >
+<String>Rear Bilge Pump</String>
+</GaugeText>
+<GaugeText X='10' Y='72' Font='sans-serif' Height='18' Color="(B:Engine J1939 No Comm Fault.Color) 'white' (N:Engine J1939 No Comm Fault) ?" >
+<String>Engine J1939 No Comm Fault</String>
+</GaugeText>
+<GaugeText X='10' Y='90' Font='sans-serif' Height='18' Color="(B:Transmission J1939 No Comm Fault.Color) 'white' (N:Transmission J1939 No Comm Fault) ?" >
+<String>Transmission J1939 No Comm Fault</String>
+</GaugeText>
+<GaugeText X='10' Y='108' Font='sans-serif' Height='18' Color="(B:Vehicle Network Down.Color) 'white' (N:Vehicle Network Down) ?" >
+<String>Vehicle Network Down</String>
+</GaugeText>
+<GaugeText X='10' Y='126' Font='sans-serif' Height='18' Color="(B:Trans Oil Level Low.Color) 'white' (N:Trans Oil Level Low) ?" >
+<String>Trans Oil Level Low</String>
+</GaugeText>
+<GaugeText X='10' Y='144' Font='sans-serif' Height='18' Color="(B:Trans Oil Level High.Color) 'white' (N:Trans Oil Level High) ?" >
+<String>Trans Oil Level High</String>
+</GaugeText>
+<GaugeText X='10' Y='162' Font='sans-serif' Height='18' Color="(B:Hydraulic Temp High.Color) 'white' (N:Hydraulic Temp High) ?" >
+<String>Hydraulic Temp High</String>
+</GaugeText>
+<GaugeText X='10' Y='180' Font='sans-serif' Height='18' Color="(B:Hydraulic Fluid Level Low.Color) 'white' (N:Hydraulic Fluid Level Low) ?" >
+<String>Hydraulic Fluid Level Low</String>
+</GaugeText>
+<GaugeText X='10' Y='198' Font='sans-serif' Height='18' Color="(B:Battery Voltage Low.Color) 'white' (N:Battery Voltage Low) ?" >
+<String>Battery Voltage Low</String>
+</GaugeText>
+<GaugeText X='10' Y='216' Font='sans-serif' Height='18' Color="(B:Engine Oil Level Low.Color) 'white' (N:Engine Oil Level Low) ?" >
+<String>Engine Oil Level Low</String>
+</GaugeText>
+<GaugeText X='10' Y='234' Font='sans-serif' Height='18' Color="(B:Engine Coolant Level Low.Color) 'white' (N:Engine Coolant Level Low) ?" >
+<String>Engine Coolant Level Low</String>
+</GaugeText>
+<GaugeText X='10' Y='252' Font='sans-serif' Height='18' Color="(B:OBVP Health.Color) 'white' (N:OBVP Health) ?" >
+<String>OBVP Health</String>
+</GaugeText>
+<GaugeText X='10' Y='270' Font='sans-serif' Height='18' Color="(B:MAN DOOR OPEN.Color) 'white' (N:MAN DOOR OPEN) ?" >
+<String>MAN DOOR OPEN</String>
+</GaugeText>
+<GaugeText X='10' Y='288' Font='sans-serif' Height='18' Color="(B:RAMP OPEN.Color) 'white' (N:RAMP OPEN) ?" >
+<String>RAMP OPEN</String>
+</GaugeText>
+<GaugeText X='10' Y='306' Font='sans-serif' Height='18' Color="(B:TRIM VANE DEPLOYED.Color) 'white' (N:TRIM VANE DEPLOYED) ?" >
+<String>TRIM VANE DEPLOYED</String>
+</GaugeText>
+<GaugeText X='10' Y='324' Font='sans-serif' Height='18' Color="(B:Fuel Tanks Differential Level.Color) 'white' (N:Fuel Tanks Differential Level) ?" >
+<String>Fuel Tanks Differential Level</String>
+</GaugeText>
+<GaugeText X='10' Y='342' Font='sans-serif' Height='18' Color="(B:Driver Hatch Open.Color) 'white' (N:Driver Hatch Open) ?" >
+<String>Driver Hatch Open</String>
+</GaugeText>
+<GaugeText X='10' Y='360' Font='sans-serif' Height='18' Color="(B:VC Hatch Open.Color) 'white' (N:VC Hatch Open) ?" >
+<String>VC Hatch Open</String>
+</GaugeText>
+<GaugeText X='10' Y='378' Font='sans-serif' Height='18' Color="(B:Troop Leader Hatch Open.Color) 'white' (N:Troop Leader Hatch Open) ?" >
+<String>Troop Leader Hatch Open</String>
+</GaugeText>
+<GaugeText X='10' Y='396' Font='sans-serif' Height='18' Color="(B:Crew Right Hatch Open.Color) 'white' (N:Crew Right Hatch Open) ?" >
+<String>Crew Right Hatch Open</String>
+</GaugeText>
+<GaugeText X='10' Y='414' Font='sans-serif' Height='18' Color="(B:Crew Left Hatch Open.Color) 'white' (N:Crew Left Hatch Open) ?" >
+<String>Crew Left Hatch Open</String>
+</GaugeText>
+<GaugeText X='10' Y='432' Font='sans-serif' Height='18' Color="(B:REAR STEER ENABLED.Color) 'white' (N:REAR STEER ENABLED) ?" >
+<String>REAR STEER ENABLED</String>
+</GaugeText>
+<GaugeText X='10' Y='450' Font='sans-serif' Height='18' Color="(B:SWIM PUMP SYNC Timeout.Color) 'white' (N:SWIM PUMP SYNC Timeout) ?" >
+<String>SWIM PUMP SYNC Timeout</String>
+</GaugeText>
+<GaugeText X='10' Y='468' Font='sans-serif' Height='18' Color="(B:ENG SHUTDOWN OVERRIDE.Color) 'white' (N:ENG SHUTDOWN OVERRIDE) ?" >
+<String>ENG SHUTDOWN OVERRIDE</String>
+</GaugeText>
+<GaugeText X='10' Y='486' Font='sans-serif' Height='18' Color="(B:WINCH IN USE.Color) 'white' (N:WINCH IN USE) ?" >
+<String>WINCH IN USE</String>
+</GaugeText>
+<GaugeText X='10' Y='504' Font='sans-serif' Height='18' Color="(B:do not enter water indicator.Color) 'white' (N:do not enter water indicator) ?" >
+<String>do not enter water indicator</String>
+</GaugeText>
+<GaugeText X='10' Y='522' Font='sans-serif' Height='18' Color="(B:Left tank fuel level sensor failure.Color) 'white' (N:Left tank fuel level sensor failure) ?" >
+<String>Left tank fuel level sensor failure</String>
+</GaugeText>
+<GaugeText X='10' Y='540' Font='sans-serif' Height='18' Color="(B:Right tank fuel level sensor failure.Color) 'white' (N:Right tank fuel level sensor failure) ?" >
+<String>Right tank fuel level sensor failure</String>
+</GaugeText>
+<GaugeText X='10' Y='558' Font='sans-serif' Height='18' Color="(B:Brake fluid level low.Color) 'white' (N:Brake fluid level low) ?" >
+<String>Brake fluid level low</String>
+</GaugeText>
+<GaugeText X='10' Y='576' Font='sans-serif' Height='18' Color="(B:Alternator charge fault.Color) 'white' (N:Alternator charge fault) ?" >
+<String>Alternator charge fault</String>
+</GaugeText>
+<GaugeText X='10' Y='594' Font='sans-serif' Height='18' Color="(B:Air cleaner clogged.Color) 'white' (N:Air cleaner clogged) ?" >
+<String>Air cleaner clogged</String>
+</GaugeText>
+<GaugeText X='10' Y='612' Font='sans-serif' Height='18' Color="(B:Coolant Level Warning.Color) 'white' (N:Coolant Level Warning) ?" >
+<String>Coolant Level Warning</String>
+</GaugeText>
+<GaugeText X='10' Y='630' Font='sans-serif' Height='18' Color="(B:Coolant Level Shutdown.Color) 'white' (N:Coolant Level Shutdown) ?" >
+<String>Coolant Level Shutdown</String>
+</GaugeText>
+<GaugeText X='10' Y='648' Font='sans-serif' Height='18' Color="(B:Coolant Circulation Shutdown.Color) 'white' (N:Coolant Circulation Shutdown) ?" >
+<String>Coolant Circulation Shutdown</String>
+</GaugeText>
+</Element>
+<Element>
+<Position X='375' Y='0' />
+<Line LineColor='gray' LineWidth='1'>
+<Point X='0' Y='0' />
+<Point X='0' Y='600' />
+</Line>
+<Element Context='background'>
+<Position X='10' Y='0' />
+<GaugeText X='0' Y='24' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Vehicle Speed.Low) (B:Vehicle Speed.High) (A:Vehicle Speed) rng ! ? " >
+<String>Vehicle Speed</String>
+</GaugeText>
+<GaugeText X='0' Y='48' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:RPM.Low) (B:RPM.High) (A:RPM) rng ! ? 'lime' (B:RPM.Green.Low) (B:RPM.Green.High) (A:RPM) rng ! ? 'Red' (B:RPM.Red.Low) (B:RPM.Red.High) (A:RPM) rng ! ? " >
+<String>RPM</String>
+</GaugeText>
+<GaugeText X='0' Y='72' Font='sans-serif' Height='24' Color="white" >
+<String>Terrain Mode indicator</String>
+</GaugeText>
+<GaugeText X='0' Y='96' Font='sans-serif' Height='24' Color="white" >
+<String>Date/Time</String>
+</GaugeText>
+<GaugeText X='0' Y='120' Font='sans-serif' Height='24' Color="white" >
+<String>Engine Hours</String>
+</GaugeText>
+<GaugeText X='0' Y='144' Font='sans-serif' Height='24' Color="white" >
+<String>Battle Mode</String>
+</GaugeText>
+<GaugeText X='0' Y='168' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Compass.Low) (B:Compass.High) (A:Compass) rng ! ? " >
+<String>Compass</String>
+</GaugeText>
+<GaugeText X='0' Y='192' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Fuel Level.Low) (B:Fuel Level.High) (A:Fuel Level) rng ! ? 'Red' (B:Fuel Level.Red.Low) (B:Fuel Level.Red.High) (A:Fuel Level) rng ! ? 'lime' (B:Fuel Level.Green.Low) (B:Fuel Level.Green.High) (A:Fuel Level) rng ! ? " >
+<String>Fuel Level</String>
+</GaugeText>
+<GaugeText X='0' Y='216' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Engine Coolant Temp.Low) (B:Engine Coolant Temp.High) (A:Engine Coolant Temp) rng ! ? 'lime' (B:Engine Coolant Temp.Green.Low) (B:Engine Coolant Temp.Green.High) (A:Engine Coolant Temp) rng ! ? 'Yellow' (B:Engine Coolant Temp.Yellow.Low) (B:Engine Coolant Temp.Yellow.High) (A:Engine Coolant Temp) rng ! ? 'Red' (B:Engine Coolant Temp.Red.Low) (B:Engine Coolant Temp.Red.High) (A:Engine Coolant Temp) rng ! ? " >
+<String>Engine Coolant Temp</String>
+</GaugeText>
+<GaugeText X='0' Y='240' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Engine Oil Temp.Low) (B:Engine Oil Temp.High) (A:Engine Oil Temp) rng ! ? 'lime' (B:Engine Oil Temp.Green.Low) (B:Engine Oil Temp.Green.High) (A:Engine Oil Temp) rng ! ? 'Yellow' (B:Engine Oil Temp.Yellow.Low) (B:Engine Oil Temp.Yellow.High) (A:Engine Oil Temp) rng ! ? 'Red' (B:Engine Oil Temp.Red.Low) (B:Engine Oil Temp.Red.High) (A:Engine Oil Temp) rng ! ? " >
+<String>Engine Oil Temp</String>
+</GaugeText>
+<GaugeText X='0' Y='264' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Engine Oil Pressure.Low) (B:Engine Oil Pressure.High) (A:Engine Oil Pressure) rng ! ? 'Red' (B:Engine Oil Pressure.Red.Low) (B:Engine Oil Pressure.Red.High) (A:Engine Oil Pressure) rng ! ? 'lime' (B:Engine Oil Pressure.Green.Low) (B:Engine Oil Pressure.Green.High) (A:Engine Oil Pressure) rng ! ? " >
+<String>Engine Oil Pressure</String>
+</GaugeText>
+<GaugeText X='0' Y='288' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Trans Oil Temp.Low) (B:Trans Oil Temp.High) (A:Trans Oil Temp) rng ! ? 'lime' (B:Trans Oil Temp.Green.Low) (B:Trans Oil Temp.Green.High) (A:Trans Oil Temp) rng ! ? 'Yellow' (B:Trans Oil Temp.Yellow.Low) (B:Trans Oil Temp.Yellow.High) (A:Trans Oil Temp) rng ! ? 'Red' (B:Trans Oil Temp.Red.Low) (B:Trans Oil Temp.Red.High) (A:Trans Oil Temp) rng ! ? " >
+<String>Trans Oil Temp</String>
+</GaugeText>
+<GaugeText X='0' Y='312' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Trans Oil Pressure.Low) (B:Trans Oil Pressure.High) (A:Trans Oil Pressure) rng ! ? 'Red' (B:Trans Oil Pressure.Red.Low) (B:Trans Oil Pressure.Red.High) (A:Trans Oil Pressure) rng ! ? 'lime' (B:Trans Oil Pressure.Green.Low) (B:Trans Oil Pressure.Green.High) (A:Trans Oil Pressure) rng ! ? " >
+<String>Trans Oil Pressure</String>
+</GaugeText>
+<GaugeText X='0' Y='336' Font='sans-serif' Height='24' Color="white" >
+<String>Rear Ramp Status</String>
+</GaugeText>
+<GaugeText X='0' Y='360' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Steering Wheel Angle.Low) (B:Steering Wheel Angle.High) (A:Steering Wheel Angle) rng ! ? 'Yellow' (B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ! ? 'lime' (B:Steering Wheel Angle.Green.Low) (B:Steering Wheel Angle.Green.High) (A:Steering Wheel Angle) rng ! ? 'Yellow' (B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ! ? " >
+<String>Steering Wheel Angle</String>
+</GaugeText>
+<GaugeText X='0' Y='384' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Current Gear.Low) (B:Current Gear.High) (A:Current Gear) rng ! ? " >
+<String>Current Gear</String>
+</GaugeText>
+<GaugeText X='0' Y='408' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Battery Voltage.Low) (B:Battery Voltage.High) (A:Battery Voltage) rng ! ? 'Red' (B:Battery Voltage.Red.Low) (B:Battery Voltage.Red.High) (A:Battery Voltage) rng ! ? 'lime' (B:Battery Voltage.Green.Low) (B:Battery Voltage.Green.High) (A:Battery Voltage) rng ! ? " >
+<String>Battery Voltage</String>
+</GaugeText>
+<GaugeText X='0' Y='432' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Latitude.Low) (B:Latitude.High) (A:Latitude) rng ! ? " >
+<String>Latitude</String>
+</GaugeText>
+<GaugeText X='0' Y='456' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Longitude.Low) (B:Longitude.High) (A:Longitude) rng ! ? " >
+<String>Longitude</String>
+</GaugeText>
+<GaugeText X='0' Y='480' Font='sans-serif' Height='24' Color="white" >
+<String>Driver Position</String>
+</GaugeText>
+<GaugeText X='0' Y='504' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Requested Gear.Low) (B:Requested Gear.High) (A:Requested Gear) rng ! ? " >
+<String>Requested Gear</String>
+</GaugeText>
+<GaugeText X='0' Y='528' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Starter Health.Low) (B:Starter Health.High) (A:Starter Health) rng ! ? 'Red' (B:Starter Health.Red.Low) (B:Starter Health.Red.High) (A:Starter Health) rng ! ? 'Yellow' (B:Starter Health.Yellow.Low) (B:Starter Health.Yellow.High) (A:Starter Health) rng ! ? 'lime' (B:Starter Health.Green.Low) (B:Starter Health.Green.High) (A:Starter Health) rng ! ? " >
+<String>Starter Health</String>
+</GaugeText>
+<GaugeText X='0' Y='552' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Capacitor Health.Low) (B:Capacitor Health.High) (A:Capacitor Health) rng ! ? 'Red' (B:Capacitor Health.Red.Low) (B:Capacitor Health.Red.High) (A:Capacitor Health) rng ! ? 'Yellow' (B:Capacitor Health.Yellow.Low) (B:Capacitor Health.Yellow.High) (A:Capacitor Health) rng ! ? 'lime' (B:Capacitor Health.Green.Low) (B:Capacitor Health.Green.High) (A:Capacitor Health) rng ! ? " >
+<String>Capacitor Health</String>
+</GaugeText>
+</Element>
+<Element Context='foreground'>
+<Position X='250' Y='0' />
+<GaugeText X='0' Y='24' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Vehicle Speed.Low) (B:Vehicle Speed.High) (A:Vehicle Speed) rng ! ? " >
+<String>%((A:Vehicle Speed))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='48' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:RPM.Low) (B:RPM.High) (A:RPM) rng ! ? 'lime' (B:RPM.Green.Low) (B:RPM.Green.High) (A:RPM) rng ! ? 'Red' (B:RPM.Red.Low) (B:RPM.Red.High) (A:RPM) rng ! ? " >
+<String>%((A:RPM))%!d!</String>
+</GaugeText>
+<GaugeText X='0' Y='72' Font='sans-serif' Height='24' Color="white" >
+<String>%((A:Terrain Mode indicator))%!s!</String>
+</GaugeText>
+<GaugeText X='0' Y='96' Font='sans-serif' Height='24' Color="white" >
+<String>%((A:Date/Time))%!t!</String>
+</GaugeText>
+<GaugeText X='0' Y='120' Font='sans-serif' Height='24' Color="white" >
+<String>%((A:Engine Hours))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='144' Font='sans-serif' Height='24' Color="white" >
+<String>%('true' 'false' (A:Battle Mode) ?)%!s!</String>
+</GaugeText>
+<GaugeText X='0' Y='168' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Compass.Low) (B:Compass.High) (A:Compass) rng ! ? " >
+<String>%((A:Compass))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='192' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Fuel Level.Low) (B:Fuel Level.High) (A:Fuel Level) rng ! ? 'Red' (B:Fuel Level.Red.Low) (B:Fuel Level.Red.High) (A:Fuel Level) rng ! ? 'lime' (B:Fuel Level.Green.Low) (B:Fuel Level.Green.High) (A:Fuel Level) rng ! ? " >
+<String>%((A:Fuel Level))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='216' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Engine Coolant Temp.Low) (B:Engine Coolant Temp.High) (A:Engine Coolant Temp) rng ! ? 'lime' (B:Engine Coolant Temp.Green.Low) (B:Engine Coolant Temp.Green.High) (A:Engine Coolant Temp) rng ! ? 'Yellow' (B:Engine Coolant Temp.Yellow.Low) (B:Engine Coolant Temp.Yellow.High) (A:Engine Coolant Temp) rng ! ? 'Red' (B:Engine Coolant Temp.Red.Low) (B:Engine Coolant Temp.Red.High) (A:Engine Coolant Temp) rng ! ? " >
+<String>%((A:Engine Coolant Temp))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='240' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Engine Oil Temp.Low) (B:Engine Oil Temp.High) (A:Engine Oil Temp) rng ! ? 'lime' (B:Engine Oil Temp.Green.Low) (B:Engine Oil Temp.Green.High) (A:Engine Oil Temp) rng ! ? 'Yellow' (B:Engine Oil Temp.Yellow.Low) (B:Engine Oil Temp.Yellow.High) (A:Engine Oil Temp) rng ! ? 'Red' (B:Engine Oil Temp.Red.Low) (B:Engine Oil Temp.Red.High) (A:Engine Oil Temp) rng ! ? " >
+<String>%((A:Engine Oil Temp))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='264' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Engine Oil Pressure.Low) (B:Engine Oil Pressure.High) (A:Engine Oil Pressure) rng ! ? 'Red' (B:Engine Oil Pressure.Red.Low) (B:Engine Oil Pressure.Red.High) (A:Engine Oil Pressure) rng ! ? 'lime' (B:Engine Oil Pressure.Green.Low) (B:Engine Oil Pressure.Green.High) (A:Engine Oil Pressure) rng ! ? " >
+<String>%((A:Engine Oil Pressure))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='288' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Trans Oil Temp.Low) (B:Trans Oil Temp.High) (A:Trans Oil Temp) rng ! ? 'lime' (B:Trans Oil Temp.Green.Low) (B:Trans Oil Temp.Green.High) (A:Trans Oil Temp) rng ! ? 'Yellow' (B:Trans Oil Temp.Yellow.Low) (B:Trans Oil Temp.Yellow.High) (A:Trans Oil Temp) rng ! ? 'Red' (B:Trans Oil Temp.Red.Low) (B:Trans Oil Temp.Red.High) (A:Trans Oil Temp) rng ! ? " >
+<String>%((A:Trans Oil Temp))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='312' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Trans Oil Pressure.Low) (B:Trans Oil Pressure.High) (A:Trans Oil Pressure) rng ! ? 'Red' (B:Trans Oil Pressure.Red.Low) (B:Trans Oil Pressure.Red.High) (A:Trans Oil Pressure) rng ! ? 'lime' (B:Trans Oil Pressure.Green.Low) (B:Trans Oil Pressure.Green.High) (A:Trans Oil Pressure) rng ! ? " >
+<String>%((A:Trans Oil Pressure))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='336' Font='sans-serif' Height='24' Color="white" >
+<String>%((A:Rear Ramp Status))%!s!</String>
+</GaugeText>
+<GaugeText X='0' Y='360' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Steering Wheel Angle.Low) (B:Steering Wheel Angle.High) (A:Steering Wheel Angle) rng ! ? 'Yellow' (B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ! ? 'lime' (B:Steering Wheel Angle.Green.Low) (B:Steering Wheel Angle.Green.High) (A:Steering Wheel Angle) rng ! ? 'Yellow' (B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ! ? " >
+<String>%((A:Steering Wheel Angle))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='384' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Current Gear.Low) (B:Current Gear.High) (A:Current Gear) rng ! ? " >
+<String>%((A:Current Gear))%!d!</String>
+</GaugeText>
+<GaugeText X='0' Y='408' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Battery Voltage.Low) (B:Battery Voltage.High) (A:Battery Voltage) rng ! ? 'Red' (B:Battery Voltage.Red.Low) (B:Battery Voltage.Red.High) (A:Battery Voltage) rng ! ? 'lime' (B:Battery Voltage.Green.Low) (B:Battery Voltage.Green.High) (A:Battery Voltage) rng ! ? " >
+<String>%((A:Battery Voltage))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='432' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Latitude.Low) (B:Latitude.High) (A:Latitude) rng ! ? " >
+<String>%((A:Latitude))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='456' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Longitude.Low) (B:Longitude.High) (A:Longitude) rng ! ? " >
+<String>%((A:Longitude))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='480' Font='sans-serif' Height='24' Color="white" >
+<String>%((A:Driver Position))%!s!</String>
+</GaugeText>
+<GaugeText X='0' Y='504' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Requested Gear.Low) (B:Requested Gear.High) (A:Requested Gear) rng ! ? " >
+<String>%((A:Requested Gear))%!d!</String>
+</GaugeText>
+<GaugeText X='0' Y='528' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Starter Health.Low) (B:Starter Health.High) (A:Starter Health) rng ! ? 'Red' (B:Starter Health.Red.Low) (B:Starter Health.Red.High) (A:Starter Health) rng ! ? 'Yellow' (B:Starter Health.Yellow.Low) (B:Starter Health.Yellow.High) (A:Starter Health) rng ! ? 'lime' (B:Starter Health.Green.Low) (B:Starter Health.Green.High) (A:Starter Health) rng ! ? " >
+<String>%((A:Starter Health))%!3.4f!</String>
+</GaugeText>
+<GaugeText X='0' Y='552' Font='sans-serif' Height='24' Color="'magenta' 'white' (B:Capacitor Health.Low) (B:Capacitor Health.High) (A:Capacitor Health) rng ! ? 'Red' (B:Capacitor Health.Red.Low) (B:Capacitor Health.Red.High) (A:Capacitor Health) rng ! ? 'Yellow' (B:Capacitor Health.Yellow.Low) (B:Capacitor Health.Yellow.High) (A:Capacitor Health) rng ! ? 'lime' (B:Capacitor Health.Green.Low) (B:Capacitor Health.Green.High) (A:Capacitor Health) rng ! ? " >
+<String>%((A:Capacitor Health))%!3.4f!</String>
+</GaugeText>
+</Element>
+
+</Element>
+</Element>
+</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="LAV3_Event_Handlers_Camera_Select">
+		<ActionMap>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT RIGHT</KeyEvent>
+				<Script>
+					(K:RIGHT) (=E:Change Camera Feed)
+//					(K:RIGHT) (=E:CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT LEFT</KeyEvent>
+				<Script>
+					(K:LEFT) (=E:Change Camera Feed)
+//					(K:LEFT) (=E:CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT UP</KeyEvent>
+				<Script>
+					(K:UP) (=E:Change Camera Feed)
+//					(K:UP) (=E:CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:CAMERA SELECT DOWN</KeyEvent>
+				<Script>
+					(K:DOWN) (=E:Change Camera Feed)
+//					(K:DOWN) (=E:CHANGE CAMERA)
+				</Script>
+			</Trigger>
+			<!--
+			NOTE: The event handler below will be replaced with a plug-in in the future.
+			-->
+		<!--
+			THIS IS THE MAIN EVENT THAT HANDLES FEED UPDATES
+			This event will raise the appropriate event (based on the current 
+			quadrant selected) to change a camera feed in a defined quadrant
+			NOTE: The value of the event defines the direction selected. The 
+			possible directions are K:UP, K:DOWN, K:LEFT, and K:RIGHT. These
+			directions are passed onto the next event if necessary.
+		-->
+		<Trigger>
+			<Event>E:Change Camera Feed</Event>
+			<Script>
+					(E:Change Camera Feed) (=E:Change Camera Feed SINGLE View)
+					(E:Change Camera Feed) (=E:Change Camera Feed QUAD View)
+				(U:View Layout) (K:View Single) == ?
+			</Script>
+		</Trigger>
+		<!--
+			THIS IS A SECONDARY EVENT THAT HANDLES FEED UPDATES
+			NOTE: The value of the event defines the direction selected. The 
+			possible directions are K:UP, K:DOWN, K:LEFT, and K:RIGHT. These
+			directions are passed onto the next event if necessary.
+		-->
+		<Trigger>
+			<Event>E:Change Camera Feed SINGLE View</Event>
+			<Script>
+				(E:Change Camera Feed SINGLE View) (=E:Change Camera Feed 1)
+			</Script>
+		</Trigger>
+		<!--
+			THIS IS A SECONDARY EVENT THAT HANDLES FEED UPDATES
+			NOTE: The value of the event defines the direction selected. The 
+			possible directions are K:UP, K:DOWN, K:LEFT, and K:RIGHT. These
+			directions are passed onto the next event if necessary.
+		-->
+		<Trigger>
+			<Event>E:Change Camera Feed QUAD View</Event>
+			<Script>
+				/*
+					(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 4)
+					(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 3)
+					(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 2)
+					(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 1)
+				4 (U:Current Quadrant Selected) case
+				*/
+					
+					(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 1)
+						(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 2)
+							(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 3)
+								(E:Change Camera Feed QUAD View) (=E:Change Camera Feed 4)
+								false
+							3 (U:Current Quadrant Selected) == ?
+						2 (U:Current Quadrant Selected) == ?
+					1 (U:Current Quadrant Selected) == ?
+				0 (U:Current Quadrant Selected) == ?
+			</Script>
+		</Trigger>
+		<!--
+			THIS IS A SECONDARY EVENT THAT HANDLES FEED UPDATES
+			NOTE: The value of the event defines the direction selected. The 
+			possible directions are K:UP, K:DOWN, K:LEFT, and K:RIGHT. These
+			directions are passed onto the next event if necessary.
+
+			For simplicity, each camera feed has it's own event handler. The camera position are defined
+			as enumerated value ranging from 0 to 7 (8 cameras). The camera selection will update the
+			camera feed in a clockwise direction where 0 is the front center camera. (See the event handler
+			E:INIT CAMERA for a list of the camera names in the prescribed order.
+		-->
+		<Trigger>
+			<Event>E:Change Camera Feed 1</Event>
+			<Script>
+//				(E:Change Camera Feed 1) "C:Selector " (U:Video Feed 1) + @=
+				"C:Selector " (U:Video Feed 1) + (=U:BYRON VIDEO FEED 1 CMD)
+						(K:Camera Rear-Right IR)
+							(K:Camera Rear IR)
+								(K:Camera Front-Center IR)
+									(K:Camera Observer IR)
+									(K:Camera Front-Right IR)
+								(D:Video Feed 1) (K:Camera Observer IR) ==  ?
+							(D:Video Feed 1) (K:Camera Front-Left IR) ==  ?							
+						(D:Video Feed 1) (K:Camera Rear-Left IR) ==  ?							
+					(D:Video Feed 1) (K:Camera Rear IR) == (D:Video Feed 1) (K:Camera Rear Color) == (D:Video Feed 1) (K:Camera Rear-Right IR) == OR OR ?
+							(K:Camera Rear-Left IR)
+								(K:Camera Rear IR)
+									(K:Camera Front-Center IR)
+										(K:Camera Observer IR)
+										(K:Camera Front-Left IR)
+									(D:Video Feed 1) (K:Camera Observer IR) ==  ?
+								(D:Video Feed 1) (K:Camera Front-Right IR) ==  ?							
+							(D:Video Feed 1) (K:Camera Rear-Right IR) ==  ?							
+						(D:Video Feed 1) (K:Camera Rear IR) == (D:Video Feed 1) (K:Camera Rear Color) == (D:Video Feed 1) (K:Camera Rear-Left IR) == OR OR ?
+								(K:Camera Rear Color)
+									(K:Camera Observer IR)
+									(K:Camera Rear IR)
+								(D:Video Feed 1) (K:Camera Front-Center IR) == (D:Video Feed 1) (K:Camera Front-Left IR) == (D:Video Feed 1) (K:Camera Front-Right IR) == OR OR ?
+							(D:Video Feed 1) (K:Camera Rear IR) == ?
+									(K:Camera Observer IR)
+									(K:Camera Front-Center IR)
+								(D:Video Feed 1) (K:Camera Rear-Left IR) == (D:Video Feed 1) (K:Camera Rear-Right IR) == (D:Video Feed 1) (K:Camera Rear IR) == (D:Video Feed 1) (K:Camera Rear Color) == OR OR OR ?
+								"Camera Unknown"
+							(E:Change Camera Feed 1) (K:UP) == ?
+						(E:Change Camera Feed 1) (K:DOWN) == ?
+					(E:Change Camera Feed 1) (K:LEFT) == ?
+				(E:Change Camera Feed 1) (K:RIGHT) == ? (=U:Feed 1 Position) both
+				(U:Feed 1 Position) (=C:Edit Camera) both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 2</Event>
+			<Script>
+						(K:Camera Rear-Right IR)
+							(K:Camera Rear IR)
+								(K:Camera Front-Center IR)
+									(K:Camera Observer IR)
+									(K:Camera Front-Right IR)
+								(D:Video Feed 2) (K:Camera Observer IR) ==  ?
+							(D:Video Feed 2) (K:Camera Front-Left IR) ==  ?							
+						(D:Video Feed 2) (K:Camera Rear-Left IR) ==  ?							
+					(D:Video Feed 2) (K:Camera Rear IR) == (D:Video Feed 2) (K:Camera Rear Color) == (D:Video Feed 2) (K:Camera Rear-Right IR) == OR OR ?
+							(K:Camera Rear-Left IR)
+								(K:Camera Rear IR)
+									(K:Camera Front-Center IR)
+										(K:Camera Observer IR)
+										(K:Camera Front-Left IR)
+									(D:Video Feed 2) (K:Camera Observer IR) ==  ?
+								(D:Video Feed 2) (K:Camera Front-Right IR) ==  ?							
+							(D:Video Feed 2) (K:Camera Rear-Right IR) ==  ?							
+						(D:Video Feed 2) (K:Camera Rear IR) == (D:Video Feed 2) (K:Camera Rear Color) == (D:Video Feed 2) (K:Camera Rear-Left IR) == OR OR ?
+								(K:Camera Rear Color)
+									(K:Camera Observer IR)
+									(K:Camera Rear IR)
+								(D:Video Feed 2) (K:Camera Front-Center IR) == (D:Video Feed 2) (K:Camera Front-Left IR) == (D:Video Feed 2) (K:Camera Front-Right IR) == OR OR ?
+							(D:Video Feed 2) (K:Camera Rear IR) == ?
+									(K:Camera Observer IR)
+									(K:Camera Front-Center IR)
+								(D:Video Feed 2) (K:Camera Rear-Left IR) == (D:Video Feed 2) (K:Camera Rear-Right IR) == (D:Video Feed 2) (K:Camera Rear IR) == (D:Video Feed 2) (K:Camera Rear Color) == OR OR OR ?
+								"Camera Unknown"
+							(E:Change Camera Feed 2) (K:UP) == ?
+						(E:Change Camera Feed 2) (K:DOWN) == ?
+					(E:Change Camera Feed 2) (K:LEFT) == ?
+				(E:Change Camera Feed 2) (K:RIGHT) == ? (=U:Feed 2 Position)
+				(U:Feed 2 Position) (=C:Edit Camera) both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 3</Event>
+			<Script>
+						(K:Camera Rear-Right IR)
+							(K:Camera Rear IR)
+								(K:Camera Front-Center IR)
+									(K:Camera Observer IR)
+									(K:Camera Front-Right IR)
+								(D:Video Feed 3) (K:Camera Observer IR) ==  ?
+							(D:Video Feed 3) (K:Camera Front-Left IR) ==  ?							
+						(D:Video Feed 3) (K:Camera Rear-Left IR) ==  ?							
+					(D:Video Feed 3) (K:Camera Rear IR) == (D:Video Feed 3) (K:Camera Rear Color) == (D:Video Feed 3) (K:Camera Rear-Right IR) == OR OR ?
+							(K:Camera Rear-Left IR)
+								(K:Camera Rear IR)
+									(K:Camera Front-Center IR)
+										(K:Camera Observer IR)
+										(K:Camera Front-Left IR)
+									(D:Video Feed 3) (K:Camera Observer IR) ==  ?
+								(D:Video Feed 3) (K:Camera Front-Right IR) ==  ?							
+							(D:Video Feed 3) (K:Camera Rear-Right IR) ==  ?							
+						(D:Video Feed 3) (K:Camera Rear IR) == (D:Video Feed 3) (K:Camera Rear Color) == (D:Video Feed 3) (K:Camera Rear-Left IR) == OR OR ?
+								(K:Camera Rear Color)
+									(K:Camera Observer IR)
+									(K:Camera Rear IR)
+								(D:Video Feed 3) (K:Camera Front-Center IR) == (D:Video Feed 3) (K:Camera Front-Left IR) == (D:Video Feed 3) (K:Camera Front-Right IR) == OR OR ?
+							(D:Video Feed 3) (K:Camera Rear IR) == ?
+									(K:Camera Observer IR)
+									(K:Camera Front-Center IR)
+								(D:Video Feed 3) (K:Camera Rear-Left IR) == (D:Video Feed 3) (K:Camera Rear-Right IR) == (D:Video Feed 3) (K:Camera Rear IR) == (D:Video Feed 3) (K:Camera Rear Color) == OR OR OR ?
+								"Camera Unknown"
+							(E:Change Camera Feed 3) (K:UP) == ?
+						(E:Change Camera Feed 3) (K:DOWN) == ?
+					(E:Change Camera Feed 3) (K:LEFT) == ?
+				(E:Change Camera Feed 3) (K:RIGHT) == ? (=U:Feed 3 Position)
+				(U:Feed 3 Position) (=C:Edit Camera) both
+			</Script>
+		</Trigger>
+		<Trigger>
+			<Event>E:Change Camera Feed 4</Event>
+			<Script>
+						(K:Camera Rear-Right IR)
+							(K:Camera Rear IR)
+								(K:Camera Front-Center IR)
+									(K:Camera Observer IR)
+									(K:Camera Front-Right IR)
+								(D:Video Feed 4) (K:Camera Observer IR) ==  ?
+							(D:Video Feed 4) (K:Camera Front-Left IR) ==  ?							
+						(D:Video Feed 4) (K:Camera Rear-Left IR) ==  ?							
+					(D:Video Feed 4) (K:Camera Rear IR) == (D:Video Feed 4) (K:Camera Rear Color) == (D:Video Feed 4) (K:Camera Rear-Right IR) == OR OR ?
+							(K:Camera Rear-Left IR)
+								(K:Camera Rear IR)
+									(K:Camera Front-Center IR)
+										(K:Camera Observer IR)
+										(K:Camera Front-Left IR)
+									(D:Video Feed 4) (K:Camera Observer IR) ==  ?
+								(D:Video Feed 4) (K:Camera Front-Right IR) ==  ?							
+							(D:Video Feed 4) (K:Camera Rear-Right IR) ==  ?							
+						(D:Video Feed 4) (K:Camera Rear IR) == (D:Video Feed 4) (K:Camera Rear Color) == (D:Video Feed 4) (K:Camera Rear-Left IR) == OR OR ?
+								(K:Camera Rear Color)
+									(K:Camera Observer IR)
+									(K:Camera Rear IR)
+								(D:Video Feed 4) (K:Camera Front-Center IR) == (D:Video Feed 4) (K:Camera Front-Left IR) == (D:Video Feed 4) (K:Camera Front-Right IR) == OR OR ?
+							(D:Video Feed 4) (K:Camera Rear IR) == ?
+									(K:Camera Observer IR)
+									(K:Camera Front-Center IR)
+								(D:Video Feed 4) (K:Camera Rear-Left IR) == (D:Video Feed 4) (K:Camera Rear-Right IR) == (D:Video Feed 4) (K:Camera Rear IR) == (D:Video Feed 4) (K:Camera Rear Color) == OR OR OR ?
+								"Camera Unknown"
+							(E:Change Camera Feed 4) (K:UP) == ?
+						(E:Change Camera Feed 4) (K:DOWN) == ?
+					(E:Change Camera Feed 4) (K:LEFT) == ?
+				(E:Change Camera Feed 4) (K:RIGHT) == ? (=U:Feed 4 Position)
+				(U:Feed 4 Position) (=C:Edit Camera) both
+			</Script>
+		</Trigger>
+		</ActionMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

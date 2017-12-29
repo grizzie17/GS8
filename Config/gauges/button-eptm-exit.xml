@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-eptm-exit">
+		<Update>
+			<Script>
+				<![CDATA[
+				// Define the button text
+				"EXIT" s6
+				"Pan &" s7	both
+				"Tilt" s8 both
+
+				// Define the button text colors
+				(U:COLOR_ButtonText) s1 s2 s3 both
+				
+				(U:BLACKOUT SELECTED) ! s0 both
+				]]>
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseUp id="MouseUp">
+				<KeyEvent>E:TOGGLE EPTM EXIT</KeyEvent>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

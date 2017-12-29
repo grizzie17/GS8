@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="label-adjust">
+		<Size>70,45</Size>
+		<Update>
+			<Script>
+				// Define the color (r1) and visibility (r0). The included "icon-XXXX" files utilize the registers.
+				0x009900 s1
+				(U:BLACKOUT SELECTED) ! (U:ADJUST ACTIVE) AND s0
+				both
+			</Script>
+		</Update>
+		<Element>
+			<Visible>(U:BLACKOUT SELECTED) ! (U:ADJUST ACTIVE) AND</Visible>
+			<Position X="0" Y="0" />
+			<!--
+			<GaugeText X="(S:SCREEN WIDTH) width - 2 /" Y="(S:SCREEN HEIGHT) 2 /" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="lime">
+				<String>%( (U:EDIT BUTTON SELECTED) )%!s!</String>
+			</GaugeText>
+			-->
+			<!--Element-->
+				<Select>
+					<Expression>
+						<Script>(U:EDIT BUTTON SELECTED)</Script>
+					</Expression>
+					<Case>
+						<ExpressionResult>"Bright"</ExpressionResult>
+						<Include File="icon-brightness"/>
+					</Case>
+					<Case>
+						<ExpressionResult>"Cntrst"</ExpressionResult>
+						<Include File="icon-contrast"/>
+					</Case>
+					<Case>
+						<ExpressionResult>"Sharp"</ExpressionResult>
+						<Include File="icon-sharpness"/>
+					</Case>
+					<Case>
+						<ExpressionResult>"Zoom"</ExpressionResult>
+						<Include File="icon-zoom"/>
+					</Case>
+				</Select>
+			<!--/Element-->
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

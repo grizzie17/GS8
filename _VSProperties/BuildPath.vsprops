@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="BuildPath"
+	UseMFC="FALSE"
+	OutputDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)"
+	IntermediateDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)\objs\$(ProjectName)"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		UsePrecompiledHeader="0"
+		MinimalRebuild="false"
+		WarningLevel="4"
+	/>
+  <Tool
+    Name="VCLinkerTool"
+    GenerateManifest="false"
+	/>
+  <Tool
+		Name="VCBscMakeTool"
+		OutputFile="$(IntDir)$(ProjectName).bsc"
+	/>
+</VisualStudioPropertySheet>

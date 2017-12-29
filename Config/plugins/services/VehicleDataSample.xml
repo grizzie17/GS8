@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VDDS Service Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+  <!--<Plugin Class="ServiceVehicleDataSample" Group="" ID="Vehicle Data Sample" >
+    <Param Name="Multicast Address" Type="STRING">235.55.55.5</Param>
+    <Param Name="Multicast Port" Type="INTEGER">55555</Param>
+    <Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+  </Plugin>-->
+
+  <Plugin Class="ServiceVehicleDirectLoad" Group="" ID="Vehicle Data Socket" >
+    <Param Name="Multicast Address" Type="STRING">235.55.55.5</Param>
+    <Param Name="Multicast Port" Type="INTEGER">55555</Param>
+    <Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+  </Plugin>
+
+
+  <!--<Plugin Class="ServiceVehicleSocket" Group="" ID="Vehicle Data Socket" >
+		<Param Name="Multicast Address" Type="STRING">235.55.55.5</Param>
+		<Param Name="Multicast Port" Type="INTEGER">55555</Param>
+	</Plugin>-->
+
+</Plugins>

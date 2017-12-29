@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<Panel id="JD_full_gauges" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 8 / s10		// Height of button area
+			r10 2 / s11						// center of button area
+			both
+
+			5 s0	// left screen margin
+			both
+			100 s1	// width of button
+			both
+
+			"Full Gauges" (=C:Window Title)
+			both
+
+			(U:COLOR_Background) (=C:Background Color)
+			both
+		</Script>
+	</Layout>
+	<!-- Define the BEZEL buttons -->
+	<GaugeInstance Name="JD-color-theme" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 0 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-units" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 1 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-gauge-state" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 2 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-gauge-detail" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 3 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 4 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 5 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 6 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 7 * r11 + height 2 / -" Width="r1" Height="r10"/>
+
+
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 0 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 1 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 2 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 3 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 4 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 5 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 6 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 7 * r11 + height 2 / -" Width="r1" Height="r10"/>
+
+	<GaugeInstance Name="icon-yogi" X="(S:SCREEN WIDTH) width - 2 / " Y="(S:SCREEN HEIGHT) height - 4 /" Width="(S:SCREEN WIDTH) 8 /" Height="(S:SCREEN HEIGHT) 6 /" />
+
+	<GaugeInstance Name="icon-fuel"
+				   X="(S:SCREEN WIDTH) 2 / width - 115 -"
+				   Y="(S:SCREEN HEIGHT) height - 230 -" />
+	<GaugeInstance Name="dial-fuel"
+				   X="(S:SCREEN WIDTH) width - 2 / 50 -"
+				   Y="(S:SCREEN HEIGHT) height - 200 -" />
+	
+	<GaugeInstance Name="dial-temperature"
+				   X="(S:SCREEN WIDTH) 2 / width - 160 -"
+				   Y="(S:SCREEN HEIGHT) height -" />
+	
+	<GaugeInstance Name="dial-oil"
+				   X="(S:SCREEN WIDTH) 2 / 175 +"
+				   Y="(S:SCREEN HEIGHT) height - 25 -" />
+	
+	<GaugeInstance Name="dial-rpm"
+				   X="(S:SCREEN WIDTH) 2 / width - 10 +" 
+				   Y="(S:SCREEN HEIGHT) height -" />
+	<GaugeInstance Name="dial-speed"
+				   X="(S:SCREEN WIDTH) 2 / 60 -" 
+				   Y="(S:SCREEN HEIGHT) height -" />
+
+	<!-- heading -->
+	<GaugeInstance Name="compass"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="0" />
+	<!--GaugeInstance Name="steeringangle"
+				   X="(S:SCREEN WIDTH) width - 5 -" Y="2" /-->
+	<GaugeInstance Name="@alert-everything"
+				   X="(S:SCREEN WIDTH) 2 / 100 -" 
+				   Y="(S:SCREEN HEIGHT) 320 - height -" />
+
+	<!-- heading -->
+	<GaugeInstance Name="compass"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="0" />
+	<!--<GaugeInstance Name="steeringangle"
+				   X="62" Y="2" />-->
+
+	<!-- time/lat-lon      NOTE: The entry "60 -" is used to move the gauge from the BEZEL button text -->
+	<GaugeInstance Name="time-left"
+				   X="10" Y="5" />
+	<GaugeInstance Name="latlong-left"
+				   X="10" Y="25" />
+
+
+	<GaugeInstance Name="icon-fuel"
+				   X="10 10 +" Y="40 20 +" />
+	<GaugeInstance Name="slider-fuel"
+					X="50 10 +" Y="30 20 +" />
+	<GaugeInstance Name="slider-engine-coolant-temp"
+					X="77 10 +" Y="30 20 +" />
+	<GaugeInstance Name="icon-temperature-coolant"
+				   X="105 10 +" Y="40 20 +" />
+
+	<GaugeInstance Name="icon-engine-oil-pressure"
+				   X="3 10 +" Y="150 20 +" />
+	<GaugeInstance Name="slider-engine-oil-pressure"
+					X="50 10 +" Y="130 20 +" />
+	<GaugeInstance Name="slider-engine-oil-temp"
+					X="77 10 +" Y="130 20 +" />
+	<GaugeInstance Name="icon-temperature-oil"
+				   X="105 10 +" Y="140 20 +" />
+
+	<GaugeInstance Name="icon-trans-oil-pressure"
+				   X="3 10 +" Y="250 20 +" />
+	<GaugeInstance Name="slider-trans-oil-pressure"
+					X="50 10 +" Y="230 20 +" />
+	<GaugeInstance Name="slider-trans-oil-temp"
+					X="77 10 +" Y="230 20 +" />
+	<GaugeInstance Name="icon-temperature-trans"
+				   X="105 10 +" Y="240 20 +" />
+
+	<GaugeInstance Name="icon-battery"
+				   X="10 10 +" Y="350 20 +" />
+	<GaugeInstance Name="slider-battery-voltage"
+				   X="50 10 +" Y="330 20 +" />
+
+	<GaugeInstance Name="slider-starter"
+				   X="50 10 +" Y="430 20 +"/>
+	<GaugeInstance Name="icon-starter"
+				   X="3 10 +" Y="450 20 +"/>
+	<GaugeInstance Name="slider-capacitor"
+				   X="77 10 +" Y="430 20 +"/>
+	<GaugeInstance Name="icon-capacitor"
+				   X="105 10 +" Y="450 20 +"/>
+
+
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL2"	Event="E:TOGGLE GAUGE STATE" />
+			<Key id="2"			Event="E:TOGGLE GAUGE STATE" />
+			<Key id="BEZEL3"	Event="E:TOGGLE GAUGE DETAIL" />
+			<Key id="3"			Event="E:TOGGLE GAUGE DETAIL" />
+			<Key id="BEZEL8"	Event="E:TOGGLE DAYNIGHT" />
+			<Key id="8"			Event="E:TOGGLE DAYNIGHT" />
+		</OnDown>
+	</KeyEventMap>
+
+</Panel>
+

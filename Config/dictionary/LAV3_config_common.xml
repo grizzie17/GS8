@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<Item ID="Client" Type="STRING">vdds_client</Item>
+	<Item ID="Video Sources" Type="STRING" >LAV3_video_sources</Item>
+	<Item ID="Active Commands" Type="STRING">LAV3_vdds</Item>
+	<Item ID="Dictionary Settings" Type="STRING">LAV3_Settings</Item>
+	<Item ID="Startup Events" Type="STRING">
+		E:INIT CAMERA
+		E:UNITS IMPERIAL
+	</Item>
+
+</Configuration>

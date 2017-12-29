@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-single_commander">
+		<ActionMap>
+			<Trigger>
+				<Event>E:Change Layout</Event>
+				<Script>
+					/*
+						Determine if new layout has been updated to K:View Single. If so
+						update U:View Layout with the new state so that the next UPDATE
+						cycle will result in a new layout to be displayed.
+					*/
+					(K:View Single) (=U:View Layout)
+					false
+					(K:View Single) (E:Change Layout) == ?
+				</Script>
+			</Trigger>
+		</ActionMap>
+		<Update>
+			<Frequency>2</Frequency>
+			<Script>
+					/*
+					Refer to IMPORTANT COMMENT below
+					*/
+					/*
+						R10 is set to the current camera type of "IR" or "Color"
+						Update the video feed with latest camera selection
+						Set the screen layout to single
+					*/
+					"Color" "IR" (U:DAY SELECTED) ? s10
+					"K:" (U:Feed 1 Position) + r10 + @  (?C:Video Feed 1) both
+					(K:View Single) (=C:View Layout) both
+					
+					/*
+						DUMMY return, aka "Do nothing"
+					*/
+					true
+				
+				/*
+				**************************
+				IMPORTANT COMMENT
+				**************************
+				The above camera selections are made iff the layout is configured for FORWARD
+				If this is TRUE, then the condition starts at the beginning of this script!
+				*/
+				(U:View Layout) (K:View Single) == ?
+			</Script>
+		</Update>
+		<Element Context="background">
+		<Visibility>
+			(U:View Layout) (K:View Single) ==
+			(U:View Layout) (K:View Single) ==
+			AND
+		</Visibility>
+			<Element>
+				<!--
+				Center View, display an ICON representing the camera postion active 
+				located 35 pixels from the right of the screen, down from top 45 pixels
+				-->
+				<Position X="0" Y="0" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) s0" Y="0" />
+					<Point X="r0" Y="(S:SCREEN HEIGHT) s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="(S:SCREEN WIDTH) 150 -" Y="(S:SCREEN HEIGHT) 75 -" />
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 1) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Right-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rightrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Forward " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftfront"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Left-Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_leftrear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rear"/>
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Observer " r10 + @</Script>
+							</Expression>
+							<Include File="camera_observer"/>
+						</Case>
+						<CaseElse>
+							<Include File="camera_lost"/>
+						</CaseElse>
+					</Select>
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<Include File="configurationPROJ"/>
+
+	<Item ID="Server" Type="STRING">vdds_camera_server</Item>
+	<Item ID="Video Sources" Type="STRING" >$(PROJ)_video_sources</Item>
+</Configuration>

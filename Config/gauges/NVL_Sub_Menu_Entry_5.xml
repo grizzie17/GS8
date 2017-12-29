@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="NVL_Sub_Menu_Entry_5">
+
+		<Update>
+			<Script>
+				4 s7
+				0x00FF00 s1 both
+			</Script>
+		</Update>
+
+		<Size>130,20</Size>
+		<Element>
+			<Select>
+				<Expression>
+					<Script>(U:Main Menu Ptr)</Script>
+				</Expression>
+				<Case>
+					<Expression>
+						<Script>(K:Main Menu ID SCREEN MODE)</Script>
+					</Expression>
+					<Include File="NVL_Sub_Menu_Items_Screen_Mode"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:Main Menu ID CAMERA SETTINGS)</Script>
+					</Expression>
+					<Include File="NVL_Sub_Menu_Items_Camera_Settings"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:Main Menu ID QUADRANT)</Script>
+					</Expression>
+					<Include File="NVL_Sub_Menu_Items_Quadrant"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:Main Menu ID MISC)</Script>
+					</Expression>
+					<Include File="NVL_Sub_Menu_Items_Misc"/>
+				</Case>
+				<Case>
+					<Expression>
+						<Script>(K:Main Menu ID EXIT)</Script>
+					</Expression>
+					<Include File="NVL_Sub_Menu_Items_Exit"/>
+				</Case>
+			</Select>
+		</Element>
+		<MouseArea id="MouseArea">
+			<Visible>
+				TRUE
+			</Visible>
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>130,20</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent></KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

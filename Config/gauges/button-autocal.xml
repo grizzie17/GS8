@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-autocal">
+		<Update>
+			<!-- s1 defines the icon color -->
+			<Script>
+				"Auto Cal" (=G:CalibrationLabel)
+
+				0x00FF00 0x00FFFF (S:MILLI) (U:Blink Calibration Timeout) &gt; ? s1
+				both
+
+				(D:Camera Cap Auto Calibration) (K:Unsupported) != (U:BLACKOUT SELECTED) ! AND s0
+				both
+			</Script>
+		</Update>
+		<Size>70,60</Size>
+		<Element>
+			<Include File="icon-autocal"/>
+		</Element>
+		<!--
+		<Update>
+			<Script>
+				'AUTO'
+				'MAN'
+				(U:AUTO CAL SELECTED) ? (=G:CalibrationLabel)
+			</Script>
+		</Update>
+		<Size>75,45</Size>
+		<Element>
+			<Visible>
+				(U:BLACKOUT SELECTED) !
+			</Visible>
+			<GaugeText X="0" Y="0" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="'gold' 'lime' (U:AUTO CAL SELECTED) ? s0">
+				<String>AutoCal</String>
+			</GaugeText>
+			<GaugeText X="0" Y="20" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="r0">
+				<String>%( (G:CalibrationLabel) )%!s!</String>
+			</GaugeText>
+		</Element>
+		-->
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>40,45</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:TOGGLE CALIBRATION</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

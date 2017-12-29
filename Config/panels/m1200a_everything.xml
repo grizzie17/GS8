@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Panel id="m1200a_everything">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 8 / s10		// Height of button area
+			r10 2 / s11						// center of button area
+			both
+
+			5 s0	// left screen margin
+			both
+		</Script>
+	</Layout>
+	<GaugeInstance Name="everything" X="0" Y="0" />
+	<GaugeInstance Name="m1200a-button-seat_position" X="(S:SCREEN WIDTH) width - 5 -" Y="r10 2 * r11 + height 2 / -"/>
+	<!--<GaugeInstance Name="touch-recalibrate" />-->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="RIGHT" Event="E:MOVE RIGHT" />
+			<Key id="UP" Event="E:MOVE UP" />
+			<Key id="DOWN" Event="E:MOVE DOWN" />
+			<Key id="LEFT" Event="E:MOVE LEFT" />
+			<Key id="HOME" Event="E:MOVE HOME" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

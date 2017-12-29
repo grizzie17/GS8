@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Panel id="touch_calibrate"
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Panels.xsd">
+	<Layout>
+		<Script>
+			"Touch Screen Calibrate" (?C:Window Title)
+			0 "C:Touch Start" =@
+			both
+			
+			"black" color (=C:Background Color)
+			both
+		</Script>
+	</Layout>
+	<GaugeInstance Name="touch-calibrate" X="0" Y="0" />
+</Panel>

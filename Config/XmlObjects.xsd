@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" 
+		   elementFormDefault="qualified" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	
+	
+	
+	<!-- Attributes -->
+
+	<xs:attribute name="Name" type="xs:string" />
+	<xs:attribute name="Ref" type="xs:string" />
+	<xs:attribute name="Descr" type="xs:string" />
+	<xs:attribute name="Factory" type="xs:string" />
+	<xs:attribute name="File" type="xs:string" />
+	<xs:attribute name="Type" type="xs:string" />
+	<xs:attribute name="Default" type="xs:string" />
+	<xs:attribute name="Units" type="xs:string" />
+	<xs:attribute name="ID" type="xs:string" />
+	<xs:attribute name="MaxOccurs" type="xs:unsignedInt" />
+	<xs:attribute name="MinOccurs" type="xs:unsignedInt" />
+	<xs:attribute name="Required" type="xs:boolean" />
+	<xs:attribute name="Version" type="xs:string" />
+	<xs:attribute name="Empty" type="xs:boolean" />
+	<xs:attribute name="Root" type="xs:boolean" />
+	<xs:attribute name="Ignore" type="xs:boolean" />
+
+
+	<!-- root node for schema -->
+	<xs:element name="XmlObjects">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="TypeDefs" />
+					<xs:element ref="AttributeDefs" />
+					<xs:element ref="PropertyDefs" />
+					<xs:element ref="NPropertyDefs" />
+					<xs:element ref="SetDefs" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+
+	
+	
+	
+	<xs:element name="TypeDefs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="TypeDef" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="TypeDef">
+		<xs:complexType>
+			<xs:attribute ref="Name" use="required" />
+			<xs:attribute ref="Factory" use="required" />
+			<xs:attribute ref="Descr" />
+			<!-- need to insert definition that supports enums -->
+		</xs:complexType>
+	</xs:element>
+
+	
+	
+	
+
+	<xs:element name="AttributeDefs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="AttributeDef" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="AttributeDef">
+		<xs:complexType>
+			<xs:attribute ref="Name" use="required" />
+			<xs:attribute ref="Type" use="required" />
+			<xs:attribute ref="Default" />
+			<xs:attribute ref="Descr" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="AttributeGroupDef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Attribute" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+
+	<!--
+		Properties always identify values
+		Attributes are optional
+	-->
+
+
+	<xs:element name="PropertyDefs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="PropertyDef" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PropertyDef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Attribute" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute ref="Name" use="required" />
+			<xs:attribute ref="Factory" use="required" />
+			<xs:attribute ref="Type" use="required" />
+			<xs:attribute ref="Default" />
+			<xs:attribute ref="Descr" />
+			<xs:attribute ref="Ignore" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+
+	<!--
+		NProperties identify only attributes (never values)
+	-->
+
+
+	<xs:element name="NPropertyDefs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="NPropertyDef" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="NPropertyDef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Attribute" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute ref="Name" use="required" />
+			<xs:attribute ref="Factory" use="required" />
+			<xs:attribute ref="Descr" />
+			<xs:attribute ref="Ignore" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+
+	<!--
+		Sets are containers for other entities
+		Sets cannot directly identify values
+		Sets are allowed to have no nested entities but only attributes
+	-->
+	<xs:element name="SetDefs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="SetDef" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SetDef">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Attribute" />
+					<xs:element ref="Property" />
+					<xs:element ref="NProperty" />
+					<xs:element ref="Set" />
+					<xs:element ref="Include" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute ref="Name" use="required" />
+			<xs:attribute ref="Factory" use="required" />
+			<xs:attribute ref="Descr" />
+			<xs:attribute ref="Root" />
+			<xs:attribute ref="Ignore" />
+		</xs:complexType>
+	</xs:element>
+
+	
+	
+	<!-- Used within Sets -->
+
+	<xs:element name="Attribute">
+		<xs:complexType>
+			<xs:attribute ref="Ref" use="required" />
+			<xs:attribute ref="Required" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Property">
+		<xs:complexType>
+			<xs:attribute ref="Ref" use="required" />
+			<xs:attribute ref="MaxOccurs" />
+			<xs:attribute ref="MinOccurs" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="NProperty">
+		<xs:complexType>
+			<xs:attribute ref="Ref" use="required" />
+			<xs:attribute ref="MaxOccurs" />
+			<xs:attribute ref="MinOccurs" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="Set">
+		<xs:complexType>
+			<xs:attribute ref="Ref" use="required" />
+			<xs:attribute ref="MaxOccurs" />
+			<xs:attribute ref="MinOccurs" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="Include">
+		<xs:complexType>
+			<xs:attribute name="File" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+	<!-- not being used -->
+
+	<xs:element name="Item">
+		<xs:complexType mixed="true">
+			<xs:attribute ref="ID" use="required" />
+			<xs:attribute ref="Type" use="required" />
+			<xs:attribute ref="Units" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+</xs:schema>

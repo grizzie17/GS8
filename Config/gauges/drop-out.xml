@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="transmission-selector">
+		<Update>
+			<Script>
+
+
+				(S:MILLI) 20000 +
+
+				(G:Timeout)
+
+				(U:Drop Out Time) (G:Previous Selector) != ? (=G:Timeout)
+				both
+
+				/*
+				Store off the current xmsn state for next update
+				*/
+				(U:Drop Out Time) (=G:Previous Selector)
+				both
+			</Script>
+		</Update>
+		<Size>300,40</Size>
+		<Element Context="foreground">
+			<!--
+				Visible if a change is detected. Will be visible for 5000 mSec.
+			-->
+			<Visibility> (S:MILLI) (G:Timeout) &lt;</Visibility>
+			<Element>
+				<!--
+					Display the possible xmsn selection while highlighting the current selected position.
+				-->
+				<!--[D] DRIVE-->
+				<GaugeText X="1" Y="1" Font="Arial" Height="36"
+						   VerticalAlign="top" Align="center"
+						   Color="magenta">
+					<String>DROP OUT</String>
+				</GaugeText>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

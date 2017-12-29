@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="arcs">
+		<Size>220,228</Size>
+		<Element>
+			
+			<Visible>(G:HIDE/SHOW) !</Visible>
+			<Element>
+				<Position X="110" Y="110" />
+				<Element>
+					<Rotation>360 (T:SLIDER) 50 % 50 / 360 * -</Rotation>
+					<Arc X="0" Y="0" Radius="110" StartAngle="0" EndAngle="90" LineWidth="4" LineColor="red" />
+				</Element>
+				<Element>
+					<Rotation>(T:SLIDER) 50 % 50 / 360 *</Rotation>
+					<Arc X="0" Y="0" Radius="105" StartAngle="0" EndAngle="90" LineWidth="4" LineColor="orange" />
+				</Element>
+				<Element>
+					<Rotation>360 (T:SLIDER) 100 % 100 / 360 * -</Rotation>
+					<Arc X="0" Y="0" Radius="100" StartAngle="0" EndAngle="90" LineWidth="4" LineColor="gold" />
+				</Element>
+				<Element>
+					<Rotation>360 (T:SLIDER) 25 % 25 / 360 * -</Rotation>
+					<Arc X="0" Y="0" Radius="96" StartAngle="0" EndAngle="180 3 /" LineWidth="4" LineColor="yellow" />
+				</Element>
+				<Element>
+					<Rotation>360 (T:MILLI) 10000 % 50 / 200 / 360 * -</Rotation>
+					<Pie X="0" Y="0" Radius="50" StartAngle="0" EndAngle="180 0.75 *" FillColor="limegreen" />
+				</Element>
+				<Element>
+					<Rotation>(T:MILLI) 5000 % 50 / 100 / 360 *</Rotation>
+					<Pie X="0" Y="0" Radius="90" StartAngle="0" EndAngle="180 3 /" LineColor="lime" FillColor="lime" />
+				</Element>
+			</Element>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:ARCS HIDE/SHOW</KeyEvent>
+				<Script>(G:HIDE/SHOW) ! (&gt;G:HIDE/SHOW)</Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>	
+</SimBase.Document>

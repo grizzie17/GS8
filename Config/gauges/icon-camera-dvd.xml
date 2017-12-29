@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-camera-RR" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Circle LineColor="r1" LineWidth="2"
+				X="20" Y="20" Radius="17"
+				Color="r1" />
+		<Polyline LineColor="r1" LineWidth="2">
+			<Point X="12" Y="10"/>
+			<Point X="30" Y="20"/>
+			<Point X="12" Y="30"/>
+			<Point X="12" Y="10"/>
+		</Polyline>
+	</Element>
+</Gauge>

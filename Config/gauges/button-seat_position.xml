@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-seat_position">
+		<Size>70,60</Size>
+		<Update>
+			<!-- s1 defines the icon color -->
+			<Script>
+				// Define the button text
+				 "Seat" s6
+				"Position" s7 both
+				"UP" "DOWN" (U:SEAT POSITION UP) ? s8 both
+				
+				// Define the text colors
+				(U:COLOR_ButtonText) s1 both
+				r1 s2 both
+				r1 s3 both
+				
+				(U:BLACKOUT SELECTED) ! s0
+				both
+			</Script>
+		</Update>
+		<Element>
+			<Include File="icon-text" />
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>70,60</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:TOGGLE SEAT POSITION</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+		<!--
+		THE BLACKOUT EVENT IS HANDLED IN THE SCREEN XML FILE (see squad_screen.xml)
+		-->
+	</SimGauge.Gauge>
+</SimBase.Document>

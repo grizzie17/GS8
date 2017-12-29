@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="snake">
+		<Size X="40" Y="220" />
+		<Element>
+			<Position X="0" Y="100" />
+			<Polyline LineColor="green" LineWidth="3">
+				<Point X="0" Y="0" />
+				<Point X="5 1 *" Y="100 (T:PULSER) - 25 -" />
+				<Point X="5 2 *" Y="(T:PULSER) 1.5 * 50 -" />
+				<Point X="5 3 *" Y="(T:PULSER) 2.0 / 50 -" />
+				<Point X="5 4 *" Y="(T:PULSER) 1.5 * /-/ 50 +" />
+				<Point X="5 5 *" Y="(T:PULSER)" />
+				<Point X="5 6 *" Y="(T:PULSER) 1.25 * 50 - /-/" />
+				<Point X="5 7 *" Y="0" />
+			</Polyline>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

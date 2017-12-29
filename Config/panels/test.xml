@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Panel id="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<GaugeInstance Name="resized" X="0" Y="(S:SCREEN HEIGHT) height -"
+				   Width="(S:SCREEN WIDTH) 6 /" Height="(S:SCREEN HEIGHT) 6 /"/>
+	<GaugeInstance Name="bob" X="700" Y="10" />
+	<GaugeInstance Name="arcs2" X="5" Y="5" />
+	<GaugeInstance Name="dial" X="230" Y="5"/>
+	<GaugeInstance Name="slider" X="460" Y="5"/>
+	<GaugeInstance Name="sliderhider" X="500" Y="5" />
+	<GaugeInstance Name="oilpressurelight" X="540" Y="5" />
+	<GaugeInstance Name="snake" X="630" Y="5" />
+	<GaugeInstance Name="rotary270" X="5" Y="230" />
+	<GaugeInstance Name="rotary" X="230" Y="230" />
+	<GaugeInstance Name="temperature" X="450" Y="230" />
+	<GaugeInstance Name="fuel" X="510" Y="230" />
+	<GaugeInstance Name="tempgreen2" X="610" Y="230" />
+	<GaugeInstance Name="change-panel" X="(S:SCREEN WIDTH) 2 /" Y="(S:SCREEN HEIGHT) 30 -" />
+	<KeyEventMap>
+		<OnDown>
+			<Key id="F5" Event="E:ARCS HIDE/SHOW" />
+			<Key id="F6" Event="E:DIAL HIDE/SHOW" />
+			<Key id="F7" Event="E:ROTARY270 HIDE/SHOW" />
+			<Key id="F8" Event="E:ROTARY HIDE/SHOW" />
+			<Key id="F9" Event="E:FUEL COLOR" />
+			<Key id="1" Event="E:ARCS HIDE/SHOW" />
+			<Key id="2" Event="E:DIAL HIDE/SHOW" />
+			<Key id="3" Event="E:ROTARY270 HIDE/SHOW" />
+			<Key id="4" Event="E:ROTARY HIDE/SHOW" />
+			<Key id="Q" Event="E:ARCS HIDE/SHOW" />
+			<Key id="W" Event="E:DIAL HIDE/SHOW" />
+			<Key id="A" Event="E:ROTARY270 HIDE/SHOW" />
+			<Key id="S" Event="E:ROTARY HIDE/SHOW" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

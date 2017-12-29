@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" 
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="color-scheme">
+		<Update>
+			<!-- 
+			Color Scheme:
+			
+			COLOR_Background
+			
+			COLOR_3DFace
+			COLOR_3DHighlight
+			COLOR_3DShadow
+			
+			COLOR_ButtonText
+			COLOR_ButtonTextSelected
+			COLOR_ButtonTextDisabled
+			COLOR_ButtonIcon
+			COLOR_ButtonIconSelected
+			COLOR_ButtonIconDisabled
+			COLOR_ButtonFace
+			COLOR_ButtonBorder
+			COLOR_ButtonBorderSelected
+			
+			COLOR_Text
+			COLOR_TextDisabled
+			COLOR_TextSafe
+			COLOR_TextAlert
+			COLOR_TextWarning
+			COLOR_TextMask
+			
+			COLOR_Icon
+			COLOR_IconDisabled
+			COLOR_IconSafe
+			COLOR_IconAlert
+			COLOR_IconWarning
+			COLOR_IconMask
+			
+			
+			COLOR_InfoBackground
+			COLOR_InfoText
+			
+			COLOR_Menu
+			COLOR_MenuText
+		
+			-->
+			<Script>
+
+				'background' colorname (=U:COLOR_Background)
+
+				'yellow' colorname (=U:COLOR_ButtonText) both
+				'gold' colorname (=U:COLOR_ButtonTextSelected) both
+				'coral' colorname (=U:COLOR_ButtonTextDisabled) both
+				'black' colorname (=U:COLOR_ButtonTextMask) both
+				'yellow' colorname (=U:COLOR_ButtonIcon) both
+				'gold' colorname (=U:COLOR_ButtonIconSelected) both
+				'coral' colorname (=U:COLOR_ButtonIconDisabled) both
+				'black' colorname (=U:COLOR_ButtonIconMask) both
+
+				'gold' colorname (=U:COLOR_Text) both
+				'coral' colorname (=U:COLOR_TextDisabled) both
+				'lime' colorname (=U:COLOR_TextSafe) both
+				'gold' colorname (=U:COLOR_TextAlert) both
+				'red' colorname (=U:COLOR_TextWarning) both
+				'black' colorname (=U:COLOR_TextMask) both
+
+				'gold' colorname (=U:COLOR_Icon) both
+				'coral' colorname (=U:COLOR_IconDisabled) both
+				'lime' colorname (=U:COLOR_IconSafe) both
+				'orange' colorname (=U:COLOR_IconAlert) both
+				'red' colorname (=U:COLOR_IconWarning) both
+				'black' colorname (=U:COLOR_IconMask) both
+
+
+			</Script>
+		</Update>
+	</SimGauge.Gauge>
+</SimBase.Document>

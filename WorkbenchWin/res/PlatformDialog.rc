@@ -1,0 +1,173 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOGEX 0, 0, 427, 297
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+MENU IDR_MENU1
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_PROGRESS_BAR DIALOGEX 0, 0, 168, 29
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Exiting ..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,7,154,15
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 420
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 290
+    END
+
+    IDD_PROGRESS_BAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 161
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 22
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open",                       ID_LOAD_IOP
+        MENUITEM "&Load VTP File",              40004
+        MENUITEM "&Ignition On",                ID_FILE_IGNITIONSWITCHTOGGLE, CHECKED
+        POPUP "Compact Flash Card"
+        BEGIN
+            MENUITEM "Door Open",                   ID_COMPACTFLASHCARD_DOOR
+            MENUITEM "Card Inserted",               ID_COMPACTFLASHCARD_CARD, GRAYED
+            MENUITEM "Simulated CF Drive",          ID_COMPACTFLASHCARD_SIMULATEDCFDRIVE, CHECKED, INACTIVE
+        END
+        POPUP "Debug"
+        BEGIN
+            MENUITEM "Show VT Msgs",                ID_FILE_TOGGLEMSGS
+            MENUITEM "Automated Test Mode",         ID_DEBUG_AUTOMATEDTESTMODE
+            MENUITEM "plow",                        ID_DEBUG_PLOW
+            MENUITEM "Show Message Queues",         ID_DEBUG_SHOWMESSAGEQUEUES
+            MENUITEM "Screenshot",                  ID_DEBUG_SCREENSHOT
+            MENUITEM "System Dump",                 ID_DEBUG_SYSTEMDUMP
+            MENUITEM "ToggleMsgs",                  ID_DEBUG_TOGGLEMSGS
+            MENUITEM "Toggle Network Check",        ID_DEBUG_TOGGLENETWORKCHECK, CHECKED
+            MENUITEM "Dump Leader List",            ID_DEBUG_DUMPLEADERLIST
+            MENUITEM "Timers",                      ID_DEBUG_TIMERS
+        END
+        MENUITEM "Load Iop",                    ID_FILE_LOAD_IOP
+    END
+    POPUP "Test"
+    BEGIN
+        MENUITEM "FileSystemService",           ID_TEST_FILESYSTEMSERVICE
+        MENUITEM "RemoteDisplayView",           ID_TEST_REMOTEDISPLAYVIEW
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_LOAD_VTP        "Load a VT Plus Command File"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

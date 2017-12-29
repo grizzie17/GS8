@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Panel id="none"
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Panels.xsd">
+	<GaugeInstance Name="err_unknown" X="0" Y="0" />
+</Panel>

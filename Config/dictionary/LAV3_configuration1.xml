@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+	<Include File="LAV3_config_commander"/>
+
+   <Item ID="Display" Type="STRING">Driver Position 1</Item>
+   <Item ID="Device ID" Type="INTEGER" >26</Item>
+   <Item ID="Monitor Type" Type="STRING">GDC_SDU16_1_1280x768_60Hz</Item>
+   <Item ID="Input Devices" Type="STRING">LAV3_input_devices_1</Item>
+   <Item ID="Network Port" Type="INTEGER" >1556</Item>
+   <Item ID="DSP IP Address" Type="STRING">192.168.1.207</Item>
+   <Item ID="DSP IP Port" Type="INTEGER">5389</Item>
+</Configuration>

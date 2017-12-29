@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Panel id="ESAV_squad_main" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+  <Layout>
+    <Script>
+      (U:SCREEN TOP PAD) s15    // Fudge
+      (S:SCREEN HEIGHT) (U:SCREEN TOP PAD) - (U:SCREEN BOTTOM PAD) - 6 / s10   //  Height of button area
+      both
+      r10 2 / s11						// center of button area
+      both
+
+      5 s0	// left screen margin
+      both
+    </Script>
+  </Layout>
+	<GaugeInstance Name="color-theme" X="(S:SCREEN WIDTH) width -" Y="r10 6 * r11 + height 2 / -"/>
+	<GaugeInstance Name="ESAV_view-select" X="0" Y="0" />
+	<GaugeInstance Name="ESAV_view-layout" X="0" Y="0" />
+
+	<GaugeInstance Name="button-camera_front" X="5" Y="r15 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_left" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_right" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_rear" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_observer" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_dvdplayer" X="5" Y="r14 r10 + s14 height -"/>
+	<!--<GaugeInstance Name="button-camera_pc" X="5" Y="r14 r10 + s14 height -"/>-->
+
+	<GaugeInstance Name="button-daynight" X="(S:SCREEN WIDTH) width -" Y="r15 r10 + s14 height -"/>
+  <GaugeInstance Name="button-adjust-camera" X="(S:SCREEN WIDTH) width -" Y="r10 5 * r15 + height -"/>
+	<!--GaugeInstance Name="button-blackout" X="(S:SCREEN WIDTH) width -" Y="r10 6 * r15 + height -"/-->
+	<GaugeInstance Name="monitor_edit_camera_events"/>
+	<!--<GaugeInstance Name="touch-recalibrate" />-->
+	<KeyEventMap>
+		<!--
+		Define the BEZEL keys for this panel.
+		-->
+		<OnDown>
+			<Key id="BEZEL12" Event="E:TOGGLE ADJUST CAMERA SETTINGS" />
+			<!--Key id="BEZEL16" Event="E:TOGGLE BLACKOUT" /-->
+		</OnDown>
+	</KeyEventMap>
+</Panel>

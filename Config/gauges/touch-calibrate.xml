@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0"
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="touch-calibrate">
+		<Update>
+			<Script>
+				(S:MILLI) "C:Touch Timeout" =@
+				0 (=G:Touch Sleep)
+				both
+				false
+				(G:Touch Sleep) (S:MILLI) LT ?
+				
+				(S:MILLI) 60000 + (=G:Touch Sleep)
+				
+				0 (G:Touch Sleep) LT ?
+
+			</Script>
+		</Update>
+		<Element Context="foreground">
+			<Element>
+				<!--
+				Touch Target
+				-->
+				<LeftScript>(U:Touch Point X)</LeftScript>
+				<TopScript>(U:Touch Point Y)</TopScript>
+				<Circle>
+					<Origin>0,0</Origin>
+					<Radius>20</Radius>
+					<LineColor>darkred</LineColor>
+					<LineWidth>4</LineWidth>
+				</Circle>
+				<Line LineColor="red" LineWidth="5">
+					<Point X="0" Y="-20" />
+					<Point X="0" Y="20" />
+				</Line>
+				<Line LineColor="red" LineWidth="5">
+					<Point X="-20" Y="0" />
+					<Point X="20" Y="0" />
+				</Line>
+				<Line LineColor="pink" LineWidth="1">
+					<Point X="0" Y="-10" />
+					<Point X="0" Y="10" />
+				</Line>
+				<Line LineColor="pink" LineWidth="1">
+					<Point X="-10" Y="0" />
+					<Point X="10" Y="0" />
+				</Line>
+			</Element>
+			<Element>
+				<GaugeText>
+					<OriginXScript>(S:SCREEN WIDTH) 2 /</OriginXScript>
+					<OriginYScript>(S:SCREEN HEIGHT) 2 /</OriginYScript>
+					<FontColor>yellow</FontColor>
+					<FontHeight>24</FontHeight>
+					<FontFace>sans-serif</FontFace>
+					<VerticalAlign>middle</VerticalAlign>
+					<HorizontalAlign>center</HorizontalAlign>
+					<GaugeString>Touch center of Red target</GaugeString>
+					<GaugeString>%((U:Touch Prompt))%!s!</GaugeString>
+				</GaugeText>
+				<GaugeText>
+					<OriginXScript>(S:SCREEN WIDTH) 2 /</OriginXScript>
+					<OriginYScript>(S:SCREEN HEIGHT) 4 / 3 *</OriginYScript>
+					<FontColor>lime</FontColor>
+					<FontHeight>18</FontHeight>
+					<FontFace>sans-serif</FontFace>
+					<VerticalAlign>middle</VerticalAlign>
+					<HorizontalAlign>center</HorizontalAlign>
+					<GaugeString>To Recalibrate...</GaugeString>
+					<GaugeString>Touch screen (or mouse down)</GaugeString>
+					<GaugeString>for 10 seconds then release</GaugeString>
+				</GaugeText>
+			</Element>
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseDown id="MouseDown">
+				<Script>
+					(I:Mouse X) (=U:Touch Screen X)
+					(I:Mouse Y) (=U:Touch Screen Y)
+					both
+
+					1 "C:Touch Point" =@
+					both
+
+					(S:MILLI) 5000 + (=G:Touch Mouse Timeout)
+					both
+				</Script>
+			</MouseDown>
+		</MouseArea>
+		<MouseArea id="MouseArea">
+			<FloatPosition>-15000,-15000</FloatPosition>
+			<Size>30000,30000</Size>
+			<MouseUp id="MouseUp">
+				<Script>
+					1 "C:Touch Start" =@
+					false
+					(G:Touch Mouse Timeout) (S:MILLI) &lt; ?
+					
+					(S:MILLI) 90000 + (=G:Touch Sleep)
+					both
+				</Script>
+			</MouseUp>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

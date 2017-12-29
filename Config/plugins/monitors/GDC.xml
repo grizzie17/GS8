@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GDC Display Configuration -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+	<Plugin Class="MonGeneric">
+		<Param Name="Display Profile" Type="INTEGER">11</Param>
+		<Param Name="Commanded State" Type="INTEGER">0</Param>
+		<Param Name="Horizontal Numerator" Type="INTEGER">1</Param>
+		<Param Name="Horizontal Denominator" Type="INTEGER">1</Param>
+		<Param Name="Vertical Numerator" Type="INTEGER">1</Param>
+		<Param Name="Vertical Denominator" Type="INTEGER">1</Param>
+		<Param Name="Width" Type="INTEGER">1280</Param>
+		<Param Name="Height" Type="INTEGER">768</Param>
+		<Param Name="D Mode" Type="INTEGER">4</Param>
+		<Param Name="Fld Op" Type="INTEGER">5</Param>
+		<Param Name="Frm HSize" Type="INTEGER">1664</Param>
+		<Param Name="Frm VSize" Type="INTEGER">796</Param>
+		<Param Name="Img HOffset Fld 1" Type="INTEGER">0</Param>
+		<Param Name="Img VOffset Fld 1" Type="INTEGER">0</Param>
+		<Param Name="Img HSize Fld 1" Type="INTEGER">1280</Param>
+		<Param Name="Img VSize Fld 1" Type="INTEGER">768</Param>
+		<Param Name="Img HOffset Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Img VOffset Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Img HSize Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Img VSize Fld 2" Type="INTEGER">0</Param>
+		<Param Name="H Blnk Start" Type="INTEGER">1280</Param>
+		<Param Name="H Blnk Stop" Type="INTEGER">1657</Param>
+		<Param Name="V Blnk X Start Fld 1" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Start Fld 1" Type="INTEGER">1</Param>
+		<Param Name="V Blnk X Stop Fld 1" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Stop Fld 1" Type="INTEGER">16</Param>
+		<Param Name="V Blnk X Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Blnk X Stop Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Blnk Y Stop Fld 2" Type="INTEGER">0</Param>
+		<Param Name="X Start Fld 1" Type="INTEGER">0</Param>
+		<Param Name="Y Start Fld 1" Type="INTEGER">1</Param>
+		<Param Name="X Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="Y Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="H Sync Start" Type="INTEGER">1347</Param>
+		<Param Name="H Sync Stop" Type="INTEGER">1443</Param>
+		<Param Name="V Sync X Start Fld 1" Type="INTEGER">1357</Param>
+		<Param Name="V Sync Y Start Fld 1" Type="INTEGER">3</Param>
+		<Param Name="V Sync X Stop Fld 1" Type="INTEGER">1347</Param>
+		<Param Name="V Sync Y Stop Fld 1" Type="INTEGER">6</Param>
+		<Param Name="V Sync X Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Sync Y Start Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Sync X Stop Fld 2" Type="INTEGER">0</Param>
+		<Param Name="V Sync Y Stop Fld 2" Type="INTEGER">0</Param>
+	</Plugin>
+</Plugins>
+

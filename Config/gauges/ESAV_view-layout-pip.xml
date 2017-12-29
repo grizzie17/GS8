@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="ESAV_view-layout-forward">
+		<Update>
+			<!--Frequency>3</Frequency-->
+			<Script>
+				(K:Camera Front) (=U:Feed 1 Position) (=U:Video Feed 1) 
+				(K:Camera Observer) (=U:Feed 2 Position) (=U:Video Feed 2 ) both
+
+			</Script>
+		</Update>
+		<Element Context="group">
+			<Element Context="group">
+				<!--
+
+				Center View, display an ICON representing the camera position active
+				located 28% + 5 pixels from the left of the screen, 33.3% down from top + 5 pixels
+
+				-->
+				<Position X="0" Y="0" />
+				<Element Context="application">
+					<Video>
+						<Origin>0,0</Origin>
+						<HeightScript>(S:SCREEN HEIGHT)</HeightScript>
+						<WidthScript>(S:SCREEN WIDTH)</WidthScript>
+						<LineColor>darkblue</LineColor>
+						<LineWidth>1</LineWidth>
+						<SourceScript>(U:Video Feed 1)</SourceScript>
+					</Video>
+				</Element>
+				<Element Context="background">
+					<Position X="5" Y="(S:SCREEN HEIGHT) 45 -" />
+					<Include File="ESAV_view-feed-1" />
+				</Element>
+
+			</Element>
+			<Element>
+				<!--
+				View Left, display an ICON representing the camera position active
+				located 28% from the left of the screen, 33.3% down from top + 5 pixels
+				-->
+				<Position X="(S:SCREEN WIDTH) (S:SCREEN WIDTH) 0.3 * -" 
+						  Y="(S:SCREEN HEIGHT) (S:SCREEN HEIGHT) 0.3 * -" />
+				<Element Context="application">
+					<Video>
+						<Origin>0,0</Origin>
+						<HeightScript>(S:SCREEN HEIGHT) 0.25 *</HeightScript>
+						<WidthScript>(S:SCREEN WIDTH) 0.25 *</WidthScript>
+						<LineColor>darkblue</LineColor>
+						<LineWidth>1</LineWidth>
+						<SourceScript>(K:Camera Observer)</SourceScript>
+					</Video>
+				</Element>
+				<Element Context="background">
+					<Position X="(S:SCREEN WIDTH) 0.25 * 30 -" Y="5" />
+					<Include File="ESAV_view-feed-2" />
+				</Element>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

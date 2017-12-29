@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<Gauge Name="oilpressurelight" Version="1.0">
+	<Size X="70" Y="70" />
+	<Element>
+		
+  <Visible>(A:Engine Oil Pressure) (B:Engine Oil Pressure.Green.Low) &lt;</Visible>
+	<Element>
+		<Visible>(T:MILLI) 2000 % 1500 &lt;</Visible>
+		<Position X="(S:SCREEN WIDTH) 240 - 160 -" Y="(S:SCREEN HEIGHT) 60 -" />
+		<Element>
+			<Polyline LineColor="orange" LineWidth="2">
+				<Point X="3" Y="0" />
+				<Point X="12" Y="5" />
+				<Point X="12" Y="12" />
+				<Point X="0" Y="10" />
+				<Point X="3" Y="0" />
+			</Polyline>
+			<Polyline LineColor="orange" LineWidth="2">
+				<Point X="12" Y="7" />
+				<Point X="12 22 +" Y="7" />
+				<Point X="12 25 +" Y="10" />
+				<Point X="12 42 +" Y="7" />
+				<Point X="12 25 +" Y="22" />
+				<Point X="12" Y="22" />
+				<Point X="12" Y="7" />
+			</Polyline>
+			<Polyline LineColor="orange" LineWidth="2">
+				<Point X="12 42 +" Y="8" />
+				<Point X="12 46 +" Y="6" />
+				<Point X="12 50 +" Y="5" />
+			</Polyline>
+			<Line LineColor="orange" LineWidth="2">
+				<Point X="12 12 +" Y="7" />
+				<Point X="12 12 +" Y="2" />
+			</Line>
+			<Line LineColor="orange" LineWidth="2">
+				<Point X="12 5 +" Y="2" />
+				<Point X="12 20 +" Y="2" />
+			</Line>
+			<Element>
+				<Position X="12 52 +" Y="7" />
+				<Polygon FillColor="orange" LineColor="orange">
+					<Point X="0" Y="0" />
+					<Point X="2" Y="11" />
+					<Point X="3" Y="14" />
+					<Point X="0" Y="17" />
+					<Point X="-3" Y="14" />
+					<Point X="-2" Y="11" />
+					<Point X="0" Y="0" />
+				</Polygon>
+			</Element>
+		</Element>
+	</Element>
+	</Element>
+</Gauge>

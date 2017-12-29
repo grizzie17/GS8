@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<Gauge Name="tempgreen" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<Update>
+		<Script>
+			(A:Engine Coolant Temp) (B:Engine Coolant Temp.High) / s0
+			(B:Engine Coolant Temp.Yellow.Low) (B:Engine Coolant Temp.High) / s1 both
+			(B:Engine Coolant Temp.Red.Low) (B:Engine Coolant Temp.High) / s2 both
+
+		</Script>
+	</Update>
+	<Size>125,202</Size>
+	<Element>
+		<FloatPosition>5,0</FloatPosition>
+		<Element>
+			<FloatPosition>8,180</FloatPosition>
+			<Shift X="0" Y="r0 180 *" />
+			<Polygon FillColor="'skyblue' 'lightgreen' (G:OPTION) ? s9">
+				<Point X="0" Y="0" />
+				<Point X="30" Y="0" />
+				<Point X="30" Y="20" />
+				<Point X="0" Y="20" />
+				<Point X="0" Y="0" />
+			</Polygon>
+		</Element>
+		<Element>
+			<Position X="3" Y="0" />
+			<Line LineColor="r9" LineWidth="4">
+				<Point X="0" Y="0" />
+				<Point X="0" Y="200" />
+			</Line>
+		</Element>
+		<Element>
+			<Position X="44" Y="0" />
+			<Polyline LineColor="r9" LineWidth="4">
+				<Point X="15" Y="0" />
+				<Point X="0" Y="0" />
+				<Point X="0" Y="200" />
+				<Point X="15" Y="200" />
+			</Polyline>
+			<Line LineColor="r9" LineWidth="2">
+				<Point X="0" Y="200 r1 200 * - s10" />
+				<Point X="10" Y="r10" />
+			</Line>
+			<Line LineColor="r9" LineWidth="2">
+				<Point X="0" Y="200 r2 200 * - s11" />
+				<Point X="10" Y="r11" />
+			</Line>
+			<GaugeText>
+				<Origin>75,200</Origin>
+				<FontFace>sans-serif</FontFace>
+				<FontHeight>24</FontHeight>
+				<HorizontalAlign>right</HorizontalAlign>
+				<FontColorScript>r9</FontColorScript>
+				<GaugeString>%((A:Engine Coolant Temp,celsius) (A:Engine Coolant Temp,fahrenheit) 2 (U:UNITS) case 5 / floor 5 *)%!d! %( 'C' 'F' 2 (U:UNITS) case )%!s!</GaugeString>
+			</GaugeText>
+		</Element>
+	</Element>
+	<KeyMap>
+		<Trigger>
+			<KeyEvent>E:FUEL COLOR</KeyEvent>
+			<Script>(G:OPTION) ! (&gt;G:OPTION)</Script>
+		</Trigger>
+	</KeyMap>
+</Gauge>

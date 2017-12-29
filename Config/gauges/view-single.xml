@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="view-single">
+		<ActionMap>
+			<Trigger>
+				<Event>E:Change Layout</Event>
+				<Script>
+					/*
+						Determine if new layout has been updated to K:View Single. If so
+						update U:View Layout with the new state so that the next UPDATE
+						cycle will result in a new layout to be displayed.
+					*/
+					(K:View Single) (=U:View Layout)
+					false
+					(K:View Single) (E:Change Layout) == ?
+				</Script>
+			</Trigger>
+		</ActionMap>
+		<Update>
+			<!--
+				(A:Steering Wheel Angle) (B:Steering Wheel Angle.Low) /-/ +
+				(B:Steering Wheel Angle.High) (B:Steering Wheel Angle.Low) -
+				/
+				3
+				*
+			-->
+			<!--Frequency>2</Frequency-->
+			<Script>
+					/*
+					Refer to IMPORTANT COMMENT below
+					*/
+					/*
+						R10 is set to the current camera type of "IR" or "Color"
+					*/
+					"Color" "IR" (U:DAY SELECTED) ? s10
+	
+						3						// Always select rear camera if current gear is selected for reverse (R) or the seat is UP
+								/*
+									Check the Steering wheel position.
+									R0 contains one of the following:
+										0 - Within YELLOW1 range
+										1 - Not within any of the YELLOW ranges
+										2 - Within YELLOW2 range
+										3 - Rear camera
+								*/
+								0
+									2
+									1
+								(B:Steering Wheel Angle.Yellow2.Low) (B:Steering Wheel Angle.Yellow2.High) (A:Steering Wheel Angle) rng ?
+							(B:Steering Wheel Angle.Yellow1.Low) (B:Steering Wheel Angle.Yellow1.High) (A:Steering Wheel Angle) rng ?
+							1					// Utilize center camera if **NOT** auto steer
+						(U:AUTO STEER SELECTED) ?  
+					(A:Current Gear) 0 LT  (U:SEAT POSTION UP) OR ? s0
+					both
+	
+					// Iinitialize the previous steering position if not already defined. 
+					// NOTE: THIS MAY NOT BE NEEDED SINCE IT IS UNLIKLY THE CAMERA WILL BE IN ADJUST MODE ON THE FIRST UPDATE CYCLE
+						r0
+						(G:Previous Steering Position)
+					'' (G:Previous Steering Position) == ? (=G:Previous Steering Position) both
+					
+					// Deterimine if the video feed is about to change. If so, disable adjusting camera (regardless of current state)
+						true
+						0 (=E:DISABLE ADJUST CAMERA SETTINGS)
+					r0 (G:Previous Steering Position) == ? both
+
+					/*
+							Set (C:Video Feed 1) to one of the 3 front cameras based on the value of R0. R10 contains the camera type.
+							The following camera is selected for the 3 possible values of R0
+								0 - K:Camera Front-Left IR/Color
+								1 - K:Camera Front-Center IR/Color
+								2 - K:Camera Front-Right IR/Color
+						*/
+						"K:Camera Rear "
+						"K:Camera Front-Right "
+						"K:Camera Front-Center "
+						"K:Camera Front-Left "
+					4
+					r0
+					case r10 + @ (?C:Video Feed 1)
+					both
+	
+					/*
+						Set (C:View Single) to single view to 
+						activate the camera position defined above
+					*/ 
+					(K:View Single) (=C:View Layout) both
+					r0 (=G:Previous Steering Position) both
+	
+					/*
+						DUMMY return, aka "Do nothing"
+					*/
+					true
+
+				/*
+				**************************
+				IMPORTANT COMMENT
+				**************************
+				The above camera selections are made if the layout 
+				is configured for Single View
+				If this is TRUE, then the condition starts at the 
+				beginning of this script!
+				*/
+				(U:View Layout) (K:View Single) == ?
+
+			</Script>
+		</Update>
+		<Element Context="background">
+		<Visibility>
+			(U:View Layout) (K:View Single) ==
+			(U:View Layout) (K:View Single) ==
+			AND
+		</Visibility>
+			<Element>
+				<!--
+				Center View, display an ICON representing the camera postion active 
+				located 35 pixels from the right of the screen, down from top 45 pixels
+				-->
+				<Position X="0" Y="0" />
+				<!--Polyline LineColor="dimgray" LineWidth="1">
+					<Point X="0" Y="0" />
+					<Point X="(S:SCREEN WIDTH) s0" Y="0" />
+					<Point X="r0" Y="(S:SCREEN HEIGHT) s1" />
+					<Point X="0" Y="r1" />
+					<Point X="0" Y="0" />
+				</Polyline-->
+				<Element>
+					<Position X="(S:SCREEN WIDTH) 150 -" Y="(S:SCREEN HEIGHT) 75 -" />
+					<Select>
+						<Expression>
+							<Script> (D:Video Feed 1) </Script>
+						</Expression>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Left " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontleft" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Center " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontcenter" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Front-Right " r10 + @</Script>
+							</Expression>
+							<Include File="camera_frontright" />
+						</Case>
+						<Case>
+							<Expression>
+								<Script>"K:Camera Rear " r10 + @</Script>
+							</Expression>
+							<Include File="camera_rear" />
+						</Case>
+					</Select>
+				</Element>
+
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

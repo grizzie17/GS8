@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge>
+		<Update>
+			<Frequency>4</Frequency>
+			<Script>
+				/*
+					If the gauge switch has changed state from last update then
+						(=G:Timeout) += 3000
+					else
+						do nothing
+				*/
+					(S:MILLI) 3000 +
+					(G:Timeout)
+				(U:GAUGE SWITCH) (G:Last Setting) != ?	(=G:Timeout)
+				
+				/* Save the current guage switch state for next update cycle. */
+				(U:GAUGE SWITCH) (=G:Last Setting)
+				both
+			</Script>
+		</Update>
+		<Element>
+		<!--
+			If the guage switch has updated within the last 3000 mS, then display the state
+			The possible states are stored in (G:Last Setting). This variable is set by pressing <F5>. See "driver.xml".
+				0 - Gauge Auto
+				1 - Gauge On
+				2 - Gauge Off
+		-->
+		<Visibility> (S:MILLI) (G:Timeout) &lt;</Visibility>
+			<Select>
+				<Expression>
+					<Script>(G:Last Setting)</Script>
+				</Expression>
+				<Case>
+					<ExpressionResult>0</ExpressionResult>
+					<GaugeText Y="0" X="0" Font="Arial" Height="24" Align="left" VerticalAlign="top" LineColor="lightgreen">
+						<String>Gauge Auto</String>
+					</GaugeText>
+				</Case>
+				<Case>
+					<ExpressionResult>1</ExpressionResult>
+					<GaugeText Y="0" X="0" Font="Arial" Height="24" Align="left" VerticalAlign="top" LineColor="lightgreen">
+						<String>Gauge ON</String>
+					</GaugeText>
+				</Case>
+				<Case>
+					<ExpressionResult>2</ExpressionResult>
+					<GaugeText Y="0" X="0" Font="Arial" Height="24" Align="left" VerticalAlign="top" LineColor="lightgreen">
+						<String>Gauge OFF</String>
+					</GaugeText>
+				</Case>
+				<CaseElse>
+					<GaugeText Y="0" X="0" Font="Arial" Height="24" Align="left" VerticalAlign="top" LineColor="lightgreen">
+						<String>???</String>
+					</GaugeText>
+				</CaseElse>
+
+			</Select>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

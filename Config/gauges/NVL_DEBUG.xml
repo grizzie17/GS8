@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="label-DEBUG">
+		<Size>600,130</Size>
+		<Update>
+			<Script>
+				(D:Edit Camera) (=G:Edit Camera)
+			</Script>
+		</Update>
+		<Element>
+			<Visible>1</Visible>
+			<GaugeText X="0" Y="0" 
+					   Font="sans-serif" Height="20" 
+					   Align="left" VerticalAlign="top" 
+					   Color="lime">
+				<!--String>Main menu ptr %((U:Main Menu Ptr))%!s!, Sub menu item %( (U:Sub Menu Ptr) )%!s!</String-->
+				<!--String>SubSub menu active  %( (U:SUBSUB Menu Active) )%!s!, SubSub menu ptr  %( (U:SubSub Menu Ptr) )%!s!</String-->
+				<String>D:Edit Camera is set to %( (G:Edit Camera) )%!s!</String>
+				<String>Video ACTION to perform: %( (U:BYRON Perform ACTION Message) )%!s!</String>
+				<!--String>ENTER pressed at : %( (U:ENTER PRESSED TIME) )%!s!, last released at %( (U:ENTER RELEASED TIME) )%!s! or %( (U:ENTER DOWN DURATION))%!s! mSec</String-->
+				<!--String>ENTER state is: %((U:ENTER state))%!s!</String-->
+			</GaugeText>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- External XML Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<Plugin Class="XMLEverythingAlert" Group="" ID="alert-everything" >
+		<Param Name="Filename" Type="STRING">TouchCal</Param>
+		<Param Name="Tolerance" Type="INTEGER">20</Param>
+	</Plugin>
+
+	<Plugin Class="XMLEverythingColor" Group="" ID="color-everything" >
+		<Param Name="Filename" Type="STRING">TouchCal</Param>
+		<Param Name="Tolerance" Type="INTEGER">20</Param>
+	</Plugin>
+
+
+	<Plugin Class="XMLEverythingGauge" Group="" ID="everything-gauge" >
+		<Param Name="Filename" Type="STRING">TouchCal</Param>
+		<Param Name="Tolerance" Type="INTEGER">20</Param>
+	</Plugin>
+
+</Plugins>

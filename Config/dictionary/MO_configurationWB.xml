@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			   xsi:noNamespaceSchemaLocation="configuration.xsd">
+	<!-- 
+	"Active Commands" identifies the name of the xml file in the
+	'plugins/commands' folder that should.  If this tag is not
+	specified then the 'default.xml' will be used.
+	-->
+	<Item ID="Active Commands" Type="STRING">workbench_MO</Item>
+	<Item ID="Service List" Type="STRING">VehicleDataSample</Item>
+
+	<!--<Include File="MO_config_commander"/>-->
+	<Include File="MO_config_driver"/>
+	<!--<Include File="MO_config_squad"/>-->
+	<!--<Include File="MO_config_pc"/>-->
+
+
+
+	<Include File="vehicledataconfiguration" />
+</Configuration>

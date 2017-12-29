@@ -1,0 +1,11 @@
+*.vcxproj		eol=crlf
+*.sh			eol=lf
+*.jpg			-text
+*.png			-text
+*.gif			-text
+*.mk			eol=lf
+*.bat			eol=crlf
+*.cpp			eol=lf
+*.cc			eol=lf
+*.c				eol=lf
+*.h				eol=lf

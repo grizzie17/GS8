@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge>
+	<Update>
+		<Script>
+			80 s5
+			10 s6		both
+			r5 (B:Trans Oil Pressure.Green.Low) (B:Trans Oil Pressure.High) / r5 * - s7 both
+			r5 (A:Trans Oil Pressure) (B:Trans Oil Pressure.High) / r5 * - s9 both
+        </Script>
+		<Frequency>4</Frequency>
+    </Update>
+	<Size>25,82</Size>
+	<Element>
+	<!--
+		switch (U:GAUGE SWITCH)
+		0:	if r9 < r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+	-->
+	<Visibility>
+		false
+		true
+		r9 r7 GT  5 (A:RPM) LT  AND
+		3 (U:GAUGE SWITCH) case
+
+	</Visibility>
+		<Include File="slider-green-red" />
+    </Element>
+</Gauge>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration information -->
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configuration.xsd">
+	
+	<Item ID="Active Commands" Type="STRING">ESS_active</Item>
+	<Item ID="Dictionary Settings" Type="STRING">ESS_Settings</Item>
+	<Item ID="Startup Events" Type="STRING">E:UNITS IMPERIAL</Item>
+
+
+	<!--
+
+	"Calculate Frequency" identifies the number of times per second
+	that we should assure that we recalculate the gauges.
+	-->
+	<Item ID="Calculate Frequency" Type="FLOAT">5</Item>
+
+</Configuration>

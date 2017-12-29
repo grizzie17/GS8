@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="JD-icon-text">
+		<Element>
+			<Element Context="background">
+				<Rectangle>
+					<Origin>2,2</Origin>
+					<HeightScript>(G:Height) 4 -</HeightScript>
+					<WidthScript>(G:Width) 4 -</WidthScript>
+					<FillColorScript>(U:COLOR_ButtonFace)</FillColorScript>
+					<LineColorScript>(U:COLOR_ButtonBorder)</LineColorScript>
+					<LineWidth>2</LineWidth>
+					<CornerStyle>round</CornerStyle>
+					<Corner>8</Corner>
+				</Rectangle>
+			</Element>
+			<Element Context="background">
+				<Visibility>(G:Pressed)</Visibility>
+				<Rectangle>
+					<Origin>2,2</Origin>
+					<HeightScript>(G:Height) 4 -</HeightScript>
+					<WidthScript>(G:Width) 4 -</WidthScript>
+					<FillColor>gold</FillColor>
+					<CornerStyle>round</CornerStyle>
+					<Corner>8</Corner>
+				</Rectangle>
+			</Element>
+			<Element Context="background">
+				<!--
+				NOTE: Up to 5 lines of text will be supported where r1/r6, r2/r7, r3/r8, r4/r9, r5/r10 define each line and its color
+
+				All icon files utlize the registers to pass color information. The current register assignment is as follows:
+				r0 defines the visiblity of the icon
+				r1..r5 defines the color palet (It is not required to utlize all of the registers)
+				r6..r7 define up to 5 text lines (It is not necessary to utilize all of the registers)
+				-->
+				<GaugeText X="5" Y="(G:Height) 60 0 20 ' ' r8 NE ? - 0 20 ' ' r7 NE ? - - 2 /"
+						   Font="sans-serif" Height="20"
+						   Align="left" VerticalAlign="top" Color="r1" HaloColor="(U:COLOR_ButtonTextMask)">
+					<String>%(r6)%!s!</String>
+					<String>%(r7)%!s!</String>
+					<String>%(r8)%!s!</String>
+				</GaugeText>
+				<!--<GaugeText X="0" Y="0"
+						   Font="sans-serif" Height="20"
+						   Align="left" VerticalAlign="top" Color="r1" HaloColor="(U:COLOR_ButtonTextMask)">
+					<String>%(r6)%!s!</String>
+				</GaugeText>
+				<GaugeText X="0" Y="20" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="r2" HaloColor="(U:COLOR_ButtonTextMask)">
+					<String>%(r7)%!s!</String>
+				</GaugeText>
+				<GaugeText X="0" Y="40" Font="sans-serif" Height="20" Align="left" VerticalAlign="top" Color="r3" HaloColor="(U:COLOR_ButtonTextMask)">
+					<String>%(r8)%!s!</String>
+				</GaugeText>-->
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

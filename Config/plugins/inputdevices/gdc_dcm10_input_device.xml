@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+	<Plugin Class="InputGdcDcm10" ID="CInputGdcDcm10">
+		<Param Name="Number of Devices" Type="INTEGER">1</Param>
+		<Param Name="Display Port" Type="INTEGER">3</Param>
+		<Param Name="Port" Type="STRING">/dev/ttyVDDS0</Param>
+		<!--<Param Name="Port" Type="STRING">/dev/tts/1</Param>-->
+		<Param Name="Baud" Type="INTEGER">9600</Param>
+		<Param Name="Parity" Type="STRING">None</Param>
+		<Param Name="Stop Bits" Type="INTEGER">1</Param>
+		<Param Name="Data Bits" Type="INTEGER">8</Param>
+		<Param Name="Flow Control" Type="STRING">None</Param>
+		<Param Name="Display Firmware E7" Type="INTEGER">1</Param>
+
+	</Plugin>
+</Plugins>

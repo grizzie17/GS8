@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<Panel id="JD_greenstar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+	<Layout>
+		<Script>
+			(S:SCREEN HEIGHT) 8 / s10		// Height of button area
+			r10 2 / s11						// center of button area
+			both
+
+			5 s0	// left screen margin
+			both
+			100 s1	// width of button
+			both
+
+			"Main Panel" (=C:Window Title)
+			both
+
+			(U:COLOR_Background) (=C:Background Color)
+			both
+		</Script>
+	</Layout>
+	<Update>
+		<Script>
+			1 (=E:VEHICLE SHUTDOWN)
+			0 (=U:Shutdown Button Down Time)
+			both
+
+			false
+
+			0 (U:Shutdown Button Down Time) LT
+			(U:Shutdown Button Down Time) (S:MILLI) LT AND
+			?
+
+		</Script>
+	</Update>
+	<!-- Define the BEZEL buttons -->
+	<GaugeInstance Name="JD-color-theme" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 0 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-units" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 1 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-gauge-state" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 2 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-gauge-detail" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 3 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 4 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 5 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 6 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 -" Y="r10 7 * r11 + height 2 / -" Width="r1" Height="r10"/>
+
+
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 0 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 1 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 2 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 3 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 4 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 5 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 6 * r11 + height 2 / -" Width="r1" Height="r10"/>
+	<GaugeInstance Name="JD-button-1" X="(S:SCREEN WIDTH) width - r0 - r1 -" Y="r10 7 * r11 + height 2 / -" Width="r1" Height="r10"/>
+
+	<GaugeInstance Name="icon-yogi" X="(S:SCREEN WIDTH) width - 2 / " Y="(S:SCREEN HEIGHT) height - 3 /" Width="(S:SCREEN WIDTH) 4 /" Height="(S:SCREEN HEIGHT) 3 /" />
+
+	<GaugeInstance Name="rotary" X="(S:SCREEN WIDTH) width - r1 2 * - 10 -" Y="40" />
+	<!--<GaugeInstance Name="snake" X="200" Y="40" />-->
+	<!-- Speedometer/RPM -->
+	<GaugeInstance Name="speed"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="(S:SCREEN HEIGHT) height -" />
+	
+	<!-- heading -->
+	<GaugeInstance Name="compass"
+				   X="(S:SCREEN WIDTH) width - 2 /" Y="0" />
+	<!--<GaugeInstance Name="steeringangle"
+				   X="62" Y="2" />-->
+
+<!-- time/lat-lon      NOTE: The entry "60 -" is used to move the gauge from the BEZEL button text -->
+	<GaugeInstance Name="time-left"
+				   X="10" Y="5" />
+	<GaugeInstance Name="latlong-left"
+				   X="10" Y="25" />
+
+	<!-- transmission selection (PRND) -->
+	<GaugeInstance Name="transmission-selector"
+				   X="(S:SCREEN WIDTH) 2 / 50 +" Y="(S:SCREEN HEIGHT) height - 5 -" />
+	<GaugeInstance Name="terrain-mode"
+				   X="(S:SCREEN WIDTH) 2 / 50 +" Y="(S:SCREEN HEIGHT) height - 34 -" />
+
+	<!-- Every where you see " 60 +" in the X position is an attempt to relocate a gauge so that the BEZEL button text can be displayed. -->
+	<GaugeInstance Name="@alert-everything"
+				   X="5 120 +" Y="(S:SCREEN HEIGHT) height - 5 -" />
+
+	<GaugeInstance Name="icon-fuel"
+				   X="10 10 +" Y="40 20 +" />
+	<GaugeInstance Name="slider-fuel"
+					X="50 10 +" Y="30 20 +" />
+	<GaugeInstance Name="slider-engine-coolant-temp"
+					X="77 10 +" Y="30 20 +" />
+	<GaugeInstance Name="icon-temperature-coolant"
+				   X="105 10 +" Y="40 20 +" />
+
+	<GaugeInstance Name="icon-engine-oil-pressure"
+				   X="3 10 +" Y="150 20 +" />
+	<GaugeInstance Name="slider-engine-oil-pressure"
+					X="50 10 +" Y="130 20 +" />
+	<GaugeInstance Name="slider-engine-oil-temp"
+					X="77 10 +" Y="130 20 +" />
+	<GaugeInstance Name="icon-temperature-oil"
+				   X="105 10 +" Y="140 20 +" />
+
+	<GaugeInstance Name="icon-trans-oil-pressure"
+				   X="3 10 +" Y="250 20 +" />
+	<GaugeInstance Name="slider-trans-oil-pressure"
+					X="50 10 +" Y="230 20 +" />
+	<GaugeInstance Name="slider-trans-oil-temp"
+					X="77 10 +" Y="230 20 +" />
+	<GaugeInstance Name="icon-temperature-trans"
+				   X="105 10 +" Y="240 20 +" />
+
+	<GaugeInstance Name="icon-battery"
+				   X="10 10 +" Y="350 20 +" />
+	<GaugeInstance Name="slider-battery-voltage"
+				   X="50 10 +" Y="330 20 +" />
+
+	<GaugeInstance Name="slider-starter"
+				   X="50 10 +" Y="430 20 +"/>
+	<GaugeInstance Name="icon-starter"
+				   X="3 10 +" Y="450 20 +"/>
+	<GaugeInstance Name="slider-capacitor"
+				   X="77 10 +" Y="430 20 +"/>
+	<GaugeInstance Name="icon-capacitor"
+				   X="105 10 +" Y="450 20 +"/>
+
+	
+	<!-- Define the button assignments -->
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL10"	Event="E:VEHICLE SHUTDOWN Q" />
+		</OnDown>
+		<OnUp>
+			<Key id="BEZEL1"	Event="E:TOGGLE AUTO STEER" />
+			<Key id="BEZEL2"	Event="E:TOGGLE GAUGE STATE" />
+			<Key id="BEZEL3"	Event="E:TOGGLE GAUGE DETAIL" />
+			<Key id="BEZEL4"	Event="E:TOGGLE SCREEN MODE" />
+			<Key id="BEZEL8"	Event="E:TOGGLE DAYNIGHT" />
+			<Key id="BEZEL9"	Event="E:TOGGLE DAYNIGHT" />
+			<Key id="BEZEL10"	Event="E:VEHICLE SHUTDOWN R"/>
+			<Key id="BEZEL11"	Event="E:TOGGLE UNITS" />
+			<Key id="BEZEL12"	Event="E:TOGGLE UNITS" />
+			<Key id="BEZEL13"	Event="E:TOGGLE COLOR THEME" />
+			<Key id="BEZEL14"	Event="E:TOGGLE COLOR THEME" />
+		</OnUp>
+	</KeyEventMap>
+
+</Panel>

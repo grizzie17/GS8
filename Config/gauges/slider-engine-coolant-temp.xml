@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="slider-engine-coolant">
+		<!--
+		Registers are used to drive the various parameters
+	
+		R5	- height of slider
+		R6	- width of slider
+		R7	- green separator
+		R8	- yellow separator
+		R9	- current position
+	-->
+		<Update>
+			<Frequency>3</Frequency>
+			<Script>
+				/*
+					R5 - Gauge height in pixel
+					R6 - gauge width
+				*/
+				80 s5
+				10 s6		both
+				
+				/*
+					Define the Green region (Refer to "slider-fuel.xml")
+					R7 - number of pixels from the bottom that define the GREEN region 80 to 80 - ((210/300) * 80) or 24
+					R8 - number of pixels up from the R7 that define the GREEN region R7 to 80 - ((230/300) * 80) or 18.66
+					R9 - pixel location of the current reading.
+				*/
+				r5 (B:Engine Coolant Temp.Green.High) (B:Engine Coolant Temp.High) / r5 * - s7 both
+				r5 (B:Engine Coolant Temp.Yellow.High) (B:Engine Coolant Temp.High) / r5 * - s8 both
+				r5 (A:Engine Coolant Temp) (B:Engine Coolant Temp.High) / r5 * - s9 both
+				
+			</Script>
+		</Update>
+		<Size>25,82</Size>
+		<Element>
+		<!--
+		switch (U:GAUGE SWITCH)
+		0:	if r9 > r7 then visible is true else false
+		1:	visible is true
+		2:	visible is false
+	-->
+		<Visibility>
+			false
+			true
+			true false r9 r7 &lt;  5 (A:RPM) &lt; AND ?
+			3 (U:GAUGE SWITCH) case
+		</Visibility>
+			<!-- The colors are arranged from top to bottom in the order defined by the file name -->
+			<Include File="slider-red-yellow-green" />
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

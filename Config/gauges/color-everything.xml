@@ -1,0 +1,1310 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+<SimGauge.Gauge id="color-everything">
+<KeyMap>
+<Trigger>
+<KeyEvent>E:MOVE LEFT</KeyEvent>
+<Script>(G:XPOSITION) 175 + 0 min (=G:XPOSITION)</Script>
+</Trigger>
+<Trigger>
+<KeyEvent>E:MOVE RIGHT</KeyEvent>
+<Script>(G:XPOSITION) 175 - (=G:XPOSITION)</Script>
+</Trigger>
+<Trigger>
+<KeyEvent>E:MOVE HOME</KeyEvent>
+<Script>0 (=G:XPOSITION)</Script>
+</Trigger>
+</KeyMap>
+<Element Context='background'>
+<Position X='(G:XPOSITION)' Y='(G:YPOSITION)' />
+<Rectangle X='4' Y='4' Height='18' Width='18' FillColor='background' />
+<GaugeText X='26' Y='4' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>background</String>
+</GaugeText>
+<Rectangle X='4' Y='23' Height='18' Width='18' FillColor='transparent' />
+<GaugeText X='26' Y='23' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>transparent</String>
+</GaugeText>
+<Rectangle X='4' Y='42' Height='18' Width='18' FillColor='black' />
+<GaugeText X='26' Y='42' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>black</String>
+</GaugeText>
+<Rectangle X='4' Y='61' Height='18' Width='18' FillColor='charcoal' />
+<GaugeText X='26' Y='61' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>charcoal</String>
+</GaugeText>
+<Rectangle X='4' Y='80' Height='18' Width='18' FillColor='davysgray' />
+<GaugeText X='26' Y='80' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>davysgray</String>
+</GaugeText>
+<Rectangle X='4' Y='99' Height='18' Width='18' FillColor='dimgray' />
+<GaugeText X='26' Y='99' LineColor='dimgray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>dimgray</String>
+</GaugeText>
+<Rectangle X='4' Y='118' Height='18' Width='18' FillColor='gray' />
+<GaugeText X='26' Y='118' LineColor='gray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>gray</String>
+</GaugeText>
+<Rectangle X='4' Y='137' Height='18' Width='18' FillColor='darkgray' />
+<GaugeText X='26' Y='137' LineColor='darkgray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkgray</String>
+</GaugeText>
+<Rectangle X='4' Y='156' Height='18' Width='18' FillColor='silver' />
+<GaugeText X='26' Y='156' LineColor='silver' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>silver</String>
+</GaugeText>
+<Rectangle X='4' Y='175' Height='18' Width='18' FillColor='lightgray' />
+<GaugeText X='26' Y='175' LineColor='lightgray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightgray</String>
+</GaugeText>
+<Rectangle X='4' Y='194' Height='18' Width='18' FillColor='gainsboro' />
+<GaugeText X='26' Y='194' LineColor='gainsboro' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>gainsboro</String>
+</GaugeText>
+<Rectangle X='4' Y='213' Height='18' Width='18' FillColor='whitesmoke' />
+<GaugeText X='26' Y='213' LineColor='whitesmoke' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>whitesmoke</String>
+</GaugeText>
+<Rectangle X='4' Y='232' Height='18' Width='18' FillColor='white' />
+<GaugeText X='26' Y='232' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>white</String>
+</GaugeText>
+<Rectangle X='4' Y='289' Height='18' Width='18' FillColor='asphalt' />
+<GaugeText X='26' Y='289' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>asphalt</String>
+</GaugeText>
+<Rectangle X='4' Y='308' Height='18' Width='18' FillColor='arsenic' />
+<GaugeText X='26' Y='308' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>arsenic</String>
+</GaugeText>
+<Rectangle X='4' Y='327' Height='18' Width='18' FillColor='outerspace' />
+<GaugeText X='26' Y='327' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>outerspace</String>
+</GaugeText>
+<Rectangle X='4' Y='346' Height='18' Width='18' FillColor='abbey' />
+<GaugeText X='26' Y='346' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>abbey</String>
+</GaugeText>
+<Rectangle X='4' Y='365' Height='18' Width='18' FillColor='feldgray' />
+<GaugeText X='26' Y='365' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>feldgray</String>
+</GaugeText>
+<Rectangle X='4' Y='384' Height='18' Width='18' FillColor='camouflagegreen' />
+<GaugeText X='26' Y='384' LineColor='camouflagegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>camouflagegreen</String>
+</GaugeText>
+<Rectangle X='4' Y='403' Height='18' Width='18' FillColor='battleshipgray' />
+<GaugeText X='26' Y='403' LineColor='battleshipgray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>battleshipgray</String>
+</GaugeText>
+<Rectangle X='4' Y='422' Height='18' Width='18' FillColor='taupegray' />
+<GaugeText X='26' Y='422' LineColor='taupegray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>taupegray</String>
+</GaugeText>
+<Rectangle X='4' Y='441' Height='18' Width='18' FillColor='manatee' />
+<GaugeText X='26' Y='441' LineColor='manatee' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>manatee</String>
+</GaugeText>
+<Rectangle X='4' Y='460' Height='18' Width='18' FillColor='aluminium' />
+<GaugeText X='26' Y='460' LineColor='aluminium' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aluminium</String>
+</GaugeText>
+<Rectangle X='4' Y='479' Height='18' Width='18' FillColor='ash' />
+<GaugeText X='26' Y='479' LineColor='ash' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ash</String>
+</GaugeText>
+<Rectangle X='4' Y='498' Height='18' Width='18' FillColor='lavendergray' />
+<GaugeText X='26' Y='498' LineColor='lavendergray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lavendergray</String>
+</GaugeText>
+<Rectangle X='4' Y='517' Height='18' Width='18' FillColor='timberwolf' />
+<GaugeText X='26' Y='517' LineColor='timberwolf' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>timberwolf</String>
+</GaugeText>
+<Rectangle X='4' Y='536' Height='18' Width='18' FillColor='platinum' />
+<GaugeText X='26' Y='536' LineColor='platinum' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>platinum</String>
+</GaugeText>
+<Rectangle X='4' Y='555' Height='18' Width='18' FillColor='beige' />
+<GaugeText X='26' Y='555' LineColor='beige' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>beige</String>
+</GaugeText>
+<Rectangle X='4' Y='574' Height='18' Width='18' FillColor='antiquewhite' />
+<GaugeText X='26' Y='574' LineColor='antiquewhite' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>antiquewhite</String>
+</GaugeText>
+<Rectangle X='4' Y='593' Height='18' Width='18' FillColor='papayawhip' />
+<GaugeText X='26' Y='593' LineColor='papayawhip' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>papayawhip</String>
+</GaugeText>
+<Rectangle X='179' Y='4' Height='18' Width='18' FillColor='applegreen' />
+<GaugeText X='201' Y='4' LineColor='applegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>applegreen</String>
+</GaugeText>
+<Rectangle X='179' Y='23' Height='18' Width='18' FillColor='cornsilk' />
+<GaugeText X='201' Y='23' LineColor='cornsilk' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cornsilk</String>
+</GaugeText>
+<Rectangle X='179' Y='42' Height='18' Width='18' FillColor='linen' />
+<GaugeText X='201' Y='42' LineColor='linen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>linen</String>
+</GaugeText>
+<Rectangle X='179' Y='61' Height='18' Width='18' FillColor='lavender' />
+<GaugeText X='201' Y='61' LineColor='lavender' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lavender</String>
+</GaugeText>
+<Rectangle X='179' Y='80' Height='18' Width='18' FillColor='mistyrose' />
+<GaugeText X='201' Y='80' LineColor='mistyrose' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mistyrose</String>
+</GaugeText>
+<Rectangle X='179' Y='99' Height='18' Width='18' FillColor='lightyellow' />
+<GaugeText X='201' Y='99' LineColor='lightyellow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightyellow</String>
+</GaugeText>
+<Rectangle X='179' Y='118' Height='18' Width='18' FillColor='lightcyan' />
+<GaugeText X='201' Y='118' LineColor='lightcyan' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightcyan</String>
+</GaugeText>
+<Rectangle X='179' Y='137' Height='18' Width='18' FillColor='oldlace' />
+<GaugeText X='201' Y='137' LineColor='oldlace' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>oldlace</String>
+</GaugeText>
+<Rectangle X='179' Y='156' Height='18' Width='18' FillColor='seashell' />
+<GaugeText X='201' Y='156' LineColor='seashell' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>seashell</String>
+</GaugeText>
+<Rectangle X='179' Y='175' Height='18' Width='18' FillColor='lavenderblush' />
+<GaugeText X='201' Y='175' LineColor='lavenderblush' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lavenderblush</String>
+</GaugeText>
+<Rectangle X='179' Y='194' Height='18' Width='18' FillColor='floralwhite' />
+<GaugeText X='201' Y='194' LineColor='floralwhite' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>floralwhite</String>
+</GaugeText>
+<Rectangle X='179' Y='213' Height='18' Width='18' FillColor='ivory' />
+<GaugeText X='201' Y='213' LineColor='ivory' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ivory</String>
+</GaugeText>
+<Rectangle X='179' Y='232' Height='18' Width='18' FillColor='honeydew' />
+<GaugeText X='201' Y='232' LineColor='honeydew' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>honeydew</String>
+</GaugeText>
+<Rectangle X='179' Y='251' Height='18' Width='18' FillColor='azure' />
+<GaugeText X='201' Y='251' LineColor='azure' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>azure</String>
+</GaugeText>
+<Rectangle X='179' Y='270' Height='18' Width='18' FillColor='aliceblue' />
+<GaugeText X='201' Y='270' LineColor='aliceblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aliceblue</String>
+</GaugeText>
+<Rectangle X='179' Y='289' Height='18' Width='18' FillColor='mintcream' />
+<GaugeText X='201' Y='289' LineColor='mintcream' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mintcream</String>
+</GaugeText>
+<Rectangle X='179' Y='308' Height='18' Width='18' FillColor='ghostwhite' />
+<GaugeText X='201' Y='308' LineColor='ghostwhite' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ghostwhite</String>
+</GaugeText>
+<Rectangle X='179' Y='327' Height='18' Width='18' FillColor='snow' />
+<GaugeText X='201' Y='327' LineColor='snow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>snow</String>
+</GaugeText>
+<Rectangle X='179' Y='384' Height='18' Width='18' FillColor='blackrose' />
+<GaugeText X='201' Y='384' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>blackrose</String>
+</GaugeText>
+<Rectangle X='179' Y='403' Height='18' Width='18' FillColor='eggplant' />
+<GaugeText X='201' Y='403' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>eggplant</String>
+</GaugeText>
+<Rectangle X='179' Y='422' Height='18' Width='18' FillColor='deeppink' />
+<GaugeText X='201' Y='422' LineColor='deeppink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>deeppink</String>
+</GaugeText>
+<Rectangle X='179' Y='441' Height='18' Width='18' FillColor='brilliantrose' />
+<GaugeText X='201' Y='441' LineColor='brilliantrose' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brilliantrose</String>
+</GaugeText>
+<Rectangle X='179' Y='460' Height='18' Width='18' FillColor='hotpink' />
+<GaugeText X='201' Y='460' LineColor='hotpink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>hotpink</String>
+</GaugeText>
+<Rectangle X='179' Y='479' Height='18' Width='18' FillColor='carnationpink' />
+<GaugeText X='201' Y='479' LineColor='carnationpink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>carnationpink</String>
+</GaugeText>
+<Rectangle X='179' Y='498' Height='18' Width='18' FillColor='cottoncandy' />
+<GaugeText X='201' Y='498' LineColor='cottoncandy' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cottoncandy</String>
+</GaugeText>
+<Rectangle X='179' Y='517' Height='18' Width='18' FillColor='burgundy' />
+<GaugeText X='201' Y='517' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>burgundy</String>
+</GaugeText>
+<Rectangle X='179' Y='536' Height='18' Width='18' FillColor='crimson' />
+<GaugeText X='201' Y='536' LineColor='crimson' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>crimson</String>
+</GaugeText>
+<Rectangle X='179' Y='555' Height='18' Width='18' FillColor='amaranth' />
+<GaugeText X='201' Y='555' LineColor='amaranth' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>amaranth</String>
+</GaugeText>
+<Rectangle X='179' Y='574' Height='18' Width='18' FillColor='darkpink' />
+<GaugeText X='201' Y='574' LineColor='darkpink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkpink</String>
+</GaugeText>
+<Rectangle X='179' Y='593' Height='18' Width='18' FillColor='palevioletred' />
+<GaugeText X='201' Y='593' LineColor='palevioletred' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>palevioletred</String>
+</GaugeText>
+<Rectangle X='354' Y='4' Height='18' Width='18' FillColor='puce' />
+<GaugeText X='376' Y='4' LineColor='puce' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>puce</String>
+</GaugeText>
+<Rectangle X='354' Y='23' Height='18' Width='18' FillColor='brinkpink' />
+<GaugeText X='376' Y='23' LineColor='brinkpink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brinkpink</String>
+</GaugeText>
+<Rectangle X='354' Y='42' Height='18' Width='18' FillColor='amaranthpink' />
+<GaugeText X='376' Y='42' LineColor='amaranthpink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>amaranthpink</String>
+</GaugeText>
+<Rectangle X='354' Y='61' Height='18' Width='18' FillColor='cherryblossompink' />
+<GaugeText X='376' Y='61' LineColor='cherryblossompink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cherryblossompink</String>
+</GaugeText>
+<Rectangle X='354' Y='80' Height='18' Width='18' FillColor='lavenderblush' />
+<GaugeText X='376' Y='80' LineColor='lavenderblush' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lavenderblush</String>
+</GaugeText>
+<Rectangle X='354' Y='99' Height='18' Width='18' FillColor='carmine' />
+<GaugeText X='376' Y='99' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>carmine</String>
+</GaugeText>
+<Rectangle X='354' Y='118' Height='18' Width='18' FillColor='cardinal' />
+<GaugeText X='376' Y='118' LineColor='cardinal' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cardinal</String>
+</GaugeText>
+<Rectangle X='354' Y='137' Height='18' Width='18' FillColor='fireenginered' />
+<GaugeText X='376' Y='137' LineColor='fireenginered' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>fireenginered</String>
+</GaugeText>
+<Rectangle X='354' Y='156' Height='18' Width='18' FillColor='pigmentred' />
+<GaugeText X='376' Y='156' LineColor='pigmentred' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>pigmentred</String>
+</GaugeText>
+<Rectangle X='354' Y='175' Height='18' Width='18' FillColor='brickred' />
+<GaugeText X='376' Y='175' LineColor='brickred' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brickred</String>
+</GaugeText>
+<Rectangle X='354' Y='194' Height='18' Width='18' FillColor='hotmagenta' />
+<GaugeText X='376' Y='194' LineColor='hotmagenta' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>hotmagenta</String>
+</GaugeText>
+<Rectangle X='354' Y='213' Height='18' Width='18' FillColor='mahogany' />
+<GaugeText X='376' Y='213' LineColor='mahogany' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mahogany</String>
+</GaugeText>
+<Rectangle X='354' Y='232' Height='18' Width='18' FillColor='lightpink' />
+<GaugeText X='376' Y='232' LineColor='lightpink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightpink</String>
+</GaugeText>
+<Rectangle X='354' Y='251' Height='18' Width='18' FillColor='pink' />
+<GaugeText X='376' Y='251' LineColor='pink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>pink</String>
+</GaugeText>
+<Rectangle X='354' Y='270' Height='18' Width='18' FillColor='caputmortuum' />
+<GaugeText X='376' Y='270' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>caputmortuum</String>
+</GaugeText>
+<Rectangle X='354' Y='289' Height='18' Width='18' FillColor='maroon' />
+<GaugeText X='376' Y='289' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>maroon</String>
+</GaugeText>
+<Rectangle X='354' Y='308' Height='18' Width='18' FillColor='darkred' />
+<GaugeText X='376' Y='308' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkred</String>
+</GaugeText>
+<Rectangle X='354' Y='327' Height='18' Width='18' FillColor='falured' />
+<GaugeText X='376' Y='327' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>falured</String>
+</GaugeText>
+<Rectangle X='354' Y='346' Height='18' Width='18' FillColor='burntumber' />
+<GaugeText X='376' Y='346' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>burntumber</String>
+</GaugeText>
+<Rectangle X='354' Y='365' Height='18' Width='18' FillColor='brightred' />
+<GaugeText X='376' Y='365' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brightred</String>
+</GaugeText>
+<Rectangle X='354' Y='384' Height='18' Width='18' FillColor='bole' />
+<GaugeText X='376' Y='384' LineColor='bole' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bole</String>
+</GaugeText>
+<Rectangle X='354' Y='403' Height='18' Width='18' FillColor='brown' />
+<GaugeText X='376' Y='403' LineColor='brown' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brown</String>
+</GaugeText>
+<Rectangle X='354' Y='422' Height='18' Width='18' FillColor='firebrick' />
+<GaugeText X='376' Y='422' LineColor='firebrick' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>firebrick</String>
+</GaugeText>
+<Rectangle X='354' Y='441' Height='18' Width='18' FillColor='red' />
+<GaugeText X='376' Y='441' LineColor='red' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>red</String>
+</GaugeText>
+<Rectangle X='354' Y='460' Height='18' Width='18' FillColor='darkcoral' />
+<GaugeText X='376' Y='460' LineColor='darkcoral' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkcoral</String>
+</GaugeText>
+<Rectangle X='354' Y='479' Height='18' Width='18' FillColor='vermilion' />
+<GaugeText X='376' Y='479' LineColor='vermilion' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>vermilion</String>
+</GaugeText>
+<Rectangle X='354' Y='498' Height='18' Width='18' FillColor='indianred' />
+<GaugeText X='376' Y='498' LineColor='indianred' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>indianred</String>
+</GaugeText>
+<Rectangle X='354' Y='517' Height='18' Width='18' FillColor='carminepink' />
+<GaugeText X='376' Y='517' LineColor='carminepink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>carminepink</String>
+</GaugeText>
+<Rectangle X='354' Y='536' Height='18' Width='18' FillColor='coralred' />
+<GaugeText X='376' Y='536' LineColor='coralred' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>coralred</String>
+</GaugeText>
+<Rectangle X='354' Y='555' Height='18' Width='18' FillColor='tomato' />
+<GaugeText X='376' Y='555' LineColor='tomato' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>tomato</String>
+</GaugeText>
+<Rectangle X='354' Y='574' Height='18' Width='18' FillColor='rosybrown' />
+<GaugeText X='376' Y='574' LineColor='rosybrown' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>rosybrown</String>
+</GaugeText>
+<Rectangle X='354' Y='593' Height='18' Width='18' FillColor='salmon' />
+<GaugeText X='376' Y='593' LineColor='salmon' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>salmon</String>
+</GaugeText>
+<Rectangle X='529' Y='4' Height='18' Width='18' FillColor='lightcoral' />
+<GaugeText X='551' Y='4' LineColor='lightcoral' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightcoral</String>
+</GaugeText>
+<Rectangle X='529' Y='23' Height='18' Width='18' FillColor='mistyrose' />
+<GaugeText X='551' Y='23' LineColor='mistyrose' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mistyrose</String>
+</GaugeText>
+<Rectangle X='529' Y='42' Height='18' Width='18' FillColor='snow' />
+<GaugeText X='551' Y='42' LineColor='snow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>snow</String>
+</GaugeText>
+<Rectangle X='529' Y='61' Height='18' Width='18' FillColor='asphalt' />
+<GaugeText X='551' Y='61' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>asphalt</String>
+</GaugeText>
+<Rectangle X='529' Y='80' Height='18' Width='18' FillColor='auburn' />
+<GaugeText X='551' Y='80' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>auburn</String>
+</GaugeText>
+<Rectangle X='529' Y='99' Height='18' Width='18' FillColor='rust' />
+<GaugeText X='551' Y='99' LineColor='rust' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>rust</String>
+</GaugeText>
+<Rectangle X='529' Y='118' Height='18' Width='18' FillColor='sienna' />
+<GaugeText X='551' Y='118' LineColor='sienna' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>sienna</String>
+</GaugeText>
+<Rectangle X='529' Y='137' Height='18' Width='18' FillColor='orangered' />
+<GaugeText X='551' Y='137' LineColor='orangered' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>orangered</String>
+</GaugeText>
+<Rectangle X='529' Y='156' Height='18' Width='18' FillColor='beaver' />
+<GaugeText X='551' Y='156' LineColor='beaver' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>beaver</String>
+</GaugeText>
+<Rectangle X='529' Y='175' Height='18' Width='18' FillColor='burntsienna' />
+<GaugeText X='551' Y='175' LineColor='burntsienna' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>burntsienna</String>
+</GaugeText>
+<Rectangle X='529' Y='194' Height='18' Width='18' FillColor='coral' />
+<GaugeText X='551' Y='194' LineColor='coral' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>coral</String>
+</GaugeText>
+<Rectangle X='529' Y='213' Height='18' Width='18' FillColor='darksalmon' />
+<GaugeText X='551' Y='213' LineColor='darksalmon' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darksalmon</String>
+</GaugeText>
+<Rectangle X='529' Y='232' Height='18' Width='18' FillColor='lightsalmon' />
+<GaugeText X='551' Y='232' LineColor='lightsalmon' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightsalmon</String>
+</GaugeText>
+<Rectangle X='529' Y='251' Height='18' Width='18' FillColor='bistre' />
+<GaugeText X='551' Y='251' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bistre</String>
+</GaugeText>
+<Rectangle X='529' Y='270' Height='18' Width='18' FillColor='bakerschocolate' />
+<GaugeText X='551' Y='270' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bakerschocolate</String>
+</GaugeText>
+<Rectangle X='529' Y='289' Height='18' Width='18' FillColor='taupe' />
+<GaugeText X='551' Y='289' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>taupe</String>
+</GaugeText>
+<Rectangle X='529' Y='308' Height='18' Width='18' FillColor='darkbrown' />
+<GaugeText X='551' Y='308' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkbrown</String>
+</GaugeText>
+<Rectangle X='529' Y='327' Height='18' Width='18' FillColor='walnut' />
+<GaugeText X='551' Y='327' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>walnut</String>
+</GaugeText>
+<Rectangle X='529' Y='346' Height='18' Width='18' FillColor='rawumber' />
+<GaugeText X='551' Y='346' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>rawumber</String>
+</GaugeText>
+<Rectangle X='529' Y='365' Height='18' Width='18' FillColor='saddlebrown' />
+<GaugeText X='551' Y='365' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>saddlebrown</String>
+</GaugeText>
+<Rectangle X='529' Y='384' Height='18' Width='18' FillColor='burntorange' />
+<GaugeText X='551' Y='384' LineColor='burntorange' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>burntorange</String>
+</GaugeText>
+<Rectangle X='529' Y='403' Height='18' Width='18' FillColor='palebrown' />
+<GaugeText X='551' Y='403' LineColor='palebrown' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>palebrown</String>
+</GaugeText>
+<Rectangle X='529' Y='422' Height='18' Width='18' FillColor='copper' />
+<GaugeText X='551' Y='422' LineColor='copper' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>copper</String>
+</GaugeText>
+<Rectangle X='529' Y='441' Height='18' Width='18' FillColor='persimmon' />
+<GaugeText X='551' Y='441' LineColor='persimmon' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>persimmon</String>
+</GaugeText>
+<Rectangle X='529' Y='460' Height='18' Width='18' FillColor='ochre' />
+<GaugeText X='551' Y='460' LineColor='ochre' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ochre</String>
+</GaugeText>
+<Rectangle X='529' Y='479' Height='18' Width='18' FillColor='chocolate' />
+<GaugeText X='551' Y='479' LineColor='chocolate' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>chocolate</String>
+</GaugeText>
+<Rectangle X='529' Y='498' Height='18' Width='18' FillColor='tangerine' />
+<GaugeText X='551' Y='498' LineColor='tangerine' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>tangerine</String>
+</GaugeText>
+<Rectangle X='529' Y='517' Height='18' Width='18' FillColor='bronze' />
+<GaugeText X='551' Y='517' LineColor='bronze' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bronze</String>
+</GaugeText>
+<Rectangle X='529' Y='536' Height='18' Width='18' FillColor='amber2' />
+<GaugeText X='551' Y='536' LineColor='amber2' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>amber2</String>
+</GaugeText>
+<Rectangle X='529' Y='555' Height='18' Width='18' FillColor='darkorange' />
+<GaugeText X='551' Y='555' LineColor='darkorange' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkorange</String>
+</GaugeText>
+<Rectangle X='529' Y='574' Height='18' Width='18' FillColor='safetyorange' />
+<GaugeText X='551' Y='574' LineColor='safetyorange' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>safetyorange</String>
+</GaugeText>
+<Rectangle X='529' Y='593' Height='18' Width='18' FillColor='peru' />
+<GaugeText X='551' Y='593' LineColor='peru' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>peru</String>
+</GaugeText>
+<Rectangle X='704' Y='4' Height='18' Width='18' FillColor='carrotorange' />
+<GaugeText X='726' Y='4' LineColor='carrotorange' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>carrotorange</String>
+</GaugeText>
+<Rectangle X='704' Y='23' Height='18' Width='18' FillColor='pumpkin' />
+<GaugeText X='726' Y='23' LineColor='pumpkin' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>pumpkin</String>
+</GaugeText>
+<Rectangle X='704' Y='42' Height='18' Width='18' FillColor='fallow' />
+<GaugeText X='726' Y='42' LineColor='fallow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>fallow</String>
+</GaugeText>
+<Rectangle X='704' Y='61' Height='18' Width='18' FillColor='antiquebrass' />
+<GaugeText X='726' Y='61' LineColor='antiquebrass' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>antiquebrass</String>
+</GaugeText>
+<Rectangle X='704' Y='80' Height='18' Width='18' FillColor='deepsaffron' />
+<GaugeText X='726' Y='80' LineColor='deepsaffron' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>deepsaffron</String>
+</GaugeText>
+<Rectangle X='704' Y='99' Height='18' Width='18' FillColor='sandybrown' />
+<GaugeText X='726' Y='99' LineColor='sandybrown' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>sandybrown</String>
+</GaugeText>
+<Rectangle X='704' Y='118' Height='18' Width='18' FillColor='peachorange' />
+<GaugeText X='726' Y='118' LineColor='peachorange' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>peachorange</String>
+</GaugeText>
+<Rectangle X='704' Y='137' Height='18' Width='18' FillColor='bone' />
+<GaugeText X='726' Y='137' LineColor='bone' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bone</String>
+</GaugeText>
+<Rectangle X='704' Y='156' Height='18' Width='18' FillColor='desertsand' />
+<GaugeText X='726' Y='156' LineColor='desertsand' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>desertsand</String>
+</GaugeText>
+<Rectangle X='704' Y='175' Height='18' Width='18' FillColor='apricot' />
+<GaugeText X='726' Y='175' LineColor='apricot' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>apricot</String>
+</GaugeText>
+<Rectangle X='704' Y='194' Height='18' Width='18' FillColor='almond' />
+<GaugeText X='726' Y='194' LineColor='almond' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>almond</String>
+</GaugeText>
+<Rectangle X='704' Y='213' Height='18' Width='18' FillColor='bisque' />
+<GaugeText X='726' Y='213' LineColor='bisque' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bisque</String>
+</GaugeText>
+<Rectangle X='704' Y='232' Height='18' Width='18' FillColor='linen' />
+<GaugeText X='726' Y='232' LineColor='linen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>linen</String>
+</GaugeText>
+<Rectangle X='704' Y='251' Height='18' Width='18' FillColor='seashell' />
+<GaugeText X='726' Y='251' LineColor='seashell' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>seashell</String>
+</GaugeText>
+<Rectangle X='704' Y='270' Height='18' Width='18' FillColor='antiquebronze' />
+<GaugeText X='726' Y='270' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>antiquebronze</String>
+</GaugeText>
+<Rectangle X='704' Y='289' Height='18' Width='18' FillColor='darkgoldenrod' />
+<GaugeText X='726' Y='289' LineColor='darkgoldenrod' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkgoldenrod</String>
+</GaugeText>
+<Rectangle X='704' Y='308' Height='18' Width='18' FillColor='coolcopper' />
+<GaugeText X='726' Y='308' LineColor='coolcopper' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>coolcopper</String>
+</GaugeText>
+<Rectangle X='704' Y='327' Height='18' Width='18' FillColor='goldenrod' />
+<GaugeText X='726' Y='327' LineColor='goldenrod' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>goldenrod</String>
+</GaugeText>
+<Rectangle X='704' Y='346' Height='18' Width='18' FillColor='orange' />
+<GaugeText X='726' Y='346' LineColor='orange' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>orange</String>
+</GaugeText>
+<Rectangle X='704' Y='365' Height='18' Width='18' FillColor='buttercup' />
+<GaugeText X='726' Y='365' LineColor='buttercup' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>buttercup</String>
+</GaugeText>
+<Rectangle X='704' Y='384' Height='18' Width='18' FillColor='yelloworange' />
+<GaugeText X='726' Y='384' LineColor='yelloworange' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>yelloworange</String>
+</GaugeText>
+<Rectangle X='704' Y='403' Height='18' Width='18' FillColor='tan' />
+<GaugeText X='726' Y='403' LineColor='tan' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>tan</String>
+</GaugeText>
+<Rectangle X='704' Y='422' Height='18' Width='18' FillColor='burlywood' />
+<GaugeText X='726' Y='422' LineColor='burlywood' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>burlywood</String>
+</GaugeText>
+<Rectangle X='704' Y='441' Height='18' Width='18' FillColor='wheat' />
+<GaugeText X='726' Y='441' LineColor='wheat' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>wheat</String>
+</GaugeText>
+<Rectangle X='704' Y='460' Height='18' Width='18' FillColor='navajowhite' />
+<GaugeText X='726' Y='460' LineColor='navajowhite' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>navajowhite</String>
+</GaugeText>
+<Rectangle X='704' Y='479' Height='18' Width='18' FillColor='timberwolf' />
+<GaugeText X='726' Y='479' LineColor='timberwolf' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>timberwolf</String>
+</GaugeText>
+<Rectangle X='704' Y='498' Height='18' Width='18' FillColor='moccasin' />
+<GaugeText X='726' Y='498' LineColor='moccasin' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>moccasin</String>
+</GaugeText>
+<Rectangle X='704' Y='517' Height='18' Width='18' FillColor='champagne' />
+<GaugeText X='726' Y='517' LineColor='champagne' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>champagne</String>
+</GaugeText>
+<Rectangle X='704' Y='536' Height='18' Width='18' FillColor='platinum' />
+<GaugeText X='726' Y='536' LineColor='platinum' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>platinum</String>
+</GaugeText>
+<Rectangle X='704' Y='555' Height='18' Width='18' FillColor='blanchedalmond' />
+<GaugeText X='726' Y='555' LineColor='blanchedalmond' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>blanchedalmond</String>
+</GaugeText>
+<Rectangle X='704' Y='574' Height='18' Width='18' FillColor='antiquewhite' />
+<GaugeText X='726' Y='574' LineColor='antiquewhite' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>antiquewhite</String>
+</GaugeText>
+<Rectangle X='704' Y='593' Height='18' Width='18' FillColor='papayawhip' />
+<GaugeText X='726' Y='593' LineColor='papayawhip' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>papayawhip</String>
+</GaugeText>
+<Rectangle X='879' Y='4' Height='18' Width='18' FillColor='oldlace' />
+<GaugeText X='901' Y='4' LineColor='oldlace' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>oldlace</String>
+</GaugeText>
+<Rectangle X='879' Y='23' Height='18' Width='18' FillColor='floralwhite' />
+<GaugeText X='901' Y='23' LineColor='floralwhite' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>floralwhite</String>
+</GaugeText>
+<Rectangle X='879' Y='42' Height='18' Width='18' FillColor='darktan' />
+<GaugeText X='901' Y='42' LineColor='darktan' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darktan</String>
+</GaugeText>
+<Rectangle X='879' Y='61' Height='18' Width='18' FillColor='brass' />
+<GaugeText X='901' Y='61' LineColor='brass' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brass</String>
+</GaugeText>
+<Rectangle X='879' Y='80' Height='18' Width='18' FillColor='amber' />
+<GaugeText X='901' Y='80' LineColor='amber' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>amber</String>
+</GaugeText>
+<Rectangle X='879' Y='99' Height='18' Width='18' FillColor='gold' />
+<GaugeText X='901' Y='99' LineColor='gold' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>gold</String>
+</GaugeText>
+<Rectangle X='879' Y='118' Height='18' Width='18' FillColor='goldmetallic' />
+<GaugeText X='901' Y='118' LineColor='goldmetallic' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>goldmetallic</String>
+</GaugeText>
+<Rectangle X='879' Y='137' Height='18' Width='18' FillColor='metallicgold' />
+<GaugeText X='901' Y='137' LineColor='metallicgold' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>metallicgold</String>
+</GaugeText>
+<Rectangle X='879' Y='156' Height='18' Width='18' FillColor='lemon' />
+<GaugeText X='901' Y='156' LineColor='lemon' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lemon</String>
+</GaugeText>
+<Rectangle X='879' Y='175' Height='18' Width='18' FillColor='vegasgold' />
+<GaugeText X='901' Y='175' LineColor='vegasgold' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>vegasgold</String>
+</GaugeText>
+<Rectangle X='879' Y='194' Height='18' Width='18' FillColor='saffron' />
+<GaugeText X='901' Y='194' LineColor='saffron' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>saffron</String>
+</GaugeText>
+<Rectangle X='879' Y='213' Height='18' Width='18' FillColor='darkkhaki' />
+<GaugeText X='901' Y='213' LineColor='darkkhaki' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkkhaki</String>
+</GaugeText>
+<Rectangle X='879' Y='232' Height='18' Width='18' FillColor='corn' />
+<GaugeText X='901' Y='232' LineColor='corn' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>corn</String>
+</GaugeText>
+<Rectangle X='879' Y='251' Height='18' Width='18' FillColor='mustard' />
+<GaugeText X='901' Y='251' LineColor='mustard' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mustard</String>
+</GaugeText>
+<Rectangle X='879' Y='270' Height='18' Width='18' FillColor='buff' />
+<GaugeText X='901' Y='270' LineColor='buff' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>buff</String>
+</GaugeText>
+<Rectangle X='879' Y='289' Height='18' Width='18' FillColor='ash' />
+<GaugeText X='901' Y='289' LineColor='ash' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ash</String>
+</GaugeText>
+<Rectangle X='879' Y='308' Height='18' Width='18' FillColor='khaki' />
+<GaugeText X='901' Y='308' LineColor='khaki' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>khaki</String>
+</GaugeText>
+<Rectangle X='879' Y='327' Height='18' Width='18' FillColor='greenyellow' />
+<GaugeText X='901' Y='327' LineColor='greenyellow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>greenyellow</String>
+</GaugeText>
+<Rectangle X='879' Y='346' Height='18' Width='18' FillColor='palegoldenrod' />
+<GaugeText X='901' Y='346' LineColor='palegoldenrod' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>palegoldenrod</String>
+</GaugeText>
+<Rectangle X='879' Y='365' Height='18' Width='18' FillColor='lemonchiffon' />
+<GaugeText X='901' Y='365' LineColor='lemonchiffon' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lemonchiffon</String>
+</GaugeText>
+<Rectangle X='879' Y='384' Height='18' Width='18' FillColor='cornsilk' />
+<GaugeText X='901' Y='384' LineColor='cornsilk' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cornsilk</String>
+</GaugeText>
+<Rectangle X='879' Y='403' Height='18' Width='18' FillColor='olive' />
+<GaugeText X='901' Y='403' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>olive</String>
+</GaugeText>
+<Rectangle X='879' Y='422' Height='18' Width='18' FillColor='processyellow' />
+<GaugeText X='901' Y='422' LineColor='processyellow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>processyellow</String>
+</GaugeText>
+<Rectangle X='879' Y='441' Height='18' Width='18' FillColor='yellow' />
+<GaugeText X='901' Y='441' LineColor='yellow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>yellow</String>
+</GaugeText>
+<Rectangle X='879' Y='460' Height='18' Width='18' FillColor='canary' />
+<GaugeText X='901' Y='460' LineColor='canary' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>canary</String>
+</GaugeText>
+<Rectangle X='879' Y='479' Height='18' Width='18' FillColor='lightgoldenrodyellow' />
+<GaugeText X='901' Y='479' LineColor='lightgoldenrodyellow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightgoldenrodyellow</String>
+</GaugeText>
+<Rectangle X='879' Y='498' Height='18' Width='18' FillColor='beige' />
+<GaugeText X='901' Y='498' LineColor='beige' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>beige</String>
+</GaugeText>
+<Rectangle X='879' Y='517' Height='18' Width='18' FillColor='lightyellow' />
+<GaugeText X='901' Y='517' LineColor='lightyellow' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightyellow</String>
+</GaugeText>
+<Rectangle X='879' Y='536' Height='18' Width='18' FillColor='ivory' />
+<GaugeText X='901' Y='536' LineColor='ivory' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ivory</String>
+</GaugeText>
+<Rectangle X='879' Y='555' Height='18' Width='18' FillColor='armygreen' />
+<GaugeText X='901' Y='555' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>armygreen</String>
+</GaugeText>
+<Rectangle X='879' Y='574' Height='18' Width='18' FillColor='chartreusetraditional' />
+<GaugeText X='901' Y='574' LineColor='chartreusetraditional' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>chartreusetraditional</String>
+</GaugeText>
+<Rectangle X='879' Y='593' Height='18' Width='18' FillColor='electriclime' />
+<GaugeText X='901' Y='593' LineColor='electriclime' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>electriclime</String>
+</GaugeText>
+<Rectangle X='1054' Y='4' Height='18' Width='18' FillColor='darkolivegreen' />
+<GaugeText X='1076' Y='4' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkolivegreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='23' Height='18' Width='18' FillColor='olivedrab' />
+<GaugeText X='1076' Y='23' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>olivedrab</String>
+</GaugeText>
+<Rectangle X='1054' Y='42' Height='18' Width='18' FillColor='battleshipgray' />
+<GaugeText X='1076' Y='42' LineColor='battleshipgray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>battleshipgray</String>
+</GaugeText>
+<Rectangle X='1054' Y='61' Height='18' Width='18' FillColor='inchworm' />
+<GaugeText X='1076' Y='61' LineColor='inchworm' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>inchworm</String>
+</GaugeText>
+<Rectangle X='1054' Y='80' Height='18' Width='18' FillColor='yellowgreen' />
+<GaugeText X='1076' Y='80' LineColor='yellowgreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>yellowgreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='99' Height='18' Width='18' FillColor='kellygreen' />
+<GaugeText X='1076' Y='99' LineColor='kellygreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>kellygreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='118' Height='18' Width='18' FillColor='camouflagegreen' />
+<GaugeText X='1076' Y='118' LineColor='camouflagegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>camouflagegreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='137' Height='18' Width='18' FillColor='asparagus' />
+<GaugeText X='1076' Y='137' LineColor='asparagus' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>asparagus</String>
+</GaugeText>
+<Rectangle X='1054' Y='156' Height='18' Width='18' FillColor='lawngreen' />
+<GaugeText X='1076' Y='156' LineColor='lawngreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lawngreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='175' Height='18' Width='18' FillColor='brightgreen' />
+<GaugeText X='1076' Y='175' LineColor='brightgreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brightgreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='194' Height='18' Width='18' FillColor='chartreuse' />
+<GaugeText X='1076' Y='194' LineColor='chartreuse' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>chartreuse</String>
+</GaugeText>
+<Rectangle X='1054' Y='213' Height='18' Width='18' FillColor='teagreen' />
+<GaugeText X='1076' Y='213' LineColor='teagreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>teagreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='232' Height='18' Width='18' FillColor='ferngreen' />
+<GaugeText X='1076' Y='232' LineColor='ferngreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ferngreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='251' Height='18' Width='18' FillColor='apple' />
+<GaugeText X='1076' Y='251' LineColor='apple' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>apple</String>
+</GaugeText>
+<Rectangle X='1054' Y='270' Height='18' Width='18' FillColor='darkgreen' />
+<GaugeText X='1076' Y='270' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkgreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='289' Height='18' Width='18' FillColor='green' />
+<GaugeText X='1076' Y='289' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>green</String>
+</GaugeText>
+<Rectangle X='1054' Y='308' Height='18' Width='18' FillColor='forestgreen' />
+<GaugeText X='1076' Y='308' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>forestgreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='327' Height='18' Width='18' FillColor='limegreen' />
+<GaugeText X='1076' Y='327' LineColor='limegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>limegreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='346' Height='18' Width='18' FillColor='lime' />
+<GaugeText X='1076' Y='346' LineColor='lime' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lime</String>
+</GaugeText>
+<Rectangle X='1054' Y='365' Height='18' Width='18' FillColor='darkseagreen' />
+<GaugeText X='1076' Y='365' LineColor='darkseagreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkseagreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='384' Height='18' Width='18' FillColor='pastelgreen' />
+<GaugeText X='1076' Y='384' LineColor='pastelgreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>pastelgreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='403' Height='18' Width='18' FillColor='screamingreen' />
+<GaugeText X='1076' Y='403' LineColor='screamingreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>screamingreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='422' Height='18' Width='18' FillColor='lightgreen' />
+<GaugeText X='1076' Y='422' LineColor='lightgreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightgreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='441' Height='18' Width='18' FillColor='grannysmithapple' />
+<GaugeText X='1076' Y='441' LineColor='grannysmithapple' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>grannysmithapple</String>
+</GaugeText>
+<Rectangle X='1054' Y='460' Height='18' Width='18' FillColor='mossgreen' />
+<GaugeText X='1076' Y='460' LineColor='mossgreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mossgreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='479' Height='18' Width='18' FillColor='palegreen' />
+<GaugeText X='1076' Y='479' LineColor='palegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>palegreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='498' Height='18' Width='18' FillColor='honeydew' />
+<GaugeText X='1076' Y='498' LineColor='honeydew' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>honeydew</String>
+</GaugeText>
+<Rectangle X='1054' Y='517' Height='18' Width='18' FillColor='huntergreen' />
+<GaugeText X='1076' Y='517' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>huntergreen</String>
+</GaugeText>
+<Rectangle X='1054' Y='536' Height='18' Width='18' FillColor='feldgray' />
+<GaugeText X='1076' Y='536' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>feldgray</String>
+</GaugeText>
+<Rectangle X='1054' Y='555' Height='18' Width='18' FillColor='emerald' />
+<GaugeText X='1076' Y='555' LineColor='emerald' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>emerald</String>
+</GaugeText>
+<Rectangle X='1054' Y='574' Height='18' Width='18' FillColor='cambridgeblue' />
+<GaugeText X='1076' Y='574' LineColor='cambridgeblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cambridgeblue</String>
+</GaugeText>
+<Rectangle X='1054' Y='593' Height='18' Width='18' FillColor='britishracinggreen' />
+<GaugeText X='1076' Y='593' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>britishracinggreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='4' Height='18' Width='18' FillColor='pigmentgreen' />
+<GaugeText X='1251' Y='4' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>pigmentgreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='23' Height='18' Width='18' FillColor='seagreen' />
+<GaugeText X='1251' Y='23' LineColor='seagreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>seagreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='42' Height='18' Width='18' FillColor='mediumseagreen' />
+<GaugeText X='1251' Y='42' LineColor='mediumseagreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumseagreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='61' Height='18' Width='18' FillColor='mediumspringgreen' />
+<GaugeText X='1251' Y='61' LineColor='mediumspringgreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumspringgreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='80' Height='18' Width='18' FillColor='springgreen' />
+<GaugeText X='1251' Y='80' LineColor='springgreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>springgreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='99' Height='18' Width='18' FillColor='aeroblue' />
+<GaugeText X='1251' Y='99' LineColor='aeroblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aeroblue</String>
+</GaugeText>
+<Rectangle X='1229' Y='118' Height='18' Width='18' FillColor='applegreen' />
+<GaugeText X='1251' Y='118' LineColor='applegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>applegreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='137' Height='18' Width='18' FillColor='mintcream' />
+<GaugeText X='1251' Y='137' LineColor='mintcream' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mintcream</String>
+</GaugeText>
+<Rectangle X='1229' Y='156' Height='18' Width='18' FillColor='darkgreen2' />
+<GaugeText X='1251' Y='156' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkgreen2</String>
+</GaugeText>
+<Rectangle X='1229' Y='175' Height='18' Width='18' FillColor='jade' />
+<GaugeText X='1251' Y='175' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>jade</String>
+</GaugeText>
+<Rectangle X='1229' Y='194' Height='18' Width='18' FillColor='viridian' />
+<GaugeText X='1251' Y='194' LineColor='viridian' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>viridian</String>
+</GaugeText>
+<Rectangle X='1229' Y='213' Height='18' Width='18' FillColor='junglegreen' />
+<GaugeText X='1251' Y='213' LineColor='junglegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>junglegreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='232' Height='18' Width='18' FillColor='caribbeangreen' />
+<GaugeText X='1251' Y='232' LineColor='caribbeangreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>caribbeangreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='251' Height='18' Width='18' FillColor='mediumaquamarine' />
+<GaugeText X='1251' Y='251' LineColor='mediumaquamarine' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumaquamarine</String>
+</GaugeText>
+<Rectangle X='1229' Y='270' Height='18' Width='18' FillColor='aquamarine' />
+<GaugeText X='1251' Y='270' LineColor='aquamarine' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aquamarine</String>
+</GaugeText>
+<Rectangle X='1229' Y='289' Height='18' Width='18' FillColor='pinegreen' />
+<GaugeText X='1251' Y='289' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>pinegreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='308' Height='18' Width='18' FillColor='lightseagreen' />
+<GaugeText X='1251' Y='308' LineColor='lightseagreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightseagreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='327' Height='18' Width='18' FillColor='robineggblue' />
+<GaugeText X='1251' Y='327' LineColor='robineggblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>robineggblue</String>
+</GaugeText>
+<Rectangle X='1229' Y='346' Height='18' Width='18' FillColor='brightturquoise' />
+<GaugeText X='1251' Y='346' LineColor='brightturquoise' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>brightturquoise</String>
+</GaugeText>
+<Rectangle X='1229' Y='365' Height='18' Width='18' FillColor='mediumturquoise' />
+<GaugeText X='1251' Y='365' LineColor='mediumturquoise' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumturquoise</String>
+</GaugeText>
+<Rectangle X='1229' Y='384' Height='18' Width='18' FillColor='turquoise' />
+<GaugeText X='1251' Y='384' LineColor='turquoise' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>turquoise</String>
+</GaugeText>
+<Rectangle X='1229' Y='403' Height='18' Width='18' FillColor='darkslategray' />
+<GaugeText X='1251' Y='403' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkslategray</String>
+</GaugeText>
+<Rectangle X='1229' Y='422' Height='18' Width='18' FillColor='teal' />
+<GaugeText X='1251' Y='422' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>teal</String>
+</GaugeText>
+<Rectangle X='1229' Y='441' Height='18' Width='18' FillColor='darkcyan' />
+<GaugeText X='1251' Y='441' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkcyan</String>
+</GaugeText>
+<Rectangle X='1229' Y='460' Height='18' Width='18' FillColor='outerspace' />
+<GaugeText X='1251' Y='460' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>outerspace</String>
+</GaugeText>
+<Rectangle X='1229' Y='479' Height='18' Width='18' FillColor='bondiblue' />
+<GaugeText X='1251' Y='479' LineColor='bondiblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bondiblue</String>
+</GaugeText>
+<Rectangle X='1229' Y='498' Height='18' Width='18' FillColor='darkturquoise' />
+<GaugeText X='1251' Y='498' LineColor='darkturquoise' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkturquoise</String>
+</GaugeText>
+<Rectangle X='1229' Y='517' Height='18' Width='18' FillColor='bluegreen' />
+<GaugeText X='1251' Y='517' LineColor='bluegreen' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bluegreen</String>
+</GaugeText>
+<Rectangle X='1229' Y='536' Height='18' Width='18' FillColor='cadetblue' />
+<GaugeText X='1251' Y='536' LineColor='cadetblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cadetblue</String>
+</GaugeText>
+<Rectangle X='1229' Y='555' Height='18' Width='18' FillColor='aqua' />
+<GaugeText X='1251' Y='555' LineColor='aqua' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aqua</String>
+</GaugeText>
+<Rectangle X='1229' Y='574' Height='18' Width='18' FillColor='cyan' />
+<GaugeText X='1251' Y='574' LineColor='cyan' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cyan</String>
+</GaugeText>
+<Rectangle X='1229' Y='593' Height='18' Width='18' FillColor='aquamarineblue' />
+<GaugeText X='1251' Y='593' LineColor='aquamarineblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aquamarineblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='4' Height='18' Width='18' FillColor='powderblue' />
+<GaugeText X='1426' Y='4' LineColor='powderblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>powderblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='23' Height='18' Width='18' FillColor='paleturquoise' />
+<GaugeText X='1426' Y='23' LineColor='paleturquoise' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>paleturquoise</String>
+</GaugeText>
+<Rectangle X='1404' Y='42' Height='18' Width='18' FillColor='lightcyan' />
+<GaugeText X='1426' Y='42' LineColor='lightcyan' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightcyan</String>
+</GaugeText>
+<Rectangle X='1404' Y='61' Height='18' Width='18' FillColor='azure' />
+<GaugeText X='1426' Y='61' LineColor='azure' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>azure</String>
+</GaugeText>
+<Rectangle X='1404' Y='80' Height='18' Width='18' FillColor='cerulean' />
+<GaugeText X='1426' Y='80' LineColor='cerulean' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cerulean</String>
+</GaugeText>
+<Rectangle X='1404' Y='99' Height='18' Width='18' FillColor='deepskyblue' />
+<GaugeText X='1426' Y='99' LineColor='deepskyblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>deepskyblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='118' Height='18' Width='18' FillColor='skyblue' />
+<GaugeText X='1426' Y='118' LineColor='skyblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>skyblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='137' Height='18' Width='18' FillColor='lightblue' />
+<GaugeText X='1426' Y='137' LineColor='lightblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='156' Height='18' Width='18' FillColor='indigodye' />
+<GaugeText X='1426' Y='156' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>indigodye</String>
+</GaugeText>
+<Rectangle X='1404' Y='175' Height='18' Width='18' FillColor='arsenic' />
+<GaugeText X='1426' Y='175' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>arsenic</String>
+</GaugeText>
+<Rectangle X='1404' Y='194' Height='18' Width='18' FillColor='darkcerulean' />
+<GaugeText X='1426' Y='194' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkcerulean</String>
+</GaugeText>
+<Rectangle X='1404' Y='213' Height='18' Width='18' FillColor='steelblue' />
+<GaugeText X='1426' Y='213' LineColor='steelblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>steelblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='232' Height='18' Width='18' FillColor='slategray' />
+<GaugeText X='1426' Y='232' LineColor='slategray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>slategray</String>
+</GaugeText>
+<Rectangle X='1404' Y='251' Height='18' Width='18' FillColor='azuredark' />
+<GaugeText X='1426' Y='251' LineColor='azuredark' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>azuredark</String>
+</GaugeText>
+<Rectangle X='1404' Y='270' Height='18' Width='18' FillColor='airforceblue' />
+<GaugeText X='1426' Y='270' LineColor='airforceblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>airforceblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='289' Height='18' Width='18' FillColor='lightslategray' />
+<GaugeText X='1426' Y='289' LineColor='lightslategray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightslategray</String>
+</GaugeText>
+<Rectangle X='1404' Y='308' Height='18' Width='18' FillColor='dodgerblue' />
+<GaugeText X='1426' Y='308' LineColor='dodgerblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>dodgerblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='327' Height='18' Width='18' FillColor='bluegray' />
+<GaugeText X='1426' Y='327' LineColor='bluegray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bluegray</String>
+</GaugeText>
+<Rectangle X='1404' Y='346' Height='18' Width='18' FillColor='lightskyblue' />
+<GaugeText X='1426' Y='346' LineColor='lightskyblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightskyblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='365' Height='18' Width='18' FillColor='aliceblue' />
+<GaugeText X='1426' Y='365' LineColor='aliceblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aliceblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='384' Height='18' Width='18' FillColor='sapphire' />
+<GaugeText X='1426' Y='384' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>sapphire</String>
+</GaugeText>
+<Rectangle X='1404' Y='403' Height='18' Width='18' FillColor='abbey' />
+<GaugeText X='1426' Y='403' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>abbey</String>
+</GaugeText>
+<Rectangle X='1404' Y='422' Height='18' Width='18' FillColor='ceruleanblue' />
+<GaugeText X='1426' Y='422' LineColor='ceruleanblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ceruleanblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='441' Height='18' Width='18' FillColor='denim' />
+<GaugeText X='1426' Y='441' LineColor='denim' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>denim</String>
+</GaugeText>
+<Rectangle X='1404' Y='460' Height='18' Width='18' FillColor='bluecrayola' />
+<GaugeText X='1426' Y='460' LineColor='bluecrayola' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bluecrayola</String>
+</GaugeText>
+<Rectangle X='1404' Y='479' Height='18' Width='18' FillColor='royalblue' />
+<GaugeText X='1426' Y='479' LineColor='royalblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>royalblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='498' Height='18' Width='18' FillColor='cornflowerblue' />
+<GaugeText X='1426' Y='498' LineColor='cornflowerblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>cornflowerblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='517' Height='18' Width='18' FillColor='lightsteelblue' />
+<GaugeText X='1426' Y='517' LineColor='lightsteelblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lightsteelblue</String>
+</GaugeText>
+<Rectangle X='1404' Y='536' Height='18' Width='18' FillColor='manatee' />
+<GaugeText X='1426' Y='536' LineColor='manatee' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>manatee</String>
+</GaugeText>
+<Rectangle X='1404' Y='555' Height='18' Width='18' FillColor='aluminium' />
+<GaugeText X='1426' Y='555' LineColor='aluminium' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>aluminium</String>
+</GaugeText>
+<Rectangle X='1404' Y='574' Height='18' Width='18' FillColor='wildblueyonder' />
+<GaugeText X='1426' Y='574' LineColor='wildblueyonder' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>wildblueyonder</String>
+</GaugeText>
+<Rectangle X='1404' Y='593' Height='18' Width='18' FillColor='navy' />
+<GaugeText X='1426' Y='593' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>navy</String>
+</GaugeText>
+<Rectangle X='1579' Y='4' Height='18' Width='18' FillColor='midnightblue' />
+<GaugeText X='1601' Y='4' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>midnightblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='23' Height='18' Width='18' FillColor='darkblue' />
+<GaugeText X='1601' Y='23' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='42' Height='18' Width='18' FillColor='ultramarine' />
+<GaugeText X='1601' Y='42' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ultramarine</String>
+</GaugeText>
+<Rectangle X='1579' Y='61' Height='18' Width='18' FillColor='dukeblue' />
+<GaugeText X='1601' Y='61' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>dukeblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='80' Height='18' Width='18' FillColor='pigmentblue' />
+<GaugeText X='1601' Y='80' LineColor='pigmentblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>pigmentblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='99' Height='18' Width='18' FillColor='mediumblue' />
+<GaugeText X='1601' Y='99' LineColor='mediumblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='118' Height='18' Width='18' FillColor='blue' />
+<GaugeText X='1601' Y='118' LineColor='blue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>blue</String>
+</GaugeText>
+<Rectangle X='1579' Y='137' Height='18' Width='18' FillColor='bluebell' />
+<GaugeText X='1601' Y='137' LineColor='bluebell' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>bluebell</String>
+</GaugeText>
+<Rectangle X='1579' Y='156' Height='18' Width='18' FillColor='lavendergray' />
+<GaugeText X='1601' Y='156' LineColor='lavendergray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lavendergray</String>
+</GaugeText>
+<Rectangle X='1579' Y='175' Height='18' Width='18' FillColor='periwinkle' />
+<GaugeText X='1601' Y='175' LineColor='periwinkle' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>periwinkle</String>
+</GaugeText>
+<Rectangle X='1579' Y='194' Height='18' Width='18' FillColor='lavender' />
+<GaugeText X='1601' Y='194' LineColor='lavender' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>lavender</String>
+</GaugeText>
+<Rectangle X='1579' Y='213' Height='18' Width='18' FillColor='ghostwhite' />
+<GaugeText X='1601' Y='213' LineColor='ghostwhite' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>ghostwhite</String>
+</GaugeText>
+<Rectangle X='1579' Y='232' Height='18' Width='18' FillColor='darkslateblue' />
+<GaugeText X='1601' Y='232' LineColor='darkslateblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkslateblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='251' Height='18' Width='18' FillColor='slateblue' />
+<GaugeText X='1601' Y='251' LineColor='slateblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>slateblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='270' Height='18' Width='18' FillColor='mediumslateblue' />
+<GaugeText X='1601' Y='270' LineColor='mediumslateblue' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumslateblue</String>
+</GaugeText>
+<Rectangle X='1579' Y='289' Height='18' Width='18' FillColor='amethyst' />
+<GaugeText X='1601' Y='289' LineColor='amethyst' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>amethyst</String>
+</GaugeText>
+<Rectangle X='1579' Y='308' Height='18' Width='18' FillColor='mediumpurple' />
+<GaugeText X='1601' Y='308' LineColor='mediumpurple' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumpurple</String>
+</GaugeText>
+<Rectangle X='1579' Y='327' Height='18' Width='18' FillColor='indigo' />
+<GaugeText X='1601' Y='327' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>indigo</String>
+</GaugeText>
+<Rectangle X='1579' Y='346' Height='18' Width='18' FillColor='darkorchid' />
+<GaugeText X='1601' Y='346' LineColor='darkorchid' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkorchid</String>
+</GaugeText>
+<Rectangle X='1579' Y='365' Height='18' Width='18' FillColor='blueviolet' />
+<GaugeText X='1601' Y='365' LineColor='blueviolet' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>blueviolet</String>
+</GaugeText>
+<Rectangle X='1579' Y='384' Height='18' Width='18' FillColor='darkviolet' />
+<GaugeText X='1601' Y='384' LineColor='darkviolet' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkviolet</String>
+</GaugeText>
+<Rectangle X='1579' Y='403' Height='18' Width='18' FillColor='mediumorchid' />
+<GaugeText X='1601' Y='403' LineColor='mediumorchid' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumorchid</String>
+</GaugeText>
+<Rectangle X='1579' Y='422' Height='18' Width='18' FillColor='purple' />
+<GaugeText X='1601' Y='422' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>purple</String>
+</GaugeText>
+<Rectangle X='1579' Y='441' Height='18' Width='18' FillColor='darkmagenta' />
+<GaugeText X='1601' Y='441' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>darkmagenta</String>
+</GaugeText>
+<Rectangle X='1579' Y='460' Height='18' Width='18' FillColor='deepmagenta' />
+<GaugeText X='1601' Y='460' LineColor='deepmagenta' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>deepmagenta</String>
+</GaugeText>
+<Rectangle X='1579' Y='479' Height='18' Width='18' FillColor='fuchsia' />
+<GaugeText X='1601' Y='479' LineColor='fuchsia' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>fuchsia</String>
+</GaugeText>
+<Rectangle X='1579' Y='498' Height='18' Width='18' FillColor='magenta' />
+<GaugeText X='1601' Y='498' LineColor='magenta' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>magenta</String>
+</GaugeText>
+<Rectangle X='1579' Y='517' Height='18' Width='18' FillColor='orchid' />
+<GaugeText X='1601' Y='517' LineColor='orchid' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>orchid</String>
+</GaugeText>
+<Rectangle X='1579' Y='536' Height='18' Width='18' FillColor='violet' />
+<GaugeText X='1601' Y='536' LineColor='violet' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>violet</String>
+</GaugeText>
+<Rectangle X='1579' Y='555' Height='18' Width='18' FillColor='fuchsiapink' />
+<GaugeText X='1601' Y='555' LineColor='fuchsiapink' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>fuchsiapink</String>
+</GaugeText>
+<Rectangle X='1579' Y='574' Height='18' Width='18' FillColor='plum' />
+<GaugeText X='1601' Y='574' LineColor='plum' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>plum</String>
+</GaugeText>
+<Rectangle X='1579' Y='593' Height='18' Width='18' FillColor='thistle' />
+<GaugeText X='1601' Y='593' LineColor='thistle' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>thistle</String>
+</GaugeText>
+<Rectangle X='1754' Y='4' Height='18' Width='18' FillColor='byzantium' />
+<GaugeText X='1776' Y='4' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>byzantium</String>
+</GaugeText>
+<Rectangle X='1754' Y='23' Height='18' Width='18' FillColor='blackberry' />
+<GaugeText X='1776' Y='23' LineColor='white' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>blackberry</String>
+</GaugeText>
+<Rectangle X='1754' Y='42' Height='18' Width='18' FillColor='mediumvioletred' />
+<GaugeText X='1776' Y='42' LineColor='mediumvioletred' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>mediumvioletred</String>
+</GaugeText>
+<Rectangle X='1754' Y='61' Height='18' Width='18' FillColor='redviolet' />
+<GaugeText X='1776' Y='61' LineColor='redviolet' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>redviolet</String>
+</GaugeText>
+<Rectangle X='1754' Y='80' Height='18' Width='18' FillColor='processmagenta' />
+<GaugeText X='1776' Y='80' LineColor='processmagenta' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>processmagenta</String>
+</GaugeText>
+<Rectangle X='1754' Y='99' Height='18' Width='18' FillColor='taupegray' />
+<GaugeText X='1776' Y='99' LineColor='taupegray' Font='sans-serif' Height='18' VerticalAlign='top' >
+<String>taupegray</String>
+</GaugeText>
+</Element>
+</SimGauge.Gauge>
+</SimBase.Document>

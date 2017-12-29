@@ -1,0 +1,61 @@
+﻿<?xml version="1.0"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="arc"  
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+    <Descr>AceXML Document</Descr>
+    <Filename>arc.xml</Filename>
+    <SimGauge.Gauge id="Gauge">
+        <FloatPosition>0.000,0.000</FloatPosition>
+		<Size>200,200</Size>
+		<Height>200</Height>
+        <Update id="Update">
+            <Frequency>3</Frequency>
+            <Script>(G:Var1) ! (&gt;G:Var2)</Script>
+        </Update>
+        <MouseArea>
+            <Visibility>(G:Var1)</Visibility>
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>100,100</Size>
+            <MouseClick id="MouseClick">
+                <KeyEvent>K:FLAPS DOWN</KeyEvent>
+                <Script>(G:Var1) !</Script>
+                <ClickType>LeftSingle</ClickType>
+            </MouseClick>
+        </MouseArea>
+        <Element id="Element">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <LeftScript>(G:Var1)</LeftScript>
+            <TopScript>(G:Var2)</TopScript>
+            <Visibility>(G:Var3)</Visibility>
+            <Shift id="Shift">
+                <Expression id="Expression">
+                    <Script>(G:Var1)</Script>
+                </Expression>
+                <Delay id="Delay">
+                    <DelayValue>15.000</DelayValue>
+                </Delay>
+            </Shift>
+            <Arc id="Arc">
+                <Axis>50.000,50.000</Axis>
+                <Radius>100</Radius>
+                <LineWidth>2</LineWidth>
+                <LineColor>red</LineColor>
+                <LineColorScript>(G:Var2)</LineColorScript>
+                <StartAngle>45</StartAngle>
+                <EndAngle>135</EndAngle>
+                <StartAngleScript>(G:Var3)</StartAngleScript>
+                <EndAngleScript>(G:Var4)</EndAngleScript>
+            </Arc>
+            <Rotation id="Rotation">
+                <PointsTo>NORTH</PointsTo>
+                <DegreesPointsTo>90.000</DegreesPointsTo>
+                <Expression id="Expression">
+                    <Script>(G:Var4)</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+    </SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="latlong">
+		<MouseArea>
+			<FloatPosition>0,0</FloatPosition>
+			<Size>32000,32000</Size>
+			<MouseClick>
+				<Script>1 (=C:EPTM SLEW)</Script>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

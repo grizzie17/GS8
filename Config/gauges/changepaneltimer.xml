@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Gauge>
+	<Position X="0" Y="(G:Timer) (S:MILLI) 0 (G:Timer) s1 &lt; ? (=G:Timer) " />
+	<Element>
+		
+	</Element>
+</Gauge>

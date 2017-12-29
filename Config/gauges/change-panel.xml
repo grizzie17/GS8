@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="change-panel">
+		<Element>
+			
+			<Visible>(S:MILLI) (G:TIMEOUT) &lt;</Visible>
+			<GaugeText>
+				<Origin>0,0</Origin>
+				<FontColor>white</FontColor>
+				<FontFace>sans-serif</FontFace>
+				<FontHeight>24</FontHeight>
+				<HorizontalAlign>center</HorizontalAlign>
+				<VerticalAlign>middle</VerticalAlign>
+				<GaugeString>PANEL CHANGE %((G:TIMEOUT))%!d!</GaugeString>
+			</GaugeText>
+		</Element>
+		<KeyMap>
+			<Trigger>
+				<KeyEvent>E:ACTIVATE PANEL</KeyEvent>
+				<Script>(S:MILLI) 10000 + (=G:TIMEOUT)</Script>
+			</Trigger>
+		</KeyMap>
+	</SimGauge.Gauge>	
+</SimBase.Document>

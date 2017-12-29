@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VDDS Service Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog0" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog1" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog2" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog3" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog4" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog5" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog6" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog7" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog8" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog9" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog10" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog11" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog12" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog13" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog14" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog15" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog16" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog17" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog18" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog19" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog20" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog21" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog22" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog23" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog24" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog25" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog26" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog27" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog28" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog29" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog30" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog31" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog32" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog33" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog34" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog35" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog36" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog37" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog38" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog39" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog40" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog41" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog42" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog43" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog44" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog45" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog46" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog47" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog48" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog49" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog50" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog51" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog52" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog53" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog54" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog55" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog56" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog57" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog58" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog59" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog60" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog61" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog62" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog63" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog64" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog65" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog66" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog67" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog68" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog69" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog70" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog71" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog72" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog73" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog74" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog75" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog76" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog77" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog78" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog79" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog80" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog81" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog82" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog83" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog84" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog85" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog86" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog87" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog88" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog89" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog90" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog91" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog92" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog93" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog94" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog95" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog96" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog97" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog98" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+	<Plugin Class="ServiceClogTest" Group="" ID="Clog99" >
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+
+
+
+
+</Plugins>

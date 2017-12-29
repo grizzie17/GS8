@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<SimBase.Document Type="AceXML" version="1,0"
+				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				  xsi:noNamespaceSchemaLocation="Gauges2.xsd">
+	<SimGauge.Gauge id="tune_key">
+		<Update>
+			<Script>
+				(I:Key Code) (?C:Key Name)
+			</Script>
+		</Update>
+		<Element Context="foreground">
+			<Element>
+				<GaugeText>
+					<OriginXScript>(S:SCREEN WIDTH) 2 /</OriginXScript>
+					<OriginYScript>(S:SCREEN HEIGHT) 2 /</OriginYScript>
+					<FontColor>yellow</FontColor>
+					<FontHeight>24</FontHeight>
+					<FontFace>sans-serif</FontFace>
+					<VerticalAlign>middle</VerticalAlign>
+					<HorizontalAlign>center</HorizontalAlign>
+					<GaugeString>Code = %((I:Key Code))%!d!</GaugeString>
+					<GaugeString>Name = %((U:Key Name))%!s!</GaugeString>
+					<GaugeString>State = %("down" "up" (I:Key State) ?)%!s!</GaugeString>
+				</GaugeText>
+			</Element>
+		</Element>
+	</SimGauge.Gauge>
+</SimBase.Document>

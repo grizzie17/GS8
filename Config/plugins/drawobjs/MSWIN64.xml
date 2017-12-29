@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Task Plugins -->
+<Plugins Group="" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+	<!--<Plugin Class="CDrawWorkbench" Group="" ID="Draw">
+		<Plugin Class="CDrawWinGL" Group="" ID="DrawGL" >
+			<Param Name="Display Dirty Rectangle" Type="BOOLEAN">false</Param>
+			<Param Name="Double Backingstore" Type="BOOLEAN">true</Param>
+
+			<Param Name="Background Color" Type="COLOR">background</Param>
+			<Plugin Class="CDrawTmxWin" Group="" ID="CDrawTmxWin">
+				<Param Name="Proxy" Type="STRING">Dummy param</Param>
+			</Plugin>
+		</Plugin>
+	</Plugin>-->
+
+	
+	<!--<Plugin Class="CDrawWorkbench" Group="" ID="Draw">
+		<Plugin Class="CDrawWinGLTex" Group="" ID="DrawGL" >
+			<Param Name="Display Dirty Rectangle" Type="BOOLEAN">false</Param>
+			<Param Name="Double Backingstore" Type="BOOLEAN">true</Param>
+
+			<Param Name="Background Color" Type="COLOR">background</Param>
+			
+			<Plugin Class="CDrawTmxWin" Group="" ID="CDrawTmxWin">
+				<Param Name="Proxy" Type="STRING">Dummy param</Param>
+			</Plugin>
+		</Plugin>
+	</Plugin>-->
+
+
+	<!--<Plugin Class="CDrawWorkbench" Group="" ID="Draw">
+		<Plugin Class="CDrawWinGLES" Group="" ID="DrawGL" >
+			<Param Name="Display Dirty Rectangle" Type="BOOLEAN">false</Param>
+			<Param Name="Double Backingstore" Type="BOOLEAN">true</Param>
+
+			<Param Name="Background Color" Type="COLOR">background</Param>
+
+			<Plugin Class="CDrawTmxWin" Group="" ID="CDrawTmxWin">
+				<Param Name="Proxy" Type="STRING">Dummy param</Param>
+			</Plugin>
+		</Plugin>
+	</Plugin>-->
+
+
+	<!--<Plugin Class="CDrawWorkbench" Group="" ID="Draw">
+		<Plugin Class="CDrawWinDD" Group="" ID="Draw" >
+			<Param Name="Display Dirty Rectangle" Type="BOOLEAN">false</Param>
+			<Param Name="Double Backingstore" Type="BOOLEAN">true</Param>
+
+			<Param Name="Background Color" Type="COLOR">background</Param>
+			<Plugin Class="CDrawTmxWin" Group="" ID="CDrawTmxWin">
+				<Param Name="Proxy" Type="STRING">Dummy param</Param>
+			</Plugin>
+		</Plugin>
+	</Plugin>-->
+	<!--<Plugin Class="CDrawWorkbench" Group="" ID="Draw">
+		<Plugin Class="CDrawWinDD" Group="" ID="Draw" >
+			<Param Name="Display Dirty Rectangle" Type="BOOLEAN">false</Param>
+			<Param Name="Double Backingstore" Type="BOOLEAN">false</Param>
+
+			<Param Name="Background Color" Type="COLOR">background</Param>
+			<Plugin Class="CDrawTmxWin" Group="" ID="CDrawTmxWin">
+				<Param Name="Proxy" Type="STRING">Dummy param</Param>
+			</Plugin>
+		</Plugin>
+	</Plugin>-->
+
+	
+	
+	<Plugin Class="CDrawWorkbench" Group="" ID="Draw">
+		<Plugin Class="CDrawWin" Group="" ID="DrawWin" >
+			<Param Name="Display Dirty Rectangle" Type="BOOLEAN">false</Param>
+			<Param Name="Double Backingstore" Type="BOOLEAN">true</Param>
+
+			<Param Name="Background Color" Type="COLOR">background</Param>
+			<Plugin Class="CDrawTmxWin" Group="" ID="CDrawTmxWin">
+				<Param Name="Proxy" Type="STRING">Dummy param</Param>
+			</Plugin>
+		</Plugin>
+	</Plugin>
+	<!--<Plugin Class="CDrawWorkbench" Group="" ID="Draw">
+		<Plugin Class="CDrawWin" Group="" ID="Draw" >
+			<Param Name="Display Dirty Rectangle" Type="BOOLEAN">false</Param>
+			<Param Name="Double Backingstore" Type="BOOLEAN">false</Param>
+
+			<Param Name="Background Color" Type="COLOR">background</Param>
+			<Plugin Class="CDrawTmxWin" Group="" ID="CDrawTmxWin">
+				<Param Name="Proxy" Type="STRING">Dummy param</Param>
+			</Plugin>
+		</Plugin>
+	</Plugin>-->
+
+
+</Plugins>

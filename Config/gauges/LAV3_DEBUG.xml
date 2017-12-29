@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="LAV3_DEBUG">
+		<ActionMap>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_1</KeyEvent>
+				<Script>
+					"BEZEL 1" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_2</KeyEvent>
+				<Script>
+					"BEZEL 2" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_3</KeyEvent>
+				<Script>
+					"BEZEL 3" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_4</KeyEvent>
+				<Script>
+					"BEZEL 4" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_5</KeyEvent>
+				<Script>
+					"BEZEL 5" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_6</KeyEvent>
+				<Script>
+					"BEZEL 6" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_7</KeyEvent>
+				<Script>
+					"BEZEL 7" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_8</KeyEvent>
+				<Script>
+					"BEZEL 8" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_9</KeyEvent>
+				<Script>
+					"BEZEL 9" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_10</KeyEvent>
+				<Script>
+					"BEZEL 10" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_11</KeyEvent>
+				<Script>
+					"BEZEL 11" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_12</KeyEvent>
+				<Script>
+					"BEZEL 12" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_13</KeyEvent>
+				<Script>
+					"BEZEL 13" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_14</KeyEvent>
+				<Script>
+					"BEZEL 14" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_15</KeyEvent>
+				<Script>
+					"BEZEL 15" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_16</KeyEvent>
+				<Script>
+					"BEZEL 16" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_17</KeyEvent>
+				<Script>
+					"BEZEL 17" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_18</KeyEvent>
+				<Script>
+					"BEZEL 18" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_19</KeyEvent>
+				<Script>
+					"BEZEL 19" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_20</KeyEvent>
+				<Script>
+					"BEZEL 20" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_21</KeyEvent>
+				<Script>
+					"BEZEL 21" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_22</KeyEvent>
+				<Script>
+					"BEZEL 22" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_23</KeyEvent>
+				<Script>
+					"BEZEL 23" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_24</KeyEvent>
+				<Script>
+					"BEZEL 24" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_25</KeyEvent>
+				<Script>
+					"BEZEL 25" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_26</KeyEvent>
+				<Script>
+					"BEZEL 26" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_27</KeyEvent>
+				<Script>
+					"BEZEL 27" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_28</KeyEvent>
+				<Script>
+					"BEZEL 28" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_29</KeyEvent>
+				<Script>
+					"BEZEL 29" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_30</KeyEvent>
+				<Script>
+					"BEZEL 30" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_31</KeyEvent>
+				<Script>
+					"BEZEL 31" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+			<Trigger>
+				<KeyEvent>E:SELECT BEZEL_32</KeyEvent>
+				<Script>
+					"BEZEL 32" (=U:BUTTON PRESSED)
+				</Script>
+			</Trigger>
+		</ActionMap>
+	</SimGauge.Gauge>
+</SimBase.Document>

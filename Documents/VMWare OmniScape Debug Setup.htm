@@ -1,0 +1,213 @@
+<html>
+
+<head>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<style type="text/css">
+html
+{
+	font-family: sans-serif;
+}
+
+.note
+{
+	font-size: smaller;
+	margin-left: 2em;
+}
+
+h1
+{
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-bottom-color: #000000;
+	background-color: #CEE7FF;
+}
+
+h2
+{
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-bottom-color: #C0C0C0;
+}
+
+.keyin
+{
+	font-size: large;
+	color: #0000FF;
+}
+
+h3
+{
+	color: #808080;
+}
+
+.hex2
+{
+	background-color: #EEEEEE;
+	border: solid 1px #DDDDDD;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>OmniScape Application Development</h1>
+<p>Before we get into the details of setup it will help if we identify a couple 
+of terms that will be used in our discussion.</p>
+<p>Virtual Machine - A PC/Operating System running inside of an application (VMware) on a 
+PC.&nbsp; In our case the virtual machine is running Ubuntu Linux with our development 
+tools preinstalled.</p>
+<p>Host PC - The PC on which the Virtual Machine will run.&nbsp; This is usually 
+a WindowsPC but VMWare can be loaded on a Linux box as well.&nbsp; For our 
+    discussion we will assume that the Host PC is a WindowsPC.</p>
+    <h1>The Basics</h1>
+<h2>Install VMware-Player</h2>
+<p>Download VMware-Player from
+<a href="http://www.vmware.com/products/player/" target="_blank">http://www.vmware.com/products/player/</a>
+<br>Install on Host PC</p>
+<h2>Download Ubuntu Virtual Machine</h2>
+<p>Connect to <a href="file://elvis/employee/jgriswold">\\elvis\employee\jgriswold</a><br>
+Download Ubuntu10.zip and unzip the file (The file is over 4 GB so be prepared with 
+plenty of space)</p>
+<h2>Obtain Code-base from StarTeam&#39;s OmniScape IR&amp;D Project</h2>
+<p class="keyin">/OmniScape(IR&amp;D) / CODE / VSA</p>
+<h2>Point VMware&#39;s Shared Folder at Code</h2>
+<p>Select VMware menu &quot;VM -&gt; Settings...&quot;</p>
+<p>Select the &quot;Options&quot; tab</p>
+<p>Select &quot;Shared Folders&quot;</p>
+<p>Make sure that the &quot;Always enabled&quot; radio button is selected</p>
+<p>Highlight the &quot;DRS-TEM&quot; entry in the &quot;Folders&quot; listing</p>
+<p>Select &quot;Properties&quot;</p>
+<p>Select the &quot;Browse...&quot; button and browse to where your &quot;/OmniScape(IR&amp;D) / CODE&quot; is located</p>
+<p>Select &quot;OK&quot; and &quot;OK&quot;</p>
+<h1>VMware: OmniScape Debug Setup</h1>
+<h2>Connect PC to OmniScape</h2>
+<p>Connect the Host PC ethernet to a switch.</p>
+<p>Connect ethernet switch to top ethernet port on OmniScape</p>
+<p>Connect Serial port on PC to OmniScape RS232 -Port 1</p>
+<p>The laptop does not have a serial port so you will need to use a USB 
+to Serial adaptor and a null-modem converter.</p>
+<h2>Confirm &quot;Host PC&quot; IP Address is 192.168.0.140</h2>
+<p>The *.140 IP address needs to be confirmed that it is not used somewhere else 
+on the network</p>
+<p class="note">Note: the IP addresses of the OmniScape are as follows (reassignable 
+via config file):<br>192.168.0.205 - Application processor<br>192.168.0.206-209 
+- DSP1-4</p>
+<h2>Start Ubuntu Virtual Machine</h2>
+<p>Either click on the &quot;vmx&quot; file or start VMware and browse to the &quot;vmx&quot; file.</p>
+<p>Wait until the bottom and top menus appear within the window.</p>
+<p>You can change to full screen mode for more room.</p>
+    <p>Look in the menu-bar at the upper-right for the &quot;USA&quot; icon.&nbsp; Hover your 
+        mouse over the &quot;USA&quot;, if the tool tip read &quot;USA Alternative international&quot; then 
+        click the &quot;USA&quot; icon such that the tool-tip reads simply &quot;USA&quot; (unfortunately 
+        you will need to remember to do this each time you start Ubuntu)</p>
+    <p>Take note of another icon in the upper-right corner that looks like an ethernet 
+        socket with an ethernet plug about to be inserted.&nbsp; If you hover your mouse 
+        over that icon the tool-tip should read &quot;Wired network connection &#39;eth.0 
+        Omniscape&#39; active&quot;.&nbsp; If it doesn&#39;t then click on the icon and select the 
+        &quot;eth.0 Omniscape&quot; entry.</p>
+<h2>Confirm Networking is “Bridged”</h2>
+<p>Select the VMware “VM” menu and select “Settings...”<br>Select the “Network Adapter” 
+option<br>Change the Network Connection to “Bridged”<br>and select the “Replicate 
+the physical connection state” option</p>
+<h2>Confirm Operating Environment</h2>
+<p>All of the following steps are within the Ubuntu VM.</p>
+<p>Open a console window by selecting the first black square icon from the left in 
+    the top menu.</p>
+<p>Confirm that your VM can see the Host PC by entering &quot;<span class="keyin">ping 
+    192.168.0.140</span>&quot;</p>
+<p>Select the &quot;Virtual Machine&quot; menu and confirm that the &quot;Removable Devices&quot; 
+show a checkmark next to the USB to Serial adaptor.&nbsp; If not then select to 
+connect the adaptor.</p>
+<p>Open Serial Console by selecting the second black square icon in the top menu 
+(its tool-tip will display as &quot;minicom&quot;).&nbsp; You will be prompted to enter 
+your password.&nbsp; The password is &quot;password&quot;.</p>
+<p>The Serial Console very often closes the first couple of times after you have 
+connected the serial adaptor.&nbsp; Simply reopen the Serial Console until you 
+see the &quot;Inializing Modem&quot; message.&nbsp; The port settings should already be 
+set, but if you need to reenter them use the following:</p>
+<p>Baud: 
+115200<br>Data Bits: 8<br>Parity: None<br>Stop Bits: 1<br>Flow Control: None</p>
+<h2>Verify Network</h2>
+<p>Open a regular console on the virtual-machine.</p>
+<p>Ping the current application processor IP address</p>
+<p class="keyin">ping 192.168.0.205</p>
+<p>If the ping fails, try disconnecting and reconnecting the virtual-machine from 
+the network.&nbsp; In most cases this will correct the problem.&nbsp; If not you 
+may need to change the ip address of the OmniScape (which will be addressed in 
+the next step)</p>
+    <h2>Set OmniScape to boot from Ubuntu</h2>
+<p>Make sure that the Serial Console has entry focus.</p>
+<p>Power Cycle the OmniScape</p>
+<p>interrupt boot by hitting space-bar</p>
+<p>On the Ubuntu VM desktop you should see a folder titled &quot;NFSBootCmds&quot;</p>
+<p>Open that folder and then open the <b>boot_from_om1.txt</b> and copy and paste its 
+contents into the Serial Console and press enter.&nbsp; Then open the 
+<b>boot_from_om2.txt</b> and do the same.</p>
+<p>type &quot;<span class="keyin">saveenv</span>&quot;</p>
+<p>type &quot;<span class="keyin">printenv</span>&quot; and look for ipaddress and serverip.&nbsp; If these are not 
+192.168.0.205 and 192.168.0.141 respectively then enter </p>
+<p class="keyin">setenv ipaddr 
+192.168.0.205<br>saveenv</p>
+<p class="keyin">setenv serverip 192.168.0.141<br>saveenv</p>
+<p>Now let's restart the OmniScape so it can boot from Ubuntu.</p>
+<p class="keyin">reset</p>
+<h1>Debug OmniScape Application</h1>
+<h2>Open OmniScape Workspace with CodeLite</h2>
+<h2>Build for Debug-VDDS</h2>
+<h2>Start the Remote Debug Session</h2>
+<h1>OmniScape Flash Procedure</h1>
+<h2>Reinitialize OmniScape Flash</h2>
+<p>Boot OmniScape and interrupt the reboot by pressing the space-bar</p>
+<h3>Erase Flash for Kernel File</h3>
+<p class="keyin">erase&nbsp; 0x0204<span class="hex2">0000</span>&nbsp; 0x0243<span class="hex2">FFFF</span></p>
+<h3>Copy Kernel File into RAM</h3>
+<p class="keyin">tftp&nbsp; 0x8040<span class="hex2">0000</span>&nbsp; uImage<br>
+(that is 5 zeros)</p>
+<p>Take note of the number of bytes of Kernel File</p>
+<h3>Copy RAM into Flash</h3>
+<p class="keyin">cp.b&nbsp; 0x8040<span class="hex2">0000</span>&nbsp; 0x204<span class="hex2">0000</span>&nbsp;
+<em>#KernelBytes</em></p>
+<h3>Erase Flash for Root File System</h3>
+<p class="keyin">erase&nbsp; 0x244<span class="hex2">0000</span>&nbsp; 0x279<span class="hex2">FFFF</span></p>
+<h3>Copy Root File System (RFS) into RAM</h3>
+<p class="keyin">tftp&nbsp; 0x8200<span class="hex2">0000</span>&nbsp; rfs.img.gz<br>
+(that is 6 zeros)</p>
+<p>Take note of the number of bytes of the RFS</p>
+<h3>Copy RAM into Flash</h3>
+<p class="keyin">cp.b&nbsp; 0x8200<span class="hex2">0000</span>&nbsp; 0x244<span class="hex2">0000</span>&nbsp;
+<em>#RfsBytes</em></p>
+<h2>Load OmniScape</h2>
+<p>If the target OmniScape uses a an address of 192.168.1.* then you will need 
+to reset the scripts and configuration files.&nbsp; Open a local console and 
+enter the following:</p>
+<p class="keyin">sudo bash<br>password</p>
+<p class="keyin">cd /tftpboot<br>./subsip.sh</p>
+<p>When the subsip.sh script prompts for an input &quot;[0]&quot; enter a one &quot;1&quot;.&nbsp; 
+This is actually loading a 'sed' script to do global replacements on a series of 
+IP addresses.&nbsp; These files are named 'subsip*.sed' where you enter the 
+value of the astrisk.&nbsp; If you need to create any other IP sets just take 
+the 'subsip0.sed' and copy it to a new name.</p>
+<p>In the Serial Console to the OmniScape</p>
+<p class="keyin">cd /</p>
+<p>To provide better performance you should format the flash drive:</p>
+<p class="keyin">./flash_format.sh</p>
+<p>This will take some time so be patient</p>
+<p>Then install the files to the flash drive on the OmniScape.</p>
+<p class="keyin">./flash_install.sh</p>
+<p>This will take some serious time so please be patient.</p>
+    <h2>Set OmniScape to boot from Flash</h2>
+<p>Make sure that the Serial Console has entry focus.</p>
+<p>Power Cycle the OmniScape</p>
+<p>interrupt boot by hitting space-bar</p>
+<p>On the Ubuntu VM desktop you should see a folder titled &quot;NFSBootCmds&quot;</p>
+<p>Open that folder and then open the <b>boot_from_flash1.txt</b> and copy and paste its 
+contents into the Serial Console and press enter.&nbsp; Then open the 
+<b>boot_from_flash2.txt</b> and do the same.</p>
+<p>type &quot;<span class="keyin">saveenv</span>&quot;</p>
+<p>Now let's restart the OmniScape so it can boot from flash.</p>
+<p class="keyin">reset</p>
+
+</body>
+
+</html>

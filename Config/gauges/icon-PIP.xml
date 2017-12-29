@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-PIP" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>70,50</Size>
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Rectangle Color="0x00ff00" LineWidth="1 3 r1 0 == ?" X="0" Y="0" Height="50" Width="50" />
+		<Rectangle Color="0x00ff00" LineWidth="3 1 r1 0 == ?" X="25" Y="5" Height="20" Width="20" />
+	</Element>
+</Gauge>

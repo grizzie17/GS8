@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VDDS Service Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Plugin Class="ServiceVehicleDirectLoad" Group="" ID="Vehicle Data Direct Load" >
+		<Param Name="Multicast Address" Type="STRING">235.55.55.5</Param>
+		<Param Name="Multicast Port" Type="INTEGER">55555</Param>
+		<Param Name="Message Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+	</Plugin>
+
+	<!--<Plugin Class="ServiceCycler" Group="" ID="Clog Cycler">
+		<Param Name="Frequency" Type="FLOAT" Units="seconds">0.2</Param>
+		<Param Name="Repeater List" Type="STRING">ClogTest.xml</Param>
+	</Plugin>-->
+
+	<!--<Include File="ClogTestList.xml" />-->
+
+
+
+</Plugins>

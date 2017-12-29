@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plugin information -->
+<Plugins Group="videosource" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="plugin.xsd">
+
+
+	<Plugin Class="dve" Group="sdfsdf" ID="Camera Front-Center IR">
+		<Param Name="Port" Type="INTEGER" Units="enum">2</Param>
+		<Plugin Class="dvediscrete" Group="cameracontrol">
+			<Param Name="sldkjslfkj"
+		</Plugin>
+	</Plugin>
+</Plugins>

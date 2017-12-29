@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-contrast" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>70,45</Size>
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Circle X="20" Y="22" Radius="20" LineColor="r1" LineWidth="2"/>
+		<Pie X="20" Y="22" Radius="17" EndAngle="90" FillColor="(U:COLOR_ButtonIcon)" LineColor="(U:COLOR_ButtonIcon)"  LineWidth="1" StartAngle="270"/>
+	</Element>
+</Gauge>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Gauge Name="icon-quadrant" Version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<Size>70,50</Size>
+	<Element Context="background">
+		<!--
+			All icon files utlize the registers to pass color information. The current register assignment is as follows:
+			r0 defines the visiblity of the icon
+			r1..r5 defines the color palet (It is not required to utlize all of the registers)
+			-->
+		<Visible>r0</Visible>
+		<Rectangle Color="0x00ff00" LineWidth="3 1 r1 0 == ?" X="0" Y="0" Height="25" Width="25" />
+		<Rectangle Color="0x00ff00" LineWidth="3 1 r1 1 == ?" X="25" Y="0" Height="25" Width="25" />
+		<Rectangle Color="0x00ff00" LineWidth="3 1 r1 2 == ?" X="0" Y="25" Height="25" Width="25" />
+		<Rectangle Color="0x00ff00" LineWidth="3 1 r1 3 == ?" X="25" Y="25" Height="25" Width="25" />
+	</Element>
+</Gauge>

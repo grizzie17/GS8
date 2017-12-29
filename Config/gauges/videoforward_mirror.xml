@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Gauge>
+	<Element>
+		<!--Position X="(S:SCREEN WIDTH) 3 /" Y="0" /-->
+		<Polyline LineColor="dimgray" LineWidth="1">
+			<Point X="0" Y="0" />
+			<Point X="(S:SCREEN WIDTH) 3 / s0" Y="0" />
+			<Point X="r0" Y="(S:SCREEN HEIGHT) 0.35 * s1" />
+			<Point X="0" Y="r1" />
+			<Point X="0" Y="0" />
+		</Polyline>
+		<Element>
+			<Position X="5" Y="r1 45 -" />
+			<Include File="camera_rear" />
+		</Element>
+	</Element>
+</Gauge>

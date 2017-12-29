@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Panel id="squad_adjust_up_down" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="panels.xsd">
+  <Layout>
+    <Script>
+      (U:SCREEN TOP PAD) s15    // Fudge
+      (S:SCREEN HEIGHT) (U:SCREEN TOP PAD) - 8 / s10   //  Height of button area
+      both
+      r10 2 / s11						// center of button area
+      both
+
+      5 s0	// left screen margin
+      both
+    </Script>
+  </Layout>
+
+	<GaugeInstance Name="button-camera_frontcenter" X="5" Y="r15 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_frontleft" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_frontright" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_rear" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="icon-camera-none" X="5" Y="r14 r10 + s14 height -"/>
+	<GaugeInstance Name="button-camera_observer" X="5" Y="(S:SCREEN HEIGHT) height - "/>
+
+	<GaugeInstance Name="button-daynight" X="(S:SCREEN WIDTH) width -" Y="r15 r10 + s14 height -"/>
+  <GaugeInstance Name="label-adjust" X="(S:SCREEN WIDTH) width -" Y="r10 4 * r15 + r11 - height - 3 + "/>
+	<GaugeInstance Name="button-adjust-up" X="(S:SCREEN WIDTH) width -" Y="r10 3 * r15 + height -"/>
+	<GaugeInstance Name="button-adjust-down" X="(S:SCREEN WIDTH) width -" Y="r10 4 * r15 + height -"/>
+	<GaugeInstance Name="button-exit-adjust" X="(S:SCREEN WIDTH) 65 -" Y="r10 6 * r15 + height -"/>
+	<GaugeInstance Name="button-blackout" X="(S:SCREEN WIDTH) width -" Y="(S:SCREEN HEIGHT) height -"/>
+	<GaugeInstance Name="monitor_edit_camera_events"/>
+	<KeyEventMap>
+		<OnDown>
+			<Key id="BEZEL1" Event="E:CAMERAFC SELECTED" />
+			<Key id="BEZEL2" Event="E:CAMERAFL SELECTED" />
+			<Key id="BEZEL3" Event="E:CAMERAFR SELECTED" />
+			<Key id="BEZEL4" Event="E:CAMERALF SELECTED" />
+			<Key id="BEZEL5" Event="E:CAMERARF SELECTED" />
+			<Key id="BEZEL6" Event="E:CAMERALR SELECTED" />
+			<Key id="BEZEL7" Event="E:CAMERARR SELECTED" />
+			<Key id="BEZEL8" Event="E:CAMERAR SELECTED" />
+			<Key id="BEZEL9" Event="E:TOGGLE IR" />
+			<Key id="BEZEL11" Event="E:UP SELECTED" />
+			<Key id="BEZEL12" Event="E:DOWN SELECTED" />
+			<Key id="BEZEL14" Event="E:EXIT ADJUST" />
+			<Key id="BEZEL16" Event="E:TOGGLE BLACKOUT" />
+		</OnDown>
+	</KeyEventMap>
+</Panel>

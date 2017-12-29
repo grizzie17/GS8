@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<SimBase.Document Type="AceXML" version="1,0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Gauges.xsd">
+	<SimGauge.Gauge id="button-camera_frontcenter">
+		<Update>
+			<Script>
+				(K:Camera Front-Center Color) (D:Video Feed 1) == (K:Camera Front-Center IR) (D:Video Feed 1) == OR 
+						(K:Camera Front-Center Color) (D:Video Feed 4) == (K:Camera Front-Center IR) (D:Video Feed 4) == OR
+						(K:Camera Front-Center Color) (D:Video Feed 3) == (K:Camera Front-Center IR) (D:Video Feed 3) == OR
+						(K:Camera Front-Center Color) (D:Video Feed 2) == (K:Camera Front-Center IR) (D:Video Feed 2) == OR
+						(K:Camera Front-Center Color) (D:Video Feed 1) == (K:Camera Front-Center IR) (D:Video Feed 1) == OR
+					4 (U:Current Quadrant Selected) case
+					0
+				(U:View Layout) (K:View Quad) == ?
+		    (U:View Layout) (K:View Single) == ? s4
+				
+				(U:COLOR_ButtonIconSelected) (U:COLOR_ButtonIcon) r4 ? s1
+				both
+	
+				(U:BLACKOUT SELECTED) ! s0
+				both
+			</Script>
+		</Update>
+		<Size>30,40</Size>
+		<Element>
+			<Include File="icon-camera-FC"/>
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>30,40</Size>
+			<MouseClick id="MouseClick">
+				<KeyEvent>E:CAMERAFC SELECTED</KeyEvent>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>
+
+
+

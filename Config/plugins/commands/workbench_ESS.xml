@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Command Plugins -->
+<Plugins Group=""
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../plugin.xsd">
+
+
+	<Include File="ESS_active"/>
+	<!--<Include File="workbench_common"/>-->
+	<!--<Include File="touch_calibrate"/>-->
+
+	<Plugin Class="CmdConstantD" Group="" ID="Dummy ESS Entries">
+		<Param Name="ESS 1 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 1 PORT NAME" Type="STRING">COM12</Param>
+		<Param Name="ESS 1 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 1 STATE" Type="INTEGER">0</Param>
+		<Param Name="ESS 1 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 1 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 1 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 1 MILLI" Type="INTEGER">55000</Param>
+
+		<Param Name="ESS 2 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 2 PORT NAME" Type="STRING">COM12</Param>
+		<Param Name="ESS 2 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 2 STATE" Type="INTEGER">0</Param>
+		<Param Name="ESS 2 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 2 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 2 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 2 MILLI" Type="INTEGER">55000</Param>
+
+		<Param Name="ESS 3 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 3 PORT NAME" Type="STRING">COM12</Param>
+		<Param Name="ESS 3 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 3 STATE" Type="INTEGER">0</Param>
+		<Param Name="ESS 3 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 3 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 3 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 3 MILLI" Type="INTEGER">55000</Param>
+
+		<Param Name="ESS 4 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 4 PORT NAME" Type="STRING">COM12</Param>
+		<Param Name="ESS 4 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 4 STATE" Type="INTEGER">0</Param>
+		<Param Name="ESS 4 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 4 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 4 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 4 MILLI" Type="INTEGER">55000</Param>
+		
+		
+		
+		
+		
+
+		<Param Name="ESS 5 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 5 PORT NAME" Type="STRING">COM10</Param>
+		<Param Name="ESS 5 MESSAGE" Type="STRING">uImage load /</Param>
+		<Param Name="ESS 5 STATE" Type="INTEGER">3</Param>
+		<Param Name="ESS 5 TESTED" Type="INTEGER">0x0001</Param>
+		<Param Name="ESS 5 ACTIVE" Type="INTEGER">0x0000</Param>
+		<Param Name="ESS 5 FAILED" Type="INTEGER">0x0000</Param>
+		<Param Name="ESS 5 MILLI" Type="INTEGER">50</Param>
+
+		<Param Name="ESS 6 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 6 PORT NAME" Type="STRING">COM11</Param>
+		<Param Name="ESS 6 MESSAGE" Type="STRING">Starting Linux</Param>
+		<Param Name="ESS 6 STATE" Type="INTEGER">1</Param>
+		<Param Name="ESS 6 TESTED" Type="INTEGER">0x00001</Param>
+		<Param Name="ESS 6 ACTIVE" Type="INTEGER">0x00000</Param>
+		<Param Name="ESS 6 FAILED" Type="INTEGER">0x00000</Param>
+		<Param Name="ESS 6 MILLI" Type="INTEGER">100</Param>
+
+		<Param Name="ESS 7 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 7 PORT NAME" Type="STRING">COM12</Param>
+		<Param Name="ESS 7 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 7 STATE" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 MILLI" Type="INTEGER">55000</Param>
+
+		<Param Name="ESS 8 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 8 PORT NAME" Type="STRING">COM13</Param>
+		<Param Name="ESS 8 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 8 STATE" Type="INTEGER">4</Param>
+		<Param Name="ESS 8 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 8 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 8 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 8 MILLI" Type="INTEGER">0</Param>
+
+	</Plugin>
+
+
+
+	<!--<Plugin Class="CmdConstantD" Group="" ID="Dummy ESS Entries">
+		<Param Name="ESS 1 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 1 PORT NAME" Type="STRING">COM6</Param>
+		<Param Name="ESS 1 MESSAGE" Type="STRING">Pls Cycle Power</Param>
+		<Param Name="ESS 1 STATE" Type="INTEGER">0x00001</Param>
+		<Param Name="ESS 1 TESTED" Type="INTEGER">0x0001</Param>
+		<Param Name="ESS 1 ACTIVE" Type="INTEGER">0x0000</Param>
+		<Param Name="ESS 1 FAILED" Type="INTEGER">0x0000</Param>
+		<Param Name="ESS 1 MILLI" Type="INTEGER">5000</Param>
+
+		<Param Name="ESS 2 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 2 PORT NAME" Type="STRING">COM7</Param>
+		<Param Name="ESS 2 MESSAGE" Type="STRING">Testing .+...</Param>
+		<Param Name="ESS 2 STATE" Type="INTEGER">0x000001</Param>
+		<Param Name="ESS 2 TESTED" Type="INTEGER">0x0001F</Param>
+		<Param Name="ESS 2 ACTIVE" Type="INTEGER">0x00102</Param>
+		<Param Name="ESS 2 FAILED" Type="INTEGER">0x00000</Param>
+		<Param Name="ESS 2 MILLI" Type="INTEGER">50000</Param>
+
+		<Param Name="ESS 3 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 3 PORT NAME" Type="STRING">COM8</Param>
+		<Param Name="ESS 3 MESSAGE" Type="STRING">Testing ...+.</Param>
+		<Param Name="ESS 3 STATE" Type="INTEGER">0x10000001</Param>
+		<Param Name="ESS 3 TESTED" Type="INTEGER">0x001F</Param>
+		<Param Name="ESS 3 ACTIVE" Type="INTEGER">0x0008</Param>
+		<Param Name="ESS 3 FAILED" Type="INTEGER">0x0012</Param>
+		<Param Name="ESS 3 MILLI" Type="INTEGER">5000</Param>
+
+		<Param Name="ESS 4 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 4 PORT NAME" Type="STRING">COM9</Param>
+		<Param Name="ESS 4 MESSAGE" Type="STRING">NFS?</Param>
+		<Param Name="ESS 4 STATE" Type="INTEGER">0x10000005</Param>
+		<Param Name="ESS 4 TESTED" Type="INTEGER">0x00001</Param>
+		<Param Name="ESS 4 ACTIVE" Type="INTEGER">0x00000</Param>
+		<Param Name="ESS 4 FAILED" Type="INTEGER">0x00001</Param>
+		<Param Name="ESS 4 MILLI" Type="INTEGER">55000</Param>
+
+		<Param Name="ESS 5 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 5 PORT NAME" Type="STRING">COM10</Param>
+		<Param Name="ESS 5 MESSAGE" Type="STRING">uImage load /</Param>
+		<Param Name="ESS 5 STATE" Type="INTEGER">3</Param>
+		<Param Name="ESS 5 TESTED" Type="INTEGER">0x0001</Param>
+		<Param Name="ESS 5 ACTIVE" Type="INTEGER">0x0000</Param>
+		<Param Name="ESS 5 FAILED" Type="INTEGER">0x0000</Param>
+		<Param Name="ESS 5 MILLI" Type="INTEGER">50</Param>
+
+		<Param Name="ESS 6 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 6 PORT NAME" Type="STRING">COM11</Param>
+		<Param Name="ESS 6 MESSAGE" Type="STRING">Starting Linux</Param>
+		<Param Name="ESS 6 STATE" Type="INTEGER">1</Param>
+		<Param Name="ESS 6 TESTED" Type="INTEGER">0x00001</Param>
+		<Param Name="ESS 6 ACTIVE" Type="INTEGER">0x00000</Param>
+		<Param Name="ESS 6 FAILED" Type="INTEGER">0x00000</Param>
+		<Param Name="ESS 6 MILLI" Type="INTEGER">100</Param>
+
+		<Param Name="ESS 7 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 7 PORT NAME" Type="STRING">COM12</Param>
+		<Param Name="ESS 7 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 7 STATE" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 7 MILLI" Type="INTEGER">55000</Param>
+
+		<Param Name="ESS 8 PORT OPEN" Type="BOOLEAN">true</Param>
+		<Param Name="ESS 8 PORT NAME" Type="STRING">COM13</Param>
+		<Param Name="ESS 8 MESSAGE" Type="STRING"></Param>
+		<Param Name="ESS 8 STATE" Type="INTEGER">4</Param>
+		<Param Name="ESS 8 TESTED" Type="INTEGER">0</Param>
+		<Param Name="ESS 8 ACTIVE" Type="INTEGER">0</Param>
+		<Param Name="ESS 8 FAILED" Type="INTEGER">0</Param>
+		<Param Name="ESS 8 MILLI" Type="INTEGER">0</Param>
+
+	</Plugin>-->
+
+
+
+
+
+	<Plugin Class="CmdConstant" Group="" ID="Video Source Constants">
+		<Param Name="Camera Front" Type="STRING">Camera Front</Param>
+		<Param Name="Camera Front.Icon" Type="STRING">Icon Camera Front-Center</Param>
+	</Plugin>
+
+
+
+
+</Plugins>
+

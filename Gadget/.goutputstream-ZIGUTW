@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="Gadget">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00050001N0005Debug0000000000000001N0019Debug-Linux-Desktop0000000000000001N0010Debug-VDDS0000000000000001N0007Release0000000000000001N0012Release-VDDS000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="Source Files">
+    <VirtualDirectory Name="Application">
+      <File Name="CApplicationGauge.cpp"/>
+      <File Name="CApplicationGaugeOpenGL.cpp"/>
+      <File Name="CApplicationGaugeWin.cpp"/>
+      <File Name="CCommandProcessor.cpp"/>
+      <File Name="CDrawQueue.cpp"/>
+      <File Name="CKeyProcessorOpenGL.cpp"/>
+      <File Name="CKeyProcessorWin.cpp"/>
+      <File Name="CKeyNames.cpp"/>
+      <File Name="IMouseTransform.cpp"/>
+      <File Name="IApplicationUser.cpp"/>
+      <File Name="CFunctionProcessor.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Components">
+      <File Name="CAction.cpp"/>
+      <File Name="CChoose.cpp"/>
+      <File Name="CChooseWhen.cpp"/>
+      <File Name="CElement.cpp"/>
+      <File Name="CForLoop.cpp"/>
+      <File Name="CGauge.cpp"/>
+      <File Name="CKeyEventMap.cpp"/>
+      <File Name="CMouseArea.cpp"/>
+      <File Name="CMouseAreaList.cpp"/>
+      <File Name="CMouseLocate.cpp"/>
+      <File Name="CMouseProcessorWin.cpp"/>
+      <File Name="CPanel.cpp"/>
+      <File Name="CPanelDivision.cpp"/>
+      <File Name="CPosition.cpp"/>
+      <File Name="CQueue.cpp"/>
+      <File Name="CRotation.cpp"/>
+      <File Name="CScreen.cpp"/>
+      <File Name="CSelect.cpp"/>
+      <File Name="CSelectCase.cpp"/>
+      <File Name="CShift.cpp"/>
+      <File Name="CSize.cpp"/>
+      <File Name="CTrigger.cpp"/>
+      <File Name="CVisible.cpp"/>
+      <File Name="VControl.cpp"/>
+      <File Name="VControlEventMap.cpp"/>
+      <File Name="VElement.cpp"/>
+      <File Name="VOwnership.cpp"/>
+      <File Name="VPanelChild.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Dictionary">
+      <File Name="CDictHandlerTime.cpp"/>
+      <File Name="CDictionary.cpp"/>
+      <File Name="CDictionaryMemory.cpp"/>
+      <File Name="CDictionarySelector.cpp"/>
+      <File Name="CDictPageActive.cpp"/>
+      <File Name="CDictPageAlerts.cpp"/>
+      <File Name="CDictPageEvents.cpp"/>
+      <File Name="CDictPageFunctions.cpp"/>
+      <File Name="CDictPageLazyLoad.cpp"/>
+      <File Name="CDictPageP.cpp"/>
+      <File Name="CDictPageSystem.cpp"/>
+      <File Name="CDictPageT.cpp"/>
+      <File Name="CDictPageVariant.cpp"/>
+      <File Name="CDictPageVariantRead.cpp"/>
+      <File Name="CDictPageVariantWrite.cpp"/>
+      <File Name="VDictionaryPage.cpp"/>
+      <File Name="VDictionaryPageServer.cpp"/>
+      <File Name="CDictPageConfigWrapper.cpp"/>
+      <File Name="CDictPageSelector.cpp"/>
+      <File Name="CDictPageCommands.cpp"/>
+      <File Name="IDictionaryUser.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Factories">
+      <File Name="CFactoryDictActive.cpp"/>
+      <File Name="CFactoryEquation.cpp"/>
+      <File Name="CFactoryGauge.cpp"/>
+      <File Name="CFactoryPanel.cpp"/>
+      <File Name="CFactoryScreen.cpp"/>
+      <File Name="CFactoryVehicleData.cpp"/>
+      <File Name="VFactoryComponent.cpp"/>
+      <File Name="CFactoryExternalXML.cpp"/>
+      <File Name="CFactoryDictionary.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Graphics">
+      <File Name="CArc.cpp"/>
+      <File Name="CAxis.cpp"/>
+      <File Name="CCircle.cpp"/>
+      <File Name="CEllipse.cpp"/>
+      <File Name="CGaugeString.cpp"/>
+      <File Name="CGaugeText.cpp"/>
+      <File Name="CImage.cpp"/>
+      <File Name="CLine.cpp"/>
+      <File Name="CPie.cpp"/>
+      <File Name="CPoint.cpp"/>
+      <File Name="CPolygon.cpp"/>
+      <File Name="CPolyline.cpp"/>
+      <File Name="CRectangle.cpp"/>
+      <File Name="CStyle.cpp"/>
+      <File Name="CVideo.cpp"/>
+      <File Name="VCoordinate.cpp"/>
+      <File Name="VGraphic.cpp"/>
+      <File Name="VPolylist.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Equations">
+      <File Name="CEqConstant.cpp"/>
+      <File Name="CEqConstGaugeHeight.cpp"/>
+      <File Name="CEqConstGaugeWidth.cpp"/>
+      <File Name="CEqOpAbs.cpp"/>
+      <File Name="CEqOpAdd.cpp"/>
+      <File Name="CEqOpAnd.cpp"/>
+      <File Name="CEqOpBoth.cpp"/>
+      <File Name="CEqOpCase.cpp"/>
+      <File Name="CEqOpCeil.cpp"/>
+      <File Name="CEqOpColorname.cpp"/>
+      <File Name="CEqOpDecrement.cpp"/>
+      <File Name="CEqOpDegFromRad.cpp"/>
+      <File Name="CEqOpDegreeNorm.cpp"/>
+      <File Name="CEqOpDivide.cpp"/>
+      <File Name="CEqOpEqual.cpp"/>
+      <File Name="CEqOpFloor.cpp"/>
+      <File Name="CEqOpFormatString.cpp"/>
+      <File Name="CEqOpGreaterOrEqual.cpp"/>
+      <File Name="CEqOpGreaterThan.cpp"/>
+      <File Name="CEqOpIncrement.cpp"/>
+      <File Name="CEqOpLessOrEqual.cpp"/>
+      <File Name="CEqOpLessThan.cpp"/>
+      <File Name="CEqOpMax.cpp"/>
+      <File Name="CEqOpMin.cpp"/>
+      <File Name="CEqOpModulo.cpp"/>
+      <File Name="CEqOpMultiply.cpp"/>
+      <File Name="CEqOpNear.cpp"/>
+      <File Name="CEqOpNegate.cpp"/>
+      <File Name="CEqOpNot.cpp"/>
+      <File Name="CEqOpNotEqual.cpp"/>
+      <File Name="CEqOpOr.cpp"/>
+      <File Name="CEqOpQuestion.cpp"/>
+      <File Name="CEqOpRadFromDeg.cpp"/>
+      <File Name="CEqOpRadianNorm.cpp"/>
+      <File Name="CEqOpRange.cpp"/>
+      <File Name="CEqOpRegisters.cpp"/>
+      <File Name="CEqOpRegLoad.cpp"/>
+      <File Name="CEqOpRegStore.cpp"/>
+      <File Name="CEqOpRGB.cpp"/>
+      <File Name="CEqOpRGBA.cpp"/>
+      <File Name="CEqOpSquare.cpp"/>
+      <File Name="CEqOpStrCat.cpp"/>
+      <File Name="CEqOpSubtract.cpp"/>
+      <File Name="CEqOpUnitAbbrev.cpp"/>
+      <File Name="CEqOpUnitConvert.cpp"/>
+      <File Name="CEqOpUnitName.cpp"/>
+      <File Name="CEqOpUnitPlural.cpp"/>
+      <File Name="CEqVariable.cpp"/>
+      <File Name="CEqVariableAssign.cpp"/>
+      <File Name="CEqVariableAssignCond.cpp"/>
+      <File Name="CEqVariableIndirect.cpp"/>
+      <File Name="CResultValue.cpp"/>
+      <File Name="VEqConstGauge.cpp"/>
+      <File Name="VEqOpBinary.cpp"/>
+      <File Name="VEqOpQuaternary.cpp"/>
+      <File Name="VEqOpTrinary.cpp"/>
+      <File Name="VEqOpUnary.cpp"/>
+      <File Name="VEquation.h"/>
+      <File Name="CEqOpFind.cpp"/>
+      <File Name="CEqOpBitAnd.cpp"/>
+      <File Name="CEqOpBitOr.cpp"/>
+      <File Name="CEqConstGaugeLeft.cpp"/>
+      <File Name="CEqConstGaugeTop.cpp"/>
+      <File Name="CEqOpSubStr.cpp"/>
+      <File Name="CEqVariableAssignIndirect.cpp"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="Header Files">
+    <File Name="NamespaceGadget.h"/>
+    <File Name="resource.h"/>
+    <VirtualDirectory Name="Application">
+      <File Name="CApplicationGauge.h"/>
+      <File Name="CApplicationGaugeOpenGL.h"/>
+      <File Name="CApplicationGaugeWin.h"/>
+      <File Name="CCommandProcessor.h"/>
+      <File Name="CDrawQueue.h"/>
+      <File Name="CKeyNames.h"/>
+      <File Name="CKeyProcessorOpenGL.h"/>
+      <File Name="CKeyProcessorWin.h"/>
+      <File Name="CQueue.h"/>
+      <File Name="UKeys.h"/>
+      <File Name="UVehicleData.h"/>
+      <File Name="VDrawQueue.h"/>
+      <File Name="VFunctionProcessor.h"/>
+      <File Name="IMouseTransform.h"/>
+      <File Name="IApplicationUser.h"/>
+      <File Name="CFunctionProcessor.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Components">
+      <File Name="CAction.h"/>
+      <File Name="CChoose.h"/>
+      <File Name="CChooseWhen.h"/>
+      <File Name="CElement.h"/>
+      <File Name="CForLoop.h"/>
+      <File Name="CGauge.h"/>
+      <File Name="CKeyEventMap.h"/>
+      <File Name="CMouseArea.h"/>
+      <File Name="CMouseAreaList.h"/>
+      <File Name="CMouseLocate.h"/>
+      <File Name="CMouseProcessorWin.h"/>
+      <File Name="CPanel.h"/>
+      <File Name="CPanelDivision.h"/>
+      <File Name="CPosition.h"/>
+      <File Name="CRotation.h"/>
+      <File Name="CScreen.h"/>
+      <File Name="CSelect.h"/>
+      <File Name="CSelectCase.h"/>
+      <File Name="CShift.h"/>
+      <File Name="CSize.h"/>
+      <File Name="CTrigger.h"/>
+      <File Name="CVisible.h"/>
+      <File Name="VAction.h"/>
+      <File Name="VControl.h"/>
+      <File Name="VControlEventMap.h"/>
+      <File Name="VElement.h"/>
+      <File Name="VOwnership.h"/>
+      <File Name="VPanelChild.h"/>
+      <File Name="VRenderable.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Dictionaries">
+      <File Name="CDictHandlerTime.h"/>
+      <File Name="CDictionary.h"/>
+      <File Name="CDictionaryMemory.h"/>
+      <File Name="CDictionarySelector.h"/>
+      <File Name="CDictPageActive.h"/>
+      <File Name="CDictPageAlerts.h"/>
+      <File Name="CDictPageEvents.h"/>
+      <File Name="CDictPageFunctions.h"/>
+      <File Name="CDictPageLazyLoad.h"/>
+      <File Name="CDictPageP.h"/>
+      <File Name="CDictPageSystem.h"/>
+      <File Name="CDictPageT.h"/>
+      <File Name="CDictPageVariant.h"/>
+      <File Name="CDictPageVariantRead.h"/>
+      <File Name="CDictPageVariantWrite.h"/>
+      <File Name="VDictionary.h"/>
+      <File Name="VDictionaryPage.h"/>
+      <File Name="VDictionaryPageServer.h"/>
+      <File Name="CDictPageSelector.h"/>
+      <File Name="CDictPageConfigWrapper.h"/>
+      <File Name="CDictPageCommands.h"/>
+      <File Name="IDictionaryUser.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Factories">
+      <File Name="CFactoryDictActive.h"/>
+      <File Name="CFactoryEquation.h"/>
+      <File Name="CFactoryGauge.h"/>
+      <File Name="CFactoryPanel.h"/>
+      <File Name="CFactoryScreen.h"/>
+      <File Name="CFactoryVehicleData.h"/>
+      <File Name="VFactoryComponent.h"/>
+      <File Name="VFactoryGauge.h"/>
+      <File Name="VFactoryPanel.h"/>
+      <File Name="VFactoryScreen.h"/>
+      <File Name="CFactoryExternalXML.h"/>
+      <File Name="CFactoryDictionary.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Graphics">
+      <File Name="CArc.h"/>
+      <File Name="CAxis.h"/>
+      <File Name="CCircle.h"/>
+      <File Name="CEllipse.h"/>
+      <File Name="CGaugeString.h"/>
+      <File Name="CGaugeText.h"/>
+      <File Name="CImage.h"/>
+      <File Name="CLine.h"/>
+      <File Name="CPie.h"/>
+      <File Name="CPoint.h"/>
+      <File Name="CPolygon.h"/>
+      <File Name="CPolyline.h"/>
+      <File Name="CRectangle.h"/>
+      <File Name="CStyle.h"/>
+      <File Name="CVideo.h"/>
+      <File Name="VCoordinate.h"/>
+      <File Name="VGraphic.h"/>
+      <File Name="VPolylist.h"/>
+      <File Name="VStyle.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Equation">
+      <File Name="CEqConstant.h"/>
+      <File Name="CEqConstGaugeHeight.h"/>
+      <File Name="CEqConstGaugeWidth.h"/>
+      <File Name="CEqOpAbs.h"/>
+      <File Name="CEqOpAdd.h"/>
+      <File Name="CEqOpAnd.h"/>
+      <File Name="CEqOpBoth.h"/>
+      <File Name="CEqOpCase.h"/>
+      <File Name="CEqOpCeil.h"/>
+      <File Name="CEqOpColorname.h"/>
+      <File Name="CEqOpDecrement.h"/>
+      <File Name="CEqOpDegFromRad.h"/>
+      <File Name="CEqOpDegreeNorm.h"/>
+      <File Name="CEqOpDivide.h"/>
+      <File Name="CEqOpEqual.h"/>
+      <File Name="CEqOpFloor.h"/>
+      <File Name="CEqOpFormatString.h"/>
+      <File Name="CEqOpGreaterOrEqual.h"/>
+      <File Name="CEqOpGreaterThan.h"/>
+      <File Name="CEqOpIncrement.h"/>
+      <File Name="CEqOpLessOrEqual.h"/>
+      <File Name="CEqOpLessThan.h"/>
+      <File Name="CEqOpMax.h"/>
+      <File Name="CEqOpMin.h"/>
+      <File Name="CEqOpModulo.h"/>
+      <File Name="CEqOpMultiply.h"/>
+      <File Name="CEqOpNear.h"/>
+      <File Name="CEqOpNegate.h"/>
+      <File Name="CEqOpNot.h"/>
+      <File Name="CEqOpNotEqual.h"/>
+      <File Name="CEqOpOr.h"/>
+      <File Name="CEqOpQuestion.h"/>
+      <File Name="CEqOpRadFromDeg.h"/>
+      <File Name="CEqOpRadianNorm.h"/>
+      <File Name="CEqOpRange.h"/>
+      <File Name="CEqOpRegisters.h"/>
+      <File Name="CEqOpRegLoad.h"/>
+      <File Name="CEqOpRegStore.h"/>
+      <File Name="CEqOpRGB.h"/>
+      <File Name="CEqOpRGBA.h"/>
+      <File Name="CEqOpSquare.h"/>
+      <File Name="CEqOpStrCat.h"/>
+      <File Name="CEqOpSubtract.h"/>
+      <File Name="CEqOpUnitAbbrev.h"/>
+      <File Name="CEqOpUnitConvert.h"/>
+      <File Name="CEqOpUnitName.h"/>
+      <File Name="CEqOpUnitPlural.h"/>
+      <File Name="CEqVariable.h"/>
+      <File Name="CEqVariableAssign.h"/>
+      <File Name="CEqVariableAssignCond.h"/>
+      <File Name="CEqVariableIndirect.h"/>
+      <File Name="CResultValue.h"/>
+      <File Name="VEqConstGauge.h"/>
+      <File Name="VEqOpBinary.h"/>
+      <File Name="VEqOpQuaternary.h"/>
+      <File Name="VEqOpTrinary.h"/>
+      <File Name="VEqOpUnary.h"/>
+      <File Name="CEqVariableAssignIndirect.h"/>
+      <File Name="CEqOpFind.h"/>
+      <File Name="CEqOpBitAnd.h"/>
+      <File Name="CEqOpBitOr.h"/>
+      <File Name="CEqConstGaugeLeft.h"/>
+      <File Name="CEqConstGaugeTop.h"/>
+      <File Name="CEqOpSubStr.h"/>
+    </VirtualDirectory>
+    <File Name="stdafx.h"/>
+  </VirtualDirectory>
+  <Dependencies Name="Debug-VDDS">
+    <Project Name="Common"/>
+  </Dependencies>
+  <Dependencies Name="Release-VDDS">
+    <Project Name="Common"/>
+  </Dependencies>
+  <Dependencies Name="Debug-Linux-Desktop">
+    <Project Name="Common"/>
+    <Project Name="VDraw"/>
+  </Dependencies>
+  <Dependencies Name="Release">
+    <Project Name="Common"/>
+  </Dependencies>
+  <Dependencies Name="Debug"/>
+  <Settings Type="Static Library">
+    <GlobalSettings>
+      <Compiler Options="-fPIC;-Wall;$(CXXFLAGS_GLOBAL)" C_Options="-Wall -fPIC">
+        <IncludePath Value="."/>
+        <IncludePath Value="../Common"/>
+        <IncludePath Value="../Draw/VDraw"/>
+        <Preprocessor Value="OPENGL"/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="-g" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <Preprocessor Value="_DEBUG"/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(WorkspacePath)/$(ConfigurationName)-$(PlatformName)/lib$(ProjectName).a" IntermediateDirectory="$(WorkspacePath)/$(ConfigurationName)-$(PlatformName)/obj/$(ProjectName)" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2" C_Options="-O2" Required="yes" PreCompiledHeader="stdafx.h" PCHInCommandLine="yes" UseDifferentPCHFlags="no" PCHFlags="">
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(WorkspacePath)/$(ConfigurationName)-$(PlatformName)/lib$(ProjectName).a" IntermediateDirectory="$(WorkspacePath)/$(ConfigurationName)-$(PlatformName)/obj/$(ProjectName)" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[
+      ]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>
