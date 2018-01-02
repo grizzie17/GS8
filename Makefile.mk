@@ -53,7 +53,6 @@ WorkingDirectory       := $(WorkspacePath)/.build
 #	makefilepath;predecessors;configuration
 
 ProjectsList.Debug := \
-	3rdParty/SOIL/SOIL.mk	\
 	CmdPlugins/CmdCameraSelector/CmdCameraSelector.mk;Common,LogFile,VSAShared,Gadget	\
 	CmdPlugins/CmdConstant/CmdConstant.mk;Common,LogFile,VSAShared	\
 	CmdPlugins/CmdConstantD/CmdConstantD.mk;Common,LogFile,VSAShared	\

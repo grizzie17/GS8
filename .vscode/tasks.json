@@ -7,6 +7,40 @@
 			"label": "echo",
 			"type": "shell",
 			"command": "echo Hello"
+		},
+		{
+			"label": "pwd",
+			"type": "shell",
+			"command": "pwd"
+		},
+		{
+			"label": "path",
+			"type": "shell",
+			"command": "echo $PATH"
+		},
+		{
+			"label": "autoconf",
+			"type": "shell",
+			"command": "autoreconf ../configure.ac",
+			"problemMatcher": "$gcc",
+			"options": {
+				"cwd": "${workspaceRoot}/build"
+			}
+		},
+		{
+			"label": "make",
+			"type": "shell",
+			"command": "make",
+			"args": [
+				"-f","Makefile.mk"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			]
 		}
 	]
 }

@@ -1,5 +1,16 @@
 {
-	"uncrustify.configPath": "uncrustify.cfg",
 	"C_Cpp.formatting": "Disabled",
-	"github.repositories": ["GS8"]
+	"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+	"terminal.integrated.shellArgs.windows":[
+		"--login", "-i"	
+	],
+    "terminal.integrated.env.windows": {
+		"MSYSTEM": "MINGW64",
+        "MSYS2_PATH_TYPE": "minimal",
+        "MSVSCODE": "1"
+	},
+	"uncrustify.configPath": "uncrustify.cfg",
+	"github.repositories": [
+		"GS8"
+	]
 }

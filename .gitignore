@@ -1,7 +1,11 @@
 .git
 .clang
 .build*
+aclocal*
+build
 Backup
+config.log
+configure
 Debug*
 Release*
 patches
@@ -25,3 +29,4 @@ ipch
 */*/*.gch
 */*/*.mk
 */*.mk
+configure.scan
