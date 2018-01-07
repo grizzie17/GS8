@@ -4,19 +4,29 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "echo",
+			"label": "hello",
 			"type": "shell",
-			"command": "echo Hello"
+			"command": "echo",
+			"args": [
+				"Hello"
+			],
+			"problemMatcher": []
 		},
 		{
 			"label": "pwd",
 			"type": "shell",
-			"command": "pwd"
+			"command": "pwd",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceRoot}"
+			}
 		},
 		{
 			"label": "path",
 			"type": "shell",
-			"command": "echo $PATH"
+			"command": "echo",
+			"args":["$PATH"],
+			"problemMatcher": []
 		},
 		{
 			"label": "autoconf",
@@ -40,7 +50,10 @@
 			},
 			"problemMatcher": [
 				"$gcc"
-			]
+			],
+			"options": {
+				"cwd": "${workspaceRoot}"
+			}
 		}
 	]
 }

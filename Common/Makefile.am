@@ -1,7 +1,12 @@
+AM_CPPFLAGS = \
+		-I$(top_srcdir)/Common \
+		-I$(top_srcdir)/Platform \
+		-I$(top_srcdir)/LogFile
 
-noinst_LIBRARIES = common.a
 
-common_a_SOURCES = \
+noinst_LIBRARIES = libcommon.a
+
+libcommon_a_SOURCES = \
 		CConfiguration.cpp \
 		CEventManager.cpp \
 		CFactoryConfiguration.cpp \
@@ -34,4 +39,5 @@ common_a_SOURCES = \
 		VPluginWithAggregate.cpp \
 		VPluginWithAggregateList.cpp \
 		VSupports.cpp
+
 

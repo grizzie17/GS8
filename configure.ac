@@ -6,12 +6,16 @@ AC_INIT([GS8], [8.0.0], [john@grizzlyweb.com])
 
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
+
+
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AC_PROG_LN_S
+AC_PROG_RANLIB
+AM_PROG_AR
 
 # Checks for libraries.
 
@@ -40,6 +44,7 @@ AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname getti
 
 #AC_CONFIG_LIBOBJ_DIR([build/lib])
 
+#AC_CONFIG_SUBDIRS([Common])
 
 #AC_CONFIG_SRCDIR([config.h.in])
 #AC_CONFIG_HEADERS([config.h])
