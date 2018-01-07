@@ -103,9 +103,10 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"problemMatcher": [
-				"$gcc"
-			],
+			"problemMatcher": {
+				"base": "$gcc",
+				"fileLocation": "absolute"
+			},
 			"presentation": {
 				"echo": true,
 				"reveal": "always",
