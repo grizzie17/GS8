@@ -27,12 +27,6 @@ libcommon_a_SOURCES = \
 		IPluginLoadConfiguration.cpp \
 		ISupports.cpp \
 		ISupportsLocal.cpp \
-		UFile.cpp \
-		UPlatform.cpp \
-		UPlatformIO.cpp \
-		UPlatformString.cpp \
-		UPlatformThreads.cpp \
-		UPlatformTime.cpp \
 		VFactory.cpp \
 		VFactoryLite.cpp \
 		VPlugin.cpp \

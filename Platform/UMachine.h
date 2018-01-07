@@ -297,7 +297,8 @@
 \+=====================================================================*/
 #elif defined( __linux__ )	\
 	||	defined( _linux )	\
-	||	defined( linux )
+	||	defined( linux )    \
+	||	defined( __MSYS__ )
 
 #	define	OS_LINUX	1
 #	define	OS_NAME		"LINUX"
@@ -316,6 +317,8 @@
 #	if defined( _GTK_ )  ||  defined( GTK )
 #		define	GL_GTK	1
 #	endif
+#	define _POSIX_ASYNCHRONOUS_IO 1
+#	include <semaphore.h>
 
 
 
