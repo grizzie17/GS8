@@ -37,7 +37,7 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "build-aclocal",
+			"label": "b-aclocal",
 			"dependsOn": "m4-dir",
 			"type": "shell",
 			"command": "aclocal",
@@ -45,23 +45,23 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "build-autoconf",
-			"dependsOn": "build-aclocal",
+			"label": "b-autoconf",
+			"dependsOn": "b-aclocal",
 			"type": "shell",
 			"command": "autoconf",
 			"args": ["-f"],
 			"problemMatcher": []
 		},
 		{
-			"label": "build-automake",
-			"dependsOn": "build-autoconf",
+			"label": "b-automake",
+			"dependsOn": "b-autoconf",
 			"type": "shell",
 			"command": "automake",
 			"args": ["--add-missing"],
 			"problemMatcher": []
 		},
 		{
-			"label": "build-dir",
+			"label": "b-dir",
 			"type": "shell",
 			"command": "mkdir",
 			"args": ["-p","build"],
@@ -69,7 +69,7 @@
 		},
 		{
 			"label": "build-configure",
-			"dependsOn": ["build-dir","build-automake"],
+			"dependsOn": ["b-dir","b-automake"],
 			"type": "shell",
 			"command": "../configure",
 			"options": {

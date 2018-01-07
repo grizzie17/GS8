@@ -9,6 +9,7 @@ noinst_PROGRAMS = common_specs
 common_specs_SOURCES = \
 	Common_specs.cpp \
 	\
+	CCharDescriptor_spec.cpp \
 	CCharString_spec.cpp \
 	CColor_spec.cpp \
 	CDateTime_spec.cpp \

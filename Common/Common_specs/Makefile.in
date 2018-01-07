@@ -98,13 +98,14 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am_common_specs_OBJECTS = Common_specs.$(OBJEXT) \
-	CCharString_spec.$(OBJEXT) CColor_spec.$(OBJEXT) \
-	CDateTime_spec.$(OBJEXT) CEventManager_spec.$(OBJEXT) \
-	CMatrix3x3_spec.$(OBJEXT) CSemaphore_spec.$(OBJEXT) \
-	cstring_s_spec.$(OBJEXT) CUnitsOfMeasure_spec.$(OBJEXT) \
-	CVariables_spec.$(OBJEXT) CVariantData_spec.$(OBJEXT) \
-	TArray_spec.$(OBJEXT) TComPointer_spec.$(OBJEXT) \
-	TDictionaryIndexed_spec.$(OBJEXT) TQueue_spec.$(OBJEXT)
+	CCharDescriptor_spec.$(OBJEXT) CCharString_spec.$(OBJEXT) \
+	CColor_spec.$(OBJEXT) CDateTime_spec.$(OBJEXT) \
+	CEventManager_spec.$(OBJEXT) CMatrix3x3_spec.$(OBJEXT) \
+	CSemaphore_spec.$(OBJEXT) cstring_s_spec.$(OBJEXT) \
+	CUnitsOfMeasure_spec.$(OBJEXT) CVariables_spec.$(OBJEXT) \
+	CVariantData_spec.$(OBJEXT) TArray_spec.$(OBJEXT) \
+	TComPointer_spec.$(OBJEXT) TDictionaryIndexed_spec.$(OBJEXT) \
+	TQueue_spec.$(OBJEXT)
 common_specs_OBJECTS = $(am_common_specs_OBJECTS)
 common_specs_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -268,6 +269,7 @@ AM_CPPFLAGS = \
 common_specs_SOURCES = \
 	Common_specs.cpp \
 	\
+	CCharDescriptor_spec.cpp \
 	CCharString_spec.cpp \
 	CColor_spec.cpp \
 	CDateTime_spec.cpp \
@@ -330,6 +332,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CCharDescriptor_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CCharString_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CColor_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CDateTime_spec.Po@am__quote@

@@ -7,8 +7,6 @@ AM_CPPFLAGS = \
 noinst_LIBRARIES = libplatform.a
 
 libplatform_a_SOURCES = \
-		CCharDescriptor.cpp \
-		CCharString.cpp \
 		CColor.cpp \
 		CDateTime.cpp \
 		CFilePath.cpp \
