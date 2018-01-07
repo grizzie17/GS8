@@ -1,5 +1,7 @@
 {
 	"C_Cpp.formatting": "Disabled",
+	"uncrustify.configPath": "uncrustify.cfg",
+
 	"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
 	"terminal.integrated.shellArgs.windows":[
 		"--login"
@@ -8,7 +10,7 @@
 		"MSYSTEM": "MINGW64",
 		"CHERE_INVOKING": "1"
 	},
-	"uncrustify.configPath": "uncrustify.cfg",
+	
 	"github.repositories": [
 		"GS8"
 	]

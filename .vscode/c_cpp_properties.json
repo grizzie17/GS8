@@ -53,6 +53,7 @@
 					"${workspaceRoot}\\Gadget",
 					"${workspaceRoot}\\LogFile",
 					"${workspaceRoot}\\Platform",
+					"${workspaceRoot}\\Platform\\Platform_specs",
 					"${workspaceRoot}\\VSAShared",
 					"${workspaceRoot}\\WorkbenchShared",
 					"C:\\msys64\\usr\\lib\\gcc\\x86_64-pc-msys\\6.4.0\\include",

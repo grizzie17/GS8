@@ -4,28 +4,23 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "hello",
+			"label": "Hello",
 			"type": "shell",
 			"command": "echo",
-			"args": [
-				"Hello"
-			],
+			"args": ["Hello"],
 			"problemMatcher": []
 		},
 		{
 			"label": "pwd",
 			"type": "shell",
 			"command": "pwd",
-			"problemMatcher": [],
-			"options": {
-				"cwd": "${workspaceRoot}"
-			}
+			"problemMatcher": []
 		},
 		{
 			"label": "path",
 			"type": "shell",
 			"command": "echo",
-			"args":["$PATH"],
+			"args": ["$PATH"],
 			"problemMatcher": []
 		},
 		{
