@@ -29,8 +29,8 @@
 		Initial Revision
 |
 \+---------------------------------------------------------------------*/
-#ifndef _H_CCharDescriptor_Root
-#define _H_CCharDescriptor_Root
+#ifndef _H_CCharDescriptor_Common
+#define _H_CCharDescriptor_Common
 #pragma once
 /*---------------------------------------------------------------------+\
 |																		|
@@ -41,8 +41,8 @@
 
 #include "TCharDescriptor.h"
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+#include "NamespaceCommon.h"
+NAMESPACE_COMMON_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -486,7 +486,7 @@ int		strcmp
 
 
 
-NAMESPACE_ROOT_END
+NAMESPACE_COMMON_END
 
 
 

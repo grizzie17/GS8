@@ -17,6 +17,9 @@ AC_PROG_LN_S
 AC_PROG_RANLIB
 AM_PROG_AR
 
+AC_DEFINE([__STDC_WANT_SECURE_LIB],[1])
+
+
 # Checks for libraries.
 
 # Checks for header files.

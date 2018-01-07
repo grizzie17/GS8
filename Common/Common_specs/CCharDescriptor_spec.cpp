@@ -9,7 +9,7 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_ROOT
+USING_NAMESPACE_COMMON
 
 Context(CCharDescriptor_class)
 {

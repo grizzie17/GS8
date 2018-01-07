@@ -41,13 +41,13 @@
 //#include <string>
 #include "CCharDescriptor.h"
 
-#include "NamespaceRoot.h"
+#include "NamespaceCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_BEGIN
+NAMESPACE_COMMON_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -274,7 +274,7 @@ CCharString::operator CCharDescriptor
 
 
 
-NAMESPACE_ROOT_END
+NAMESPACE_COMMON_END
 
 
 

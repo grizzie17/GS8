@@ -83,7 +83,10 @@
 			"type": "shell",
 			"command": "make",
 			"options": {
-				"cwd": "build"
+				"cwd": "build",
+				"env": {
+					"__STDC_SECURE_LIB__": "20111231"
+				}
 			},
 			"group": {
 				"kind": "build",
@@ -91,7 +94,13 @@
 			},
 			"problemMatcher": [
 				"$gcc"
-			]
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "dedicated"
+			}
 		}
 	]
 }
