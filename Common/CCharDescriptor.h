@@ -157,157 +157,163 @@ char	TCharDescriptorCompareFilter<char>
  * operator== - Equals
 
 \+---------------------------------------------------------------------*/
-template
+#if 0
+template<>
 bool	operator==
 		(
 		const TCharDescriptor<char>&,
 		const TCharDescriptor<char>&
 		);
 
-template
+template<>
 bool	operator==
 		(
 		const TCharDescriptor<char>&,
 		const char*
 		);
 
-template
+template<>
 bool	operator==
 		(
 		const char*,
 		const TCharDescriptor<char>&
 		);
-
+#endif
 /*---------------------------------------------------------------------+\
 
  * operator!= - Not Equals
 
 \+---------------------------------------------------------------------*/
-template
+#if 0
+template<>
 bool	operator!=
 		(
 		const TCharDescriptor<char>&,
 		const TCharDescriptor<char>&
 		);
 
-template
+template<>
 bool	operator!=
 		(
 		const TCharDescriptor<char>&,
 		const char*
 		);
 
-template
+template<>
 bool	operator!=
 		(
 		const char*,
 		const TCharDescriptor<char>&
 		);
-
+#endif
 /*---------------------------------------------------------------------+\
 
  * operator< - less than
 
 \+---------------------------------------------------------------------*/
-template
+#if 0
+template<>
 bool	operator<
 		(
 		const TCharDescriptor<char>&,
 		const TCharDescriptor<char>&
 		);
 
-template
+template<>
 bool	operator<
 		(
 		const TCharDescriptor<char>&,
 		const char*
 		);
 
-template
+template<>
 bool	operator<
 		(
 		const char*,
 		const TCharDescriptor<char>&
 		);
-
+#endif
 /*---------------------------------------------------------------------+\
 
  * operator<= - Less than or equal
 
 \+---------------------------------------------------------------------*/
-template
+#if 0
+template<>
 bool	operator<=
 		(
 		const TCharDescriptor<char>&,
 		const TCharDescriptor<char>&
 		);
 
-template
+template<>
 bool	operator<=
 		(
 		const TCharDescriptor<char>&,
 		const char*
 		);
 
-template
+template<>
 bool	operator<=
 		(
 		const char*,
 		const TCharDescriptor<char>&
 		);
-
+#endif
 /*---------------------------------------------------------------------+\
 
  * operator> - greater than
 
 \+---------------------------------------------------------------------*/
-template
+#if 0
+template<>
 bool	operator>
 		(
 		const TCharDescriptor<char>&,
 		const TCharDescriptor<char>&
 		);
 
-template
+template<>
 bool	operator>
 		(
 		const TCharDescriptor<char>&,
 		const char*
 		);
 
-template
+template<>
 bool	operator>
 		(
 		const char*,
 		const TCharDescriptor<char>&
 		);
-
+#endif
 /*---------------------------------------------------------------------+\
 
  * operator>= - greater than or equal
 
 \+---------------------------------------------------------------------*/
-template
+#if 0
+template<>
 bool	operator>=
 		(
 		const TCharDescriptor<char>&,
 		const TCharDescriptor<char>&
 		);
 
-template
+template<>
 bool	operator>=
 		(
 		const TCharDescriptor<char>&,
 		const char*
 		);
 
-template
+template<>
 bool	operator>=
 		(
 		const char*,
 		const TCharDescriptor<char>&
 		);
-
+#endif
 
 
 /*---------------------------------------------------------------------+\

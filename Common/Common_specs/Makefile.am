@@ -21,6 +21,7 @@ common_specs_SOURCES = \
 	CVariables_spec.cpp \
 	CVariantData_spec.cpp \
 	TArray_spec.cpp \
+	TCharDescriptor_spec.cpp \
 	TComPointer_spec.cpp \
 	TDictionaryIndexed_spec.cpp \
 	TQueue_spec.cpp

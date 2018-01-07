@@ -19,16 +19,16 @@
 		Initial Revision
 |
 \+---------------------------------------------------------------------*/
-#ifndef _H_TEnumerator_Root
-#define _H_TEnumerator_Root
+#ifndef _H_TEnumerator_Common
+#define _H_TEnumerator_Common
 #pragma once
 /*---------------------------------------------------------------------+\
 |																		|
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+#include "NamespaceCommon.h"
+NAMESPACE_COMMON_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -93,7 +93,7 @@ private:
 \+=====================================================================*/
 
 
-NAMESPACE_ROOT_END
+NAMESPACE_COMMON_END
 
 
 

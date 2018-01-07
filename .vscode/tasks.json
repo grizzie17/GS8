@@ -2,27 +2,32 @@
 	// See https://go.microsoft.com/fwlink/?LinkId=733558
 	// for the documentation about the tasks.json format
 	"version": "2.0.0",
+	"options": {
+		"env": {
+			"__STDC_WANT_SECURE_LIB__": "1"
+		}
+	},
 	"tasks": [
-		{
-			"label": "Hello",
-			"type": "shell",
-			"command": "echo",
-			"args": ["Hello"],
-			"problemMatcher": []
-		},
-		{
-			"label": "pwd",
-			"type": "shell",
-			"command": "pwd",
-			"problemMatcher": []
-		},
-		{
-			"label": "path",
-			"type": "shell",
-			"command": "echo",
-			"args": ["$PATH"],
-			"problemMatcher": []
-		},
+		//{
+		//	"label": "Hello",
+		//	"type": "shell",
+		//	"command": "echo",
+		//	"args": ["Hello"],
+		//	"problemMatcher": []
+		//},
+		//{
+		//	"label": "pwd",
+		//	"type": "shell",
+		//	"command": "pwd",
+		//	"problemMatcher": []
+		//},
+		//{
+		//	"label": "path",
+		//	"type": "shell",
+		//	"command": "echo",
+		//	"args": ["$PATH"],
+		//	"problemMatcher": []
+		//},
 		{
 			"label": "build-clean",
 			"type": "shell",
@@ -50,7 +55,13 @@
 			"type": "shell",
 			"command": "autoconf",
 			"args": ["-f"],
-			"problemMatcher": []
+			"problemMatcher": [],
+			"options": {
+				"env": {
+					"__STDC_WANT_SECURE_LIB__": "1"
+				}
+	
+			}
 		},
 		{
 			"label": "b-automake",
@@ -85,7 +96,7 @@
 			"options": {
 				"cwd": "build",
 				"env": {
-					"__STDC_SECURE_LIB__": "20111231"
+					"__STDC_WANT_SECURE_LIB__": "1"
 				}
 			},
 			"group": {

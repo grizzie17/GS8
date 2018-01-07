@@ -13,5 +13,23 @@
 	
 	"github.repositories": [
 		"GS8"
-	]
+	],
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/build": true,
+		"**/*.in": true,
+		"**/Makefile": true,
+		"**/m4": true,
+		"**/autom4te.cache": true,
+		"**/ar-lib": true,
+		"**/compile": true,
+		"**/configure": true,
+		"**/depcomp": true,
+		"**/install-sh": true,
+		"**/missing": true
+	}
 }

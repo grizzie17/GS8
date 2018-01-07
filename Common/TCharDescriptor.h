@@ -64,8 +64,8 @@
 #include "UPlatform.h"
 #include "UTypes.h"
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+#include "NamespaceCommon.h"
+NAMESPACE_COMMON_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -1525,7 +1525,7 @@ int		TCharDescriptor< T >::DiffCharacters
 
 
 
-NAMESPACE_ROOT_END
+NAMESPACE_COMMON_END
 
 
 

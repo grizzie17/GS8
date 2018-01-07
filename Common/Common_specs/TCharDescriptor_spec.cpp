@@ -8,7 +8,7 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_ROOT
+USING_NAMESPACE_COMMON
 
 Context(TCharDescriptor_template)
 {

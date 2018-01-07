@@ -17,7 +17,7 @@ AC_PROG_LN_S
 AC_PROG_RANLIB
 AM_PROG_AR
 
-AC_DEFINE([__STDC_WANT_SECURE_LIB],[1])
+AC_DEFINE([__STDC_WANT_SECURE_LIB__],[1])
 
 
 # Checks for libraries.
@@ -43,7 +43,7 @@ AC_CHECK_TYPES([ptrdiff_t])
 AC_FUNC_MALLOC
 AC_FUNC_MKTIME
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
+AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset fopen_s vsnprintf_s snprintf_s strcat_s strcpy_s strncpy_s])
 
 #AC_CONFIG_LIBOBJ_DIR([build/lib])
 
