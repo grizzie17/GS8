@@ -7,7 +7,7 @@ $THISDIR/build-clean.sh
 
 pushd $THISDIR >/dev/null
 
-mkdir -p m4
+mkdir -p $THISDIR/m4
 
 echo "aclocal..."
 aclocal -I m4 --install  ||  exit 1
@@ -20,7 +20,10 @@ automake --add-missing  ||  exit 2
 
 echo "configure..."
 #export CPPFLAGS="-DWIN64 -D_WIN64"
-./configure  ||  exit 3
+mkdir -p $THISDIR/build
+pushd $THISDIR/build >/dev/null
+	$THISDIR/configure  ||  exit 3
+popd >/dev/null
 
 
 popd >/dev/null

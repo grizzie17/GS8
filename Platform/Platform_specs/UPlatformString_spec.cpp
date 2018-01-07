@@ -11,7 +11,6 @@
 using namespace igloo;
 
 
-
 Context(UPlatformString_spec)
 {
 	Spec(should_copy_a_string)

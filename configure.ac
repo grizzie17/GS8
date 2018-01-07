@@ -49,7 +49,10 @@ AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname getti
 #AC_CONFIG_SRCDIR([config.h.in])
 #AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
+	Common/Common_specs/Makefile
 	Common/Makefile
+	Platform/Makefile
+	Platform/Platform_specs/Makefile
 	Makefile
 ])
 AC_OUTPUT

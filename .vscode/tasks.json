@@ -24,31 +24,74 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "autoconf",
+			"label": "build-clean",
 			"type": "shell",
-			"command": "autoreconf ../configure.ac",
-			"problemMatcher": "$gcc",
+			"command": "./build-clean.sh",
+			"problemMatcher": []
+		},
+		{
+			"label": "m4-dir",
+			"type": "shell",
+			"command": "mkdir",
+			"args": ["-p","m4"],
+			"problemMatcher": []
+		},
+		{
+			"label": "build-aclocal",
+			"dependsOn": "m4-dir",
+			"type": "shell",
+			"command": "aclocal",
+			"args": ["-I","m4","--install"],
+			"problemMatcher": []
+		},
+		{
+			"label": "build-autoconf",
+			"dependsOn": "build-aclocal",
+			"type": "shell",
+			"command": "autoconf",
+			"args": ["-f"],
+			"problemMatcher": []
+		},
+		{
+			"label": "build-automake",
+			"dependsOn": "build-autoconf",
+			"type": "shell",
+			"command": "automake",
+			"args": ["--add-missing"],
+			"problemMatcher": []
+		},
+		{
+			"label": "build-dir",
+			"type": "shell",
+			"command": "mkdir",
+			"args": ["-p","build"],
+			"problemMatcher": []
+		},
+		{
+			"label": "build-configure",
+			"dependsOn": ["build-dir","build-automake"],
+			"type": "shell",
+			"command": "../configure",
 			"options": {
-				"cwd": "${workspaceRoot}/build"
-			}
+				"cwd": "build"
+			},
+			"group": "build",
+			"problemMatcher": []
 		},
 		{
 			"label": "make",
 			"type": "shell",
 			"command": "make",
-			"args": [
-				"-f","Makefile.mk"
-			],
+			"options": {
+				"cwd": "build"
+			},
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
 			"problemMatcher": [
 				"$gcc"
-			],
-			"options": {
-				"cwd": "${workspaceRoot}"
-			}
+			]
 		}
 	]
 }

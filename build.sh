@@ -7,7 +7,7 @@ $THISDIR/build-clean.sh  ||  exit $?
 $THISDIR/build-config.sh  ||  exit $?
 
 
-pushd $THISDIR >/dev/null
+pushd $THISDIR/build >/dev/null
 
 make -j 4
 
