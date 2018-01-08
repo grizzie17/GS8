@@ -1,0 +1,23 @@
+1. Copy the "user_input_device_plugin" template directory to "/VSA/UserInputDevice"
+2. Rename "user_input_device_plugin" directory to the name for the new user input device plugin - e.g. "InputAvalexEloVDDS"
+3. Rename "CUser_input_device_plugin.cpp" to the class name for the user input device plugin - e.g. "CInputAvalexEloVDDS.cpp"
+4. Rename "CUser_input_device_plugin.h" to the class name for the user input device plugin - e.g. "CInputAvalexEloVDDS.h"
+5. Rename "user_input_device_plugin.project" to the name for the user input device plugin - e.g. "InputAvalexEloVDDS.project"
+6. Edit the .project file:
+	a. Change "<CodeLite_Project Name="user_input_device_plugin" InternalType="Library">" so that the 
+           CodeLite_Project Name corresponds to the .project file name. For example:
+		<CodeLite_Project Name="InputAvalexEloVDDS" InternalType="Library">
+7. Startup CodeLite.
+8. Add the project to the OmniScape workspace:
+	a. Right-mouse button click on "OmniScape" in the CodeLite workspace tree.
+	b. Select "Add an Existing Project" from the pop-up menu.
+	c. Navigate to the new user input device plugin directory created in steps 1. and 2. above.
+	d. Open the .project file.
+9. Add the source files that were renamed in steps 3. and 4. above to the new project:
+	a. Right-mouse button click on "Header Files" of the new project in the workspace tree.
+	b. Select "Add an Existing File" from the pop-up menu.
+	c. Add the renamed file from step 4. above.
+	d. Right-mouse button click on "Source Files" of the new project in the workspace tree.
+	e. Select "Add an Existing File" from the pop-up menu.
+	f. Add the renamed file from step 3. above.
+10. Follow the template file comments for renaming the template objects.

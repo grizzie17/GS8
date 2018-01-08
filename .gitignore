@@ -28,6 +28,7 @@ ipch
 */*/*.gch
 */*/*.mk
 */*.mk
+aclocal.m4
 configure.scan
 ar-lib
 compile
