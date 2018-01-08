@@ -90,7 +90,7 @@ public:
 					operator time_t( void ) const;
 
 	bool			Parse( const char* s );
-	bool			Parse( CCharDescriptorRef r );
+	bool			Parse( NAMESPACE_COMMON_PREFIX CCharDescriptorRef r );
 	bool			Load(
 						int	nYear,
 						int	nMon,

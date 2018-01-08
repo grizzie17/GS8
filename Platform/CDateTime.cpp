@@ -235,7 +235,7 @@ bool	CDateTime::Parse
 		const char*	s
 		)
 {
-	CCharDescriptor	tString( s, strlen(s) );
+	NAMESPACE_COMMON_PREFIX CCharDescriptor	tString( s, strlen(s) );
 	return Parse( tString );
 }
 
@@ -261,7 +261,7 @@ bool	CDateTime::Parse
 \+---------------------------------------------------------------------*/
 bool	CDateTime::Parse
 		(
-		CCharDescriptorRef r
+		NAMESPACE_COMMON_PREFIX CCharDescriptorRef r
 		)
 {
 	bool	bResult = false;

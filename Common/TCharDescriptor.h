@@ -1062,7 +1062,7 @@ long	TCharDescriptor<T>::ParseInt
 		size_t*	pParseCount
 		) const
 {
-	return NAMESPACE_ROOT_PREFIX ParseInt<T>( m_s, m_n, pParseCount );
+	return NAMESPACE_COMMON_PREFIX ParseInt<T>( m_s, m_n, pParseCount );
 }
 
 
@@ -1266,7 +1266,7 @@ GFLOAT	TCharDescriptor<T>::ParseFloat
 		size_t*	pParseCount
 		) const
 {
-	return NAMESPACE_ROOT_PREFIX ParseFloat<T>( m_s, m_n, pParseCount );
+	return NAMESPACE_COMMON_PREFIX ParseFloat<T>( m_s, m_n, pParseCount );
 }
 
 
