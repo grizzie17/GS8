@@ -33,7 +33,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
-#define NAMESPACE_DEFINE_ROOT	(1)
+//#define NAMESPACE_DEFINE_ROOT	(1)
 
 #ifdef NAMESPACE_DEFINE_ROOT
 
@@ -51,7 +51,7 @@
 #	define NAMESPACE_ROOT_BEGIN
 #	define NAMESPACE_ROOT_END
 #	define USING_NAMESPACE_ROOT
-#	define NAMESPACE_ROOT_PREFIX	::
+#	define NAMESPACE_ROOT_PREFIX	
 
 #endif
 

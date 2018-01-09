@@ -110,7 +110,7 @@ bool	CConfiguration::AddEntry
 		)
 {
 	bool		bResult = false;
-	NAMESPACE_ROOT_PREFIX CCharString	tName( sName );
+	CCharString	tName( sName );
 
 	bResult = m_aContent.Add( tName, rData );
 
@@ -126,12 +126,12 @@ bool	CConfiguration::AddEntry
 \+---------------------------------------------------------------------*/
 bool	CConfiguration::AddAlias
 		(
-		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef	rKey,
-		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef	rAlias
+		ConstCCharDescriptorRef	rKey,
+		ConstCCharDescriptorRef	rAlias
 		)
 {
-	NAMESPACE_ROOT_PREFIX CCharString	tKey( rKey );
-	NAMESPACE_ROOT_PREFIX CCharString	tAlias( rAlias );
+	CCharString	tKey( rKey );
+	CCharString	tAlias( rAlias );
 	return m_aContent.AddAlias( tKey, tAlias );
 }
 
@@ -170,13 +170,13 @@ bool	CConfiguration::PutData
  * ResolveVariable -
 
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_PREFIX CCharString
+CCharString
 		CConfiguration::ResolveVariable
 		(
-		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
+		ConstCCharDescriptorRef r
 		)
 {
-	NAMESPACE_ROOT_PREFIX CCharString	s = r;
+	CCharString	s = r;
 
 	return GetEntryAsString( s.Pointer() );
 }
@@ -359,7 +359,7 @@ GFLOAT	CConfiguration::GetEntryAsFloatUnits
  * GetParameterAsString -
 
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_PREFIX CCharString
+CCharString
 		CConfiguration::GetEntryAsString
 		(
 		const char*	sKey,
@@ -370,12 +370,12 @@ NAMESPACE_ROOT_PREFIX CCharString
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		NAMESPACE_ROOT_PREFIX CCharString	s = *pv;
+		CCharString	s = *pv;
 		return s;
 	}
 	else
 	{
-		NAMESPACE_ROOT_PREFIX CCharString	s( sDefault );
+		CCharString	s( sDefault );
 		return s;
 	}
 }
@@ -405,7 +405,7 @@ long	CConfiguration::GetEntryAsEnum
 			{
 				EnumDatumPtr	pDatum = pEnumList;
 				EnumDatumPtr	pDatumEnd = pEnumList + nEnumCount;
-				NAMESPACE_ROOT_PREFIX CCharString		s = *pv;
+				CCharString		s = *pv;
 				while ( pDatum < pDatumEnd )
 				{
 					if ( 0 == s.CompareIgnoreCase( pDatum->sKey ) )

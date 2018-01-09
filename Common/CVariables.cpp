@@ -110,13 +110,13 @@ CVariables::~CVariables
  * Substitute -
 
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_PREFIX CCharString
+CCharString
 		CVariables::Substitute
 		(
-		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef	rSource
+		ConstCCharDescriptorRef	rSource
 		)
 {
-	NAMESPACE_ROOT_PREFIX CCharString	sNew;
+	CCharString	sNew;
 	const char*	p = rSource.Pointer();
 	const char*	pEnd = p + rSource.Length();
 	long		n;
@@ -128,8 +128,8 @@ NAMESPACE_ROOT_PREFIX CCharString
 			n = SpanVariable( p, pEnd );
 			if ( 0 < n )
 			{
-				NAMESPACE_ROOT_PREFIX CCharString	s;
-				s = ProcessVariable( NAMESPACE_ROOT_PREFIX CCharDescriptor( p, (size_t)n ) );
+				CCharString	s;
+				s = ProcessVariable( CCharDescriptor( p, (size_t)n ) );
 				if ( 0 < s.Length() )
 				{
 					sNew += s;
@@ -151,7 +151,7 @@ NAMESPACE_ROOT_PREFIX CCharString
 		else
 		{
 			n = SpanConstant( p, pEnd );
-			sNew += NAMESPACE_ROOT_PREFIX CCharDescriptor( p, (size_t)n );
+			sNew += CCharDescriptor( p, (size_t)n );
 		}
 		p += n;
 	}
@@ -227,18 +227,18 @@ long	CVariables::SpanVariable
  * ProcessVariable -
 
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_PREFIX CCharString
+CCharString
 		CVariables::ProcessVariable
 		(
-		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rVar
+		ConstCCharDescriptorRef rVar
 		)
 {
 	const char*	p = rVar.Pointer() + 2;		// get past $(
 	size_t		n = rVar.Length() - 3;
 
-	NAMESPACE_ROOT_PREFIX CCharString	s;
+	CCharString	s;
 
-	s = m_pVariable->ResolveVariable( NAMESPACE_ROOT_PREFIX CCharDescriptor( p, n ) );
+	s = m_pVariable->ResolveVariable( CCharDescriptor( p, n ) );
 	return Substitute( s );
 }
 

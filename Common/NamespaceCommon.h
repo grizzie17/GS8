@@ -39,7 +39,7 @@
 
 
 
-#define NAMESPACE_DEFINE_COMMON	(1)
+//#define NAMESPACE_DEFINE_COMMON	(1)
 
 
 

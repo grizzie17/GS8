@@ -1062,7 +1062,7 @@ long	TCharDescriptor<T>::ParseInt
 		size_t*	pParseCount
 		) const
 {
-	return NAMESPACE_COMMON_PREFIX ParseInt<T>( m_s, m_n, pParseCount );
+	return ParseInt<T>( m_s, m_n, pParseCount );
 }
 
 
@@ -1071,7 +1071,7 @@ long	TCharDescriptor<T>::ParseInt
  * ParseInt -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template < typename T >
 long	ParseInt
 		(
 		const T*	s,
@@ -1098,7 +1098,7 @@ long	ParseInt
  * ParseDec -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template < typename T >
 long	ParseDec
 		(
 		const T*	s,
@@ -1144,7 +1144,7 @@ long	ParseDec
  * ParseDecDigits -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template < typename T >
 long	ParseDecDigits
 		(
 		const T*	s,
@@ -1177,7 +1177,7 @@ long	ParseDecDigits
  * ParseHex -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template < typename T >
 long	ParseHex
 		(
 		const T*	s,
@@ -1223,7 +1223,7 @@ long	ParseHex
  * ParseHexDigits -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template < typename T >
 long	ParseHexDigits
 		(
 		const T*	s,
@@ -1266,11 +1266,11 @@ GFLOAT	TCharDescriptor<T>::ParseFloat
 		size_t*	pParseCount
 		) const
 {
-	return NAMESPACE_COMMON_PREFIX ParseFloat<T>( m_s, m_n, pParseCount );
+	return ParseFloat<T>( m_s, m_n, pParseCount );
 }
 
 
-template < class T >
+template < typename T >
 GFLOAT	ParseSimpleFloat
 		(
 		const T*	s,
@@ -1324,7 +1324,7 @@ GFLOAT	ParseSimpleFloat
 }
 
 
-template < class T >
+template < typename T >
 GFLOAT	ParseFloat
 		(
 		const T*	s,

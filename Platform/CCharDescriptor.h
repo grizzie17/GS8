@@ -53,7 +53,7 @@ NAMESPACE_ROOT_BEGIN
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-class NAMESPACE_ROOT_PREFIX CCharString;	// forward reference
+class CCharString;	// forward reference
 
 typedef class CCharDescriptor*			CCharDescriptorPtr;
 typedef class CCharDescriptor&			CCharDescriptorRef;
