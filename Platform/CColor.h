@@ -265,9 +265,9 @@ public:
 	bool		operator!=( const COLORDATA& r ) const;
 
 	static CColor	ColorFromName( const char* sName );
-	static CColor	ColorFromName( NAMESPACE_COMMON_PREFIX CCharDescriptorRef rName );
+	static CColor	ColorFromName( CCharDescriptorRef rName );
 	static CColor	ColorFromNameAlpha( const char* sName, unsigned int alpha );
-	static CColor	ColorFromNameAlpha( NAMESPACE_COMMON_PREFIX CCharDescriptorRef rName, unsigned int alpha );
+	static CColor	ColorFromNameAlpha( CCharDescriptorRef rName, unsigned int alpha );
 	static CColor	BackgroundColor( void );
 	static CColor	ErrorColor( void );
 
@@ -302,7 +302,7 @@ private:
 };
 
 
-class CColorEnumerator : public NAMESPACE_COMMON_PREFIX TEnumerator<const ColorName>
+class CColorEnumerator : public TEnumerator<const ColorName>
 {
 public:
 		CColorEnumerator( void );

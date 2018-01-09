@@ -2,9 +2,12 @@ AM_CPPFLAGS = \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/LogFile
+AM_CXXFLAGS = \
+		-fPIC -Wall -Werror
 
 
-noinst_LIBRARIES = libcommon.a
+blibdir = $(top_builddir)/lib
+blib_LIBRARIES = libcommon.a
 
 libcommon_a_SOURCES = \
 		CConfiguration.cpp \

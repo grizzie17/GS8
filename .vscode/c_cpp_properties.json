@@ -4,8 +4,6 @@
 			"name": "Win32",
 			"intelliSenseMode": "clang-x64",
 			"defines": [
-				"SHELL=C:\\msys64\\usr\\bin\\bash.exe",
-				"PATH=C:\\msys64\\usr\\bin",
 				"_DEBUG",
 				"UNICODE",
 				"WIN32",

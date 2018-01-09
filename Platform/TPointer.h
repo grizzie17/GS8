@@ -36,9 +36,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "UTypes.h"
-#include "NamespaceCommon.h"
+#include "NamespaceRoot.h"
 
-USING_NAMESPACE_COMMON
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -386,7 +386,8 @@ T&		TArrayPointer<T>::operator =
 }
 
 
-//NAMESPACE_COMMON_END
+
+NAMESPACE_ROOT_END
 
 
 

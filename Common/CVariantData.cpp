@@ -788,7 +788,7 @@ long	CVariantData::GetValueInteger
 			if ( 0 < i )
 			{
 				size_t	nCount;
-				n = ParseInt( m_cData, (size_t)i, &nCount );
+				n = ParseIntT( m_cData, (size_t)i, &nCount );
 				if ( nCount != i )
 					n = 0;
 			}
@@ -842,7 +842,7 @@ GFLOAT	CVariantData::GetValueFloat
 			if ( 0 < n )
 			{
 				size_t	nCount;
-				f = ParseFloat( m_cData, n, &nCount );
+				f = ParseFloatT( m_cData, n, &nCount );
 				if ( n != nCount )
 					f = GFLOAT_0;
 			}
@@ -1341,7 +1341,7 @@ bool	CVariantData::EqualsInteger
 				if ( 0 < nLen )
 				{
 					size_t	nCount;
-					d = ParseInt( m_pString->Pointer(), nLen, &nCount );
+					d = ParseIntT( m_pString->Pointer(), nLen, &nCount );
 					if ( nCount != nLen )
 						d = ~nData;
 				}
@@ -1380,7 +1380,7 @@ bool	CVariantData::LessThanInteger
 				if ( 0 < nLen )
 				{
 					size_t	nCount;
-					d = ParseInt( m_pString->Pointer(), nLen, &nCount );
+					d = ParseIntT( m_pString->Pointer(), nLen, &nCount );
 					if ( nCount != nLen )
 						d = ~nData;
 				}

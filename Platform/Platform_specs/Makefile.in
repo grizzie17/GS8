@@ -104,7 +104,7 @@ am_platform_specs_OBJECTS = Platform_specs.$(OBJEXT) \
 	TCharDescriptor_spec.$(OBJEXT) UMachine_spec.$(OBJEXT) \
 	UPlatformString_spec.$(OBJEXT)
 platform_specs_OBJECTS = $(am_platform_specs_OBJECTS)
-platform_specs_LDADD = $(LDADD)
+platform_specs_DEPENDENCIES = $(top_builddir)/Platform/libplatform.a
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -173,9 +173,9 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
@@ -213,6 +213,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
 VERSION = @VERSION@
+__STDC_WANT_SECURE_LIB__ = @__STDC_WANT_SECURE_LIB__@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -258,11 +259,13 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = \
-		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/LogFile \
 		-I$(top_srcdir)/3rdParty/igloo
 
+AM_LDFLAGS = -L$(blibdir)
+bbindir = $(top_builddir)/bin
+blibdir = $(top_builddir)/lib
 platform_specs_SOURCES = \
 	Platform_specs.cpp \
 	\
@@ -276,6 +279,7 @@ platform_specs_SOURCES = \
 	UMachine_spec.cpp \
 	UPlatformString_spec.cpp
 
+platform_specs_LDADD = $(top_builddir)/Platform/libplatform.a
 all: all-am
 
 .SUFFIXES:

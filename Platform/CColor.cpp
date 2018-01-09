@@ -777,7 +777,7 @@ CColor	CColor::ColorFromName
 		const char *sNameInput
 		)
 {
-	NAMESPACE_COMMON_PREFIX CCharDescriptor	tName( sNameInput, ::strlen(sNameInput) );
+	CCharDescriptor	tName( sNameInput, ::strlen(sNameInput) );
 	return ColorFromName( tName );
 }
 
@@ -793,7 +793,7 @@ CColor	CColor::ColorFromNameAlpha
 		unsigned int	alpha
 		)
 {
-	NAMESPACE_COMMON_PREFIX CCharDescriptor	tName( sName, ::strlen(sName) );
+	CCharDescriptor	tName( sName, ::strlen(sName) );
 	return ColorFromNameAlpha( tName, alpha );
 }
 
@@ -807,7 +807,7 @@ CColor	CColor::ColorFromNameAlpha
 //static
 CColor	CColor::ColorFromName
 		(
-		NAMESPACE_COMMON_PREFIX CCharDescriptorRef	rName
+		CCharDescriptorRef	rName
 		)
 {
 	int			nTop = sizeof(g_aColorNames) / sizeof(ColorName) - 1;
@@ -868,7 +868,7 @@ CColor	CColor::ColorFromName
 //static
 CColor	CColor::ColorFromNameAlpha
 		(
-		NAMESPACE_COMMON_PREFIX CCharDescriptorRef	rName,
+		CCharDescriptorRef	rName,
 		unsigned int		alpha
 		)
 {

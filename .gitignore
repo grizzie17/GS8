@@ -2,10 +2,11 @@
 .clang
 .build*
 aclocal*
-build
+/build/
 Backup
 config.log
 configure
+configure.scan
 Debug*
 Release*
 patches
@@ -33,11 +34,13 @@ ipch
 */*.mk
 aclocal.m4
 configure.scan
+config.guess
+config.sub
 ar-lib
 compile
 depcomp
 install-sh
 m4
-autom4te.cache
+/autom4te.cache/
 missing
 

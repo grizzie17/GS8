@@ -473,7 +473,7 @@ long	CPluginConfiguration::GetParameterAsIntegerArray
 		{
 			//s += this->SpanBlanks( s, sEnd );
 
-			nValue = ParseInt( s, (size_t)(sEnd - s), &n );
+			nValue = ParseIntT( s, (size_t)(sEnd - s), &n );
 			if ( 0 < n )
 			{
 				if ( pArray < pEnd )

@@ -1152,7 +1152,7 @@ long	TTokenizer<T>::SpanNumber
 	if ( ! sEnd )
 		sEnd = m_pEndPosition;
 
-	nValue = ParseInt( s, (size_t)(sEnd - s), &nResult );
+	nValue = ParseIntT( s, (size_t)(sEnd - s), &nResult );
 
 	if ( pNumber )
 		*pNumber = nValue;
@@ -1181,7 +1181,7 @@ long	TTokenizer<T>::SpanFloat
 
 	GFLOAT	fValue;
 
-	fValue = ParseFloat( s, (size_t)(sEnd - s), &nResult );
+	fValue = ParseFloatT( s, (size_t)(sEnd - s), &nResult );
 
 	if ( pNumber )
 		*pNumber = fValue;
@@ -1320,7 +1320,7 @@ long	TTokenizer<T>::NumberFromHex
 		size_t		n
 		)
 {
-	return ParseHexDigits( s, n );
+	return ParseHexDigitsT( s, n );
 }
 
 
@@ -1337,7 +1337,7 @@ GFLOAT
 		size_t		n
 		)
 {
-	return ParseFloat( s, n );
+	return ParseFloatT( s, n );
 }
 
 

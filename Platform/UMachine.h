@@ -188,8 +188,8 @@
 |	Windows
 \+=====================================================================*/
 #if defined( winNT )  || defined( WINNT )			\
-		||	defined( _WIN32 )	\
-		||	defined( _WIN64 )	\
+		||	defined( _WIN32 )  ||  defined( WIN32 )	\
+		||	defined( _WIN64 )  ||  defined( WIN64 )	\
 		||	defined( _WIN32_WCE )	\
 		||	(defined( __MWERKS__ )  &&  defined( __INTEL__ ))
 
@@ -252,7 +252,7 @@
 
 		//	NEEDS_WORK: add stuff about different processors for OS_WINNT
 
-#	elif defined( _WIN64 )
+#	elif defined( _WIN64 )  ||  defined( WIN64 )
 
 #		define	OS_WIN64		1
 #		define	OS_NAME			"MSWIN64"

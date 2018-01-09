@@ -29,65 +29,34 @@
 		//	"problemMatcher": []
 		//},
 		{
-			"label": "build-clean",
+			"label": "configure",
+			"type": "shell",
+			"command": "./build-config.sh",
+			"group": "build",
+			"options": {
+				"env":{
+					"WIN64": "1",
+					"_WIN64": "1"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "clean",
 			"type": "shell",
 			"command": "./build-clean.sh",
-			"problemMatcher": []
-		},
-		{
-			"label": "m4-dir",
-			"type": "shell",
-			"command": "mkdir",
-			"args": ["-p","m4"],
-			"problemMatcher": []
-		},
-		{
-			"label": "b-aclocal",
-			"dependsOn": "m4-dir",
-			"type": "shell",
-			"command": "aclocal",
-			"args": ["-I","m4","--install"],
-			"problemMatcher": []
-		},
-		{
-			"label": "b-autoconf",
-			"dependsOn": "b-aclocal",
-			"type": "shell",
-			"command": "autoconf",
-			"args": ["-f"],
-			"problemMatcher": [],
-			"options": {
-				"env": {
-					"__STDC_WANT_SECURE_LIB__": "1"
-				}
-	
-			}
-		},
-		{
-			"label": "b-automake",
-			"dependsOn": "b-autoconf",
-			"type": "shell",
-			"command": "automake",
-			"args": ["--add-missing"],
-			"problemMatcher": []
-		},
-		{
-			"label": "b-dir",
-			"type": "shell",
-			"command": "mkdir",
-			"args": ["-p","build"],
-			"problemMatcher": []
-		},
-		{
-			"label": "build-configure",
-			"dependsOn": ["b-dir","b-automake"],
-			"type": "shell",
-			"command": "../configure",
-			"options": {
-				"cwd": "build"
-			},
 			"group": "build",
 			"problemMatcher": []
+		},
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "./build.sh",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": "$gcc"
 		},
 		{
 			"label": "make",
@@ -99,10 +68,7 @@
 					"__STDC_WANT_SECURE_LIB__": "1"
 				}
 			},
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
+			"group": "build",
 			"problemMatcher": {
 				"base": "$gcc",
 				"fileLocation": "absolute"

@@ -1,9 +1,10 @@
 AM_CPPFLAGS = \
-		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/LogFile
+AM_CXXFLAGS = \
+		-fPIC -Wall -Werror
 
-
+blibdir = $(top_builddir)/lib
 noinst_LIBRARIES = libplatform.a
 
 libplatform_a_SOURCES = \

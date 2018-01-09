@@ -241,25 +241,25 @@ T		TCharDescriptorCompareFilter
 \+=====================================================================*/
 
 template < typename T >
-long	ParseInt( const T* s, size_t n, size_t* pParseCount = 0 );
+long	ParseIntT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 template < typename T >
-long	ParseDec( const T* s, size_t n, size_t* pParseCount = 0 );
+long	ParseDecT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 template < typename T >
-long	ParseDecDigits( const T* s, size_t n, size_t* pParseCount = 0 );
+long	ParseDecDigitsT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 template < typename T >
-long	ParseHex( const T* s, size_t n, size_t* pParseCount = 0 );
+long	ParseHexT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 template < typename T >
-long	ParseHexDigits( const T* s, size_t n, size_t* pParseCount = 0 );
+long	ParseHexDigitsT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 template < typename T >
-GFLOAT	ParseFloat( const T* s, size_t n, size_t* pParseCount = 0 );
+GFLOAT	ParseFloatT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 template < typename T >
-GFLOAT	ParseSimpleFloat( const T* s, size_t n, size_t* pParseCount = 0 );
+GFLOAT	ParseSimpleFloatT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 
 /*=====================================================================+\
@@ -1062,7 +1062,7 @@ long	TCharDescriptor<T>::ParseInt
 		size_t*	pParseCount
 		) const
 {
-	return ParseInt<T>( m_s, m_n, pParseCount );
+	return ParseIntT<T>( m_s, m_n, pParseCount );
 }
 
 
@@ -1071,8 +1071,8 @@ long	TCharDescriptor<T>::ParseInt
  * ParseInt -
 
 \+---------------------------------------------------------------------*/
-template < typename T >
-long	ParseInt
+template < class T >
+long	ParseIntT
 		(
 		const T*	s,
 		size_t		n,
@@ -1082,9 +1082,9 @@ long	ParseInt
 	long	nValue = 0;
 	size_t	nCount;
 
-	nValue = ParseHex<T>( s, n, &nCount );
+	nValue = ParseHexT<T>( s, n, &nCount );
 	if ( nCount < 1 )
-		nValue = ParseDec<T>( s, n, &nCount );
+		nValue = ParseDecT<T>( s, n, &nCount );
 
 	if ( pParseCount )
 		*pParseCount = nCount;
@@ -1099,7 +1099,7 @@ long	ParseInt
 
 \+---------------------------------------------------------------------*/
 template < typename T >
-long	ParseDec
+long	ParseDecT
 		(
 		const T*	s,
 		size_t		n,
@@ -1121,7 +1121,7 @@ long	ParseDec
 		}
 	}
 
-	nValue = ParseDecDigits<T>( s, (size_t)(sEnd - s), &nCount );
+	nValue = ParseDecDigitsT<T>( s, (size_t)(sEnd - s), &nCount );
 	if ( 0 < nCount )
 	{
 		s += nCount;
@@ -1145,7 +1145,7 @@ long	ParseDec
 
 \+---------------------------------------------------------------------*/
 template < typename T >
-long	ParseDecDigits
+long	ParseDecDigitsT
 		(
 		const T*	s,
 		size_t		n,
@@ -1178,7 +1178,7 @@ long	ParseDecDigits
 
 \+---------------------------------------------------------------------*/
 template < typename T >
-long	ParseHex
+long	ParseHexT
 		(
 		const T*	s,
 		size_t		n,
@@ -1196,7 +1196,7 @@ long	ParseHex
 		if ( 'x' == ::tolower(*s) )
 		{
 			++s;
-			nValue = ParseHexDigits<T>( s, (size_t)(sEnd - s), &nCount );
+			nValue = ParseHexDigitsT<T>( s, (size_t)(sEnd - s), &nCount );
 			if ( 0 < nCount )
 			{
 				s += nCount;
@@ -1224,7 +1224,7 @@ long	ParseHex
 
 \+---------------------------------------------------------------------*/
 template < typename T >
-long	ParseHexDigits
+long	ParseHexDigitsT
 		(
 		const T*	s,
 		size_t		n,
@@ -1266,12 +1266,12 @@ GFLOAT	TCharDescriptor<T>::ParseFloat
 		size_t*	pParseCount
 		) const
 {
-	return ParseFloat<T>( m_s, m_n, pParseCount );
+	return ParseFloatT<T>( m_s, m_n, pParseCount );
 }
 
 
 template < typename T >
-GFLOAT	ParseSimpleFloat
+GFLOAT	ParseSimpleFloatT
 		(
 		const T*	s,
 		size_t		n,
@@ -1286,7 +1286,7 @@ GFLOAT	ParseSimpleFloat
 
 	do_sequence
 	{
-		fValue = static_cast<GFLOAT>(ParseDec<T>( s, n, &c ));
+		fValue = static_cast<GFLOAT>(ParseDecT<T>( s, n, &c ));
 		if ( c < 1 )
 			break;
 
@@ -1297,7 +1297,7 @@ GFLOAT	ParseSimpleFloat
 
 		++s;
 		--n;
-		long	nFrac = ParseDecDigits<T>( s, n, &c );
+		long	nFrac = ParseDecDigitsT<T>( s, n, &c );
 
 		if ( c < 1 )
 			break;
@@ -1325,7 +1325,7 @@ GFLOAT	ParseSimpleFloat
 
 
 template < typename T >
-GFLOAT	ParseFloat
+GFLOAT	ParseFloatT
 		(
 		const T*	s,
 		size_t		n,
@@ -1339,10 +1339,10 @@ GFLOAT	ParseFloat
 
 	do_sequence
 	{
-		fValue = ParseSimpleFloat<T>( s, n, &c );
+		fValue = ParseSimpleFloatT<T>( s, n, &c );
 		if ( c < 1 )
 		{
-			fValue = static_cast<GFLOAT>(ParseDec<T>( s, n, &c ));
+			fValue = static_cast<GFLOAT>(ParseDecT<T>( s, n, &c ));
 			if ( c < 1 )
 				break;
 		}
@@ -1354,7 +1354,7 @@ GFLOAT	ParseFloat
 		{
 			++s;
 			--n;
-			long	nExp = ParseDec<T>( s, n, &c );
+			long	nExp = ParseDecT<T>( s, n, &c );
 			if ( c < 1 )
 				break;
 

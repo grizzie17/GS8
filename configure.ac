@@ -4,25 +4,39 @@
 AC_PREREQ([2.69])
 AC_INIT([GS8], [8.0.0], [john@grizzlyweb.com])
 
+AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 
+EXTERNAL_CFLAGS="$CFLAGS"
+EXTERNAL_CXXFLAGS="$CXXFLAGS"
 
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
+AM_PROG_AR
+#AC_PROG_LIBTOOL
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AC_PROG_LN_S
 AC_PROG_RANLIB
-AM_PROG_AR
+
+CFLAGS="$EXTERNAL_CFLAGS"
+CXXFLAGS="$EXTERNAL_CXXFLAGS"
+
+AC_LANG([C++])
+
+#AC_SUBST([LIBTOOL_DEPS])
 
 AC_DEFINE([__STDC_WANT_SECURE_LIB__],[1])
+AC_SUBST([__STDC_WANT_SECURE_LIB__])
+
 
 
 # Checks for libraries.
 
 # Checks for header files.
+AC_HEADER_STDC
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h float.h limits.h memory.h netdb.h netinet/in.h stddef.h stdint.h stdlib.h string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h termios.h unistd.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
@@ -61,12 +75,6 @@ AC_CONFIG_FILES([
 AC_OUTPUT
 
 
-
-
-#AC_CONFIG_FILES([Common/Makefile
-#                 Config/Makefile
-#                 Makefile])
-#AC_OUTPUT
 
 
 

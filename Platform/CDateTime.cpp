@@ -235,7 +235,7 @@ bool	CDateTime::Parse
 		const char*	s
 		)
 {
-	NAMESPACE_COMMON_PREFIX CCharDescriptor	tString( s, strlen(s) );
+	CCharDescriptor	tString( s, strlen(s) );
 	return Parse( tString );
 }
 
@@ -261,7 +261,7 @@ bool	CDateTime::Parse
 \+---------------------------------------------------------------------*/
 bool	CDateTime::Parse
 		(
-		NAMESPACE_COMMON_PREFIX CCharDescriptorRef r
+		CCharDescriptorRef r
 		)
 {
 	bool	bResult = false;
@@ -914,7 +914,7 @@ long	CDateTime::SpanNumber
 	size_t		nResult = 0;
 	long		nValue = 0;
 
-	nValue = ParseDecDigits( s, (size_t)(sEnd - s), &nResult );
+	nValue = ParseDecDigitsT( s, (size_t)(sEnd - s), &nResult );
 
 	if ( pNumber )
 		*pNumber = nValue;

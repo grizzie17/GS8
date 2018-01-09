@@ -104,7 +104,8 @@ am_common_specs_OBJECTS = Common_specs.$(OBJEXT) \
 	TArray_spec.$(OBJEXT) TComPointer_spec.$(OBJEXT) \
 	TDictionaryIndexed_spec.$(OBJEXT) TQueue_spec.$(OBJEXT)
 common_specs_OBJECTS = $(am_common_specs_OBJECTS)
-common_specs_LDADD = $(LDADD)
+common_specs_DEPENDENCIES = $(top_builddir)/Common/libcommon.a \
+	$(top_builddir)/Platform/libplatform.a
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -173,9 +174,9 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
+CXXCPP = @CXXCPP@
 CXXDEPMODE = @CXXDEPMODE@
 CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
@@ -213,6 +214,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
 VERSION = @VERSION@
+__STDC_WANT_SECURE_LIB__ = @__STDC_WANT_SECURE_LIB__@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -264,6 +266,11 @@ AM_CPPFLAGS = \
 		-I$(top_srcdir)/LogFile \
 		-I$(top_srcdir)/3rdParty/igloo
 
+AM_LDFLAGS = \
+		-L$(blibdir)
+
+bbindir = $(top_builddir)/bin
+blibdir = $(top_builddir)/lib
 common_specs_SOURCES = \
 	Common_specs.cpp \
 	\
@@ -277,6 +284,10 @@ common_specs_SOURCES = \
 	TComPointer_spec.cpp \
 	TDictionaryIndexed_spec.cpp \
 	TQueue_spec.cpp
+
+common_specs_LDADD = \
+					$(top_builddir)/Common/libcommon.a \
+					$(top_builddir)/Platform/libplatform.a
 
 all: all-am
 
@@ -553,6 +564,7 @@ uninstall-am:
 
 .PRECIOUS: Makefile
 
+#common_specs_LDADD = -lcommon -lplatform
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

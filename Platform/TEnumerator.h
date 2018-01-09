@@ -27,8 +27,8 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+#include "NamespaceRoot.h"
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -93,7 +93,7 @@ private:
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+NAMESPACE_ROOT_END
 
 
 
