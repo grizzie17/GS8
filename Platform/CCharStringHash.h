@@ -32,13 +32,13 @@
 #include "CCharString.h"
 #include "THash.h"
 
-#include "NamespaceCommon.h"
+#include "NamespaceRoot.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -88,7 +88,7 @@ uintmax_t
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+NAMESPACE_ROOT_END
 
 
 

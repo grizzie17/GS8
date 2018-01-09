@@ -98,13 +98,10 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am_common_specs_OBJECTS = Common_specs.$(OBJEXT) \
-	CCharDescriptor_spec.$(OBJEXT) CCharString_spec.$(OBJEXT) \
-	CColor_spec.$(OBJEXT) CDateTime_spec.$(OBJEXT) \
-	CEventManager_spec.$(OBJEXT) CMatrix3x3_spec.$(OBJEXT) \
-	CSemaphore_spec.$(OBJEXT) cstring_s_spec.$(OBJEXT) \
-	CUnitsOfMeasure_spec.$(OBJEXT) CVariables_spec.$(OBJEXT) \
-	CVariantData_spec.$(OBJEXT) TArray_spec.$(OBJEXT) \
-	TCharDescriptor_spec.$(OBJEXT) TComPointer_spec.$(OBJEXT) \
+	CMatrix3x3_spec.$(OBJEXT) CSemaphore_spec.$(OBJEXT) \
+	cstring_s_spec.$(OBJEXT) CUnitsOfMeasure_spec.$(OBJEXT) \
+	CVariables_spec.$(OBJEXT) CVariantData_spec.$(OBJEXT) \
+	TArray_spec.$(OBJEXT) TComPointer_spec.$(OBJEXT) \
 	TDictionaryIndexed_spec.$(OBJEXT) TQueue_spec.$(OBJEXT)
 common_specs_OBJECTS = $(am_common_specs_OBJECTS)
 common_specs_LDADD = $(LDADD)
@@ -263,17 +260,13 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
+		-I$(top_srcdir)/Platform/Platform_specs \
 		-I$(top_srcdir)/LogFile \
 		-I$(top_srcdir)/3rdParty/igloo
 
 common_specs_SOURCES = \
 	Common_specs.cpp \
 	\
-	CCharDescriptor_spec.cpp \
-	CCharString_spec.cpp \
-	CColor_spec.cpp \
-	CDateTime_spec.cpp \
-	CEventManager_spec.cpp \
 	CMatrix3x3_spec.cpp \
 	CSemaphore_spec.cpp \
 	cstring_s_spec.cpp \
@@ -281,7 +274,6 @@ common_specs_SOURCES = \
 	CVariables_spec.cpp \
 	CVariantData_spec.cpp \
 	TArray_spec.cpp \
-	TCharDescriptor_spec.cpp \
 	TComPointer_spec.cpp \
 	TDictionaryIndexed_spec.cpp \
 	TQueue_spec.cpp
@@ -333,11 +325,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CCharDescriptor_spec.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CCharString_spec.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CColor_spec.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CDateTime_spec.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CEventManager_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CMatrix3x3_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CSemaphore_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CUnitsOfMeasure_spec.Po@am__quote@
@@ -345,7 +332,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CVariantData_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Common_specs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TArray_spec.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TCharDescriptor_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TComPointer_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TDictionaryIndexed_spec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TQueue_spec.Po@am__quote@

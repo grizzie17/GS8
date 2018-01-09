@@ -338,9 +338,9 @@ protected:
 	size_t		m_nFront;	// index of next read
 	size_t		m_nRear;	// index of next write
 
-	CMutex		m_oMutex;
-	CSemaphore	m_oSemaphoreRead;
-	CSemaphore	m_oSemaphoreWrite;
+	NAMESPACE_ROOT_PREFIX CMutex		m_oMutex;
+	NAMESPACE_ROOT_PREFIX CSemaphore	m_oSemaphoreRead;
+	NAMESPACE_ROOT_PREFIX CSemaphore	m_oSemaphoreWrite;
 	bool		m_bWaitingRead;	// is there is semaphore active
 	bool		m_bWaitingWrite;
 

@@ -88,7 +88,7 @@ public:
 	virtual
 	CVariantDataPtr	GetEntry
 					(
-					ConstCCharStringRef sKey
+					NAMESPACE_ROOT_PREFIX ConstCCharStringRef sKey
 					) = 0;
 
 	virtual

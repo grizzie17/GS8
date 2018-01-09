@@ -7,8 +7,6 @@ AM_CPPFLAGS = \
 noinst_LIBRARIES = libcommon.a
 
 libcommon_a_SOURCES = \
-		CCharDescriptor.cpp \
-		CCharString.cpp \
 		CConfiguration.cpp \
 		CEventManager.cpp \
 		CFactoryConfiguration.cpp \

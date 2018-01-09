@@ -94,7 +94,7 @@ NAMESPACE_COMMON_BEGIN
 |	Private Global Variables											|
 |																		|
 \+---------------------------------------------------------------------*/
-CCharDescriptor	CVariantData::g_tCharDescriptor;
+NAMESPACE_ROOT_PREFIX CCharDescriptor	CVariantData::g_tCharDescriptor;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Public Global Variables												|
@@ -261,7 +261,7 @@ CVariantData::CVariantData
 \+---------------------------------------------------------------------*/
 CVariantData::CVariantData
 		(
-		ConstCCharDescriptorRef r
+		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
 		)
 		: m_eType( T_UNDEFINED ),
 		m_tUnits( 0 ),
@@ -331,7 +331,7 @@ CVariantDataRef
 CVariantDataRef
 		CVariantData::operator =
 		(
-		ConstCCharDescriptorRef r
+		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
 		)
 {
 	LoadCharDescriptor( r.Pointer(), r.Length() );
@@ -543,7 +543,7 @@ CVariantData::operator const char*
  * operator CCharString -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator CCharString
+CVariantData::operator NAMESPACE_ROOT_PREFIX CCharString
 		(
 		void
 		)
@@ -566,21 +566,21 @@ CVariantData::operator CCharDescriptor
 	if ( T_STRING == m_eType )
 	{
 		if ( m_pString )
-			return CCharDescriptor( m_pString->Pointer(), m_pString->Length() );
+			return NAMESPACE_ROOT_PREFIX CCharDescriptor( m_pString->Pointer(), m_pString->Length() );
 		else
-			return CCharDescriptor();
+			return NAMESPACE_ROOT_PREFIX CCharDescriptor();
 	}
 	else if ( T_PACKED_CHARACTER == m_eType )
 	{
 		size_t	n = ::strlen( m_cData );
 		if ( 0 < n )
-			return CCharDescriptor( m_cData, n );
+			return NAMESPACE_ROOT_PREFIX CCharDescriptor( m_cData, n );
 		else
-			return CCharDescriptor();
+			return NAMESPACE_ROOT_PREFIX CCharDescriptor();
 	}
 	else
 	{
-		return CCharDescriptor();
+		return NAMESPACE_ROOT_PREFIX CCharDescriptor();
 	}
 }
 
@@ -590,7 +590,7 @@ CVariantData::operator CCharDescriptor
  * operator const CCharDescriptorPtr -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator const CCharDescriptor*
+CVariantData::operator const NAMESPACE_ROOT_PREFIX CCharDescriptor*
 		(
 		void
 		)
@@ -607,7 +607,7 @@ CVariantData::operator const CCharDescriptor*
  * operator CCharDescriptorPtr -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator CCharDescriptor*
+CVariantData::operator NAMESPACE_ROOT_PREFIX CCharDescriptor*
 		(
 		void
 		) const
@@ -624,7 +624,7 @@ CVariantData::operator CCharDescriptor*
  * operator CCharDescriptorRef -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator CCharDescriptorRef
+CVariantData::operator NAMESPACE_ROOT_PREFIX CCharDescriptorRef
 		(
 		void
 		)
@@ -1341,7 +1341,7 @@ bool	CVariantData::EqualsInteger
 				if ( 0 < nLen )
 				{
 					size_t	nCount;
-					d = ParseInt( m_pString->Pointer(), nLen, &nCount );
+					d = NAMESPACE_ROOT_PREFIX ParseInt( m_pString->Pointer(), nLen, &nCount );
 					if ( nCount != nLen )
 						d = ~nData;
 				}
@@ -1380,7 +1380,7 @@ bool	CVariantData::LessThanInteger
 				if ( 0 < nLen )
 				{
 					size_t	nCount;
-					d = ParseInt( m_pString->Pointer(), nLen, &nCount );
+					d = NAMESPACE_ROOT_PREFIX ParseInt( m_pString->Pointer(), nLen, &nCount );
 					if ( nCount != nLen )
 						d = ~nData;
 				}
@@ -1409,7 +1409,7 @@ bool	CVariantData::EqualsString
 {
 	if ( sData )
 	{
-		CCharDescriptor	tData( sData );
+		NAMESPACE_ROOT_PREFIX CCharDescriptor	tData( sData );
 		return EqualsCCharString( tData );
 	}
 	else
@@ -1426,7 +1426,7 @@ bool	CVariantData::LessThanString
 {
 	if ( sData )
 	{
-		CCharDescriptor	tData( sData );
+		NAMESPACE_ROOT_PREFIX CCharDescriptor	tData( sData );
 		return LessThanCCharString( tData );
 	}
 	else
@@ -1443,7 +1443,7 @@ bool	CVariantData::LessThanString
 \+---------------------------------------------------------------------*/
 bool	CVariantData::EqualsCCharString
 		(
-		ConstCCharDescriptorRef r
+		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
 		) const
 {
 	switch ( m_eType )
@@ -1536,7 +1536,7 @@ bool	CVariantData::EqualsCCharString
 
 bool	CVariantData::LessThanCCharString
 		(
-		ConstCCharDescriptorRef r
+		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
 		) const
 {
 	switch ( m_eType )
@@ -1733,7 +1733,7 @@ bool	CVariantData::LessThanDateTime
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
 
-CCharString
+NAMESPACE_ROOT_PREFIX CCharString
 		CVariantData::GetValueCCharString
 		(
 		void
@@ -1745,18 +1745,18 @@ CCharString
 		if ( m_pString )
 			return *m_pString;
 		else
-			return CCharString( "" );
+			return NAMESPACE_ROOT_PREFIX CCharString( "" );
 		break;
 	case T_INTEGER:
 		{
-			CCharString	s;
+			NAMESPACE_ROOT_PREFIX CCharString	s;
 			s.Format( "%d", m_nData );
 			return s;
 		}
 		break;
 	case T_FLOAT:
 		{
-			CCharString	s;
+			NAMESPACE_ROOT_PREFIX CCharString	s;
 			s.Format( "%f", (float)GFLOAT_CAST(m_fData) );
 			return s;
 		}
@@ -1777,7 +1777,7 @@ CCharString
 				return CCharString( "" );
 		}
 	default:
-		return CCharString( "" );
+		return NAMESPACE_ROOT_PREFIX CCharString( "" );
 		break;
 	}
 }
@@ -2014,7 +2014,7 @@ bool	CVariantData::LoadCopy
 		}
 		else
 		{
-			m_pString = new CCharString( *r.m_pString );
+			m_pString = new NAMESPACE_ROOT_PREFIX CCharString( *r.m_pString );
 		}
 		break;
 	case T_COLOR:
@@ -2061,14 +2061,14 @@ bool	CVariantData::LoadCharString
 
 	if ( m_eType != T_STRING )
 	{
-		m_pString = new CCharString( s );
+		m_pString = new NAMESPACE_ROOT_PREFIX CCharString( s );
 		if ( ! m_pString )
 			bResult = false;
 	}
 	else
 	{
 		if ( ! m_pString )
-			m_pString = new CCharString( s );
+			m_pString = new NAMESPACE_ROOT_PREFIX CCharString( s );
 		else
 			m_pString->LoadStringData( s );
 	}
@@ -2102,7 +2102,7 @@ bool	CVariantData::LoadCharDescriptor
 	else
 	{
 		if ( ! m_pString )
-			m_pString = new CCharString( s, n );
+			m_pString = new NAMESPACE_ROOT_PREFIX CCharString( s, n );
 		else
 			m_pString->LoadStringData( s, (index_t)n );
 	}

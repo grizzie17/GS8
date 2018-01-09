@@ -91,7 +91,7 @@ public:
 					CVariantData( ConstCColorRef r );
 					CVariantData( bool b );
 					CVariantData( ConstCDateTimeRef t );
-					CVariantData( ConstCCharDescriptorRef r );
+					CVariantData( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r );
 	virtual			~CVariantData();
 
 public:
@@ -132,7 +132,7 @@ public:
 
 
 	CVariantDataRef	operator=( ConstCVariantDataRef r );		// assignment
-	CVariantDataRef	operator=( ConstCCharDescriptorRef r );
+	CVariantDataRef	operator=( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r );
 
 	CVariantDataRef operator=( const double fData );
 	CVariantDataRef operator=( const GFLOAT fData );
@@ -143,8 +143,8 @@ public:
 	CVariantDataRef	operator=( ConstCDateTimeRef r );
 
 	bool			operator==( ConstCVariantDataRef r ) const;
-	//bool			operator==( ConstCCharStringRef r );
-	bool			operator==( ConstCCharDescriptorRef r ) const;
+	//bool			operator==( NAMESPACE_ROOT_PREFIX ConstCCharStringRef r );
+	bool			operator==( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r ) const;
 	bool			operator==( double fData ) const;
 	bool			operator==( GFLOAT fData ) const;
 	bool			operator==( bool bData ) const;
@@ -154,8 +154,8 @@ public:
 	bool			operator==( ConstCDateTimeRef r ) const;
 
 	bool			operator!=( ConstCVariantDataRef r ) const;
-	//bool			operator!=( ConstCCharStringRef r );
-	bool			operator!=( ConstCCharDescriptorRef r ) const;
+	//bool			operator!=( NAMESPACE_ROOT_PREFIX ConstCCharStringRef r );
+	bool			operator!=( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r ) const;
 	bool			operator!=( double fData ) const;
 	bool			operator!=( GFLOAT fData ) const;
 	bool			operator!=( bool bData ) const;
@@ -165,7 +165,7 @@ public:
 	bool			operator!=( ConstCDateTimeRef r ) const;
 
 	bool			operator< ( ConstCVariantDataRef r ) const;
-	bool			operator< ( ConstCCharDescriptorRef r ) const;
+	bool			operator< ( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r ) const;
 	bool			operator< ( double fData ) const;
 	bool			operator< ( GFLOAT fdata ) const;
 	bool			operator< ( bool bData ) const;
@@ -174,16 +174,16 @@ public:
 	bool			operator< ( ConstCDateTimeRef r ) const;
 
 
-	operator CCharDescriptor ( void );
-	operator const CCharDescriptor* ( void );
-	operator CCharDescriptor* ( void ) const;
-	operator CCharDescriptorRef ( void );
+	operator NAMESPACE_ROOT_PREFIX CCharDescriptor ( void );
+	operator const NAMESPACE_ROOT_PREFIX CCharDescriptor* ( void );
+	operator NAMESPACE_ROOT_PREFIX CCharDescriptor* ( void ) const;
+	operator NAMESPACE_ROOT_PREFIX CCharDescriptorRef ( void );
 	operator bool( void );
 	operator long( void );
 	operator unsigned long( void );
 	operator GFLOAT( void );
 	operator double( void );
-	operator CCharString( void );
+	operator NAMESPACE_ROOT_PREFIX CCharString( void );
 	//operator const CCharString* ( void );
 	//operator const CCharString( void );
 	operator const char*( void );
@@ -198,12 +198,12 @@ public:
 	double		GetValueDouble( void ) const;
 	GFLOAT		GetValueFloatAsUnits( int nUnits ) const;
 	const char*	GetValueString( void ) const;
-	CCharString	GetValueCCharString( void ) const;
+	NAMESPACE_ROOT_PREFIX CCharString	GetValueCCharString( void ) const;
 	CColor		GetValueColor( void ) const;
 	CDateTime	GetValueDateTime( void ) const;
 
 	bool		EqualsVariant( ConstCVariantDataRef vData ) const;
-	bool		EqualsCCharString( ConstCCharDescriptorRef r ) const;
+	bool		EqualsCCharString( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r ) const;
 	bool		EqualsDouble( double fData ) const;
 	bool		EqualsFloat( GFLOAT fData ) const;
 	bool		EqualsBool( bool bData ) const;
@@ -213,7 +213,7 @@ public:
 	bool		EqualsDateTime( ConstCDateTimeRef r ) const;
 
 	bool		LessThanVariant( ConstCVariantDataRef r ) const;
-	bool		LessThanCCharString( ConstCCharDescriptorRef r ) const;
+	bool		LessThanCCharString( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r ) const;
 	bool		LessThanDouble( double fData ) const;
 	bool		LessThanFloat( GFLOAT fData ) const;
 	bool		LessThanBool( bool bData ) const;
@@ -264,14 +264,14 @@ protected:
 		long			m_nData;
 		GXFLOAT			m_fData;
 		char			m_cData[sizeof(time_t)];
-		CCharStringPtr	m_pString;
+		NAMESPACE_ROOT_PREFIX CCharStringPtr	m_pString;
 		COLORDATA		m_tColor;
 		time_t			m_tTime;
 		TVariantArray*	m_pArray;
 	};
 
 
-	static CCharDescriptor	g_tCharDescriptor;
+	static NAMESPACE_ROOT_PREFIX CCharDescriptor	g_tCharDescriptor;
 
 private:
 //	private functions  --------------------------------------------------
@@ -337,7 +337,7 @@ bool	CVariantData::operator==
 inline
 bool	CVariantData::operator==
 		(
-		ConstCCharDescriptorRef r
+		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
 		) const
 {
 	return EqualsCCharString( r );
@@ -534,7 +534,7 @@ bool	CVariantData::operator !=
 inline
 bool	CVariantData::operator!=
 		(
-		ConstCCharDescriptorRef r
+		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
 		) const
 {
 	return !EqualsCCharString( r );
@@ -716,7 +716,7 @@ bool	CVariantData::operator <
 inline
 bool	CVariantData::operator <
 		(
-		ConstCCharDescriptorRef r
+		NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef r
 		) const
 {
 	return LessThanCCharString( r );

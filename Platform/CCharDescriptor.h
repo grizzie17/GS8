@@ -41,8 +41,8 @@
 
 #include "TCharDescriptor.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+#include "NamespaceRoot.h"
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -53,7 +53,7 @@ NAMESPACE_COMMON_BEGIN
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-class CCharString;	// forward reference
+class NAMESPACE_ROOT_PREFIX CCharString;	// forward reference
 
 typedef class CCharDescriptor*			CCharDescriptorPtr;
 typedef class CCharDescriptor&			CCharDescriptorRef;
@@ -492,7 +492,7 @@ int		strcmp
 
 
 
-NAMESPACE_COMMON_END
+NAMESPACE_ROOT_END
 
 
 

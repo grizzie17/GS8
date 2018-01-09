@@ -12,6 +12,9 @@ patches
 Makefile
 ipch
 .codelite
+.deps
+*/.deps
+*/*/.deps
 *.db
 *.gch
 *.tags

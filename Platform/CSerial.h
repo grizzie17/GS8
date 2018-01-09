@@ -62,7 +62,7 @@
 		#endif
 	#endif
 #endif
-NAMESPACE_COMMON_BEGIN
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -302,7 +302,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+NAMESPACE_ROOT_END
 
 
 

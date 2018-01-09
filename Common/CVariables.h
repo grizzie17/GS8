@@ -62,10 +62,10 @@ class VVariable
 public:
 
 	virtual
-	CCharString
+	NAMESPACE_ROOT_PREFIX CCharString
 			ResolveVariable
 			(
-			ConstCCharDescriptorRef	r
+			NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef	r
 			) = 0;
 };
 
@@ -88,10 +88,10 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	CCharString
+	NAMESPACE_ROOT_PREFIX CCharString
 			Substitute
 			(
-			ConstCCharDescriptorRef	rSource
+			NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef	rSource
 			);
 
 
@@ -112,10 +112,10 @@ protected:
 			const char*	pEnd
 			);
 
-	CCharString
+	NAMESPACE_ROOT_PREFIX CCharString
 			ProcessVariable
 			(
-			ConstCCharDescriptorRef	rVar
+			NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef	rVar
 			);
 
 //	protected data  -----------------------------------------------------

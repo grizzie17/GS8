@@ -62,19 +62,23 @@ public:
 //	public types  -------------------------------------------------------
 
 	typedef
-		TDictionaryIndexedEnumerator< CCharString, CVariantData >
+		TDictionaryIndexedEnumerator< NAMESPACE_ROOT_PREFIX CCharString, CVariantData >
 		Enumerator;
 
 
 //	public functions  ---------------------------------------------------
 
-	virtual long	LocateEntry( ConstCCharStringRef rName );
+	virtual long	LocateEntry( NAMESPACE_ROOT_PREFIX ConstCCharStringRef rName );
 
 	virtual CVariantDataPtr
 					GetData( index_t nSel );
 	virtual bool	PutData( index_t nSel, CVariantDataPtr pData );
 
-	virtual bool	AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias );
+	virtual bool	AddAlias
+					( 
+					NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rKey, 
+					NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rAlias 
+					);
 
 	virtual Enumerator
 					GetEnumerator( void );
@@ -86,7 +90,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< CCharString, CVariantData>	m_aContent;
+	TDictionaryIndexed< NAMESPACE_ROOT_PREFIX CCharString, CVariantData>	m_aContent;
 
 	//THashTable< CCharString, CVariantData >	m_aContent;
 
@@ -99,10 +103,10 @@ private:
 	//	VVariable
 public:
 	virtual
-	CCharString
+	NAMESPACE_ROOT_PREFIX CCharString
 			ResolveVariable
 			(
-			ConstCCharDescriptorRef	r
+			NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef	r
 			);
 
 	//	VConfiguration
@@ -114,7 +118,7 @@ public:
 	CVariantDataPtr	GetEntry( const char* sKey );
 
 	virtual
-	CVariantDataPtr	GetEntry( ConstCCharStringRef sKey );
+	CVariantDataPtr	GetEntry( NAMESPACE_ROOT_PREFIX ConstCCharStringRef sKey );
 
 	virtual
 	long			GetEntryAsInteger
@@ -146,7 +150,8 @@ public:
 					);
 
 	virtual
-	CCharString		GetEntryAsString
+	NAMESPACE_ROOT_PREFIX CCharString		
+					GetEntryAsString
 					(
 					const char*	sKey,
 					const char*	sDefault = 0

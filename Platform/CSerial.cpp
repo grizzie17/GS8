@@ -59,7 +59,7 @@
 #include "TPointer.h"
 
 
-NAMESPACE_COMMON_BEGIN
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -1734,7 +1734,7 @@ NResult	CSerial::GetLastOSError
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+NAMESPACE_ROOT_END
 
 
 /*---------------------------------------------------------------------+\
