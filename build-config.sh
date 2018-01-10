@@ -5,6 +5,10 @@ THISDIR=$(cd -P `dirname $THISFILE` && pwd -P)
 
 $THISDIR/build-clean.sh
 
+export WIN64=1
+export _WIN64=1
+export __STDC_WANT_SECURE_LIB__=1
+
 pushd $THISDIR >/dev/null
 
 	mkdir -p $THISDIR/m4  ||  exit 1
@@ -19,9 +23,7 @@ pushd $THISDIR >/dev/null
 	automake --add-missing  ||  exit 2
 
 	echo "configure..."
-	export WIN64=1
-	export _WIN64=1
-	export CPPFLAGS="-DWIN64 -D_WIN64"
+	export CPPFLAGS="-DWIN64 -D_WIN64 -D__STDC_WANT_SECURE_LIB__=1"
 	mkdir -p $THISDIR/build  ||  exit 3
 	pushd $THISDIR/build >/dev/null
 		$THISDIR/configure  ||  exit 3
