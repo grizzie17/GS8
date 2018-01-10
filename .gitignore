@@ -25,6 +25,8 @@ ipch
 *.sdf
 *.ncb
 *.in
+*/*.in
+*/*/*.in
 *.vcproj.*
 *.vcxproj.*
 *.opensdf
@@ -44,3 +46,4 @@ m4
 /autom4te.cache/
 missing
 
+test-driver

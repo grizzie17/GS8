@@ -4,13 +4,12 @@ AM_CPPFLAGS = \
 		-I$(top_srcdir)/Platform/Platform_specs \
 		-I$(top_srcdir)/LogFile \
 		-I$(top_srcdir)/3rdParty/igloo
-AM_LDFLAGS = \
-		-L$(blibdir)
 
-bbindir = $(top_builddir)/bin
-blibdir = $(top_builddir)/lib
+plibdir = @locallib@
+pbindir = @checkbin@
 
-noinst_PROGRAMS = common_specs
+pbin_PROGRAMS = common_specs
+TESTS = @pbindir@/common_specs
 
 common_specs_SOURCES = \
 	Common_specs.cpp \
@@ -25,8 +24,10 @@ common_specs_SOURCES = \
 	TComPointer_spec.cpp \
 	TDictionaryIndexed_spec.cpp \
 	TQueue_spec.cpp
+common_specs_CXXFLAGS = $(CXXFLAGS)
+common_specs_CPPFLAGS = $(CPPFLAGS)
 common_specs_LDADD = \
-					$(top_builddir)/Common/libcommon.a \
-					$(top_builddir)/Platform/libplatform.a
-#common_specs_LDADD = -lcommon -lplatform
-	
+		$(plibdir)/libcommon.a \
+		$(plibdir)/libplatform.a \
+		$(LDFLAGS)
+

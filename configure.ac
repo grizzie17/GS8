@@ -24,12 +24,19 @@ AC_PROG_RANLIB
 CFLAGS="$EXTERNAL_CFLAGS"
 CXXFLAGS="$EXTERNAL_CXXFLAGS"
 
+#PKG_CHECK_MODULES([CHECK],[platform_specs])
+
 AC_LANG([C++])
 
 #AC_SUBST([LIBTOOL_DEPS])
 
 __STDC_WANT_SECURE_LIB__=1
 AC_SUBST([__STDC_WANT_SECURE_LIB__])
+
+locallib="$(top_builddir)/lib"
+checkbin="$(top_builddir)/test"
+AC_SUBST([locallib])
+AC_SUBST([checkbin])
 
 
 

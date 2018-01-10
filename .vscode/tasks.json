@@ -66,8 +66,12 @@
 		{
 			"label": "clean",
 			"type": "shell",
-			"command": "./build-clean.sh",
+			"command": "make",
+			"args": ["clean"],
 			"group": "build",
+			"options": {
+				"cwd": "build"
+			},
 			"problemMatcher": []
 		},
 		{

@@ -2,6 +2,8 @@
 THISFILE=${BASH_COMMAND[0]}
 THISDIR=$(cd -P `dirname $THISFILE` && pwd -P)
 
+echo "cleaning..."
+
 pushd $THISDIR >/dev/null
 
 rm -rf \

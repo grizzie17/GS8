@@ -4,8 +4,10 @@ AM_CPPFLAGS = \
 AM_CXXFLAGS = \
 		-fPIC -Wall -Werror
 
-blibdir = $(top_builddir)/lib
-noinst_LIBRARIES = libplatform.a
+plibdir = @locallib@
+
+
+plib_LIBRARIES = libplatform.a
 
 libplatform_a_SOURCES = \
 		CCharDescriptor.cpp \
@@ -27,4 +29,6 @@ libplatform_a_SOURCES = \
 		UPlatformString.cpp \
 		UPlatformThreads.cpp \
 		UPlatformTime.cpp
+libplatform_a_CXXFLAGS = $(CXXFLAGS)
+
 
