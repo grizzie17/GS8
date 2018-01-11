@@ -7,7 +7,7 @@ $THISDIR/build-clean.sh
 
 export WIN64=1
 export _WIN64=1
-#export __STDC_WANT_SECURE_LIB__=1
+export __STDC_WANT_SECURE_LIB__=1
 
 pushd $THISDIR >/dev/null
 
@@ -26,7 +26,7 @@ pushd $THISDIR >/dev/null
 	export CPPFLAGS="-DWIN64 -D_WIN64"
 	mkdir -p $THISDIR/build  ||  exit 3
 	pushd $THISDIR/build >/dev/null
-		$THISDIR/configure  ||  exit 3
+		$THISDIR/configure --prefix=$THISDIR/build  ||  exit 3
 	popd >/dev/null
 
 

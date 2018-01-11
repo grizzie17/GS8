@@ -3,11 +3,9 @@ AM_CPPFLAGS = \
 		-I$(top_srcdir)/LogFile \
 		-I$(top_srcdir)/3rdParty/igloo
 
-plibdir = @locallib@
-pbindir = @checkbin@
 
-pbin_PROGRAMS = platform_specs
-TESTS = @pbindir@/platform_specs
+bin_PROGRAMS = platform_specs
+#TESTS = @bindir@/platform_specs
 
 platform_specs_SOURCES = \
 	Platform_specs.cpp \
@@ -24,6 +22,6 @@ platform_specs_SOURCES = \
 platform_specs_CXXFLAGS = $(CXXFLAGS)
 platform_specs_CPPFLAGS = $(CPPFLAGS)
 platform_specs_LDADD = \
-		$(plibdir)/libplatform.a \
+		$(libdir)/libplatform.a \
 		$(LDFLAGS)
 	

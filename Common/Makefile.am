@@ -6,8 +6,7 @@ AM_CXXFLAGS = \
 		-fPIC -Wall -Werror
 
 
-blibdir = $(top_builddir)/lib
-blib_LIBRARIES = libcommon.a
+lib_LIBRARIES = libcommon.a
 
 libcommon_a_SOURCES = \
 		CConfiguration.cpp \

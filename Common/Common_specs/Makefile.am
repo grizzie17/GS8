@@ -5,11 +5,9 @@ AM_CPPFLAGS = \
 		-I$(top_srcdir)/LogFile \
 		-I$(top_srcdir)/3rdParty/igloo
 
-plibdir = @locallib@
-pbindir = @checkbin@
 
-pbin_PROGRAMS = common_specs
-TESTS = @pbindir@/common_specs
+bin_PROGRAMS = common_specs
+#TESTS = @pbindir@/common_specs
 
 common_specs_SOURCES = \
 	Common_specs.cpp \
@@ -27,7 +25,7 @@ common_specs_SOURCES = \
 common_specs_CXXFLAGS = $(CXXFLAGS)
 common_specs_CPPFLAGS = $(CPPFLAGS)
 common_specs_LDADD = \
-		$(plibdir)/libcommon.a \
-		$(plibdir)/libplatform.a \
+		$(libdir)/libcommon.a \
+		$(libdir)/libplatform.a \
 		$(LDFLAGS)
 

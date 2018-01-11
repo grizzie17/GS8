@@ -4,10 +4,9 @@ AM_CPPFLAGS = \
 AM_CXXFLAGS = \
 		-fPIC -Wall -Werror
 
-plibdir = @locallib@
 
 
-plib_LIBRARIES = libplatform.a
+lib_LIBRARIES = libplatform.a
 
 libplatform_a_SOURCES = \
 		CCharDescriptor.cpp \
