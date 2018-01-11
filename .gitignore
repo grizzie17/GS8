@@ -24,9 +24,9 @@ ipch
 *.suo
 *.sdf
 *.ncb
-*.in
-*/*.in
-*/*/*.in
+Makefile.in
+*/Makefile.in
+*/*/Makefile.in
 *.vcproj.*
 *.vcxproj.*
 *.opensdf
