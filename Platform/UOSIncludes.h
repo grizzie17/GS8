@@ -32,6 +32,9 @@
 #if ! defined(__STDC_WANT_SECURE_LIB__)
 #	define __STDC_WANT_SECURE_LIB__	1
 #endif
+#if ! defined(__STDC_WANT_LIB_EXT1__)
+#	define __STDC_WANT_LIB_EXT1__	1
+#endif
 //#define MINGW_HAS_SECURE_API		1
 #include <string.h>
 #include <stddef.h>
