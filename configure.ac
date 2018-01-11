@@ -33,10 +33,6 @@ AC_LANG([C++])
 __STDC_WANT_SECURE_LIB__=1
 AC_SUBST([__STDC_WANT_SECURE_LIB__])
 
-locallib="$(top_builddir)/lib"
-checkbin="$(top_builddir)/test"
-AC_SUBST([locallib])
-AC_SUBST([checkbin])
 
 
 
