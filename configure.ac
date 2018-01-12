@@ -24,6 +24,9 @@ AC_PROG_RANLIB
 CFLAGS="$EXTERNAL_CFLAGS"
 CXXFLAGS="$EXTERNAL_CXXFLAGS"
 
+#LT_INIT
+#AC_SUBST([LIBTOOL_DEPS])
+
 #PKG_CHECK_MODULES([CHECK],[platform_specs])
 
 AC_LANG([C++])
@@ -73,6 +76,8 @@ AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname getti
 AC_CONFIG_FILES([
 	Common/Common_specs/Makefile
 	Common/Makefile
+	Gadget/Makefile
+	Gadget/Gadget_specs/Makefile
 	Platform/Makefile
 	Platform/Platform_specs/Makefile
 	Makefile

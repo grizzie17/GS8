@@ -26,10 +26,6 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "stdafx.h"
-#include "CSocket.h"
-#include "UNResult.h"
-
-#include "LogFile.h"
 #include "UOSIncludes.h"
 #if defined( OS_MSWIN )
 #	define INCL_WINSOCK_API_TYPEDEFS	1
@@ -49,12 +45,21 @@
 
 #include <errno.h>
 
+#include "CSocket.h"
+#include "UNResult.h"
+#include "LogFile.h"
+
 NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+
+// change the comment below to allow printing of the local information
+
+//#define	LOCAL_PRINT( fmt, ... )	DbgPrint( fmt, ## __VA_ARGS__ )
+#define	LOCAL_PRINT( fmt, ... )
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -116,7 +121,7 @@ void	fillAddr
 	{
 		// strerror() will not work for gethostbyname() and hstrerror()
 		// is supposedly obsolete
-		DbgPrint("Failed to resolve name (gethostbyname())\n");
+		LOCAL_PRINT("Failed to resolve name (gethostbyname())\n");
 	}
 	addr.sin_addr.s_addr = *((unsigned long *) host->h_addr_list[0]);
 
@@ -172,7 +177,7 @@ CSocket::CSocket
 
 		if ( 0 != WSAStartup( wReqVersion, &tData ) )
 		{
-			DbgPrint( "Unable to load WinSock DLL\n" );
+			LOCAL_PRINT( "Unable to load WinSock DLL\n" );
 			InternalError();
 		}
 
@@ -184,7 +189,7 @@ CSocket::CSocket
 	m_nSockDesc = socket( PF_INET, type, protocol );
 	if ( NOT_SOCKETHDL(m_nSockDesc) )
 	{
-		DbgPrint( "Socket creation failed\n" );
+		LOCAL_PRINT( "Socket creation failed\n" );
 		InternalError();
 	}
 }
@@ -232,7 +237,7 @@ CCharString
 
 	if ( getsockname( m_nSockDesc, (sockaddr*)&addr, (socklen_t *) &nAddrLen) < 0 )
 	{
-		DbgPrint( "Fetch of local address failed\n" );
+		LOCAL_PRINT( "Fetch of local address failed\n" );
 		InternalError();
 	}
 	s = inet_ntoa( addr.sin_addr );
@@ -255,7 +260,7 @@ unsigned short
 
 	if ( ::getsockname( m_nSockDesc, (sockaddr*)&addr, (socklen_t *) &nAddrLen) < 0 )
 	{
-		DbgPrint( "Fetch of local address failed\n" );
+		LOCAL_PRINT( "Fetch of local address failed\n" );
 		InternalError();
 		return 0;
 	}
@@ -284,7 +289,7 @@ void	CSocket::SetLocalPort
 
 	if ( bind( m_nSockDesc, (sockaddr*)&tAddr, sizeof(tAddr) ) < 0 )
 	{
-		DbgPrint( "failed to bind local port\n" );
+		LOCAL_PRINT( "failed to bind local port\n" );
 		InternalError();
 	}
 }
@@ -307,7 +312,7 @@ void	CSocket::SetLocalAddressAndPort
 
 	if ( bind( m_nSockDesc, (sockaddr*)&tAddr, sizeof(tAddr) ) < 0 )
 	{
-		DbgPrint("bind of local address and port failed\n" );
+		LOCAL_PRINT("bind of local address and port failed\n" );
 		InternalError();
 	}
 
@@ -340,7 +345,7 @@ void	CSocket::CleanUp
 {
 #if defined( OS_MSWIN )
 	if ( 0 != WSACleanup() )
-		DbgPrint( "WSACleanup failed\n" );
+		LOCAL_PRINT( "WSACleanup failed\n" );
 #endif
 }
 
@@ -386,7 +391,7 @@ int		CSocket::InternalError
 	if ( 0 != m_nError )
 	{
 		char*	s = ::strerror( m_nError );
-		DbgPrint( "CSocket::errno = %ld : %s\n", m_nError, s );
+		LOCAL_PRINT( "CSocket::errno = %ld : %s\n", m_nError, s );
 	}
 #	endif
 	if ( 0 == er )
@@ -475,7 +480,7 @@ void	CSocketCommunicate::Connect
 
 	if ( ::connect( m_nSockDesc, (sockaddr*)&tDestAddr, sizeof(tDestAddr) ) < 0 )
 	{
-		DbgPrint( "Connect failed\n" );
+		LOCAL_PRINT( "Connect failed\n" );
 		InternalError();
 	}
 }
@@ -495,7 +500,7 @@ void	CSocketCommunicate::Send
 {
 	if ( ::send( m_nSockDesc, (raw_type*)pBuffer, (int)nBufferLength, 0 ) < 0 )
 	{
-		DbgPrint( "Send failed\n" );
+		LOCAL_PRINT( "Send failed\n" );
 		InternalError();
 	}
 }
@@ -517,7 +522,7 @@ int		CSocketCommunicate::Recv
 	nResult = ::recv( m_nSockDesc, (raw_type*)pBuffer, (int)nBufferLength, 0 );
 	if ( nResult < 0 )
 	{
-		DbgPrint( "Recv failed\n" );
+		LOCAL_PRINT( "Recv failed\n" );
 		InternalError();
 	}
 
@@ -657,7 +662,7 @@ CSocketTCP*
 
 	if ( NOT_SOCKETHDL(nNewConnSD) )
 	{
-		DbgPrint( "Accept failed\n" );
+		LOCAL_PRINT( "Accept failed\n" );
 		InternalError();
 		return 0;
 	}
@@ -680,7 +685,7 @@ void	CSocketTCPServer::SetListen
 {
 	if ( ::listen( m_nSockDesc, nQueueLen ) < 0 )
 	{
-		DbgPrint( "Set listening socket failed\n" );
+		LOCAL_PRINT( "Set listening socket failed\n" );
 		InternalError();
 	}
 }
@@ -819,7 +824,7 @@ void	CSocketUDP::Disconnect
 	{
 		if ( NOSUPPORT != InternalError() )
 		{
-			DbgPrint( "Disconnect failed\n" );
+			LOCAL_PRINT( "Disconnect failed\n" );
 		}
 	}
 }
@@ -846,7 +851,7 @@ void	CSocketUDP::SendTo
 	if ( nBufferLen != sendto(m_nSockDesc, (raw_type *) pBuffer, nBufferLen, 0,
 			 (sockaddr *) &tDestAddr, sizeof(tDestAddr)) )
 	{
-		DbgPrint( "send failed\n" );
+		LOCAL_PRINT( "send failed\n" );
 		InternalError();
 	}
 }
@@ -873,7 +878,7 @@ int		CSocketUDP::RecvFrom
 					  (sockaddr *) &clntAddr, (socklen_t *) &addrLen );
 	if ( nResult < 0 )
 	{
-		DbgPrint("Receive failed (recvfrom())\n");
+		LOCAL_PRINT("Receive failed (recvfrom())\n");
 		InternalError();
 	}
 	else if ( nResult == (int)nBufferLen )
@@ -903,7 +908,7 @@ void	CSocketUDP::SetMulticastTTL
 	if (setsockopt(m_nSockDesc, IPPROTO_IP, IP_MULTICAST_TTL,
 				 (raw_type *) &cMulticastTTL, sizeof(cMulticastTTL)) < 0)
 	{
-		DbgPrint("Multicast TTL set failed (setsockopt())\n");
+		LOCAL_PRINT("Multicast TTL set failed (setsockopt())\n");
 		InternalError();
 	}
 }
@@ -952,7 +957,7 @@ void	CSocketUDP::JoinGroup
 	if (setsockopt(m_nSockDesc, IPPROTO_IP, IP_ADD_MEMBERSHIP,
 		(raw_type *) &mr, sizeof(mr)) < 0)
 	{
-		DbgPrint("Multicast group (%s) join failed (setsockopt())\n", sTemp);
+		LOCAL_PRINT("Multicast group (%s) join failed (setsockopt())\n", sTemp);
 		InternalError();
 	}
 }
@@ -976,7 +981,7 @@ void	CSocketUDP::LeaveGroup
 			(raw_type *) &multicastRequest,
 			sizeof(multicastRequest)) < 0)
 	{
-		DbgPrint("Multicast group leave failed (setsockopt())\n");
+		LOCAL_PRINT("Multicast group leave failed (setsockopt())\n");
 		InternalError();
 	}
 }

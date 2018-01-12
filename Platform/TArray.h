@@ -32,8 +32,8 @@
 #include "TEnumerator.h"
 #include "UTypes.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+#include "NamespaceRoot.h"
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -1031,7 +1031,7 @@ T*		TArrayEnumerator<T>::Current
 
 
 
-NAMESPACE_COMMON_END
+NAMESPACE_ROOT_END
 
 
 

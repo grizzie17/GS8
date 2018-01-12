@@ -283,7 +283,7 @@ void	CSemaphore::Signal
 {
 #if defined( SEMAPHORE_WINDOWS )
 
-	long	n;
+	LONG	n = 0;
 
 	ReleaseSemaphore( m_sem, 1, &n );
 

@@ -1,7 +1,6 @@
 AM_CPPFLAGS = \
 		-I$(top_srcdir)/Common \
-		-I$(top_srcdir)/Platform \
-		-I$(top_srcdir)/LogFile
+		-I$(top_srcdir)/Platform
 AM_CXXFLAGS = \
 		-fPIC -Wall -Werror
 
@@ -35,5 +34,6 @@ libcommon_a_SOURCES = \
 		VPluginWithAggregate.cpp \
 		VPluginWithAggregateList.cpp \
 		VSupports.cpp
-
+libcommon_a_CXXFLAGS = $(CXXFLAGS)
+libcommon_a_CPPFLAGS = $(CPPFLAGS)
 

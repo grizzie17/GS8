@@ -860,7 +860,7 @@ NResult	CSerial::Open
 #if ! defined( OS_MSWIN_WCE )
 		// NEEDS_WORK: find WinCE solution
 
-		unsigned long	nCommCfgSize = sizeof(COMMCONFIG);
+		DWORD	nCommCfgSize = sizeof(COMMCONFIG);
 		if ( ! ::GetCommConfig( m_nFD, &tCommCfg, &nCommCfgSize ) )
 		{
 			// Obtain the error code

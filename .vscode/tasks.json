@@ -64,7 +64,7 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "clean",
+			"label": "clean-objects",
 			"type": "shell",
 			"command": "make",
 			"args": ["clean"],
@@ -72,6 +72,13 @@
 			"options": {
 				"cwd": "build"
 			},
+			"problemMatcher": []
+		},
+		{
+			"label": "clean",
+			"type": "shell",
+			"command": "./build-clean.sh",
+			"group": "build",
 			"problemMatcher": []
 		},
 		{

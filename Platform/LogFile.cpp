@@ -52,8 +52,7 @@
 |	Local Type Definitions	
 |							
 \+---------------------------------------------------------------------*/
-USING_NAMESPACE_ROOT
-//USING_NAMESPACE_COMMON
+NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |							
 |	Private Global Variables
@@ -377,5 +376,5 @@ LOGFILE_API(void)
 
 
 
-
+NAMESPACE_ROOT_END
 

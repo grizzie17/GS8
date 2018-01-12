@@ -64,7 +64,7 @@ END_IGNORE_WARNING	// empty space in packed struct
 #	define INCL_WINSOCK_API_TYPEDEFS	1
 #	define _WINSOCK_DEPRECATED_NO_WARNINGS 1
 	BEGIN_IGNORE_WARNING(4820)
-#	include <winsock2.h>
+#	include <w32api/winsock2.h>
 	END_IGNORE_WARNING
 #	include <windows.h>
 //#	include <crtdefs.h>

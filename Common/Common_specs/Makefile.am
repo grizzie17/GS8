@@ -2,7 +2,6 @@ AM_CPPFLAGS = \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Platform/Platform_specs \
-		-I$(top_srcdir)/LogFile \
 		-I$(top_srcdir)/3rdParty/igloo
 
 

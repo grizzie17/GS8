@@ -1,6 +1,5 @@
 AM_CPPFLAGS = \
-		-I$(top_srcdir)/Platform \
-		-I$(top_srcdir)/LogFile
+		-I$(top_srcdir)/Platform
 AM_CXXFLAGS = \
 		-fPIC -Wall -Werror
 
@@ -20,6 +19,7 @@ libplatform_a_SOURCES = \
 		CSignal.cpp \
 		CSocket.cpp \
 		fixed_t.cpp \
+		LogFile.cpp \
 		stdio_sx.cpp \
 		string_sx.cpp \
 		UFile.cpp \
@@ -29,5 +29,6 @@ libplatform_a_SOURCES = \
 		UPlatformThreads.cpp \
 		UPlatformTime.cpp
 libplatform_a_CXXFLAGS = $(CXXFLAGS)
+libplatform_a_CPPFLAGS = $(CPPFLAGS)
 
 

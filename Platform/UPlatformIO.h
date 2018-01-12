@@ -20,7 +20,7 @@
 |	Include Files		
 |						
 \+---------------------------------------------------------------------*/
-#include "UOSIncludes.h"
+//#include "UOSIncludes.h"
 #include "UMath.h"
 #include "stdio_sx.h"
 
@@ -34,7 +34,7 @@
 
 
 
-#if ! defined( __STDC_SECURE_LIB__ )
+#if ! defined( __STDC_SECURE_LIB__ )  &&  ! defined( __STDC_LIB_EXT1__ )
 
 #	undef	sprintf_s
 #	define	sprintf_s( buf, sz, fmt, ... )	sprintf_sx( buf, sz, fmt, ## __VA_ARGS__ )
