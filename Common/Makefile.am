@@ -1,4 +1,6 @@
 AM_CPPFLAGS = \
+		-DWIN64=1 \
+		-D_WIN64=1 \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform
 AM_CXXFLAGS = \

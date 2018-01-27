@@ -6,12 +6,13 @@
 #ifndef _H_stdafx_Common_spec
 #define _H_stdafx_Common_spec
 
+#if 0
 #include "UPlatform.h"
 #include "UPlatformTime.h"
 #include "NamespaceCommon.h"
 #include "CheckLeaks.h"
 
 #include "igloo/igloo.h"
-
+#endif
 
 #endif

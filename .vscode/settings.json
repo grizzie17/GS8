@@ -8,7 +8,9 @@
 	],
     "terminal.integrated.env.windows": {
 		"MSYSTEM": "MINGW64",
-		"CHERE_INVOKING": "1"
+		"CHERE_INVOKING": "1",
+		"WIN64": "1",
+		"_WIN64": "1"
 	},
 	
 	"github.repositories": [
@@ -31,5 +33,6 @@
 		"**/depcomp": true,
 		"**/install-sh": true,
 		"**/missing": true
-	}
+	},
+	"uncrustify.graphicalConfig": false
 }

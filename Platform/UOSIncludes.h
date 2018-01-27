@@ -27,6 +27,38 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
+//#if defined(MINGW_HAS_SECURE_API)
+//#	if ! defined(__STDC_SECURE_LIB__)
+//#		define __STDC_SECURE_LIB__	201100L
+//#	endif
+//#endif
+
+#include "UMachine.h"
+#if defined( OS_MSWIN )
+#	if defined( OS_WIN32 )
+#		if ! defined( WIN32_LEAN_AND_MEAN )
+#			define WIN32_LEAN_AND_MEAN 1
+#		endif
+#	endif
+//#	define INCL_WINSOCK_API_TYPEDEFS	1
+//#	define _WINSOCK_DEPRECATED_NO_WARNINGS 1
+	BEGIN_IGNORE_WARNING(4820)
+#	include <ws2def.h>
+#	include <winsock2.h>
+	END_IGNORE_WARNING
+#	include <windows.h>
+//#	include <crtdefs.h>
+#	include <winerror.h>
+#elif defined( OS_LINUX )  ||  defined( OS_MACINTOSH )  ||  defined( OS_UNIX )
+#	include <unistd.h>
+#	include <dlfcn.h>
+#endif
+
+#if defined( THREADS_POSIX )
+#	include <pthread.h>
+//#elif defined( THREADS_WINDOWS )
+#endif
+
 #include "UWarnings.h"
 
 #if ! defined(__STDC_WANT_SECURE_LIB__)
@@ -45,36 +77,7 @@ END_IGNORE_WARNING	// empty space in packed struct
 #include <limits.h>
 #include <errno.h>
 
-//#if defined(MINGW_HAS_SECURE_API)
-//#	if ! defined(__STDC_SECURE_LIB__)
-//#		define __STDC_SECURE_LIB__	201100L
-//#	endif
-//#endif
 
-#include "UMachine.h"
-#if defined( OS_LINUX )  ||  defined( OS_MACINTOSH )  ||  defined( OS_UNIX )
-#	include <unistd.h>
-#	include <dlfcn.h>
-#elif defined( OS_MSWIN )
-#	if defined( OS_WIN32 )
-#		if ! defined( WIN32_LEAN_AND_MEAN )
-#			define WIN32_LEAN_AND_MEAN 1
-#		endif
-#	endif
-#	define INCL_WINSOCK_API_TYPEDEFS	1
-#	define _WINSOCK_DEPRECATED_NO_WARNINGS 1
-	BEGIN_IGNORE_WARNING(4820)
-#	include <w32api/winsock2.h>
-	END_IGNORE_WARNING
-#	include <windows.h>
-//#	include <crtdefs.h>
-#	include <winerror.h>
-#endif
-
-#if defined( THREADS_POSIX )
-#	include <pthread.h>
-//#elif defined( THREADS_WINDOWS )
-#endif
 
 /*---------------------------------------------------------------------+\
 |																		|

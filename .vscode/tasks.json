@@ -89,6 +89,12 @@
 				"kind": "build",
 				"isDefault": true
 			},
+			"options": {
+				"env":{
+					"WIN64": "1",
+					"_WIN64": "1"
+				}
+			},
 			"problemMatcher": "$gcc"
 		}
 	]

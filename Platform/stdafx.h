@@ -7,13 +7,13 @@
 #ifndef _H_stdafx_Root
 #define _H_stdafx_Root
 
-
+#if 0
 #include "UOSIncludes.h"
 #include "UPlatform.h"
 #include "UPlatformTime.h"
 #include "UPlatformThreads.h"
 #include "NamespaceRoot.h"
-
+#endif
 
 #endif
 

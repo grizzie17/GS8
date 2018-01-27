@@ -7,13 +7,13 @@
 #ifndef _H_stdafx_Common
 #define _H_stdafx_Common
 
-
+#if 0
 #include "UOSIncludes.h"
 #include "UPlatform.h"
 #include "UPlatformTime.h"
 #include "UPlatformThreads.h"
 #include "NamespaceCommon.h"
-
+#endif
 
 #endif
 

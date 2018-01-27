@@ -1,7 +1,7 @@
-.git
+/.git
 .clang
 .build*
-/build/
+/build
 Backup
 config.log
 Debug*
@@ -21,9 +21,7 @@ ipch
 *.vcproj.*
 *.vcxproj.*
 *.opensdf
-*/*/*.mk
-*/*.mk
-m4
+/m4
 ftp-sync.json
 
 

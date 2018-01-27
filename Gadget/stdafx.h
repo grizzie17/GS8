@@ -5,6 +5,7 @@
 #ifndef _H_stdafx_gadget
 #define _H_stdafx_gadget
 
+#if 0
 #include "UOSIncludes.h"
 #include "CVariantData.h"
 #include "CCharString.h"
@@ -18,7 +19,7 @@
 #include "VGraphic.h"
 #include "VStyle.h"
 #include "NamespaceGadget.h"
-
+#endif
 
 #endif // _H_stdafx_gadget
 

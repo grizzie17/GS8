@@ -6,7 +6,7 @@
 #ifndef _H_stdafx_Gadget_specs
 #define _H_stdafx_Gadget_specs
 
-
+#if 0
 #include "CVariantData.h"
 #include "CCharString.h"
 #include "VDictionary.h"
@@ -20,6 +20,6 @@
 #include "NamespaceGadget.h"
 
 #include "igloo/igloo.h"
-
+#endif
 
 #endif	// _H_stdafx_Gadget_specs
