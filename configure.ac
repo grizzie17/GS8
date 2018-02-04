@@ -33,10 +33,10 @@ CPPFLAGS="$EXTERNAL_CPPFLAGS"
 
 AC_LANG([C++])
 
-CXXFLAGS="-std=c++11 $CXXFLAGS" 
-CXX_STANDARD=201103L
-AC_SUBST([CXX_STANDARD])
-#AX_CXX_COMPILE_STDCXX([11])
+#CXXFLAGS="-std=c++11 $CXXFLAGS" 
+#CXX_STANDARD=201103L
+#AC_SUBST([CXX_STANDARD])
+AX_CXX_COMPILE_STDCXX_11(,mandatory)
 #AX_CHECK_COMPILE_FLAG([-std=c++11], [CXXFLAGS+=" -std=c++11"],
 #	[
 #	echo "C++ compiler cannot compile C++11 code"
@@ -47,11 +47,22 @@ AC_SUBST([CXX_STANDARD])
 
 #AC_SUBST([LIBTOOL_DEPS])
 
-AC_DEFINE([__STDC_WANT_SECURE_LIB__],[1])
-AC_DEFINE([__STDC_WANT_LIB_EXT1__],[1])
+#AC_DEFINE([__STDC_WANT_SECURE_LIB__],[1])
+#AC_DEFINE([__STDC_WANT_LIB_EXT1__],[1])
 #AC_SUBST([__STDC_WANT_SECURE_LIB__])
 #AC_SUBST([__STDC_WANT_LIB_EXT1__])
 
+# GCC is a bit picky about redefinitions of built-in macros. Alas, "built-in"
+# simply means "starts with double underscore", so we have to hack around that
+# below. Note that clang is happy, even without the guard.
+AH_VERBATIM([__STDC_WANT_LIB_EXT1__], [/* we want C11 library extensions  */
+#ifndef __STDC_WANT_LIB_EXT1__
+# define __STDC_WANT_LIB_EXT1__ 1
+#endif])
+AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
+#ifndef __STDC_WANT_SECURE_LIB__
+# define __STDC_WANT_SECURE_LIB__ 1
+#endif])
 
 
 
@@ -94,6 +105,7 @@ AC_CONFIG_FILES([
 	Gadget/Gadget_specs/Makefile
 	Platform/Makefile
 	Platform/Platform_specs/Makefile
+	VSAShared/Makefile
 	Makefile
 ])
 AC_OUTPUT
