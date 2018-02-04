@@ -34,6 +34,7 @@
 //#endif
 
 #include "UMachine.h"
+#include "UWarnings.h"
 #if defined( OS_MSWIN )
 #	if defined( OS_WIN32 )
 #		if ! defined( WIN32_LEAN_AND_MEAN )
@@ -59,7 +60,6 @@
 //#elif defined( THREADS_WINDOWS )
 #endif
 
-#include "UWarnings.h"
 
 #if ! defined(__STDC_WANT_SECURE_LIB__)
 #	define __STDC_WANT_SECURE_LIB__	1

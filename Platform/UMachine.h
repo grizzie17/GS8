@@ -227,32 +227,7 @@
 #		define	GL_WINGL	1
 #	endif
 
-#	if defined( winNT )
-#		define	OS_WINNT		1
-#		define	OS_NAME			"MSWIN32"
-#		define	OS_WIN32		1
-#		if defined( _ALPHA_ )  ||  defined( __ALPHA__ )
-#			define	CPU_ALPHA		1
-#		elif defined( _MIPS_ )			\
-				||  defined( __MIPS__ )	\
-				||  defined( __MIPS )	\
-				||	defined( __mips )	\
-				||	defined( mips )
-#			define	CPU_MIPS		1
-#		elif defined( __sparc )				\
-				||	defined( __sparc__ )	\
-				||	defined( __SPARC__ )
-#			define	CPU_SPARC		1
-#		else
-#			define	CPU_INTELx86	1
-#			if !defined( _X86_ )
-#				define _X86_		1
-#			endif
-#		endif
-
-		//	NEEDS_WORK: add stuff about different processors for OS_WINNT
-
-#	elif defined( _WIN64 )  ||  defined( WIN64 )
+#	if defined( _WIN64 )  ||  defined( WIN64 )
 
 #		define	OS_WIN64		1
 #		define	OS_NAME			"MSWIN64"
@@ -302,6 +277,10 @@
 
 #	define	OS_LINUX	1
 #	define	OS_NAME		"LINUX"
+#	undef	OS_MSWIN
+#	undef	OS_MSWINDOWS
+#	undef	OS_MACOS
+#	undef	OS_MACINTOSH
 
 #	if defined( _VDDS_LINUX_ )	\
 		||  defined( __VDDS_LINUX__ )	\

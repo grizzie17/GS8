@@ -1,6 +1,4 @@
 AM_CPPFLAGS = \
-		-DWIN64=1 \
-		-D_WIN64=1 \
 		-I$(top_srcdir)/Platform
 AM_CXXFLAGS = \
 		-fPIC -Wall -Werror
@@ -30,6 +28,6 @@ libplatform_a_SOURCES = \
 		UPlatformThreads.cpp \
 		UPlatformTime.cpp
 libplatform_a_CXXFLAGS = $(CXXFLAGS)
-libplatform_a_CPPFLAGS = -DWIN64 -D_WIN64 $(CPPFLAGS)
+libplatform_a_CPPFLAGS = $(CPPFLAGS)
 
 

@@ -1822,7 +1822,7 @@ VEquationPtr
 {
 	CEquationConstantPtr	pEq = 0;
 	size_t			i;
-	GFLOAT			f = ParseFloat<char>( s, n, &i );
+	GFLOAT			f = ParseFloatT<char>( s, n, &i );
 
 	pEq = new CEquationConstant;
 	m_bConstant = true;

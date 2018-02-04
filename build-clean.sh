@@ -9,7 +9,7 @@ pushd $THISDIR >/dev/null
 rm -rf \
 	aclocal.m4 ar-lib autom4te.cache \
 	build \
-	compile configure config.log config.status \
+	compile configure config.h.in config.log config.status \
 	depcomp .deps */.deps \
 	install-sh install.sh \
 	m4 Makefile Makefile.in */Makefile */Makefile.in missing \

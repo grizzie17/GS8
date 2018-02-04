@@ -1,6 +1,4 @@
 AM_CPPFLAGS = \
-		-DWIN64=1 \
-		-D_WIN64=1 \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform
 AM_CXXFLAGS = \
@@ -36,6 +34,6 @@ libcommon_a_SOURCES = \
 		VPluginWithAggregate.cpp \
 		VPluginWithAggregateList.cpp \
 		VSupports.cpp
-libcommon_a_CXXFLAGS = $(CXXFLAGS)
-libcommon_a_CPPFLAGS = $(CPPFLAGS)
+libcommon_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libcommon_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 

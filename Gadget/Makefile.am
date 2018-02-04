@@ -1,6 +1,7 @@
 AM_CPPFLAGS = \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
+		-I$(top_srcdir)/Draw/VDraw \
 		-I$(top_srcdir)/LogFile
 AM_CXXFLAGS = \
 		-fPIC -Wall -Werror
@@ -166,6 +167,7 @@ libgadget_a_SOURCES = \
 		VOwnership.cpp \
 		VPanelChild.cpp \
 		VPolylist.cpp
-libgadget_a_CXXFLAGS = $(CXXFLAGS)
+libgadget_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libgadget_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 
 

@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceCommon.h"
+#include "NamespaceRoot.h"
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -35,18 +35,16 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
-#define NAMESPACE_DEFINE_GADGET	(1)
+//#define NAMESPACE_DEFINE_GADGET	(1)
 
 #if NAMESPACE_DEFINE_GADGET
 
 #	define NAMESPACE_GADGET_BEGIN	\
 			NAMESPACE_ROOT_BEGIN	\
-			using namespace Common;	\
 			namespace Gadget {
 #	define NAMESPACE_GADGET_END		} NAMESPACE_ROOT_END
 #	define USING_NAMESPACE_GADGET	\
 			USING_NAMESPACE_ROOT	\
-			USING_NAMESPACE_COMMON	\
 			using namespace NAMESPACE_ROOT_PREFIX Gadget;
 #	define NAMESPACE_GADGET_PREFIX	NAMESPACE_ROOT_PREFIX Gadget::
 

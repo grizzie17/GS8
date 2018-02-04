@@ -19,7 +19,7 @@ platform_specs_SOURCES = \
 	UMachine_spec.cpp \
 	UPlatformString_spec.cpp
 platform_specs_CXXFLAGS = $(CXXFLAGS)
-platform_specs_CPPFLAGS = $(CPPFLAGS)
+platform_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 platform_specs_LDADD = \
 		$(libdir)/libplatform.a \
 		$(LDFLAGS)
