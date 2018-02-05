@@ -16,7 +16,7 @@ EXTERNAL_CPPFLAGS="$CPPFLAGS"
 AC_PROG_CXX
 AC_PROG_CC
 AM_PROG_AR
-#AC_PROG_LIBTOOL
+AC_PROG_LIBTOOL
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AC_PROG_LN_S
@@ -26,22 +26,14 @@ CFLAGS="$EXTERNAL_CFLAGS"
 CXXFLAGS="$EXTERNAL_CXXFLAGS"
 CPPFLAGS="$EXTERNAL_CPPFLAGS"
 
-#LT_INIT
+LT_INIT
 #AC_SUBST([LIBTOOL_DEPS])
 
 #PKG_CHECK_MODULES([CHECK],[platform_specs])
 
 AC_LANG([C++])
 
-#CXXFLAGS="-std=c++11 $CXXFLAGS" 
-#CXX_STANDARD=201103L
-#AC_SUBST([CXX_STANDARD])
 AX_CXX_COMPILE_STDCXX_11(,mandatory)
-#AX_CHECK_COMPILE_FLAG([-std=c++11], [CXXFLAGS+=" -std=c++11"],
-#	[
-#	echo "C++ compiler cannot compile C++11 code"
-#	exit -1
-#	])
 
 
 
@@ -105,6 +97,7 @@ AC_CONFIG_FILES([
 	Gadget/Gadget_specs/Makefile
 	Draw/VDraw/Makefile
 	Draw/VDrawOpenGL/Makefile
+	Draw/CDrawOpenGL/Makefile
 	Platform/Makefile
 	Platform/Platform_specs/Makefile
 	VSAShared/Makefile

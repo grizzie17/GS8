@@ -8,7 +8,10 @@ $THISDIR/build-clean.sh
 
 pushd $THISDIR >/dev/null
 
-	mkdir -p $THISDIR/m4  ||  exit 1
+	echo "libtoolize..."
+	libtoolize  ||  exit $?
+
+	mkdir -p $THISDIR/m4  ||  exit $?
 
 	echo "aclocal..."
 	aclocal -I m4 --install  ||  exit 1
