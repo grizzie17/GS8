@@ -21,13 +21,13 @@
 		//	"command": "pwd",
 		//	"problemMatcher": []
 		//},
-		//{
-		//	"label": "path",
-		//	"type": "shell",
-		//	"command": "echo",
-		//	"args": ["$PATH"],
-		//	"problemMatcher": []
-		//},
+		{
+			"label": "path",
+			"type": "shell",
+			"command": "echo",
+			"args": ["\"$PATH\""],
+			"problemMatcher": []
+		},
 		//{
 		//	"label": "make",
 		//	"type": "shell",
@@ -55,12 +55,12 @@
 			"type": "shell",
 			"command": "./build-config.sh",
 			"group": "build",
-			"options": {
-				"env":{
-					"WIN64": "1",
-					"_WIN64": "1"
-				}
-			},
+			// "options": {
+			// 	"env":{
+			// 		"WIN64": "1",
+			// 		"_WIN64": "1"
+			// 	}
+			// },
 			"problemMatcher": []
 		},
 		{
@@ -89,12 +89,12 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"options": {
-				"env":{
-					"WIN64": "1",
-					"_WIN64": "1"
-				}
-			},
+			// "options": {
+			// 	"env":{
+			// 		"WIN64": "1",
+			// 		"_WIN64": "1"
+			// 	}
+			// },
 			"problemMatcher": "$gcc"
 		}
 	]

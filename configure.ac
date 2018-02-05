@@ -103,6 +103,8 @@ AC_CONFIG_FILES([
 	Common/Makefile
 	Gadget/Makefile
 	Gadget/Gadget_specs/Makefile
+	Draw/VDraw/Makefile
+	Draw/VDrawOpenGL/Makefile
 	Platform/Makefile
 	Platform/Platform_specs/Makefile
 	VSAShared/Makefile
