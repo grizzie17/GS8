@@ -101,6 +101,7 @@ AC_CONFIG_FILES([
 	Platform/Makefile
 	Platform/Platform_specs/Makefile
 	VSAShared/Makefile
+	WorkbenchShared/Makefile
 	Makefile
 ])
 AC_OUTPUT

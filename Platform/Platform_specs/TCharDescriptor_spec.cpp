@@ -105,7 +105,7 @@ Context(TCharDescriptor_template)
 		long	nValue;
 		size_t	nCount;
 
-		nValue = ParseInt( sample, nLen, &nCount );
+		nValue = ParseIntT( sample, nLen, &nCount );
 
 		AssertThat( nValue, Equals(12345) );
 		AssertThat( nCount, Equals(nLen));
@@ -118,7 +118,7 @@ Context(TCharDescriptor_template)
 		long	nValue;
 		size_t	nCount;
 
-		nValue = ParseInt( sample, nLen, &nCount );
+		nValue = ParseIntT( sample, nLen, &nCount );
 
 		AssertThat( nValue, Equals(12345) );
 		AssertThat( nCount, Equals(nLen-3));

@@ -5,7 +5,7 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+USING_NAMESPACE_ROOT
 
 Context(TArray_template)
 {
