@@ -3,13 +3,14 @@
 // are changed infrequently
 //
 
-#ifndef _H_stdafx_Common_spec
-#define _H_stdafx_Common_spec
+#ifndef _H_stdafx_Common_specs
+#define _H_stdafx_Common_specs
 
 #if 0
 #include "UPlatform.h"
 #include "UPlatformTime.h"
 #include "NamespaceCommon.h"
+#endif
 #include "CheckLeaks.h"
 
 #include "igloo/igloo.h"

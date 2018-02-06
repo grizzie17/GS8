@@ -4,8 +4,8 @@
 
 //#pragma once
 
-#ifndef _H_stdafx_Root
-#define _H_stdafx_Root
+#ifndef _H_stdafx_Platform
+#define _H_stdafx_Platform
 
 #if 0
 #include "UOSIncludes.h"
