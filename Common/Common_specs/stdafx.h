@@ -10,7 +10,6 @@
 #include "UPlatform.h"
 #include "UPlatformTime.h"
 #include "NamespaceCommon.h"
-#endif
 #include "CheckLeaks.h"
 
 #include "igloo/igloo.h"

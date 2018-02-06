@@ -91,15 +91,15 @@ AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname getti
 #AC_CONFIG_SRCDIR([config.h.in])
 #AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
-	Common/Common_specs/Makefile
+	Platform/Makefile
+	Platform/Platform_specs/Makefile
 	Common/Makefile
+	Common/Common_specs/Makefile
 	Gadget/Makefile
 	Gadget/Gadget_specs/Makefile
 	Draw/VDraw/Makefile
 	Draw/VDrawOpenGL/Makefile
 	Draw/CDrawOpenGL/Makefile
-	Platform/Makefile
-	Platform/Platform_specs/Makefile
 	VSAShared/Makefile
 	WorkbenchShared/Makefile
 	Makefile
