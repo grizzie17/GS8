@@ -22,6 +22,23 @@ mkdir -p bin
 mkdir -p lib
 
 
+	case `uname -o` in
+	Msys )
+		echo "...WIN64"
+		export CPPFLAGS="\
+			-DWIN64 -D_WIN64 \
+		"
+		;;
+	*[Ll]inux )
+		echo "...linux"
+		export CPPFLAGS="\
+			-DLINUX -DLinux -Dlinux \
+		"
+		;;
+	* )
+		echo "...undefined"
+		;;
+	esac
 make -j 4 2>&1  |  tee ./build.log  | tweak_paths_for_windows
 
 popd >/dev/null

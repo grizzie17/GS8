@@ -8,11 +8,13 @@ pushd $THISDIR >/dev/null
 
 rm -rf \
 	aclocal.m4 ar-lib autom4te.cache \
-	build \
-	compile configure config.h.in config.log config.status \
+	build build.log \
+	compile configure config.guess config.sub config.h.in config.log config.status \
 	depcomp .deps */.deps \
 	install-sh install.sh \
-	m4 Makefile Makefile.in */Makefile */Makefile.in missing \
+	ltmain.sh \
+	m4 Makefile Makefile.in */Makefile */Makefile.in */*/Makefile.in missing \
+	test-driver \
 	*/*.o */*/*.o
 sts=$?
 

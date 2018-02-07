@@ -2,6 +2,7 @@
 .clang
 .build*
 /build
+build.log
 Backup
 config.log
 Debug*

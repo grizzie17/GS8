@@ -13,14 +13,15 @@ pushd $THISDIR >/dev/null
 
 	mkdir -p $THISDIR/m4  ||  exit $?
 
+	#second aclocal to get around problem with aclocal 1.15
 	echo "aclocal..."
-	aclocal -I m4 --install  ||  exit 1
+	aclocal -I m4 --install  ||  aclocal -I m4  ||  exit $?
 
 	echo "autoconf..."
-	autoconf -f  ||  exit 1
+	autoconf -f  ||  exit $?
 
 	echo "automake..."
-	automake --add-missing  ||  exit 2
+	automake --add-missing  ||  exit $?
 
 	echo "configure..."
 
@@ -29,32 +30,26 @@ pushd $THISDIR >/dev/null
 		echo "...WIN64"
 		export CPPFLAGS="\
 			-DWIN64 -D_WIN64 \
-			-D__STDC_WANT_SECURE_LIB__=1 \
-			-I/C/msys64/usr/include \
-			-I/C/msys64/usr/include/w32api \
-			-I/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0/include \
-			-I/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0/include/c++ \
-			-I/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0/include/c++/x86_64-pc-msys \
-			-I/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0/include/c++/backward \
 		"
 		;;
 	*[Ll]inux )
 		echo "...linux"
 		export CPPFLAGS="\
 			-DLINUX -DLinux -Dlinux \
-			-I/usr/include \
-			-I/usr/include/c++/5.4.0 \
 		"
 		;;
 	* )
 		echo "...undefined"
 		;;
 	esac
-	mkdir -p $THISDIR/build  ||  exit 3
+	mkdir -p $THISDIR/build  ||  exit $?
 	pushd $THISDIR/build >/dev/null
-		$THISDIR/configure --prefix=$THISDIR/build  ||  exit 3
+		$THISDIR/configure --prefix=$THISDIR/build  ||  exit $?
 	popd >/dev/null
 
 
 popd >/dev/null
+
+echo "Complete..."
+exit 0
 

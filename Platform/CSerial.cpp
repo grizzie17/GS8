@@ -53,7 +53,7 @@
 #include <tchar.h>
 #include <WinReg.h>
 
-#endif
+#endif // SERIAL_XXXXXX
 
 #include "CSerial.h"
 #include "TPointer.h"

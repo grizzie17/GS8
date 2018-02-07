@@ -358,6 +358,15 @@
 #	define	OS_UNIX		1
 #	define	OS_NAME		"UNIX"
 
+#	if defined( _OPENGL_ )  ||  defined( OPENGL )
+#		define	GL_OPENGL	1
+#	elif defined( _OPENGL_ES_ )  ||  defined( OPENGLES )
+#		define	GL_OPENGL_ES	1
+#	endif
+#	if defined( _GTK_ )  ||  defined( GTK )
+#		define	GL_GTK	1
+#	endif
+
 	/*-------------------------------------------- Intergraph Clipper */
 #	if defined( __clipper )  ||  defined( __clipper__ )
 
@@ -382,6 +391,12 @@
 			||	defined( __OpenBSD__ )
 
 #		define	OS_UNIX_BSD			1
+
+	/*-------------------------------------------- MSYS (POSIX) */
+#	elif defined( __MSYS__ )
+
+#		define	OS_MSYS			1
+#		define	OS_UNIX_MSYS	1
 
 	/*-------------------------------------------- Cygwin (POSIX) */
 #	elif defined( __CYGWIN__ )

@@ -27,22 +27,23 @@ CXXFLAGS="$EXTERNAL_CXXFLAGS"
 CPPFLAGS="$EXTERNAL_CPPFLAGS"
 
 LT_INIT
-#AC_SUBST([LIBTOOL_DEPS])
+AC_SUBST([LIBTOOL_DEPS])
 
 #PKG_CHECK_MODULES([CHECK],[platform_specs])
 
 AC_LANG([C++])
 
-AX_CXX_COMPILE_STDCXX_11(,mandatory)
+AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 
 
 
-#AC_SUBST([LIBTOOL_DEPS])
 
 #AC_DEFINE([__STDC_WANT_SECURE_LIB__],[1])
 #AC_DEFINE([__STDC_WANT_LIB_EXT1__],[1])
 #AC_SUBST([__STDC_WANT_SECURE_LIB__])
 #AC_SUBST([__STDC_WANT_LIB_EXT1__])
+
+AC_DEFINE([_POSIX_REALTIME_SIGNALS],[1])
 
 # GCC is a bit picky about redefinitions of built-in macros. Alas, "built-in"
 # simply means "starts with double underscore", so we have to hack around that
