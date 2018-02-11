@@ -6,18 +6,18 @@
 	//------------------------------
 	// WSL
 	//------------------------------
-	"terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
+	//"terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
 	//------------------------------
 	// MSYS
-	////------------------------------
-	//"terminal.integrated.shell.windows": //"C:\\msys64\\usr\\bin\\bash.exe",
-	//"terminal.integrated.shellArgs.windows":[
-	//	"--login"
-	//],
-    //"terminal.integrated.env.windows": {
-	//	"MSYSTEM": "MINGW64",
-	//	"CHERE_INVOKING": "1",
-	//},
+	//------------------------------
+	"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+	"terminal.integrated.shellArgs.windows":[
+		"--login"
+	],
+    "terminal.integrated.env.windows": {
+		"MSYSTEM": "MINGW64",
+		"CHERE_INVOKING": "1",
+	},
 	//==End-Terminal=================
 	
 	"github.repositories": [
@@ -29,8 +29,6 @@
 		"**/.hg": true,
 		"**/CVS": true,
 		"**/.DS_Store": true,
-		"**/build": true,
-		"**/*.in": true,
 		"**/Makefile": true,
 		"**/m4": true,
 		"**/autom4te.cache": true,

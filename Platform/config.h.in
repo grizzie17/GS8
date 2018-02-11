@@ -182,7 +182,7 @@
 /* Version number of package */
 #undef VERSION
 
-/* we want C11 secure library  */
+/* we want posix library  */
 #ifndef _POSIX_REALTIME_SIGNALS
 # define _POSIX_REALTIME_SIGNALS 1
 #endif

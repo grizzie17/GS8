@@ -54,7 +54,7 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
 #ifndef __STDC_WANT_SECURE_LIB__
 # define __STDC_WANT_SECURE_LIB__ 1
 #endif])
-AH_VERBATIM([_POSIX_REALTIME_SIGNALS], [/* we want C11 secure library  */
+AH_VERBATIM([_POSIX_REALTIME_SIGNALS], [/* we want posix library  */
 #ifndef _POSIX_REALTIME_SIGNALS
 # define _POSIX_REALTIME_SIGNALS 1
 #endif])
