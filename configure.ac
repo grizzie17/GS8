@@ -3,6 +3,9 @@
 
 AC_PREREQ([2.69])
 AC_INIT([GS8], [8.0.0], [john@grizzlyweb.com])
+AC_CONFIG_SRCDIR([Platform/CCharString.h])
+AC_CONFIG_HEADERS([Platform/config.h])
+
 
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
@@ -14,22 +17,22 @@ EXTERNAL_CPPFLAGS="$CPPFLAGS"
 
 # Checks for programs.
 AC_PROG_CXX
+AC_PROG_AWK
 AC_PROG_CC
+AC_PROG_CPP
 AM_PROG_AR
-AC_PROG_LIBTOOL
 AC_PROG_INSTALL
-AC_PROG_MAKE_SET
 AC_PROG_LN_S
-AC_PROG_RANLIB
+AC_PROG_MAKE_SET
+
+#AC_PROG_RANLIB
+#AC_PROG_LIBTOOL
+LT_INIT
 
 CFLAGS="$EXTERNAL_CFLAGS"
 CXXFLAGS="$EXTERNAL_CXXFLAGS"
 CPPFLAGS="$EXTERNAL_CPPFLAGS"
 
-LT_INIT
-AC_SUBST([LIBTOOL_DEPS])
-
-#PKG_CHECK_MODULES([CHECK],[platform_specs])
 
 AC_LANG([C++])
 
@@ -38,12 +41,7 @@ AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 
 
 
-#AC_DEFINE([__STDC_WANT_SECURE_LIB__],[1])
-#AC_DEFINE([__STDC_WANT_LIB_EXT1__],[1])
-#AC_SUBST([__STDC_WANT_SECURE_LIB__])
-#AC_SUBST([__STDC_WANT_LIB_EXT1__])
-
-AC_DEFINE([_POSIX_REALTIME_SIGNALS],[1])
+#AC_DEFINE([_POSIX_REALTIME_SIGNALS],[])
 
 # GCC is a bit picky about redefinitions of built-in macros. Alas, "built-in"
 # simply means "starts with double underscore", so we have to hack around that
@@ -56,13 +54,17 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
 #ifndef __STDC_WANT_SECURE_LIB__
 # define __STDC_WANT_SECURE_LIB__ 1
 #endif])
+AH_VERBATIM([_POSIX_REALTIME_SIGNALS], [/* we want C11 secure library  */
+#ifndef _POSIX_REALTIME_SIGNALS
+# define _POSIX_REALTIME_SIGNALS 1
+#endif])
 
 
 
 # Checks for libraries.
 
 # Checks for header files.
-AC_HEADER_STDC
+#AC_HEADER_STDC
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h float.h limits.h memory.h netdb.h netinet/in.h stddef.h stdint.h stdlib.h string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h termios.h unistd.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
@@ -83,14 +85,8 @@ AC_CHECK_TYPES([ptrdiff_t])
 AC_FUNC_MALLOC
 AC_FUNC_MKTIME
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset fopen_s vsnprintf_s snprintf_s strcat_s strcpy_s strncpy_s])
+AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
 
-#AC_CONFIG_LIBOBJ_DIR([build/lib])
-
-#AC_CONFIG_SUBDIRS([Common])
-
-#AC_CONFIG_SRCDIR([config.h.in])
-#AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
 	Platform/Makefile
 	Platform/Platform_specs/Makefile
@@ -106,8 +102,3 @@ AC_CONFIG_FILES([
 	Makefile
 ])
 AC_OUTPUT
-
-
-
-
-

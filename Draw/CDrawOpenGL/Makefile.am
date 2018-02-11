@@ -12,9 +12,8 @@ AM_CXXFLAGS = \
 
 lib_LTLIBRARIES = libcdrawopengl.la
 
-libcdrawopengl_la_SOURCES = \
-		CDrawOpenGL.cpp
+libcdrawopengl_la_SOURCES = CDrawOpenGL.cpp
 
 libcdrawopengl_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcdrawopengl_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libcdrawopengl_la_LIBADD = ../VDraw/libvdraw.a
+libcdrawopengl_la_LIBADD = ../VDraw/libvdraw.a ../VDrawOpenGL/libvdrawopengl.a

@@ -13,5 +13,3 @@ SUBDIRS = . \
 	Draw/VDrawOpenGL \
 	Draw/CDrawOpenGL \
 	WorkbenchShared
-#SUBDIRS = . Platform Platform/Platform_specs Common Common/Common_specs
-##Gadget Logfile Platform VSAShared 

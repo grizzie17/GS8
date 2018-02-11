@@ -25,23 +25,24 @@ pushd $THISDIR >/dev/null
 
 	echo "configure..."
 
-	case `uname -o` in
-	Msys )
-		echo "...WIN64"
-		export CPPFLAGS="\
-			-DWIN64 -D_WIN64 \
-		"
-		;;
-	*[Ll]inux )
-		echo "...linux"
-		export CPPFLAGS="\
-			-DLINUX -DLinux -Dlinux \
-		"
-		;;
-	* )
-		echo "...undefined"
-		;;
-	esac
+	#case `uname -o` in
+	#Msys )
+	#	echo "...WIN64"
+	#	export CPPFLAGS="\
+	#		-DWIN64 -D_WIN64 \
+	#	"
+	#	;;
+	#*[Ll]inux )
+	#	echo "...linux"
+	#	export CPPFLAGS="\
+	#		-DLINUX -DLinux -Dlinux \
+	#	"
+	#	;;
+	#* )
+	#	echo "...undefined"
+	#	;;
+	#esac
+	#tr '\r' '\n' $THISDIR/configure
 	mkdir -p $THISDIR/build  ||  exit $?
 	pushd $THISDIR/build >/dev/null
 		$THISDIR/configure --prefix=$THISDIR/build  ||  exit $?
