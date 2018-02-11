@@ -296,6 +296,12 @@
 #	if defined( _GTK_ )  ||  defined( GTK )
 #		define	GL_GTK	1
 #	endif
+	/*-------------------------------------------- MSYS (POSIX) */
+#	if defined( __MSYS__ )
+#		define	OS_MSYS			1
+#		define	OS_LINUX_MSYS	1
+#	endif
+
 #	define _POSIX_ASYNCHRONOUS_IO 1
 #	include <semaphore.h>
 
@@ -609,10 +615,10 @@
 /*
 //	identify serial i/o
 */
-#if defined( _POSIX_ASYNCHRONOUS_IO )
-#	define SERIAL_POSIX		1
-#elif defined( OS_MSWIN )
+#if defined( OS_MSWIN )
 #	define SERIAL_WINDOWS	1
+#elif defined( _POSIX_ASYNCHRONOUS_IO )
+#	define SERIAL_POSIX		1
 #else
 #	error "SERIAL_xxxx macro is undefined"
 #endif
