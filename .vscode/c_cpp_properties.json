@@ -136,7 +136,7 @@
             }
         },
         {
-            "name": "Linux",
+            "name": "MSYS",
             "includePath": [
                 ".",
                 "..",
@@ -163,9 +163,6 @@
                 "C:\\msys64\\usr\\lib\\gcc\\x86_64-pc-msys\\6.4.0\\include\\c++\\backward"
             ],
             "defines": [
-                "MSYS64_SYSROOT=C:/msys64",
-                "MSYS64_PREFIX=/C/msys64/usr",
-                "MSYS64_MSYS=/C/msys64/usr/lib/gcc/x86_64-pc-msys/6.4.0",
                 "SHELL=/C/msys64/usr/bin/bash.exe",
                 "PATH=/C/msys64/usr/bin",
                 "_DEBUG",
