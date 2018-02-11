@@ -11,8 +11,7 @@ AM_CXXFLAGS = \
 
 lib_LIBRARIES = libvdrawopengl.a
 
-libvdrawopengl_a_SOURCES = \
-		VDrawOpenGL.cpp
+libvdrawopengl_a_SOURCES = VDrawOpenGL.cpp
 
 libvdrawopengl_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libvdrawopengl_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)

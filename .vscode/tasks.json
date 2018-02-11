@@ -22,10 +22,10 @@
 		//	"problemMatcher": []
 		//},
 		{
-			"label": "path",
+			"label": "echo",
 			"type": "shell",
-			"command": "echo",
-			"args": ["\"$PATH\""],
+			"command": "echo ${env:CONFNAME}",
+			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},
 		//{
@@ -51,6 +51,20 @@
 		//	}
 		//},
 		{
+			"label": "autoheader",
+			"type": "shell",
+			"command": "autoheader",
+			"group": "build",
+			"problemMatcher": {
+				"pattern": {
+					"regexp": "^([^:]+):([0-9]+):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"message": 3
+				}
+			}
+		},
+		{
 			"label": "configure",
 			"type": "shell",
 			"command": "./build-config.sh",
@@ -61,7 +75,14 @@
 			// 		"_WIN64": "1"
 			// 	}
 			// },
-			"problemMatcher": []
+			"problemMatcher": {
+				"pattern": {
+					"regexp": "^([^:]+):\\s+([^:]+):\\s+(.*)$",
+					"file": 1,
+					"severity": 2,
+					"message": 3
+				}
+			}
 		},
 		{
 			"label": "clean-objects",

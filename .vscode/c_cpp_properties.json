@@ -1,9 +1,10 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "MSYS",
             "intelliSenseMode": "clang-x64",
             "defines": [
+                "CONFNAME=MSYS",
                 "_DEBUG",
                 "UNICODE",
                 "_WIN32",
@@ -72,6 +73,7 @@
             "name": "wsl",
             "intelliSenseMode": "clang-x64",
             "defines": [
+                "CONFNAME=wsl",
                 "_DEBUG",
                 "UNICODE",
                 "linux",

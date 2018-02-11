@@ -182,3 +182,5 @@ Makefile.in
 
 
 # End of https://www.gitignore.io/api/visualstudiocode
+Platform/config.h.in~
+libtool

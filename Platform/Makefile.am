@@ -27,7 +27,7 @@ libplatform_a_SOURCES = \
 		UPlatformString.cpp \
 		UPlatformThreads.cpp \
 		UPlatformTime.cpp
-libplatform_a_CXXFLAGS = $(CXXFLAGS)
-libplatform_a_CPPFLAGS = $(CPPFLAGS)
+libplatform_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libplatform_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 
 
