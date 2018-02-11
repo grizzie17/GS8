@@ -7,10 +7,6 @@
                 "CONFNAME=MSYS",
                 "_DEBUG",
                 "UNICODE",
-                "_WIN32",
-                "_WIN64",
-                "WIN32",
-                "WIN64",
                 "__GNUC__=6",
                 "__cdecl=__attribute__((__cdecl__))"
             ],
@@ -136,7 +132,7 @@
             }
         },
         {
-            "name": "MSYS",
+            "name": "linux",
             "includePath": [
                 ".",
                 "..",
