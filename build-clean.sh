@@ -9,7 +9,7 @@ pushd $THISDIR >/dev/null
 rm -rf \
 	aclocal.m4 ar-lib autom4te.cache \
 	build build.log \
-	compile configure config.guess config.sub config.h.in config.log config.status \
+	compile configure config.guess config.sub config.log config.status \
 	depcomp .deps */.deps \
 	install-sh install.sh \
 	ltmain.sh \
