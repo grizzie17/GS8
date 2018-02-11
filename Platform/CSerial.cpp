@@ -43,9 +43,13 @@
 #include <dirent.h>
 #include <errno.h>
 
+#if defined( __CYGWIN__ )
+#include <cygwin/fs.h>
+#else
 #include <linux/fs.h>
 #include <linux/serial.h>
 #include <linux/tty.h>
+#endif
 
 #elif defined( SERIAL_WINDOWS )
 
