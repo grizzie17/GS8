@@ -28,7 +28,10 @@
 \+---------------------------------------------------------------------*/
 #include "UOSIncludes.h"
 #include "UTypes.h"
-#if defined( OS_LINUX )
+#if defined( OS_MSWIN )
+#	include <windows.h>
+#	include <w32api/synchapi.h>
+#elif defined( OS_LINUX )
 #	include <sys/time.h>
 #endif
 

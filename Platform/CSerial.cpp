@@ -43,7 +43,7 @@
 #include <dirent.h>
 #include <errno.h>
 
-#if defined( __CYGWIN__ )
+#if defined( OS_MSWIN_MSYS )
 #include <cygwin/fs.h>
 #else
 #include <linux/fs.h>

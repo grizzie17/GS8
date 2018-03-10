@@ -26,7 +26,7 @@ pushd $THISDIR >/dev/null
 	echo "configure..."
 
 	case `uname -o` in
-	Msys )
+	Msys | MSYS | msys )
 		echo "...WIN64"
 		export CPPFLAGS="-DWIN64"
 		;;

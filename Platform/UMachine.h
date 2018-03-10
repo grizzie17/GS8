@@ -201,6 +201,7 @@
 #		undef	MSDOS
 #	endif
 
+
 #	define	OS_MSWIN		1
 #	define	OS_MSWINDOWS	1
 #	define	GUI_MSWINDOWS	1
@@ -215,7 +216,9 @@
 #	undef __unix
 #	undef __unix__
 
-#	if defined( __GNUC__ )
+#	if defined( __MSYS__ )
+#		define	OS_MSWIN_MSYS	1
+#	elif defined( __GNUC__ )
 #		define	OS_MSWIN_GNU	1
 #	endif
 

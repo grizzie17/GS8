@@ -43,7 +43,11 @@
 #	endif
 //#	define INCL_WINSOCK_API_TYPEDEFS	1
 //#	define _WINSOCK_DEPRECATED_NO_WARNINGS 1
+#	if defined( __MINGW__ )
+#		include <_mingw.h>
+#	endif
 	BEGIN_IGNORE_WARNING(4820)
+#	include <wtypes.h>
 #	include <ws2def.h>
 #	include <winsock2.h>
 	END_IGNORE_WARNING

@@ -28,6 +28,20 @@
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},
+		{
+			"label": "c++ predefined variables",
+			"type": "shell",
+			"command": "echo | c++ -dM -E - ",
+			//"args": ["${env:CONFNAME}"],
+			"problemMatcher": []
+		},
+		{
+			"label": "c++ predefined include paths",
+			"type": "shell",
+			"command": "echo | gcc -xc++ -E -v - ",
+			//"args": ["${env:CONFNAME}"],
+			"problemMatcher": []
+		},
 		//{
 		//	"label": "make",
 		//	"type": "shell",
