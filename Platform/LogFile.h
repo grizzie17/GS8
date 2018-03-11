@@ -33,7 +33,7 @@
 // the following controls whether or not DbgPrint actually prints.
 #if defined(_DEBUG )
 	// comment out following line to hide DbgPrint
-#	define DBG_PRINT	1
+//#	define DBG_PRINT	1
 #else
 #	if defined( DBG_PRINT )
 #		undef DBG_PRINT
@@ -41,7 +41,7 @@
 #endif
 
 //comment out the following line to hide LogPrint
-#define	LOG_PRINT		1
+//#define	LOG_PRINT		1
 
 
 

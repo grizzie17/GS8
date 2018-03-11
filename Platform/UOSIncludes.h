@@ -46,12 +46,12 @@
 #	if defined( __MINGW__ )
 #		include <_mingw.h>
 #	endif
+#	include <windows.h>
 	BEGIN_IGNORE_WARNING(4820)
 #	include <wtypes.h>
 #	include <ws2def.h>
-#	include <winsock2.h>
+//#	include <winsock2.h>
 	END_IGNORE_WARNING
-#	include <windows.h>
 //#	include <crtdefs.h>
 #	include <winerror.h>
 #elif defined( OS_LINUX )  ||  defined( OS_MACINTOSH )  ||  defined( OS_UNIX )
@@ -72,8 +72,8 @@
 #	define __STDC_WANT_LIB_EXT1__	1
 #endif
 //#define MINGW_HAS_SECURE_API		1
-#include <string.h>
 #include <stddef.h>
+#include <string.h>
 BEGIN_IGNORE_WARNING(4820)	// empty space in packed struct
 #include <stdio.h>
 END_IGNORE_WARNING	// empty space in packed struct

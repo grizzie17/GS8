@@ -22,7 +22,7 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "echo",
+			"label": "CONFNAME",
 			"type": "shell",
 			"command": "echo ${env:CONFNAME}",
 			//"args": ["${env:CONFNAME}"],
@@ -31,7 +31,7 @@
 		{
 			"label": "c++ predefined variables",
 			"type": "shell",
-			"command": "echo | c++ -dM -E - ",
+			"command": "echo | c++ -dM -E - | sort",
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},
@@ -42,28 +42,6 @@
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},
-		//{
-		//	"label": "make",
-		//	"type": "shell",
-		//	"command": "make",
-		//	"options": {
-		//		"cwd": "build",
-		//		"env": {
-		//			"__STDC_WANT_SECURE_LIB__": "1"
-		//		}
-		//	},
-		//	"group": "build",
-		//	"problemMatcher": {
-		//		"base": "$gcc",
-		//		"fileLocation": "absolute"
-		//	},
-		//	"presentation": {
-		//		"echo": true,
-		//		"reveal": "always",
-		//		"focus": false,
-		//		"panel": "dedicated"
-		//	}
-		//},
 		{
 			"label": "autoheader",
 			"type": "shell",

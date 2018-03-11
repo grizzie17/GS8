@@ -45,8 +45,8 @@
 |								
 \+---------------------------------------------------------------------*/
 //#define OUTPUT_CONSOLE	1
-#define OUTPUT_LOGFILE		1
-#define LOGPRINT_TO_FILE	1
+//#define OUTPUT_LOGFILE		1
+//#define LOGPRINT_TO_FILE	1
 /*---------------------------------------------------------------------+\
 |							
 |	Local Type Definitions	
@@ -167,18 +167,18 @@ DebugConsole	g_console;
 
 #if defined( OUTPUT_CONSOLE )
 static bool x_bConsoleOpen = false;
-#endif
-
 static char x_sLogPath[1024] = {0};
 //static char g_sApplicationFolder[1024] = {0};
+#endif
 
+
+#if defined( OUTPUT_LOGFILE )
 static
 void	WriteLogFile
 		(
 		const char* sString
 		)
 {
-#if defined( OUTPUT_LOGFILE )
 	FILE*	pf;
 
 	CMutexLocker	oLocker(&g_oMutex);
@@ -202,12 +202,11 @@ void	WriteLogFile
 			fclose( pf );
 		}
 	}
-#else
-	UNREFERENCED_PARAMETER( sString );
-#endif
 
 }
+#endif
 
+#if defined( OUTPUT_CONSOLE )
 #if defined( OS_MSWIN )
 static
 void	LogToConsole
@@ -215,34 +214,35 @@ void	LogToConsole
 		const char*	sString
 		)
 {
-#if defined( OUTPUT_CONSOLE )
 #if defined( OS_MSWIN_WCE )
 	printf( "%s", sString );
 #else
 	std::cout << sString;
 #endif
-#else
-	UNREFERENCED_PARAMETER( sString );
-#endif
 }
+#endif
 #endif
 
 
 //extern "C" {
 
 
+#if defined( LOGPRINT_TO_FILE )
 static
 void LogFile(const char* sText)
 {
 	WriteLogFile(sText);
 }
+#endif
 
+#if defined( OUTPUT_CONSOLE )
 #if defined( OS_MSWIN )
 static
 void LogConsole(const char* sText)
 {
 	LogToConsole(sText);
 }
+#endif
 #endif
 
 

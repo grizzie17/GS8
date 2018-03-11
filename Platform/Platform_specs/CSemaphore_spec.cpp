@@ -3,6 +3,7 @@
 
 #include "UPlatform.h"
 #include "UPlatformThreads.h"
+#include "UPlatformTime.h"
 #include "CSemaphore.h"
 
 using namespace igloo;

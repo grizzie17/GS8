@@ -15,7 +15,7 @@ pushd $THISDIR >/dev/null
 
 	#second aclocal to get around problem with aclocal 1.15
 	echo "aclocal..."
-	aclocal -I m4 --install 2>/dev/null  ||  aclocal -I m4  ||  exit $?
+	aclocal -I m4 --install 2>/dev/null  ||  echo "Rerun aclocal..."  &&  aclocal -I m4  ||  exit $?
 
 	echo "autoconf..."
 	autoconf -f  ||  exit $?
@@ -28,7 +28,7 @@ pushd $THISDIR >/dev/null
 	case `uname -o` in
 	Msys | MSYS | msys )
 		echo "...WIN64"
-		export CPPFLAGS="-DWIN64"
+		export CPPFLAGS="-DWIN64 -D__MSYS__"
 		;;
 	*[Ll]inux )
 		echo "...linux"
@@ -38,6 +38,7 @@ pushd $THISDIR >/dev/null
 		echo "...undefined"
 		;;
 	esac
+	
 	mkdir -p $THISDIR/build  ||  exit $?
 	pushd $THISDIR/build >/dev/null
 		$THISDIR/configure --prefix=$THISDIR/build  ||  exit $?

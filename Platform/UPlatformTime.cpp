@@ -1238,7 +1238,11 @@ strftime(char * const s, const size_t maxsize, const char *format, const struct 
 #endif // OS_MSWIN_WCE
 
 
-#if defined( TIME_UNISTD )  ||  defined( OS_MSWIN_WCE )  ||  defined( OS_MACINTOSH )
+#if defined( OS_LINUX )  ||  \
+	defined( OS_MSWIN_WCE )  ||  \
+	defined( OS_MACINTOSH )  ||  \
+	defined( __MSYS__ )  ||  \
+	defined( __GNUC__ )
 
 /*---------------------------------------------------------------------+\
 

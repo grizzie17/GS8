@@ -7,7 +7,8 @@
                 "CONFNAME=MSYS",
                 "_DEBUG",
                 "UNICODE",
-                "WIN64"
+                "WIN64",
+                "__MSYS__"
             ],
             "includePath": [
                 ".",

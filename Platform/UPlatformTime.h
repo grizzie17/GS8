@@ -102,7 +102,11 @@ time_t w32_filetime_to_time_t(FILETIME* ft);
 #endif
 
 
-#if defined( OS_LINUX )  ||  defined( OS_MSWIN_WCE )  ||  defined( OS_MACINTOSH )  ||  defined( __GNUC__ )
+#if defined( OS_LINUX )  ||  \
+	defined( OS_MSWIN_WCE )  ||  \
+	defined( OS_MACINTOSH )  ||  \
+	defined( __MSYS__ )  ||  \
+	defined( __GNUC__ )
 
 errno_t	gmtime_s
 		(
