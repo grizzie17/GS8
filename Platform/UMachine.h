@@ -305,7 +305,7 @@
 #		define	OS_LINUX_MSYS	1
 #	endif
 
-#	define _POSIX_ASYNCHRONOUS_IO 1
+//#	define _POSIX_ASYNCHRONOUS_IO 1
 #	include <semaphore.h>
 
 
