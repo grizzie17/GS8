@@ -1,16 +1,10 @@
-/*---------------------------------------------------------------------+\
-|
-|	NamespaceRoot.h  --  brief description of what NamespaceCommon.h is for
-|
-|	Purpose:
-|
-| optional topics (delete if not used)
-|	Restrictions/Warnings:
-|	Formats:
-|	References:
-|	Notes:
-|
-\+---------------------------------------------------------------------*/
+//---------------------------------------------------------------------+\
+//
+//!	NamespaceRoot.h
+//!
+//!	Define macros for the 'root' namespace
+//
+//---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -33,7 +27,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
-//#define NAMESPACE_DEFINE_ROOT	(1)
+#define NAMESPACE_DEFINE_ROOT	(1)
 
 #ifdef NAMESPACE_DEFINE_ROOT
 
@@ -43,7 +37,8 @@
 #	define NAMESPACE_ROOT_PREFIX	BCGRoot::
 
 	// declare namespace
-	namespace BCGRoot {}
+	NAMESPACE_ROOT_BEGIN
+	NAMESPACE_ROOT_END
 
 
 #else

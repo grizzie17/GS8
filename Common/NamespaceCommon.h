@@ -1,16 +1,10 @@
-/*---------------------------------------------------------------------+\
-|
-|	NamespaceCommon.h  --  brief description of what NamespaceCommon.h is for
-|
-|	Purpose:
-|
-| optional topics (delete if not used)
-|	Restrictions/Warnings:
-|	Formats:
-|	References:
-|	Notes:
-|
-\+---------------------------------------------------------------------*/
+//---------------------------------------------------------------------+\
+//
+//!	NamespaceCommon.h
+//!
+//! define macros for the 'namespace Common'
+//
+//---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -21,7 +15,7 @@
 \+---------------------------------------------------------------------*/
 #ifndef _H_NamespaceCommon
 #define _H_NamespaceCommon
-#pragma once
+//#pragma once
 /*---------------------------------------------------------------------+\
 |																		|
 |	Include Files														|
@@ -39,7 +33,7 @@
 
 
 
-//#define NAMESPACE_DEFINE_COMMON	(1)
+#define NAMESPACE_DEFINE_COMMON	(1)
 
 
 

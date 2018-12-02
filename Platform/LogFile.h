@@ -23,7 +23,11 @@
 |						
 \+---------------------------------------------------------------------*/
 
+#include "NamespaceRoot.h"
+
 #include "UMachine.h"
+
+NAMESPACE_ROOT_BEGIN
 
 /*---------------------------------------------------------------------+\
 |						
@@ -31,7 +35,7 @@
 |						
 \+---------------------------------------------------------------------*/
 // the following controls whether or not DbgPrint actually prints.
-#if defined(_DEBUG )
+#if defined( _DEBUG )
 	// comment out following line to hide DbgPrint
 //#	define DBG_PRINT	1
 #else
@@ -174,5 +178,5 @@ void	LogPrint
 
 
 
-
+NAMESPACE_ROOT_END
 #endif // _H_LogFile
