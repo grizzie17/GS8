@@ -41,6 +41,7 @@
 #else
 #	error "signal processing library not defined"
 #endif
+#include "NamespaceRoot.h"
 NAMESPACE_ROOT_BEGIN
 /*---------------------------------------------------------------------+\
 |																		|

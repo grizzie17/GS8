@@ -1,9 +1,8 @@
-AM_CPPFLAGS = \
+AM_CPPFLAGS += \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Draw/VDraw
-AM_CXXFLAGS = \
-		-fPIC -Wall -Werror
+AM_CXXFLAGS += -fPIC
 
 
 

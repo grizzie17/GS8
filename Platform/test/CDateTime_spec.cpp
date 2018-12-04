@@ -2,18 +2,18 @@
 #include "stdafx.h"
 #include <vector>
 
+
+
+#include "CDateTime.h"
+
 #include "igloo/igloo.h"
+using namespace igloo;
+USING_NAMESPACE_ROOT
 
 #define Describe(x)	Context(x)
 #define	It(x)		Spec(x)
 
 
-#include "CDateTime.h"
-
-using namespace igloo;
-
-
-USING_NAMESPACE_ROOT
 
 Describe(CDateTime_class)
 {

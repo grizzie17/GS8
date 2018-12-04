@@ -2,10 +2,10 @@
 #include "stdafx.h"
 #include <string.h>
 #include <float.h>
-#include "igloo/igloo.h"
 
 #include "TCharDescriptor.h"
 
+#include "igloo/igloo.h"
 using namespace igloo;
 
 USING_NAMESPACE_ROOT

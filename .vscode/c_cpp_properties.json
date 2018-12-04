@@ -3,7 +3,7 @@
         {
             "name": "MSYS",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/msys64/usr/bin/x86_64-pc-msys-gcc.exe",
+            "compilerPath": "C:\\msys64\\usr\\bin\\x86_64-pc-msys-gcc.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "defines": [
@@ -14,11 +14,17 @@
             ],
             "includePath": [
                 ".",
-                "..",
                 "${fileDirname}",
                 "${workspaceFolder}",
                 "${workspaceFolder}\\**",
-                "${workspaceFolder}\\**\\**"
+                "${workspaceFolder}\\**\\**",
+                "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include/c++",
+                "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include/c++/x86_64-pc-msys",
+                "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include/c++/backward",
+                "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include",
+                "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include-fixed",
+                "C:/msys64/usr/include",
+                "C:/msys64/usr/include/w32api"
             ]
         },
         {
@@ -31,11 +37,10 @@
                 "CONFNAME=wsl",
                 "_DEBUG",
                 "UNICODE",
-                "__cdecl=__attribute__((__cdecl__))"
+                "LINUX"
             ],
             "includePath": [
                 ".",
-                "..",
                 "${fileDirname}",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
@@ -48,17 +53,17 @@
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
             "cppStandard": "c++17",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "LINUX"
+            ],
             "includePath": [
                 ".",
-                "..",
                 "${fileDirname}",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE"
             ]
         }
     ],

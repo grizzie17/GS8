@@ -22,12 +22,21 @@ LT_INIT
 
 AC_LANG([C++])
 
-AX_CXX_COMPILE_STDCXX_11([noext],[manditory])
+case `uname -o` in
+[Mm]sys )
+	CPPFLAGS = "-DMSYS"
+	;;
+[Ll]inux* )
+	;;
+esac
+
+#AX_CXX_COMPILE_STDCXX_11([noext],[manditory])
 
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h float.h limits.h memory.h netdb.h netinet/in.h stddef.h stdint.h stdlib.h string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h termios.h unistd.h])
 
 AC_CONFIG_FILES([
 	Makefile
 	Platform_specs/Makefile
+])
 AC_OUTPUT
 

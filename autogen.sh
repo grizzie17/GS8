@@ -74,17 +74,24 @@ need_automake=no
 grep '^[ \t]*AM_INIT_AUTOMAKE' $CONFIGURE_F  &>/dev/null
 [ 0 -eq $? ]  &&  need_automake=yes
 
+## libtoolize ##
+need_libtoolize=no
+grep '^[ \t]*LT_INIT' $CONFIGURE_F  &>/dev/null
+[ 0 -eq $? ]  &&  need_libtoolize=yes
+
 
 pushd $CONFIGURE_D >/dev/null
 
-	echo "...libtoolize... $LIBTOOLIZE_V"
-	libtoolize --automake -c -f  ||  fatal $? "libtoolize exited with an error"
+	if [ "Xyes" = "X$need_libtoolize" ]; then
+		echo "...libtoolize... $LIBTOOLIZE_V"
+		libtoolize --automake -c -f  ||  fatal $? "libtoolize exited with an error"
+	fi
 
 	mkdir -p $CONFIGURE_D/m4  ||  fatal $? "unable to make $THISDIR/m4"
 
 	#second aclocal to get around problem with aclocal 1.15
 	echo "...aclocal... $ACLOCAL_V"
-	aclocal -I m4 --install 2>/dev/null  ||  echo "Rerun aclocal..."  &&  aclocal -I m4  ||  fatal $? "aclocal exited with an error"
+	aclocal -I m4 --install 2>/dev/null  ||  echo "...:::aclocal rerun..."  &&  aclocal -I m4  ||  fatal $? "aclocal exited with an error"
 
 	echo "...autoconf... $AUTOCONF_V"
 	autoconf -f  ||  fatal $? "autoconf exited with an error"
@@ -96,6 +103,7 @@ pushd $CONFIGURE_D >/dev/null
 
 	if [ "Xyes" = "X$need_automake" ]; then
 		echo "...automake... $AUTOMAKE_V"
+		export AUTOMAKE_JOBS=4
 		automake --add-missing --copy --force-missing  ||  fatal $? "automake exited with an error"
 	fi
 

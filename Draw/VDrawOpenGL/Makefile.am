@@ -1,12 +1,11 @@
-AM_CPPFLAGS = \
+AM_CPPFLAGS += \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Draw/VDraw \
 		-I$(top_srcdir)/Gadget \
 		-I$(top_srcdir)/VSAShared \
 		-I$(top_srcdir)/LogFile
-AM_CXXFLAGS = \
-		-fPIC -Wall -Werror
+AM_CXXFLAGS += -fPIC
 
 
 lib_LIBRARIES = libvdrawopengl.a

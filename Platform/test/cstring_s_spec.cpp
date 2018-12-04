@@ -1,9 +1,9 @@
-#include "igloo/igloo.h"
 
 #define __STDC_WANT_SECURE_LIB__ 1
 #include <string.h>
 
 
+#include "igloo/igloo.h"
 using namespace igloo;
 
 

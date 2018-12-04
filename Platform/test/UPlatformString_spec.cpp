@@ -1,4 +1,3 @@
-#include "igloo/igloo.h"
 
 #include "UPlatformString.h"
 #include "UPlatformIO.h"
@@ -8,6 +7,7 @@
 
 
 
+#include "igloo/igloo.h"
 using namespace igloo;
 
 

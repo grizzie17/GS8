@@ -1,8 +1,10 @@
-AM_CPPFLAGS = \
+
+
+
+AM_CPPFLAGS += \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform
-AM_CXXFLAGS = \
-		-fPIC -Wall -Werror
+AM_CXXFLAGS += -fPIC
 
 
 lib_LIBRARIES = libcommon.a
@@ -33,7 +35,41 @@ libcommon_a_SOURCES = \
 		VPlugin.cpp \
 		VPluginWithAggregate.cpp \
 		VPluginWithAggregateList.cpp \
-		VSupports.cpp
+		VSupports.cpp \
+		XMLLiteImpl.cpp
 libcommon_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcommon_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+
+
+
+TESTS = common_specs
+bin_PROGRAMS = common_specs
+EXTRA_common_specs_DEPENDENCIES = libcommon.a
+
+CHKCPPFLAGS = \
+		-I$(top_srcdir)/Platform/test \
+		-I$(top_srcdir)/3rdParty/igloo
+common_specs_SOURCES = \
+	test/Common_specs.cpp \
+	\
+	test/CMatrix3x3_spec.cpp \
+	test/CUnitsOfMeasure_spec.cpp \
+	test/CVariables_spec.cpp \
+	test/CVariantData_spec.cpp \
+	test/TComPointer_spec.cpp \
+	test/TDictionaryIndexed_spec.cpp \
+	test/TQueue_spec.cpp
+common_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
+common_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
+common_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+		-L$(top_builddir)/Platform \
+		-L$(top_builddir)/Common
+common_specs_LDADD = \
+		-lcommon \
+		-lplatform \
+		-lpthread -ldl
+
+
+check-local:
+	$(top_builddir)/Common/common_specs
 

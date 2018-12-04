@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "igloo/igloo.h"
 
 #include "UPlatform.h"
 #include "UPlatformThreads.h"
 #include "UPlatformTime.h"
 #include "CSemaphore.h"
 
+#include "igloo/igloo.h"
 using namespace igloo;
 
 USING_NAMESPACE_ROOT

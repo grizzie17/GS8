@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "igloo/igloo.h"
 
 #include "CColor.h"
 
+#include "igloo/igloo.h"
 using namespace igloo;
 
 USING_NAMESPACE_ROOT

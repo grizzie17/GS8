@@ -10,14 +10,14 @@
 	//------------------------------
 	// MSYS
 	//------------------------------
-	// "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
-	// "terminal.integrated.shellArgs.windows":[
-	// 	"--login"
-	// ],
-    // "terminal.integrated.env.windows": {
-	// 	"MSYSTEM": "MINGW64",
-	// 	"CHERE_INVOKING": "1",
-	// },
+	"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+	"terminal.integrated.shellArgs.windows":[
+		"--login"
+	],
+    "terminal.integrated.env.windows": {
+		"MSYSTEM": "MINGW64",
+		"CHERE_INVOKING": "1",
+	},
 	//==End-Terminal=================
 	
 	"github.repositories": [
@@ -31,12 +31,12 @@
 		"**/.hg": true,
 		"**/CVS": true,
 		"**/.DS_Store": true,
-		"**/Makefile": true,
+		"**/Makefile": false,
 		"**/m4": true,
 		"**/autom4te.cache": true,
 		"**/ar-lib": true,
 		"**/compile": true,
-		"**/configure": true,
+		"**/configure": false,
 		"**/depcomp": true,
 		"**/install-sh": true,
 		"**/missing": true

@@ -1,15 +1,18 @@
-AM_CPPFLAGS = \
+
+
+
+
+AM_CPPFLAGS += \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Draw/VDraw
-AM_CXXFLAGS = \
-		-fPIC -Wall -Werror
+AM_CXXFLAGS += -fPIC
 
 
 
-lib_LIBRARIES = libgadget.a
+lib_LTLIBRARIES = libgadget.la
 
-libgadget_a_SOURCES = \
+libgadget_la_SOURCES = \
 		CAction.cpp \
 		CApplicationGauge.cpp \
 		CApplicationGaugeOpenGL.cpp \
@@ -166,7 +169,42 @@ libgadget_a_SOURCES = \
 		VOwnership.cpp \
 		VPanelChild.cpp \
 		VPolylist.cpp
-libgadget_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libgadget_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libgadget_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libgadget_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) -L$(top_builddir)/Draw/VDraw
 
 
+
+
+
+TESTS = gadget_specs
+bin_PROGRAMS = gadget_specs
+EXTRA_gadget_specs_DEPENDENCIES = libgadget.la
+
+CHKCPPFLAGS = \
+		-I$(top_srcdir)/Platform/test \
+		-I$(top_srcdir)/Common/test \
+		-I$(top_srcdir)/3rdParty/igloo
+CHKLDFLAGS = \
+		-L$(top_builddir)/Common \
+		-L$(top_builddir)/Platform \
+		-L$(top_builddir)/Gadget
+
+gadget_specs_SOURCES = \
+	Gadget_specs.cpp \
+	\
+	CKeyNames_spec.cpp \
+	CQueue_spec.cpp \
+	Equations_spec.cpp
+gadget_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
+gadget_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
+gadget_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(CHKLDFLAGS)
+gadget_specs_LDADD = \
+		-lgadget \
+		-lcommon \
+		-lplatform \
+		-lpthread -ldl
+
+
+check-local:
+	$(top_builddir)/Gadget/gadget_specs

@@ -31,7 +31,7 @@
 		{
 			"label": "c++ predefined variables",
 			"type": "shell",
-			"command": "echo | c++ -dM -E - | sort",
+			"command": "echo | x86_64-pc-msys-gcc -xc++ -dM -E -mwindows - | sort",
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},

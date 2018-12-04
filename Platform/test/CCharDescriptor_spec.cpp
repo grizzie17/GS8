@@ -1,5 +1,4 @@
 //#include "stdafx.h"
-#include "igloo/igloo.h"
 
 #include <string.h>
 
@@ -7,6 +6,7 @@
 
 #include "CCharDescriptor.h"
 
+#include "igloo/igloo.h"
 using namespace igloo;
 
 USING_NAMESPACE_ROOT

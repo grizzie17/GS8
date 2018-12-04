@@ -6,17 +6,26 @@ echo "cleaning..."
 
 pushd $THISDIR >/dev/null
 
-rm -rf \
-	aclocal.m4 ar-lib autom4te.cache \
-	build build.log \
-	compile configure config.guess config.sub config.log config.status \
-	depcomp .deps */.deps \
-	install-sh install.sh \
-	ltmain.sh \
-	m4 Makefile Makefile.in */Makefile */Makefile.in */*/Makefile.in missing \
-	test-driver \
-	*/*.o */*/*.o
-sts=$?
+
+	for f in `find $THISDIR -name Makefile.am`
+	do
+		x="${f%.am}"
+		[ -e "$x" ]  &&  rm -f $x
+		x="$x.in"
+		[ -e "$x" ]  &&  rm -f $x
+	done
+
+	rm -rf \
+		aclocal.m4 ar-lib autom4te.cache \
+		build \
+		compile configure config.guess config.sub config.log config.status config.h.in \
+		depcomp .deps */.deps \
+		install-sh install.sh \
+		ltmain.sh \
+		m4 missing \
+		test-driver \
+		*/*.o */*/*.o
+	sts=$?
 
 popd >/dev/null
 

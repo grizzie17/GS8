@@ -9,6 +9,7 @@ Debug*
 Release*
 patches
 Makefile
+makefile
 ipch
 .codelite
 .deps

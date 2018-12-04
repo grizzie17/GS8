@@ -3,17 +3,17 @@
 
 AC_PREREQ([2.69])
 AC_INIT([GS8], [8.0.0], [john@grizzlyweb.com])
-AC_CONFIG_SRCDIR([Platform/CCharString.h])
-AC_CONFIG_HEADERS([Platform/config.h])
+AC_CONFIG_SRCDIR([GS8.md])
+AC_CONFIG_HEADERS([config.h])
 
 
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([-Wall -Werror foreign])
+AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
 
-EXTERNAL_CFLAGS="$(CFLAGS)"
-EXTERNAL_CXXFLAGS="$(CXXFLAGS)"
-EXTERNAL_CPPFLAGS="$(CPPFLAGS)"
+EXTERNAL_CFLAGS="$CFLAGS"
+EXTERNAL_CXXFLAGS="$CXXFLAGS"
+EXTERNAL_CPPFLAGS="$CPPFLAGS"
 
 # Checks for programs.
 AC_PROG_CXX
@@ -24,6 +24,7 @@ AM_PROG_AR
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
+AC_PROG_RANLIB
 
 #AC_PROG_RANLIB
 #AC_PROG_LIBTOOL
@@ -54,10 +55,12 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
 #ifndef __STDC_WANT_SECURE_LIB__
 # define __STDC_WANT_SECURE_LIB__ 1
 #endif])
-AH_VERBATIM([_POSIX_REALTIME_SIGNALS], [/* we want posix library  */
-#ifndef _POSIX_REALTIME_SIGNALS
-# define _POSIX_REALTIME_SIGNALS 1
-#endif])
+# AH_VERBATIM([_POSIX_REALTIME_SIGNALS], [/* we want posix library  */
+# #ifndef _POSIX_REALTIME_SIGNALS
+# # define _POSIX_REALTIME_SIGNALS 1
+# #endif])
+
+
 
 
 
@@ -87,18 +90,48 @@ AC_FUNC_MKTIME
 AC_FUNC_REALLOC
 AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
 
+GLOBAL_CXXFLAGS=" -std=c++11 -Werror -Wall"
+case `uname -o` in
+[Mm]sys* | mingw* )
+WDEFS="-DMSYS -DWIN64 -U__unix -U__unix__ -Uunix"
+AM_CPPFLAGS="$WDEFS"
+AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
+CC="x86_64-pc-msys-gcc $WDEFS"
+CXX="x86_64-pc-msys-g++ $WDEFS"
+EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
 AC_CONFIG_FILES([
-	Platform/Makefile
-	Platform/Platform_specs/Makefile
-	Common/Makefile
-	Common/Common_specs/Makefile
-	Gadget/Makefile
-	Gadget/Gadget_specs/Makefile
-	Draw/VDraw/Makefile
+	Draw/VGDI/Makefile
+	Draw/CDrawWin/Makefile
+	WorkbenchWin/Makefile
+])
+AC_SUBST([CC])
+AC_SUBST([CXX])
+;;
+
+[Ll]inux* )
+AM_CPPFLAGS="-DLINUX"
+AM_CXXFLAGS="${GLOBAL_CXXFLAGS}"
+EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
+AC_CONFIG_FILES([
 	Draw/VDrawOpenGL/Makefile
 	Draw/CDrawOpenGL/Makefile
+	WorkbenchGLUT/Makefile
+])
+;;
+esac
+AC_SUBST([AM_CPPFLAGS])
+AC_SUBST([AM_CXXFLAGS])
+AC_SUBST([EXTSUBDIRS])
+
+
+AC_CONFIG_FILES([
+	Platform/Makefile
+	Common/Makefile
+	Draw/VDraw/Makefile
+	Draw/CDrawTmxWin/Makefile
+	Gadget/Makefile
 	VSAShared/Makefile
 	WorkbenchShared/Makefile
-	Makefile
 ])
+AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
