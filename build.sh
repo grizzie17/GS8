@@ -16,25 +16,35 @@ function tweak_paths_for_windows() {
 }
 
 
-pushd $THISDIR/build >/dev/null
+pushd $THISDIR/build/Gadget >/dev/null
 
 mkdir -p bin
 mkdir -p lib
 
 
-	case `uname -o` in
-	Msys | MSYS | msys )
-		echo "...WIN64"
-		export CPPFLAGS="-DWIN64"
-		;;
-	*[Ll]inux )
-		echo "...linux"
-		#export CPPFLAGS="-DLINUX -DLinux -Dlinux"
-		;;
-	* )
-		echo "...undefined"
-		;;
-	esac
-make -j 4 2>&1  |  tee ./build.log  | tweak_paths_for_windows
+case `uname -s` in
+Msys | MSYS | msys | CYGWIN* )
+	echo "...WIN64"
+	export CPPFLAGS="-DWIN64"
+	function tweak_paths() {
+		cat -  | \
+			sed \
+				-e ':x; s@[^/][^/]*/\.\./@@;t x' \
+				-e ':y; s@^\.\./@@g; t y' \
+				-e "s@$THISDIR/@@g"
+	}
+	;;
+[Ll]inux )
+	echo "...linux"
+	#export CPPFLAGS="-DLINUX -DLinux -Dlinux"
+	function tweak_paths() {
+		cat -
+	}
+	;;
+* )
+	echo "...undefined"
+	;;
+esac
+make -j 4 2>&1  |  tee ./build.log  | tweak_paths
 
 popd >/dev/null

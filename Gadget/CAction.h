@@ -72,10 +72,12 @@ public:
 
 	bool		Merge( CActionPtr p );
 
+	friend CAction;
+
 protected:
 //	protected types  ----------------------------------------------------
 
-	typedef TArray<CTriggerPtr>	CTriggerList;
+	typedef NAMESPACE_ROOT_PREFIX TArray<CTriggerPtr>	CTriggerList;
 
 //	protected functions  ------------------------------------------------
 

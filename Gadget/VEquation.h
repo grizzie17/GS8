@@ -61,7 +61,7 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	virtual CVariantData	GetValue(VDictionaryPtr pDict) = 0;
+	virtual NAMESPACE_COMMON_PREFIX CVariantData	GetValue(VDictionaryPtr pDict) = 0;
 	virtual VEquationPtr	Clone( void ) = 0;
 
 protected:

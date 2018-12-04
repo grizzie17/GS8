@@ -51,7 +51,7 @@
 
 
 #define	ROOT_ISUPPORTS( pThis )	\
-		(( ISupportsPtr)(ISupportsNonDelegatingPtr)(pThis))
+		((NAMESPACE_COMMON_PREFIX ISupportsPtr)(NAMESPACE_COMMON_PREFIX ISupportsNonDelegatingPtr)(pThis))
 
 
 #define	QI_THIS_( ifname )	static_cast<ifname*>(ThisQueryInterface( IXID_##ifname ))
@@ -84,7 +84,7 @@ private:							\
 #define	DECLARE_ISUPPORTS			\
 public:								\
 virtual								\
-void*	QueryInterface( ConstIXIDRef rIID,  NResultPtr pResult = 0 )	\
+void*	QueryInterface( NAMESPACE_COMMON_PREFIX ConstIXIDRef rIID,  NAMESPACE_COMMON_PREFIX NResultPtr pResult = 0 )	\
 {									\
 	return GetOwner()->QueryInterface( rIID, pResult );	\
 };									\

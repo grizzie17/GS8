@@ -71,8 +71,8 @@ public:
 	CDictionarySelectorRef	operator=( ConstCDictionarySelectorRef r );		// assignment
 
 	void					SetName( const char* sName );
-	void					SetName( ConstCCharDescriptorRef rName);
-	CCharStringPtr			Name(void);
+	void					SetName( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rName);
+	NAMESPACE_ROOT_PREFIX CCharStringPtr	Name(void);
 
 	VDictionary::Selector	GetSelector( VDictionaryPtr pDict );
 
@@ -83,8 +83,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	VDictionary::Selector	m_nSelector;
-	CCharString				m_tName;
+	VDictionary::Selector				m_nSelector;
+	NAMESPACE_ROOT_PREFIX CCharString	m_tName;
 
 private:
 //	private functions  --------------------------------------------------

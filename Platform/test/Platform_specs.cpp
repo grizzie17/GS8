@@ -1,7 +1,7 @@
 // Common_tests.cpp : Defines the entry point for the console application.
 //
-#include <stdlib.h>
 #include "stdafx.h"
+#include <stdlib.h>
 #include "CheckLeaks.h"
 #include "MyTestRunner.h"
 

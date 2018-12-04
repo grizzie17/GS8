@@ -2,7 +2,6 @@
 #define IGGY_H
 
 
-#include <process.h>
 
 #include "igloo/igloo.h"
 

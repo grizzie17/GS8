@@ -2177,8 +2177,8 @@ CScreenPtr
 		void
 		)
 {
-	CFactoryScreen		factoryScreen;
-	ISupportsPtr		pExt;
+	CFactoryScreen							factoryScreen;
+	NAMESPACE_COMMON_PREFIX ISupportsPtr	pExt;
 
 	if ( ! m_pFactoryExternalXML )
 	{

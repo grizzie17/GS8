@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 AM_CPPFLAGS += \
 		-I$(top_srcdir)/Platform
 AM_CXXFLAGS += -fPIC

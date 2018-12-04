@@ -169,21 +169,21 @@ private:
 };
 
 
-class VDictionaryEnumerator : public TEnumerator<CVariantData>
+class VDictionaryEnumerator : public NAMESPACE_ROOT_PREFIX TEnumerator<NAMESPACE_COMMON_PREFIX CVariantData>
 {
 public:
 	virtual	~VDictionaryEnumerator( void ) {};
 
 public:
 
-	virtual bool			MoveNext( void ) = 0;
-	virtual void			Reset( void ) = 0;
-	virtual	CVariantData*	Current(void) = 0;
+	virtual bool									MoveNext( void ) = 0;
+	virtual void									Reset( void ) = 0;
+	virtual	NAMESPACE_COMMON_PREFIX CVariantData*	Current(void) = 0;
 
-	virtual long			ID( void ) = 0;
-	virtual CCharString		Key(void) = 0;
-	virtual CVariantData	Value(void) = 0;
-	virtual char			Page( void ) = 0;
+	virtual long									ID( void ) = 0;
+	virtual NAMESPACE_ROOT_PREFIX CCharString		Key(void) = 0;
+	virtual NAMESPACE_COMMON_PREFIX CVariantData	Value(void) = 0;
+	virtual char									Page( void ) = 0;
 };
 
 /*---------------------------------------------------------------------+\

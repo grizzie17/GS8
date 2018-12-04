@@ -153,8 +153,8 @@ public:
 	// command service functions
 	virtual	bool	ReloadScreen( void );
 	virtual bool	Blackout( bool b );
-	virtual bool	BackgroundColor( ConstCColorRef rColor );
-	virtual bool	WindowTitle( ConstCCharDescriptorRef rChar );
+	virtual bool	BackgroundColor( NAMESPACE_ROOT_PREFIX ConstCColorRef rColor );
+	virtual bool	WindowTitle(NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rChar );
 	virtual bool	PostCalculateNeeded( void );
 
 	void			SetDraw( VDrawPtr p );
@@ -163,11 +163,11 @@ public:
 	CScreenPtr		Screen( void );
 
 	virtual
-	ConstCCharStringRef		GetUserID( void );
+	NAMESPACE_ROOT_PREFIX ConstCCharStringRef		GetUserID( void );
 	virtual
 	long					GetUserIDNumber( void );
 
-	virtual VConfigurationPtr		Configuration( void );
+	virtual NAMESPACE_COMMON_PREFIX VConfigurationPtr		Configuration( void );
 
 	virtual void					DumpDictionary( void );
 	virtual VDictionaryPtr			Dictionary( void );
@@ -193,14 +193,14 @@ public:
 	virtual bool	Size( int x, int y );	// window/screen re/size
 	virtual bool	GetClientSize( int* pWidth, int* pHeight );
 
-	virtual bool	RegisterCOMObject( const char* sKey, ISupportsPtr p );
-	virtual ISupportsPtr
+	virtual bool	RegisterCOMObject( const char* sKey, NAMESPACE_COMMON_PREFIX ISupportsPtr p );
+	virtual NAMESPACE_COMMON_PREFIX ISupportsPtr
 					FindCOMObject( const char* sKey );
-	virtual ISupportsPtr
-					QueryCOMObject( ConstIXIDRef r );
+	virtual NAMESPACE_COMMON_PREFIX ISupportsPtr
+					QueryCOMObject( NAMESPACE_COMMON_PREFIX ConstIXIDRef r );
 
-	virtual bool	RegisterObject( const char* sKey, VObjectPtr p );
-	virtual VObjectPtr
+	virtual bool	RegisterObject( const char* sKey, NAMESPACE_COMMON_PREFIX VObjectPtr p );
+	virtual NAMESPACE_COMMON_PREFIX VObjectPtr
 					FindObject( const char* sKey );
 
 
@@ -218,7 +218,7 @@ public:
 	bool			OnMouseUp( int nButtonCode, uint_t mModifiers, GFLOAT x, GFLOAT y );
 	bool			OnMouseMove( int nButtonCode, uint_t mModifiers, GFLOAT x, GFLOAT y );
 	bool			OnMouseHover( int nButtonCode, uint_t mModifiers, GFLOAT x, GFLOAT y );
-	bool			SetMouseTransform( ISupportsPtr p );
+	bool			SetMouseTransform( NAMESPACE_COMMON_PREFIX ISupportsPtr p );
 
 
 	virtual bool	SendEvent( const char* sEventName, ConstCVariantDataRef rData );
@@ -246,11 +246,11 @@ protected:
 	virtual VDrawPtr					MakeDraw( void );
 	virtual VDictionaryPageServerPtr	MakeDictionary( void );
 	virtual CScreenPtr					MakeScreen( void );
-	virtual VConfigurationPtr			MakeConfiguration( void );
+	virtual NAMESPACE_COMMON_PREFIX VConfigurationPtr			MakeConfiguration( void );
 
 //	protected data  -----------------------------------------------------
 
-	CCharString				m_sScreenName;
+	NAMESPACE_ROOT_PREFIX CCharString		m_sScreenName;
 	long					m_nTimeLastCalculate;
 	long					m_nMaximumCalculateTime;
 	long					m_nMaximumUpdateTime;
@@ -285,18 +285,18 @@ protected:
 	unsigned long			m_nDictKeyState;		// down, up
 
 
-	CCharString				m_sUserID;
+	NAMESPACE_ROOT_PREFIX CCharString	m_sUserID;
 	long					m_nUserID;
 
 	IDrawPtr						m_pDraw;
-	TPointer<VDictionaryPageServer>	m_pDictionary;
-	TPointer<CQueue>				m_pEventQueue;
-	TPointer<CQueue>				m_pCommandQueue;
+	NAMESPACE_ROOT_PREFIX TPointer<VDictionaryPageServer>	m_pDictionary;
+	NAMESPACE_ROOT_PREFIX TPointer<CQueue>				m_pEventQueue;
+	NAMESPACE_ROOT_PREFIX TPointer<CQueue>				m_pCommandQueue;
 	VFunctionProcessorPtr			m_pCommandProcessor;
 	VFunctionProcessorPtr			m_pFunctionProcessor;
-	TPointer<CScreen>				m_pScreen;
-	TPointer<CMouseLocate>			m_pMouseLocate;
-	TPointer<VConfiguration>		m_pConfiguration;
+	NAMESPACE_ROOT_PREFIX TPointer<CScreen>				m_pScreen;
+	NAMESPACE_ROOT_PREFIX TPointer<CMouseLocate>			m_pMouseLocate;
+	NAMESPACE_ROOT_PREFIX TPointer<NAMESPACE_COMMON_PREFIX VConfiguration>		m_pConfiguration;
 
 	VDictionaryPagePtr		m_pDictPageActive;			// A - Active Page
 	VDictionaryPagePtr		m_pDictPageCommands;		// C - Command Page
@@ -306,10 +306,10 @@ protected:
 	VDictionaryPagePtr		m_pDictPageInput;			// I - Page
 	VDictionaryPagePtr		m_pDictPageNotify;			// N - Notifications
 
-	THashTable<CCharString, ISupportsPtr>	m_tCOMObjects;
-	THashTable<CCharString, VObjectPtr>		m_tObjects;
+	THashTable<NAMESPACE_ROOT_PREFIX CCharString, NAMESPACE_COMMON_PREFIX ISupportsPtr>	m_tCOMObjects;
+	THashTable<NAMESPACE_ROOT_PREFIX CCharString, NAMESPACE_COMMON_PREFIX VObjectPtr>		m_tObjects;
 
-	ISupportsPtr	m_pFactoryExternalXML;
+	NAMESPACE_COMMON_PREFIX ISupportsPtr	m_pFactoryExternalXML;
 
 private:
 //	private functions  --------------------------------------------------

@@ -74,7 +74,7 @@ public:
 	bool			Calculate( VDictionaryPtr pDict );
 
 	bool			SetName( const char* sName );
-	bool			SetName( ConstCCharDescriptorRef rName);
+	bool			SetName( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rName);
 	bool			SetEquation( VEquationPtr pEquation );
 	bool			Equals( VDictionaryPtr pDict, VDictionary::Selector ds );
 

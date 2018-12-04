@@ -40,16 +40,6 @@ AC_LANG([C++])
 AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 
 
-case `uname -o` in
-[Mm]sys )
-	AM_CPPFLAGS=" -DWIN64 "
-	;;
-[Ll]inux* )
-	AM_CPPFLAGS=" -DLINUX -I. -I.. "
-	;;
-esac
-
-AC_SUBST([AM_CPPFLAGS])
 
 
 
@@ -104,8 +94,8 @@ AC_FUNC_REALLOC
 AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
 
 GLOBAL_CXXFLAGS=" -std=c++11 -Werror -Wall"
-case `uname -o` in
-[Mm]sys* | mingw* )
+case `uname -s` in
+[Mm]sys* | mingw* | MINGW* )
 WDEFS="-DMSYS -DWIN64 -U__unix -U__unix__ -Uunix"
 AM_CPPFLAGS="$WDEFS"
 AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"

@@ -97,7 +97,13 @@
 		{
 			"label": "build",
 			"type": "shell",
-			"command": "./build.sh",
+			"command": "make",
+			"args": [
+				"-j4"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build/Gadget"
+			},
 			"group": {
 				"kind": "build",
 				"isDefault": true
@@ -105,7 +111,7 @@
 			"problemMatcher": {
 				"pattern": [
 					{
-						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+(error):\\s+(.*)$",
 						"file": 1,
 						"line": 2,
 						"column": 3,
