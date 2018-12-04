@@ -40,6 +40,19 @@ AC_LANG([C++])
 AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 
 
+case `uname -o` in
+[Mm]sys )
+	AM_CPPFLAGS=" -DWIN64 "
+	;;
+[Ll]inux* )
+	AM_CPPFLAGS=" -DLINUX -I. -I.. "
+	;;
+esac
+
+AC_SUBST([AM_CPPFLAGS])
+
+
+
 
 
 #AC_DEFINE([_POSIX_REALTIME_SIGNALS],[])

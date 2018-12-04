@@ -276,7 +276,8 @@
 #elif defined( __linux__ )	\
 	||	defined( _linux )	\
 	||	defined( linux )    \
-	||	defined( __MSYS__ )
+	||	defined( __MSYS__ )	\
+	||	defined( ELF )
 
 #	define	OS_LINUX	1
 #	define	OS_NAME		"LINUX"
