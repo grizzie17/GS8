@@ -7,23 +7,33 @@ THISDIR=$(cd -P `dirname $THISFILE` && pwd -P)
 #$THISDIR/build-config.sh  ||  exit $?
 
 
-function tweak_paths_for_windows() {
-	cat -  | \
-		sed \
-			-e ':x; s@[^/][^/]*/\.\./@@;t x' \
-			-e ':y; s@^\.\./@@g; t y' \
-			-e "s@$THISDIR/@@g"
-}
+ARG="$1"
+ARGDIR=""
+ARGFILE=""
+
+if [ -n "$ARG" ]; then
+	ARGDIR=`dirname $ARG`
+	ARGFILE=`basename $ARG | sed -e 's/\.[^.]*$/.o/'`
+
+	case "$ARGDIR" in
+	/* )
+		# do nothing
+		;;
+	* )
+		ARGDIR="/$ARGDIR"
+		;;
+	esac
+fi
 
 
-pushd $THISDIR/build/Gadget >/dev/null
-
-mkdir -p bin
-mkdir -p lib
+echo "THISDIR=$THISDIR"
+echo "ARG=$ARG"
+echo "ARGDIR=$ARGDIR"
+echo "ARGFILE=$ARGFILE"
 
 
 case `uname -s` in
-Msys | MSYS | msys | CYGWIN* )
+Msys | MSYS | msys | MINGW* )
 	echo "...WIN64"
 	export CPPFLAGS="-DWIN64"
 	function tweak_paths() {
@@ -45,6 +55,12 @@ Msys | MSYS | msys | CYGWIN* )
 	echo "...undefined"
 	;;
 esac
-make -j 4 2>&1  |  tee ./build.log  | tweak_paths
+
+pushd $THISDIR/build$ARGDIR >/dev/null
+
+	mkdir -p bin
+	mkdir -p lib
+
+	make -j4 $ARGFILE 2>&1  |  tee ./build.log  | tweak_paths
 
 popd >/dev/null

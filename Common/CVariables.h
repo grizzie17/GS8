@@ -31,8 +31,7 @@
 
 #include "CCharString.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -62,10 +61,10 @@ class VVariable
 public:
 
 	virtual
-	CCharString
+	Yogi::Core::CCharString
 			ResolveVariable
 			(
-			ConstCCharDescriptorRef	r
+			Yogi::Core::ConstCCharDescriptorRef	r
 			) = 0;
 };
 
@@ -88,10 +87,10 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	CCharString
+	Yogi::Core::CCharString
 			Substitute
 			(
-			ConstCCharDescriptorRef	rSource
+			Yogi::Core::ConstCCharDescriptorRef	rSource
 			);
 
 
@@ -112,10 +111,10 @@ protected:
 			const char*	pEnd
 			);
 
-	CCharString
+	Yogi::Core::CCharString
 			ProcessVariable
 			(
-			ConstCCharDescriptorRef	rVar
+			Yogi::Core::ConstCCharDescriptorRef	rVar
 			);
 
 //	protected data  -----------------------------------------------------
@@ -146,7 +145,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

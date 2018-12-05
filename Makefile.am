@@ -5,6 +5,7 @@ SUBDIRS = \
 	Platform \
 	Common \
 	Draw/VDraw \
+	Draw/CDrawTmxWin \
 	Gadget \
 	VSAShared \
 	WorkbenchShared \

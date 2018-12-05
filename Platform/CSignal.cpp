@@ -41,8 +41,8 @@
 #else
 #	error "signal processing library not defined"
 #endif
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -267,7 +267,7 @@ bool	CSignal::IsCreated
 \+=====================================================================*/
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 /*---------------------------------------------------------------------+\

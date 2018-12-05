@@ -10,7 +10,7 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+using namespace Yogi::Common;
 
 
 template class TQueue<long>;

@@ -40,8 +40,8 @@
 #include "THash.h"
 
 #include "LogFile.h"
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -52,13 +52,65 @@ NAMESPACE_COMMON_BEGIN
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-template < class TKey, class TData >
-class TDictionaryIndexedEnumerator;		// forward declaration
+// template < class TKey, class TData >
+// class TDictionaryIndexedEnumerator;		// forward declaration
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
+template < class TKey, class TData >
+class TDictionaryIndexed;				// forward declaration
+
+template < class TKey, class TData >
+class TDictionaryIndexedEnumerator : public Yogi::Core::TEnumerator<TData>
+{
+//	class lifecycle  ----------------------------------------------------
+public:
+				TDictionaryIndexedEnumerator( void );
+				TDictionaryIndexedEnumerator( const TDictionaryIndexed<TKey,TData>* p );
+	virtual		~TDictionaryIndexedEnumerator( void );
+
+public:
+//	public types  -------------------------------------------------------
+
+//	public functions  ---------------------------------------------------
+
+	TDictionaryIndexedEnumerator<TKey, TData>&	operator=( const TDictionaryIndexedEnumerator<TKey,TData>& r );		// assignment
+
+	virtual long			ID( void );
+	virtual const TKey&		Key( void );
+	virtual const TData&	Value( void );
+
+protected:
+//	protected types  ----------------------------------------------------
+
+//	protected functions  ------------------------------------------------
+
+//	protected data  -----------------------------------------------------
+
+	const TDictionaryIndexed<TKey, TData>*	m_pTable;
+	THashTableEnumerator< TKey, index_t >	m_eKeys;
+	Yogi::Core::TArrayEnumerator<TData>		m_eList;
+	index_t									m_nIndex;
+
+private:
+//	private functions  --------------------------------------------------
+
+//	private data  -------------------------------------------------------
+
+//============================== Overrides ==============================
+	//	TEnumerator
+public:
+	virtual bool	MoveNext( void );
+	virtual void	Reset( void );
+	virtual	TData*	Current( void );
+
+
+};
+
+
+
 
 template < class TKey, class TData >
 class TDictionaryIndexed
@@ -103,7 +155,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray<TData>				m_aList;
+	Yogi::Core::TArray<TData>	m_aList;
 	THashTable<TKey, index_t>	m_aKeys;
 
 private:
@@ -116,54 +168,6 @@ private:
 
 
 
-
-
-template < class TKey, class TData >
-class TDictionaryIndexedEnumerator : public TEnumerator<TData>
-{
-//	class lifecycle  ----------------------------------------------------
-public:
-				TDictionaryIndexedEnumerator( void );
-				TDictionaryIndexedEnumerator( const TDictionaryIndexed<TKey,TData>* p );
-	virtual		~TDictionaryIndexedEnumerator( void );
-
-public:
-//	public types  -------------------------------------------------------
-
-//	public functions  ---------------------------------------------------
-
-	TDictionaryIndexedEnumerator<TKey, TData>&	operator=( const TDictionaryIndexedEnumerator<TKey,TData>& r );		// assignment
-
-	virtual long			ID( void );
-	virtual const TKey&		Key( void );
-	virtual const TData&	Value( void );
-
-protected:
-//	protected types  ----------------------------------------------------
-
-//	protected functions  ------------------------------------------------
-
-//	protected data  -----------------------------------------------------
-
-	const TDictionaryIndexed<TKey, TData>*	m_pTable;
-	THashTableEnumerator< TKey, index_t >	m_eKeys;
-	TArrayEnumerator<TData>					m_eList;
-	index_t									m_nIndex;
-
-private:
-//	private functions  --------------------------------------------------
-
-//	private data  -------------------------------------------------------
-
-//============================== Overrides ==============================
-	//	TEnumerator
-public:
-	virtual bool	MoveNext( void );
-	virtual void	Reset( void );
-	virtual	TData*	Current( void );
-
-
-};
 
 
 
@@ -344,7 +348,7 @@ const TData&
 	index_t	n = m_eKeys.Value();
 
 	TData*	p = m_pTable->m_aList.PointArray( n );
-	DbgAssert( 0 != p, "TDictionaryIndexedEnum::Value - bad internal pointer" );
+	Yogi::Core::DbgAssert( 0 != p, "TDictionaryIndexedEnum::Value - bad internal pointer" );
 	return *p;
 }
 
@@ -579,7 +583,7 @@ size_t	TDictionaryIndexed<TKey, TData>::Length
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 

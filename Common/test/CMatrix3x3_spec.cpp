@@ -9,7 +9,7 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+using namespace Yogi::Common;
 
 Context(CMatrix3x3_class)
 {

@@ -89,31 +89,8 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-#define NAMESPACE_DEFINE_XMLLITE	(1)
 
-#if NAMESPACE_DEFINE_XMLLITE
-
-#	define NAMESPACE_XMLLITE_BEGIN	\
-	NAMESPACE_COMMON_BEGIN		\
-	namespace XMLLite {
-#	define NAMESPACE_XMLLITE_END		} NAMESPACE_COMMON_END
-#	define USING_NAMESPACE_XMLLITE		\
-	USING_NAMESPACE_COMMON	\
-	using namespace NAMESPACE_COMMON_PREFIX XMLLite;
-#	define NAMESPACE_XMLLITE_PREFIX	NAMESPACE_COMMON_PREFIX XMLLite::
-
-	NAMESPACE_COMMON_BEGIN
-		namespace XMLLite {}
-	NAMESPACE_COMMON_END
-
-#else
-#	define NAMESPACE_XMLLITE_BEGIN
-#	define NAMESPACE_XMLLITE_END
-#	define USING_NAMESPACE_XMLLITE
-#	define NAMESPACE_XMLLITE_PREFIX
-#endif
-
-NAMESPACE_XMLLITE_BEGIN
+namespace Yogi { namespace XMLLite {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -270,14 +247,14 @@ public:
 	index_t	ErrorLineNumber( void ) = 0;
 
 	virtual
-	TCharDescriptor<char>
+	Yogi::Core::TCharDescriptor<char>
 			ErrorString( void ) = 0;
 
 	virtual
-	TCharDescriptor<T>
+	Yogi::Core::TCharDescriptor<T>
 			ErrorToken( void ) = 0;
 	virtual
-	TCharDescriptor<char>
+	Yogi::Core::TCharDescriptor<char>
 			ErrorStreamName( void ) = 0;
 
 
@@ -298,7 +275,7 @@ public:
 			NodeType( void ) = 0;
 	
 	virtual
-	TCharDescriptor<T>
+	Yogi::Core::TCharDescriptor<T>
 			NodeName( void ) = 0;
 
 
@@ -310,7 +287,7 @@ public:
 	bool	NodeEmpty( void ) = 0;
 	
 	virtual
-	TCharDescriptor<T>
+	Yogi::Core::TCharDescriptor<T>
 			NodeValue( void ) = 0;
 
 
@@ -326,15 +303,15 @@ public:
 	int		AttributeCount( void ) = 0;
 	
 	virtual
-	TCharDescriptor<T>
+	Yogi::Core::TCharDescriptor<T>
 			AttributeName( int idx ) = 0;
 	
 	virtual
-	TCharDescriptor<T>
+	Yogi::Core::TCharDescriptor<T>
 			AttributeValue( int idx ) = 0;
 	
 	virtual
-	TCharDescriptor<T>
+	Yogi::Core::TCharDescriptor<T>
 			AttributeValue( const T* sName ) = 0;
 
 	
@@ -402,18 +379,18 @@ public:
 	virtual bool				NextChild( void ) = 0;
 
 	virtual ENODETYPE			NodeType( void ) = 0;
-	virtual TCharDescriptor<T>	NodeName( void ) = 0;
+	virtual Yogi::Core::TCharDescriptor<T>	NodeName( void ) = 0;
 	virtual bool				NodeEmpty( void ) = 0;
 
-	virtual TCharDescriptor<T>	NodeValue( void ) = 0;
+	virtual Yogi::Core::TCharDescriptor<T>	NodeValue( void ) = 0;
 
 	virtual long				NodeValueAsInt( void ) = 0;
 	virtual GFLOAT				NodeValueAsFloat( void ) = 0;
 
 	virtual int					AttributeCount( void ) = 0;
-	virtual TCharDescriptor<T>	AttributeName( int idx ) = 0;
-	virtual TCharDescriptor<T>	AttributeValue( int idx ) = 0;
-	virtual TCharDescriptor<T>	AttributeValue( const char* sName ) = 0;
+	virtual Yogi::Core::TCharDescriptor<T>	AttributeName( int idx ) = 0;
+	virtual Yogi::Core::TCharDescriptor<T>	AttributeValue( int idx ) = 0;
+	virtual Yogi::Core::TCharDescriptor<T>	AttributeValue( const char* sName ) = 0;
 
 	virtual long				AttributeValueAsInt( const char* sName ) = 0;
 	virtual long				AttributeValueAsInt( int idx ) = 0;
@@ -449,7 +426,7 @@ public:
 
 
 
-NAMESPACE_XMLLITE_END
+}}
 
 
 

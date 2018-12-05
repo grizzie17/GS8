@@ -63,7 +63,7 @@
 #include "UMath.h"
 #include "UFloat.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -423,13 +423,13 @@ int		CUnitsOfMeasure::SetUsingName
 		const char*	s
 		)
 {
-	CCharDescriptor	tName( s, ::strlen( s ) );
+	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
 	return SetUsingName( tName );
 }
 
 int		CUnitsOfMeasure::SetUsingName
 		(
-		ConstCCharDescriptorRef	r
+		Yogi::Core::ConstCCharDescriptorRef	r
 		)
 {
 	int		nResult = 0;
@@ -458,13 +458,13 @@ int		CUnitsOfMeasure::SetUsingPluralName
 		const char*	s
 		)
 {
-	CCharDescriptor	tName( s, ::strlen( s ) );
+	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
 	return SetUsingPluralName( tName );
 }
 
 int		CUnitsOfMeasure::SetUsingPluralName
 		(
-		ConstCCharDescriptorRef	r
+		Yogi::Core::ConstCCharDescriptorRef	r
 		)
 {
 	int		nResult = 0;
@@ -493,13 +493,13 @@ int		CUnitsOfMeasure::SetUsingAbbrev
 		const char*	s
 		)
 {
-	CCharDescriptor	tName( s, ::strlen( s ) );
+	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
 	return SetUsingAbbrev( tName );
 }
 
 int		CUnitsOfMeasure::SetUsingAbbrev
 		(
-		ConstCCharDescriptorRef	r
+		Yogi::Core::ConstCCharDescriptorRef	r
 		)
 {
 	int		nResult = 0;
@@ -535,7 +535,7 @@ int		CUnitsOfMeasure::SetUsingString
 
 int		CUnitsOfMeasure::SetUsingString
 		(
-		ConstCCharDescriptorRef	r
+		Yogi::Core::ConstCCharDescriptorRef	r
 		)
 {
 	int		nResult = 0;
@@ -718,7 +718,7 @@ void	CUnitsOfMeasure::InitUnitTable
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

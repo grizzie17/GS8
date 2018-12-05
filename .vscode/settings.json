@@ -43,6 +43,12 @@
 	},
 	"uncrustify.graphicalConfig": false,
 	"breadcrumbs.enabled": true,
+	"files.associations": {
+		"*.vx": "visionx",
+		"*.vsx": "visionx",
+		"*.rc": "shellscript",
+		"string": "cpp"
+	},
 
 	
 }

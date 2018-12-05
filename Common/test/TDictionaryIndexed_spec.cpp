@@ -5,7 +5,8 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+using namespace Yogi::Common;
+using namespace Yogi::Core;
 
 Context(TDictionaryIndexed_template)
 {

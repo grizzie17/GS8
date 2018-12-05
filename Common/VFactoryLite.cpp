@@ -55,7 +55,7 @@
 #include "UPlatform.h"
 #include "IExternalXML.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -106,10 +106,10 @@ VFactoryLite::VFactoryLite
 		(
 		void
 		)
-		: VFactory(),
-		m_sRelativePath(),
-		m_pVariable( 0 ),
-		m_pIExternalXML( 0 )
+		: VFactory()
+		, m_sRelativePath()
+		, m_pVariable( 0 )
+		, m_pIExternalXML( 0 )
 {
 }
 
@@ -142,7 +142,7 @@ void	VFactoryLite::SetRelativePath
 }
 
 
-CCharStringRef
+Yogi::Core::CCharStringRef
 		VFactoryLite::GetRelativePath
 		(
 		void
@@ -196,13 +196,13 @@ bool	VFactoryLite::OpenFile
 		)
 {
 	bool		bResult = false;
-	CCharString	sName;
+	Yogi::Core::CCharString	sName;
 
 
 	if ( m_pVariable )
 	{
 		CVariables	var( m_pVariable );
-		sName = var.Substitute( CCharDescriptor( s ) );
+		sName = var.Substitute( Yogi::Core::CCharDescriptor( s ) );
 	}
 	else
 	{
@@ -225,17 +225,17 @@ bool	VFactoryLite::OpenFile
 			}
 			else
 			{
-				LogPrint( "VFactoryLite::OpenFile - unable to access external data - '%s'\n", sName.Pointer() );
+				Yogi::Core::LogPrint( "VFactoryLite::OpenFile - unable to access external data - '%s'\n", sName.Pointer() );
 			}
 		}
 		else
 		{
-			LogPrint( "VFactoryLite::OpenFile - External XML reference but no handler specified\n" );
+			Yogi::Core::LogPrint( "VFactoryLite::OpenFile - External XML reference but no handler specified\n" );
 		}
 	}
 	else
 	{
-		CCharString	sFilePath = BuildFilePath( sName.Pointer() );
+		Yogi::Core::CCharString	sFilePath = BuildFilePath( sName.Pointer() );
 
 		XMLLite::CReadFile reader;
 
@@ -248,7 +248,7 @@ bool	VFactoryLite::OpenFile
 		}
 		else
 		{
-			LogPrint( "VFactoryLite::OpenFile - unable to open xml file \n'%s'\n", sFilePath.Pointer() );
+			Yogi::Core::LogPrint( "VFactoryLite::OpenFile - unable to open xml file \n'%s'\n", sFilePath.Pointer() );
 		}
 	}
 
@@ -266,7 +266,7 @@ bool	VFactoryLite::OpenFile
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
 
-CCharString
+Yogi::Core::CCharString
 		VFactoryLite::BuildFilePath
 		(
 		const char*	sName
@@ -323,7 +323,7 @@ CCharString
 		}
 	}
 
-	return CCharString( sTemp );
+	return Yogi::Core::CCharString( sTemp );
 }
 
 //END_OVERRUN_WARNING
@@ -343,7 +343,7 @@ CCharString
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

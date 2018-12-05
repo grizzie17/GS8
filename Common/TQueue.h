@@ -32,8 +32,7 @@
 #include "UMath.h"
 #include "LogFile.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -338,9 +337,9 @@ protected:
 	size_t		m_nFront;	// index of next read
 	size_t		m_nRear;	// index of next write
 
-	NAMESPACE_ROOT_PREFIX CMutex		m_oMutex;
-	NAMESPACE_ROOT_PREFIX CSemaphore	m_oSemaphoreRead;
-	NAMESPACE_ROOT_PREFIX CSemaphore	m_oSemaphoreWrite;
+	Yogi::Core::CMutex		m_oMutex;
+	Yogi::Core::CSemaphore	m_oSemaphoreRead;
+	Yogi::Core::CSemaphore	m_oSemaphoreWrite;
 	bool		m_bWaitingRead;	// is there is semaphore active
 	bool		m_bWaitingWrite;
 
@@ -381,18 +380,17 @@ TQueue<T>::TQueue
 		(
 		void
 		)
-		:
-		m_pArray( 0 ),
-		m_nAlloc( 0 ),
-		m_nUsed( 0 ),
-		m_nBlockSize( 4 ),
-		m_nFront( 0 ),
-		m_nRear( 0 ),
-		m_oMutex(),
-		m_oSemaphoreRead(),
-		m_oSemaphoreWrite(),
-		m_bWaitingRead( false ),
-		m_bWaitingWrite( false )
+		: m_pArray( 0 )
+		, m_nAlloc( 0 )
+		, m_nUsed( 0 )
+		, m_nBlockSize( 4 )
+		, m_nFront( 0 )
+		, m_nRear( 0 )
+		, m_oMutex()
+		, m_oSemaphoreRead()
+		, m_oSemaphoreWrite()
+		, m_bWaitingRead( false )
+		, m_bWaitingWrite( false )
 {
 }
 
@@ -463,14 +461,14 @@ bool	TQueue<T>::WaitForWriteData
 
 	if ( 0 < this->Available() )
 	{
-		CMutexLocker	locker( &this->m_oMutex );
+		Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 		this->m_bWaitingWrite = false;
 		bResult = true;
 	}
 	else
 	{
 		{
-			CMutexLocker	locker( &this->m_oMutex );
+			Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 			this->m_bWaitingWrite = true;
 		}
 		//DbgPrint( "w" );
@@ -501,7 +499,7 @@ size_t	TQueue<T>::GetWriteEnumerator
 
 	rEnum.Reset();
 
-	CMutexLocker	lock( &this->m_oMutex );
+	Yogi::Core::CMutexLocker	lock( &this->m_oMutex );
 
 	if ( 0 < nRequested )
 	{
@@ -567,7 +565,7 @@ size_t	TQueue<T>::WriteAdvance
 	if ( 0 < nCount )
 	{
 		{ // scope mutex
-			CMutexLocker	locker( &this->m_oMutex );
+			Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 			nCount = umin( nCount, this->m_nAlloc - this->m_nUsed );
 			size_t	n = this->m_nRear + nCount;
 			this->m_nRear = n % this->m_nAlloc;
@@ -595,7 +593,7 @@ bool	TQueue<T>::AppendEntry
 {
 	bool	bResult = true;
 
-	CMutexLocker	lock( &this->m_oMutex );
+	Yogi::Core::CMutexLocker	lock( &this->m_oMutex );
 
 	if ( this->m_nAlloc < this->m_nUsed + 1 )
 		bResult = GrowQueue( 1 );
@@ -612,7 +610,7 @@ bool	TQueue<T>::AppendEntry
 			this->m_oSemaphoreRead.Signal();
 
 		//DbgPrint( "TQueue<T>::AppendEntry alloc = %ld, used = %ld\n", m_nAlloc, m_nUsed );
-		DbgAssert( ((this->m_nFront != this->m_nRear) && (this->m_nUsed < this->m_nAlloc))
+		Yogi::Core::DbgAssert( ((this->m_nFront != this->m_nRear) && (this->m_nUsed < this->m_nAlloc))
 				|| ((this->m_nRear == this->m_nFront) && (this->m_nUsed == this->m_nAlloc)),
 				"TQueue<T>::AppendEntry - Front=%d & Rear=%d index problems (used=%d)\n",
 				this->m_nFront, this->m_nRear, this->m_nUsed );
@@ -635,7 +633,7 @@ bool	TQueue<T>::AppendEntries
 {
 	bool	bResult = true;
 
-	CMutexLocker	lock( &this->m_oMutex );
+	Yogi::Core::CMutexLocker	lock( &this->m_oMutex );
 
 	if ( this->m_nAlloc < this->m_nUsed + nCount )
 		bResult = GrowQueue( nCount );
@@ -677,14 +675,14 @@ bool	TQueue<T>::WaitForReadData
 
 	if ( 0 < this->Length() )
 	{
-		CMutexLocker	locker( &this->m_oMutex );
+		Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 		this->m_bWaitingRead = false;
 		bResult = true;
 	}
 	else
 	{
 		{
-			CMutexLocker	locker( &this->m_oMutex );
+			Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 			this->m_bWaitingRead = true;
 		}
 		//DbgPrint( "w" );
@@ -749,7 +747,7 @@ size_t	TQueue<T>::GetReadEnumerator
 
 	if ( 0 < this->m_nUsed )
 	{
-		CMutexLocker	lock( &this->m_oMutex );
+		Yogi::Core::CMutexLocker	lock( &this->m_oMutex );
 		if ( this->m_nFront < this->m_nRear )
 		{
 			rEnum.v[0].p = this->m_pArray + this->m_nFront;
@@ -785,7 +783,7 @@ size_t	TQueue<T>::ReadAdvance
 	if ( 0 < nCount )
 	{
 		{
-		CMutexLocker	locker( &this->m_oMutex);
+		Yogi::Core::CMutexLocker	locker( &this->m_oMutex);
 		nCount = umin( nCount, this->m_nUsed );
 		size_t	n = this->m_nFront + nCount;
 		this->m_nFront = n % this->m_nAlloc;
@@ -829,7 +827,7 @@ bool	TQueue<T>::FetchEntry
 
 	if ( 0 < this->m_nUsed )
 	{
-		CMutexLocker	lock( &this->m_oMutex );
+		Yogi::Core::CMutexLocker	lock( &this->m_oMutex );
 		T		tTemp = 0;
 		size_t	n = this->m_nFront;
 
@@ -852,7 +850,7 @@ bool	TQueue<T>::FetchEntry
 			this->m_oSemaphoreWrite.Signal();
 
 		//DbgPrint( "TQueue<T>::FetchEntry used = %ld\n", m_nUsed );
-		DbgAssert( ((this->m_nFront != this->m_nRear) && (this->m_nUsed < this->m_nAlloc))
+		Yogi::Core::DbgAssert( ((this->m_nFront != this->m_nRear) && (this->m_nUsed < this->m_nAlloc))
 				|| ((this->m_nRear == this->m_nFront) && (0 == this->m_nUsed)),
 			"TQueue<T>::FetchEntry - Front=%d & Rear=%d index problems (used=%d)\n",
 			this->m_nFront, this->m_nRear, this->m_nUsed );
@@ -877,7 +875,7 @@ size_t	TQueue<T>::FetchEntries
 
 	if ( 0 < this->m_nUsed )
 	{
-		CMutexLocker	lock( &this->m_oMutex );
+		Yogi::Core::CMutexLocker	lock( &this->m_oMutex );
 		T		tTemp = 0;
 		size_t	n = this->m_nFront;
 		T*		p = pList;
@@ -966,7 +964,7 @@ bool	TQueue<T>::RemoveEntry
 
 	if ( 1 < this->m_nUsed )
 	{
-		CMutexLocker	lock( &this->m_oMutex );
+		Yogi::Core::CMutexLocker	lock( &this->m_oMutex );
 		T	tTemp = 0;
 
 		bResult = true;
@@ -1027,7 +1025,7 @@ bool	TQueue<T>::SetInitialSize
 		size_t	nSize
 		)
 {
-	CMutexLocker	locker( &this->m_oMutex );
+	Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 
 	return this->GrowQueue( nSize );
 }
@@ -1136,7 +1134,7 @@ bool	TQueue<T>::GrowQueue
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 

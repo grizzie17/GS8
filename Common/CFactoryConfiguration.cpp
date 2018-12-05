@@ -66,7 +66,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -147,8 +147,8 @@ VConfigurationPtr
 
 	if ( OpenFile( sName ) )
 	{
-		CCharDescriptor	tName;
-		XMLIterator		it( this );
+		Yogi::Core::CCharDescriptor	tName;
+		Yogi::XMLLite::XMLIterator	it( this );
 
 		while ( it.NextChild() )
 		{
@@ -202,9 +202,9 @@ VConfigurationPtr
 	if ( pNode )
 	{
 
-		XMLIterator		it( this );
-		CCharDescriptor	tName;
-		CCharDescriptor	tValue;
+		Yogi::XMLLite::XMLIterator	it( this );
+		Yogi::Core::CCharDescriptor	tName;
+		Yogi::Core::CCharDescriptor	tValue;
 		//bool			bResult = false;
 
 		while ( it.NextChild() )
@@ -253,14 +253,14 @@ VConfigurationPtr
 
 bool	CFactoryConfiguration::Item
 		(
-		VConfigurationPtr	pConfig,
-		XMLIteratorPtr		pit
+		VConfigurationPtr				pConfig,
+		Yogi::XMLLite::XMLIteratorPtr	pit
 		)
 {
 	bool	bResult = false;
 
-	CCharDescriptor	tValue;
-	CCharDescriptor	tName;
+	Yogi::Core::CCharDescriptor	tValue;
+	Yogi::Core::CCharDescriptor	tName;
 
 
 	char		sID[80] = { 0 };
@@ -282,7 +282,7 @@ bool	CFactoryConfiguration::Item
 		{
 			char	sUnits[40];
 			tValue.CopyTo( sUnits, sizeof(sUnits) );
-			tValue = CCharDescriptor( sUnits, tValue.Length() );
+			tValue = Yogi::Core::CCharDescriptor( sUnits, tValue.Length() );
 			tValue.ConvertLowercase();
 
 			CUnitsOfMeasure	units;
@@ -365,14 +365,14 @@ bool	CFactoryConfiguration::Item
 				nValue = tValue.ParseInt( &n );
 				if ( 0 < n )
 				{
-					CColor	c;
+					Yogi::Core::CColor	c;
 					c.SetColorLong( nValue );
 					v = c;
 					bResult = true;
 				}
 				else
 				{
-					CColor	c = CColor::ColorFromName( tValue );
+					Yogi::Core::CColor	c = Yogi::Core::CColor::ColorFromName( tValue );
 					if ( ! c.IsNonColor() )
 					{
 						v = c;
@@ -387,7 +387,7 @@ bool	CFactoryConfiguration::Item
 			break;
 		case CVariantData::T_DATETIME:
 			{
-				CDateTime	d;
+				Yogi::Core::CDateTime	d;
 				if ( d.Parse( tValue ) )
 				{
 					v = d;
@@ -464,8 +464,8 @@ bool	CFactoryConfiguration::Item
 
 bool	CFactoryConfiguration::IncludeFile
 		(
-		VConfigurationPtr	pConfig,
-		XMLIteratorPtr		pIt
+		VConfigurationPtr				pConfig,
+		Yogi::XMLLite::XMLIteratorPtr	pIt
 		)
 {
 	bool				bResult = false;
@@ -473,15 +473,15 @@ bool	CFactoryConfiguration::IncludeFile
 
 	if ( 0 < pIt->AttributeCount() )
 	{
-		CCharDescriptor	tValue;
+		Yogi::Core::CCharDescriptor	tValue;
 
 		tValue = pIt->AttributeValue( "File" );
 		if ( 0 < tValue.Length() )
 		{
-			CCharString	sFile = tValue;
+			Yogi::Core::CCharString	sFile = tValue;
 
 			CFactoryConfiguration	factory;
-			CCharString	sRelPath = this->GetRelativePath();
+			Yogi::Core::CCharString	sRelPath = this->GetRelativePath();
 			factory.SetRelativePath( sRelPath.Pointer() );
 			factory.SetVariableIF( m_pVariable );
 			factory.SetExternalXMLIF( this->m_pIExternalXML );
@@ -529,17 +529,17 @@ bool	CFactoryConfiguration::IncludeFile
  * ResolveVariable -
 
 \+---------------------------------------------------------------------*/
-CCharString
+Yogi::Core::CCharString
 		CFactoryConfiguration::ResolveVariable
 		(
-		ConstCCharDescriptorRef r
+		Yogi::Core::ConstCCharDescriptorRef r
 		)
 {
-	CCharString	sResult;
+	Yogi::Core::CCharString	sResult;
 
 	if ( m_pConfig )
 	{
-		CCharString	s = r;
+		Yogi::Core::CCharString	s = r;
 		sResult = m_pConfig->GetEntryAsString( s.Pointer() );
 	}
 	return sResult;
@@ -547,7 +547,7 @@ CCharString
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 /*---------------------------------------------------------------------+\
 

@@ -39,12 +39,10 @@
 
 #ifdef NAMESPACE_DEFINE_COMMON
 
-#	define NAMESPACE_COMMON_BEGIN	NAMESPACE_ROOT_BEGIN namespace Common {
-#	define NAMESPACE_COMMON_END		} NAMESPACE_ROOT_END
-#	define USING_NAMESPACE_COMMON	\
-			USING_NAMESPACE_ROOT	\
-			using namespace NAMESPACE_ROOT_PREFIX Common;
-#	define NAMESPACE_COMMON_PREFIX	NAMESPACE_ROOT_PREFIX Common::
+#	define NAMESPACE_COMMON_BEGIN	namespace Yogi { namespace Common {
+#	define NAMESPACE_COMMON_END		} }
+#	define USING_NAMESPACE_COMMON	using namespace Yogi::Common;
+#	define NAMESPACE_COMMON_PREFIX	Yogi::Common::
 
 	NAMESPACE_COMMON_BEGIN
 	//namespace Common {}

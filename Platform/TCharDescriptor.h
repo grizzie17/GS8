@@ -64,8 +64,7 @@
 #include "UPlatform.h"
 #include "UTypes.h"
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -208,8 +207,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	T*			m_s;	///< pointer to data
-	size_t		m_n;	///< data count
+	T*			m_s;	//!< pointer to data
+	size_t		m_n;	//!< data count
 
 private:
 //	private functions  --------------------------------------------------
@@ -1525,8 +1524,7 @@ int		TCharDescriptor< T >::DiffCharacters
 
 
 
-NAMESPACE_ROOT_END
-
+}}
 
 
 

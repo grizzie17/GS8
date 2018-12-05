@@ -38,8 +38,9 @@
 #include "TArray.h"
 #include "LogFile.h"
 #include "UPlatform.h"
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+#include "TEnumerator.h"
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -50,13 +51,74 @@ NAMESPACE_COMMON_BEGIN
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
+// template < class TKey, class TData >
+// class THashTableEnumerator;		// forward declaration
 template < class TKey, class TData >
-class THashTableEnumerator;		// forward declaration
+class THashTable;					// forward declaration
+template < class TKey, class TData >
+class THashWallet;
+template < class TKey, class TData >
+class THashBucket;
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
+
+template < class TKey, class TData >
+class THashTableEnumerator : public Yogi::Core::TEnumerator<TData>
+{
+//	class lifecycle  ----------------------------------------------------
+public:
+				THashTableEnumerator( void );
+				THashTableEnumerator( const THashTable<TKey,TData>* p );
+				THashTableEnumerator( const THashTableEnumerator<TKey, TData>& r );
+	virtual		~THashTableEnumerator( void );
+
+public:
+//	public types  -------------------------------------------------------
+
+//	public functions  ---------------------------------------------------
+
+	THashTableEnumerator<TKey, TData>&
+							operator=( const THashTableEnumerator<TKey,TData>& r );		// assignment
+
+	virtual const TKey&		Key( void );
+	virtual const TData&	Value( void );
+
+protected:
+//	protected types  ----------------------------------------------------
+
+	typedef	THashBucket< TKey, TData >*	TBucketPtr;
+	typedef	THashWallet< TKey, TData >*	TWalletPtr;
+
+//	protected functions  ------------------------------------------------
+
+//	protected data  -----------------------------------------------------
+
+	const THashTable<TKey, TData>*	m_pTable;
+	Yogi::Core::TArrayEnumerator<TBucketPtr>	m_eBuckets;
+	Yogi::Core::TArrayEnumerator<TWalletPtr>	m_eWallets;
+	index_t							m_nIndex;
+
+private:
+//	private functions  --------------------------------------------------
+
+//	private data  -------------------------------------------------------
+
+//============================== Overrides ==============================
+	//	TEnumerator
+public:
+	virtual bool	MoveNext( void );
+	virtual void	Reset( void );
+	virtual	TData*	Current( void );
+
+
+};
+
+
+
 
 // TKey must implement operation ==
 
@@ -128,7 +190,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray< TWalletPtr >	m_tList;
+	Yogi::Core::TArray< TWalletPtr >	m_tList;
 
 private:
 //	private functions  --------------------------------------------------
@@ -175,65 +237,13 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray< TBucketPtr >	m_tBuckets;
+	Yogi::Core::TArray< TBucketPtr >	m_tBuckets;
 	size_t					m_nTableSize; // size of hash table (size of Bucket list)
 
 private:
 //	private functions  --------------------------------------------------
 
 //	private data  -------------------------------------------------------
-
-};
-
-
-template < class TKey, class TData >
-class THashTableEnumerator : public TEnumerator<TData>
-{
-//	class lifecycle  ----------------------------------------------------
-public:
-				THashTableEnumerator( void );
-				THashTableEnumerator( const THashTable<TKey,TData>* p );
-				THashTableEnumerator( const THashTableEnumerator<TKey, TData>& r );
-	virtual		~THashTableEnumerator( void );
-
-public:
-//	public types  -------------------------------------------------------
-
-//	public functions  ---------------------------------------------------
-
-	THashTableEnumerator<TKey, TData>&
-							operator=( const THashTableEnumerator<TKey,TData>& r );		// assignment
-
-	virtual const TKey&		Key( void );
-	virtual const TData&	Value( void );
-
-protected:
-//	protected types  ----------------------------------------------------
-
-	typedef	THashBucket< TKey, TData >*	TBucketPtr;
-	typedef	THashWallet< TKey, TData >*	TWalletPtr;
-
-//	protected functions  ------------------------------------------------
-
-//	protected data  -----------------------------------------------------
-
-	const THashTable<TKey, TData>*	m_pTable;
-	TArrayEnumerator<TBucketPtr>	m_eBuckets;
-	TArrayEnumerator<TWalletPtr>	m_eWallets;
-	index_t							m_nIndex;
-
-private:
-//	private functions  --------------------------------------------------
-
-//	private data  -------------------------------------------------------
-
-//============================== Overrides ==============================
-	//	TEnumerator
-public:
-	virtual bool	MoveNext( void );
-	virtual void	Reset( void );
-	virtual	TData*	Current( void );
-
 
 };
 
@@ -269,10 +279,10 @@ THashTableEnumerator<TKey, TData>::THashTableEnumerator
 		(
 		void
 		)
-		: m_pTable( 0 ),
-		m_eBuckets(),
-		m_eWallets(),
-		m_nIndex( -1 )
+		: m_pTable( 0 )
+		, m_eBuckets()
+		, m_eWallets()
+		, m_nIndex( -1 )
 {
 }
 
@@ -292,10 +302,10 @@ THashTableEnumerator<TKey, TData>::THashTableEnumerator
 		(
 		const THashTableEnumerator< TKey, TData >&	r
 		)
-		: m_pTable( r.m_pTable ),
-		m_eBuckets( r.m_eBuckets ),
-		m_eWallets( r.m_eWallets ),
-		m_nIndex( r.m_nIndex )
+		: m_pTable( r.m_pTable )
+		, m_eBuckets( r.m_eBuckets )
+		, m_eWallets( r.m_eWallets )
+		, m_nIndex( r.m_nIndex )
 {
 }
 
@@ -439,7 +449,7 @@ const TKey&
 
 	TWalletPtr*	h;
 	h = m_eWallets.Current();
-	DbgAssert( 0 != h, "THashTableEnum::Key - bad internal pointer" );
+	Yogi::Core::DbgAssert( 0 != h, "THashTableEnum::Key - bad internal pointer" );
 	return (*h)->m_key;
 }
 
@@ -458,7 +468,7 @@ const TData&
 
 	TWalletPtr*	h;
 	h = m_eWallets.Current();
-	DbgAssert( 0 != h, "THashTableEnumerator::Value - Bad pointer" );
+	Yogi::Core::DbgAssert( 0 != h, "THashTableEnumerator::Value - Bad pointer" );
 	return (*h)->m_data;
 }
 
@@ -479,9 +489,9 @@ THashWallet< TKey, TData >::THashWallet
 		(
 		void
 		)
-		: m_key(),
-		m_hashValue( 0 ),
-		m_data()
+		: m_key()
+		, m_hashValue( 0 )
+		, m_data()
 {
 }
 
@@ -890,7 +900,7 @@ THashTableEnumerator< TKey, TData >
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 

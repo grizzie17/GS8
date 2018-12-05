@@ -47,7 +47,7 @@
 #include "CMutex.h"
 #include "UNResult.h"
 
-#include "NamespaceRoot.h"
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -62,7 +62,7 @@
 		#endif
 	#endif
 #endif
-NAMESPACE_ROOT_BEGIN
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -302,7 +302,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_ROOT_END
+}}
 
 
 

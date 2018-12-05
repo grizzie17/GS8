@@ -7,7 +7,8 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+using namespace Yogi::Common;
+using namespace Yogi::Core;
 
 
 class MockVariable : public VVariable

@@ -38,14 +38,13 @@
 #include "CVariables.h"
 #include "IExternalXML.h"
 
-#include "NamespaceCommon.h"
 
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 #define XML_LITE		1
 /*---------------------------------------------------------------------+\
@@ -77,7 +76,7 @@ public:
 
 
 	void		SetRelativePath( const char* s );
-	CCharStringRef
+	Yogi::Core::CCharStringRef
 				GetRelativePath( void );
 
 	void		SetVariableIF( VVariablePtr p );
@@ -94,12 +93,12 @@ protected:
 	bool		OpenFile( const char*	sName );
 
 
-	CCharString	BuildFilePath( const char* sName );
+	Yogi::Core::CCharString	BuildFilePath( const char* sName );
 
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sRelativePath;
+	Yogi::Core::CCharString		m_sRelativePath;
 	VVariablePtr	m_pVariable;
 	IExternalXMLPtr	m_pIExternalXML;
 
@@ -127,7 +126,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

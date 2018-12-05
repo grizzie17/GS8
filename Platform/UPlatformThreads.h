@@ -22,7 +22,7 @@
 \+---------------------------------------------------------------------*/
 #include "UOSIncludes.h"
 #include "UMachine.h"
-#include "NamespaceRoot.h"
+
 /*---------------------------------------------------------------------+\
 |						
 |	Defines				
@@ -33,7 +33,7 @@
 |	Type Definitions	
 |						
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 
 #if defined( THREADS_POSIX )
 
@@ -98,7 +98,7 @@ void	ThreadClose
 ||						
 \+=====================================================================*/
 
-NAMESPACE_ROOT_END
+}}
 
 
 

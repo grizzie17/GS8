@@ -36,9 +36,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "UTypes.h"
-#include "NamespaceRoot.h"
 
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -387,7 +386,7 @@ T&		TArrayPointer<T>::operator =
 
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 

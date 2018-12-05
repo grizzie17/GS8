@@ -31,8 +31,7 @@
 
 #include "CCharString.h"
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -631,7 +630,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_ROOT_END
+}}
 
 
 

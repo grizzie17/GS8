@@ -38,16 +38,15 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-//#include <string>
+#include <c++/string>
 #include "CCharDescriptor.h"
 
-#include "NamespaceRoot.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -62,7 +61,7 @@ typedef const class CCharString&	ConstCCharStringRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CCharString : public CCharDescriptor
+class CCharString : public std::string
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -71,6 +70,7 @@ public:
 					CCharString( ConstCCharDescriptorRef r );
 					CCharString( const char* s );
 					CCharString( const char* s, size_t n );
+					CCharString( const std::string& r );
 	virtual			~CCharString();
 
 public:
@@ -81,34 +81,55 @@ public:
 	CCharStringRef	operator=( ConstCCharStringRef r );		// assignment
 	CCharStringRef	operator=( ConstCCharDescriptorRef r );
 	CCharStringRef	operator=( const char* s );
+	CCharStringRef	operator=( const std::string& r );
 	CCharStringRef	operator+=( ConstCCharDescriptorRef r );
 	CCharStringRef	operator+=( const char* s );
 
 	//operator char* ( void ) const;
 	//operator const char* ( void );
 	//operator CCharString ( void );
-	operator CCharDescriptor ( void ) const;
-	operator ConstCCharDescriptorRef ( void ) const;
-	operator const CCharDescriptorPtr ( void ) const;
+	operator const CCharDescriptor ( void ) const;
+	//operator ConstCCharDescriptorRef ( void ) const;
+	//operator const CCharDescriptorPtr ( void ) const;
 	//operator CCharDescriptorPtr ( void ) const;
 
 	//bool	operator==( const char* s );
 	//bool	operator==( ConstCCharStringRef r );
 
 
-	//size_t	Length( void );
-	//int		Compare( const char* s );
-	//int		Compare( ConstCCharStringRef r );
+	size_t		Length( void ) const;
+	const char*	Pointer( index_t n = 0 ) const;
+	char		AtIndex( index_t n ) const;
 
-	bool			Append( const char* s );
-	bool			Append( ConstCCharStringRef r );
-	bool			Append( ConstCCharDescriptorRef r );
-	bool			Append(	float	f);
-	bool			AppendFormat( const char* sFormat, ... );
+	bool	Append( const char* s );
+	bool	Append( ConstCCharStringRef r );
+	bool	Append( ConstCCharDescriptorRef r );
+	bool	Append(	float	f);
+	bool	AppendFormat( const char* sFormat, ... );
+
+	bool	CopyTo( char* s, size_t n ) const;
+	bool	ConcatenateTo( char* s, size_t n ) const;
+
+	int		Compare( ConstCCharStringRef r ) const;
+	int		Compare( ConstCCharDescriptorRef r ) const;
+	int		Compare( const char* s, size_t n ) const;
+	int		Compare( const char* s ) const;
+	int		Compare( const std::string& r ) const;
+
+	int		CompareIgnoreCase( ConstCCharStringRef r ) const;
+	int		CompareIgnoreCase( ConstCCharDescriptorRef r ) const;
+	int		CompareIgnoreCase( const char* s, size_t n ) const;
+	int		CompareIgnoreCase( const char* s ) const;
+	//int		CompareIgnoreCase( const std::string& r ) const;
+
+	void	ConvertUppercase( void );
+	void	ConvertLowercase( void );
+
+
 
 	CCharStringRef	Format( const char* sFormat, ... );
 
-	//unsigned long	Hash( void ) const;
+
 
 
 	void	ClearString( void );
@@ -117,6 +138,11 @@ public:
 	bool	LoadStringData( const char* s, index_t n = -1 );
 	bool	AppendStringData( const char* s, index_t n );
 
+	//!	parse the descriptor
+	long		ParseInt( size_t* pParseCount ) const;
+	GFLOAT		ParseFloat( size_t* pParseCount ) const;
+
+	uintmax_t	Hash( void ) const;
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -129,7 +155,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 private:
-	typedef	CCharDescriptor	inherited;
+	typedef	std::string	inherited;
 
 //	private functions  --------------------------------------------------
 
@@ -190,12 +216,24 @@ CCharStringRef
 
 inline
 CCharStringRef
-		CCharString::operator =
+		CCharString::operator=
 		(
 		const char* s
 		)
 {
 	LoadStringData( s );
+	return *this;
+}
+
+
+inline
+CCharStringRef
+		CCharString::operator=
+		(
+		const std::string&	r
+		)
+{
+	this->assign( r );
 	return *this;
 }
 
@@ -235,23 +273,23 @@ CCharStringRef
  * operator CCharDescriptorRef - cast operator
 
 \+---------------------------------------------------------------------*/
-inline
-CCharString::operator ConstCCharDescriptorRef
-		(
-		void
-		) const
-{
-	return (ConstCCharDescriptorRef)*this;
-}
+// inline
+// CCharString::operator ConstCCharDescriptorRef
+// 		(
+// 		void
+// 		) const
+// {
+// 	return (ConstCCharDescriptorRef)*this;
+// }
 
-inline
-CCharString::operator const CCharDescriptorPtr
-		(
-		void
-		) const
-{
-	return (const CCharDescriptorPtr) this;
-}
+// inline
+// CCharString::operator const CCharDescriptorPtr
+// 		(
+// 		void
+// 		) const
+// {
+// 	return (const CCharDescriptorPtr) this;
+// }
 
 //inline
 //CCharString::operator CCharDescriptorPtr
@@ -263,18 +301,32 @@ CCharString::operator const CCharDescriptorPtr
 //}
 
 inline
-CCharString::operator CCharDescriptor
+CCharString::operator const CCharDescriptor
 		(
 		void
 		) const
 {
-	return CCharDescriptor( m_s, m_n );
+	return CCharDescriptor( c_str(), length() );
 }
 
 
+inline
+const char* CCharString::Pointer( index_t n ) const
+{
+	if ( 0 <= n  &&  n < index_t(length()) )
+		return c_str() + n;
+	else
+		return NULL;
+}
+
+inline
+size_t CCharString::Length( void ) const
+{
+	return length();
+}
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 

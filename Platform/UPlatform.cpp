@@ -76,7 +76,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-USING_NAMESPACE_ROOT
+using namespace Yogi::Core;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Private Global Variables											|

@@ -18,6 +18,7 @@
                 "${workspaceFolder}",
                 "${workspaceFolder}\\**",
                 "${workspaceFolder}\\**\\**",
+                "${workspaceFolder}\\**\\**\\**",
                 "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include/c++",
                 "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include/c++/x86_64-pc-msys",
                 "C:/msys64/usr/lib/gcc/x86_64-pc-msys/7.3.0/include/c++/backward",
@@ -44,7 +45,8 @@
                 "${fileDirname}",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**"
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**"
             ]
         },
         {
@@ -63,7 +65,8 @@
                 "${fileDirname}",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**"
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**"
             ]
         }
     ],

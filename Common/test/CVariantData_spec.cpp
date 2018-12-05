@@ -6,7 +6,9 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+using namespace Yogi;
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 
 Context(CVariantData_class)
 {

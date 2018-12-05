@@ -43,7 +43,7 @@
 #include "UPlatform.h"
 
 
-NAMESPACE_XMLLITE_BEGIN
+namespace Yogi { namespace XMLLite {
 
 
 /*---------------------------------------------------------------------+\
@@ -90,8 +90,8 @@ CReadFile::CReadFile
 		(
 		void
 		)
-		: m_pFile( 0 ),
-		m_nSize( 0 )
+		: m_pFile( 0 )
+		, m_nSize( 0 )
 {
 	m_sName[0] = 0;
 }
@@ -276,7 +276,7 @@ size_t	CReadFile::GetName
 
 
 
-NAMESPACE_XMLLITE_END
+}}
 
 
 /*---------------------------------------------------------------------+\

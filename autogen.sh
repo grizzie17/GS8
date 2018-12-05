@@ -61,6 +61,7 @@ LIBTOOLIZE_V=`assertCmd libtoolize`
 ACLOCAL_V=`assertCmd aclocal`
 AUTOCONF_V=`assertCmd autoconf`
 AUTOHEADER_V=`assertCmd autoheader`
+AUTOPOINT_V=`assertCmd autopoint`
 AUTOMAKE_V=`assertCmd automake`
 MKDIR_V=`assertCmd mkdir`
 
@@ -79,33 +80,45 @@ need_libtoolize=no
 grep '^[ \t]*LT_INIT' $CONFIGURE_F  &>/dev/null
 [ 0 -eq $? ]  &&  need_libtoolize=yes
 
+## autopoint ##
+need_autopoint=no
+grep '^[ \t]*AM_GNU_GETTEXT' $CONFIGURE_F  &>/dev/null
+[ 0 -eq $? ]  &&  need_autopoint=yes
+
 
 pushd $CONFIGURE_D >/dev/null
 
 	if [ "Xyes" = "X$need_libtoolize" ]; then
 		echo "...libtoolize... $LIBTOOLIZE_V"
-		libtoolize --automake -c -f  ||  fatal $? "libtoolize exited with an error"
+		libtoolize --automake -c --force  ||  fatal $? "libtoolize exited with an error"
 	fi
 
-	mkdir -p $CONFIGURE_D/m4  ||  fatal $? "unable to make $THISDIR/m4"
+	if [ "Xyes" = "X$need_autopoint" ]; then
+		echo "...autopoint... $AUTOPOINT_V"
+		autopoint --force  ||  fatal $? "autopoint exited with an error"
+	fi
+
+	mkdir -p $CONFIGURE_D/m4  ||  fatal $? "unable to make $CONFIGURE_D/m4"
 
 	#second aclocal to get around problem with aclocal 1.15
 	echo "...aclocal... $ACLOCAL_V"
 	aclocal -I m4 --install 2>/dev/null  ||  echo "...:::aclocal rerun..."  &&  aclocal -I m4  ||  fatal $? "aclocal exited with an error"
-
-	echo "...autoconf... $AUTOCONF_V"
-	autoconf -f  ||  fatal $? "autoconf exited with an error"
 
 	if [ "Xyes" = "X$need_autoheader" ]; then
 		echo "...autoheader... $AUTOHEADER_V"
 		autoheader  ||  fatal $? "autoheader exited with an error"
 	fi
 
+	echo "...autoconf... $AUTOCONF_V"
+	autoconf -f  ||  fatal $? "autoconf exited with an error"
+
 	if [ "Xyes" = "X$need_automake" ]; then
 		echo "...automake... $AUTOMAKE_V"
 		export AUTOMAKE_JOBS=4
 		automake --add-missing --copy --force-missing  ||  fatal $? "automake exited with an error"
 	fi
+
+	[ -e configure ]  ||  fatal $? "failed to create required file: configure"
 
 popd >/dev/null
 

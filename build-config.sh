@@ -8,7 +8,7 @@ $THISDIR/build-clean.sh
 
 pushd $THISDIR >/dev/null
 
-	$THISDIR/autogen.sh
+	$THISDIR/autogen.sh  ||  exit $?
 
 	
 	mkdir -p $THISDIR/build  ||  exit $?

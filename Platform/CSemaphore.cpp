@@ -42,7 +42,7 @@
 #		include <sys/time.h>
 #	endif
 #endif
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -320,7 +320,7 @@ void	CSemaphore::Signal
 \+=====================================================================*/
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 /*---------------------------------------------------------------------+\

@@ -25,7 +25,6 @@
 #include "ISupports.h"
 
 #include "UWarnings.h"
-#include "NamespaceCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -51,7 +50,7 @@
 
 
 #define	ROOT_ISUPPORTS( pThis )	\
-		((NAMESPACE_COMMON_PREFIX ISupportsPtr)(NAMESPACE_COMMON_PREFIX ISupportsNonDelegatingPtr)(pThis))
+		((Yogi::Common::ISupportsPtr)(Yogi::Common::ISupportsNonDelegatingPtr)(pThis))
 
 
 #define	QI_THIS_( ifname )	static_cast<ifname*>(ThisQueryInterface( IXID_##ifname ))
@@ -68,8 +67,8 @@
 #define	COM_LIFECYCLE( sClassName )	\
 public:								\
 			sClassName();			\
-			sClassName( ISupportsPtr pOwner );	\
-			sClassName( const char* sName, ISupportsPtr pOwner );	\
+			sClassName( NAMESPACE_COMMON_PREFIX ISupportsPtr pOwner );	\
+			sClassName( const char* sName, NAMESPACE_COMMON_PREFIX ISupportsPtr pOwner );	\
 protected:							\
 	virtual	~sClassName();			\
 private:							\
@@ -84,7 +83,7 @@ private:							\
 #define	DECLARE_ISUPPORTS			\
 public:								\
 virtual								\
-void*	QueryInterface( NAMESPACE_COMMON_PREFIX ConstIXIDRef rIID,  NAMESPACE_COMMON_PREFIX NResultPtr pResult = 0 )	\
+void*	QueryInterface( NAMESPACE_COMMON_PREFIX ConstIXIDRef rIID,  Yogi::Core::NResultPtr pResult = 0 )	\
 {									\
 	return GetOwner()->QueryInterface( rIID, pResult );	\
 };									\
@@ -104,7 +103,7 @@ NRefCount	Release( void )			\
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 typedef class VSupports*		VSupportsPtr;
 typedef class VSupports&		VSupportsRef;
@@ -129,7 +128,7 @@ interface_ ISupportsNonDelegating
 	void*	InternalQueryInterface
 			(
 			ConstIXIDRef rIID,
-			NResultPtr pResult = 0
+			Yogi::Core::NResultPtr pResult = 0
 			) = 0;
 
 	virtual
@@ -209,8 +208,8 @@ public:
 	virtual
 	void*	InternalQueryInterface
 			(
-			ConstIXIDRef	rIID,
-			NResultPtr		pResult = 0
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult = 0
 			);
 
 	virtual
@@ -242,8 +241,8 @@ protected:
 
 	void*	ThisQueryInterface
 			(
-			ConstIXIDRef	rIID,
-			NResultPtr		pResult = 0
+			NAMESPACE_COMMON_PREFIX ConstIXIDRef	rIID,
+			Yogi::Core::NResultPtr		pResult = 0
 			);
 
 	virtual
@@ -255,8 +254,8 @@ protected:
 	virtual
 	void*	FindExternalInterface
 			(
-			ConstIXIDRef	rIID,
-			NResultPtr		pResult
+			NAMESPACE_COMMON_PREFIX ConstIXIDRef	rIID,
+			Yogi::Core::NResultPtr		pResult
 			);
 
 	virtual
@@ -332,7 +331,7 @@ ISupportsPtr
 	return ROOT_ISUPPORTS(this);
 }
 
-NAMESPACE_COMMON_END
+}}
 
 
 

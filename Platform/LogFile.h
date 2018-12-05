@@ -26,8 +26,7 @@
 
 #include "UMachine.h"
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 
 /*---------------------------------------------------------------------+\
 |						
@@ -92,17 +91,17 @@ NAMESPACE_ROOT_BEGIN
 
 
 
-/**
-*	DbgPrint - print string to console
-*
-*	string will also be logged if logging is enabled
-*/
+
+//!	DbgPrint - print string to console
+//!
+//!	string will also be logged if logging is enabled
+//!
 #ifdef  DBG_PRINT
 LOGFILE_API(void)
 		DbgPrint
 		(
-		char const*	sFormat,	///< [in] printf compatible format string
-		...						///< [in] arguments to format string
+		char const*	sFormat,	//!< [in] printf compatible format string
+		...						//!< [in] arguments to format string
 		);
 
 #else
@@ -178,5 +177,6 @@ void	LogPrint
 
 
 
-NAMESPACE_ROOT_END
+}}
+
 #endif // _H_LogFile

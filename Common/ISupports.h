@@ -27,7 +27,6 @@
 #include "IXID.h"
 #include "UNResult.h"
 
-#include "NamespaceCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -59,7 +58,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 typedef	unsigned long	NRefCount;
 
@@ -85,10 +84,10 @@ interface_ ISupports
 {
 	//!	QueryInterface - find the supported interface
 	virtual
-	void*	QueryInterface				///@return pointer to interface
+	void*	QueryInterface						//!@return pointer to interface
 			(
-			ConstIXIDRef	rIID,		///< [in] reference to requested interface ID
-			NResultPtr		pResult = 0	///< [out] optional result
+			ConstIXIDRef			rIID,		//!< [in] reference to requested interface ID
+			Yogi::Core::NResultPtr	pResult = 0	//!< [out] optional result
 			) PURE;
 
 	//!	AddRef - call to bump reference count
@@ -130,7 +129,7 @@ interface_ ISupports
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

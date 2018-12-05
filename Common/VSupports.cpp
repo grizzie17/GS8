@@ -31,7 +31,7 @@
 #include "UPlatform.h"
 #include "VSupports.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -236,8 +236,8 @@ VSupports::~VSupports
 \+---------------------------------------------------------------------*/
 void*	VSupports::ThisQueryInterface
 		(
-		ConstIXIDRef	rIID,
-		NResultPtr		pResult
+		ConstIXIDRef						rIID,
+		NAMESPACE_ROOT_PREFIX NResultPtr	pResult
 		)
 {
 	ISupportsPtr	pI = 0;
@@ -291,7 +291,7 @@ void*	VSupports::FindInternalInterface
 void*	VSupports::FindExternalInterface
 		(
 		ConstIXIDRef	,//rIID
-		NResultPtr		pResult
+		NAMESPACE_ROOT_PREFIX NResultPtr	pResult
 		)
 {
 	// override this function to implement aggregates
@@ -323,8 +323,8 @@ void	VSupports::FinalRelease
 \+---------------------------------------------------------------------*/
 void*	VSupports::InternalQueryInterface
 		(
-		ConstIXIDRef	rIID,
-		NResultPtr		pResult	// = 0
+		ConstIXIDRef						rIID,
+		NAMESPACE_ROOT_PREFIX NResultPtr	pResult	// = 0
 		)
 {
 	ISupportsPtr	pI = 0;
@@ -398,7 +398,7 @@ NRefCount
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

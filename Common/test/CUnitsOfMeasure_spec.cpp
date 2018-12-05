@@ -8,7 +8,7 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+using namespace Yogi::Common;
 
 
 Context(CUnitsOfMeasure_class)

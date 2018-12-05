@@ -49,7 +49,7 @@
 #include "UNResult.h"
 #include "LogFile.h"
 
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -1035,7 +1035,7 @@ CSocketICMP::~CSocketICMP
 \+=====================================================================*/
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 /*---------------------------------------------------------------------+\

@@ -8,7 +8,8 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_COMMON
+using namespace Yogi::Common;
+using namespace Yogi::Core;
 
 Context(CEventManager_class)
 {

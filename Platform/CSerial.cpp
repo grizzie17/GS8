@@ -63,7 +63,7 @@
 #include "TPointer.h"
 
 
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -1738,7 +1738,7 @@ NResult	CSerial::GetLastOSError
 \+=====================================================================*/
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 /*---------------------------------------------------------------------+\

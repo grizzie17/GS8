@@ -33,8 +33,7 @@
 #include "CVariantData.h"
 #include "CVariables.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -88,7 +87,7 @@ public:
 	virtual
 	CVariantDataPtr	GetEntry
 					(
-					ConstCCharStringRef sKey
+					Yogi::Core::ConstCCharStringRef sKey
 					) = 0;
 
 	virtual
@@ -121,7 +120,8 @@ public:
 					) = 0;
 
 	virtual
-	CCharString		GetEntryAsString
+	Yogi::Core::CCharString
+					GetEntryAsString
 					(
 					const char*	sKey,
 					const char*	sDefault = 0
@@ -146,10 +146,11 @@ public:
 					) = 0;
 
 	virtual
-	CColor			GetEntryAsColor
+	Yogi::Core::CColor
+					GetEntryAsColor
 					(
-					const char*		sKey,
-					const CColor	cDefault = CColor()
+					const char*					sKey,
+					const Yogi::Core::CColor	cDefault = Yogi::Core::CColor()
 					) = 0;
 
 protected:
@@ -183,7 +184,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

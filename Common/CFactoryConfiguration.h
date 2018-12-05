@@ -39,8 +39,7 @@
 #include "TPointer.h"
 #include "TArray.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -119,10 +118,10 @@ private:
 public:
 
 	virtual
-	CCharString
+	Yogi::Core::CCharString
 			ResolveVariable
 			(
-			ConstCCharDescriptorRef	r
+			Yogi::Core::ConstCCharDescriptorRef	r
 			);
 
 
@@ -143,7 +142,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_CFactoryConfiguration */

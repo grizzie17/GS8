@@ -30,13 +30,12 @@
 \+---------------------------------------------------------------------*/
 #include "TArray.h"
 
-#include "NamespaceCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -604,7 +603,7 @@ int TList<T>::FindUnusedEntry( void )
 	return idxUnusedEntry;
 }
 
-NAMESPACE_COMMON_END
+}}
 
 
 

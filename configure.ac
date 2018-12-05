@@ -102,11 +102,6 @@ AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
 CC="x86_64-pc-msys-gcc $WDEFS"
 CXX="x86_64-pc-msys-g++ $WDEFS"
 EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
-AC_CONFIG_FILES([
-	Draw/VGDI/Makefile
-	Draw/CDrawWin/Makefile
-	WorkbenchWin/Makefile
-])
 AC_SUBST([CC])
 AC_SUBST([CXX])
 ;;
@@ -115,16 +110,15 @@ AC_SUBST([CXX])
 AM_CPPFLAGS="-DLINUX"
 AM_CXXFLAGS="${GLOBAL_CXXFLAGS}"
 EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
-AC_CONFIG_FILES([
-	Draw/VDrawOpenGL/Makefile
-	Draw/CDrawOpenGL/Makefile
-	WorkbenchGLUT/Makefile
-])
 ;;
 esac
 AC_SUBST([AM_CPPFLAGS])
 AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([EXTSUBDIRS])
+AC_SUBST([OSCONFFILES])
+
+AM_CONDITIONAL([OS_MSYS], [test "xMsys" = x$(uname -o)])
+AM_CONDITIONAL([OS_LINUX], [test "xLinux" = x$(uname -s)])
 
 
 AC_CONFIG_FILES([
@@ -135,6 +129,20 @@ AC_CONFIG_FILES([
 	Gadget/Makefile
 	VSAShared/Makefile
 	WorkbenchShared/Makefile
+])
+AM_COND_IF([OS_MSYS], [
+	AC_CONFIG_FILES([
+		Draw/VGDI/Makefile
+		Draw/CDrawWin/Makefile
+		WorkbenchWin/Makefile
+	])
+])
+AM_COND_IF([OS_LINUX], [
+	AC_CONFIG_FILES([
+		Draw/VDrawOpenGL/Makefile
+		Draw/CDrawOpenGL/Makefile
+		WorkbenchGLUT/Makefile
+	])
 ])
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

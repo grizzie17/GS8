@@ -22,13 +22,6 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "CONFNAME",
-			"type": "shell",
-			"command": "echo ${env:CONFNAME}",
-			//"args": ["${env:CONFNAME}"],
-			"problemMatcher": []
-		},
-		{
 			"label": "c++ predefined variables",
 			"type": "shell",
 			"command": "echo | x86_64-pc-msys-gcc -xc++ -dM -E -mwindows - | sort",
@@ -43,30 +36,10 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "autoheader",
-			"type": "shell",
-			"command": "autoheader",
-			"group": "build",
-			"problemMatcher": {
-				"pattern": {
-					"regexp": "^([^:]+):([0-9]+):\\s+(.*)$",
-					"file": 1,
-					"line": 2,
-					"message": 3
-				}
-			}
-		},
-		{
-			"label": "configure",
+			"label": "build-config",
 			"type": "shell",
 			"command": "./build-config.sh",
 			"group": "build",
-			// "options": {
-			// 	"env":{
-			// 		"WIN64": "1",
-			// 		"_WIN64": "1"
-			// 	}
-			// },
 			"problemMatcher": {
 				"pattern": {
 					"regexp": "^([^:]+):\\s+([^:]+):\\s+(.*)$",
@@ -77,18 +50,7 @@
 			}
 		},
 		{
-			"label": "clean-objects",
-			"type": "shell",
-			"command": "make",
-			"args": ["clean"],
-			"group": "build",
-			"options": {
-				"cwd": "build"
-			},
-			"problemMatcher": []
-		},
-		{
-			"label": "clean",
+			"label": "build-clean",
 			"type": "shell",
 			"command": "./build-clean.sh",
 			"group": "build",
@@ -97,28 +59,39 @@
 		{
 			"label": "build",
 			"type": "shell",
-			"command": "make",
-			"args": [
-				"-j4"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}/build/Gadget"
-			},
+			"command": "./build.sh",
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
 			"problemMatcher": {
-				"pattern": [
-					{
-						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+(error):\\s+(.*)$",
-						"file": 1,
-						"line": 2,
-						"column": 3,
-						"severity": 4,
-						"message": 5
-					}
-				]
+				"pattern": {
+					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		}
+		{
+			"label": "build <currentfile>",
+			"type": "shell",
+			"command": "./build.sh",
+			"args": [
+				"${relativeFile}"
+			],
+			"group": "build",
+			"problemMatcher": {
+				"pattern": {
+					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
 			}
 		}
 	]

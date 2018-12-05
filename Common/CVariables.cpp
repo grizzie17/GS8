@@ -28,7 +28,7 @@
 #include "stdafx.h"
 #include "CVariables.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -110,13 +110,13 @@ CVariables::~CVariables
  * Substitute -
 
 \+---------------------------------------------------------------------*/
-CCharString
+Yogi::Core::CCharString
 		CVariables::Substitute
 		(
-		ConstCCharDescriptorRef	rSource
+		Yogi::Core::ConstCCharDescriptorRef	rSource
 		)
 {
-	CCharString	sNew;
+	Yogi::Core::CCharString	sNew;
 	const char*	p = rSource.Pointer();
 	const char*	pEnd = p + rSource.Length();
 	long		n;
@@ -128,8 +128,8 @@ CCharString
 			n = SpanVariable( p, pEnd );
 			if ( 0 < n )
 			{
-				CCharString	s;
-				s = ProcessVariable( CCharDescriptor( p, (size_t)n ) );
+				Yogi::Core::CCharString	s;
+				s = ProcessVariable( Yogi::Core::CCharDescriptor( p, (size_t)n ) );
 				if ( 0 < s.Length() )
 				{
 					sNew += s;
@@ -151,7 +151,7 @@ CCharString
 		else
 		{
 			n = SpanConstant( p, pEnd );
-			sNew += CCharDescriptor( p, (size_t)n );
+			sNew += Yogi::Core::CCharDescriptor( p, (size_t)n );
 		}
 		p += n;
 	}
@@ -227,18 +227,18 @@ long	CVariables::SpanVariable
  * ProcessVariable -
 
 \+---------------------------------------------------------------------*/
-CCharString
+Yogi::Core::CCharString
 		CVariables::ProcessVariable
 		(
-		ConstCCharDescriptorRef rVar
+		Yogi::Core::ConstCCharDescriptorRef rVar
 		)
 {
 	const char*	p = rVar.Pointer() + 2;		// get past $(
 	size_t		n = rVar.Length() - 3;
 
-	CCharString	s;
+	Yogi::Core::CCharString	s;
 
-	s = m_pVariable->ResolveVariable( CCharDescriptor( p, n ) );
+	s = m_pVariable->ResolveVariable( Yogi::Core::CCharDescriptor( p, n ) );
 	return Substitute( s );
 }
 
@@ -253,7 +253,7 @@ CCharString
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

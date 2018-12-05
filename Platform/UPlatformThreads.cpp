@@ -31,7 +31,7 @@
 |	Local Type Definitions	
 |							
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |							
 |	Private Global Variables
@@ -190,7 +190,7 @@ void	ThreadClose
 
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 /**--------------------------------------------------------------------+\

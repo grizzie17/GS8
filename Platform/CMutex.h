@@ -28,8 +28,7 @@
 #include <pthread.h>
 #endif
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -161,7 +160,7 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_ROOT_END
+}}
 
 
 

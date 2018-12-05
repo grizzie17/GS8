@@ -62,7 +62,7 @@
 //#if defined( OS_MSWIN )
 //#include <crtdefs.h>
 //#endif
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -959,7 +959,7 @@ long	CDateTime::SpanBlanks
 \+=====================================================================*/
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 /*---------------------------------------------------------------------+\

@@ -33,8 +33,7 @@
 #include "ISupports.h"
 #include "IXID.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -62,7 +61,7 @@ NAMESPACE_COMMON_BEGIN
 
 
 
-template < class TI, const IXID* TID = 0 >
+template < class TI, const IXID* TID >
 class TComPointer
 {
 //	class lifecycle  ----------------------------------------------------
@@ -343,7 +342,7 @@ NRefCount
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 

@@ -41,8 +41,7 @@
 
 #include "TCharDescriptor.h"
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -492,7 +491,7 @@ int		strcmp
 
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 

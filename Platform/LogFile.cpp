@@ -52,7 +52,7 @@
 |	Local Type Definitions	
 |							
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |							
 |	Private Global Variables
@@ -376,5 +376,5 @@ LOGFILE_API(void)
 
 
 
-NAMESPACE_ROOT_END
+}}
 

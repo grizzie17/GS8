@@ -28,7 +28,6 @@
 
 #include "fixed_t.h"
 
-#include "NamespaceRoot.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -119,7 +118,7 @@
 ||	Function Macros														|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 
 /**
  *	check if two floating point numbers are equivalent
@@ -137,7 +136,7 @@ bool	Equiv
 }
 
 
-NAMESPACE_ROOT_END
+}}
 
 #endif /* _H_UFloat */
 

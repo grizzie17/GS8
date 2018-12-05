@@ -48,8 +48,8 @@
 \+---------------------------------------------------------------------*/
 #include "CCharDescriptor.h"
 #include "TEnumerator.h"
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -153,8 +153,8 @@ typedef struct HSLColorByte
 typedef HSLColorByte*	HSLColorBytePtr;
 
 
-class CColor;				// forward reference
-class CColorEnumerator;		// forward reference
+//class CColor;				// forward reference
+//class CColorEnumerator;		// forward reference
 
 
 typedef class CColor*		CColorPtr;
@@ -166,6 +166,26 @@ typedef const class CColor&	ConstCColorRef;
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
+
+class CColorEnumerator : public TEnumerator<const ColorName>
+{
+public:
+			CColorEnumerator( void );
+	virtual	~CColorEnumerator( void );
+
+public:
+	virtual bool				MoveNext( void );
+	virtual void				Reset( void );
+	virtual	const ColorName*	Current( void );
+
+protected:
+	const ColorName*	m_pBegin;
+	const ColorName*	m_pEnd;
+	const ColorName*	m_pCurrent;
+
+};
+
+
 
 class CColor
 {
@@ -301,24 +321,6 @@ private:
 
 };
 
-
-class CColorEnumerator : public TEnumerator<const ColorName>
-{
-public:
-		CColorEnumerator( void );
-	virtual	~CColorEnumerator( void );
-
-public:
-	virtual bool				MoveNext( void );
-	virtual void				Reset( void );
-	virtual	const ColorName*	Current( void );
-
-protected:
-	const ColorName*	m_pBegin;
-	const ColorName*	m_pEnd;
-	const ColorName*	m_pCurrent;
-
-};
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -565,7 +567,7 @@ unsigned int
 
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 

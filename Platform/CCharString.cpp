@@ -48,12 +48,13 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "stdafx.h"
-#include <string.h>
+//#include <string.h>
 //#include <sys/types.h>
 #include <stdarg.h>
 #include <stdexcept>
 
 #include "CCharString.h"
+#include "TCharDescriptor.h"
 
 #include "LogFile.h"
 #include "UPlatform.h"
@@ -64,7 +65,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -102,7 +103,7 @@ NAMESPACE_ROOT_BEGIN
 CCharString::CCharString
 		(
 		)
-		: CCharDescriptor()
+		: inherited()
 {
 }
 
@@ -115,9 +116,9 @@ CCharString::CCharString
 		(
 		ConstCCharStringRef	r
 		)
-		: CCharDescriptor()
+		: inherited( r )
 {
-	LoadCCharString( r );
+	//LoadCCharString( r );
 }
 
 
@@ -130,7 +131,7 @@ CCharString::CCharString
 		(
 		ConstCCharDescriptorRef r
 		)
-		: CCharDescriptor()
+		: inherited()
 {
 	LoadCCharDescriptor( r );
 }
@@ -145,9 +146,8 @@ CCharString::CCharString
 		(
 		const char*	s
 		)
-		: CCharDescriptor()
+		: inherited( s )
 {
-	LoadStringData( s );
 }
 
 /*---------------------------------------------------------------------+\
@@ -160,9 +160,21 @@ CCharString::CCharString
 		const char*	s,
 		size_t		n
 		)
-		: CCharDescriptor()
+		: inherited()
 {
 	LoadStringData( s, (index_t)n );
+}
+
+/*---------------------------------------------------------------------+\
+
+ * CCharString - load string constructor
+
+\+---------------------------------------------------------------------*/
+CCharString::CCharString
+		(
+		const std::string&	r
+		) : inherited( r )
+{
 }
 
 /*---------------------------------------------------------------------+\
@@ -175,7 +187,6 @@ CCharString::~CCharString
 		void
 		)
 {
-	ClearString();
 }
 
 /*=====================================================================+\
@@ -212,7 +223,7 @@ bool	CCharString::Append
 		ConstCCharStringRef r
 		)
 {
-	return AppendStringData( r.m_s, (index_t)r.m_n );
+	return AppendStringData( r.c_str(), (index_t)r.length() );
 }
 
 
@@ -308,29 +319,7 @@ void	CCharString::ClearString
 		void
 		)
 {
-#if defined(_MSC_VER)
-	__try
-	{
-		if ( ValidAddr( m_s ) )
-			delete [] m_s;
-	}
-	__except (EXCEPTION_EXECUTE_HANDLER)
-	{
-		LogPrint( "Exception: during delete[]" );
-	}
-#else
-	try
-	{
-		if ( ValidAddr( m_s ) )
-			delete [] m_s;
-	}
-	catch ( ... )
-	{
-		LogPrint( "Exception: during delete[]" );
-	}
-#endif
-	m_s = 0;
-	m_n = 0;
+	clear();
 }
 
 /*=====================================================================+\
@@ -349,10 +338,11 @@ bool	CCharString::LoadCCharString
 		)
 {
 	bool	bResult = true;
-	if ( this != &r )	// protect against self assignment
-	{
-		bResult = LoadStringData( r.m_s, (index_t)r.m_n );
-	}
+	this->assign( r );
+	// if ( this != &r )	// protect against self assignment
+	// {
+	// 	bResult = LoadStringData( r.m_s, (index_t)r.m_n );
+	// }
 	return bResult;
 }
 
@@ -367,12 +357,7 @@ bool	CCharString::LoadCCharDescriptor
 		ConstCCharDescriptorRef r
 		)
 {
-	bool	bResult = true;
-	if ( this != &r )
-	{
-		bResult = LoadStringData( r.Pointer(), (index_t)r.Length() );
-	}
-	return bResult;
+	return LoadStringData( r.Pointer(), (index_t)r.Length() );
 }
 
 
@@ -400,28 +385,7 @@ bool	CCharString::LoadStringData
 				n = (size_t)nLen;
 			if ( 0 < n )
 			{
-				if ( n == m_n )
-				{
-					::memcpy_s( m_s, m_n, s, n );
-					*(m_s+m_n) = 0;
-				}
-				else
-				{
-					char*	t = new char[ n + 1 ];
-					if ( t )
-					{
-						::memcpy_s( t, n + 1, s, n );
-						*(t + n) = 0;
-
-						ClearString();
-						m_s = t;
-						m_n = n;
-					}
-					else
-					{
-						bResult = false;
-					}
-				}
+				this->assign( s, n );
 			}
 			else
 			{
@@ -449,15 +413,16 @@ bool	CCharString::AppendStringData
 		)
 {
 //	bool	bResult = false;
-	size_t	nNew = n + m_n;
-	char*	pNew = new char[nNew + 1];
+	// size_t	nNew = n + m_n;
+	// char*	pNew = new char[nNew + 1];
 
-	::strncpy_s( pNew, nNew+1, m_s, m_n );
-	::strncpy_s( pNew+m_n, (size_t)n+1, s, (size_t)n );
+	this->append( s, n );
+	// ::strncpy_s( pNew, nNew+1, m_s, m_n );
+	// ::strncpy_s( pNew+m_n, (size_t)n+1, s, (size_t)n );
 
-	ClearString();
-	m_s = pNew;
-	m_n = nNew;
+	// ClearString();
+	// m_s = pNew;
+	// m_n = nNew;
 
 	return true;
 }
@@ -498,6 +463,161 @@ bool	CCharString::ValidAddr
 	return bResult;
 }
 
+char	CCharString::AtIndex
+		(
+		index_t n
+		) const
+{
+	if ( n < index_t(length()) )
+		return *(c_str() + n);
+	else
+		return 0;
+}
+
+/*---------------------------------------------------------------------+\
+
+ * Hash -
+
+\+---------------------------------------------------------------------*/
+uintmax_t
+		CCharString::Hash
+		(
+		void
+		) const
+{
+	CCharDescriptor s( c_str(), length() );
+
+	return s.Hash();
+}
+
+
+bool	CCharString::CopyTo
+		(
+		char*	t,
+		size_t	tc
+		) const
+{
+	CCharDescriptor	s( c_str(), length() );
+	return s.CopyTo( t, tc );
+}
+
+
+bool	CCharString::ConcatenateTo
+		(
+		char*	t,
+		size_t	tc
+		) const
+{
+	CCharDescriptor	s( c_str(), length() );
+	return s.ConcatenateTo( t, tc );
+}
+
+int		CCharString::Compare
+		(
+		const char*	t
+		) const
+{
+	CCharDescriptor	s( c_str(), length() );
+	return s.Compare( t );
+}
+
+int		CCharString::Compare
+		(
+		const char*	t,
+		size_t		tc
+		) const
+{
+	CCharDescriptor	s( c_str(), length() );
+	return s.Compare( t, tc );
+}
+
+int		CCharString::Compare
+		(
+		ConstCCharDescriptorRef	r
+		) const
+{
+	return Compare( r.Pointer(), r.Length() );
+}
+
+int		CCharString::Compare
+		(
+		ConstCCharStringRef	r
+		) const
+{
+	return Compare( r.c_str(), r.length() );
+}
+
+int		CCharString::Compare
+		(
+		const std::string&	r
+		) const
+{
+	return Compare( r.c_str(), r.length() );
+}
+
+int		CCharString::CompareIgnoreCase
+		(
+		ConstCCharStringRef r
+		) const
+{
+	return CompareIgnoreCase( r.c_str(), r.length() );
+}
+
+int		CCharString::CompareIgnoreCase
+		(
+		ConstCCharDescriptorRef	r
+		) const
+{
+	return CompareIgnoreCase( r.Pointer(), r.Length() );
+}
+
+int		CCharString::CompareIgnoreCase
+		(
+		const char*	s,
+		size_t		sc
+		) const
+{
+	const CCharDescriptor	t( c_str(), length() );
+	return t.CompareIgnoreCase( s, sc );
+}
+
+int		CCharString::CompareIgnoreCase
+		(
+		const char*	s
+		) const
+{
+	const CCharDescriptor	t( c_str(), length() );
+	return t.CompareIgnoreCase( s );
+}
+
+// int		CCharString::CompareIgnoreCase
+// 		(
+// 		const std::string&	r
+// 		)
+// {
+// 	return CompareIgnoreCase( r.c_str(), r.length() );
+// }
+
+void	CCharString::ConvertUppercase
+		(
+		void
+		)
+{
+	CCharDescriptor s( c_str(), length() );
+	s.ConvertUppercase();
+}
+
+
+void	CCharString::ConvertLowercase
+		(
+		void
+		)
+{
+	CCharDescriptor	s( c_str(), length() );
+	s.ConvertLowercase();
+}
+
+
 /*=====================================================================+\
 ||	 private member functions											|
 \+=====================================================================*/
@@ -509,7 +629,7 @@ bool	CCharString::ValidAddr
 \+=====================================================================*/
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 /*---------------------------------------------------------------------+\

@@ -32,8 +32,7 @@
 #include "TEnumerator.h"
 #include "UTypes.h"
 
-#include "NamespaceRoot.h"
-NAMESPACE_ROOT_BEGIN
+namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -44,8 +43,6 @@ NAMESPACE_ROOT_BEGIN
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-template < class T >
-class TArrayEnumerator;		// forward declaration
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -68,6 +65,55 @@ class TArrayAlloc
 public:
 	size_t	nAllocSize;
 	TArrayAlloc( size_t i ) : nAllocSize( i ) {}
+};
+
+
+//------------------
+//  Enumerator Class
+//------------------
+template< class T >
+class TArray;
+
+
+template < class T >
+class TArrayEnumerator : public TEnumerator<T>
+{
+//	class lifecycle  ----------------------------------------------------
+public:
+				TArrayEnumerator( void );
+				TArrayEnumerator( const TArray<T>* p );
+	virtual		~TArrayEnumerator( void );
+
+public:
+//	public types  -------------------------------------------------------
+
+//	public functions  ---------------------------------------------------
+
+	TArrayEnumerator<T>&	operator=( const TArrayEnumerator<T>& r );		// assignment
+
+protected:
+//	protected types  ----------------------------------------------------
+
+//	protected functions  ------------------------------------------------
+
+//	protected data  -----------------------------------------------------
+
+	const TArray<T>*	m_pArray;
+	index_t				m_nIndex;
+
+private:
+//	private functions  --------------------------------------------------
+
+//	private data  -------------------------------------------------------
+
+//============================== Overrides ==============================
+	//	TEnumerator
+public:
+	virtual bool	MoveNext( void );
+	virtual void	Reset( void );
+	virtual	T*		Current( void );
+
+
 };
 
 //------------------
@@ -150,47 +196,6 @@ private:
 
 };
 
-
-template < class T >
-class TArrayEnumerator : public TEnumerator<T>
-{
-//	class lifecycle  ----------------------------------------------------
-public:
-				TArrayEnumerator( void );
-				TArrayEnumerator( const TArray<T>* p );
-	virtual		~TArrayEnumerator( void );
-
-public:
-//	public types  -------------------------------------------------------
-
-//	public functions  ---------------------------------------------------
-
-	TArrayEnumerator<T>&	operator=( const TArrayEnumerator<T>& r );		// assignment
-
-protected:
-//	protected types  ----------------------------------------------------
-
-//	protected functions  ------------------------------------------------
-
-//	protected data  -----------------------------------------------------
-
-	const TArray<T>*	m_pArray;
-	index_t				m_nIndex;
-
-private:
-//	private functions  --------------------------------------------------
-
-//	private data  -------------------------------------------------------
-
-//============================== Overrides ==============================
-	//	TEnumerator
-public:
-	virtual bool	MoveNext( void );
-	virtual void	Reset( void );
-	virtual	T*		Current( void );
-
-
-};
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -1031,7 +1036,7 @@ T*		TArrayEnumerator<T>::Current
 
 
 
-NAMESPACE_ROOT_END
+}}
 
 
 

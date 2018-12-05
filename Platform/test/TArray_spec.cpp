@@ -5,7 +5,7 @@
 #include "igloo/igloo.h"
 using namespace igloo;
 
-USING_NAMESPACE_ROOT
+using namespace Yogi::Core;
 
 Context(TArray_template)
 {

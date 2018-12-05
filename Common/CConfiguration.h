@@ -30,8 +30,7 @@
 #include "CVariantData.h"
 #include "UTypes.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -62,13 +61,13 @@ public:
 //	public types  -------------------------------------------------------
 
 	typedef
-		TDictionaryIndexedEnumerator< CCharString, CVariantData >
+		TDictionaryIndexedEnumerator< Yogi::Core::CCharString, CVariantData >
 		Enumerator;
 
 
 //	public functions  ---------------------------------------------------
 
-	virtual long	LocateEntry( ConstCCharStringRef rName );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 
 	virtual CVariantDataPtr
 					GetData( index_t nSel );
@@ -76,8 +75,8 @@ public:
 
 	virtual bool	AddAlias
 					( 
-					ConstCCharDescriptorRef rKey, 
-					ConstCCharDescriptorRef rAlias 
+					Yogi::Core::ConstCCharDescriptorRef rKey, 
+					Yogi::Core::ConstCCharDescriptorRef rAlias 
 					);
 
 	virtual Enumerator
@@ -90,7 +89,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< CCharString, CVariantData>	m_aContent;
+	TDictionaryIndexed< Yogi::Core::CCharString, CVariantData>	m_aContent;
 
 	//THashTable< CCharString, CVariantData >	m_aContent;
 
@@ -103,83 +102,97 @@ private:
 	//	VVariable
 public:
 	virtual
-	CCharString
+	Yogi::Core::CCharString
 			ResolveVariable
 			(
-			ConstCCharDescriptorRef	r
+			Yogi::Core::ConstCCharDescriptorRef	r
 			);
 
 	//	VConfiguration
 public:
 	virtual
-	bool			AddEntry( const char* sKey, ConstCVariantDataRef rData );
+	bool	AddEntry
+			( 
+			const char* sKey, 
+			ConstCVariantDataRef rData 
+			);
 
 	virtual
-	CVariantDataPtr	GetEntry( const char* sKey );
+	CVariantDataPtr	
+			GetEntry
+			( 
+			const char* sKey 
+			);
 
 	virtual
-	CVariantDataPtr	GetEntry( ConstCCharStringRef sKey );
+	CVariantDataPtr	
+			GetEntry
+			( 
+			Yogi::Core::ConstCCharStringRef sKey 
+			);
 
 	virtual
-	long			GetEntryAsInteger
-					(
-					const char*	sKey,
-					long		nDefault = 0
-					);
+	long	GetEntryAsInteger
+			(
+			const char*	sKey,
+			long		nDefault = 0
+			);
 
 	virtual
-	unsigned long	GetEntryAsUnsigned
-					(
-					const char*		sKey,
-					unsigned long	nDefault = 0
-					);
+	unsigned long
+			GetEntryAsUnsigned
+			(
+			const char*		sKey,
+			unsigned long	nDefault = 0
+			);
 
 	virtual
-	GFLOAT			GetEntryAsFloat
-					(
-					const char*	sKey,
-					GFLOAT		fDefault = 0.0f
-					);
+	GFLOAT	GetEntryAsFloat
+			(
+			const char*	sKey,
+			GFLOAT		fDefault = 0.0f
+			);
 
 	virtual
-	GFLOAT			GetEntryAsFloatUnits
-					(
-					const char*	sKey,
-					const char*	sUnitName,
-					GFLOAT		fDefault = 0.0f
-					);
+	GFLOAT	GetEntryAsFloatUnits
+			(
+			const char*	sKey,
+			const char*	sUnitName,
+			GFLOAT		fDefault = 0.0f
+			);
 
 	virtual
-	CCharString		
-					GetEntryAsString
-					(
-					const char*	sKey,
-					const char*	sDefault = 0
-					);
+	Yogi::Core::CCharString		
+			GetEntryAsString
+			(
+			const char*	sKey,
+			const char*	sDefault = 0
+			);
 
 	virtual
-	long			GetEntryAsEnum
-					(
-					const char*			sKey,
-					const EnumDatumPtr	pEnumList,
-					const long			nEnumCount,
-					const long			nDefault = 0,
-					const long			nError = 0
-					);
+	long	GetEntryAsEnum
+			(
+			const char*			sKey,
+			const EnumDatumPtr	pEnumList,
+			const long			nEnumCount,
+			const long			nDefault = 0,
+			const long			nError = 0
+			);
 
 	virtual
-	bool			GetEntryAsBool
-					(
-					const char*	sKey,
-					const bool	bDefault = false
-					);
+	bool	GetEntryAsBool
+			(
+			const char*	sKey,
+			const bool	bDefault = false
+			);
 
 	virtual
-	CColor			GetEntryAsColor
-					(
-					const char*		sKey,
-					const CColor	cDefault = CColor()
-					);
+	Yogi::Core::CColor
+			GetEntryAsColor
+			(
+			const char*		sKey,
+			const Yogi::Core::CColor	cDefault = Yogi::Core::CColor()
+			);
 
 
 };
@@ -200,7 +213,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

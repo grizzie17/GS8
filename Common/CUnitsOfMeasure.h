@@ -40,7 +40,7 @@
 #include "UFloat.h"
 
 #include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -101,7 +101,7 @@ public:
 				CUnitsOfMeasure( ConstCUnitsOfMeasureRef r );	// copy constructor
 				CUnitsOfMeasure( int n );
 				CUnitsOfMeasure( const char* sString );
-				CUnitsOfMeasure( ConstCCharDescriptorRef r );
+				CUnitsOfMeasure( Yogi::Core::ConstCCharDescriptorRef r );
 	virtual		~CUnitsOfMeasure();
 
 public:
@@ -118,14 +118,14 @@ public:
 				operator int ( void ) const;
 
 	int			SetUsingString( const char* s );
-	int			SetUsingString( ConstCCharDescriptorRef r );
+	int			SetUsingString( Yogi::Core::ConstCCharDescriptorRef r );
 
 	int			SetUsingName( const char* s );
-	int			SetUsingName( ConstCCharDescriptorRef r );
+	int			SetUsingName( Yogi::Core::ConstCCharDescriptorRef r );
 	int			SetUsingPluralName( const char* s );
-	int			SetUsingPluralName( ConstCCharDescriptorRef r );
+	int			SetUsingPluralName( Yogi::Core::ConstCCharDescriptorRef r );
 	int			SetUsingAbbrev( const char* s );
-	int			SetUsingAbbrev( ConstCCharDescriptorRef r );
+	int			SetUsingAbbrev( Yogi::Core::ConstCCharDescriptorRef r );
 
 	const char*	ToName( void );
 	const char*	ToPluralName( void );
@@ -216,7 +216,7 @@ CUnitsOfMeasure::CUnitsOfMeasure
 inline
 CUnitsOfMeasure::CUnitsOfMeasure
 		(
-		ConstCCharDescriptorRef	r
+		Yogi::Core::ConstCCharDescriptorRef	r
 		)
 		: m_nUnits( 0 )
 {
@@ -390,7 +390,7 @@ CUnitsOfMeasure::operator int
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 

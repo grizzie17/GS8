@@ -36,7 +36,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -110,7 +110,7 @@ bool	CConfiguration::AddEntry
 		)
 {
 	bool		bResult = false;
-	CCharString	tName( sName );
+	Yogi::Core::CCharString	tName( sName );
 
 	bResult = m_aContent.Add( tName, rData );
 
@@ -126,12 +126,12 @@ bool	CConfiguration::AddEntry
 \+---------------------------------------------------------------------*/
 bool	CConfiguration::AddAlias
 		(
-		ConstCCharDescriptorRef	rKey,
-		ConstCCharDescriptorRef	rAlias
+		Yogi::Core::ConstCCharDescriptorRef	rKey,
+		Yogi::Core::ConstCCharDescriptorRef	rAlias
 		)
 {
-	CCharString	tKey( rKey );
-	CCharString	tAlias( rAlias );
+	Yogi::Core::CCharString	tKey( rKey );
+	Yogi::Core::CCharString	tAlias( rAlias );
 	return m_aContent.AddAlias( tKey, tAlias );
 }
 
@@ -170,13 +170,13 @@ bool	CConfiguration::PutData
  * ResolveVariable -
 
 \+---------------------------------------------------------------------*/
-CCharString
+Yogi::Core::CCharString
 		CConfiguration::ResolveVariable
 		(
-		ConstCCharDescriptorRef r
+		Yogi::Core::ConstCCharDescriptorRef r
 		)
 {
-	CCharString	s = r;
+	Yogi::Core::CCharString	s = r;
 
 	return GetEntryAsString( s.Pointer() );
 }
@@ -189,7 +189,7 @@ CCharString
 \+---------------------------------------------------------------------*/
 long	CConfiguration::LocateEntry
 		(
-		ConstCCharStringRef	rName
+		Yogi::Core::ConstCCharStringRef	rName
 		)
 {
 	return long(m_aContent.IndexOf( rName ));
@@ -209,7 +209,7 @@ CVariantDataPtr
 		const char*	sKey
 		)
 {
-	CCharString	tName( sKey );
+	Yogi::Core::CCharString	tName( sKey );
 	return GetEntry( tName );
 }
 
@@ -222,7 +222,7 @@ CVariantDataPtr
 CVariantDataPtr
 		CConfiguration::GetEntry
 		(
-		ConstCCharStringRef	sKey
+		Yogi::Core::ConstCCharStringRef	sKey
 		)
 {
 	return m_aContent.Find( sKey );
@@ -359,7 +359,7 @@ GFLOAT	CConfiguration::GetEntryAsFloatUnits
  * GetParameterAsString -
 
 \+---------------------------------------------------------------------*/
-CCharString
+Yogi::Core::CCharString
 		CConfiguration::GetEntryAsString
 		(
 		const char*	sKey,
@@ -370,12 +370,12 @@ CCharString
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		CCharString	s = *pv;
+		Yogi::Core::CCharString	s = *pv;
 		return s;
 	}
 	else
 	{
-		CCharString	s( sDefault );
+		Yogi::Core::CCharString	s( sDefault );
 		return s;
 	}
 }
@@ -405,7 +405,7 @@ long	CConfiguration::GetEntryAsEnum
 			{
 				EnumDatumPtr	pDatum = pEnumList;
 				EnumDatumPtr	pDatumEnd = pEnumList + nEnumCount;
-				CCharString		s = *pv;
+				Yogi::Core::CCharString		s = *pv;
 				while ( pDatum < pDatumEnd )
 				{
 					if ( 0 == s.CompareIgnoreCase( pDatum->sKey ) )
@@ -462,10 +462,11 @@ bool	CConfiguration::GetEntryAsBool
  * GetEntryAsColor -
 
 \+---------------------------------------------------------------------*/
-CColor	CConfiguration::GetEntryAsColor
+Yogi::Core::CColor
+		CConfiguration::GetEntryAsColor
 		(
-		const char*		sKey,
-		const CColor	cDefault	//= CColor(0,0,0)
+		const char*					sKey,
+		const Yogi::Core::CColor	cDefault	//= CColor(0,0,0)
 		)
 {
 	CVariantDataPtr	pv;
@@ -513,7 +514,7 @@ CConfiguration::Enumerator
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\
