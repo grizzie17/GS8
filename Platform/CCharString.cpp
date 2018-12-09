@@ -322,6 +322,24 @@ void	CCharString::ClearString
 	clear();
 }
 
+
+long	CCharString::ParseInt
+		(
+		size_t*	pParseCount
+		) const
+{
+	return ParseIntT<char>( c_str(), length(), pParseCount );
+}
+
+GFLOAT	CCharString::ParseFloat
+		(
+		size_t*	pParseCount
+		) const
+{
+	return ParseFloatT<char>( c_str(), length(), pParseCount );
+}
+
+
 /*=====================================================================+\
 ||	 protected member functions											|
 \+=====================================================================*/

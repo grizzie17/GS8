@@ -30,7 +30,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "VPluginCommand.h"
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -212,7 +212,7 @@ void*	VPluginCommand::FindInternalInterface
 }
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -220,4 +220,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

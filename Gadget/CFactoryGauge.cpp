@@ -103,7 +103,7 @@
 #include "CEqOpMax.h"
 #include "CEqOpMin.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -4595,11 +4595,10 @@ bool	CFactoryGauge::ResultValueFromNodeColorScript
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

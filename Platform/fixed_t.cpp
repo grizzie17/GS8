@@ -1589,7 +1589,7 @@ int	dummy_fixed_t = 0;	// just here to prevent a warning message
 \+=====================================================================*/
 
 
-//NAMESPACE_COMMON_END
+//}}
 
 
 /*---------------------------------------------------------------------+\
@@ -1597,4 +1597,3 @@ int	dummy_fixed_t = 0;	// just here to prevent a warning message
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

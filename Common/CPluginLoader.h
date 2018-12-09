@@ -33,8 +33,7 @@
 #include "CCharString.h"
 #include "CMutex.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -77,12 +76,12 @@ protected:
 
 //	protected functions  ------------------------------------------------
 
-	CCharString			BuildLibraryPath( const char* sClass );
+	Yogi::Core::CCharString		BuildLibraryPath( const char* sClass );
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sPath;
-	CMutex			m_oMutex;
+	Yogi::Core::CCharString		m_sPath;
+	Yogi::Core::CMutex			m_oMutex;
 
 private:
 //	private functions  --------------------------------------------------
@@ -108,7 +107,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

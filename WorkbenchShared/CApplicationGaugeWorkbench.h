@@ -61,13 +61,13 @@
 #if defined( OS_MSWIN )
 #include <afxwin.h>
 #include "CDrawWinWorkbench.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -124,7 +124,7 @@ public:
 
 protected:
 	virtual VDrawPtr	MakeDraw( void );
-	virtual VConfigurationPtr			
+	virtual VConfigurationPtr
 						MakeConfiguration( void );
 
 };
@@ -145,10 +145,9 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	//	OS_MSWIN
 
 #endif /* _H_CApplicationGaugeWorkbench */
-

@@ -25,7 +25,7 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Interface Constants													|
@@ -36,5 +36,4 @@ const IXID	IXID_IService( "BCG::Gadget::IService" );
 
 
 
-NAMESPACE_GADGET_END
-
+}}

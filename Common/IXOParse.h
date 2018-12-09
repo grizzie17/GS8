@@ -29,8 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -77,7 +76,8 @@ interface_ IXOParse : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction
+	Yogi::Core::NResult
+			SomeFunction
 			(
 			SomeType	arg1,	// OUT:	description of arg1
 			AnotherType	arg2	// IN:	description of arg2
@@ -94,7 +94,8 @@ interface_ IXOParseType : public IXOParse
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction2
+	Yogi::Core::NResult
+			SomeFunction2
 			(
 			SomeType	arg1,	// OUT:	description of arg1
 			AnotherType	arg2	// IN:	description of arg2
@@ -111,7 +112,8 @@ interface_ IXOParseAttribute : public IXOParse
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction2
+	Yogi::Core::NResult
+			SomeFunction2
 			(
 			SomeType	arg1,	// OUT:	description of arg1
 			AnotherType	arg2	// IN:	description of arg2
@@ -128,7 +130,8 @@ interface_ IXOParseProperty : public IXOParse
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction2
+	Yogi::Core::NResult
+			SomeFunction2
 			(
 			SomeType	arg1,	// OUT:	description of arg1
 			AnotherType	arg2	// IN:	description of arg2
@@ -145,7 +148,8 @@ interface_ IXOParseNProperty : public IXOParse
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction2
+	Yogi::Core::NResult
+			SomeFunction2
 			(
 			SomeType	arg1,	// OUT:	description of arg1
 			AnotherType	arg2	// IN:	description of arg2
@@ -162,7 +166,8 @@ interface_ IXOParseSet : public IXOParse
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction2
+	Yogi::Core::NResult
+			SomeFunction2
 			(
 			SomeType	arg1,	// OUT:	description of arg1
 			AnotherType	arg2	// IN:	description of arg2
@@ -179,7 +184,8 @@ interface_ IXOParseRoot : public IXOParse
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction2
+	Yogi::Core::NResult
+			SomeFunction2
 			(
 			SomeType	arg1,	// OUT:	description of arg1
 			AnotherType	arg2	// IN:	description of arg2
@@ -206,7 +212,7 @@ interface_ IXOParseRoot : public IXOParse
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_IXOParse */

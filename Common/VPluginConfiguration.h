@@ -35,16 +35,17 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "CCharString.h"
+#include "CCharDescriptor.h"
+#include "CDateTime.h"
 #include "CVariantData.h"
 #include "THash.h"
 
-#include "NamespaceCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 
 #define	E_(ename)		EX_(ename)
@@ -120,8 +121,8 @@ public:
 	typedef EnumDatum*	EnumDatumPtr;
 	typedef	EnumDatum*	EnumData;
 
-	typedef THashTableEnumerator<CCharString, CVariantData>	ParamEnum;
-	typedef THashTableEnumerator<CCharString, VPluginConfigurationPtr> FolderEnum;
+	typedef THashTableEnumerator<Yogi::Core::CCharString, CVariantData>	ParamEnum;
+	typedef THashTableEnumerator<Yogi::Core::CCharString, VPluginConfigurationPtr> FolderEnum;
 
 //	public functions  ---------------------------------------------------
 
@@ -133,28 +134,28 @@ public:
 			) = 0;
 
 	virtual
-	CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetClass
 			(
 			void
-			) = 0;
+			) const = 0;
 
 	virtual
-	CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetGroup
 			(
 			void
-			) = 0;
+			) const = 0;
 
 	virtual
-	CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetID
 			(
 			void
-			) = 0;
+			) const = 0;
 
 	virtual
-	CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetAttribute
 			(
 			const char*	sKey
@@ -165,35 +166,35 @@ public:
 			GetParamEnum
 			(
 			void
-			) = 0;
+			) const = 0;
 
 	virtual
 	FolderEnum
 			GetFolderEnum
 			(
 			void
-			) = 0;
+			) const = 0;
 
 	virtual
-	CVariantDataPtr
+	const CVariantData*
 			GetParameter
 			(
 			const char* sKey
-			) = 0;
+			) const = 0;
 
 	virtual
-	CVariantDataPtr
+	const CVariantData*
 			GetParameter
 			(
-			ConstCCharStringRef sKey
-			) = 0;
+			Yogi::Core::ConstCCharStringRef sKey
+			) const = 0;
 
 	virtual
 	long	GetParameterAsInteger
 			(
 			const char*	sKey,
 			long		nDefault = 0
-			) = 0;
+			) const = 0;
 
 	virtual
 	long	GetParameterAsIntegerArray
@@ -201,7 +202,7 @@ public:
 			long*		pArray,
 			long		nAlloc,		// number of longs allocated in array
 			const char*	sKey
-			) = 0;
+			) const = 0;
 
 	virtual
 	unsigned long
@@ -209,14 +210,14 @@ public:
 			(
 			const char*		sKey,
 			unsigned long	nDefault = 0
-			) = 0;
+			) const = 0;
 
 	virtual
 	GFLOAT	GetParameterAsFloat
 			(
 			const char*	sKey,
 			GFLOAT		fDefault = 0.0f
-			) = 0;
+			) const = 0;
 
 	virtual
 	GFLOAT	GetParameterAsFloatUnits
@@ -224,15 +225,15 @@ public:
 			const char*	sKey,
 			const char*	sUnitName,
 			GFLOAT		fDefault = 0.0f
-			) = 0;
+			) const = 0;
 
 	virtual
-	CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetParameterAsString
 			(
 			const char*	sKey,
 			const char*	sDefault = 0
-			) = 0;
+			) const = 0;
 
 	virtual
 	long	GetParameterAsEnum
@@ -242,29 +243,30 @@ public:
 			const long			nEnumCount,
 			const long			nDefault = 0,
 			const long			nError = 0
-			) = 0;
+			) const = 0;
 
 	virtual
 	bool	GetParameterAsBool
 			(
 			const char*	sKey,
 			const bool	bDefault = false
-			) = 0;
+			) const = 0;
 
 	virtual
-	CColor	GetParameterAsColor
+	Yogi::Core::CColor
+			GetParameterAsColor
 			(
 			const char*		sKey,
-			const CColor	cDefault = CColor()
-			) = 0;
+			Yogi::Core::ConstCColorRef	cDefault = Yogi::Core::CColor()
+			) const = 0;
 
 	virtual
-	CDateTime
+	Yogi::Core::CDateTime
 			GetParameterAsDateTime
 			(
 			const char*		sKey,
-			const CDateTime	tDefault = CDateTime()
-			) = 0;
+			Yogi::Core::ConstCDateTimeRef	tDefault = Yogi::Core::CDateTime()
+			) const = 0;
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -303,7 +305,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

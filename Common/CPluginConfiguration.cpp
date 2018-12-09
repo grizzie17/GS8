@@ -38,7 +38,7 @@
 
 #include "LogFile.h"
 #include "UPlatform.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -82,14 +82,14 @@ CPluginConfiguration::CPluginConfiguration
 		(
 		void
 		)
-		: m_sClass(),
-		m_sGroup(),
-		m_sID(),
-		m_sTemp(),
-		m_aAttributes(),
-		m_aParameters(),
-		m_aFolders(),
-		m_nFolderCount( 0 )
+		: m_sClass()
+		, m_sGroup()
+		, m_sID()
+		, m_sTemp()
+		, m_aAttributes()
+		, m_aParameters()
+		, m_aFolders()
+		, m_nFolderCount( 0 )
 {
 }
 
@@ -105,7 +105,7 @@ CPluginConfiguration::~CPluginConfiguration
 		void
 		)
 {
-	VPluginConfigurationPtr*	h;
+	const VPluginConfigurationPtr*	h;
 	FolderEnum			tEnum = m_aFolders.GetEnumerator();
 
 	while ( tEnum.MoveNext() )
@@ -135,7 +135,7 @@ VPluginConfiguration*
 		const char*	sQuery
 		)
 {
-	VPluginConfigurationPtr*	h;
+	const VPluginConfigurationPtr*	h;
 	FolderEnum			tEnum = m_aFolders.GetEnumerator();
 
 	while ( tEnum.MoveNext() )
@@ -143,7 +143,7 @@ VPluginConfiguration*
 		h = tEnum.Current();
 		if ( h )
 		{
-			CCharString	s = (*h)->GetClass();
+			Yogi::Core::CCharString	s = (*h)->GetClass();
 			if ( s == sQuery )
 			{
 				return *h;
@@ -166,7 +166,7 @@ VPluginConfiguration*
 \+---------------------------------------------------------------------*/
 void	CPluginConfiguration::SetClass
 		(
-		CCharDescriptorRef	r
+		Yogi::Core::ConstCCharDescriptorRef	r
 		)
 {
 	m_sClass = r;
@@ -177,11 +177,11 @@ void	CPluginConfiguration::SetClass
  * GetClass -
 
 \+---------------------------------------------------------------------*/
-CCharStringRef
+Yogi::Core::ConstCCharStringRef
 		CPluginConfiguration::GetClass
 		(
 		void
-		)
+		) const
 {
 	return m_sClass;
 }
@@ -194,7 +194,7 @@ CCharStringRef
 \+---------------------------------------------------------------------*/
 void	CPluginConfiguration::SetGroup
 		(
-		CCharDescriptorRef r
+		Yogi::Core::ConstCCharDescriptorRef r
 		)
 {
 	m_sGroup = r;
@@ -205,11 +205,11 @@ void	CPluginConfiguration::SetGroup
  * GetGroup -
 
 \+---------------------------------------------------------------------*/
-CCharStringRef
+Yogi::Core::ConstCCharStringRef
 		CPluginConfiguration::GetGroup
 		(
 		void
-		)
+		) const
 {
 	return m_sGroup;
 }
@@ -222,7 +222,7 @@ CCharStringRef
 \+---------------------------------------------------------------------*/
 void	CPluginConfiguration::SetID
 		(
-		CCharDescriptorRef r
+		Yogi::Core::ConstCCharDescriptorRef r
 		)
 {
 	m_sID = r;
@@ -233,11 +233,11 @@ void	CPluginConfiguration::SetID
  * GetID -
 
 \+---------------------------------------------------------------------*/
-CCharStringRef
+Yogi::Core::ConstCCharStringRef
 		CPluginConfiguration::GetID
 		(
 		void
-		)
+		) const
 {
 	return m_sID;
 }
@@ -251,8 +251,8 @@ CCharStringRef
 \+---------------------------------------------------------------------*/
 void	CPluginConfiguration::AddParameter
 		(
-		CCharDescriptorRef rName,
-		CVariantDataRef rData
+		Yogi::Core::ConstCCharDescriptorRef	rName,
+		ConstCVariantDataRef				rData
 		)
 {
 	if ( 0 < rName.Length() )
@@ -267,14 +267,14 @@ void	CPluginConfiguration::AddParameter
 \+---------------------------------------------------------------------*/
 void	CPluginConfiguration::AddAttribute
 		(
-		CCharDescriptorRef	rName,
-		CCharDescriptorRef	rData
+		Yogi::Core::ConstCCharDescriptorRef	rName,
+		Yogi::Core::ConstCCharDescriptorRef	rData
 		)
 {
 	if ( 0 < rName.Length() )
 	{
-		CCharString	sName = rName;
-		CCharString	sData = rData;
+		Yogi::Core::CCharString	sName = rName;
+		Yogi::Core::CCharString	sData = rData;
 
 		m_aAttributes.Add( sName, sData );
 	}
@@ -288,7 +288,7 @@ void	CPluginConfiguration::AddAttribute
 \+---------------------------------------------------------------------*/
 bool	CPluginConfiguration::AddFolder
 		(
-		CCharDescriptorRef rName,
+		Yogi::Core::ConstCCharDescriptorRef rName,
 		CPluginConfigurationPtr pFolder
 		)
 {
@@ -303,7 +303,7 @@ bool	CPluginConfiguration::AddFolder
 		}
 		else
 		{
-			CCharString	sName;
+			Yogi::Core::CCharString	sName;
 			sName.Format( "@IDX@%ld", m_nFolderCount );
 			bResult = m_aFolders.Add( sName, pFolder );
 		}
@@ -323,7 +323,7 @@ void	CPluginConfiguration::PruneFolder
 		CPluginConfigurationPtr pConfig
 		)
 {
-	VPluginConfigurationPtr*	h;
+	const VPluginConfigurationPtr*	h;
 	FolderEnum			tEnum = m_aFolders.GetEnumerator();
 
 	while ( tEnum.MoveNext() )
@@ -333,7 +333,7 @@ void	CPluginConfiguration::PruneFolder
 		{
 			if ( (*h) == pConfig )
 			{
-				CCharString	sKey = tEnum.Key();
+				Yogi::Core::CCharString	sKey = tEnum.Key();
 				m_aFolders.Remove( sKey );
 			}
 		}
@@ -349,7 +349,7 @@ CPluginConfiguration::ParamEnum
 		CPluginConfiguration::GetParamEnum
 		(
 		void
-		)
+		) const
 {
 	return m_aParameters.GetEnumerator();
 }
@@ -363,7 +363,7 @@ CPluginConfiguration::FolderEnum
 		CPluginConfiguration::GetFolderEnum
 		(
 		void
-		)
+		) const
 {
 	return m_aFolders.GetEnumerator();
 }
@@ -374,14 +374,14 @@ CPluginConfiguration::FolderEnum
  * GetAttribute -
 
 \+---------------------------------------------------------------------*/
-CCharStringRef
+Yogi::Core::ConstCCharStringRef
 		CPluginConfiguration::GetAttribute
 		(
 		const char*	sKey
 		)
 {
-	CCharString		tName( sKey );
-	CCharStringPtr	p = m_aAttributes.Find( sKey );
+	Yogi::Core::CCharString			tName( sKey );
+	const Yogi::Core::CCharString*	p = m_aAttributes.Find( tName );
 	if ( p )
 		m_sTemp = *p;
 	else
@@ -395,13 +395,13 @@ CCharStringRef
  * GetParameter -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+const CVariantData*
 		CPluginConfiguration::GetParameter
 		(
 		const char*	sKey
-		)
+		) const
 {
-	CCharString	tName( sKey );
+	Yogi::Core::CCharString	tName( sKey );
 	return GetParameter( tName );
 }
 
@@ -411,11 +411,11 @@ CVariantDataPtr
  * GetParameter -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+const CVariantData*
 		CPluginConfiguration::GetParameter
 		(
-		ConstCCharStringRef	sKey
-		)
+		Yogi::Core::ConstCCharStringRef	sKey
+		) const
 {
 	return m_aParameters.Find( sKey );
 }
@@ -430,16 +430,15 @@ long	CPluginConfiguration::GetParameterAsInteger
 		(
 		const char*	sKey,
 		long		nDefault	//=0
-		)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
-		long	n = *pv;
+		long	n = pv->GetValueInteger();
 		if ( CVariantData::MT_NUMERIC != pv->GetMetaType() )
 		{
-			LogPrint( "Problem with Parameter type as integer\n" );
+			Yogi::Core::LogPrint( "Problem with Parameter type as integer\n" );
 		}
 		return n;
 	}
@@ -454,16 +453,15 @@ long	CPluginConfiguration::GetParameterAsIntegerArray
 		long*		pArray,
 		long		nAlloc,
 		const char*	sKey
-		)
+		) const
 {
 	long			nResult = 0;
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
 		long*	pStart = pArray;
 		long*	pEnd = pStart + nAlloc;
-		CCharString	tValue = pv->GetValueCCharString();
+		Yogi::Core::CCharString	tValue = pv->GetValueCCharString();
 		const char*	s = tValue.Pointer();
 		const char*	sEnd = s + tValue.Length();
 		long	nValue;
@@ -473,7 +471,7 @@ long	CPluginConfiguration::GetParameterAsIntegerArray
 		{
 			//s += this->SpanBlanks( s, sEnd );
 
-			nValue = ParseIntT( s, (size_t)(sEnd - s), &n );
+			nValue = Yogi::Core::ParseIntT( s, (size_t)(sEnd - s), &n );
 			if ( 0 < n )
 			{
 				if ( pArray < pEnd )
@@ -510,16 +508,15 @@ unsigned long
 		(
 		const char*		sKey,
 		unsigned long	nDefault	//=0
-		)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
 		unsigned long	n = pv->GetValueUnsignedInteger();
 		if ( CVariantData::MT_NUMERIC != pv->GetMetaType() )
 		{
-			LogPrint( "Problem with Parameter type as unsigned\n" );
+			Yogi::Core::LogPrint( "Problem with Parameter type as unsigned\n" );
 		}
 		return n;
 	}
@@ -538,16 +535,15 @@ GFLOAT	CPluginConfiguration::GetParameterAsFloat
 		(
 		const char*	sKey,
 		GFLOAT		fDefault	//=0
-		)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
-		GFLOAT	f = *pv;
+		GFLOAT	f = pv->GetValueFloat();
 		if ( CVariantData::MT_NUMERIC != pv->GetMetaType() )
 		{
-			LogPrint( "Problem with Parameter type as float\n" );
+			Yogi::Core::LogPrint( "Problem with Parameter type as float\n" );
 		}
 		return f;
 	}
@@ -568,10 +564,9 @@ GFLOAT	CPluginConfiguration::GetParameterAsFloatUnits
 		const char*	sKey,
 		const char*	sUnitName,
 		GFLOAT		fDefault	//=0
-		)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
 		if ( 0 < pv->GetUnits()
@@ -581,7 +576,7 @@ GFLOAT	CPluginConfiguration::GetParameterAsFloatUnits
 			u.SetUsingString( sUnitName );
 			if ( CVariantData::MT_NUMERIC != pv->GetMetaType() )
 			{
-				LogPrint( "Problem with Parameter type as float\n" );
+				Yogi::Core::LogPrint( "Problem with Parameter type as float\n" );
 			}
 			return pv->GetValueFloatAsUnits( u );
 		}
@@ -602,32 +597,28 @@ GFLOAT	CPluginConfiguration::GetParameterAsFloatUnits
  * GetParameterAsString -
 
 \+---------------------------------------------------------------------*/
-CCharStringRef
+Yogi::Core::ConstCCharStringRef
 		CPluginConfiguration::GetParameterAsString
 		(
 		const char*	sKey,
 		const char*	sDefault	//=0
-		)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
+	Yogi::Core::CCharString* ps = new Yogi::Core::CCharString;
 	if ( pv )
 	{
 		if ( CVariantData::MT_CHARACTER != pv->GetMetaType() )
 		{
-			LogPrint( "Problem with Parameter type as string\n" );
+			Yogi::Core::LogPrint( "Problem with Parameter type as string\n" );
 		}
-		m_sTemp = pv->GetValueCCharString();
+		ps->LoadCCharString( pv->GetValueCCharString() );
 	}
 	else if ( sDefault )
 	{
-		m_sTemp = sDefault;
+		ps->LoadStringData( sDefault );
 	}
-	else
-	{
-		m_sTemp = CCharString();
-	}
-	return m_sTemp;
+	return *ps;
 }
 
 
@@ -643,10 +634,9 @@ long	CPluginConfiguration::GetParameterAsEnum
 		const long			nEnumCount,
 		const long			nDefault,	//= 0
 		const long			nError		//= 0
-		)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
 		if ( CVariantData::T_STRING == pv->GetType() )
@@ -655,7 +645,7 @@ long	CPluginConfiguration::GetParameterAsEnum
 			{
 				EnumDatumPtr	pDatum = pEnumList;
 				EnumDatumPtr	pDatumEnd = pEnumList + nEnumCount;
-				CCharString		s = *pv;
+				Yogi::Core::CCharString		s = pv->GetValueCCharString();
 				while ( pDatum < pDatumEnd )
 				{
 					if ( 0 == s.CompareIgnoreCase( pDatum->sKey ) )
@@ -691,15 +681,14 @@ bool	CPluginConfiguration::GetParameterAsBool
 		(
 		const char*		sKey,
 		const bool		bDefault	//= false
-		)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
 		if ( CVariantData::T_BOOL != pv->GetType() )
 		{
-			LogPrint( "Problem with Parameter type as boolean\n" );
+			Yogi::Core::LogPrint( "Problem with Parameter type as boolean\n" );
 		}
 		return pv->GetValueBool();
 	}
@@ -714,19 +703,19 @@ bool	CPluginConfiguration::GetParameterAsBool
  * GetParameterAsColor -
 
 \+---------------------------------------------------------------------*/
-CColor	CPluginConfiguration::GetParameterAsColor
+Yogi::Core::CColor
+		CPluginConfiguration::GetParameterAsColor
 		(
 		const char*		sKey,
-		const CColor	cDefault	//= CColor(0,0,0)
-		)
+		Yogi::Core::ConstCColorRef	cDefault	//= CColor(0,0,0)
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
 		if ( CVariantData::MT_COLOR != pv->GetMetaType() )
 		{
-			LogPrint( "Problem with Parameter type as color\n" );
+			Yogi::Core::LogPrint( "Problem with Parameter type as color\n" );
 		}
 		return pv->GetValueColor();
 	}
@@ -741,20 +730,19 @@ CColor	CPluginConfiguration::GetParameterAsColor
  * GetParameterAsDateTime -
 
 \+---------------------------------------------------------------------*/
-CDateTime
+Yogi::Core::CDateTime
 		CPluginConfiguration::GetParameterAsDateTime
 		(
 		const char*		sKey,
-		const CDateTime	cDefault	//= CDateTime()
-		)
+		Yogi::Core::ConstCDateTimeRef	cDefault	//= CDateTime()
+		) const
 {
-	CVariantDataPtr	pv;
-	pv = GetParameter( sKey );
+	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
 		if ( CVariantData::MT_DATETIME != pv->GetMetaType() )
 		{
-			LogPrint( "Problem with Parameter type as date-time\n" );
+			Yogi::Core::LogPrint( "Problem with Parameter type as date-time\n" );
 		}
 		return pv->GetValueDateTime();
 	}
@@ -780,7 +768,7 @@ CDateTime
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

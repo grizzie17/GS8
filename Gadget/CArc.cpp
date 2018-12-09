@@ -37,7 +37,7 @@
 
 #include "CArc.h"
 //USING_NAMESPACE_COMMON
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -264,7 +264,7 @@ bool	CArc::Render
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -272,4 +272,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -38,7 +38,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CPolygon*		CPolygonPtr;
 typedef class CPolygon&		CPolygonRef;
@@ -103,8 +103,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CPolygon */
-

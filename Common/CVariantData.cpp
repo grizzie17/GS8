@@ -475,13 +475,13 @@ CVariantDataRef
  * operator bool -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator bool
-		(
-		void
-		)
-{
-	return GetValueBool();
-}
+// CVariantData::operator bool
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueBool();
+// }
 
 
 /*---------------------------------------------------------------------+\
@@ -489,39 +489,39 @@ CVariantData::operator bool
  * operator long -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator long
-		(
-		void
-		)
-{
-	return GetValueInteger();
-}
+// CVariantData::operator long
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueInteger();
+// }
 
 /*---------------------------------------------------------------------+\
 
  * operator float -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator GFLOAT
-		(
-		void
-		)
-{
-	return GetValueFloat();
-}
+// CVariantData::operator GFLOAT
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueFloat();
+// }
 
 /*---------------------------------------------------------------------+\
 
  * operator double -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator double
-		(
-		void
-		)
-{
-	return GetValueDouble();
-}
+// CVariantData::operator double
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueDouble();
+// }
 
 
 /*---------------------------------------------------------------------+\
@@ -529,13 +529,13 @@ CVariantData::operator double
  * operator char* -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator const char*
-		(
-		void
-		)
-{
-	return GetValueString();
-}
+// CVariantData::operator const char*
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueString();
+// }
 
 
 /*---------------------------------------------------------------------+\
@@ -543,13 +543,13 @@ CVariantData::operator const char*
  * operator CCharString -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator Yogi::Core::CCharString
-		(
-		void
-		)
-{
-	return GetValueCCharString();
-}
+// CVariantData::operator Yogi::Core::CCharString
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueCCharString();
+// }
 
 
 
@@ -558,31 +558,31 @@ CVariantData::operator Yogi::Core::CCharString
  * operator CCharDescriptor -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator Yogi::Core::CCharDescriptor
-		(
-		void
-		)
-{
-	if ( T_STRING == m_eType )
-	{
-		if ( m_pString )
-			return Yogi::Core::CCharDescriptor( m_pString->Pointer(), m_pString->Length() );
-		else
-			return Yogi::Core::CCharDescriptor();
-	}
-	else if ( T_PACKED_CHARACTER == m_eType )
-	{
-		size_t	n = ::strlen( m_cData );
-		if ( 0 < n )
-			return Yogi::Core::CCharDescriptor( m_cData, n );
-		else
-			return Yogi::Core::CCharDescriptor();
-	}
-	else
-	{
-		return Yogi::Core::CCharDescriptor();
-	}
-}
+// CVariantData::operator Yogi::Core::CCharDescriptor
+// 		(
+// 		void
+// 		)
+// {
+// 	if ( T_STRING == m_eType )
+// 	{
+// 		if ( m_pString )
+// 			return Yogi::Core::CCharDescriptor( m_pString->Pointer(), m_pString->Length() );
+// 		else
+// 			return Yogi::Core::CCharDescriptor();
+// 	}
+// 	else if ( T_PACKED_CHARACTER == m_eType )
+// 	{
+// 		size_t	n = ::strlen( m_cData );
+// 		if ( 0 < n )
+// 			return Yogi::Core::CCharDescriptor( m_cData, n );
+// 		else
+// 			return Yogi::Core::CCharDescriptor();
+// 	}
+// 	else
+// 	{
+// 		return Yogi::Core::CCharDescriptor();
+// 	}
+// }
 
 
 /*---------------------------------------------------------------------+\
@@ -624,23 +624,23 @@ CVariantData::operator Yogi::Core::CCharDescriptor
  * operator CCharDescriptorRef -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator CCharDescriptorRef
-		(
-		void
-		)
-{
-	if ( T_STRING == m_eType )
-	{
-		if ( m_pString )
-			return *m_pString;
-		else
-			return g_tCharDescriptor;
-	}
-	else
-	{
-		return g_tCharDescriptor;
-	}
-}
+// CVariantData::operator CCharDescriptorRef
+// 		(
+// 		void
+// 		)
+// {
+// 	if ( T_STRING == m_eType )
+// 	{
+// 		if ( m_pString )
+// 			return *m_pString;
+// 		else
+// 			return g_tCharDescriptor;
+// 	}
+// 	else
+// 	{
+// 		return g_tCharDescriptor;
+// 	}
+// }
 
 
 
@@ -649,15 +649,15 @@ CVariantData::operator CCharDescriptorRef
  * operator CColor -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator Yogi::Core::CColor
-		(
-		void
-		)
-{
-	Yogi::Core::CColor	c;
-	c = m_tColor;
-	return c;
-}
+// CVariantData::operator Yogi::Core::CColor
+// 		(
+// 		void
+// 		)
+// {
+// 	Yogi::Core::CColor	c;
+// 	c = m_tColor;
+// 	return c;
+// }
 
 
 /*---------------------------------------------------------------------+\
@@ -665,13 +665,13 @@ CVariantData::operator Yogi::Core::CColor
  * operator CDateTime -
 
 \+---------------------------------------------------------------------*/
-CVariantData::operator Yogi::Core::CDateTime
-		(
-		void
-		)
-{
-	return GetValueDateTime();
-}
+// CVariantData::operator Yogi::Core::CDateTime
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueDateTime();
+// }
 
 
 /*---------------------------------------------------------------------+\
@@ -788,7 +788,7 @@ long	CVariantData::GetValueInteger
 			if ( 0 < i )
 			{
 				size_t	nCount;
-				n = ParseIntT( m_cData, (size_t)i, &nCount );
+				n = Yogi::Core::ParseIntT( m_cData, (size_t)i, &nCount );
 				if ( nCount != i )
 					n = 0;
 			}
@@ -842,7 +842,7 @@ GFLOAT	CVariantData::GetValueFloat
 			if ( 0 < n )
 			{
 				size_t	nCount;
-				f = ParseFloatT( m_cData, n, &nCount );
+				f = Yogi::Core::ParseFloatT( m_cData, n, &nCount );
 				if ( n != nCount )
 					f = GFLOAT_0;
 			}
@@ -956,7 +956,7 @@ bool	CVariantData::EqualsVariant
 			return m_tTime == r.m_tTime;
 			break;
 		case T_UNDEFINED:
-			return m_nData == r.m_nData;
+			return true;
 			break;
 		default:
 			return false;
@@ -990,27 +990,35 @@ bool	CVariantData::EqualsVariant
 			{
 			case T_STRING:
 				{
-					Yogi::Core::CCharDescriptor	s;
-					return EqualsCCharString( s );
+					Yogi::Core::CCharDescriptor	s = r.GetValueCCharDescriptor();
+					return EqualsCCharDescriptor( s );
 				}
+				break;
 			case T_INTEGER:
-				return EqualsInteger( 0L );
+				return EqualsInteger( r.GetValueInteger() );
+				break;
 			case T_BOOL:
-				return EqualsBool( false );
+				return EqualsBool( r.GetValueBool() );
+				break;
 			case T_FLOAT:
-				return EqualsFloat( 0.0f );
+				return EqualsFloat( r.GetValueFloat() );
 			case T_COLOR:
 				{
-					Yogi::Core::CColor	c;
+					Yogi::Core::CColor	c = r.GetValueColor();
 					return EqualsColor( c );
 				}
+				break;
 			case T_DATETIME:
 				{
-					Yogi::Core::CDateTime	d;
+					Yogi::Core::CDateTime	d = r.GetValueDateTime();
 					return EqualsDateTime( d );
 				}
+				break;
+			case T_UNDEFINED:
+				return true;
+				break;
 			default:
-				return false;
+				return true;
 			}
 			break;
 		default:
@@ -1341,7 +1349,7 @@ bool	CVariantData::EqualsInteger
 				if ( 0 < nLen )
 				{
 					size_t	nCount;
-					d = ParseIntT( m_pString->Pointer(), nLen, &nCount );
+					d = Yogi::Core::ParseIntT( m_pString->Pointer(), nLen, &nCount );
 					if ( nCount != nLen )
 						d = ~nData;
 				}
@@ -1380,7 +1388,7 @@ bool	CVariantData::LessThanInteger
 				if ( 0 < nLen )
 				{
 					size_t	nCount;
-					d = ParseIntT( m_pString->Pointer(), nLen, &nCount );
+					d = Yogi::Core::ParseIntT( m_pString->Pointer(), nLen, &nCount );
 					if ( nCount != nLen )
 						d = ~nData;
 				}
@@ -1427,7 +1435,7 @@ bool	CVariantData::LessThanString
 	if ( sData )
 	{
 		Yogi::Core::CCharDescriptor	tData( sData );
-		return LessThanCCharString( tData );
+		return LessThanCCharDescriptor( tData );
 	}
 	else
 	{
@@ -1443,6 +1451,15 @@ bool	CVariantData::LessThanString
 \+---------------------------------------------------------------------*/
 bool	CVariantData::EqualsCCharString
 		(
+		Yogi::Core::ConstCCharStringRef	r
+		) const
+{
+	Yogi::Core::CCharDescriptor	d( r.c_str(), r.length() );
+	return EqualsCCharDescriptor( d );
+}
+
+bool	CVariantData::EqualsCCharDescriptor
+		(
 		Yogi::Core::ConstCCharDescriptorRef r
 		) const
 {
@@ -1451,6 +1468,8 @@ bool	CVariantData::EqualsCCharString
 	case T_STRING:
 		if ( m_pString )
 			return 0 == m_pString->Compare( r );
+		else if ( r.Length() < 1 )
+			return true;
 		else
 			return false;
 		break;
@@ -1536,6 +1555,15 @@ bool	CVariantData::EqualsCCharString
 
 bool	CVariantData::LessThanCCharString
 		(
+		Yogi::Core::ConstCCharStringRef	r
+		) const
+{
+	Yogi::Core::CCharDescriptor	d( r.c_str(), r.length() );
+	return LessThanCCharDescriptor( d );
+}
+
+bool	CVariantData::LessThanCCharDescriptor
+		(
 		Yogi::Core::ConstCCharDescriptorRef r
 		) const
 {
@@ -1609,7 +1637,7 @@ bool	CVariantData::LessThanCCharString
 	case T_COLOR:
 		{
 			Yogi::Core::CColor	c;
-			c = CColor::ColorFromName( r.Pointer() );
+			c = Yogi::Core::CColor::ColorFromName( r.Pointer() );
 			return c > m_tColor;
 		}
 		break;
@@ -1658,7 +1686,7 @@ bool	CVariantData::EqualsColor
 			{
 				if ( 0 < m_pString->Length() )
 				{
-					Yogi::Core::CColor	c = CColor::ColorFromName( *m_pString );
+					Yogi::Core::CColor	c = Yogi::Core::CColor::ColorFromName( m_pString->Pointer() );
 					return c == r;
 				}
 				else
@@ -1732,6 +1760,15 @@ bool	CVariantData::LessThanDateTime
 
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
+
+Yogi::Core::CCharDescriptor
+		CVariantData::GetValueCCharDescriptor
+		(
+		void
+		) const
+{
+	return Yogi::Core::CCharDescriptor();
+}
 
 Yogi::Core::CCharString
 		CVariantData::GetValueCCharString
@@ -1807,7 +1844,7 @@ Yogi::Core::CColor
 		break;
 	case T_STRING:
 		if ( m_pString )
-			c = Yogi::Core::CColor::ColorFromName( *m_pString );
+			c = Yogi::Core::CColor::ColorFromName( m_pString->Pointer() );
 		else
 			c.SetNonColor( true );
 		break;
@@ -1846,7 +1883,10 @@ Yogi::Core::CDateTime
 		{
 			Yogi::Core::CDateTime	t;
 			if ( 0 < m_pString->Length() )
-				t.Parse( *m_pString );
+			{
+				Yogi::Core::CCharDescriptor cd = *m_pString;
+				t.Parse( cd );
+			}
 			return t;
 		}
 	case T_ARRAY:
@@ -1870,7 +1910,7 @@ CVariantData::V_TYPE
 		CVariantData::GetType
 		(
 		void
-		)
+		) const
 {
 	return m_eType;
 }
@@ -1884,7 +1924,7 @@ CVariantData::V_METATYPE
 		CVariantData::GetMetaType
 		(
 		void
-		)
+		) const
 {
 	switch ( m_eType )
 	{
@@ -1918,7 +1958,7 @@ CVariantData::V_METATYPE
 int		CVariantData::GetUnits
 		(
 		void
-		)
+		) const
 {
 	return m_tUnits.GetUnits();
 }
@@ -1933,7 +1973,7 @@ void	CVariantData::SetUnits
 		int	eUnits
 		)
 {
-	m_tUnits = Yogi::Core::CUnitsOfMeasure(eUnits);
+	m_tUnits = CUnitsOfMeasure(eUnits);
 }
 
 
@@ -2253,4 +2293,3 @@ void	CVariantData::PrepareLoad
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

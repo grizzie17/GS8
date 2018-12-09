@@ -35,8 +35,8 @@
 #include "CMutex.h"
 #include "UPlatformThreads.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -286,8 +286,7 @@ public:
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CServiceVehicleSocket */
-

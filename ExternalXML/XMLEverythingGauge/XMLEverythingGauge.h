@@ -37,8 +37,8 @@
 #include "CVariantData.h"
 #include "VDictionary.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -131,7 +131,7 @@ public:
 	virtual
 	bool	Initialize
 			(
-			IExternalXMLServerPtr p 
+			IExternalXMLServerPtr p
 			);
 
 	virtual
@@ -167,9 +167,8 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_XMLEverythingGauge */
-

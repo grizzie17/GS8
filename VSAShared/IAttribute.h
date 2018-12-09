@@ -32,8 +32,8 @@
 #include "CVariantData.h"
 #include "CCharDescriptor.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -95,8 +95,7 @@ interface_ IAttribute : public ISupports
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IAttribute */
-

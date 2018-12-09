@@ -37,7 +37,7 @@
 #include "CFactoryPlugin.h"
 #include "IPluginLibrary.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -333,7 +333,7 @@ VDictionary::Selector
 //END_OVERRUN_WARNING
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -341,4 +341,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -143,7 +143,7 @@ public:
 	CVariantDataRef	operator=( Yogi::Core::ConstCDateTimeRef r );
 
 	bool			operator==( ConstCVariantDataRef r ) const;
-	//bool			operator==( ConstCCharStringRef r );
+	bool			operator==( Yogi::Core::ConstCCharStringRef r ) const;
 	bool			operator==( Yogi::Core::ConstCCharDescriptorRef r ) const;
 	bool			operator==( double fData ) const;
 	bool			operator==( GFLOAT fData ) const;
@@ -154,7 +154,7 @@ public:
 	bool			operator==( Yogi::Core::ConstCDateTimeRef r ) const;
 
 	bool			operator!=( ConstCVariantDataRef r ) const;
-	//bool			operator!=( ConstCCharStringRef r );
+	bool			operator!=( Yogi::Core::ConstCCharStringRef r ) const;
 	bool			operator!=( Yogi::Core::ConstCCharDescriptorRef r ) const;
 	bool			operator!=( double fData ) const;
 	bool			operator!=( GFLOAT fData ) const;
@@ -165,6 +165,7 @@ public:
 	bool			operator!=( Yogi::Core::ConstCDateTimeRef r ) const;
 
 	bool			operator< ( ConstCVariantDataRef r ) const;
+	bool			operator< ( Yogi::Core::ConstCCharStringRef r ) const;
 	bool			operator< ( Yogi::Core::ConstCCharDescriptorRef r ) const;
 	bool			operator< ( double fData ) const;
 	bool			operator< ( GFLOAT fdata ) const;
@@ -174,21 +175,20 @@ public:
 	bool			operator< ( Yogi::Core::ConstCDateTimeRef r ) const;
 
 
-	operator Yogi::Core::CCharDescriptor ( void );
-	//operator const CCharDescriptor* ( void );
-	//operator CCharDescriptor* ( void ) const;
-	operator Yogi::Core::CCharDescriptorRef ( void );
-	operator bool( void );
-	operator long( void );
-	operator unsigned long( void );
-	operator GFLOAT( void );
-	operator double( void );
-	operator Yogi::Core::CCharString( void );
-	//operator const CCharString* ( void );
-	//operator const CCharString( void );
-	operator const char*( void );
-	operator Yogi::Core::CColor( void );
-	operator Yogi::Core::CDateTime( void );
+	// operator Yogi::Core::CCharDescriptor ( void ) const;
+	// //operator const CCharDescriptor* ( void );
+	// //operator CCharDescriptor* ( void ) const;
+	// //operator Yogi::Core::CCharDescriptorRef ( void );
+	// operator bool( void ) const;
+	// operator long( void ) const;
+	// operator GFLOAT( void ) const;
+	// operator double( void ) const;
+	// operator Yogi::Core::CCharString( void );
+	// //operator const CCharString* ( void );
+	// //operator const CCharString( void );
+	// operator const char*( void ) const;
+	// operator Yogi::Core::CColor( void ) const;
+	// operator Yogi::Core::CDateTime( void ) const;
 
 	bool		GetValueBool( void ) const;
 	long		GetValueInteger( void ) const;
@@ -199,11 +199,13 @@ public:
 	GFLOAT		GetValueFloatAsUnits( int nUnits ) const;
 	const char*	GetValueString( void ) const;
 	Yogi::Core::CCharString	GetValueCCharString( void ) const;
+	Yogi::Core::CCharDescriptor	GetValueCCharDescriptor( void ) const;
 	Yogi::Core::CColor		GetValueColor( void ) const;
 	Yogi::Core::CDateTime	GetValueDateTime( void ) const;
 
 	bool		EqualsVariant( ConstCVariantDataRef vData ) const;
-	bool		EqualsCCharString( Yogi::Core::ConstCCharDescriptorRef r ) const;
+	bool		EqualsCCharString( Yogi::Core::ConstCCharStringRef r ) const;
+	bool		EqualsCCharDescriptor( Yogi::Core::ConstCCharDescriptorRef r ) const;
 	bool		EqualsDouble( double fData ) const;
 	bool		EqualsFloat( GFLOAT fData ) const;
 	bool		EqualsBool( bool bData ) const;
@@ -213,7 +215,8 @@ public:
 	bool		EqualsDateTime( Yogi::Core::ConstCDateTimeRef r ) const;
 
 	bool		LessThanVariant( ConstCVariantDataRef r ) const;
-	bool		LessThanCCharString( Yogi::Core::ConstCCharDescriptorRef r ) const;
+	bool		LessThanCCharString( Yogi::Core::ConstCCharStringRef r ) const;
+	bool		LessThanCCharDescriptor( Yogi::Core::ConstCCharDescriptorRef r ) const;
 	bool		LessThanDouble( double fData ) const;
 	bool		LessThanFloat( GFLOAT fData ) const;
 	bool		LessThanBool( bool bData ) const;
@@ -236,9 +239,9 @@ public:
 	CVariantDataRef			operator[]( const index_t n );
 
 
-	V_TYPE		GetType( void );
-	V_METATYPE	GetMetaType( void );
-	int			GetUnits( void );
+	V_TYPE		GetType( void ) const;
+	V_METATYPE	GetMetaType( void ) const;
+	int			GetUnits( void ) const;
 	void		SetUnits( int nUnits );
 
 	void		Clear( void );		// clear all values
@@ -338,6 +341,16 @@ inline
 bool	CVariantData::operator==
 		(
 		Yogi::Core::ConstCCharDescriptorRef r
+		) const
+{
+	return EqualsCCharDescriptor( r );
+}
+
+
+inline
+bool	CVariantData::operator==
+		(
+		Yogi::Core::ConstCCharStringRef r
 		) const
 {
 	return EqualsCCharString( r );
@@ -456,15 +469,15 @@ bool	CVariantData::operator==
 }
 
 
-//inline
-//bool	operator==
-//		(
-//		const char*				a,
-//		ConstCVariantDataRef	b
-//		)
-//{
-//	return b.EqualsString( a );
-//}
+inline
+bool	operator==
+		(
+		const char*				a,
+		ConstCVariantDataRef	b
+		)
+{
+	return b.EqualsString( a );
+}
 
 
 
@@ -535,6 +548,16 @@ inline
 bool	CVariantData::operator!=
 		(
 		Yogi::Core::ConstCCharDescriptorRef r
+		) const
+{
+	return !EqualsCCharDescriptor( r );
+}
+
+
+inline
+bool	CVariantData::operator!=
+		(
+		Yogi::Core::ConstCCharStringRef r
 		) const
 {
 	return !EqualsCCharString( r );
@@ -719,6 +742,15 @@ bool	CVariantData::operator <
 		Yogi::Core::ConstCCharDescriptorRef r
 		) const
 {
+	return LessThanCCharDescriptor( r );
+}
+
+inline
+bool	CVariantData::operator <
+		(
+		Yogi::Core::ConstCCharStringRef r
+		) const
+{
 	return LessThanCCharString( r );
 }
 
@@ -778,25 +810,25 @@ bool	CVariantData::operator <
 }
 
 
-inline
-CVariantData::operator unsigned long
-		(
-		void
-		)
-{
-	return GetValueUnsignedInteger();
-}
+// inline
+// CVariantData::operator unsigned long
+// 		(
+// 		void
+// 		)
+// {
+// 	return GetValueUnsignedInteger();
+// }
 
 
-inline
-unsigned long
-		CVariantData::GetValueUnsignedInteger
-		(
-		void
-		) const
-{
-	return static_cast<unsigned long>(GetValueInteger());
-}
+// inline
+// unsigned long
+// 		CVariantData::GetValueUnsignedInteger
+// 		(
+// 		void
+// 		) const
+// {
+// 	return static_cast<unsigned long>(GetValueInteger());
+// }
 
 
 

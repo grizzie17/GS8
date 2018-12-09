@@ -86,7 +86,7 @@ USING_NAMESPACE_GRAPHICS_EVENT
 //	a namespace
 extern void Tx232AvalexELOCoordinates( int x, int y, VDDS_GRAPHICS_EVENT_TYPE t );
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*=====================================================================+\
 ||																		|
@@ -487,7 +487,7 @@ bool	CmdM1200::Load
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /**--------------------------------------------------------------------+\
@@ -499,4 +499,3 @@ NAMESPACE_GADGET_END
  * (author)J.Griswold  --  17-May-2010
 
 \+---------------------------------------------------------------------*/
-

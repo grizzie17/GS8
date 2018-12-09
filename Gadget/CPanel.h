@@ -39,7 +39,7 @@
 \+---------------------------------------------------------------------*/
 #include "VControlEventMap.h"
 
-#include "NamespaceGadget.h"
+
 #include "VPanelChild.h"
 #include "TArray.h"
 #include "TPointer.h"
@@ -54,7 +54,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CPanel*		CPanelPtr;
 typedef TPointer<CPanel>	CPanelAutoPtr;
@@ -145,8 +145,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CPanel */
-

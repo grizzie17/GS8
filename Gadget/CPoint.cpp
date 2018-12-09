@@ -32,7 +32,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -124,7 +124,7 @@ CPointValue::~CPointValue
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -132,4 +132,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -38,7 +38,7 @@
 #	include "VMouseProcessorWin.h"
 
 #	include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -118,10 +118,9 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 //#endif	// OS_MSWIN
 
 #endif /* _H_CMouseProcessorWin */
-

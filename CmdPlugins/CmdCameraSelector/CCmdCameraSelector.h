@@ -41,7 +41,7 @@
 #include "CDictPageSelector.h"
 
 
-#include "NamespaceGadget.h"
+
 
 
 /*---------------------------------------------------------------------+\
@@ -49,7 +49,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -80,7 +80,7 @@ protected:
 //	protected types  ----------------------------------------------------
 
 //	protected functions  ------------------------------------------------
-	
+
 //	protected data  ----------------------------------------------------
 
 	VDictionaryPtr				m_pDictionary;
@@ -142,13 +142,8 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CCmdCameraSelector */
-
-
-
-
-

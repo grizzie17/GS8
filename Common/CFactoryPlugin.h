@@ -31,8 +31,7 @@
 #include "TArray.h"
 #include "ISupports.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -45,7 +44,7 @@ NAMESPACE_COMMON_BEGIN
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef	TArray<ISupportsPtr>	ISupportsArray;
+typedef	Yogi::Core::TArray<ISupportsPtr>	ISupportsArray;
 
 
 typedef class CFactoryPlugin*		CFactoryPluginPtr;
@@ -158,7 +157,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_CFactoryPlugin */

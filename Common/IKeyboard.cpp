@@ -31,16 +31,16 @@
 |	Namespace	
 |				
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |						
 |	Interface Constants	
 |						
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IKeyboard( "BCG::Common::IKeyboard" );
+const IXID	IXID_IKeyboard( "Yogi::Common::IKeyboard" );
 
 
 
-NAMESPACE_COMMON_END
+}}
 

@@ -59,6 +59,7 @@
 #include <string.h>
 
 #include "CUnitsOfMeasure.h"
+#include "CCharDescriptor.h"
 
 #include "UMath.h"
 #include "UFloat.h"
@@ -467,7 +468,7 @@ int		CUnitsOfMeasure::SetUsingPluralName
 		Yogi::Core::ConstCCharDescriptorRef	r
 		)
 {
-	int		nResult = 0;
+	int			nResult = 0;
 	UNITDATA*	p = g_aUnitTable;
 	UNITDATA*	pEnd = p + (sizeof(g_aUnitTable) / sizeof(UNITDATA) );
 	while ( p < pEnd )
@@ -528,7 +529,7 @@ int		CUnitsOfMeasure::SetUsingString
 		const char*	s
 		)
 {
-	CCharDescriptor	tName( s, ::strlen( s ) );
+	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
 	return SetUsingString( tName );
 }
 

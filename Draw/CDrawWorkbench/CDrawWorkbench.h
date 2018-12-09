@@ -33,11 +33,11 @@
 
 #include "Chronos.h"
 
-#include "NamespaceCommon.h"
-#include "NamespaceGadget.h"
 
-USING_NAMESPACE_GADGET
-NAMESPACE_COMMON_BEGIN
+
+
+using namespace Yogi::Gadget;
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -157,19 +157,19 @@ public:
 
 	//	IDrawTmx
 public:
-	virtual 
+	virtual
 	bool	begin
 			(
-			void 
+			void
 			);
 
-	virtual 
+	virtual
 	bool	end
 			(
-			void 
+			void
 			);
 
-	virtual 
+	virtual
 	bool	margin
 			(
 			int		nLeft,
@@ -178,7 +178,7 @@ public:
 			int		nBottom
 			);
 
-	virtual 
+	virtual
 	bool	push
 			(
 			GFLOAT	xPosition,
@@ -190,10 +190,10 @@ public:
 			GFLOAT	rotation,
 			GFLOAT	scale
 			);
-	virtual 
+	virtual
 	bool	pop
 			(
-			void 
+			void
 			);
 
 	//	IDraw
@@ -434,10 +434,9 @@ public:
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 
 
 #endif /* _H_CDrawWorkbench */
-

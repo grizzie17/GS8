@@ -30,7 +30,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEqOpBinary.h"
 /*---------------------------------------------------------------------+\
 |																		|
@@ -42,7 +42,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationOperatorBoth*		CEquationOperatorBothPtr;
 typedef class CEquationOperatorBoth&		CEquationOperatorBothRef;
@@ -107,8 +107,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqOpBoth */
-

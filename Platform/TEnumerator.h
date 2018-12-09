@@ -56,9 +56,9 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	virtual bool	MoveNext( void ) = 0;
-	virtual void	Reset( void ) = 0;
-	virtual	T*		Current( void ) = 0;
+	virtual bool		MoveNext( void ) = 0;
+	virtual void		Reset( void ) = 0;
+	virtual	const T*	Current( void ) = 0;
 
 
 protected:

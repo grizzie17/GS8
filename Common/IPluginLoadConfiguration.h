@@ -34,8 +34,8 @@
 #include "VPluginConfiguration.h"
 #include "VPluginLibrary.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -88,9 +88,8 @@ interface_ IPluginLoadConfiguration : public ISupports
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 
 #endif /* _H_IPluginLoadConfiguration */
-

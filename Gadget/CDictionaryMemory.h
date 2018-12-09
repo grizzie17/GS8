@@ -43,13 +43,13 @@
 #include "VDictionary.h"
 //#include "CVariantData.h"
 #include "VControl.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -86,7 +86,7 @@ public:
 
 	void			SetDictionary( VDictionaryPtr p );
 	void			SetVControl( VControlPtr p );
-	
+
 	void			Store( int nRegister, CVariantDataRef rData );
 	CVariantData	Recall( int nRegister );
 
@@ -176,9 +176,8 @@ void	CDictionaryMemory::SetVControl
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CDictionaryMemory */
-

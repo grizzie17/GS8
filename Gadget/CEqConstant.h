@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEquation.h"
 /*---------------------------------------------------------------------+\
 |																		|
@@ -39,7 +39,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationConstant*		CEquationConstantPtr;
 typedef class CEquationConstant&		CEquationConstantRef;
@@ -107,8 +107,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqConstant */
-

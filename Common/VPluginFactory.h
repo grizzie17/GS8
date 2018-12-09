@@ -34,19 +34,16 @@
 #include "VSupports.h"
 
 #include "CCharString.h"
+#include "CCharDescriptor.h"
 
-#include "NamespaceCommon.h"
+#include "UDeclSpec.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
 
-#if defined( OS_MSWIN )
-#	define	DLL_EXPORT	__declspec(dllexport)
-#else
-#	define	DLL_EXPORT
-#endif
 
 
 #define	PLUGIN_CREATE_FACTORY( sClass )		\
@@ -79,7 +76,7 @@ VPluginFactoryPtr										\
 	return p;											\
 }
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -149,7 +146,7 @@ public:
 protected:
 	virtual		~TPluginFactory() {};
 
-	CCharString	m_sName;
+	Yogi::Core::CCharString	m_sName;
 
 };
 
@@ -223,9 +220,8 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 
 #endif /* _H_VPluginFactory */
-

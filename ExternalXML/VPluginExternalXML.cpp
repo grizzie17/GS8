@@ -28,7 +28,7 @@
 #include "stdafx.h"
 #include "VPluginExternalXML.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -418,7 +418,7 @@ void*	VPluginExternalXML::FindInternalInterface
 }
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -426,4 +426,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

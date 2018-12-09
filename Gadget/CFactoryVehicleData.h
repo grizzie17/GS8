@@ -16,7 +16,7 @@
 |	Revision History:					(most recent entries first)
 |
 	10-Dec-2009			J.Griswold		(Reviewed by: M.Rose)
-		Add a special "N:Alerts Active" variable that indicates 
+		Add a special "N:Alerts Active" variable that indicates
 		that at least one "Alert" is active.
 	18-Sep-2009			J.Griswold		(Reviewed by: M.Rose)
 		Add support for Alerts
@@ -34,7 +34,7 @@
 \+---------------------------------------------------------------------*/
 #include "VFactory.h"
 
-#include "NamespaceGadget.h"
+
 #include "CDictPageActive.h"
 #include "CDictPageVariant.h"
 #include "CDictPageAlerts.h"
@@ -45,7 +45,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -131,9 +131,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CFactoryVehicleData */
-
-

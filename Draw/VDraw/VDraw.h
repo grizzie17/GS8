@@ -63,8 +63,8 @@
 
 #include "UOSIncludes.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -164,11 +164,11 @@ public:
 	// --- Style properties ---
 
 	virtual bool	LineWidth( short nWidth );
-	virtual bool	LineColor( CColorRef rColor );
-	virtual bool	FillColor( CColorRef rColor );
-	virtual bool	HaloColor( CColorRef rColor );
+	virtual bool	LineColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	FillColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	HaloColor( Yogi::Core::ConstCColorRef rColor );
 
-	virtual bool	BackgroundColor( ConstCColorRef rColor );	// identify color to be used for background
+	virtual bool	BackgroundColor( Yogi::Core::ConstCColorRef rColor );	// identify color to be used for background
 	virtual bool	NightColor( ENightColorModes eMode );
 
 	virtual bool	FontParams
@@ -443,7 +443,7 @@ protected:
 
 	EDrawContexts	m_eDrawContext;
 
-	TArray<XCropRect>	m_aCropStack;
+	Yogi::Core::TArray<XCropRect>	m_aCropStack;
 	long				m_nCropStackTop;
 	XCropRect			m_tCropCurrent;		// crop-stack merged into single rect
 
@@ -455,10 +455,10 @@ protected:
 	EDayModes		m_eDayMode;
 
 	short			m_nLineWidth;
-	CColor			m_tLineColor;
-	CColor			m_tFillColor;
-	CColor			m_tHaloColor;
-	CColor			m_tBackgroundColor;
+	Yogi::Core::CColor	m_tLineColor;
+	Yogi::Core::CColor	m_tFillColor;
+	Yogi::Core::CColor	m_tHaloColor;
+	Yogi::Core::CColor	m_tBackgroundColor;
 	ENightColorModes m_eNightColor;
 
 	char			m_sFontName[MAXPATH];
@@ -469,7 +469,7 @@ protected:
 	char			m_sFontSerif[MAXPATH];		// 'serif'
 	char			m_sFontMonospace[MAXPATH];	// 'monospace'
 
-	TArray<VDRAWPOINT>	m_tPointList;
+	Yogi::Core::TArray<VDRAWPOINT>	m_tPointList;
 
 private:
 //	private types  ------------------------------------------------------
@@ -623,8 +623,7 @@ GFLOAT	VXDraw::normalizeAngle
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_VDraw */
-

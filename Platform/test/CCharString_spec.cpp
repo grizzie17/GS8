@@ -125,4 +125,13 @@ Context(CCharString_class)
 		t1.ConvertLowercase();
 		AssertThat( (t1 == "sample"), IsTrue() );
 	}
+
+	Spec(std_string_assign_from)
+	{
+		std::string	s("Sample");
+		CCharString	t = s;
+
+		AssertThat( (t == "Sample"), IsTrue() );
+		AssertThat( (t == s), IsTrue() );
+	}
 };

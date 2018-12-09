@@ -18,9 +18,7 @@
 #include "VElement.h"
 #include "VGraphic.h"
 #include "VStyle.h"
-#include "NamespaceGadget.h"
+
 #endif
 
 #endif // _H_stdafx_gadget
-
-

@@ -38,8 +38,8 @@
 
 #	include "CApplicationGauge.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -113,7 +113,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	// OS_MSWIN
@@ -121,4 +121,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CKeyProcessorWin */
-

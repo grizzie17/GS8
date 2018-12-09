@@ -34,7 +34,7 @@
 
 #include "CPoint.h"
 
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -45,7 +45,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CCircle*		CCirclePtr;
 typedef class CCircle&		CCircleRef;
@@ -120,8 +120,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CCircle */
-

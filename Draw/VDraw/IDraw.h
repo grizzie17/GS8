@@ -23,26 +23,26 @@
 #define _H_IDraw
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "IDrawTmx.h"
 
 #include "CColor.h"
 #include "CVariantData.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
+|
 |	Type Definitions
-|					
+|
 \+---------------------------------------------------------------------*/
 
 typedef interface_ IDraw*	IDrawPtr;
@@ -54,9 +54,9 @@ typedef interface_ IDraw*	VDrawPtr;
 extern const IXID	IXID_IDraw;
 
 /*---------------------------------------------------------------------+\
-|							
-|	Interface Definitions	
-|							
+|
+|	Interface Definitions
+|
 \+---------------------------------------------------------------------*/
 
 interface_ IDraw : public IDrawTmx
@@ -191,11 +191,11 @@ interface_ IDraw : public IDrawTmx
 	// --- Style properties ---
 
 	virtual bool	LineWidth( short nWidth ) PURE;
-	virtual bool	LineColor( CColorRef rColor ) PURE;
-	virtual bool	FillColor( CColorRef rColor ) PURE;
-	virtual bool	HaloColor( CColorRef rColor ) PURE;
+	virtual bool	LineColor( Yogi::Core::ConstCColorRef rColor ) PURE;
+	virtual bool	FillColor( Yogi::Core::ConstCColorRef rColor ) PURE;
+	virtual bool	HaloColor( Yogi::Core::ConstCColorRef rColor ) PURE;
 
-	virtual bool	BackgroundColor( ConstCColorRef rColor ) PURE;	// identify color to be used for background
+	virtual bool	BackgroundColor( Yogi::Core::ConstCColorRef rColor ) PURE;	// identify color to be used for background
 	virtual bool	NightColor( ENightColorModes eMode ) PURE;
 
 	virtual bool	FontParams
@@ -360,24 +360,23 @@ interface_ IDraw : public IDrawTmx
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||					
+||
 ||	Inline Functions
-||					
+||
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_IDraw */
-

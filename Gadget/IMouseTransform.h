@@ -31,8 +31,8 @@
 
 #include "UFloat.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -92,9 +92,8 @@ interface_ IMouseTransform : public ISupports
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_IMouseTransform */
-

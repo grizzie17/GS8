@@ -55,7 +55,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VFactoryScreen.h"
 #include "VFactoryPanel.h"
 /*---------------------------------------------------------------------+\
@@ -63,7 +63,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -133,10 +133,9 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	// FILE RETIRED
 
 #endif /* _H_CFactoryScreenTester */
-

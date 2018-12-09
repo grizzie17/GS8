@@ -21,9 +21,9 @@
 |
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "stdafx.h"
 #include "UOSIncludes.h"
@@ -35,9 +35,9 @@
 #include "LogFile.h"
 #include "resource.h"
 /*---------------------------------------------------------------------+\
-|								
-|	Local defines / constants	
-|								
+|
+|	Local defines / constants
+|
 \+---------------------------------------------------------------------*/
 #define IDT_TIMER_CALCULATE		(WM_USER + 200)
 #define	IDT_TIMER_VEHICLEDATA	(WM_USER + 201)
@@ -59,31 +59,31 @@
 #endif
 
 /*---------------------------------------------------------------------+\
-|							
-|	Local Type Definitions	
-|							
+|
+|	Local Type Definitions
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|							
+|
 |	Private Global Variables
-|							
+|
 \+---------------------------------------------------------------------*/
 const INT UWM_CALCULATENEEDED = RegisterWindowMessage( TEXT("CALCULATENEEDED"));
 
 /*---------------------------------------------------------------------+\
-|							
-|	Public Global Variables	
-|							
+|
+|	Public Global Variables
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||			
-||	 Code	
-||			
+||
+||	 Code
+||
 \+=====================================================================*/
 /*=====================================================================+\
 ||	 class lifecycle functions
@@ -211,8 +211,8 @@ void	CWinCEDlg::PostCalculateNeeded()
 
 \+---------------------------------------------------------------------*/
 void	CWinCEDlg::SetWindowTitle
-		( 
-		const char* sName 
+		(
+		const char* sName
 		)
 {
 #if defined( OS_MSWIN_WCE )
@@ -232,7 +232,7 @@ void	CWinCEDlg::SetWindowTitle
 \+---------------------------------------------------------------------*/
 bool	CWinCEDlg::InitializeDialog
 		(
-		HINSTANCE	hInstance, 
+		HINSTANCE	hInstance,
 		LPCTSTR		szWindowClass
 		)
 {
@@ -253,9 +253,9 @@ bool	CWinCEDlg::InitializeDialog
 	if ( ! RegisterClass(&wc) )
 		bResult = false;
 
-	m_hwnd = ::CreateWindow(szWindowClass, szWindowClass, 
+	m_hwnd = ::CreateWindow(szWindowClass, szWindowClass,
 							XSTYLE,
-							0, 0, DISPLAY_WIDTH_PIXELS, DISPLAY_HEIGHT_PIXELS, 
+							0, 0, DISPLAY_WIDTH_PIXELS, DISPLAY_HEIGHT_PIXELS,
 							NULL, NULL, hInstance, this);
 
 	if ( m_hwnd )
@@ -273,13 +273,13 @@ bool	CWinCEDlg::InitializeDialog
  * WndProcGlue -
 
 \+---------------------------------------------------------------------*/
-//static 
-LRESULT CALLBACK 
+//static
+LRESULT CALLBACK
 		CWinCEDlg::WndProcGlue
 		(
-		HWND	hWnd, 
-		UINT	message, 
-		WPARAM	wParam, 
+		HWND	hWnd,
+		UINT	message,
+		WPARAM	wParam,
 		LPARAM	lParam
 		)
 {
@@ -316,9 +316,9 @@ LRESULT CALLBACK
 \+---------------------------------------------------------------------*/
 LRESULT CWinCEDlg::WndProc
 		(
-		HWND	hWnd, 
-		UINT	message, 
-		WPARAM	wParam, 
+		HWND	hWnd,
+		UINT	message,
+		WPARAM	wParam,
 		LPARAM	lParam
 		)
 {
@@ -542,10 +542,10 @@ void	CWinCEDlg::OnClose()
 
 \+---------------------------------------------------------------------*/
 void CWinCEDlg::LazySetup
-		( 
+		(
 		HWND hWnd,
 		WPARAM ,//wParam,
-		LPARAM //lParam 
+		LPARAM //lParam
 		)
 {
 	if ( m_pApplicationGauge )
@@ -613,7 +613,7 @@ void CWinCEDlg::LazySetup
 			/*bDoubleBackingstore
 				=*/ pConfig->GetEntryAsBool( "Double Backingstore", true );
 
-			m_pServiceManager = new NAMESPACE_GADGET_PREFIX CServiceManager;
+			m_pServiceManager = new Yogi::Gadget::CServiceManager;
 			if ( m_pServiceManager )
 			{
 				CCharString	sService = pConfig->GetEntryAsString("Service List","default");
@@ -709,7 +709,7 @@ void CWinCEDlg::OnInitDialog
 		(
 		HWND hWnd,
 		WPARAM wParam,
-		LPARAM lParam 
+		LPARAM lParam
 		)
 {
 
@@ -725,9 +725,9 @@ void CWinCEDlg::OnInitDialog
 \+---------------------------------------------------------------------*/
 void CWinCEDlg::OnCreate
 		(
-		HWND	hWnd, 
+		HWND	hWnd,
 		WPARAM	wParam,
-		LPARAM	lParam 
+		LPARAM	lParam
 		)
 {
 
@@ -790,8 +790,8 @@ void	CWinCEDlg::OnPaint
 \+---------------------------------------------------------------------*/
 void	CWinCEDlg::OnKeyDown
 		(
-		UINT nChar, 
-		UINT nRepCnt, 
+		UINT nChar,
+		UINT nRepCnt,
 		UINT nFlags
 		)
 {
@@ -812,8 +812,8 @@ void	CWinCEDlg::OnKeyDown
 \+---------------------------------------------------------------------*/
 void	CWinCEDlg::OnKeyUp
 		(
-		UINT nChar, 
-		UINT nRepCnt, 
+		UINT nChar,
+		UINT nRepCnt,
 		UINT nFlags
 		)
 {
@@ -834,7 +834,7 @@ void	CWinCEDlg::OnKeyUp
 \+---------------------------------------------------------------------*/
 UINT	CWinCEDlg::RemapBezelKey
 		(
-		UINT nChar 
+		UINT nChar
 		)
 {
 	if ( '1' <= nChar  &&  nChar <= '9' )
@@ -860,7 +860,7 @@ UINT	CWinCEDlg::RemapBezelKey
 \+---------------------------------------------------------------------*/
 LRESULT	CWinCEDlg::OnCalculateNeeded
 		(
-		WPARAM ,//notused, 
+		WPARAM ,//notused,
 		LPARAM // notused
 		)
 {
@@ -880,7 +880,7 @@ LRESULT	CWinCEDlg::OnCalculateNeeded
 \+---------------------------------------------------------------------*/
 void CWinCEDlg::OnLButtonUp
 		(
-		UINT	nFlags, 
+		UINT	nFlags,
 		int		x,
 		int		y
 		)
@@ -901,7 +901,7 @@ void CWinCEDlg::OnLButtonUp
 \+---------------------------------------------------------------------*/
 void CWinCEDlg::OnLButtonDown
 		(
-		UINT	nFlags, 
+		UINT	nFlags,
 		int		x,
 		int		y
 		)
@@ -930,7 +930,7 @@ void CWinCEDlg::OnLButtonDown
 \+---------------------------------------------------------------------*/
 void	CWinCEDlg::OnRButtonDown
 		(
-		UINT	,//nFlags, 
+		UINT	,//nFlags,
 		int		,//x,
 		int		//y
 		)
@@ -988,7 +988,7 @@ void CWinCEDlg::OnMouseLeave()
 \+---------------------------------------------------------------------*/
 void	CWinCEDlg::OnMouseMove
 		(
-		UINT	nFlags, 
+		UINT	nFlags,
 		int		x,
 		int		y
 		)
@@ -1006,8 +1006,8 @@ void	CWinCEDlg::OnMouseMove
 \+---------------------------------------------------------------------*/
 void CWinCEDlg::OnSize
 		(
-		UINT ,//nType, 
-		int cx, 
+		UINT ,//nType,
+		int cx,
 		int cy
 		)
 {
@@ -1033,12 +1033,7 @@ void CWinCEDlg::OnSize
 \+=====================================================================*/
 
 /*=====================================================================+\
-||				
-||	 Overrides	
-||				
+||
+||	 Overrides
+||
 \+=====================================================================*/
-
-
-
-
-

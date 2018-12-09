@@ -86,13 +86,13 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-#ifdef _DEBUG 
-#undef THIS_FILE 
-static char THIS_FILE[] = __FILE__; 
-#endif 
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -257,7 +257,7 @@ CGaugePtr
 
 	CPolylinePtr	pPoly = new CPolyline;
 	pElem->AddRenderable( pPoly );
-	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR, 
+	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR,
 		" 'green' 'darkorange' (T:PULSER) (T:SLIDER.YELLOW) < ? 'crimson' (T:PULSER) (T:SLIDER.RED) < ?   " );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
 	pPoly->Style()->SetLineColor( pEq );
@@ -307,12 +307,12 @@ CGaugePtr
 	pShift->X()->SetValue( 0.0 );
 	pShift->Y()->SetEquation( pEq );
 
-	
+
 
 	CPolygonPtr pPolyg = new CPolygon;
 	pElem->AddRenderable( pPolyg );
 
-	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR, 
+	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR,
 		" 'limegreen' 'orange' (T:PULSER) (T:SLIDER.YELLOW) < ? 'red' (T:PULSER) (T:SLIDER.RED) < ?   " );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
 	pPolyg->Style()->SetFillColor( pEq );
@@ -376,7 +376,7 @@ CGaugePtr
 
 	CPolylinePtr	pPoly = new CPolyline;
 	pElem->AddRenderable( pPoly );
-	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR, 
+	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR,
 		" 'green' 'darkorange' (T:PULSER) (T:SLIDER.YELLOW) < ? 'firebrick' (T:PULSER) (T:SLIDER.RED) < ?   " );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
 	pPoly->Style()->SetLineColor( pEq );
@@ -426,12 +426,12 @@ CGaugePtr
 	pShift->X()->SetValue( 0.0 );
 	pShift->Y()->SetEquation( pEq );
 
-	
+
 
 	CPolygonPtr pPolyg = new CPolygon;
 	pElem->AddRenderable( pPolyg );
 
-	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR, 
+	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COLOR,
 		" 'limegreen' 'orange' (T:PULSER) (T:SLIDER.YELLOW) < ? 'red' (T:PULSER) (T:SLIDER.RED) < ?   " );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
 	pPolyg->Style()->SetFillColor( pEq );
@@ -557,7 +557,7 @@ CFactoryGaugeTester::Get_dial()
 	pSuperElem->AddRenderable( pElem );
 
 	pRotation = new CRotation;
-	
+
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_LENGTH, "(T:SPIN) s0" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
 	pRotation->SetEquation( pEq );
@@ -592,7 +592,7 @@ CFactoryGaugeTester::Get_dial()
 	pSuperElem->AddRenderable( pElem );
 
 	pRotation = new CRotation;
-	
+
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_LENGTH, "l0" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
 	pRotation->SetEquation( pEq );
@@ -666,7 +666,7 @@ CGaugePtr
 	pPoly->AddPoint( pPoint );
 	x += fStep;
 
-	
+
 	pPoint = new CPointValue;
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COORDINATE, "100 (T:PULSER) - 25 -" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
@@ -674,7 +674,7 @@ CGaugePtr
 	pPoint->X()->SetValue( CVariantData( x ) );
 	pPoly->AddPoint( pPoint );
 	x += fStep;
-	
+
 	pPoint = new CPointValue;
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COORDINATE, "(T:PULSER) 1.5 * 50 -" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
@@ -682,7 +682,7 @@ CGaugePtr
 	pPoint->X()->SetValue( CVariantData( x ) );
 	pPoly->AddPoint( pPoint );
 	x += fStep;
-	
+
 	pPoint = new CPointValue;
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COORDINATE, "(T:PULSER) 2.0 / 50 -" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
@@ -690,7 +690,7 @@ CGaugePtr
 	pPoint->X()->SetValue( CVariantData( x ) );
 	pPoly->AddPoint( pPoint );
 	x += fStep;
-	
+
 	pPoint = new CPointValue;
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COORDINATE, "(T:PULSER) 1.5 * /-/ 50 +" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
@@ -698,7 +698,7 @@ CGaugePtr
 	pPoint->X()->SetValue( CVariantData( x ) );
 	pPoly->AddPoint( pPoint );
 	x += fStep;
-	
+
 	pPoint = new CPointValue;
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COORDINATE, "(T:PULSER)" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
@@ -706,7 +706,7 @@ CGaugePtr
 	pPoint->X()->SetValue( CVariantData( x ) );
 	pPoly->AddPoint( pPoint );
 	x += fStep;
-	
+
 	pPoint = new CPointValue;
 	pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_COORDINATE, "(T:PULSER) 1.25 * 50 - /-/" );
 	bGVars = bGVars  ||  m_pFactoryEquation->HasGVariables();
@@ -739,7 +739,7 @@ CGaugePtr
 
 	CLinePtr		pLine = new CLine;
 	pGauge->AddRenderable( pLine );
-	
+
 
 	VEquationPtr pEq = m_pFactoryEquation->MakeEquation( CFactoryEquation::E_UNDEFINED,
 		"(T:MILLI) 800 % 600 <" );
@@ -883,7 +883,7 @@ CGaugePtr
 	}
 }
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	// FILE RETIRED
@@ -897,4 +897,3 @@ NAMESPACE_GADGET_END
  * (author) J.Griswold  --  01-Jun-2009
 
 \+---------------------------------------------------------------------*/
-

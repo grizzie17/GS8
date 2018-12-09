@@ -39,7 +39,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
@@ -563,7 +563,7 @@ bool	CStyle::ProcessMouse
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -571,4 +571,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

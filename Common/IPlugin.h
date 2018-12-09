@@ -33,8 +33,7 @@
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -90,7 +89,7 @@ interface_ IPlugin : public ISupports
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

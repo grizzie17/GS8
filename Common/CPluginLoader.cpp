@@ -35,7 +35,7 @@
 #	include <dlfcn.h>
 #endif
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -132,11 +132,11 @@ VPluginFactoryPtr
 	VPluginFactoryPtr		pPlugFact = 0;
 	ULibraryHdl				hLibrary = 0;
 	FactoryCreateFunction	pFunc = 0;
-	CCharString				sLibraryName = BuildLibraryPath( sClass );
+	Yogi::Core::CCharString	sLibraryName = BuildLibraryPath( sClass );
 
 	if ( 0 < sLibraryName.Length() )
 	{
-		CMutexLocker	locker( &this->m_oMutex );
+		Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 		hLibrary = DLLOpen( sLibraryName.Pointer() );
 		if ( hLibrary )
 		{
@@ -151,13 +151,13 @@ VPluginFactoryPtr
 			}
 			else
 			{
-				DbgPrint( "Unrecognized plugin - missing entry point: %s\n", sClass );
+				Yogi::Core::DbgPrint( "Unrecognized plugin - missing entry point: %s\n", sClass );
 				DLLClose( hLibrary );
 			}
 		}
 		else
 		{
-			DbgPrint( "Unable to load plugin factory: %s\n", sLibraryName.Pointer() );
+			Yogi::Core::DbgPrint( "Unable to load plugin factory: %s\n", sLibraryName.Pointer() );
 		}
 	}
 	if ( phLib )
@@ -177,7 +177,7 @@ VPluginFactoryPtr
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
 
-CCharString
+Yogi::Core::CCharString
 		CPluginLoader::BuildLibraryPath
 		(
 		const char*	sClass
@@ -185,7 +185,7 @@ CCharString
 {
 	const char	sFolderSeparator[] = { FOLDER_SEPARATOR, 0 };
 	char		sBuffer[256];
-	CCharString	sPath;
+	Yogi::Core::CCharString	sPath;
 
 	m_oMutex.Lock();
 	m_sPath.CopyTo( sBuffer, sizeof(sBuffer) );
@@ -203,7 +203,7 @@ CCharString
 #elif defined( DLL_WINDOWS )
 	strcat_s( sBuffer, sizeof(sBuffer), ".dll" );
 #endif
-	return CCharString( sBuffer );
+	return Yogi::Core::CCharString( sBuffer );
 }
 
 //END_OVERRUN_WARNING
@@ -219,7 +219,7 @@ CCharString
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

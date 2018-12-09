@@ -39,18 +39,18 @@
 
 #if NAMESPACE_DEFINE_GADGET
 
-#	define NAMESPACE_GADGET_BEGIN	\
+#	define NAMESPACE_GADGET_BEGIN {	\
 			NAMESPACE_ROOT_BEGIN	\
 			namespace Gadget {
 #	define NAMESPACE_GADGET_END		} NAMESPACE_ROOT_END
 #	define USING_NAMESPACE_GADGET	\
 			USING_NAMESPACE_ROOT	\
-			using namespace NAMESPACE_ROOT_PREFIX Gadget;
-#	define NAMESPACE_GADGET_PREFIX	NAMESPACE_ROOT_PREFIX Gadget::
+			using namespace Yogi::Core::Gadget;
+#	define NAMESPACE_GADGET_PREFIX	Yogi::Core::Gadget::
 
-	NAMESPACE_GADGET_BEGIN
+	namespace Yogi { namespace Gadget {
 	//namespace Gadget {}
-	NAMESPACE_GADGET_END
+	}}
 
 #else
 #	define NAMESPACE_GADGET_BEGIN
@@ -88,4 +88,3 @@
 
 
 #endif /* _H_NamespaceGadget */
-

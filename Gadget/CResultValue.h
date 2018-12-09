@@ -46,7 +46,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 
 typedef class CResultValue*			CResultValuePtr;
@@ -126,8 +126,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CResultValue */
-

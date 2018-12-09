@@ -36,7 +36,7 @@
 #include "CFactoryPlugin.h"
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -214,7 +214,7 @@ bool	CTaskManager::SetLibrary
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -222,4 +222,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

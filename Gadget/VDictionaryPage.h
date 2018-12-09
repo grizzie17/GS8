@@ -46,7 +46,7 @@
 #include "VDictionaryPageServer.h"
 #include "TDictionaryIndexed.h"
 #include "CMutex.h"
-#include "NamespaceGadget.h"
+
 #include "LogFile.h"
 /*---------------------------------------------------------------------+\
 |																		|
@@ -58,7 +58,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 class VDictionaryEnumerator;	// forward reference
 
@@ -276,8 +276,7 @@ bool	TDictionaryPage<TDATUM>::UpdateByName
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_VDictionaryPage */
-

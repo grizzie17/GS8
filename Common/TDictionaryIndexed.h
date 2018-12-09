@@ -102,9 +102,9 @@ private:
 //============================== Overrides ==============================
 	//	TEnumerator
 public:
-	virtual bool	MoveNext( void );
-	virtual void	Reset( void );
-	virtual	TData*	Current( void );
+	virtual bool			MoveNext( void );
+	virtual void			Reset( void );
+	virtual	const TData*	Current( void );
 
 
 };
@@ -288,7 +288,8 @@ void	TDictionaryIndexedEnumerator<TKey, TData>::Reset
 
 
 template < class TKey, class TData >
-TData*	TDictionaryIndexedEnumerator<TKey, TData>::Current
+const TData*
+		TDictionaryIndexedEnumerator<TKey, TData>::Current
 		(
 		void
 		)
@@ -452,8 +453,8 @@ index_t	TDictionaryIndexed<TKey, TData>::IndexOf
 		const TKey&	key
 		)
 {
-	index_t		nIndex = -1;
-	index_t*	pd = m_aKeys.Find( key );
+	index_t			nIndex = -1;
+	const index_t*	pd = m_aKeys.Find( key );
 	if ( pd )
 	{
 		nIndex = *pd;

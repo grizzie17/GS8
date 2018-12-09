@@ -36,9 +36,9 @@
 #include "ICommandPlugin.h"
 #include "CPluginLibrary.h"
 
-#include "NamespaceGadget.h"
+
 //USING_NAMESPACE_COMMON
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -161,13 +161,13 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 //template<>
 //inline
 //unsigned long
-//		THashValueFromKey<NAMESPACE_GADGET_PREFIX VDictionary::Selector>
+//		THashValueFromKey<Yogi::Gadget::VDictionary::Selector>
 //		(
 //		const VDictionary::Selector&	key
 //		)
@@ -182,4 +182,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CCommandProcessorForPlugins */
-

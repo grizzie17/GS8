@@ -58,13 +58,13 @@
 #include "CVariantData.h"
 #include "CCharStringHash.h"
 #include "UFloat.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -227,9 +227,9 @@ protected:
 class CDictPageActiveDatumBool : public VDictPageActiveDatum
 {
 public:
-	CDictPageActiveDatumBool() : VDictPageActiveDatum() 
-	{ 
-		m_tData = false; 
+	CDictPageActiveDatumBool() : VDictPageActiveDatum()
+	{
+		m_tData = false;
 		m_sReset = "F";
 	};
 	virtual	~CDictPageActiveDatumBool(){};
@@ -251,7 +251,7 @@ public:
 		: VDictPageActiveDatum(),
 		m_nLow( 0 ), m_nHigh( 0 ), m_nDelta( 0 ),
 		m_nCheckType( 0 )
-	{ 
+	{
 		m_tData = 0L;
 		m_sReset = "0";
 	};
@@ -286,7 +286,7 @@ public:
 		: VDictPageActiveDatum(),
 		m_fLow( 0.0f ), m_fHigh( 0.0f ), m_fDelta( 0.0f ),
 		m_nCheckType( 0 )
-	{ 
+	{
 		m_tData = GFLOAT_0;
 		m_sReset = "0.0";
 	};
@@ -411,9 +411,8 @@ void	CDictPageActive::SetDirty
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CDictPageActive */
-

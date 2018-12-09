@@ -67,7 +67,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -282,7 +282,7 @@ bool	CBitmapFont::DrawTextString
 
 bool	CBitmapFont::operator ==
 		(
-		const CBitmapFont& r 
+		const CBitmapFont& r
 		) const
 {
 	if ( r.m_nFontHeight != m_nFontHeight )
@@ -880,7 +880,7 @@ bool	CDrawWinGL::PushCropRectangle
 \+---------------------------------------------------------------------*/
 bool	CDrawWinGL::PopCropRectangle
 		(
-		void 
+		void
 		)
 {
 	bool	bResult = inherited::PopCropRectangle();
@@ -1922,7 +1922,7 @@ bool	CDrawWinGL::ImageLoadFile
 		//glGenTextures( 1, &uTex );
 		glBindTexture( GL_TEXTURE_2D, uTex );
 		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);		
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
 
@@ -2019,13 +2019,13 @@ bool	CDrawWinGL::Video
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 
-//extern "C" 
-//PROC  
-//WINAPI 
+//extern "C"
+//PROC
+//WINAPI
 //		xxxGetProcAddress
 //		(
 //		LPCSTR sString
@@ -2049,4 +2049,3 @@ long	dummyCDrawWinGL;	// dummy symbol to suppress 'no public symbols' message
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

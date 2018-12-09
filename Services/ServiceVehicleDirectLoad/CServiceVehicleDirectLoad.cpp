@@ -56,7 +56,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Private Global Variables											|
@@ -1343,7 +1343,7 @@ NResult	CServiceVehicleDirectLoad::Stop
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 

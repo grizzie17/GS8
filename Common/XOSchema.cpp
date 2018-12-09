@@ -38,7 +38,7 @@
 #include "CCharString.h"
 #include "CUnitsOfMeasure.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -1243,7 +1243,7 @@ bool	XOSchema::Include
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 /**--------------------------------------------------------------------+\
 
@@ -1252,4 +1252,3 @@ NAMESPACE_COMMON_END
  * <remarks/>
 
 \+---------------------------------------------------------------------*/
-

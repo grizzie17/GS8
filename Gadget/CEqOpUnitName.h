@@ -29,7 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "VEqOpUnary.h"
 
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -40,7 +40,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationOperatorUnitName*		CEquationOperatorUnitNamePtr;
 typedef class CEquationOperatorUnitName&		CEquationOperatorUnitNameRef;
@@ -106,8 +106,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqOpUnitName */
-

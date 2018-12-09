@@ -44,7 +44,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 
 typedef class CTrigger*			CTriggerPtr;
@@ -74,7 +74,7 @@ public:
 	bool			Calculate( VDictionaryPtr pDict );
 
 	bool			SetName( const char* sName );
-	bool			SetName( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rName);
+	bool			SetName( Yogi::Core::ConstCCharDescriptorRef rName);
 	bool			SetEquation( VEquationPtr pEquation );
 	bool			Equals( VDictionaryPtr pDict, VDictionary::Selector ds );
 
@@ -118,8 +118,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CTrigger */
-

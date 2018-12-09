@@ -35,9 +35,9 @@
 #include "CPluginLibrary.h"
 #include "THash.h"
 
-#include "NamespaceGadget.h"
+
 //USING_NAMESPACE_COMMON
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -173,8 +173,7 @@ protected:
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CFactoryExternalXML */
-

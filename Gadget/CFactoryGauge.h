@@ -88,7 +88,7 @@
 #include "CSize.h"
 #include "CVisible.h"
 
-#include "NamespaceGadget.h"
+
 
 
 /*---------------------------------------------------------------------+\
@@ -96,7 +96,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 
 #define	NOUPDATE	((void*)~0)
@@ -294,9 +294,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CFactoryGauge */
-
-

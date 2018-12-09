@@ -29,8 +29,8 @@
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -70,8 +70,7 @@ interface_ ITask : public ISupports
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_ITask */
-

@@ -36,12 +36,12 @@
 |	Revision History:					(most recent entries first)
 |
 	03-Dec-2009			M.Rose			(Reviewed by: P.Hogan)
-		Add sequence number to vehicle data messaging so that 
+		Add sequence number to vehicle data messaging so that
 		stale data does not trigger updates.
 	19-Nov-2009			M.Rose			(Reviewed by: P.Hogan)
 		Fix linux side of dynamic message buffer size
 	13-Nov-2009			M.Rose			(Reviewed by: R.Hosea)
-		Setup multicast configuration done via 
+		Setup multicast configuration done via
 		vehicledataconfiguration.xml file.
 	05-Nov-2009			M.Rose			(Reviewed by: R.Hosea)
 		Make MSWIN OS Vehicle data reader a separate thread
@@ -86,7 +86,7 @@
 #	include <ws2tcpip.h>
 #endif
 
-#include "NamespaceGadget.h"
+
 #include "CApplicationGauge.h"
 #include "UVehicleData.h"
 #include "CFactoryVehicleData.h"
@@ -96,7 +96,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -130,8 +130,8 @@ public:
 
 	bool		SizeMsgBuf(size_t size);
 
-	static 
-	VDMessages_t*	
+	static
+	VDMessages_t*
 				GetVDMessages( void );
 
 protected:
@@ -184,9 +184,8 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CVehicleDataLoader */
-

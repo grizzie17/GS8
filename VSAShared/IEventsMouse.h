@@ -23,25 +23,25 @@
 #define _H_IEventsMouse
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
 #include <time.h>
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
+|
 |	Type Definitions
-|					
+|
 \+---------------------------------------------------------------------*/
 
 typedef interface_ IEventsMouse*			IEventsMousePtr;
@@ -49,9 +49,9 @@ typedef interface_ IEventsMouse*			IEventsMousePtr;
 extern const IXID	IXID_IEventsMouse;
 
 /*---------------------------------------------------------------------+\
-|							
-|	Interface Definitions	
-|							
+|
+|	Interface Definitions
+|
 \+---------------------------------------------------------------------*/
 
 interface_ IEventsMouse : public ISupports
@@ -90,24 +90,23 @@ interface_ IEventsMouse : public ISupports
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||					
+||
 ||	Inline Functions
-||					
+||
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IEventsMouse */
-

@@ -34,8 +34,8 @@
 #include "CCharStringHash.h"
 #include "CVariantData.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -130,14 +130,14 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 //template<>
 //inline
 //unsigned long
-//		NAMESPACE_COMMON_PREFIX THashValueFromKey<NAMESPACE_GADGET_PREFIX VDictionary::Selector>
+//		NAMESPACE_COMMON_PREFIX THashValueFromKey<Yogi::Gadget::VDictionary::Selector>
 //		(
-//		const NAMESPACE_GADGET_PREFIX VDictionary::Selector&	key
+//		const Yogi::Gadget::VDictionary::Selector&	key
 //		)
 //{
 //	long	nHash = key & 0x00FFFFFF;
@@ -149,4 +149,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CmdCopyToD */
-

@@ -31,7 +31,7 @@
 
 #include "CVisible.h"
 #include "TArray.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -42,7 +42,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CPanelDivision*		CPanelDivisionPtr;
 typedef class CPanelDivision&		CPanelDivisionRef;
@@ -108,8 +108,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CPanelDivision */
-

@@ -73,7 +73,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -287,7 +287,7 @@ bool	CBitmapFont::DrawTextString
 
 bool	CBitmapFont::operator ==
 		(
-		const CBitmapFont& r 
+		const CBitmapFont& r
 		) const
 {
 	if ( r.m_nFontHeight != m_nFontHeight )
@@ -760,7 +760,7 @@ bool	VDrawOpenGL::BeginContext
 		)
 {
 	bool	bResult = inherited::BeginContext( ctx );
-	
+
 	if ( bResult )
 	{
 		m_nCropStackTop = 0;
@@ -847,7 +847,7 @@ bool	VDrawOpenGL::PushCropRectangle
 \+---------------------------------------------------------------------*/
 bool	VDrawOpenGL::PopCropRectangle
 		(
-		void 
+		void
 		)
 {
 	bool	bResult = inherited::PopCropRectangle();
@@ -1692,7 +1692,7 @@ bool	VDrawOpenGL::ImageLoadFile
 		//glGenTextures( 1, &uTex );
 		glBindTexture( GL_TEXTURE_2D, uTex );
 		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);		
+		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
 
@@ -1789,7 +1789,7 @@ bool	VDrawOpenGL::Video
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 #else
 
@@ -1803,4 +1803,3 @@ long	dummyVDrawOpenGL;	// dummy symbol to suppress 'no public symbols' message
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

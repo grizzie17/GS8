@@ -30,7 +30,7 @@
 #include "stdafx.h"
 #include "CDrawQueue.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -311,11 +311,10 @@ bool	CDrawQueue::RenderGraphics
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -30,7 +30,7 @@
 #include "VEqOpQuaternary.h"
 
 #include "TArray.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -41,7 +41,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationOperatorRGBA*		CEquationOperatorRGBAPtr;
 typedef class CEquationOperatorRGBA&		CEquationOperatorRGBARef;
@@ -109,8 +109,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqOpRGBA */
-

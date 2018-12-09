@@ -48,7 +48,7 @@
 
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -416,7 +416,7 @@ void	CKeyProcessorWin::SetApplication
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -428,4 +428,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

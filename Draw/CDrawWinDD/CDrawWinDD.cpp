@@ -73,7 +73,7 @@
 
 #include "TPointer.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -1642,7 +1642,7 @@ bool	CDrawWinDD::PushCropRectangle
 \+---------------------------------------------------------------------*/
 bool	CDrawWinDD::PopCropRectangle
 		(
-		void 
+		void
 		)
 {
 	bool	bResult = inherited::PopCropRectangle();
@@ -2588,8 +2588,8 @@ bool	CDrawWinDD::ImagePreloaded
 		}
 
 
-		HRESULT hr = pImage->pPicture->Render( m_hdc, (long)xPosition, (long)yPosition, 
-										(long)nNewWidth, (long)nNewHeight, 
+		HRESULT hr = pImage->pPicture->Render( m_hdc, (long)xPosition, (long)yPosition,
+										(long)nNewWidth, (long)nNewHeight,
 										0, pImage->nmH, pImage->nmW, -pImage->nmH, 0 );
 
 		bResult = SUCCEEDED( hr );
@@ -2717,7 +2717,7 @@ bool	CDrawWinDD::ImageRelease
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif	// OS_MSWIN
@@ -2727,4 +2727,3 @@ NAMESPACE_COMMON_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

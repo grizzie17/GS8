@@ -53,7 +53,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -545,11 +545,10 @@ int		CPanel::CalculateDirtyRectangle
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -3,10 +3,10 @@
 #include "IXID.h"
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 
 const IXID	IXID_IMouseTransform("BCG::Gadget::IMouseTransform");
 
 
-NAMESPACE_GADGET_END
+}}

@@ -39,13 +39,13 @@
 #include "VDictionary.h"
 #include "CKeyNames.h"
 
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 #define	TOUCH_K_POINTCOUNT	5
 /*---------------------------------------------------------------------+\
@@ -148,9 +148,8 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CmdSystemShutdown */
-

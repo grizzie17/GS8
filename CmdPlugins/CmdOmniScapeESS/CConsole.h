@@ -37,8 +37,8 @@
 #include "VDictionary.h"
 #include "CApplicationGauge.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -148,11 +148,11 @@ typedef	TPxState*		TPxStatePtr;
 
 typedef
 	NResult	(*XTransFuncPtr)
-			( 
+			(
 			CConsolePtr pCon,
 			XTransPtr	pTrans,
 			const char*	sToken,
-			int			nTokenLen 
+			int			nTokenLen
 			);
 
 
@@ -343,7 +343,7 @@ protected:
 		long		nMilli;			// milliseconds of last test
 
 		XProc()
-			: 
+			:
 			bTest( false ),
 			nTests( 0 ),
 			nFailures( 0 ),
@@ -496,9 +496,8 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CConsole */
-

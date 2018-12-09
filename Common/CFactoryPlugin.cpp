@@ -45,13 +45,15 @@
 #include "LogFile.h"
 #include "UPlatform.h"
 #include "CCharString.h"
+#include "CCharDescriptor.h"
 #include "CUnitsOfMeasure.h"
+#include "CColor.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
 |																		|
 \\+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -155,9 +157,9 @@ ISupportsArray*
 			pSubConfig = tFolder.Value();
 			if ( pSubConfig )
 			{
-				CCharString	sClass = pSubConfig->GetClass();
-				CCharString	sGroup = pSubConfig->GetGroup();
-				CCharString	sID = pSubConfig->GetID();
+				Yogi::Core::CCharString	sClass = pSubConfig->GetClass();
+				Yogi::Core::CCharString	sGroup = pSubConfig->GetGroup();
+				Yogi::Core::CCharString	sID = pSubConfig->GetID();
 
 				pLib->SetRelativeFolder( sGroup.Pointer() );
 
@@ -209,7 +211,7 @@ CPluginConfigurationPtr
 
 	if ( OpenFile( sName ) )
 	{
-		CCharDescriptor	tName;
+		Yogi::Core::CCharDescriptor	tName;
 		XMLIterator		it( this );
 
 		while ( it.NextChild() )
@@ -270,8 +272,8 @@ CPluginConfigurationPtr
 	{
 
 		XMLIterator		it( pIt );
-		CCharDescriptor	tName;
-		CCharDescriptor	tValue;
+		Yogi::Core::CCharDescriptor	tName;
+		Yogi::Core::CCharDescriptor	tValue;
 		bool			bResult = false;
 
 		while ( it.NextChild() )
@@ -328,8 +330,8 @@ bool	CFactoryPlugin::PluginInclude
 	{
 
 		XMLIterator		it( pIt );
-		CCharDescriptor	tName;
-		CCharDescriptor	tValue;
+		Yogi::Core::CCharDescriptor	tName;
+		Yogi::Core::CCharDescriptor	tValue;
 
 		while ( it.NextChild() )
 		{
@@ -384,11 +386,11 @@ bool	CFactoryPlugin::Plugin
 	{
 
 		XMLIterator		it( pIt );
-		CCharDescriptor	tName;
-		CCharDescriptor	tValue;
-		CCharString		sID;
-		CCharString		sClass;
-		CCharString		sGroup;
+		Yogi::Core::CCharDescriptor	tName;
+		Yogi::Core::CCharDescriptor	tValue;
+		Yogi::Core::CCharString		sID;
+		Yogi::Core::CCharString		sClass;
+		Yogi::Core::CCharString		sGroup;
 
 		CPluginConfigurationPtr	pNode;
 
@@ -495,8 +497,8 @@ bool	CFactoryPlugin::Parameters
 	{
 
 		XMLIterator		it( pIt );
-		CCharDescriptor	tName;
-		CCharDescriptor	tValue;
+		Yogi::Core::CCharDescriptor	tName;
+		Yogi::Core::CCharDescriptor	tValue;
 
 		while ( it.NextChild() )
 		{
@@ -562,10 +564,10 @@ bool	CFactoryPlugin::Param
 {
 	bool	bResult = false;
 
-	CCharDescriptor	tValue;
-	CCharDescriptor	tName;
+	Yogi::Core::CCharDescriptor	tValue;
+	Yogi::Core::CCharDescriptor	tName;
 
-	CCharDescriptor	tID;
+	Yogi::Core::CCharDescriptor	tID;
 
 
 	char	sData[128] = { 0 };
@@ -585,7 +587,7 @@ bool	CFactoryPlugin::Param
 		{
 			char	sUnits[40];
 			tValue.CopyTo( sUnits, sizeof(sUnits) );
-			tValue = CCharDescriptor( sUnits, tValue.Length() );
+			tValue = Yogi::Core::CCharDescriptor( sUnits, tValue.Length() );
 			tValue.ConvertLowercase();
 
 			CUnitsOfMeasure	units;
@@ -669,14 +671,14 @@ bool	CFactoryPlugin::Param
 				nValue = tValue.ParseInt( &n );
 				if ( 0 < n )
 				{
-					CColor	c;
+					Yogi::Core::CColor	c;
 					c.SetColorLong( nValue );
 					v = c;
 					bResult = true;
 				}
 				else
 				{
-					CColor	c = CColor::ColorFromName( tValue );
+					Yogi::Core::CColor	c = Yogi::Core::CColor::ColorFromName( tValue );
 					if ( ! c.IsNonColor() )
 					{
 						v = c;
@@ -691,7 +693,7 @@ bool	CFactoryPlugin::Param
 			break;
 		case CVariantData::T_DATETIME:
 			{
-				CDateTime	d;
+				Yogi::Core::CDateTime	d;
 				if ( d.Parse( tValue ) )
 				{
 					v = d;
@@ -777,12 +779,12 @@ bool	CFactoryPlugin::IncludeFile
 
 	if ( 0 < pIt->AttributeCount() )
 	{
-		CCharDescriptor	tValue;
+		Yogi::Core::CCharDescriptor	tValue;
 
 		tValue = pIt->AttributeValue( "File" );
 		if ( 0 < tValue.Length() )
 		{
-			CCharString	sPath;
+			Yogi::Core::CCharString	sPath;
 			char		sXML[128];
 
 			tValue.CopyTo( sXML, sizeof(sXML) );
@@ -832,7 +834,7 @@ bool	CFactoryPlugin::IncludeFile
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 /*---------------------------------------------------------------------+\
 

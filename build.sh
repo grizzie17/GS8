@@ -24,6 +24,15 @@ if [ -n "$ARG" ]; then
 		;;
 	esac
 fi
+if [ -n "$2" ]; then
+	if [ "X-check" = "X$2" ]; then
+		ARGFILE="check"
+		ARGDIR="${ARGDIR%/test}"
+	fi
+fi
+
+export CXXFLAGS="-g -ggdb -O0"
+export LDFLAGS="-g -ggdb"
 
 
 echo "THISDIR=$THISDIR"
@@ -35,7 +44,7 @@ echo "ARGFILE=$ARGFILE"
 case `uname -s` in
 Msys | MSYS | msys | MINGW* )
 	echo "...WIN64"
-	export CPPFLAGS="-DWIN64"
+	#export CPPFLAGS="-DWIN64"
 	function tweak_paths() {
 		cat -  | \
 			sed \
@@ -58,9 +67,6 @@ esac
 
 pushd $THISDIR/build$ARGDIR >/dev/null
 
-	mkdir -p bin
-	mkdir -p lib
-
-	make -j4 $ARGFILE 2>&1  |  tee ./build.log  | tweak_paths
+	make -j4 $ARGFILE 2>&1  |  tee $THISDIR/build/build.log  | tweak_paths
 
 popd >/dev/null

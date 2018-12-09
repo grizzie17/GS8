@@ -28,7 +28,7 @@
 \+---------------------------------------------------------------------*/
 #include "stdafx.h"
 #include "XOParse.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -189,5 +189,4 @@ void*	XOParse::FindInternalInterface
 \+---------------------------------------------------------------------*/
 
 
-NAMESPACE_COMMON_END
-
+}}

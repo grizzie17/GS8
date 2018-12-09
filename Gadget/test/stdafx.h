@@ -17,7 +17,7 @@
 #include "VElement.h"
 #include "VGraphic.h"
 #include "VStyle.h"
-#include "NamespaceGadget.h"
+
 
 #include "igloo/igloo.h"
 #endif

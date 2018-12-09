@@ -57,7 +57,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 USING_NAMESPACE_MONITOR
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 
 // change the comment below to allow printing of the local information
@@ -267,7 +267,7 @@ bool	CmdShutdownMonitor::Load
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /**--------------------------------------------------------------------+\
@@ -279,4 +279,3 @@ NAMESPACE_GADGET_END
  * (author)J.Griswold  --  18-Jul-2010
 
 \+---------------------------------------------------------------------*/
-

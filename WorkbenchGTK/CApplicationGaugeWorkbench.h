@@ -41,13 +41,13 @@
 #include "UMachine.h"
 #if defined( OS_LINUX )
 //#include "CDrawLinuxDTWorkbench.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -125,10 +125,9 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	//	OS_LINUX
 
 #endif /* _H_CApplicationGaugeWorkbench */
-

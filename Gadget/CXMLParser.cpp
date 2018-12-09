@@ -58,13 +58,13 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-#ifdef _DEBUG 
-#undef THIS_FILE 
-static char THIS_FILE[] = __FILE__; 
-#endif 
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -164,7 +164,7 @@ bool	CXMLParser::OpenFile
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -180,4 +180,3 @@ NAMESPACE_GADGET_END
  * (author)J.Griswold  --  21-Jul-2009
 
 \+---------------------------------------------------------------------*/
-

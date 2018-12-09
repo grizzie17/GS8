@@ -204,7 +204,3 @@ gadget_specs_LDADD = \
 		-lcommon \
 		-lplatform \
 		-lpthread -ldl
-
-
-check-local:
-	$(top_builddir)/Gadget/gadget_specs

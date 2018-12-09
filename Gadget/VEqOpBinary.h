@@ -30,7 +30,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "VEquation.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -41,7 +41,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class VEquationOperatorBinary*			VEquationOperatorBinaryPtr;
 typedef class VEquationOperatorBinary&			VEquationOperatorBinaryRef;
@@ -112,7 +112,6 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 #endif /* _H_VEqOpBinary */
-

@@ -38,7 +38,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEllipse*		CEllipsePtr;
 typedef class CEllipse&		CEllipseRef;
@@ -103,8 +103,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEllipse */
-

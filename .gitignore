@@ -7,7 +7,7 @@ Backup
 config.log
 Debug*
 Release*
-patches
+#patches
 Makefile
 makefile
 ipch

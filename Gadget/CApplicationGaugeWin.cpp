@@ -44,7 +44,7 @@
 #include "CApplicationGaugeWin.h"
 
 #if defined( OS_MSWIN )
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -211,7 +211,7 @@ VDrawPtr
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -223,4 +223,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

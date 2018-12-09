@@ -45,7 +45,7 @@
 //!
 #define	INTERFACE_THIS( ifptr )	\
 	BEGIN_IGNORE_WARNING(4946) \
-	reinterpret_cast< ISupportsPtr>( static_cast<ifptr>( this ) ) \
+	reinterpret_cast< Yogi::Common::ISupportsPtr>( static_cast<ifptr>( this ) ) \
 	END_IGNORE_WARNING
 
 
@@ -67,8 +67,8 @@
 #define	COM_LIFECYCLE( sClassName )	\
 public:								\
 			sClassName();			\
-			sClassName( NAMESPACE_COMMON_PREFIX ISupportsPtr pOwner );	\
-			sClassName( const char* sName, NAMESPACE_COMMON_PREFIX ISupportsPtr pOwner );	\
+			sClassName( Yogi::Common::ISupportsPtr pOwner );	\
+			sClassName( const char* sName, Yogi::Common::ISupportsPtr pOwner );	\
 protected:							\
 	virtual	~sClassName();			\
 private:							\
@@ -83,7 +83,7 @@ private:							\
 #define	DECLARE_ISUPPORTS			\
 public:								\
 virtual								\
-void*	QueryInterface( NAMESPACE_COMMON_PREFIX ConstIXIDRef rIID,  Yogi::Core::NResultPtr pResult = 0 )	\
+void*	QueryInterface( Yogi::Common::ConstIXIDRef rIID,  Yogi::Core::NResultPtr pResult = 0 )	\
 {									\
 	return GetOwner()->QueryInterface( rIID, pResult );	\
 };									\
@@ -127,8 +127,8 @@ interface_ ISupportsNonDelegating
 	virtual
 	void*	InternalQueryInterface
 			(
-			ConstIXIDRef rIID,
-			Yogi::Core::NResultPtr pResult = 0
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult = 0
 			) = 0;
 
 	virtual
@@ -241,8 +241,8 @@ protected:
 
 	void*	ThisQueryInterface
 			(
-			NAMESPACE_COMMON_PREFIX ConstIXIDRef	rIID,
-			Yogi::Core::NResultPtr		pResult = 0
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult = 0
 			);
 
 	virtual
@@ -254,8 +254,8 @@ protected:
 	virtual
 	void*	FindExternalInterface
 			(
-			NAMESPACE_COMMON_PREFIX ConstIXIDRef	rIID,
-			Yogi::Core::NResultPtr		pResult
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult
 			);
 
 	virtual

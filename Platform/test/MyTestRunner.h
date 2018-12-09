@@ -21,7 +21,11 @@ public:
 			output << result.GetContextName() << "::" << result.GetSpecName() << " failed:" << std::endl;
 			if(result.HasLineNumber() && result.HasFilename())
 			{
-				output <<  result.Filename() << ":" << result.LineNumber() << ": error: Assertion failed." << std::endl << result.GetErrorMessage() << std::endl;
+				output
+						<< result.Filename()
+						<< ":" << result.LineNumber()
+						<< ":1: error: Assertion failed. "
+						<< result.GetErrorMessage() << std::endl;
 				//output <<  result.Filename() << ":" << result.LineNumber() << ": Assertion failed." << std::endl << result.GetErrorMessage() << std::endl;
 			}
 			else
@@ -37,7 +41,7 @@ inline
 int	Runner(int argc, const char* argv[])
 {
 	int	nResult = 0;
-#if defined(_MSC_VER)
+#if defined(_MSC_VER)  &&  0
 	VisualStudioResultsOutput	oOutput;
 	TestRunner	oRunner(oOutput);
 	nResult = oRunner.RunAllTests(argc, argv);

@@ -40,8 +40,8 @@
 #	include <GL/gl.h>
 #	include <GL/glu.h>
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -517,7 +517,7 @@ GLint	CDrawWinGL::GLintFromFloat
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 
@@ -525,4 +525,3 @@ NAMESPACE_COMMON_END
 
 
 #endif /* _H_CDrawWinGL */
-

@@ -47,7 +47,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -242,10 +242,7 @@ void
 	m_port = port;
 }
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	// OS_LINUX_VDDS
-
-
-

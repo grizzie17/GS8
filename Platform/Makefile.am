@@ -5,9 +5,9 @@ AM_CXXFLAGS += -fPIC
 
 
 
-lib_LIBRARIES = libplatform.a
+lib_LTLIBRARIES = libplatform.la
 
-libplatform_a_SOURCES = \
+libplatform_la_SOURCES = \
 		CCharDescriptor.cpp \
 		CCharString.cpp \
 		CColor.cpp \
@@ -27,14 +27,17 @@ libplatform_a_SOURCES = \
 		UPlatformString.cpp \
 		UPlatformThreads.cpp \
 		UPlatformTime.cpp
-libplatform_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libplatform_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libplatform_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libplatform_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+
+
+
 
 
 
 TESTS = platform_specs
 check_PROGRAMS = platform_specs
-EXTRA_platform_specs_DEPENDENCIES = libplatform.a
+EXTRA_platform_specs_DEPENDENCIES = libplatform.la
 
 CHKCPPFLAGS = \
 		-I$(top_srcdir)/3rdParty \
@@ -52,6 +55,7 @@ platform_specs_SOURCES = \
 	test/TArray_spec.cpp \
 	test/TCharDescriptor_spec.cpp \
 	test/UMachine_spec.cpp \
+	test/UNResult_spec.cpp \
 	test/UPlatformString_spec.cpp
 platform_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
 platform_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
@@ -61,5 +65,5 @@ platform_specs_LDADD = \
 		-lplatform \
 		-lpthread -ldl
 
-check-local:
-	$(top_builddir)/Platform/platform_specs
+# check-local:
+# 	$(top_builddir)/Platform/platform_specs

@@ -58,13 +58,13 @@
 #include "VPanelChild.h"
 #include "CColor.h"
 #include "VDictionary.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -262,9 +262,8 @@ void	CFactoryEquation::SetConstant
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CFactoryEquation */
-

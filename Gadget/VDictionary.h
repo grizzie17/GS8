@@ -38,7 +38,7 @@
 			M:	- Mouse/Touch-screen input
 			P:	- Program (eg. English/Metric)
 
-			
+
 |	References:
 |	Notes:
 |
@@ -71,7 +71,7 @@
 #include "CCharString.h"
 #include "TEnumerator.h"
 #include "CVariables.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -82,7 +82,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 
 
@@ -121,7 +121,7 @@ public:
 	virtual Selector		LocateEntry( ConstCCharStringRef rName ) = 0;
 	virtual Selector		LocateEntry( const char* sName ) = 0;
 
-	virtual CVariantDataPtr	
+	virtual CVariantDataPtr
 							GetData(Selector nSel) = 0;
 	virtual bool			PutData(Selector nSel, CVariantDataPtr pData) = 0;
 
@@ -144,7 +144,7 @@ public:
 	virtual VDictionaryEnumerator*
 							GetPageEnumerator( char cPageID ) = 0;
 
-	virtual VVariablePtr	
+	virtual VVariablePtr
 							GetVariableIF(void) = 0;
 
 
@@ -169,7 +169,7 @@ private:
 };
 
 
-class VDictionaryEnumerator : public NAMESPACE_ROOT_PREFIX TEnumerator<NAMESPACE_COMMON_PREFIX CVariantData>
+class VDictionaryEnumerator : public Yogi::Core::TEnumerator<NAMESPACE_COMMON_PREFIX CVariantData>
 {
 public:
 	virtual	~VDictionaryEnumerator( void ) {};
@@ -181,7 +181,7 @@ public:
 	virtual	NAMESPACE_COMMON_PREFIX CVariantData*	Current(void) = 0;
 
 	virtual long									ID( void ) = 0;
-	virtual NAMESPACE_ROOT_PREFIX CCharString		Key(void) = 0;
+	virtual Yogi::Core::CCharString		Key(void) = 0;
 	virtual NAMESPACE_COMMON_PREFIX CVariantData	Value(void) = 0;
 	virtual char									Page( void ) = 0;
 };
@@ -216,8 +216,7 @@ unsigned long
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_VDictionary */
-

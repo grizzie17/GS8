@@ -36,7 +36,7 @@
 \+---------------------------------------------------------------------*/
 #include "VFactoryComponent.h"
 
-#include "NamespaceGadget.h"
+
 #include "CGauge.h"
 /*---------------------------------------------------------------------+\
 |																		|
@@ -48,7 +48,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class VFactoryGauge*		VFactoryGaugePtr;
 typedef class VFactoryGauge&		VFactoryGaugeRef;
@@ -101,9 +101,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_VFactoryGauge */
-
-

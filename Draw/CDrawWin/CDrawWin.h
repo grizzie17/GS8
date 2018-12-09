@@ -61,8 +61,8 @@
 #include <ocidl.h>
 #include <olectl.h>
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -448,11 +448,10 @@ public:
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif	// OS_MSWIN
 
 
 #endif /* _H_CDrawWin */
-

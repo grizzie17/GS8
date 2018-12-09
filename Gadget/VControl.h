@@ -40,8 +40,8 @@
 #include "TPointer.h"
 #include "VEquation.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -81,7 +81,7 @@ public:
 
 	int				MouseAreas( void );
 	int				IncrementMouseAreas( int n = 1 );
-	
+
 
 	virtual bool	ProcessEvent( VDictionaryPtr pDict, VDictionary::Selector vEvent );
 	virtual bool	ProcessMouse( VDictionaryPtr pDict, CMouseLocatePtr pMouseLocate );
@@ -133,9 +133,8 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_VControl */
-

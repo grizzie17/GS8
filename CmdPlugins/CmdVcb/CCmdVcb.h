@@ -59,7 +59,7 @@
 #include "CApplicationGaugeVDDS.h"
 
 #include "NamespaceVideoSource.h"
-#include "NamespaceGadget.h"
+
 #include "VPluginWithAggregateList.h"
 #include "IGraphicsEvent.h"
 #include "IDataMessage.h"
@@ -73,7 +73,7 @@
 USING_NAMESPACE_GRAPHICS_EVENT
 USING_NAMESPACE_COMMUNICATION
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -173,7 +173,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -181,4 +181,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CCmdVcb */
-

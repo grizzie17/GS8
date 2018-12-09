@@ -41,8 +41,8 @@
 #include "IDrawWin32.h"
 #include "IDrawDebug.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -426,11 +426,10 @@ public:
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif	// GL_GTK
 
 
 #endif /* _H_CDrawGTK */
-

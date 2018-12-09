@@ -39,7 +39,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CPolyline*		CPolylinePtr;
 typedef class CPolyline&		CPolylineRef;
@@ -104,8 +104,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CPolyline */
-

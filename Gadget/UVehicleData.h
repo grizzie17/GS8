@@ -17,10 +17,10 @@
 |	Revision History:					(most recent entries first)
 |
 	03-Dec-2009			M.Rose			(Reviewed by: P.Hogan)
-		Add sequence number to vehicle data messaging so that 
+		Add sequence number to vehicle data messaging so that
 		stale data does not trigger updates.
 	13-Nov-2009			M.Rose			(Reviewed by: R.Hosea)
-		Setup multicast configuration done via 
+		Setup multicast configuration done via
 		vehicledataconfiguration.xml file.
 	05-Nov-2009			M.Rose			(Reviewed by: R.Hosea)
 		Make MSWIN OS Vehicle data reader a separate thread
@@ -36,8 +36,8 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -95,7 +95,6 @@ extern LPCWSTR				p_mutexName;
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 #endif /* _H_UVehicleData */
-

@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEqOpUnary.h"
 #include "CCharString.h"
 /*---------------------------------------------------------------------+\
@@ -40,7 +40,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationOperatorFormatString*			CEquationOperatorFormatStringPtr;
 typedef class CEquationOperatorFormatString&			CEquationOperatorFormatStringRef;
@@ -110,8 +110,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqOpFormatString */
-

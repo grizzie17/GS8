@@ -82,7 +82,6 @@
 #include "fixed_t.h"
 #include "UFloat.h"
 
-#include "NamespaceCommon.h"
 
 /*---------------------------------------------------------------------+\
 |																		|

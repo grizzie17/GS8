@@ -32,7 +32,7 @@
 #include "TPointer.h"
 #include "LogFile.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -896,7 +896,7 @@ bool	CDrawWorkbench::Video
 {
 	bool		bResult = true;
 	CCharString	sImageName = sSource;
-	
+
 	if ( sImageName.Length() < 1L )
 	{
 		bResult = false;
@@ -1062,7 +1062,7 @@ bool	CDrawWorkbench::ImageRelease
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 
@@ -1071,4 +1071,3 @@ NAMESPACE_COMMON_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -52,7 +52,7 @@
 //#include "UMachine.h"
 #include "UPlatform.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -140,7 +140,7 @@ bool	VFactory::EatNode
 {
 	bool	bResult = true;
 
-	if ( XMLLite::NODE_ELEMENT_BEGIN == NodeType() )
+	if ( Yogi::XMLLite::NODE_ELEMENT_BEGIN == NodeType() )
 	{
 		XMLIterator	it( this );
 
@@ -148,7 +148,7 @@ bool	VFactory::EatNode
 		{
 			switch ( it.NodeType() )
 			{
-			case XMLLite::NODE_ELEMENT_BEGIN:
+			case Yogi::XMLLite::NODE_ELEMENT_BEGIN:
 				bResult = EatNode();
 				break;
             default:
@@ -208,7 +208,7 @@ const char*
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

@@ -12,9 +12,7 @@
 #include "UPlatform.h"
 #include "UPlatformTime.h"
 #include "UPlatformThreads.h"
-#include "NamespaceCommon.h"
-#endif
 
 #endif
 
-
+#endif

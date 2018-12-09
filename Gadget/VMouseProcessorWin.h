@@ -18,7 +18,7 @@
 	13-Mar-2013			J.Griswold
 		Change POINT references to int x, y
 	20-Jan-2010			J.Griswold		(Reviewed by: M.Rose)
-		Finish the implementation of MouseUp, MouseMove and 
+		Finish the implementation of MouseUp, MouseMove and
 		MouseLeave operations
 	03-Aug-2009			J.Griswold
 		Initial Revision
@@ -37,8 +37,8 @@
 
 #include "CApplicationGauge.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -109,9 +109,8 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_VMouseProcessorWin */
-

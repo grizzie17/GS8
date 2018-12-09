@@ -132,7 +132,7 @@
 #include "IPluginLibrary.h"
 #include "CDictionary.h"
 #
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -2013,11 +2013,11 @@ bool	CApplicationGauge::IsDisplayDirty
 
 \+---------------------------------------------------------------------*/
 bool CApplicationGauge::GetDirtyRectangle
-		( 
-		long* pLeft, 
-		long* pTop, 
-		long* pRight, 
-		long* pBottom 
+		(
+		long* pLeft,
+		long* pTop,
+		long* pRight,
+		long* pBottom
 		)
 {
 	bool bResult = IsDisplayDirty();
@@ -2240,7 +2240,7 @@ VConfigurationPtr
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -2248,4 +2248,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

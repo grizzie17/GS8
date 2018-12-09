@@ -34,13 +34,13 @@
 #include "VDictionary.h"
 #include "CCharString.h"
 #include "CCharDescriptor.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -71,8 +71,8 @@ public:
 	CDictionarySelectorRef	operator=( ConstCDictionarySelectorRef r );		// assignment
 
 	void					SetName( const char* sName );
-	void					SetName( NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rName);
-	NAMESPACE_ROOT_PREFIX CCharStringPtr	Name(void);
+	void					SetName( Yogi::Core::ConstCCharDescriptorRef rName);
+	Yogi::Core::CCharStringPtr	Name(void);
 
 	VDictionary::Selector	GetSelector( VDictionaryPtr pDict );
 
@@ -84,7 +84,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	VDictionary::Selector				m_nSelector;
-	NAMESPACE_ROOT_PREFIX CCharString	m_tName;
+	Yogi::Core::CCharString	m_tName;
 
 private:
 //	private functions  --------------------------------------------------
@@ -115,9 +115,8 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CDictionarySelector */
-

@@ -49,8 +49,8 @@
 //	GL includes must be included by Template instantiation file
 
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -456,10 +456,7 @@ GLint	TDrawOpenGL::GLintFromFloat
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif // _H_TDrawOpenGL
-
-
-

@@ -106,7 +106,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -342,8 +342,8 @@ bool	CVehicleDataLoader::SizeMsgBuf
 
 
 
-//static 
-VDMessages_t*	
+//static
+VDMessages_t*
 		CVehicleDataLoader::GetVDMessages
 		(
 		void
@@ -435,7 +435,7 @@ int		CVehicleDataLoader::GetActiveData
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /**--------------------------------------------------------------------+\
@@ -447,4 +447,3 @@ NAMESPACE_GADGET_END
  * (author)J.Griswold  --  23-Aug-2009
 
 \+---------------------------------------------------------------------*/
-

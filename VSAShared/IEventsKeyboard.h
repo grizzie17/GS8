@@ -23,26 +23,26 @@
 #define _H_IEventsKeyboard
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
 #include <time.h>
 #include "UKeys.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
+|
 |	Type Definitions
-|					
+|
 \+---------------------------------------------------------------------*/
 
 typedef interface_ IEventsKeyboard*			IEventsKeyboardPtr;
@@ -50,9 +50,9 @@ typedef interface_ IEventsKeyboard*			IEventsKeyboardPtr;
 extern const IXID	IXID_IEventsKeyboard;
 
 /*---------------------------------------------------------------------+\
-|							
-|	Interface Definitions	
-|							
+|
+|	Interface Definitions
+|
 \+---------------------------------------------------------------------*/
 
 interface_ IEventsKeyboard : public ISupports
@@ -81,24 +81,23 @@ interface_ IEventsKeyboard : public ISupports
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||					
+||
 ||	Inline Functions
-||					
+||
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IEventsKeyboard */
-

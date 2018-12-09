@@ -32,8 +32,8 @@
 #include "IDraw.h"
 #include "VRenderable.h"
 #include "TArray.h"
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -137,8 +137,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CDrawQueue */
-

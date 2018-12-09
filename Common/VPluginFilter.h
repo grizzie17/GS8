@@ -29,8 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "CPluginConfiguration.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -96,7 +95,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

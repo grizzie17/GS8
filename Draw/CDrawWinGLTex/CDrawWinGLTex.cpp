@@ -40,7 +40,7 @@
 #	include "TDrawOpenGL-inl.h"
 
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -273,7 +273,7 @@ bool	CBitmapFont::DrawTextString
 
 bool	CBitmapFont::operator ==
 		(
-		const CBitmapFont& r 
+		const CBitmapFont& r
 		) const
 {
 	if ( r.m_nFontHeight != m_nFontHeight )
@@ -824,12 +824,12 @@ bool	CDrawWinGLTex::TextString
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
-//extern "C" 
-//PROC  
-//WINAPI 
+//extern "C"
+//PROC
+//WINAPI
 //		xxxGetProcAddress
 //		(
 //		LPCSTR sString
@@ -855,4 +855,3 @@ long	dummyCDrawWinGLTex;	// dummy symbol to suppress 'no public symbols' message
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

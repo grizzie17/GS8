@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "ISupportsLocal.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 
-const IXID	IXID_ISupportsLocal( "BCG::Common::ISupportsLocal" );
+const IXID	IXID_ISupportsLocal( "Yogi::Common::ISupportsLocal" );
 
 
 
-NAMESPACE_COMMON_END
+}}

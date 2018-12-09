@@ -17,4 +17,14 @@ workbench_SOURCES = \
 		winmain.cpp
 workbench_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 workbench_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-workbench_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS)
+workbench_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+		-L$(top_builddir)/Platform \
+		-L$(top_builddir)/Common \
+		-L$(top_builddir)/Gadget \
+		-L$(top_builddir)/Draw/VDraw \
+		-L$(top_builddir)/VSAShared \
+		-L$(top_builddir)/WorkbenchShared
+workbench_LDADD = \
+		-lcommon \
+		-lplatform \
+		-ldl

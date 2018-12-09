@@ -38,12 +38,12 @@
 
 #include "TDictionaryIndexed.h"
 #include "CCharString.h"
+#include "CCharDescriptor.h"
 #include "CCharStringHash.h"
 #include "CVariantData.h"
 #include "CMutex.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -87,7 +87,7 @@ public:
 	virtual
 	ISupportsPtr	Create
 					(
-					ConstCCharDescriptorRef rLibraryname,
+					Yogi::Core::ConstCCharDescriptorRef rLibraryname,
 					ISupportsPtr	pOwner = 0
 					);
 
@@ -121,14 +121,14 @@ protected:
 
 //	protected functions  ------------------------------------------------
 
-	VPluginFactoryPtr	GetFactory( ConstCCharDescriptorRef rLibraryname );
+	VPluginFactoryPtr	GetFactory( Yogi::Core::ConstCCharDescriptorRef rLibraryname );
 
 //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< CCharString, FactoryCampus>	m_aContent;
-	CCharString		m_sBaseFolder;
-	CPluginLoader	m_tLoader;
-	CMutex			m_oMutex;
+	TDictionaryIndexed< Yogi::Core::CCharString, FactoryCampus>	m_aContent;
+	Yogi::Core::CCharString	m_sBaseFolder;
+	CPluginLoader			m_tLoader;
+	Yogi::Core::CMutex		m_oMutex;
 
 private:
 //	private types  ------------------------------------------------------
@@ -189,7 +189,7 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

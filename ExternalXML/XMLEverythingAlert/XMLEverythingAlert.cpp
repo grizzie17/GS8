@@ -34,7 +34,7 @@
 #include "UPlatform.h"
 
 #include "VPluginFactory.h"
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -408,7 +408,7 @@ void	XMLEverythingAlert::ReleaseCallBack
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -416,4 +416,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

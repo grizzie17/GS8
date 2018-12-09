@@ -42,8 +42,8 @@
 #include "TQueue.h"
 #include "TArray.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -626,8 +626,7 @@ private:
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CServiceRstaEptm */
-

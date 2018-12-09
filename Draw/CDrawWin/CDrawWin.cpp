@@ -73,7 +73,7 @@
 
 #include "TPointer.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -670,7 +670,7 @@ bool	CDrawWin::PenHaloSelect
 #if 1
 	if ( m_tHaloColor.IsNonColor() )
 		return false;
-	
+
 	if ( m_nLineWidth < 1 )
 		return false;
 
@@ -989,8 +989,8 @@ void	CDrawWin::ResetPenBrush
 
 void	CDrawWin::HimetricToPixel
 		(
-		SIZEL* pHM, 
-		SIZEL* pPX 
+		SIZEL* pHM,
+		SIZEL* pPX
 		) const
 {
 	int		nMapMode = ::GetMapMode( m_hdc );
@@ -1421,7 +1421,7 @@ bool	CDrawWin::PushCropRectangle
 \+---------------------------------------------------------------------*/
 bool	CDrawWin::PopCropRectangle
 		(
-		void 
+		void
 		)
 {
 	bool	bResult = inherited::PopCropRectangle();
@@ -1524,7 +1524,7 @@ bool	CDrawWin::SetUpdateRectangle
 		m_nUpdateRight = m_nWindowWidth;
 		m_nUpdateBottom = m_nWindowHeight;
 	}
-   //DbgPrint( "update::left=%ld, top=%ld, right=%ld, bottom=%ld\n", 
+   //DbgPrint( "update::left=%ld, top=%ld, right=%ld, bottom=%ld\n",
    //         m_nUpdateLeft, m_nUpdateTop, m_nUpdateRight, m_nUpdateBottom );
 	return true;
 }
@@ -2407,8 +2407,8 @@ bool	CDrawWin::ImagePreloaded
 		}
 
 
-		HRESULT hr = pImage->pPicture->Render( m_hdc, (long)xPosition, (long)yPosition, 
-										(long)nNewWidth, (long)nNewHeight, 
+		HRESULT hr = pImage->pPicture->Render( m_hdc, (long)xPosition, (long)yPosition,
+										(long)nNewWidth, (long)nNewHeight,
 										0, pImage->nmH, pImage->nmW, -pImage->nmH, 0 );
 
 		bResult = SUCCEEDED( hr );
@@ -2434,7 +2434,7 @@ bool	CDrawWin::ImageLoadFile
 	UNREFERENCED_PARAMETER( ppImage );
 #else
 
-	do_sequence   
+	do_sequence
 	{
 		HANDLE	hFile;
 		hFile = CreateFileA( sSource, GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL );
@@ -2538,7 +2538,7 @@ bool	CDrawWin::ImageRelease
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif	// GL_GDI
@@ -2548,4 +2548,3 @@ NAMESPACE_COMMON_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

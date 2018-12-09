@@ -29,7 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "VCoordinate.h"
 
-#include "NamespaceGadget.h"
+
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -41,7 +41,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CSize*		CSizePtr;
 typedef class CSize&		CSizeRef;
@@ -154,8 +154,7 @@ void	CSize::SetPointEquation
 }
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CSize */
-

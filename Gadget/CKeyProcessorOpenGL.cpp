@@ -34,7 +34,7 @@
 #include "CKeyProcessorOpenGL.h"
 #include "CKeyNames.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -256,7 +256,7 @@ void	CKeyProcessorOpenGL::SetApplication
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #else
@@ -272,4 +272,3 @@ long	dummyCKeyProcessorOpenGL;	// dummy symbol to suppress 'no public symbols' m
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -43,7 +43,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class VPolylist*		VPolylistPtr;
 typedef class VPolylist&		VPolylistRef;
@@ -121,8 +121,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_VPolylist */
-

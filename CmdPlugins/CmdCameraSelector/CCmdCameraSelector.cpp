@@ -35,7 +35,7 @@
 #include "LogFile.h"
 #include "VPluginFactory.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -387,7 +387,7 @@ bool	CCmdCameraSelector::Load
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\

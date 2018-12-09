@@ -23,9 +23,9 @@
 #define _H_CFactoryDictionary
 #pragma once
 /*---------------------------------------------------------------------+\
-|						
-|	Include Files		
-|						
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 
 #include "CApplicationGauge.h"
@@ -37,25 +37,25 @@
 #include "CDictPageVariantRead.h"
 #include "CDictPageAlerts.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
-|						
-|	Defines				
-|						
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	Type Definitions	
-|						
+|
+|	Type Definitions
+|
 \+---------------------------------------------------------------------*/
 typedef class CFactoryDictionary*		CFactoryDictionaryPtr;
 typedef class CFactoryDictionary&		CFactoryDictionaryRef;
 typedef const class CFactoryDictionary&	ConstCFactoryDictionaryRef;
 /*---------------------------------------------------------------------+\
-|						
-|	Class Definitions	
-|						
+|
+|	Class Definitions
+|
 \+---------------------------------------------------------------------*/
 
 class CFactoryDictionary
@@ -115,24 +115,23 @@ private:
 };
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||						
-||	Inline Functions	
-||						
+||
+||	Inline Functions
+||
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CFactoryDictionary */
-

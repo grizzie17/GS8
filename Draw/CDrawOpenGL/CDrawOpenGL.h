@@ -55,8 +55,8 @@
 #	include <fontconfig/fontconfig.h>
 
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -260,7 +260,7 @@ public:
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 
@@ -268,4 +268,3 @@ NAMESPACE_COMMON_END
 
 
 #endif /* _H_CDrawOpenGL */
-

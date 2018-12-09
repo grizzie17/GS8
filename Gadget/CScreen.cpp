@@ -41,7 +41,7 @@
 #include "stdafx.h"
 #include "CScreen.h"
 #include "LogFile.h"
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -529,11 +529,10 @@ int		CScreen::CalculateDirtyRectangle
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

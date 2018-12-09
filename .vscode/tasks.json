@@ -74,13 +74,35 @@
 					"message": 5
 				}
 			}
-		}
+		},
 		{
 			"label": "build <currentfile>",
 			"type": "shell",
 			"command": "./build.sh",
 			"args": [
 				"${relativeFile}"
+			],
+			"group": "build",
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": [ "relative", "${workspaceFolder}" ],
+				"pattern": {
+					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			}
+		},
+		{
+			"label": "build  --check",
+			"type": "shell",
+			"command": "./build.sh",
+			"args": [
+				"${relativeFile}",
+				"-check"
 			],
 			"group": "build",
 			"problemMatcher": {

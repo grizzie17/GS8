@@ -108,8 +108,8 @@
 #include "VObject.h"
 
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -153,8 +153,8 @@ public:
 	// command service functions
 	virtual	bool	ReloadScreen( void );
 	virtual bool	Blackout( bool b );
-	virtual bool	BackgroundColor( NAMESPACE_ROOT_PREFIX ConstCColorRef rColor );
-	virtual bool	WindowTitle(NAMESPACE_ROOT_PREFIX ConstCCharDescriptorRef rChar );
+	virtual bool	BackgroundColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	WindowTitle(Yogi::Core::ConstCCharDescriptorRef rChar );
 	virtual bool	PostCalculateNeeded( void );
 
 	void			SetDraw( VDrawPtr p );
@@ -163,7 +163,7 @@ public:
 	CScreenPtr		Screen( void );
 
 	virtual
-	NAMESPACE_ROOT_PREFIX ConstCCharStringRef		GetUserID( void );
+	Yogi::Core::ConstCCharStringRef		GetUserID( void );
 	virtual
 	long					GetUserIDNumber( void );
 
@@ -250,7 +250,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	NAMESPACE_ROOT_PREFIX CCharString		m_sScreenName;
+	Yogi::Core::CCharString		m_sScreenName;
 	long					m_nTimeLastCalculate;
 	long					m_nMaximumCalculateTime;
 	long					m_nMaximumUpdateTime;
@@ -285,18 +285,18 @@ protected:
 	unsigned long			m_nDictKeyState;		// down, up
 
 
-	NAMESPACE_ROOT_PREFIX CCharString	m_sUserID;
+	Yogi::Core::CCharString	m_sUserID;
 	long					m_nUserID;
 
 	IDrawPtr						m_pDraw;
-	NAMESPACE_ROOT_PREFIX TPointer<VDictionaryPageServer>	m_pDictionary;
-	NAMESPACE_ROOT_PREFIX TPointer<CQueue>				m_pEventQueue;
-	NAMESPACE_ROOT_PREFIX TPointer<CQueue>				m_pCommandQueue;
+	Yogi::Core::TPointer<VDictionaryPageServer>	m_pDictionary;
+	Yogi::Core::TPointer<CQueue>				m_pEventQueue;
+	Yogi::Core::TPointer<CQueue>				m_pCommandQueue;
 	VFunctionProcessorPtr			m_pCommandProcessor;
 	VFunctionProcessorPtr			m_pFunctionProcessor;
-	NAMESPACE_ROOT_PREFIX TPointer<CScreen>				m_pScreen;
-	NAMESPACE_ROOT_PREFIX TPointer<CMouseLocate>			m_pMouseLocate;
-	NAMESPACE_ROOT_PREFIX TPointer<NAMESPACE_COMMON_PREFIX VConfiguration>		m_pConfiguration;
+	Yogi::Core::TPointer<CScreen>				m_pScreen;
+	Yogi::Core::TPointer<CMouseLocate>			m_pMouseLocate;
+	Yogi::Core::TPointer<NAMESPACE_COMMON_PREFIX VConfiguration>		m_pConfiguration;
 
 	VDictionaryPagePtr		m_pDictPageActive;			// A - Active Page
 	VDictionaryPagePtr		m_pDictPageCommands;		// C - Command Page
@@ -306,8 +306,8 @@ protected:
 	VDictionaryPagePtr		m_pDictPageInput;			// I - Page
 	VDictionaryPagePtr		m_pDictPageNotify;			// N - Notifications
 
-	THashTable<NAMESPACE_ROOT_PREFIX CCharString, NAMESPACE_COMMON_PREFIX ISupportsPtr>	m_tCOMObjects;
-	THashTable<NAMESPACE_ROOT_PREFIX CCharString, NAMESPACE_COMMON_PREFIX VObjectPtr>		m_tObjects;
+	THashTable<Yogi::Core::CCharString, NAMESPACE_COMMON_PREFIX ISupportsPtr>	m_tCOMObjects;
+	THashTable<Yogi::Core::CCharString, NAMESPACE_COMMON_PREFIX VObjectPtr>		m_tObjects;
 
 	NAMESPACE_COMMON_PREFIX ISupportsPtr	m_pFactoryExternalXML;
 
@@ -335,9 +335,8 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CApplicationGauge */
-

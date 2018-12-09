@@ -34,7 +34,7 @@
 #include "CConsole.h"
 #include "CDateTime.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -2578,7 +2578,7 @@ CCharString
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\

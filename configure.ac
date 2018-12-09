@@ -25,6 +25,7 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
+AC_PROG_SED
 
 #AC_PROG_RANLIB
 #AC_PROG_LIBTOOL
@@ -99,6 +100,8 @@ case `uname -s` in
 WDEFS="-DMSYS -DWIN64 -U__unix -U__unix__ -Uunix"
 AM_CPPFLAGS="$WDEFS"
 AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
+#CC="gcc $WDEFS"
+#CXX="g++ $WDEFS"
 CC="x86_64-pc-msys-gcc $WDEFS"
 CXX="x86_64-pc-msys-g++ $WDEFS"
 EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
@@ -119,6 +122,35 @@ AC_SUBST([OSCONFFILES])
 
 AM_CONDITIONAL([OS_MSYS], [test "xMsys" = x$(uname -o)])
 AM_CONDITIONAL([OS_LINUX], [test "xLinux" = x$(uname -s)])
+
+
+AC_ARG_ENABLE([debug],
+	AS_HELP_STRING([--enable-debug],[enable debugging, default=no]),
+	[
+		case "${enableval}" in
+		yes|true) debug=true ;;
+		no|false) debug=false ;;
+		*) AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
+		esac
+	],
+	[
+		debug=false
+	]
+)
+AM_CONDITIONAL([DEBUG], [test "x$debug" = "xtrue"])
+
+changequote({,})
+CXXFLAGS=`echo "$CXXFLAGS"  |  $SED -e 's/-O[0-9s]*//g' -e 's/-g[gdb0-9]*//g'`
+CPPFLAGS=`echo "$CPPFLAGS"  |  $SED -e 's/-D_*DEBUG\b//g'`
+changequote([,])
+if test x$debug = xtrue; then
+	CXXFLAGS="$CXXFLAGS -g -ggdb -O0"
+	CPPFLAGS="$CPPFLAGS -D_DEBUG"
+	LDFLAGS="$LDFLAGS -g -ggdb -Wl,--discard-none -Wl,--gc-keep-exported"
+else
+	CXXFLAGS="$CXXFLAGS -O3"
+	CPPFLAGS="$CPPFLAGS -DNDEBUG"
+fi
 
 
 AC_CONFIG_FILES([

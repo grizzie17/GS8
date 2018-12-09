@@ -52,7 +52,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VFactoryGauge.h"
 #include "CFactoryEquation.h"
 /*---------------------------------------------------------------------+\
@@ -65,7 +65,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CFactoryGaugeTester*		CFactoryGaugeTesterPtr;
 typedef class CFactoryGaugeTester&		CFactoryGaugeTesterRef;
@@ -139,11 +139,9 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	// retired contents
 
 #endif /* _H_CFactoryGaugeTester */
-
-

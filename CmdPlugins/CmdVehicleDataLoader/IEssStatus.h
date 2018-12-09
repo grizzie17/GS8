@@ -51,8 +51,8 @@
 
 #include "CVariantData.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -125,8 +125,7 @@ interface_ IEssStatus : public ISupports
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IEssStatus */
-

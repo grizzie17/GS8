@@ -37,7 +37,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 
 /*---------------------------------------------------------------------+\
@@ -239,7 +239,7 @@ bool	CDictPageCommands::AddAlias
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -247,4 +247,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

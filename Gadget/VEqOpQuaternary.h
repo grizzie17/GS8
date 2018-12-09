@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEquation.h"
 /*---------------------------------------------------------------------+\
 |																		|
@@ -39,7 +39,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class VEquationOperatorQuaternary*			VEquationOperatorQuaternaryPtr;
 typedef class VEquationOperatorQuaternary&			VEquationOperatorQuaternaryRef;
@@ -115,7 +115,6 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 #endif /* _H_VEqOpQuaternary */
-

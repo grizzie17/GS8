@@ -148,7 +148,7 @@ VConfigurationPtr
 	if ( OpenFile( sName ) )
 	{
 		Yogi::Core::CCharDescriptor	tName;
-		Yogi::XMLLite::XMLIterator	it( this );
+		XMLIterator	it( this );
 
 		while ( it.NextChild() )
 		{
@@ -202,7 +202,7 @@ VConfigurationPtr
 	if ( pNode )
 	{
 
-		Yogi::XMLLite::XMLIterator	it( this );
+		XMLIterator	it( this );
 		Yogi::Core::CCharDescriptor	tName;
 		Yogi::Core::CCharDescriptor	tValue;
 		//bool			bResult = false;
@@ -253,8 +253,8 @@ VConfigurationPtr
 
 bool	CFactoryConfiguration::Item
 		(
-		VConfigurationPtr				pConfig,
-		Yogi::XMLLite::XMLIteratorPtr	pit
+		VConfigurationPtr	pConfig,
+		XMLIteratorPtr		pit
 		)
 {
 	bool	bResult = false;
@@ -464,8 +464,8 @@ bool	CFactoryConfiguration::Item
 
 bool	CFactoryConfiguration::IncludeFile
 		(
-		VConfigurationPtr				pConfig,
-		Yogi::XMLLite::XMLIteratorPtr	pIt
+		VConfigurationPtr	pConfig,
+		XMLIteratorPtr		pIt
 		)
 {
 	bool				bResult = false;

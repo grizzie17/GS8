@@ -23,23 +23,23 @@
 #define _H_IDeskManager
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
+|
 |	Type Definitions
-|					
+|
 \+---------------------------------------------------------------------*/
 
 typedef interface_ IDeskManager*			IDeskManagerPtr;
@@ -47,9 +47,9 @@ typedef interface_ IDeskManager*			IDeskManagerPtr;
 extern const IXID	IXID_IDeskManager;
 
 /*---------------------------------------------------------------------+\
-|							
-|	Interface Definitions	
-|							
+|
+|	Interface Definitions
+|
 \+---------------------------------------------------------------------*/
 
 interface_ IDeskManager : public ISupports
@@ -68,24 +68,23 @@ interface_ IDeskManager : public ISupports
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||					
+||
 ||	Inline Functions
-||					
+||
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IDeskManager */
-

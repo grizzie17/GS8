@@ -32,7 +32,7 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
@@ -44,5 +44,4 @@ const IXID	IXID_IDictionaryUser( "BCG::Gadget::IDictionaryUser" );
 
 
 
-NAMESPACE_GADGET_END
-
+}}

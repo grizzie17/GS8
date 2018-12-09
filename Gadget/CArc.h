@@ -36,7 +36,7 @@
 
 #include "CPoint.h"
 #include "CResultValue.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -47,7 +47,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CArc*		CArcPtr;
 typedef class CArc&		CArcRef;
@@ -123,8 +123,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CArc */
-

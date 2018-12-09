@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEquation.h"
 #include "CDictionarySelector.h"
 #include "CUnitsOfMeasure.h"
@@ -42,7 +42,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationVariable*		CEquationVariablePtr;
 typedef class CEquationVariable&		CEquationVariableRef;
@@ -112,8 +112,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqVariable */
-

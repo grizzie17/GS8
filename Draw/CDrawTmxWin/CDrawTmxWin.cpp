@@ -41,7 +41,7 @@
 #include "CDrawTmxWin.h"
 #include "VPluginFactory.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -555,7 +555,7 @@ bool	CDrawTmxWin::Load
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -563,4 +563,3 @@ NAMESPACE_COMMON_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

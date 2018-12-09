@@ -36,7 +36,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VControlEventMap.h"
 
 #include "TArray.h"
@@ -46,7 +46,7 @@
 #include "CCharString.h"
 #include "CCharStringHash.h"
 #include "CKeyEventMap.h"
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -167,8 +167,7 @@ public:
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CScreen */
-

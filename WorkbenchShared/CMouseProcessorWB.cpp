@@ -44,7 +44,7 @@
 #include "CMouseProcessorWB.h"
 
 #include "UFloat.h"
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -286,7 +286,7 @@ void	CMouseProcessorWB::SetApplication
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -296,4 +296,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

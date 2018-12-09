@@ -29,7 +29,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEqOpUnary.h"
 /*---------------------------------------------------------------------+\
 |																		|
@@ -41,7 +41,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationOperatorRadianNorm*			CEquationOperatorRadianNormPtr;
 typedef class CEquationOperatorRadianNorm&			CEquationOperatorRadianNormRef;
@@ -109,8 +109,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqOpRadianNorm */
-

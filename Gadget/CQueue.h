@@ -30,13 +30,13 @@
 #include "TQueue.h"
 #include "VDictionary.h"
 #include "TArray.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -142,9 +142,8 @@ VDictionary::Selector
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CQueue */
-

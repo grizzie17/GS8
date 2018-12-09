@@ -39,7 +39,6 @@
 #include "CCharDescriptor.h"
 #include "UFloat.h"
 
-#include "NamespaceCommon.h"
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|

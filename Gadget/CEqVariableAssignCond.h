@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "CEqVariableAssign.h"
 #include "CDictionarySelector.h"
 
@@ -41,7 +41,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationVariableAssignConditional*		CEquationVariableAssignConditionalPtr;
 typedef class CEquationVariableAssignConditional&		CEquationVariableAssignConditionalRef;
@@ -105,8 +105,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqVariableAssignCond */
-

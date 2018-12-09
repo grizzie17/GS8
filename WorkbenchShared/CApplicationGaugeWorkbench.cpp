@@ -70,13 +70,13 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-#ifdef _DEBUG 
-#undef THIS_FILE 
-static char THIS_FILE[] = __FILE__; 
-#endif 
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -279,7 +279,7 @@ bool	CApplicationGaugeWorkbench::WindowTitle
 	rChar.CopyTo( s, sizeof(s) );
 
 	::SetWindowTextA( m_pCView->GetParentFrame()->GetSafeHwnd(), s );
-	
+
 	//m_pCView->SetWindowText( s );
 	return true;
 }
@@ -337,7 +337,7 @@ VConfigurationPtr
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -353,4 +353,3 @@ NAMESPACE_GADGET_END
  * (author)J.Griswold  --  05-Aug-2009
 
 \+---------------------------------------------------------------------*/
-

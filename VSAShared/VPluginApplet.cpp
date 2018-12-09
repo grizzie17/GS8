@@ -28,7 +28,7 @@
 #include "Stdafx.h"
 #include "VPluginApplet.h"
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -344,7 +344,7 @@ void*	VPluginApplet::FindInternalInterface
 }
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /**--------------------------------------------------------------------+\
@@ -354,4 +354,3 @@ NAMESPACE_GADGET_END
  * <remarks/>
 
 \+---------------------------------------------------------------------*/
-

@@ -37,13 +37,14 @@
 #include "VPluginConfiguration.h"
 
 //#include "THash.h"
+#include "CColor.h"
 #include "CCharString.h"
 #include "CCharStringHash.h"
+#include "CCharDescriptor.h"
 #include "CVariantData.h"
 
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -75,9 +76,9 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	void			SetClass( CCharDescriptorRef r );
-	void			SetGroup( CCharDescriptorRef r );
-	void			SetID( CCharDescriptorRef r );
+	void			SetClass( Yogi::Core::ConstCCharDescriptorRef r );
+	void			SetGroup( Yogi::Core::ConstCCharDescriptorRef r );
+	void			SetID( Yogi::Core::ConstCCharDescriptorRef r );
 
 	virtual
 	VPluginConfiguration*
@@ -87,26 +88,17 @@ public:
 			);
 
 	virtual
-	CCharStringRef	GetClass( void );
+	Yogi::Core::ConstCCharStringRef
+			GetClass( void ) const;
 	virtual
-	CCharStringRef	GetGroup( void );
+	Yogi::Core::ConstCCharStringRef
+			GetGroup( void ) const;
 	virtual
-	CCharStringRef	GetID( void );
-
-	void			AddParameter( CCharDescriptorRef rName, CVariantDataRef rData );
-	void			AddAttribute( CCharDescriptorRef rName, CCharDescriptorRef rData );
-	bool			AddFolder( CCharDescriptorRef rName, CPluginConfigurationPtr pFolder );
-
-	void			PruneFolder( CPluginConfigurationPtr pConfig );
+	Yogi::Core::ConstCCharStringRef
+			GetID( void ) const;
 
 	virtual
-	ParamEnum		GetParamEnum( void );
-
-	virtual
-	FolderEnum		GetFolderEnum( void );
-
-	virtual
-	CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetAttribute
 			(
 			const char*	sKey
@@ -114,91 +106,128 @@ public:
 
 
 	virtual
-	CVariantDataPtr	GetParameter
-					(
-					const char* sKey
-					);
+	ParamEnum
+			GetParamEnum( void ) const;
 
 	virtual
-	CVariantDataPtr	GetParameter
-					(
-					ConstCCharStringRef sKey
-					);
+	FolderEnum
+			GetFolderEnum( void ) const;
 
 	virtual
-	long			GetParameterAsInteger
-					(
-					const char*	sKey,
-					long		nDefault = 0
-					);
+	const CVariantData*
+			GetParameter
+			(
+			const char* sKey
+			) const;
 
 	virtual
-	long			GetParameterAsIntegerArray
-					(						// [rtn] number of longs in parameter list
-					long*		pArray,
-					long		nAlloc,		// number of longs allocated in array
-					const char*	sKey
-					);
+	const CVariantData*
+			GetParameter
+			(
+			Yogi::Core::ConstCCharStringRef sKey
+			) const;
 
 	virtual
-	unsigned long	GetParameterAsUnsigned
-					(
-					const char*		sKey,
-					unsigned long	nDefault = 0
-					);
+	long	GetParameterAsInteger
+			(
+			const char*	sKey,
+			long		nDefault = 0
+			) const;
 
 	virtual
-	GFLOAT			GetParameterAsFloat
-					(
-					const char*	sKey,
-					GFLOAT		fDefault = 0.0f
-					);
+	long	GetParameterAsIntegerArray
+			(						// [rtn] number of longs in parameter list
+			long*		pArray,
+			long		nAlloc,		// number of longs allocated in array
+			const char*	sKey
+			) const;
 
 	virtual
-	GFLOAT			GetParameterAsFloatUnits
-					(
-					const char*	sKey,
-					const char*	sUnitName,
-					GFLOAT		fDefault = 0.0f
-					);
+	unsigned long
+			GetParameterAsUnsigned
+			(
+			const char*		sKey,
+			unsigned long	nDefault = 0
+			) const;
 
 	virtual
-	CCharStringRef	GetParameterAsString
-					(
-					const char*	sKey,
-					const char*	sDefault = 0
-					);
+	GFLOAT	GetParameterAsFloat
+			(
+			const char*	sKey,
+			GFLOAT		fDefault = 0.0f
+			) const;
 
 	virtual
-	long			GetParameterAsEnum
-					(
-					const char*			sKey,
-					const EnumDatumPtr	pEnumList,
-					const long			nEnumCount,
-					const long			nDefault = 0,
-					const long			nError = 0
-					);
+	GFLOAT	GetParameterAsFloatUnits
+			(
+			const char*	sKey,
+			const char*	sUnitName,
+			GFLOAT		fDefault = 0.0f
+			) const;
 
 	virtual
-	bool			GetParameterAsBool
-					(
-					const char*	sKey,
-					const bool	bDefault = false
-					);
+	Yogi::Core::ConstCCharStringRef
+			GetParameterAsString
+			(
+			const char*	sKey,
+			const char*	sDefault = 0
+			) const;
 
 	virtual
-	CColor			GetParameterAsColor
-					(
-					const char*		sKey,
-					const CColor	cDefault = CColor()
-					);
+	long	GetParameterAsEnum
+			(
+			const char*			sKey,
+			const EnumDatumPtr	pEnumList,
+			long				nEnumCount,
+			long				nDefault = 0,
+			long				nError = 0
+			) const;
 
 	virtual
-	CDateTime		GetParameterAsDateTime
-					(
-					const char*		sKey,
-					const CDateTime	tDefault = CDateTime()
-					);
+	bool	GetParameterAsBool
+			(
+			const char*	sKey,
+			bool		bDefault = false
+			) const;
+
+	virtual
+	Yogi::Core::CColor
+			GetParameterAsColor
+			(
+			const char*		sKey,
+			Yogi::Core::ConstCColorRef	cDefault = Yogi::Core::CColor::ErrorColor()
+			) const;
+
+	virtual
+	Yogi::Core::CDateTime
+			GetParameterAsDateTime
+			(
+			const char*		sKey,
+			Yogi::Core::ConstCDateTimeRef	tDefault = Yogi::Core::CDateTime()
+			) const;
+
+	// end of VPluginConfiguration
+
+	void	AddParameter
+			(
+			Yogi::Core::ConstCCharDescriptorRef rName,
+			ConstCVariantDataRef rData
+			);
+	void	AddAttribute
+			(
+			Yogi::Core::ConstCCharDescriptorRef rName,
+			Yogi::Core::ConstCCharDescriptorRef rData
+			);
+	bool	AddFolder
+			(
+			Yogi::Core::ConstCCharDescriptorRef rName,
+			CPluginConfigurationPtr pFolder
+			);
+
+	void	PruneFolder
+			(
+			CPluginConfigurationPtr pConfig
+			);
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -207,16 +236,16 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sClass;
-	CCharString		m_sGroup;
-	CCharString		m_sID;
-	CCharString		m_sTemp;	// working space for GetParameter
+	Yogi::Core::CCharString		m_sClass;
+	Yogi::Core::CCharString		m_sGroup;
+	Yogi::Core::CCharString		m_sID;
+	Yogi::Core::CCharString		m_sTemp;	// working space for GetParameter
 
-	THashTable<CCharString, CCharString>			m_aAttributes;
-	THashTable<CCharString, CVariantData>			m_aParameters;
+	THashTable<Yogi::Core::CCharString, Yogi::Core::CCharString>	m_aAttributes;
+	THashTable<Yogi::Core::CCharString, CVariantData>				m_aParameters;
 
-	THashTable<CCharString, VPluginConfigurationPtr>	m_aFolders;
-	long												m_nFolderCount;
+	THashTable<Yogi::Core::CCharString, VPluginConfigurationPtr>	m_aFolders;
+	long															m_nFolderCount;
 
 private:
 //	private functions  --------------------------------------------------
@@ -244,7 +273,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

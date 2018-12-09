@@ -33,16 +33,16 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Interface Constants													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IPluginLibrary( "BCG::Common::IPluginLibrary" );
+const IXID	IXID_IPluginLibrary( "Yogi::Common::IPluginLibrary" );
 
 
 
-NAMESPACE_COMMON_END
+}}
 

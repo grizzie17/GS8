@@ -34,8 +34,8 @@
 #if defined( OS_LINUX_BLUERING )
 #include "CDrawOpenGL.h"
 #include "CFactoryConfiguration.h"
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -121,10 +121,9 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	// OS_LINUX
 
 #endif /* _H_CApplicationGaugeOpenGL */
-

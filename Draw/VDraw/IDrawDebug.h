@@ -23,26 +23,26 @@
 #define _H_IDrawDebug
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
 #include "UOSIncludes.h"
 
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
+|
 |	Type Definitions
-|					
+|
 \+---------------------------------------------------------------------*/
 
 typedef interface_ IDrawDebug*			IDrawDebugPtr;
@@ -50,9 +50,9 @@ typedef interface_ IDrawDebug*			IDrawDebugPtr;
 extern const IXID	IXID_IDrawDebug;
 
 /*---------------------------------------------------------------------+\
-|							
-|	Interface Definitions	
-|							
+|
+|	Interface Definitions
+|
 \+---------------------------------------------------------------------*/
 
 interface_ IDrawDebug : public ISupports
@@ -73,24 +73,23 @@ interface_ IDrawDebug : public ISupports
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||					
+||
 ||	Inline Functions
-||					
+||
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_IDrawDebug */
-

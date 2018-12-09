@@ -23,26 +23,26 @@
 #define _H_IDrawTmx
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
 #include "UFloat.h"
 #include "CMatrix3x3.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
+|
 |	Type Definitions
-|					
+|
 \+---------------------------------------------------------------------*/
 
 typedef interface_ IDrawTmx*			IDrawTmxPtr;
@@ -52,26 +52,26 @@ extern const IXID	IXID_IDrawTmx;
 extern const IXID	IXID_IDrawTmx2;
 
 /*---------------------------------------------------------------------+\
-|							
-|	Interface Definitions	
-|							
+|
+|	Interface Definitions
+|
 \+---------------------------------------------------------------------*/
 
 interface_ IDrawTmx : public ISupports
 {
-	virtual 
+	virtual
 	bool	begin
 			(
-			void 
+			void
 			) PURE;
 
-	virtual 
+	virtual
 	bool	end
 			(
-			void 
+			void
 			) PURE;
 
-	virtual 
+	virtual
 	bool	margin
 			(
 			int		nLeft,
@@ -80,7 +80,7 @@ interface_ IDrawTmx : public ISupports
 			int		nBottom
 			) PURE;
 
-	virtual 
+	virtual
 	bool	push
 			(
 			GFLOAT	xPosition,
@@ -92,10 +92,10 @@ interface_ IDrawTmx : public ISupports
 			GFLOAT	rotation,
 			GFLOAT	scale
 			) PURE;
-	virtual 
+	virtual
 	bool	pop
 			(
-			void 
+			void
 			) PURE;
 };
 
@@ -129,19 +129,19 @@ interface_ IDrawTmx2 : public IDrawTmx
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||					
+||
 ||	Inline Functions
-||					
+||
 \+=====================================================================*/
 
 inline
@@ -155,8 +155,7 @@ int		intFromFloat
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_IDrawTmx */
-

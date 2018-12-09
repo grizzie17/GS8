@@ -32,17 +32,17 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Interface Constants													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IExternalXML( "BCG::Common::IExternalXML" );
-const IXID	IXID_IExternalXMLServer( "BCG::Common::IExternalXMLServer" );
+const IXID	IXID_IExternalXML( "Yogi::Common::IExternalXML" );
+const IXID	IXID_IExternalXMLServer( "Yogi::Common::IExternalXMLServer" );
 
 
 
-NAMESPACE_COMMON_END
+}}
 

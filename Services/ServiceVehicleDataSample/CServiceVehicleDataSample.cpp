@@ -54,7 +54,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Private Global Variables											|
@@ -838,12 +838,10 @@ void	CServiceVehicleDataSample::CalculateMilliTime
 }
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-
-

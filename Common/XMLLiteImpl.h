@@ -90,7 +90,7 @@
 #include "UPlatform.h"
 #include "UPlatformString.h"
 
-namespace Yogi { namespace Common {
+namespace Yogi { namespace XMLLite {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -130,7 +130,7 @@ protected:
 //	protected types  ----------------------------------------------------
 
 	// we create this typedef to get around a limitation on g++
-  typedef Yogi::Core::TCharDescriptor<T>  TCD;
+	typedef Yogi::Core::TCharDescriptor<T>  TCD;
 
 	typedef struct AttributeInfo
 	{
@@ -186,7 +186,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	bool					m_bHeaderRequired;	// allow <?xml?> to be optional
-	VReadCallBack*			m_pReadCallBack;
+	XMLLite::VReadCallBack*			m_pReadCallBack;
 	Yogi::Core::TArray<T>				m_sStream;
 	Yogi::Core::TArray<char>			m_sStreamName;
 	Yogi::Core::TCharDescriptor<T>		m_tFullStream;
@@ -220,7 +220,7 @@ public:
 
 	virtual bool		HeaderRequired( bool bRequired );
 
-	virtual bool		ProcessCallBack( VReadCallBack* pCallBack );
+	virtual bool		ProcessCallBack( XMLLite::VReadCallBack* pCallBack );
 
 	virtual bool		Read( void );
 
@@ -297,9 +297,9 @@ public:
 	virtual bool				NextChild( void );
 
 	virtual ENODETYPE			NodeType( void );
-	virtual TCharDescriptor<T>	NodeName( void );
+	virtual Yogi::Core::TCharDescriptor<T>	NodeName( void );
 	virtual bool				NodeEmpty( void );
-	virtual TCharDescriptor<T>	NodeValue( void );
+	virtual Yogi::Core::TCharDescriptor<T>	NodeValue( void );
 
 	virtual long				NodeValueAsInt( void );
 	virtual GFLOAT				NodeValueAsFloat( void );
@@ -327,7 +327,7 @@ public:
 |	CReadFile															|
 \+---------------------------------------------------------------------*/
 
-class CReadFile : public VReadCallBack
+class CReadFile : public XMLLite::VReadCallBack
 {
 public:
 			CReadFile();
@@ -349,7 +349,7 @@ protected:
 
 
 //============================== Overrides ==============================
-	//	VReadCallBack
+	//	XMLLite::VReadCallBack
 public:
 	virtual
 	size_t	Read					// RTN:	returns number of bytes actually read
@@ -847,7 +847,7 @@ void	TTokenizer<T>::Reset
 		)
 {
 	m_sStream.Truncate();
-	m_tFullStream = TCharDescriptor<T>();
+	m_tFullStream = Yogi::Core::TCharDescriptor<T>();
 	m_sStreamName[0] = 0;
 	m_sStreamName.Truncate();
 
@@ -857,13 +857,13 @@ void	TTokenizer<T>::Reset
 	m_aAttributes.Truncate();
 
 	m_eNodeType = NODE_NONE;
-	m_tNodeName = TCharDescriptor<T>();
-	m_tNodeValue = TCharDescriptor<T>();
+	m_tNodeName = Yogi::Core::TCharDescriptor<T>();
+	m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
 
 	m_pCurrentPosition = 0;
 
 	m_nErrorLine = 0;
-	m_tErrorToken = TCharDescriptor<T>();
+	m_tErrorToken = Yogi::Core::TCharDescriptor<T>();
 	m_sErrorString.Truncate();
 }
 
@@ -879,7 +879,7 @@ void	TTokenizer<T>::PushNode
 		Yogi::Core::TCharDescriptor<T>&	r
 		)
 {
-	TCharDescriptor<T>*	p = m_aNodeStack.PointItem( m_nNodeStack );
+	Yogi::Core::TCharDescriptor<T>*	p = m_aNodeStack.PointItem( m_nNodeStack );
 	if ( p )
 	{
 		m_nNodeStack++;
@@ -934,7 +934,7 @@ bool	TTokenizer<T>::ReadFromCallBack
 	nSize = m_pReadCallBack->Read( p, nSize, m_eTargetFormat );
 	m_pCurrentPosition = p;
 	m_pEndPosition = p + nSize;
-	m_tFullStream = TCharDescriptor<T>( p, nSize );
+	m_tFullStream = Yogi::Core::TCharDescriptor<T>( p, nSize );
 	return true;
 }
 
@@ -1063,7 +1063,7 @@ long	TTokenizer<T>::SpanCharEntity
 			else
 			{
 				s = sTemp + 1;
-				TCharDescriptor<T>	tEntity( s, sTemp - s );
+				Yogi::Core::TCharDescriptor<T>	tEntity( s, sTemp - s );
 				if ( tEntity == "apos" )
 					nChar = '\'';
 				else if ( tEntity == "amp" )
@@ -1154,7 +1154,7 @@ long	TTokenizer<T>::SpanNumber
 	if ( ! sEnd )
 		sEnd = m_pEndPosition;
 
-	nValue = ParseIntT( s, (size_t)(sEnd - s), &nResult );
+	nValue = Yogi::Core::ParseIntT( s, (size_t)(sEnd - s), &nResult );
 
 	if ( pNumber )
 		*pNumber = nValue;
@@ -1183,7 +1183,7 @@ long	TTokenizer<T>::SpanFloat
 
 	GFLOAT	fValue;
 
-	fValue = ParseFloatT( s, (size_t)(sEnd - s), &nResult );
+	fValue = Yogi::Core::ParseFloatT( s, (size_t)(sEnd - s), &nResult );
 
 	if ( pNumber )
 		*pNumber = fValue;
@@ -1322,7 +1322,7 @@ long	TTokenizer<T>::NumberFromHex
 		size_t		n
 		)
 {
-	return ParseHexDigitsT( s, n );
+	return Yogi::Core::ParseHexDigitsT( s, n );
 }
 
 
@@ -1339,7 +1339,7 @@ GFLOAT
 		size_t		n
 		)
 {
-	return ParseFloatT( s, n );
+	return Yogi::Core::ParseFloatT( s, n );
 }
 
 
@@ -2175,7 +2175,7 @@ bool	TTokenizer<T>::HeaderRequired
 template < class T >
 bool	TTokenizer<T>::ProcessCallBack
 		(
-		VReadCallBack*	pCallBack
+		XMLLite::VReadCallBack*	pCallBack
 		)
 {
 	bool	bResult = false;
@@ -2545,7 +2545,7 @@ Yogi::Core::TCharDescriptor<T>
 	if ( p )
 		return p->tName;
 	else
-		return TCharDescriptor<T>();
+		return Yogi::Core::TCharDescriptor<T>();
 }
 
 
@@ -2565,7 +2565,7 @@ Yogi::Core::TCharDescriptor<T>
 	if ( p )
 		return p->tValue;
 	else
-		return TCharDescriptor<T>();
+		return Yogi::Core::TCharDescriptor<T>();
 }
 
 
@@ -2594,7 +2594,7 @@ Yogi::Core::TCharDescriptor<T>
 			++p;
 		}
 	}
-	return TCharDescriptor<T>();
+	return Yogi::Core::TCharDescriptor<T>();
 
 }
 

@@ -48,7 +48,7 @@
 #include "LogFile.h"
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -230,11 +230,8 @@ VConfigurationPtr
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif	//	OS_MSWIN
-
-
-

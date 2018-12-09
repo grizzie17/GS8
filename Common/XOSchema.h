@@ -38,8 +38,8 @@
 #include "TArray.h"
 #include "ISupports.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -245,9 +245,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_XOSchema */
-
-

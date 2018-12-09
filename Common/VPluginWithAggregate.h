@@ -29,8 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "VPlugin.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -84,8 +83,8 @@ protected:
 	virtual
 	void*	FindExternalInterface
 			(
-			ConstIXIDRef	rIID,
-			NResultPtr		pResult
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult
 			);
 
 public:
@@ -116,7 +115,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

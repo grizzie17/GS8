@@ -18,25 +18,26 @@
 #define _H_LogFile
 #pragma once
 /*---------------------------------------------------------------------+\
-|						
-|	Include Files		
-|						
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 
 
 #include "UMachine.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 
 /*---------------------------------------------------------------------+\
-|						
-|	Defines				
-|						
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 // the following controls whether or not DbgPrint actually prints.
 #if defined( _DEBUG )
 	// comment out following line to hide DbgPrint
-//#	define DBG_PRINT	1
+#	define DBG_PRINT	1
 #else
 #	if defined( DBG_PRINT )
 #		undef DBG_PRINT
@@ -56,36 +57,37 @@ namespace Yogi { namespace Core {
 // that uses this DLL. This way any other project whose source files include this file see
 // LOGFILE_API functions as being imported from a DLL, whereas this DLL sees symbols
 // defined with this macro as being exported.
-//#define OS_MSWIN 1
-#if defined( OS_MSWIN )
-#	define DCL	__cdecl
-#	if defined( LOGFILE_EXPORTS )
-#		define LOGFILE_API(t)  extern "C" __declspec(dllexport) t __stdcall
-//#		define LOGFILE_API extern "C" __declspec(dllexport)
-#	else
-//#		define LOGFILE_API __declspec(dllimport)
-#		define LOGFILE_API(t)  extern "C" __declspec(dllimport) t __stdcall
-#	endif
-#else
-#	define DCL
-#	define LOGFILE_API(t) t
-#endif
+
+#define LOGFILE_API(t)		DEF_API(t)
+// #if defined( MSC_VER )
+// #	define DCL	__cdecl
+// #	if defined( LOGFILE_EXPORTS )
+// #		define LOGFILE_API(t)   __declspec(dllexport) t __stdcall
+// //#		define LOGFILE_API extern "C" __declspec(dllexport)
+// #	else
+// //#		define LOGFILE_API __declspec(dllimport)
+// #		define LOGFILE_API(t)   __declspec(dllimport) t __stdcall
+// #	endif
+// #else
+// #	define DCL
+// #	define LOGFILE_API(t) t
+// #endif
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	Type Definitions	
-|						
+|
+|	Type Definitions
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 
 
@@ -170,9 +172,9 @@ void	LogPrint
 #endif
 
 /*=====================================================================+\
-||						
-||	Inline Functions	
-||						
+||
+||	Inline Functions
+||
 \+=====================================================================*/
 
 

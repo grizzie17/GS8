@@ -45,7 +45,7 @@
 
 #	include "SOIL.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -1383,7 +1383,7 @@ bool	TDrawOpenGL::Video
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -1391,4 +1391,3 @@ NAMESPACE_COMMON_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

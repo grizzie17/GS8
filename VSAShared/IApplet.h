@@ -23,26 +23,26 @@
 #define _H_IApplet
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
 #include "IHusk.h"
 #include "CCharString.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
+|
 |	Type Definitions
-|					
+|
 \+---------------------------------------------------------------------*/
 
 typedef interface_ IApplet*			IAppletPtr;
@@ -50,15 +50,15 @@ typedef interface_ IApplet*			IAppletPtr;
 extern const IXID	IXID_IApplet;
 
 /*---------------------------------------------------------------------+\
-|							
-|	Interface Definitions	
-|							
+|
+|	Interface Definitions
+|
 \+---------------------------------------------------------------------*/
 
 interface_ IApplet : public ISupports
 {
 	/// OnLoad - called right after applet is loaded
-	/// 
+	///
 	/// Typically includes Storage Broker Registration
 	///
 	virtual
@@ -73,7 +73,7 @@ interface_ IApplet : public ISupports
 			) PURE;
 
 	/// OnStart - the applet is about to become visible
-	/// 
+	///
 	/// Typical operations include:
 	///		* Start any threads that are required
 	///		* Register with the box manager any boxes this application
@@ -117,24 +117,23 @@ interface_ IApplet : public ISupports
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||					
+||
 ||	Inline Functions
-||					
+||
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IApplet */
-

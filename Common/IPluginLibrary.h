@@ -30,10 +30,10 @@
 #include "ISupports.h"
 
 #include "CCharString.h"
+#include "CCharDescriptor.h"
 #include "CVariantData.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -66,7 +66,7 @@ interface_ IPluginLibrary : public ISupports
 	virtual
 	ISupportsPtr	Create
 					( 
-					ConstCCharDescriptorRef rLibraryname,
+					Yogi::Core::ConstCCharDescriptorRef rLibraryname,
 					ISupportsPtr	pOwner = 0
 					) PURE;
 
@@ -101,7 +101,7 @@ interface_ IPluginLibrary : public ISupports
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_IPluginLibrary */

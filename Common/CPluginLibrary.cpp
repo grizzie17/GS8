@@ -28,8 +28,9 @@
 #include "stdafx.h"
 #include "CPluginLibrary.h"
 #include "UMachine.h"
+#include "CCharDescriptor.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -82,11 +83,11 @@ CPluginLibrary::CPluginLibrary
 		(
 		void
 		)
-		: inherited(),
-		m_aContent(),
-		m_sBaseFolder(),
-		m_tLoader(),
-		m_oMutex()
+		: inherited()
+		, m_aContent()
+		, m_sBaseFolder()
+		, m_tLoader()
+		, m_oMutex()
 {
 }
 
@@ -94,11 +95,11 @@ CPluginLibrary::CPluginLibrary
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_aContent(),
-		m_sBaseFolder(),
-		m_tLoader(),
-		m_oMutex()
+		: inherited( pOwner )
+		, m_aContent()
+		, m_sBaseFolder()
+		, m_tLoader()
+		, m_oMutex()
 {
 }
 
@@ -107,11 +108,11 @@ CPluginLibrary::CPluginLibrary
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_aContent(),
-		m_sBaseFolder(),
-		m_tLoader(),
-		m_oMutex()
+		: inherited( sName, pOwner )
+		, m_aContent()
+		, m_sBaseFolder()
+		, m_tLoader()
+		, m_oMutex()
 {
 }
 
@@ -135,7 +136,7 @@ CPluginLibrary::~CPluginLibrary
 
 		while ( p < pEnd )
 		{
-			CMutexLocker	locker( &this->m_oMutex );
+			Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 			if ( p->m_pFactory )
 				p->m_pFactory->DestroyFactory();
 
@@ -163,7 +164,7 @@ ISupportsPtr
 		ISupportsPtr	pOwner	// = 0
 		)
 {
-	CCharDescriptor	tLib( sLibraryname );
+	Yogi::Core::CCharDescriptor	tLib( sLibraryname );
 	return Create( tLib, pOwner );
 }
 
@@ -176,7 +177,7 @@ ISupportsPtr
 ISupportsPtr
 		CPluginLibrary::Create
 		(
-		ConstCCharDescriptorRef rLibraryname,
+		Yogi::Core::ConstCCharDescriptorRef rLibraryname,
 		ISupportsPtr	pOwner	// = 0
 		)
 {
@@ -220,7 +221,7 @@ void	CPluginLibrary::SetRelativeFolder
 {
 	const char	sSep[] = { FOLDER_SEPARATOR, 0 };
 
-	CCharString	sNewFolder = m_sBaseFolder;
+	Yogi::Core::CCharString	sNewFolder = m_sBaseFolder;
 	if ( sFolder )
 	{
 		sNewFolder += sSep;
@@ -243,12 +244,12 @@ void	CPluginLibrary::SetRelativeFolder
 VPluginFactoryPtr
 		CPluginLibrary::GetFactory
 		(
-		ConstCCharDescriptorRef rLibraryname
+		Yogi::Core::ConstCCharDescriptorRef rLibraryname
 		)
 {
-	VPluginFactoryPtr	p = 0;
-	CCharString			sLib = rLibraryname;
-	FactoryCampus*	h = m_aContent.Find( sLib );
+	VPluginFactoryPtr		p = 0;
+	Yogi::Core::CCharString	sLib = rLibraryname;
+	FactoryCampus*			h = m_aContent.Find( sLib );
 	if ( ! h )
 	{
 		ULibraryHdl	hLib;
@@ -256,7 +257,7 @@ VPluginFactoryPtr
 		p = m_tLoader.LoadFactory( sLib.Pointer(), &hLib );
 		if ( p )
 		{
-			CMutexLocker	locker( &this->m_oMutex );
+			Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
 			FactoryCampus	campus;
 			campus.m_hLibrary = hLib;
 			campus.m_pFactory = p;
@@ -355,7 +356,7 @@ void	CPluginLibrary::FinalRelease
 #endif	// _DEBUG
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

@@ -37,7 +37,7 @@
 #include "UPluginConfiguration.h"
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -2390,7 +2390,4 @@ bool	CServiceRstaEptm::Load
 }
 
 
-NAMESPACE_GADGET_END
-
-
-
+}}

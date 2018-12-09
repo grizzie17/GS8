@@ -46,7 +46,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Private Global Variables											|
@@ -156,11 +156,11 @@ VPluginWithAggregateList::~VPluginWithAggregateList
 \+---------------------------------------------------------------------*/
 void*	VPluginWithAggregateList::FindExternalInterface
 		(
-		ConstIXIDRef	rIID,
-		NResultPtr		pResult
+		ConstIXIDRef			rIID,
+		Yogi::Core::NResultPtr	pResult
 		)
 {
-	NResult	nr = 0;
+	Yogi::Core::NResult	nr = 0;
 	void*	pI = inherited::FindExternalInterface( rIID, &nr );
 	if ( ! pI )
 	{
@@ -213,14 +213,14 @@ bool	VPluginWithAggregateList::Load
 			pSubConfig = tFolder.Value();
 			if ( pSubConfig )
 			{
-				CCharString	sClass = pSubConfig->GetClass();
-				CCharString	sGroup = pSubConfig->GetGroup();
-				CCharString	sID = pSubConfig->GetID();
+				Yogi::Core::CCharString	sClass = pSubConfig->GetClass();
+				Yogi::Core::CCharString	sGroup = pSubConfig->GetGroup();
+				Yogi::Core::CCharString	sID = pSubConfig->GetID();
 
 				pLib->SetRelativeFolder( sGroup.Pointer() );
 
 #ifdef VPLUGIN_AGGREGATE_LIST_DBG_PRINT
-				DbgPrint("VPluginWithAggregateList.Load: Creating class '%s', ID '%s'\n",
+				Yogi::Core::DbgPrint("VPluginWithAggregateList.Load: Creating class '%s', ID '%s'\n",
 					     sClass.Pointer(), sID.Pointer());
 #endif
 
@@ -255,7 +255,7 @@ bool	VPluginWithAggregateList::Load
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

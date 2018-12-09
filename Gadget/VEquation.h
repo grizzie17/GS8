@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "CVariantData.h"
 #include "VDictionary.h"
 /*---------------------------------------------------------------------+\
@@ -40,7 +40,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class VEquation*		VEquationPtr;
 typedef class VEquation&		VEquationRef;
@@ -100,8 +100,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_VEquation */
-

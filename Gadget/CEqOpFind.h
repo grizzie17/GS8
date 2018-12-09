@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEqOpUnary.h"
 #include "TArray.h"
 /*---------------------------------------------------------------------+\
@@ -40,7 +40,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationOperatorFind*		CEquationOperatorFindPtr;
 typedef class CEquationOperatorFind&		CEquationOperatorFindRef;
@@ -110,8 +110,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqOpFind */
-

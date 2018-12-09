@@ -23,9 +23,9 @@
 #define _H_CWinCEDlg
 #pragma once
 /*---------------------------------------------------------------------+\
-|						
-|	Include Files		
-|						
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 
 #include "VPostCalculate.h"
@@ -43,25 +43,25 @@
 #include "CServiceManager.h"
 
 
-#include "NamespaceGadget.h"
-USING_NAMESPACE_GADGET
+
+using namespace Yogi::Gadget;
 /*---------------------------------------------------------------------+\
-|						
-|	Defines				
-|						
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	Type Definitions	
-|						
+|
+|	Type Definitions
+|
 \+---------------------------------------------------------------------*/
 typedef class CWinCEDlg*			CWinCEDlgPtr;
 typedef class CWinCEDlg&			CWinCEDlgRef;
 typedef const class CWinCEDlg&	ConstCWinCEDlgRef;
 /*---------------------------------------------------------------------+\
-|						
-|	Class Definitions	
-|						
+|
+|	Class Definitions
+|
 \+---------------------------------------------------------------------*/
 
 class CWinCEDlg : public VPostCalculate
@@ -85,7 +85,7 @@ public:
 
 	bool	InitializeDialog
 			(
-			HINSTANCE	hInstance, 
+			HINSTANCE	hInstance,
 			LPCTSTR		szWindowClass
 			);
 
@@ -102,8 +102,8 @@ protected:
 
 	void OnInitDialog( HWND hWnd, WPARAM wParam, LPARAM lParam );
 	void OnCreate( HWND hWnd, WPARAM wParam, LPARAM lParam );
-	UINT StartTimer (UINT TimerDuration);  // Start the Timer 
-	BOOL StopTimer (UINT TimerVal);           // Stop the Timer 
+	UINT StartTimer (UINT TimerDuration);  // Start the Timer
+	BOOL StopTimer (UINT TimerVal);           // Stop the Timer
 	void OnTimer( UINT nIDEvent );
 
 	void OnPaint();
@@ -127,7 +127,7 @@ protected:
 	HWND	m_hwnd;
 	HDC		m_dc;
 
-	
+
 
 
 	TPointer<CApplicationGaugeWorkbench>
@@ -172,23 +172,22 @@ public:
 };
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||						
-||	Inline Functions	
-||						
+||
+||	Inline Functions
+||
 \+=====================================================================*/
 
 
 
 
 #endif /* _H_CWinCEDlg */
-

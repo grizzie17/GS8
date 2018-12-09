@@ -36,7 +36,7 @@
 #include "TComPointer.h"
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -519,7 +519,7 @@ NResult	CServiceCycler::Stop
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 

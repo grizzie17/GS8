@@ -46,7 +46,7 @@
 #include "VFactoryLite.h"
 
 
-#include "NamespaceGadget.h"
+
 
 #include "CFactoryEquation.h"
 #include "TPointer.h"
@@ -69,7 +69,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -197,9 +197,8 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_VFactoryComponent */
-

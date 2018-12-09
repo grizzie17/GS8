@@ -32,7 +32,7 @@
 \+---------------------------------------------------------------------*/
 #include "VPanelChild.h"
 
-#include "NamespaceGadget.h"
+
 #include "VDictionaryPage.h"
 #include "VAction.h"
 #include "CMouseAreaList.h"
@@ -48,7 +48,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CGauge*		CGaugePtr;
 typedef class CGauge&		CGaugeRef;
@@ -95,7 +95,7 @@ protected:
 
 	//VActionPtr			m_pAction;	// declared in VControl
 	CMouseAreaListPtr		m_pMouseAreaList;
-	
+
 
 private:
 //	private functions  --------------------------------------------------
@@ -133,7 +133,6 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 #endif /* _H_CGauge */
-

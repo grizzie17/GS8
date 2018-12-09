@@ -34,8 +34,7 @@
 #include "ISupports.h"
 #include "UNResult.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -64,8 +63,8 @@ interface_ ISupportsLocal : public ISupports
 	virtual
 	void*	QueryInterfaceLocal
 			(
-			ConstIXIDRef	rIID,
-			NResultPtr		pResult = 0
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult = 0
 			) PURE;
 
 
@@ -88,7 +87,7 @@ interface_ ISupportsLocal : public ISupports
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

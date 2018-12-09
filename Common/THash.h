@@ -110,9 +110,9 @@ private:
 //============================== Overrides ==============================
 	//	TEnumerator
 public:
-	virtual bool	MoveNext( void );
-	virtual void	Reset( void );
-	virtual	TData*	Current( void );
+	virtual bool			MoveNext( void );
+	virtual void			Reset( void );
+	virtual	const TData*	Current( void );
 
 
 };
@@ -135,9 +135,9 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	TData*		Match( uintmax_t nSearchHash, const TKey& key );
-	bool		Populate( uintmax_t nHash, const TKey& key, TData data );
-	bool		Clear( void );
+	const TData*	Match( uintmax_t nSearchHash, const TKey& key ) const;
+	bool			Populate( uintmax_t nHash, const TKey& key, TData data );
+	bool			Clear( void );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -177,9 +177,9 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	TData*	Exists( uintmax_t nHash, const TKey& key );
-	bool	Add( uintmax_t nHash, const TKey& key, TData data );
-	bool	Remove( uintmax_t nHash, const TKey& key );
+	const TData*	Exists( uintmax_t nHash, const TKey& key ) const;
+	bool			Add( uintmax_t nHash, const TKey& key, TData data );
+	bool			Remove( uintmax_t nHash, const TKey& key );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -220,9 +220,9 @@ public:
 //	public functions  ---------------------------------------------------
 
 	void			SetHashTableSize( size_t nNewSize );
-	uintmax_t		HashFromKey( const TKey& key );
+	uintmax_t		HashFromKey( const TKey& key ) const;
 
-	TData*			Find( const TKey& key );
+	const TData*	Find( const TKey& key ) const;
 	bool			Add( const TKey& key, TData data );
 	bool			Remove( const TKey& key );
 	THashTableEnumerator< TKey, TData >
@@ -238,7 +238,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	Yogi::Core::TArray< TBucketPtr >	m_tBuckets;
-	size_t					m_nTableSize; // size of hash table (size of Bucket list)
+	size_t								m_nTableSize; // size of hash table (size of Bucket list)
 
 private:
 //	private functions  --------------------------------------------------
@@ -346,7 +346,7 @@ bool	THashTableEnumerator<TKey, TData>::MoveNext
 		m_eBuckets = m_pTable->m_tBuckets.GetEnumerator();
 		while ( m_eBuckets.MoveNext() )
 		{
-			TBucketPtr*	h;
+			const TBucketPtr*	h;
 
 			h = m_eBuckets.Current();
 			if ( h )
@@ -375,7 +375,7 @@ bool	THashTableEnumerator<TKey, TData>::MoveNext
 		{
 			while ( m_eBuckets.MoveNext() )
 			{
-				TBucketPtr*	h;
+				const TBucketPtr*	h;
 
 				h = m_eBuckets.Current();
 				if ( h )
@@ -410,7 +410,8 @@ void	THashTableEnumerator<TKey, TData>::Reset
 
 
 template < class TKey, class TData >
-TData*	THashTableEnumerator<TKey, TData>::Current
+const TData*
+		THashTableEnumerator<TKey, TData>::Current
 		(
 		void
 		)
@@ -421,7 +422,7 @@ TData*	THashTableEnumerator<TKey, TData>::Current
 	}
 	else
 	{
-		TWalletPtr*	h;
+		const TWalletPtr*	h;
 		h = m_eWallets.Current();
 		if ( h )
 		{
@@ -447,7 +448,7 @@ const TKey&
 		MoveNext();
 	}
 
-	TWalletPtr*	h;
+	const TWalletPtr*	h;
 	h = m_eWallets.Current();
 	Yogi::Core::DbgAssert( 0 != h, "THashTableEnum::Key - bad internal pointer" );
 	return (*h)->m_key;
@@ -466,7 +467,7 @@ const TData&
 		MoveNext();
 	}
 
-	TWalletPtr*	h;
+	const TWalletPtr*	h;
 	h = m_eWallets.Current();
 	Yogi::Core::DbgAssert( 0 != h, "THashTableEnumerator::Value - Bad pointer" );
 	return (*h)->m_data;
@@ -514,13 +515,14 @@ THashWallet< TKey, TData >::~THashWallet
 
 \+---------------------------------------------------------------------*/
 template < class TKey, class TData >
-TData*	THashWallet< TKey, TData >::Match
+const TData*
+		THashWallet< TKey, TData >::Match
 		(
 		uintmax_t	nSearchHash,
 		const TKey&	key
-		)
+		) const
 {
-	TData*	pResult = 0;
+	const TData*	pResult = 0;
 
 	if ( nSearchHash == m_hashValue )
 	{
@@ -616,15 +618,16 @@ THashBucket< TKey, TData >::~THashBucket
 
 \+---------------------------------------------------------------------*/
 template < class TKey, class TData >
-TData*	THashBucket< TKey, TData >::Exists
+const TData*
+		THashBucket< TKey, TData >::Exists
 		(
 		uintmax_t	nHash,
 		const TKey&	key
-		)
+		) const
 {
-	TData*		pResult = 0;
-	TWalletPtr*	p = m_tList.PointArray();
-	TWalletPtr*	pEnd = p + m_tList.Length();
+	const TData*		pResult = 0;
+	const TWalletPtr*	p = m_tList.PointArray();
+	const TWalletPtr*	pEnd = p + m_tList.Length();
 
 	if ( p )
 	{
@@ -692,7 +695,7 @@ bool	THashBucket< TKey, TData >::Remove
 		{
 			if ( *p )
 			{
-				TData*	pResult = (*p)->Match( nHash, key );
+				const TData*	pResult = (*p)->Match( nHash, key );
 				if ( pResult )
 				{
 					//index_t	i = p - pStart;
@@ -789,9 +792,9 @@ uintmax_t
 		THashTable< TKey, TData >::HashFromKey
 		(
 		const TKey&	key
-		)
+		) const
 {
-	return THashValueFromKey( key );
+	return THashValueFromKey<TKey>( key );
 }
 
 /*---------------------------------------------------------------------+\
@@ -800,15 +803,16 @@ uintmax_t
 
 \+---------------------------------------------------------------------*/
 template < class TKey, class TData >
-TData*	THashTable< TKey, TData >::Find
+const TData*
+		THashTable< TKey, TData >::Find
 		(
 		const TKey&	key
-		)
+		) const
 {
-	TData*			pResult = 0;
-	uintmax_t		nHash = HashFromKey( key );
-	index_t			nIdx = static_cast<index_t>(nHash % m_nTableSize);
-	TBucketPtr*		p = m_tBuckets.PointArray( nIdx );
+	const TData*		pResult = 0;
+	uintmax_t			nHash = HashFromKey( key );
+	index_t				nIdx = static_cast<index_t>(nHash % m_nTableSize);
+	const TBucketPtr*	p = m_tBuckets.PointArray( nIdx );
 
 	if ( p )
 	{
@@ -839,7 +843,7 @@ bool	THashTable< TKey, TData >::Add
 
 	if ( p  &&  *p )
 	{
-		TData*	pData = (*p)->Exists( nHash, key );
+		const TData*	pData = (*p)->Exists( nHash, key );
 		if ( ! pData )
 			bResult = (*p)->Add( nHash, key, data );
 	}
@@ -872,11 +876,11 @@ bool	THashTable< TKey, TData >::Remove
 	bool			bResult = false;
 	uintmax_t		nHash = HashFromKey( key );
 	index_t			nIdx = static_cast<index_t>(nHash % (uintmax_t)m_nTableSize);
-	TBucketPtr*		p = m_tBuckets.PointArray( nIdx );
+	TBucketPtr*		h = m_tBuckets.PointArray( nIdx );
 
-	if ( p  &&  *p )
+	if ( h  &&  *h )
 	{
-		bResult = (*p)->Remove( nHash, key );
+		bResult = (*h)->Remove( nHash, key );
 	}
 
 	return bResult;

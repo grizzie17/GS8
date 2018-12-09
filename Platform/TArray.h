@@ -109,9 +109,9 @@ private:
 //============================== Overrides ==============================
 	//	TEnumerator
 public:
-	virtual bool	MoveNext( void );
-	virtual void	Reset( void );
-	virtual	T*		Current( void );
+	virtual bool		MoveNext( void );
+	virtual void		Reset( void );
+	virtual	const T*	Current( void );
 
 
 };
@@ -1020,7 +1020,8 @@ void	TArrayEnumerator<T>::Reset
 
 template< class T >
 inline
-T*		TArrayEnumerator<T>::Current
+const T*
+		TArrayEnumerator<T>::Current
 		(
 		void
 		)

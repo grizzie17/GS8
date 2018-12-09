@@ -35,7 +35,7 @@
 #include "UPlatformString.h"
 
 #include "VPluginFactory.h"
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -563,7 +563,7 @@ void	XMLEverythingColor::ReleaseCallBack
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -571,4 +571,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

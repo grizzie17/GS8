@@ -41,7 +41,7 @@
 #include "CFactoryDictActive.h"
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |
 |	Local defines / constants
@@ -516,7 +516,7 @@ CDictPageAlertsPtr
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -524,4 +524,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -97,7 +97,7 @@ const char xmlRootEnd[]	=	"</VehicleData>";
 const char xmlData[]	=	"<Parameters";
 const char xmlDataEnd[]	=	"</Parameters>";
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -819,7 +819,7 @@ void	CVehicleDataReader::SetMCMaxMsgSize
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /**--------------------------------------------------------------------+\
@@ -831,4 +831,3 @@ NAMESPACE_GADGET_END
  * (author)M.Rose  --  15-Oct-2009
 
 \+---------------------------------------------------------------------*/
-

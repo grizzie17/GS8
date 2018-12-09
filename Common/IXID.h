@@ -31,8 +31,7 @@
 #include <string.h>
 //#include "CCharDescriptor.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -431,7 +430,7 @@ bool	IXID::Equals
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 

@@ -34,7 +34,7 @@
 \+---------------------------------------------------------------------*/
 #include "VFactoryPanel.h"
 
-#include "NamespaceGadget.h"
+
 
 #include "CFactoryEquation.h"
 #include "CFactoryGauge.h"
@@ -50,7 +50,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -133,9 +133,7 @@ protected:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CFactoryPanel */
-
-

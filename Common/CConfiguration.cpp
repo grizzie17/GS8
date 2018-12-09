@@ -260,7 +260,7 @@ long	CConfiguration::GetEntryAsInteger
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		long	n = *pv;
+		long	n = pv->GetValueInteger();
 		return n;
 	}
 	else
@@ -285,7 +285,7 @@ unsigned long
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		unsigned long	n = pv->GetValueUnsignedInteger();
+		unsigned long	n = static_cast<unsigned long>(pv->GetValueUnsignedInteger());
 		return n;
 	}
 	else
@@ -309,7 +309,7 @@ GFLOAT	CConfiguration::GetEntryAsFloat
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		GFLOAT	f = *pv;
+		GFLOAT	f = pv->GetValueFloat();
 		return f;
 	}
 	else
@@ -370,7 +370,7 @@ Yogi::Core::CCharString
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		Yogi::Core::CCharString	s = *pv;
+		Yogi::Core::CCharString	s = pv->GetValueString();
 		return s;
 	}
 	else
@@ -405,7 +405,7 @@ long	CConfiguration::GetEntryAsEnum
 			{
 				EnumDatumPtr	pDatum = pEnumList;
 				EnumDatumPtr	pDatumEnd = pEnumList + nEnumCount;
-				Yogi::Core::CCharString		s = *pv;
+				Yogi::Core::CCharString		s = pv->GetValueString();
 				while ( pDatum < pDatumEnd )
 				{
 					if ( 0 == s.CompareIgnoreCase( pDatum->sKey ) )

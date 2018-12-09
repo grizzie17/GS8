@@ -38,7 +38,7 @@
 #include "VDictionary.h"
 #include "CKeyNames.h"
 
-#include "NamespaceGadget.h"
+
 
 
 /*---------------------------------------------------------------------+\
@@ -52,7 +52,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 typedef class CmdKeyName*		CmdKeyNamePtr;
 typedef class CmdKeyName&		CmdKeyNameRef;
 typedef const class CmdKeyName&	ConstCmdKeyNameRef;
@@ -146,9 +146,8 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CmdKeyName */
-

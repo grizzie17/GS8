@@ -30,8 +30,7 @@
 #include "VPlugin.h"
 #include "TArray.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -70,7 +69,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray<ISupportsPtr>	m_aAggregateList;
+	Yogi::Core::TArray<ISupportsPtr>	m_aAggregateList;
 
 private:
 //	private types  ------------------------------------------------------
@@ -88,8 +87,8 @@ protected:
 	virtual
 	void*	FindExternalInterface
 			(
-			ConstIXIDRef	rIID,
-			NResultPtr		pResult
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult
 			);
 
 public:
@@ -120,7 +119,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

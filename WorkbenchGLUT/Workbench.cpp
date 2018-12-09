@@ -50,9 +50,9 @@ static GaugeViewOpenGL* GaugeView;
 |	Public Global Variables												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 bool	g_bCalculateNeeded;		// extern
-NAMESPACE_GADGET_END
+}}
 
 int g_appStart;
 
@@ -464,4 +464,3 @@ int		main
 }
 
 #endif // GL_OPENGL
-

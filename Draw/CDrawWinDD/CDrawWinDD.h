@@ -61,8 +61,8 @@
 #	include <ocidl.h>
 #	include <olectl.h>
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -112,7 +112,7 @@ typedef const class CDrawWinDD&	ConstCDrawWinDDRef;
 
 /*
 	encapsulates a DDPIXELFORMAT struct intialisation
-	and the pxiel format of a DirectDraw surface 
+	and the pxiel format of a DirectDraw surface
 */
 struct CDDPIXELFORMAT : DDPIXELFORMAT
 {
@@ -120,11 +120,11 @@ struct CDDPIXELFORMAT : DDPIXELFORMAT
 	CDDPIXELFORMAT(IDirectDrawSurface* Surface)
 		:m_nBitformat(0)
 	{
-		memset(this, 0,sizeof(DDPIXELFORMAT)); 
+		memset(this, 0,sizeof(DDPIXELFORMAT));
 		this->dwSize = sizeof(DDPIXELFORMAT);
 		if ( SUCCEEDED(Surface->GetPixelFormat(this)) )
 		{
-			m_nBitformat = this->dwRGBBitCount; 
+			m_nBitformat = this->dwRGBBitCount;
 		}
 	}
 
@@ -137,21 +137,21 @@ struct CDDPIXELFORMAT : DDPIXELFORMAT
 		whats the format of the pixels on a
 		8/16/24/32 bit surface
 	*/
-	DWORD GetBitCount() const 
+	DWORD GetBitCount() const
 	{
 		return m_nBitformat;
 	}
 	/*
 		are we in 16/24/32 bit mode
 	*/
-	bool InRGBMode() const 
+	bool InRGBMode() const
 	{
 		return ( (this->dwFlags & DDPF_RGB) && !(this->dwFlags & DDPF_PALETTEINDEXED8)  ) ? true: false;
 	}
 	/*
 		are we in 8 bit mode and therefore using a palette
 	*/
-	bool InPaletteMode() const 
+	bool InPaletteMode() const
 	{
 		return ((this->dwFlags & DDPF_PALETTEINDEXED8) || (this->dwFlags & DDPF_PALETTEINDEXEDTO8)) ? true: false;
 	}
@@ -205,9 +205,9 @@ struct CRGB8BIT : ColorConverter
 		HRESULT hr = srfc_->Lock( NULL, &ddsd, DDLOCK_WAIT, NULL );
 		if(SUCCEEDED(hr))
 		{
-			dw = *(DWORD *) ddsd.lpSurface; 
+			dw = *(DWORD *) ddsd.lpSurface;
 //			if( ddsd.ddpfPixelFormat.dwRGBBitCount < 32 ) // Mask it to bpp
-				dw &= (1 << ddsd.ddpfPixelFormat.dwRGBBitCount) - 1;  
+				dw &= (1 << ddsd.ddpfPixelFormat.dwRGBBitCount) - 1;
 			srfc_->Unlock(NULL);
 		}
 
@@ -219,7 +219,7 @@ struct CRGB8BIT : ColorConverter
 		}
 
 		lastgot_ = dw;
-		return dw;    
+		return dw;
 	}
 
 };
@@ -228,7 +228,7 @@ struct CRGB24BIT : ColorConverter
 {
 	DWORD Convert(int r, int g, int b)
 	{
-		return 
+		return
 			(
 				(b << 16)
 			|	(g << 8)
@@ -243,7 +243,7 @@ struct CRGB32BIT : ColorConverter
 	DWORD Convert(int r, int g, int b)
 	{
 		int a = 0;
-		return 
+		return
 				(
 					(a << 24)
 				|	(b << 16)
@@ -401,7 +401,7 @@ protected:
 
 	HWND		m_hwnd;
 
-	
+
 	IDirectDrawSurface*	m_pSurfApplication;
 	IDirectDrawSurface*	m_pSurfBackground;
 	IDirectDrawSurface*	m_pSurfForeground;
@@ -671,11 +671,10 @@ public:
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif	// GL_DIRECTX
 
 
 #endif /* _H_CDrawWinDD */
-

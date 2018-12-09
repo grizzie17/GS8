@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "UMachine.h"
 #if defined( GL_OPENGL )		// brackets entire file
 
@@ -139,7 +139,7 @@ typedef unsigned int UINT;
 #define VK_OEM_PERIOD	0xBE
 
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -212,7 +212,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	// OS_MSWIN
@@ -220,4 +220,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CKeyProcessorOpenGL */
-

@@ -32,7 +32,7 @@
 #include "IXOParse.h"
 
 #include "THash.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -131,8 +131,7 @@ protected:
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_XOLibrary */
-

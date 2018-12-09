@@ -67,7 +67,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 // Uncomment the following #define to enable debug printing statements
 //
@@ -677,5 +677,4 @@ void	CServiceSSPC::RunTx
 \+---------------------------------------------------------------------*/
 
 
-NAMESPACE_GADGET_END
-
+}}

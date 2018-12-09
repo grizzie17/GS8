@@ -26,9 +26,9 @@
 #define _H_CHusk
 #pragma once
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "VPluginWithAggregateList.h"
 #include "IHusk.h"
@@ -38,22 +38,22 @@
 #include "THash.h"
 #include "VObject.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
-|			
-|	Defines	
-|			
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	Type Definitions	
-|						
+|
+|	Type Definitions
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	Class Definitions	
-|						
+|
+|	Class Definitions
+|
 \+---------------------------------------------------------------------*/
 
 class CHusk : public VPluginWithAggregateList,
@@ -135,7 +135,7 @@ protected:
 	//CAppletManagerPtr	m_pApplets;
 	//CDeskManagerPtr	m_pDesks;
 	//CWidgetManagerPtr	m_pWidgets;
-	
+
 	//CLayoutServicePtr	m_pLayout;
 	//CNotificationServicePtr	m_pNotification;
 
@@ -167,21 +167,20 @@ protected:
 };
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||						
-||	Inline Functions	
-||						
+||
+||	Inline Functions
+||
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 #endif /* _H_CHusk */
-

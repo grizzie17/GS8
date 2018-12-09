@@ -32,23 +32,23 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Interface Constants													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IXOParse( "BCG::Common::IXOParse" );
-const IXID	IXID_IXOParseType( "BCG::Common::IXOParseType" );
-const IXID	IXID_IXOParseAttribute( "BCG::Common::IXOParseAttribute" );
-const IXID	IXID_IXOParseProperty( "BCG::Common::IXOParseProperty" );
-const IXID	IXID_IXOParseNProperty( "BCG::Common::IXOParseNProperty" );
-const IXID	IXID_IXOParseSet( "BCG::Common::IXOParseSet" );
-const IXID	IXID_IXOParseRoot( "BCG::Common::IXOParseRoot" );
+const IXID	IXID_IXOParse( "Yogi::Common::IXOParse" );
+const IXID	IXID_IXOParseType( "Yogi::Common::IXOParseType" );
+const IXID	IXID_IXOParseAttribute( "Yogi::Common::IXOParseAttribute" );
+const IXID	IXID_IXOParseProperty( "Yogi::Common::IXOParseProperty" );
+const IXID	IXID_IXOParseNProperty( "Yogi::Common::IXOParseNProperty" );
+const IXID	IXID_IXOParseSet( "Yogi::Common::IXOParseSet" );
+const IXID	IXID_IXOParseRoot( "Yogi::Common::IXOParseRoot" );
 
 
 
 
-NAMESPACE_COMMON_END
+}}
 

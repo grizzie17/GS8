@@ -31,8 +31,8 @@
 #include "CCharString.h"
 #include "IService.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -55,23 +55,22 @@ interface_ IServiceManager : public ISupports
 	IServicePtr
 			FindServiceByName
 			(
-			const char* sName 
+			const char* sName
 			) PURE;
 
 
 	virtual
-	ISupportsPtr	
+	ISupportsPtr
 			FindServiceByIF
 			(
-			ConstIXIDRef rIID 
+			ConstIXIDRef rIID
 			) PURE;
 };
 
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IServiceManager */
-

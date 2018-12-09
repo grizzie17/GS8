@@ -356,8 +356,8 @@ Yogi::Core::CDateTime
 		void
 		)
 {
-	CDateTime			tResult;
-	TCharDescriptor<T>	tValue;
+	Yogi::Core::CDateTime			tResult;
+	Yogi::Core::TCharDescriptor<T>	tValue;
 	tValue = this->NodeValue();
 	if ( 0 < tValue.Length() )
 		return DateFromDescriptor( tValue );
@@ -532,7 +532,7 @@ Yogi::Core::CDateTime
 		Yogi::Core::TCharDescriptor<T>&	r
 		)
 {
-	CDateTime	tTime;
+	Yogi::Core::CDateTime	tTime;
 
 	tTime.Parse( r.Pointer() );
 

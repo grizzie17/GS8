@@ -36,10 +36,10 @@
 #include "ICommandPlugin.h"
 #include "CPluginLibrary.h"
 
-#include "NamespaceCommon.h"
-#include "NamespaceGadget.h"
+
+
 //USING_NAMESPACE_COMMON
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -158,7 +158,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 //template<>
@@ -179,4 +179,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CFunctionProcessorForPlugins */
-

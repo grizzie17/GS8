@@ -32,13 +32,13 @@
 #include "TArray.h"
 #include "CTrigger.h"
 
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -77,7 +77,7 @@ public:
 protected:
 //	protected types  ----------------------------------------------------
 
-	typedef NAMESPACE_ROOT_PREFIX TArray<CTriggerPtr>	CTriggerList;
+	typedef Yogi::Core::TArray<CTriggerPtr>	CTriggerList;
 
 //	protected functions  ------------------------------------------------
 
@@ -116,9 +116,8 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CAction */
-

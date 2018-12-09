@@ -40,7 +40,7 @@
 #include "CVehicleDataReader.h"
 #include "CServiceManager.h"
 
-USING_NAMESPACE_GADGET
+using namespace Yogi::Gadget;
 
 class GaugeViewOpenGL
 {
@@ -89,6 +89,3 @@ class GaugeViewOpenGL
 
 
 #endif // _GAUGE_VIEW_OPENGL_MAIN_
-
-
-

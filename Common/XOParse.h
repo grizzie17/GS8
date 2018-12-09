@@ -29,7 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "VSupports.h"
 #include "IXOParse.h"
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -402,8 +402,7 @@ protected:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_XOParse */
-

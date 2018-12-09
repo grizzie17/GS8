@@ -40,7 +40,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -168,7 +168,7 @@ bool	VDictionaryPage::AddEntry
 bool	VDictionaryPage::AddEntry
 		(
 		ConstCCharDescriptorRef	rKey,
-		ConstCCharDescriptorRef	rData 
+		ConstCCharDescriptorRef	rData
 		)
 {
 	CVariantData	tV( rData );
@@ -178,7 +178,7 @@ bool	VDictionaryPage::AddEntry
 bool	VDictionaryPage::AddEntry
 		(
 		const char*	sKey,
-		const char*	sData 
+		const char*	sData
 		)
 {
 	CCharDescriptor	tKey( sKey );
@@ -331,7 +331,7 @@ bool	VDictionaryPage::AddAlias
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -339,4 +339,3 @@ NAMESPACE_GADGET_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

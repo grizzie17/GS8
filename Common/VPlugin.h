@@ -36,13 +36,12 @@
 
 #include "ISupportsLocal.h"
 
-#include "NamespaceCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -101,8 +100,8 @@ public:
 	virtual
 	void*	QueryInterfaceLocal
 			(
-			ConstIXIDRef	rIID,
-			NResultPtr		pResult = 0
+			ConstIXIDRef			rIID,
+			Yogi::Core::NResultPtr	pResult = 0
 			);
 
 
@@ -119,7 +118,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sID;
+	Yogi::Core::CCharString		m_sID;
 
 private:
 //	private functions  --------------------------------------------------
@@ -155,7 +154,7 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_COMMON_END
+}}
 
 
 

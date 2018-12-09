@@ -59,7 +59,7 @@
 #include "CApplicationGaugeVDDS.h"
 
 #include "NamespaceVideoSource.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -67,7 +67,7 @@
 \+---------------------------------------------------------------------*/
 USING_NAMESPACE_VIDEOSOURCE
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -186,7 +186,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -194,4 +194,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CmdM1200 */
-

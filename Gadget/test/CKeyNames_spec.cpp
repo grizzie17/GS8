@@ -6,7 +6,7 @@
 
 using namespace igloo;
 
-USING_NAMESPACE_GADGET
+using namespace Yogi::Gadget;
 
 Context(KeyNames_class)
 {

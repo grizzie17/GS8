@@ -34,6 +34,14 @@
 #include "UTypes.h"
 
 namespace Yogi { namespace Core {
+
+
+typedef int32_t			NResult;
+typedef	NResult*		NResultPtr;
+
+//#define NR_(nr)			((Yogi::Core::NResult)(nr))
+
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -106,136 +114,12 @@ namespace Yogi { namespace Core {
 #define NR_M_CODE		0x00007FFFL
 
 
-// some good statuses
-#define NR_S_SUCCESS	NR_MAKE_SUCCESS_(0)
-#define NR_S_OK			NR_S_SUCCESS
-#define NR_S_NOERROR	NR_S_SUCCESS
-#define NR_I_TRUE		NR_MAKE_INFORM_(0)
-#define NR_I_FALSE		NR_MAKE_INFORM_(1)
 
-
-// universal error
-#define NR_E_ERROR		NR_(~0L)
-
-
-
-//----------------------------------------------------------
-//	Global codes
-//----------------------------------------------------------
-
-
-// unspecified failure
-#define NR_E_FAIL			NR_E_ERROR
-
-// catastrophic error
-#define NR_E_UNEXPECTED		NR_MAKE_FATAL_(0x7FFF)
-
-// invalid pointer
-#define NR_E_POINTER		NR_MAKE_ERROR_(0x4003)
-
-// data necessary to complete operation is not yet available
-#define NR_E_PENDING		NR_MAKE_ERROR_(0x000A)
-
-// one or more arguments are invalid
-#define NR_E_INVALIDARG		NR_MAKE_ERROR_(0x0057)
-
-// operation aborted
-#define NR_E_ABORT			NR_MAKE_ERROR_(0x4004)
-
-
-//----------------------------------------------------------
-//	Operating System codes
-//----------------------------------------------------------
-
-// incorrect function
-#define NR_E_INVALIDFUNCTION	NR_MAKE_SYSERROR_(1)
-
-// system cannot find the file specified
-#define NR_E_FILENOTFOUND		NR_MAKE_SYSERROR_(2)
-
-// system cannot find the path specified
-#define NR_E_PATHNOTFOUND		NR_MAKE_SYSERROR_(3)
-
-// system cannot open the file
-#define NR_E_TOOMANYOPENFILES	NR_MAKE_SYSERROR_(4)
-
-// general access denied error
-#define NR_E_ACCESSDENIED		NR_MAKE_SYSERROR_(5)
-
-// invalid handle
-#define NR_E_HANDLE				NR_MAKE_SYSERROR_(6)
-
-// out of memory
-#define NR_E_OUTOFMEMORY		NR_MAKE_SYSERROR_(8)
-
-// attempt to load a program with an incorrect format
-#define NR_E_BADFORMAT			NR_MAKE_SYSERROR_(11)
-
-// the data is invalid
-#define	NR_E_INVALIDDATA		NR_MAKE_SYSERROR_(13)
-
-// request is not supported
-#define NR_E_NOTSUPPORTED		NR_MAKE_SYSERROR_(50)
-
-
-#define NR_E_NOTHREAD			NR_MAKE_SYSERROR_(100)
-
-
-//----------------------------------------------------------
-//	Communication codes
-//----------------------------------------------------------
-#define NR_E_CONNECT_FAIL       NR_MAKE_COMMERROR_(1)
-#define NR_E_RX_FAIL            NR_MAKE_COMMERROR_(2)
-#define NR_E_TX_FAIL            NR_MAKE_COMMERROR_(3)
-#define NR_E_CHECKSUM_FAIL      NR_MAKE_COMMERROR_(4)
-#define NR_E_MQ_SEND_FAIL		NR_MAKE_COMMERROR_(5)
-#define NR_E_TIMEOUT			NR_MAKE_COMMERROR_(6)
-#define NR_E_BUFFER_OVERRUN		NR_MAKE_COMMERROR_(7)
-#define NR_E_BREAK				NR_MAKE_COMMERROR_(8)
-#define NR_E_FRAME				NR_MAKE_COMMERROR_(9)
-#define	NR_E_IO					NR_MAKE_COMMERROR_(10)
-#define NR_E_MODE				NR_MAKE_COMMERROR_(11)
-#define NR_E_RXPARITY			NR_MAKE_COMMERROR_(12)
-#define NR_E_TXFULL				NR_MAKE_COMMERROR_(13)
-
-//----------------------------------------------------------
-//	Component Object Model codes
-//----------------------------------------------------------
-
-
-// interface not implemented
-#define NR_E_NOTIMPL		NR_MAKE_XCOMERROR_(1)
-
-// interface not available
-#define NR_E_NOINTERFACE	NR_MAKE_XCOMERROR_(2)
-
-
-//----------------------------------------------------------
-//	Plugin codes
-//----------------------------------------------------------
-
-// plugin library not loaded into memory
-#define NR_E_NOTLOADED		NR_MAKE_PLUGERROR_(1)
-
-// requested library does not contain correct entry point
-#define NR_E_NOTPLUGIN		NR_MAKE_PLUGERROR_(2)
-
-// the plugin library does not contain a factory
-#define NR_E_NOFACTORY		NR_MAKE_PLUGERROR_(3)
-
-// unspecified error when creating the plugin
-#define NR_E_PLUGINNOTCREATED	NR_MAKE_PLUGERROR_(4)
-
-
-
-
-
-#define NR_(nr)			((NResult)(nr))
 
 // generic tests for success or failure
 
-#define NR_SUCCEEDED(nr)	(0 <= NR_(nr))
-#define NR_FAILED(nr)		(NR_(nr) < 0 )
+#define NR_SUCCEEDED(nr)	(((nr) & NR_M_SEVERITY) == NR_K_SEVSUCCESS)
+#define NR_FAILED(nr)		(((nr) & NR_M_SEVERITY) == NR_K_SEVERROR)
 
 // get parts of NResult
 #define NR_SEVERITY(nr)		(((nr) >> 31) & 0x01)
@@ -245,8 +129,8 @@ namespace Yogi { namespace Core {
 
 
 // macros to help make result codes
-#define NR_MAKE_(sev,fac,code)		NR_(((sev) << 31) | ((fac) << 16) | (code))
-#define NR_MAKEi_(sevi,fac,code)	NR_(((sevi) << 30) | ((fac) << 16) | (code))
+#define NR_MAKE_(sev,fac,code)		(((sev) << 31) | ((fac) << 16) | (code))
+#define NR_MAKEi_(sevi,fac,code)	(((sevi) << 30) | ((fac) << 16) | (code))
 
 #define NR_MAKE_SUCCESS_(code)		NR_MAKE_(NR_V_SEVSUCCESS,NR_V_FACNULL,code)
 #define NR_MAKE_INFORM_(code)		NR_MAKEi_(NR_V_SEViINFORM,NR_V_FACNULL,code)
@@ -262,8 +146,134 @@ namespace Yogi { namespace Core {
 
 
 
+
+
+// some good statuses
+const NResult NR_S_SUCCESS =	NR_MAKE_SUCCESS_(0);
+const NResult NR_S_OK =			NR_S_SUCCESS;
+const NResult NR_S_NOERROR =	NR_S_SUCCESS;
+const NResult NR_I_TRUE =		NR_MAKE_INFORM_(0);
+const NResult NR_I_FALSE =		NR_MAKE_INFORM_(1);
+
+
+// universal error
+const NResult NR_E_ERROR =		~0L;
+
+
+
+//----------------------------------------------------------
+//	Global codes
+//----------------------------------------------------------
+
+
+// unspecified failure
+const NResult NR_E_FAIL =		NR_E_ERROR;
+
+// catastrophic error
+const NResult NR_E_UNEXPECTED =	NR_MAKE_FATAL_(0x7FFF);
+
+// invalid pointer
+const NResult NR_E_POINTER =	NR_MAKE_ERROR_(0x4003);
+
+// data necessary to complete operation is not yet available
+const NResult NR_E_PENDING =	NR_MAKE_ERROR_(0x000A);
+
+// one or more arguments are invalid
+const NResult NR_E_INVALIDARG =	NR_MAKE_ERROR_(0x0057);
+
+// operation aborted
+const NResult NR_E_ABORT =		NR_MAKE_ERROR_(0x4004);
+
+
+//----------------------------------------------------------
+//	Operating System codes
+//----------------------------------------------------------
+
+// incorrect function
+const NResult NR_E_INVALIDFUNCTION =	NR_MAKE_SYSERROR_(1);
+
+// system cannot find the file specified
+const NResult NR_E_FILENOTFOUND =		NR_MAKE_SYSERROR_(2);
+
+// system cannot find the path specified
+const NResult NR_E_PATHNOTFOUND =		NR_MAKE_SYSERROR_(3);
+
+// system cannot open the file
+const NResult NR_E_TOOMANYOPENFILES =	NR_MAKE_SYSERROR_(4);
+
+// general access denied error
+const NResult NR_E_ACCESSDENIED =		NR_MAKE_SYSERROR_(5);
+
+// invalid handle
+const NResult NR_E_HANDLE =				NR_MAKE_SYSERROR_(6);
+
+// out of memory
+const NResult NR_E_OUTOFMEMORY =		NR_MAKE_SYSERROR_(8);
+
+// attempt to load a program with an incorrect format
+const NResult NR_E_BADFORMAT =			NR_MAKE_SYSERROR_(11);
+
+// the data is invalid
+const NResult NR_E_INVALIDDATA =		NR_MAKE_SYSERROR_(13);
+
+// request is not supported
+const NResult NR_E_NOTSUPPORTED =		NR_MAKE_SYSERROR_(50);
+
+
+const NResult NR_E_NOTHREAD =			NR_MAKE_SYSERROR_(100);
+
+
+//----------------------------------------------------------
+//	Communication codes
+//----------------------------------------------------------
+const NResult NR_E_CONNECT_FAIL =       NR_MAKE_COMMERROR_(1);
+const NResult NR_E_RX_FAIL =            NR_MAKE_COMMERROR_(2);
+const NResult NR_E_TX_FAIL =            NR_MAKE_COMMERROR_(3);
+const NResult NR_E_CHECKSUM_FAIL =      NR_MAKE_COMMERROR_(4);
+const NResult NR_E_MQ_SEND_FAIL =		NR_MAKE_COMMERROR_(5);
+const NResult NR_E_TIMEOUT =			NR_MAKE_COMMERROR_(6);
+const NResult NR_E_BUFFER_OVERRUN =		NR_MAKE_COMMERROR_(7);
+const NResult NR_E_BREAK =				NR_MAKE_COMMERROR_(8);
+const NResult NR_E_FRAME =				NR_MAKE_COMMERROR_(9);
+const NResult NR_E_IO =					NR_MAKE_COMMERROR_(10);
+const NResult NR_E_MODE =				NR_MAKE_COMMERROR_(11);
+const NResult NR_E_RXPARITY =			NR_MAKE_COMMERROR_(12);
+const NResult NR_E_TXFULL =				NR_MAKE_COMMERROR_(13);
+
+//----------------------------------------------------------
+//	Component Object Model codes
+//----------------------------------------------------------
+
+
+// interface not implemented
+const NResult NR_E_NOTIMPL =		NR_MAKE_XCOMERROR_(1);
+
+// interface not available
+const NResult NR_E_NOINTERFACE =	NR_MAKE_XCOMERROR_(2);
+
+
+//----------------------------------------------------------
+//	Plugin codes
+//----------------------------------------------------------
+
+// plugin library not loaded into memory
+const NResult NR_E_NOTLOADED =		NR_MAKE_PLUGERROR_(1);
+
+// requested library does not contain correct entry point
+const NResult NR_E_NOTPLUGIN =		NR_MAKE_PLUGERROR_(2);
+
+// the plugin library does not contain a factory
+const NResult NR_E_NOFACTORY =		NR_MAKE_PLUGERROR_(3);
+
+// unspecified error when creating the plugin
+const NResult NR_E_PLUGINNOTCREATED =	NR_MAKE_PLUGERROR_(4);
+
+
+
+
+
 #if ! defined( WRONG )
-#define WRONG	(-1)
+#define WRONG	NR_E_ERROR
 #endif // !defined WRONG
 
 
@@ -273,8 +283,6 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef int32_t			NResult;
-typedef	NResult*		NResultPtr;
 
 
 /*---------------------------------------------------------------------+\

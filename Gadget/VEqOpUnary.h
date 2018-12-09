@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEquation.h"
 /*---------------------------------------------------------------------+\
 |																		|
@@ -39,7 +39,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class VEquationOperatorUnary*		VEquationOperatorUnaryPtr;
 typedef class VEquationOperatorUnary&		VEquationOperatorUnaryRef;
@@ -66,7 +66,7 @@ public:
 
 	VEquationOperatorUnaryRef	operator=( ConstVEquationOperatorUnaryRef r );		// assignment
 
-	virtual CVariantData	
+	virtual CVariantData
 				GetValue( VDictionaryPtr pDict ) = 0;
 
 	void		SetOperand( VEquationPtr pOperand );
@@ -110,7 +110,6 @@ private:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 #endif /* _H_VEqOpUnary */
-

@@ -31,7 +31,7 @@
 
 #include "CCharString.h"
 #include "CUnitsOfMeasure.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -42,7 +42,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationOperatorUnitConvert*		CEquationOperatorUnitConvertPtr;
 typedef class CEquationOperatorUnitConvert&		CEquationOperatorUnitConvertRef;
@@ -110,8 +110,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CEqOpUnitConvert */
-

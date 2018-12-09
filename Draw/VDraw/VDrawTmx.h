@@ -53,8 +53,8 @@
 #include "UFloat.h"
 #include "UMachine.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -181,7 +181,7 @@ protected:
 	CMatrix3x3			m_tMatrixActive;
 	CMatrix3x3			m_tMatrixBase;
 	int					m_nMatrixTop;
-	TArray<CMatrix3x3>	m_tMatrixStack;
+	Yogi::Core::TArray<CMatrix3x3>	m_tMatrixStack;
 	World				m_tWorld;
 
 	// margin
@@ -252,8 +252,7 @@ int		VDrawTmx::intFromFloat
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_VDrawTmx */
-

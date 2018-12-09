@@ -35,13 +35,13 @@
 #include "CDictPageVariant.h"
 #include "VFunctionProcessor.h"
 #include "CQueue.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -115,9 +115,8 @@ public:
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CDictPageCommands */
-

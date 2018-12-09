@@ -97,8 +97,8 @@ GaugeViewOpenGL::GaugeViewOpenGL(int width, int height) :
 	m_bSampleLoader(false),
 	m_bRemapBezelKeys(false)
 {
-	NAMESPACE_GADGET_PREFIX CApplicationGaugeWorkbenchPtr	pApp;
-	pApp = new NAMESPACE_GADGET_PREFIX CApplicationGaugeWorkbench;
+	Yogi::Gadget::CApplicationGaugeWorkbenchPtr	pApp;
+	pApp = new Yogi::Gadget::CApplicationGaugeWorkbench;
 	if ( pApp )
 	{
 		ISupportsPtr	pIPluginLibrary = NEW_OBJECT( CPluginLibrary );
@@ -154,7 +154,7 @@ GaugeViewOpenGL::GaugeViewOpenGL(int width, int height) :
 				}
 			}
 
-			m_pServiceManager = new NAMESPACE_GADGET_PREFIX CServiceManager;
+			m_pServiceManager = new Yogi::Gadget::CServiceManager;
 			if ( m_pServiceManager )
 			{
 				CCharString	sService = pConfig->GetEntryAsString("Service List","default");
@@ -193,10 +193,10 @@ GaugeViewOpenGL::GaugeViewOpenGL(int width, int height) :
 		}
 
 
-		m_pKeyProcessor = new NAMESPACE_GADGET_PREFIX CKeyProcessorOpenGL;
+		m_pKeyProcessor = new Yogi::Gadget::CKeyProcessorOpenGL;
 		m_pKeyProcessor->SetApplication(pApp);
 
-		m_pMouseProcessor = new NAMESPACE_GADGET_PREFIX CMouseProcessorWin;
+		m_pMouseProcessor = new Yogi::Gadget::CMouseProcessorWin;
 		m_pMouseProcessor->SetApplication(pApp);
 
 		m_pApplicationGauge->Size(width, height);
@@ -383,4 +383,3 @@ bool	GaugeViewOpenGL::StaleData()
 	else
 		return false;
 }
-

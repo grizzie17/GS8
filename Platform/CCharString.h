@@ -38,7 +38,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include <c++/string>
+#include <string>
 #include "CCharDescriptor.h"
 
 /*---------------------------------------------------------------------+\
@@ -65,13 +65,13 @@ class CCharString : public std::string
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CCharString();
-					CCharString( ConstCCharStringRef r );	// copy constructor
-					CCharString( ConstCCharDescriptorRef r );
-					CCharString( const char* s );
-					CCharString( const char* s, size_t n );
-					CCharString( const std::string& r );
-	virtual			~CCharString();
+			CCharString();
+			CCharString( ConstCCharStringRef r );	// copy constructor
+			CCharString( ConstCCharDescriptorRef r );
+			CCharString( const char* s );
+			CCharString( const char* s, size_t n );
+			CCharString( const std::string& r );
+	virtual	~CCharString();
 
 public:
 //	public types  -------------------------------------------------------
@@ -84,6 +84,8 @@ public:
 	CCharStringRef	operator=( const std::string& r );
 	CCharStringRef	operator+=( ConstCCharDescriptorRef r );
 	CCharStringRef	operator+=( const char* s );
+
+	operator const std::string& ( void ) const;
 
 	//operator char* ( void ) const;
 	//operator const char* ( void );
@@ -268,6 +270,142 @@ CCharStringRef
 	return *this;
 }
 
+
+/*---------------------------------------------------------------------+\
+
+ * operator== - Equality
+
+\+---------------------------------------------------------------------*/
+inline
+bool	operator==
+		(
+		ConstCCharStringRef	lhs,
+		ConstCCharStringRef	rhs
+		)
+{
+	return 0 == lhs.Compare(rhs);
+}
+
+
+inline
+bool	operator==
+		(
+		ConstCCharStringRef	lhs,
+		const char*			rhs
+		)
+{
+	return 0 == lhs.Compare(rhs);
+}
+
+inline
+bool	operator==
+		(
+		const char*			lhs,
+		ConstCCharStringRef	rhs
+		)
+{
+	return 0 == rhs.Compare(lhs);
+}
+
+inline
+bool	operator==
+		(
+		ConstCCharStringRef	lhs,
+		const std::string&	rhs
+		)
+{
+	return 0 == lhs.Compare(rhs.c_str());
+}
+
+
+/*---------------------------------------------------------------------+\
+
+ * operator!= - Non-Equality
+
+\+---------------------------------------------------------------------*/
+inline
+bool	operator!=
+		(
+		ConstCCharStringRef	lhs,
+		ConstCCharStringRef	rhs
+		)
+{
+	return 0 != lhs.Compare(rhs);
+}
+
+
+inline
+bool	operator!=
+		(
+		ConstCCharStringRef	lhs,
+		const char*			rhs
+		)
+{
+	return 0 != lhs.Compare(rhs);
+}
+
+inline
+bool	operator!=
+		(
+		const char*			lhs,
+		ConstCCharStringRef	rhs
+		)
+{
+	return 0 != rhs.Compare(lhs);
+}
+
+inline
+bool	operator!=
+		(
+		ConstCCharStringRef	lhs,
+		const std::string&	rhs
+		)
+{
+	return 0 == lhs.Compare(rhs.c_str());
+}
+
+
+/*---------------------------------------------------------------------+\
+
+ * operator &lt; - Less-Than
+
+\+---------------------------------------------------------------------*/
+inline
+bool	operator <
+		(
+		const CCharString&	lhs,
+		const CCharString&	rhs
+		)
+{
+	return 0 > lhs.Compare( rhs );
+}
+
+
+inline
+bool	operator <
+		(
+		const CCharString&	a,
+		const char*			b
+		)
+{
+	return 0 > a.Compare( b );
+}
+
+
+
+inline
+bool	operator <
+		(
+		const char*			a,
+		const CCharString&	b
+		)
+{
+	return 0 < b.Compare( a );
+}
+
+
+
+
 /*---------------------------------------------------------------------+\
 
  * operator CCharDescriptorRef - cast operator
@@ -309,9 +447,21 @@ CCharString::operator const CCharDescriptor
 	return CCharDescriptor( c_str(), length() );
 }
 
+inline
+CCharString::operator const std::string&
+		(
+		void
+		) const
+{
+	return *this;
+}
 
 inline
-const char* CCharString::Pointer( index_t n ) const
+const char*
+		CCharString::Pointer
+		(
+		index_t	n
+		) const
 {
 	if ( 0 <= n  &&  n < index_t(length()) )
 		return c_str() + n;

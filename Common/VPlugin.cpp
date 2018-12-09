@@ -41,7 +41,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Private Global Variables											|
@@ -179,8 +179,8 @@ bool	VPlugin::Load
 \+---------------------------------------------------------------------*/
 void*	VPlugin::QueryInterfaceLocal
 		(
-		ConstIXIDRef	rIID,
-		NResultPtr		pResult	// = 0
+		ConstIXIDRef			rIID,
+		Yogi::Core::NResultPtr	pResult	// = 0
 		)
 {
 	return InternalQueryInterface( rIID, pResult );
@@ -234,7 +234,7 @@ void*
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\

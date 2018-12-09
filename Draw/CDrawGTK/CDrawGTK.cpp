@@ -47,7 +47,7 @@
 
 #include "TPointer.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -2476,7 +2476,7 @@ bool	CDrawGTK::ImageRelease
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif	// GL_GTK
@@ -2486,4 +2486,3 @@ NAMESPACE_COMMON_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -35,10 +35,10 @@
 #include "THash.h"
 #include "CMutex.h"
 
-#include "NamespaceCommon.h"
-#include "NamespaceGadget.h"
+
+
 //USING_NAMESPACE_COMMON
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -122,7 +122,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-NAMESPACE_GADGET_END
+}}
 
 
 
@@ -131,4 +131,3 @@ NAMESPACE_GADGET_END
 
 
 #endif /* _H_CServiceManager */
-

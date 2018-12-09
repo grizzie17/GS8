@@ -236,8 +236,8 @@ VSupports::~VSupports
 \+---------------------------------------------------------------------*/
 void*	VSupports::ThisQueryInterface
 		(
-		ConstIXIDRef						rIID,
-		NAMESPACE_ROOT_PREFIX NResultPtr	pResult
+		ConstIXIDRef			rIID,
+		Yogi::Core::NResultPtr	pResult
 		)
 {
 	ISupportsPtr	pI = 0;
@@ -291,14 +291,14 @@ void*	VSupports::FindInternalInterface
 void*	VSupports::FindExternalInterface
 		(
 		ConstIXIDRef	,//rIID
-		NAMESPACE_ROOT_PREFIX NResultPtr	pResult
+		Yogi::Core::NResultPtr	pResult
 		)
 {
 	// override this function to implement aggregates
 	//
 
 	if ( pResult )
-		*pResult = NR_E_NOTIMPL;
+		*pResult = Yogi::Core::NR_E_NOTIMPL;
 	return 0;
 }
 
@@ -323,8 +323,8 @@ void	VSupports::FinalRelease
 \+---------------------------------------------------------------------*/
 void*	VSupports::InternalQueryInterface
 		(
-		ConstIXIDRef						rIID,
-		NAMESPACE_ROOT_PREFIX NResultPtr	pResult	// = 0
+		ConstIXIDRef			rIID,
+		Yogi::Core::NResultPtr	pResult	// = 0
 		)
 {
 	ISupportsPtr	pI = 0;
@@ -335,7 +335,7 @@ void*	VSupports::InternalQueryInterface
 		m_pOwner->AddRef();		// addref the owner
 
 		if ( pResult )
-			*pResult = NR_S_OK;
+			*pResult = Yogi::Core::NR_S_OK;
 	}
 	if ( ! pI )
 		pI = static_cast<ISupportsPtr>( FindExternalInterface( rIID, pResult ) );

@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------+\
 |
-|	IExternalXML.h  --  
+|	IExternalXML.h  --
 |
 |	Purpose:
 
@@ -35,8 +35,8 @@
 #include "XMLLite.h"
 #include "CCharDescriptor.h"
 
-#include "NamespaceCommon.h"
-NAMESPACE_COMMON_BEGIN
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -65,7 +65,7 @@ interface_ IExternalXML : public ISupports
 	virtual
 	bool	Initialize
 			(
-			IExternalXMLServerPtr p 
+			IExternalXMLServerPtr p
 			) PURE;
 
 
@@ -80,7 +80,7 @@ interface_ IExternalXML : public ISupports
 	XMLLite::VReadCallBack*
 			GetCallBack
 			(
-			ConstCCharDescriptorRef	rArg
+			Yogi::Core::ConstCCharDescriptorRef	rArg
 			) PURE;
 
 	virtual
@@ -121,8 +121,7 @@ interface_ IExternalXMLServer : ISupports
 \+=====================================================================*/
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 #endif /* _H_IExternalXML */
-

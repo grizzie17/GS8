@@ -61,7 +61,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -275,7 +275,7 @@ bool	CBitmapFont::DrawTextString
 
 bool	CBitmapFont::operator ==
 		(
-		const CBitmapFont& r 
+		const CBitmapFont& r
 		) const
 {
 	if ( r.m_nFontHeight != m_nFontHeight )
@@ -447,7 +447,7 @@ void	CDrawWinGLES::SetHDC
 
 	EGLConfig	m_eglConfig[1];
 	EGLint		nConfigs;
-	EGLint		aEGLAttributes[] 
+	EGLint		aEGLAttributes[]
 	= {
 			EGL_RED_SIZE, 8,
 			EGL_GREEN_SIZE, 8,
@@ -456,7 +456,7 @@ void	CDrawWinGLES::SetHDC
 			EGL_RENDERABLE_TYPE, EGL_OPENGL_ES_BIT,
 			EGL_NONE
 	};
-	EGLint		aEGLContextAttributes[] 
+	EGLint		aEGLContextAttributes[]
 	= {
 			EGL_CONTEXT_CLIENT_VERSION, 1,
 			EGL_NONE
@@ -861,7 +861,7 @@ bool	CDrawWinGLES::TextString
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 
@@ -881,4 +881,3 @@ long	dummyCDrawWinGLES;	// dummy symbol to suppress 'no public symbols' message
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

@@ -31,8 +31,8 @@
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -72,14 +72,14 @@ interface_ IHusk : public ISupports
 	ISupportsPtr
 			FindServiceByName
 			(
-			const char* sName 
+			const char* sName
 			) PURE;
 
 	virtual
-	ISupportsPtr	
+	ISupportsPtr
 			FindServiceByIF
 			(
-			ConstIXIDRef rIID 
+			ConstIXIDRef rIID
 			) PURE;
 
 
@@ -95,7 +95,7 @@ interface_ IHusk : public ISupports
 	ISupportsPtr
 			FindStorageByName
 			(
-			const char* sName 
+			const char* sName
 			) PURE;
 
 
@@ -134,8 +134,7 @@ interface_ IHusk : public ISupports
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IHusk */
-

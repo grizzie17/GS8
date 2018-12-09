@@ -23,31 +23,31 @@
 #define _H_CWinCEApp
 #pragma once
 /*---------------------------------------------------------------------+\
-|						
-|	Include Files		
-|						
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "CWinCEDlg.h"
 
-#include "NamespaceGadget.h"
-USING_NAMESPACE_GADGET
+
+using namespace Yogi::Gadget;
 /*---------------------------------------------------------------------+\
-|						
-|	Defines				
-|						
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	Type Definitions	
-|						
+|
+|	Type Definitions
+|
 \+---------------------------------------------------------------------*/
 typedef class CWinCEApp*			CWinCEAppPtr;
 typedef class CWinCEApp&			CWinCEAppRef;
 typedef const class CWinCEApp&	ConstCWinCEAppRef;
 /*---------------------------------------------------------------------+\
-|						
-|	Class Definitions	
-|						
+|
+|	Class Definitions
+|
 \+---------------------------------------------------------------------*/
 
 class CWinCEApp
@@ -70,7 +70,7 @@ public:
 
 	bool	InitInstance
 			(
-			HINSTANCE	hInstance, 
+			HINSTANCE	hInstance,
 			LPCTSTR		szWindowClass
 			);
 
@@ -96,23 +96,22 @@ private:
 };
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 /*=====================================================================+\
-||						
-||	Inline Functions	
-||						
+||
+||	Inline Functions
+||
 \+=====================================================================*/
 
 
 
 
 #endif /* _H_CWinCEApp */
-

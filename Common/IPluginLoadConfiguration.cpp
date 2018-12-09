@@ -3,10 +3,10 @@
 #include "IXID.h"
 
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 
 const IXID	IXID_IPluginLoadConfiguration( "BCG::Common::IPluginLoadConfiguration" );
 
 
-NAMESPACE_COMMON_END
+}}

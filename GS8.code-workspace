@@ -5,53 +5,51 @@
 		}
 	],
 	"settings": {
-		{
-			"C_Cpp.formatting": "Disabled",
-			"uncrustify.configPath": "uncrustify.cfg",
 		
-			//==Terminal====================
-			//------------------------------
-			// WSL
-			//------------------------------
-			//"terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
-			//------------------------------
-			// MSYS
-			//------------------------------
-			"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
-			"terminal.integrated.shellArgs.windows":[
-				"--login"
-			],
-			"terminal.integrated.env.windows": {
-				"MSYSTEM": "MINGW64",
-				"CHERE_INVOKING": "1",
-			},
-			//==End-Terminal=================
-			
-			"github.repositories": [
-				"grizzie17/GS8"
-			],
-			"github.host": "github.com",
-			"github.username": "grizzie17",
-			"files.exclude": {
-				"**/.git": true,
-				"**/.svn": true,
-				"**/.hg": true,
-				"**/CVS": true,
-				"**/.DS_Store": true,
-				"**/Makefile": false,
-				"**/m4": true,
-				"**/autom4te.cache": true,
-				"**/ar-lib": true,
-				"**/compile": true,
-				"**/configure": false,
-				"**/depcomp": true,
-				"**/install-sh": true,
-				"**/missing": true
-			},
-			"uncrustify.graphicalConfig": false,
-			"breadcrumbs.enabled": true,
+		"breadcrumbs.enabled": true,
+		"C_Cpp.formatting": "Disabled",
+		"uncrustify.configPath": "uncrustify.cfg",
+	
+		//==Terminal====================
+		//------------------------------
+		// WSL
+		//------------------------------
+		//"terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
+		//------------------------------
+		// MSYS
+		//------------------------------
+		"terminal.integrated.shell.windows": "C:/msys64/usr/bin/bash.exe",
+		"terminal.integrated.shellArgs.windows":[
+			"--login"
+		],
+		"terminal.integrated.env.windows": {
+			"MSYSTEM": "MINGW64",
+			"CHERE_INVOKING": "1"
+		},
+		//==End-Terminal=================
 		
-			
-		}
+		"github.repositories": [
+			"grizzie17/GS8"
+		],
+		"github.host": "github.com",
+		"github.username": "grizzie17",
+		// "files.exclude": {
+		// 	"**/.git": true,
+		// 	"**/.svn": true,
+		// 	"**/.hg": true,
+		// 	"**/CVS": true,
+		// 	"**/.DS_Store": true,
+		// 	"**/Makefile": false,
+		// 	"**/m4": true,
+		// 	"**/autom4te.cache": true,
+		// 	"**/ar-lib": true,
+		// 	"**/compile": true,
+		// 	"**/configure": false,
+		// 	"**/depcomp": true,
+		// 	"**/install-sh": true,
+		// 	"**/missing": true
+		// },
+		"uncrustify.graphicalConfig": false
+
 	}
 }

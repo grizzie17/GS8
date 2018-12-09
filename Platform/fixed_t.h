@@ -43,14 +43,14 @@ END_IGNORE_WARNING
 #endif
 //#include "UMath.h"
 
-//#include "NamespaceCommon.h"
+//
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
 
-//NAMESPACE_COMMON_BEGIN
+//namespace Yogi { namespace Common {
 
 
 #ifndef FIXED_USE_FLOAT
@@ -1448,11 +1448,10 @@ local_fixed_t
 }
 
 
-//NAMESPACE_COMMON_END
+//}}
 
 
 #endif // FIXED_USE_FLOAT
 
 
 #endif /* _H_fixed_t */
-

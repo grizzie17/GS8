@@ -90,7 +90,7 @@
 #define DEFAULT_LINE_WIDTH 1
 
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -1038,7 +1038,7 @@ bool	CDrawOpenGL::ImagePreloaded
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 #else
 
@@ -1052,4 +1052,3 @@ long	dummyCDrawOpenGL;	// dummy symbol to surpress 'no public symbols' message
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

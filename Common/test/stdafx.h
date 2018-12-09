@@ -9,7 +9,7 @@
 #if 0
 #include "UPlatform.h"
 #include "UPlatformTime.h"
-#include "NamespaceCommon.h"
+
 #include "CheckLeaks.h"
 
 #include "igloo/igloo.h"

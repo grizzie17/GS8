@@ -38,8 +38,8 @@
 #include "UMachine.h"
 #if defined( OS_MSWIN )
 //#include "CDrawWin.h"
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -118,10 +118,9 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	//	OS_MSWIN
 
 #endif /* _H_CApplicationGaugeWin */
-

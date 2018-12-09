@@ -27,7 +27,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "NamespaceGadget.h"
+
 #include "VEqOpUnary.h"
 #include "CDictionarySelector.h"
 #include "CCharDescriptor.h"
@@ -42,7 +42,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CEquationVariableIndirect*		CEquationVariableIndirectPtr;
 typedef class CEquationVariableIndirect&		CEquationVariableIndirectRef;
@@ -109,8 +109,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_VariableIndirect */
-

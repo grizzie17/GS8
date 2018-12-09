@@ -62,7 +62,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 
 
@@ -819,11 +819,10 @@ char	CDictionaryEnumerator::Page
 
 
 
-NAMESPACE_GADGET_END
+}}
 
 /*---------------------------------------------------------------------+\
 
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

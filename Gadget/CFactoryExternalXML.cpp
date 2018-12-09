@@ -35,7 +35,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -389,5 +389,4 @@ void*	CFactoryExternalXML::FindInternalInterface
 \+---------------------------------------------------------------------*/
 
 
-NAMESPACE_GADGET_END
-
+}}

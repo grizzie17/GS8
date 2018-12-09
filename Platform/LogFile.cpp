@@ -13,16 +13,13 @@
 |
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|					
-|	Include Files	
-|					
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 // LogFile.cpp : Defines the entry point for the DLL application.
 //
 
-//#if !defined( _WIN32_WINNT )
-//#	define _WIN32_WINNT		0x0500
-//#endif
 
 //#include "stdafx.h"
 #include "UOSIncludes.h"
@@ -30,7 +27,6 @@
 #include <string.h>
 #include <stdarg.h>
 
-#include "LogFile.h"
 #include "UPlatform.h"
 #include "UPlatformThreads.h"
 #include "UPlatformString.h"
@@ -39,40 +35,43 @@
 
 #include "CMutex.h"
 
+//#define LOGFILE_EXPORTS
+#include "LogFile.h"
+
 /*---------------------------------------------------------------------+\
-|								
-|	Local defines / constants	
-|								
+|
+|	Local defines / constants
+|
 \+---------------------------------------------------------------------*/
 //#define OUTPUT_CONSOLE	1
-//#define OUTPUT_LOGFILE		1
+//#define OUTPUT_LOGFILE	1
 //#define LOGPRINT_TO_FILE	1
 /*---------------------------------------------------------------------+\
-|							
-|	Local Type Definitions	
-|							
+|
+|	Local Type Definitions
+|
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
-|							
+|
 |	Private Global Variables
-|							
+|
 \+---------------------------------------------------------------------*/
 CMutex	g_oMutex;
 /*---------------------------------------------------------------------+\
-|							
-|	Public Global Variables	
-|							
+|
+|	Public Global Variables
+|
 \+---------------------------------------------------------------------*/
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||			
-||	 Code	
-||			
+||
+||	 Code
+||
 \+=====================================================================*/
 
 
@@ -204,6 +203,15 @@ void	WriteLogFile
 	}
 
 }
+#else
+inline
+void	WriteLogFile
+		(
+		const char* //sString
+		)
+{
+	((void)0);
+}
 #endif
 
 #if defined( OUTPUT_CONSOLE )
@@ -224,7 +232,6 @@ void	LogToConsole
 #endif
 
 
-//extern "C" {
 
 
 #if defined( LOGPRINT_TO_FILE )
@@ -233,28 +240,23 @@ void LogFile(const char* sText)
 {
 	WriteLogFile(sText);
 }
+#else
+#define LogFile( sText )	((void)0)
 #endif
 
-#if defined( OUTPUT_CONSOLE )
-#if defined( OS_MSWIN )
+
 static
 void LogConsole(const char* sText)
 {
+#if defined( OUTPUT_CONSOLE )
+#if defined( OS_MSWIN )
 	LogToConsole(sText);
+#endif
+#else
+	((void)0);
+#endif
 }
-#endif
-#endif
 
-
-//static
-//void LogProxy(void)
-//{
-//	LogFile("proxy");
-//	LogConsole("proxy");
-//}
-
-
-//} // extern "C"
 
 
 
@@ -272,7 +274,7 @@ LOGFILE_API(void)
 		)
 {
 	//int		nResult = 0;
-	char	sBuffer[256];
+	char	sBuffer[1024];
 	va_list	vargs;
 	va_start(vargs, sFormat);
 	//nResult =
@@ -377,4 +379,3 @@ LOGFILE_API(void)
 
 
 }}
-

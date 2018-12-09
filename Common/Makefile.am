@@ -7,9 +7,9 @@ AM_CPPFLAGS += \
 AM_CXXFLAGS += -fPIC
 
 
-lib_LIBRARIES = libcommon.a
+lib_LTLIBRARIES = libcommon.la
 
-libcommon_a_SOURCES = \
+libcommon_la_SOURCES = \
 		CConfiguration.cpp \
 		CEventManager.cpp \
 		CFactoryConfiguration.cpp \
@@ -37,14 +37,14 @@ libcommon_a_SOURCES = \
 		VPluginWithAggregateList.cpp \
 		VSupports.cpp \
 		XMLLiteImpl.cpp
-libcommon_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libcommon_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libcommon_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libcommon_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 
 
 
 TESTS = common_specs
 bin_PROGRAMS = common_specs
-EXTRA_common_specs_DEPENDENCIES = libcommon.a
+EXTRA_common_specs_DEPENDENCIES = libcommon.la
 
 CHKCPPFLAGS = \
 		-I$(top_srcdir)/Platform/test \
@@ -67,9 +67,8 @@ common_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 common_specs_LDADD = \
 		-lcommon \
 		-lplatform \
-		-lpthread -ldl
+		-lpthread -ldl -lrt
 
 
-check-local:
-	$(top_builddir)/Common/common_specs
-
+# check-local:
+# 	$(top_builddir)/Common/common_specs

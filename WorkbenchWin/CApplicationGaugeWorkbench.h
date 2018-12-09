@@ -45,8 +45,8 @@
 
 #include "VPostCalculate.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -108,7 +108,7 @@ public:
 	virtual bool		PostCalculateNeeded( void );
 
 protected:
-	virtual VConfigurationPtr			
+	virtual VConfigurationPtr
 						MakeConfiguration( void );
 
 };
@@ -129,10 +129,9 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif	//	OS_MSWIN
 
 #endif /* _H_CApplicationGaugeWorkbench */
-

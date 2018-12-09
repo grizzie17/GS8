@@ -39,8 +39,8 @@
 
 #include "UFloat.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -82,7 +82,7 @@ interface_ IPanAndTilt : public ISupports
 			GFLOAT		fTiltNorm	//!< [in]	normalized speed for elevation
 			) PURE;
 
-	
+
 	///	MoveDelta
 	///
 	///	Move the Pan&Tilt module based on a relative number of degrees.
@@ -116,7 +116,7 @@ interface_ IPanAndTilt : public ISupports
 			GFLOAT		fSpeed		//!< [in]	0 .. 1
 			) PURE;
 
-	
+
 	///	AutoPan
 	///
 	///	Cycle the Pan&Tilt module through a virtual window
@@ -133,7 +133,7 @@ interface_ IPanAndTilt : public ISupports
 			GFLOAT		fSpeed			//!< [in]	normalized speed value
 			) PURE;
 
-	
+
 	///	MoveHome
 	///
 	///	Move the Pan&Tilt module to its designated home position
@@ -207,8 +207,7 @@ interface_ IPanAndTilt : public ISupports
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_IPanAndTilt */
-

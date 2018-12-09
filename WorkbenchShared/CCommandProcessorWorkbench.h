@@ -49,8 +49,8 @@
 #include "CDictPageVariantRead.h"
 #include "VDictionary.h"
 
-#include "NamespaceGadget.h"
-NAMESPACE_GADGET_BEGIN
+
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -120,7 +120,7 @@ protected:
 
 	bool					m_bVideoDirty;
 
-	
+
 	VDictionary::Selector	m_cEditCamera;
 
 	VDictionary::Selector	m_cCameraAutoCalibration;
@@ -214,9 +214,8 @@ public:
 ||																		|
 \+=====================================================================*/
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CCommandProcessorWorkbench */
-

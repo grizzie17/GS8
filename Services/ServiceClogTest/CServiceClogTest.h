@@ -39,7 +39,7 @@
 #include "TArray.h"
 #include "UPlatformThreads.h"
 
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -50,7 +50,7 @@
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 
 typedef class CServiceClogTest*		CServiceClogTestPtr;
 typedef class CServiceClogTest&		CServiceClogTestRef;
@@ -98,7 +98,7 @@ public:
 			(
 			void
 			);
-			
+
 
 	virtual
 	bool	Idle
@@ -287,8 +287,7 @@ public:
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 #endif /* _H_CServiceClogTest */
-

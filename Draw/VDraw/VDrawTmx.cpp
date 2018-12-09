@@ -40,7 +40,7 @@
 #include <math.h>
 #include "VDrawTmx.h"
 
-NAMESPACE_COMMON_BEGIN
+namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -532,7 +532,7 @@ bool	VDrawTmx::Load
 
 
 
-NAMESPACE_COMMON_END
+}}
 
 
 /*---------------------------------------------------------------------+\
@@ -540,4 +540,3 @@ NAMESPACE_COMMON_END
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

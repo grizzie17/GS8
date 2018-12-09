@@ -44,13 +44,13 @@
 #include "CVisible.h"
 #include "CVariantData.h"
 #include "CCharStringHash.h"
-#include "NamespaceGadget.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-NAMESPACE_GADGET_BEGIN
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -167,9 +167,8 @@ protected:
 \+=====================================================================*/
 
 
-NAMESPACE_GADGET_END
+}}
 
 
 
 #endif /* _H_CDictPageVariant */
-

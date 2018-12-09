@@ -9,7 +9,6 @@
             "defines": [
                 "CONFNAME=MSYS",
                 "_DEBUG",
-                "UNICODE",
                 "WIN64"
             ],
             "includePath": [
@@ -72,4 +71,3 @@
     ],
     "version": 4
 }
-
