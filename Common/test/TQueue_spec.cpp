@@ -11,6 +11,7 @@
 using namespace igloo;
 
 using namespace Yogi::Common;
+using namespace Yogi::Core;
 
 
 template class TQueue<long>;

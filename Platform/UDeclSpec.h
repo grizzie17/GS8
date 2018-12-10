@@ -1,37 +1,39 @@
 
 
-#ifndef ULibrary_H
-#define ULibrary_H
+#ifndef UDeclSpec_H
+#define UDeclSpec_H
 
 
-#ifndef DLL_EXPORT
+
+
+#ifndef DECLSPECEXPORT
 #	if defined( MSC_VER )
-#		define	DLL_EXPORT	__declspec(dllexport)
+#		define	DECLSPECEXPORT	__declspec(dllexport)
 #	else
-#		define	DLL_EXPORT
+#		define	DECLSPECEXPORT
 #	endif
 #endif
 
-#ifndef DLL_IMPORT
+#ifndef DECLSPECIMPORT
 #	if defined( MSC_VER )
-#		define	DLL_IMPORT	__declspec(dllimport)
+#		define	DECLSPECIMPORT	__declspec(dllimport)
 #	else
-#		define	DLL_IMPORT
+#		define	DECLSPECIMPORT
 #	endif
 #endif
 
 #if defined( MSC_VER )
-#	define	DCL			__cdecl
+#	define	CDECL		__cdecl
 #	define	STD_CALL	__stdcall
 #else
-#	define	DCL
+#	define	CDECL
 #	define	STD_CALL
 #endif
 
-#if defined( FUNC_EXPORT )
-#	define DEF_API(t)	DLL_EXPORT t STD_CALL
+#if defined( DLL_EXPORT )
+#	define DEF_API(t)	DECLSPECEXPORT t STD_CALL
 #else
-#	define DEF_API(t)	DLL_IMPORT t STD_CALL
+#	define DEF_API(t)	DECLSPECIMPORT t STD_CALL
 #endif
 
 
@@ -59,4 +61,4 @@
 
 
 
-#endif // ULibrary_H_
+#endif // UDeclSpec_H

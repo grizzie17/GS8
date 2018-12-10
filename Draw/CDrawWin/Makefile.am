@@ -14,5 +14,13 @@ libcdrawwin_la_SOURCES = CDrawWin.cpp
 
 libcdrawwin_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcdrawwin_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libcdrawwin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) -L$(top_builddir)/VDraw -L$(top_builddir)/VGDI
-libcdrawwin_la_LIBADD =  -lvdraw -lvgdi -lplatform
+libcdrawwin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+		-L$(top_builddir)/VDraw \
+		-L$(top_builddir)/VGDI \
+		-L$(top_builddir)/Common \
+		-L$(top_builddir)/Platform
+libcdrawwin_la_LIBADD = \
+		-lvdraw \
+		-lvgdi \
+		-lcommon \
+		-lplatform

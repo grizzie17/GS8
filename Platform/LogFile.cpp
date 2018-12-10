@@ -35,7 +35,9 @@
 
 #include "CMutex.h"
 
-//#define LOGFILE_EXPORTS
+#ifndef DLL_EXPORT
+#define DLL_EXPORT
+#endif
 #include "LogFile.h"
 
 /*---------------------------------------------------------------------+\
@@ -229,6 +231,15 @@ void	LogToConsole
 #endif
 }
 #endif
+#else
+inline
+void	LogToConsole
+		(
+		const char* //sString
+		)
+{
+	((void)0);
+}
 #endif
 
 
@@ -320,7 +331,7 @@ LOGFILE_API(void)
 		//nResult =
 		vsnprintf_s(sBuffer, sizeof(sBuffer), sizeof(sBuffer), sFormat, vargs);
 		va_end(vargs);
-#if defined( OS_MSWIN )
+#if defined( MSC_VER )
 #	if !defined( OS_MSWIN_WCE )
 		OutputDebugStringA(sBuffer);
 #	endif

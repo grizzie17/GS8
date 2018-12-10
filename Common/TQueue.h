@@ -187,33 +187,33 @@ public:
 	 * It should be noted that this function does NOT advance the read pointer.
 	 * Once you have completed using the vec call ReadAdvance.
 	 */
-	size_t	GetReadEnumerator	///@return number of items identified
+	size_t	GetReadEnumerator	//!@return number of items identified
 			(
-			Enumerator&	rEnum	///< [out] enumerator for read
+			Enumerator&	rEnum	//!< [out] enumerator for read
 			);
 
 	/**
 	 * @brief ReadAdvance - advance the read position by count
 	 */
-	size_t	ReadAdvance		///@return should be the same as nCount
+	size_t	ReadAdvance		//!@return should be the same as nCount
 			(
-			size_t	nCount	///< [in] number of entries to consume
+			size_t	nCount	//!< [in] number of entries to consume
 			);
 
 	/**
 	 * @brief ReadAdvance - advance the read position by QDescVec
 	 */
-	size_t	ReadAdvance			///@return how much the read pointer was advanced
+	size_t	ReadAdvance			//!@return how much the read pointer was advanced
 			(
-			Enumerator&	rEnum	///< [in] assume that the entire enumerator was read
+			Enumerator&	rEnum	//!< [in] assume that the entire enumerator was read
 			);
 
 	/**
 	 * @brief FetchEntry - fetch one entry
 	 */
-	bool	FetchEntry		///@return true if an entry is fetched
+	bool	FetchEntry		//!@return true if an entry is fetched
 			(
-			T& rEntry		///< [out] reference to receive the entry
+			T& rEntry		//!< [out] reference to receive the entry
 			);
 
 	/**
@@ -222,10 +222,10 @@ public:
 	 * This function will request a number of entries to be copied into
 	 * the receiving pList.
 	 */
-	size_t	FetchEntries		///@return actual count of retrieved entries
+	size_t	FetchEntries		//!@return actual count of retrieved entries
 			(
-			T*		pList,		///< [out] buffer to receive entries
-			size_t	nCount		///< [in] count of entries requested
+			T*		pList,		//!< [out] buffer to receive entries
+			size_t	nCount		//!< [in] count of entries requested
 			);
 
 
@@ -234,9 +234,9 @@ public:
 	 *
 	 * This function uses a semaphore to coordinate access to the buffer
 	 */
-	bool	WaitForWriteData				///@return is writeable available
+	bool	WaitForWriteData				//!@return is writeable available
 			(
-			unsigned int	nTimeout = 0	///< [in] milliseconds to wait (zero is infinite)
+			unsigned int	nTimeout = 0	//!< [in] milliseconds to wait (zero is infinite)
 			);
 
 	/**
@@ -256,10 +256,10 @@ public:
 	/**
 	 * @brief GetWriteEnumerator - get an enumerator to the write buffer
 	 */
-	size_t	GetWriteEnumerator			///@return the number of available entries
+	size_t	GetWriteEnumerator			//!@return the number of available entries
 			(
-			Enumerator&	rEnum,			///< [out] an Enumerator
-			size_t		nRequest = 0	///< [in] requested number of entries
+			Enumerator&	rEnum,			//!< [out] an Enumerator
+			size_t		nRequest = 0	//!< [in] requested number of entries
 			);
 
 	/**
@@ -268,32 +268,32 @@ public:
 	 * This function identifies how many entries were written to the ring-buffer
 	 * after the call to GetWriteVector.
 	 */
-	size_t	WriteAdvance		///@return amount the write pointer was advanced
+	size_t	WriteAdvance		//!@return amount the write pointer was advanced
 			(
-			size_t	nCount		///< [in] amount to advance the write pointer
+			size_t	nCount		//!< [in] amount to advance the write pointer
 			);
 
 	/**
 	 * @brief AppendEntry - add an item into the ring-buffer
 	 */
-	bool	AppendEntry			///@return the success of the append operation
+	bool	AppendEntry			//!@return the success of the append operation
 			(
-			const T& rEntry		///< [in] item to be appended
+			const T& rEntry		//!< [in] item to be appended
 			);
 
 	/**
 	 * @brief AppendEntries - add a list of items to the queue (ring-buffer)
 	 */
-	bool	AppendEntries		///@return the success of the append operation
+	bool	AppendEntries		//!@return the success of the append operation
 			(
-			const T*	pList,	///< [in] the list of items to append
-			size_t		nCount	///< [in] the count of items to be appended
+			const T*	pList,	//!< [in] the list of items to append
+			size_t		nCount	//!< [in] the count of items to be appended
 			);
 
 	/**
 	 * @brief Length - get the number of entries ready to be read
 	 */
-	size_t	Length( void ) const;	///@return count of available entries
+	size_t	Length( void ) const;	//!@return count of available entries
 
 	/**
 	 * @brief Available - get the number of entries available
@@ -1139,4 +1139,3 @@ bool	TQueue<T>::GrowQueue
 
 
 #endif /* _H_TQueue */
-

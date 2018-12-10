@@ -10,6 +10,10 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
+AM_CONDITIONAL([OS_MSYS], [test "xMsys" = x$(uname -o)])
+AM_CONDITIONAL([OS_LINUX], [test "xLinux" = x$(uname -s)])
+
+
 
 EXTERNAL_CFLAGS="$CFLAGS"
 EXTERNAL_CXXFLAGS="$CXXFLAGS"
@@ -29,7 +33,8 @@ AC_PROG_SED
 
 #AC_PROG_RANLIB
 #AC_PROG_LIBTOOL
-LT_INIT
+AM_COND_IF([OS_MSYS], [AC_LIBTOOL_WIN32_DLL])
+LT_INIT([shared,pic-only])
 
 CFLAGS="$EXTERNAL_CFLAGS"
 CXXFLAGS="$EXTERNAL_CXXFLAGS"
@@ -120,8 +125,6 @@ AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([EXTSUBDIRS])
 AC_SUBST([OSCONFFILES])
 
-AM_CONDITIONAL([OS_MSYS], [test "xMsys" = x$(uname -o)])
-AM_CONDITIONAL([OS_LINUX], [test "xLinux" = x$(uname -s)])
 
 
 AC_ARG_ENABLE([debug],
@@ -142,14 +145,16 @@ AM_CONDITIONAL([DEBUG], [test "x$debug" = "xtrue"])
 changequote({,})
 CXXFLAGS=`echo "$CXXFLAGS"  |  $SED -e 's/-O[0-9s]*//g' -e 's/-g[gdb0-9]*//g'`
 CPPFLAGS=`echo "$CPPFLAGS"  |  $SED -e 's/-D_*DEBUG\b//g'`
+LDFLAGS=`echo "$LDFLAGS"  |  $SED -e 's/-Wl,-s//g' -e 's/-Wl,--strip-all//g'`
 changequote([,])
 if test x$debug = xtrue; then
 	CXXFLAGS="$CXXFLAGS -g -ggdb -O0"
 	CPPFLAGS="$CPPFLAGS -D_DEBUG"
-	LDFLAGS="$LDFLAGS -g -ggdb -Wl,--discard-none -Wl,--gc-keep-exported"
+	LDFLAGS="$LDFLAGS -g -ggdb -Wl,--discard-none"
 else
 	CXXFLAGS="$CXXFLAGS -O3"
 	CPPFLAGS="$CPPFLAGS -DNDEBUG"
+	LDFLAGS="$LDFLAGS -Wl,-S"
 fi
 
 

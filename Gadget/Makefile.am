@@ -6,7 +6,7 @@ AM_CPPFLAGS += \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Draw/VDraw
-AM_CXXFLAGS += -fPIC
+#AM_CXXFLAGS += -fPIC
 
 
 
@@ -171,7 +171,14 @@ libgadget_la_SOURCES = \
 		VPolylist.cpp
 libgadget_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libgadget_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) -L$(top_builddir)/Draw/VDraw
+libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+		-L$(top_builddir)/Draw/VDraw \
+		-L$(top_builddir)/Common \
+		-L$(top_builddir)/Platform
+libgadget_la_LIBADD = \
+		-lvdraw \
+		-lcommon \
+		-lplatform
 
 
 

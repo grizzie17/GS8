@@ -12,6 +12,7 @@ pushd $THISDIR >/dev/null
 
 
 	mkdir -p $THISDIR/build  ||  exit $?
+	mkdir -p $THISDIR/build/lib  ||  exit $?
 	pushd $THISDIR/build >/dev/null
 		#export CXXFLAGS="-g -ggdb -O0"
 		#export LDFLAGS="-g -ggdb -Wl,--discard-none -Wl,--gc-keep-exported"

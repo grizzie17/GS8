@@ -1,6 +1,6 @@
 AM_CPPFLAGS += \
 		-I$(top_srcdir)/Platform
-AM_CXXFLAGS += -fPIC
+#AM_CXXFLAGS += -fPIC
 
 
 
@@ -29,6 +29,8 @@ libplatform_la_SOURCES = \
 		UPlatformTime.cpp
 libplatform_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libplatform_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libplatform_la_LIBADD = \
+		-lrt
 
 
 

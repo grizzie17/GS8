@@ -37,7 +37,6 @@ libvsashared_a_SOURCES = \
 	IServiceManager.cpp \
 	ITask.cpp \
 	IVehicleDataSample.cpp \
-	Stdafx.cpp \
 	VDesk.cpp \
 	VPluginApplet.cpp \
 	VPluginCommand.cpp \

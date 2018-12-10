@@ -5,11 +5,10 @@
 		}
 	],
 	"settings": {
-		
-		"breadcrumbs.enabled": true,
+
 		"C_Cpp.formatting": "Disabled",
 		"uncrustify.configPath": "uncrustify.cfg",
-	
+
 		//==Terminal====================
 		//------------------------------
 		// WSL
@@ -27,12 +26,18 @@
 			"CHERE_INVOKING": "1"
 		},
 		//==End-Terminal=================
-		
+
 		"github.repositories": [
 			"grizzie17/GS8"
 		],
 		"github.host": "github.com",
 		"github.username": "grizzie17",
+		"githubPullRequests.hosts": [
+			{
+				"host": "https://github.com",
+				"username": "grizzie17"
+			}
+		],
 		// "files.exclude": {
 		// 	"**/.git": true,
 		// 	"**/.svn": true,
@@ -49,6 +54,7 @@
 		// 	"**/install-sh": true,
 		// 	"**/missing": true
 		// },
+		"svn.enabled": false,
 		"uncrustify.graphicalConfig": false
 
 	}
