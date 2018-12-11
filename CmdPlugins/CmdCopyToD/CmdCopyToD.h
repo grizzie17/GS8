@@ -135,7 +135,7 @@ public:
 //template<>
 //inline
 //unsigned long
-//		NAMESPACE_COMMON_PREFIX THashValueFromKey<Yogi::Gadget::VDictionary::Selector>
+//		Yogi::Common::THashValueFromKey<Yogi::Gadget::VDictionary::Selector>
 //		(
 //		const Yogi::Gadget::VDictionary::Selector&	key
 //		)

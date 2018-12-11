@@ -130,15 +130,15 @@ public:
 	bool	Add( const TKey& key, const TData& data );
 	bool	AddAlias( const TKey& key, const TKey& alias );
 	bool	Exists( const TKey& key );
-	index_t	IndexOf( const TKey& key );
+	index_t	IndexOf( const TKey& key ) const;
 	TData*	Items( void );
 	TData*	PointArray( index_t nIndex = 0 );
 
 	size_t	Count( void );
 	size_t	Length( void );
-	TData*	Item( const TKey& key );
-	TData*	Find( const TKey& key );
-	TData*	ItemAtIndex( index_t idx );
+	TData*	Item( const TKey& key ) const;
+	TData*	Find( const TKey& key ) const;
+	TData*	ItemAtIndex( index_t idx ) const;
 
 	TDictionaryIndexedEnumerator<TKey, TData>
 			GetEnumerator( void );
@@ -451,7 +451,7 @@ template < class TKey, class TData >
 index_t	TDictionaryIndexed<TKey, TData>::IndexOf
 		(
 		const TKey&	key
-		)
+		) const
 {
 	index_t			nIndex = -1;
 	const index_t*	pd = m_aKeys.Find( key );
@@ -501,7 +501,7 @@ template < class TKey, class TData >
 TData*	TDictionaryIndexed<TKey, TData>::Item
 		(
 		const TKey &key
-		)
+		) const
 {
 	index_t	n = IndexOf( key );
 	if ( -1 < n )
@@ -520,7 +520,7 @@ inline
 TData*	TDictionaryIndexed<TKey, TData>::Find
 		(
 		const TKey &key
-		)
+		) const
 {
 	return Item( key );
 }
@@ -534,7 +534,7 @@ template < class TKey, class TData >
 TData*	TDictionaryIndexed<TKey, TData>::ItemAtIndex
 		(
 		index_t	idx
-		)
+		) const
 {
 	return m_aList.PointArray( idx );
 }
@@ -589,4 +589,3 @@ size_t	TDictionaryIndexed<TKey, TData>::Length
 
 
 #endif /* _H_TDictionaryIndexed */
-

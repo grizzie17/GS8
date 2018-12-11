@@ -84,18 +84,18 @@ VDrawTmx::VDrawTmx
 		(
 		void
 		)
-		: inherited(),
-		m_bMatrixDirty( true ),
-		m_bMatrixAffine( true ),
-		m_tMatrixActive(),
-		m_tMatrixBase(),
-		m_nMatrixTop( 0 ),
-		m_tMatrixStack(),
-		m_tWorld(),
-		m_nMarginLeft( 0 ),
-		m_nMarginTop( 0 ),
-		m_nMarginRight( 0 ),
-		m_nMarginBottom( 0 )
+		: inherited()
+		, m_bMatrixDirty( true )
+		, m_bMatrixAffine( true )
+		, m_tMatrixActive()
+		, m_tMatrixBase()
+		, m_nMatrixTop( 0 )
+		, m_tMatrixStack()
+		, m_tWorld()
+		, m_nMarginLeft( 0 )
+		, m_nMarginTop( 0 )
+		, m_nMarginRight( 0 )
+		, m_nMarginBottom( 0 )
 {
 }
 
@@ -103,18 +103,18 @@ VDrawTmx::VDrawTmx
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_bMatrixDirty( true ),
-		m_bMatrixAffine( true ),
-		m_tMatrixActive(),
-		m_tMatrixBase(),
-		m_nMatrixTop( 0 ),
-		m_tMatrixStack(),
-		m_tWorld(),
-		m_nMarginLeft( 0 ),
-		m_nMarginTop( 0 ),
-		m_nMarginRight( 0 ),
-		m_nMarginBottom( 0 )
+		: inherited( pOwner )
+		, m_bMatrixDirty( true )
+		, m_bMatrixAffine( true )
+		, m_tMatrixActive()
+		, m_tMatrixBase()
+		, m_nMatrixTop( 0 )
+		, m_tMatrixStack()
+		, m_tWorld()
+		, m_nMarginLeft( 0 )
+		, m_nMarginTop( 0 )
+		, m_nMarginRight( 0 )
+		, m_nMarginBottom( 0 )
 {
 }
 
@@ -123,18 +123,18 @@ VDrawTmx::VDrawTmx
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_bMatrixDirty( true ),
-		m_bMatrixAffine( true ),
-		m_tMatrixActive(),
-		m_tMatrixBase(),
-		m_nMatrixTop( 0 ),
-		m_tMatrixStack(),
-		m_tWorld(),
-		m_nMarginLeft( 0 ),
-		m_nMarginTop( 0 ),
-		m_nMarginRight( 0 ),
-		m_nMarginBottom( 0 )
+		: inherited( sName, pOwner )
+		, m_bMatrixDirty( true )
+		, m_bMatrixAffine( true )
+		, m_tMatrixActive()
+		, m_tMatrixBase()
+		, m_nMatrixTop( 0 )
+		, m_tMatrixStack()
+		, m_tWorld()
+		, m_nMarginLeft( 0 )
+		, m_nMarginTop( 0 )
+		, m_nMarginRight( 0 )
+		, m_nMarginBottom( 0 )
 {
 }
 

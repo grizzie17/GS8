@@ -88,12 +88,14 @@ void*	QueryInterface( Yogi::Common::ConstIXIDRef rIID,  Yogi::Core::NResultPtr p
 	return GetOwner()->QueryInterface( rIID, pResult );	\
 };									\
 virtual								\
-NRefCount	AddRef( void )			\
+Yogi::Common::NRefCount	\
+		AddRef( void )			\
 {									\
 	return GetOwner()->AddRef();	\
 };									\
 virtual								\
-NRefCount	Release( void )			\
+Yogi::Common::NRefCount	\
+		Release( void )			\
 {									\
 	return GetOwner()->Release();	\
 }
@@ -336,4 +338,3 @@ ISupportsPtr
 
 
 #endif /* _H_VSupports */
-

@@ -131,7 +131,10 @@
 #include "IApplicationUser.h"
 #include "IPluginLibrary.h"
 #include "CDictionary.h"
-#
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
+
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -177,46 +180,46 @@ CApplicationGauge::CApplicationGauge
 		(
 		void
 		)
-		: m_sScreenName( "default" ),
-		m_nTimeLastCalculate( 0 ),
-		m_nMaximumCalculateTime( 1000 ),
-		m_nMaximumUpdateTime( 1000*10 ),
-		m_mDirty( VRDR_CALCULATE_NONE ),
-		m_bBlackout( false ),
-		m_nMarginLeft( 0 ),
-		m_nMarginTop( 0 ),
-		m_nMarginRight( 0 ),
-		m_nMarginBottom( 0 ),
-		m_nScreenWidth( 0 ),
-		m_nScreenHeight( 0 ),
-		m_nClientWidth( 0 ),
-		m_nClientHeight( 0 ),
-		m_bMouseDown( false ),
-		m_nDictMouseX( 0 ),
-		m_nDictMouseY( 0 ),
-		m_nDictMouseEvent( 0 ),
-		m_pMouseTransform( 0 ),
-		m_sUserID(),
-		m_nUserID( 0 ),
-		m_pDraw( 0 ),
-		m_pDictionary( 0 ),
-		m_pEventQueue( 0 ),
-		m_pCommandQueue( 0 ),
-		m_pCommandProcessor( 0 ),
-		m_pFunctionProcessor( 0 ),
-		m_pScreen( 0 ),
-		m_pMouseLocate( 0 ),
-		m_pConfiguration( 0 ),
-		m_pDictPageActive( 0 ),
-		m_pDictPageCommands( 0 ),
-		m_pDictPageData( 0 ),
-		m_pDictPageFunctions( 0 ),
-		m_pDictPageConstants( 0 ),
-		m_pDictPageInput( 0 ),
-		m_pDictPageNotify( 0 ),
-		m_tCOMObjects(),
-		m_tObjects(),
-		m_pFactoryExternalXML( 0 )
+		: m_sScreenName( "default" )
+		, m_nTimeLastCalculate( 0 )
+		, m_nMaximumCalculateTime( 1000 )
+		, m_nMaximumUpdateTime( 1000*10 )
+		, m_mDirty( VRDR_CALCULATE_NONE )
+		, m_bBlackout( false )
+		, m_nMarginLeft( 0 )
+		, m_nMarginTop( 0 )
+		, m_nMarginRight( 0 )
+		, m_nMarginBottom( 0 )
+		, m_nScreenWidth( 0 )
+		, m_nScreenHeight( 0 )
+		, m_nClientWidth( 0 )
+		, m_nClientHeight( 0 )
+		, m_bMouseDown( false )
+		, m_nDictMouseX( 0 )
+		, m_nDictMouseY( 0 )
+		, m_nDictMouseEvent( 0 )
+		, m_pMouseTransform( 0 )
+		, m_sUserID()
+		, m_nUserID( 0 )
+		, m_pDraw( 0 )
+		, m_pDictionary( 0 )
+		, m_pEventQueue( 0 )
+		, m_pCommandQueue( 0 )
+		, m_pCommandProcessor( 0 )
+		, m_pFunctionProcessor( 0 )
+		, m_pScreen( 0 )
+		, m_pMouseLocate( 0 )
+		, m_pConfiguration( 0 )
+		, m_pDictPageActive( 0 )
+		, m_pDictPageCommands( 0 )
+		, m_pDictPageData( 0 )
+		, m_pDictPageFunctions( 0 )
+		, m_pDictPageConstants( 0 )
+		, m_pDictPageInput( 0 )
+		, m_pDictPageNotify( 0 )
+		, m_tCOMObjects()
+		, m_tObjects()
+		, m_pFactoryExternalXML( 0 )
 {
 	ResetDirtyRectangle();
 	m_sUserID = "";
@@ -245,7 +248,7 @@ CApplicationGauge::~CApplicationGauge
 	if ( m_pFactoryExternalXML )
 		m_pFactoryExternalXML->Release();
 
-	THashTableEnumerator<CCharString, ISupportsPtr>	tEnum = m_tCOMObjects.GetEnumerator();
+	Yogi::Core::THashTableEnumerator<Yogi::Core::CCharString, Yogi::Common::ISupportsPtr>	tEnum = m_tCOMObjects.GetEnumerator();
 	while ( tEnum.MoveNext() )
 	{
 		ISupportsPtr	pSup = tEnum.Value();
@@ -285,7 +288,7 @@ bool	CApplicationGauge::Initialize1
 		)
 {
 	bool			bResult = false;
-	CVariantDataPtr	pv;
+	Yogi::Common::CVariantDataPtr	pv;
 
 	do	// sequence
 	{
@@ -320,7 +323,7 @@ bool	CApplicationGauge::Initialize1
 			GFLOAT	f = *pv;
 			//if ( GFLOAT_0 < f )
 			{
-				CUnitsOfMeasure	u;
+				Yogi::Common::CUnitsOfMeasure	u;
 				u.SetUsingName( "millisecond" );
 				f = pv->GetValueFloatAsUnits( u );
 				m_nMaximumUpdateTime = static_cast<long>(f);
@@ -455,7 +458,7 @@ bool	CApplicationGauge::Blackout
 \+---------------------------------------------------------------------*/
 bool	CApplicationGauge::BackgroundColor
 		(
-		ConstCColorRef rColor
+		Yogi::Core::ConstCColorRef rColor
 		)
 {
 	bool	bResult = false;
@@ -488,7 +491,7 @@ bool	CApplicationGauge::BackgroundColor
 \+---------------------------------------------------------------------*/
 bool	CApplicationGauge::WindowTitle
 		(
-		ConstCCharDescriptorRef	//rChar
+		Yogi::Core::ConstCCharDescriptorRef	//rChar
 		)
 {
 	return false;
@@ -503,7 +506,7 @@ bool	CApplicationGauge::WindowTitle
 \+---------------------------------------------------------------------*/
 void	CApplicationGauge::SetDraw
 		(
-		VDrawPtr p
+		Yogi::Common::VDrawPtr p
 		)
 {
 	if ( m_pDraw )
@@ -516,7 +519,7 @@ void	CApplicationGauge::SetDraw
  * Draw -
 
 \+---------------------------------------------------------------------*/
-VDrawPtr
+Yogi::Common::VDrawPtr
 		CApplicationGauge::Draw
 		(
 		void
@@ -533,7 +536,7 @@ VDrawPtr
  * Configuration -
 
 \+---------------------------------------------------------------------*/
-VConfigurationPtr
+Yogi::Common::VConfigurationPtr
 		CApplicationGauge::Configuration
 		(
 		void
@@ -558,7 +561,7 @@ void	CApplicationGauge::DumpDictionary
 		)
 {
 	VDictionaryPtr	pDict = Dictionary();
-	TPointer<VDictionaryEnumerator>
+	Yogi::Core::TPointer<VDictionaryEnumerator>
 					pEnum = pDict->GetEnumerator();
 	char			sTemp[1024];
 	const char*		sFolder = GetApplicationFolder();
@@ -573,15 +576,15 @@ void	CApplicationGauge::DumpDictionary
 		{
 			FILE*			pf;
 
-			if ( 0 == fopen_s( &pf, sTemp, "w" ) )
+			if ( 0 == ::fopen_s( &pf, sTemp, "w" ) )
 			{
 				char			cPage;
 				long			nID;
-				CColor			color;
-				CVariantData	v;
-				CCharString		sKey;
-				CCharString		sv;
-				CVariantData::V_TYPE	vt;
+				Yogi::Core::CColor			color;
+				Yogi::Common::CVariantData	v;
+				Yogi::Core::CCharString		sKey;
+				Yogi::Core::CCharString		sv;
+				Yogi::Common::CVariantData::V_TYPE	vt;
 				int				nUnits;
 				const char*		sUnitName;
 				char			sUnitDummy[] = "undefined";
@@ -593,7 +596,7 @@ void	CApplicationGauge::DumpDictionary
 				char			sTypeDATETIME[] = "DATETIME";
 				char			sTypeUNDEFINED[] = "undefined";
 				char*			sType;
-				CDateTime		dt;
+				Yogi::Core::CDateTime		dt;
 				char			sData[80];
 
 				while ( pEnum->MoveNext() )
@@ -606,20 +609,20 @@ void	CApplicationGauge::DumpDictionary
 					vt = v.GetType();
 					nUnits = v.GetUnits();
 
-					sUnitName = CUnitsOfMeasure::NameFromUnits( nUnits );
+					sUnitName = Yogi::Core::CUnitsOfMeasure::NameFromUnits( nUnits );
 					if ( ! sUnitName )
 						sUnitName = sUnitDummy;
 
 					switch ( vt )
 					{
-					case CVariantData::T_BOOL:
+					case Yogi::Common::CVariantData::T_BOOL:
 						sType = sTypeBOOLEAN;
 						if ( v.GetValueBool() )
 							sprintf_s( sData, sizeof(sData), "%s", "True" );
 						else
 							sprintf_s( sData, sizeof(sData), "%s", "False" );
 						break;
-					case CVariantData::T_COLOR:
+					case Yogi::Common::CVariantData::T_COLOR:
 						sType = sTypeCOLOR;
 						color = v.GetValueColor();
 						sprintf_s( sData, sizeof(sData),
@@ -627,25 +630,25 @@ void	CApplicationGauge::DumpDictionary
 							color.GetRed(), color.GetGreen(), color.GetBlue(),
 							color.GetAlpha() );
 						break;
-					case CVariantData::T_DATETIME:
+					case Yogi::Common::CVariantData::T_DATETIME:
 						sType = sTypeDATETIME;
 						dt = v.GetValueDateTime();
 						dt.FormatISO( sData, sizeof(sData) );
 						break;
-					case CVariantData::T_FLOAT:
+					case Yogi::Common::CVariantData::T_FLOAT:
 						sType = sTypeFLOAT;
 						sprintf_s( sData, sizeof(sData), "%5.4f", v.GetValueFloat() );
 						break;
-					case CVariantData::T_INTEGER:
+					case Yogi::Common::CVariantData::T_INTEGER:
 						sType = sTypeINTEGER;
 						sprintf_s( sData, sizeof(sData), "%ld", v.GetValueInteger() );
 						break;
-					case CVariantData::T_STRING:
+					case Yogi::Common::CVariantData::T_STRING:
 						sType = sTypeSTRING;
 						sv = v.GetValueCCharString();
 						sv.CopyTo( sData, sizeof(sData) );
 						break;
-					case CVariantData::T_UNDEFINED:
+					case Yogi::Common::CVariantData::T_UNDEFINED:
 					default:
 						sType = sTypeUNDEFINED;
 						sv = v.GetValueCCharString();
@@ -655,10 +658,10 @@ void	CApplicationGauge::DumpDictionary
 
 					sv = v.GetValueCCharString();
 
-					fprintf( pf, "%c\t%s\t%ld\t%s\t%s\t%s\n",
+					::fprintf( pf, "%c\t%s\t%ld\t%s\t%s\t%s\n",
 							cPage, sKey.Pointer(), nID, sType, sUnitName, sData );
 				}
-				fclose( pf );
+				::fclose( pf );
 			}
 		}
 	}
@@ -821,7 +824,7 @@ CScreenPtr
  * GetUserID -
 
 \+---------------------------------------------------------------------*/
-ConstCCharStringRef
+Yogi::Core::ConstCCharStringRef
 		CApplicationGauge::GetUserID
 		(
 		void
@@ -1003,7 +1006,7 @@ bool	CApplicationGauge::FunctionQueueProcess
 		)
 {
 	bool					bResult = false;
-	CVariantDataPtr			pv;
+	Yogi::Common::CVariantDataPtr			pv;
 	VDictionary::Selector	tFunc;
 
 	if ( m_pScreen )
@@ -1030,8 +1033,8 @@ bool	CApplicationGauge::StartupProcess
 		)
 {
 	bool					bResult = true;
-	CVariantDataPtr			pv;
-	CCharDescriptor			tValue;
+	Yogi::Common::CVariantDataPtr		pv;
+	Yogi::Core::CCharDescriptor			tValue;
 	VDictionary::Selector	nSel;
 
 	nSel = m_pDictionary->LocateEntry( "E:INITIALIZE" );
@@ -1040,9 +1043,9 @@ bool	CApplicationGauge::StartupProcess
 	pv = m_pConfiguration->GetEntry( "Startup Events" );
 	if ( pv )
 	{
-		CVariantData	v = *pv;
-		CCharString		t;
-		CCharString		s = v;
+		Yogi::Common::CVariantData	v = *pv;
+		Yogi::Core::CCharString		t;
+		Yogi::Core::CCharString		s = v;
 		const char*	p = s.Pointer();
 		const char*	pTok = 0;
 		const char*	pEnd = p + s.Length();
@@ -1052,12 +1055,12 @@ bool	CApplicationGauge::StartupProcess
 			pTok = ::strpbrk( p, ";\r\n" );
 			if ( pTok )
 			{
-				t = CCharDescriptor( p, (size_t)(pTok - p) );
+				t = Yogi::Core::CCharDescriptor( p, (size_t)(pTok - p) );
 				p = pTok + 1;
 			}
 			else
 			{
-				t = CCharDescriptor( p, (size_t)(pEnd - p) );
+				t = Yogi::Core::CCharDescriptor( p, (size_t)(pEnd - p) );
 				p = pEnd;
 			}
 
@@ -1428,7 +1431,7 @@ bool	CApplicationGauge::OnKeyDown
 
 	if ( m_pScreen )
 	{
-		CVariantData	v;
+		Yogi::Common::CVariantData	v;
 		bool	bDirty = m_pDictionary->IsDirty();
 
 		v = long(nKeyCode);
@@ -1468,7 +1471,7 @@ bool	CApplicationGauge::OnKeyRepeat
 
 	if ( m_pScreen )
 	{
-		CVariantData	v;
+		Yogi::Common::CVariantData	v;
 		bool	bDirty = m_pDictionary->IsDirty();
 
 		v = long(nKeyCode);
@@ -1507,7 +1510,7 @@ bool	CApplicationGauge::OnKeyUp
 
 	if ( m_pScreen )
 	{
-		CVariantData	v;
+		Yogi::Common::CVariantData	v;
 		bool	bDirty = m_pDictionary->IsDirty();
 
 		v = long(nKeyCode);
@@ -1542,7 +1545,7 @@ void	CApplicationGauge::HandleMouse
 		GFLOAT	y
 		)
 {
-	CVariantData	v;
+	Yogi::Common::CVariantData	v;
 	GFLOAT	dx;
 	GFLOAT	dy;
 
@@ -1584,7 +1587,7 @@ bool	CApplicationGauge::OnMouseDown
 	bool	bResult = false;
 	if ( m_pScreen  &&  m_pMouseLocate )
 	{
-		CVariantData	v;
+		Yogi::Common::CVariantData	v;
 		bool	bDirty = m_pDictionary->IsDirty();
 
 		HandleMouse( x, y );
@@ -1623,7 +1626,7 @@ bool	CApplicationGauge::OnMouseUp
 	bool	bResult = false;
 	if ( m_pScreen  &&  m_pMouseLocate )
 	{
-		CVariantData	v;
+		Yogi::Common::CVariantData	v;
 		bool	bDirty = m_pDictionary->IsDirty();
 
 		HandleMouse( x, y );
@@ -1676,7 +1679,7 @@ bool	CApplicationGauge::OnMouseMove
 
 		if ( m_nMouseX != dx  ||  m_nMouseY != dy )
 		{
-			CVariantData	v;
+			Yogi::Common::CVariantData	v;
 			bool	bDirty = m_pDictionary->IsDirty();
 
 			m_pMouseLocate->begin();
@@ -1735,7 +1738,7 @@ bool	CApplicationGauge::OnMouseHover
 
 		if ( m_nMouseX != dx  ||  m_nMouseY != dy )
 		{
-			CVariantData	v;
+			Yogi::Common::CVariantData	v;
 			bool	bDirty = m_pDictionary->IsDirty();
 
 
@@ -1771,7 +1774,7 @@ bool	CApplicationGauge::OnMouseHover
 \+---------------------------------------------------------------------*/
 bool	CApplicationGauge::SetMouseTransform
 		(
-		ISupportsPtr	p
+		Yogi::Common::ISupportsPtr	p
 		)
 {
 	bool				bResult = false;
@@ -1807,12 +1810,12 @@ bool	CApplicationGauge::SetMouseTransform
 bool	CApplicationGauge::RegisterCOMObject
 		(
 		const char*		sKey,
-		ISupportsPtr	p
+		Yogi::Common::ISupportsPtr	p
 		)
 {
-	bool			bResult = false;
-	CCharString		tKey( sKey );
-	ISupportsPtr*	hSup;
+	bool						bResult = false;
+	Yogi::Core::CCharString		tKey( sKey );
+	Yogi::Common::ISupportsPtr*	hSup;
 
 	hSup = m_tCOMObjects.Find( tKey );
 	if ( ! hSup )
@@ -1837,9 +1840,9 @@ ISupportsPtr
 		const char*	sKey
 		)
 {
-	ISupportsPtr	pSup = 0;
-	ISupportsPtr*	hSup = 0;
-	CCharString		tKey( sKey );
+	Yogi::Common::ISupportsPtr	pSup = 0;
+	Yogi::Common::ISupportsPtr*	hSup = 0;
+	Yogi::Core::CCharString		tKey( sKey );
 
 	hSup = m_tCOMObjects.Find( tKey );
 	if ( hSup )
@@ -2178,7 +2181,7 @@ CScreenPtr
 		)
 {
 	CFactoryScreen							factoryScreen;
-	NAMESPACE_COMMON_PREFIX ISupportsPtr	pExt;
+	Yogi::Common::ISupportsPtr	pExt;
 
 	if ( ! m_pFactoryExternalXML )
 	{

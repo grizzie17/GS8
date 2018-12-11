@@ -7,7 +7,7 @@
 
 
 #ifndef DECLSPECEXPORT
-#	if defined( MSC_VER )
+#	if defined( _WIN32 )
 #		define	DECLSPECEXPORT	__declspec(dllexport)
 #	else
 #		define	DECLSPECEXPORT
@@ -15,26 +15,31 @@
 #endif
 
 #ifndef DECLSPECIMPORT
-#	if defined( MSC_VER )
+#	if defined( _WIN32 )
 #		define	DECLSPECIMPORT	__declspec(dllimport)
 #	else
 #		define	DECLSPECIMPORT
 #	endif
 #endif
 
-#if defined( MSC_VER )
-#	define	CDECL		__cdecl
+#if defined( _WIN32 )
+#	ifndef CDECL
+#		define	CDECL		__cdecl
+#	endif
 #	define	STD_CALL	__stdcall
 #else
 #	define	CDECL
 #	define	STD_CALL
 #endif
 
-#if defined( DLL_EXPORT )
-#	define DEF_API(t)	DECLSPECEXPORT t STD_CALL
+#if defined( BUILDING_SHAREDLIB )
+#	define DECL_API(t)	STD_CALL DECLSPECEXPORT t
+#	define DECL_CLASS	DECLSPECEXPORT
 #else
-#	define DEF_API(t)	DECLSPECIMPORT t STD_CALL
+#	define DECL_API(t)	STD_CALL DECLSPECIMPORT t
+#	define DECL_CLASS	DECLSPECIMPORT
 #endif
+#define DEF_API(t)	STD_CALL t
 
 
 // The following ifdef block is the standard way of creating macros which make exporting

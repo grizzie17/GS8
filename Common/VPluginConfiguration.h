@@ -310,4 +310,3 @@ private:
 
 
 #endif /* _H_VPluginConfiguration */
-

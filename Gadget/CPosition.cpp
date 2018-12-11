@@ -152,7 +152,7 @@ bool	CPosition::PreRender
 bool	CPosition::Render
 		(
 		VDictionaryPtr,
-		VDrawPtr
+		Yogi::Common::VDrawPtr
 		)
 {
 	// CPosition does not actually render

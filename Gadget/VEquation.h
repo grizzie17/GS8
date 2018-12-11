@@ -61,7 +61,7 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	virtual NAMESPACE_COMMON_PREFIX CVariantData	GetValue(VDictionaryPtr pDict) = 0;
+	virtual Yogi::Common::CVariantData	GetValue(VDictionaryPtr pDict) = 0;
 	virtual VEquationPtr	Clone( void ) = 0;
 
 protected:

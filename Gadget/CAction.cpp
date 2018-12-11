@@ -75,8 +75,8 @@ CAction::CAction
 		(
 		void
 		)
-		: VAction(),
-		m_aTriggers()
+		: VAction()
+		, m_aTriggers()
 {
 }
 
@@ -89,8 +89,8 @@ CAction::CAction
 		(
 		ConstCActionRef	r
 		)
-		: VAction( r ),
-		m_aTriggers()
+		: VAction( r )
+		, m_aTriggers()
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }

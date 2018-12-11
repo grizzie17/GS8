@@ -115,7 +115,7 @@ GaugeViewOpenGL::GaugeViewOpenGL(int width, int height) :
 		//implementation of the Gauge package, but they are not used otherwise.
 		long nFrequency;
 		CVariantDataPtr pv;
-//		NAMESPACE_COMMON_PREFIX CConfigurationPtr pConfig;
+//		Yogi::Common::CConfigurationPtr pConfig;
 //		pConfig = (CConfigurationPtr) pApp->Configuration();
 		VConfigurationPtr pConfig;
 		pConfig = pApp->Configuration();

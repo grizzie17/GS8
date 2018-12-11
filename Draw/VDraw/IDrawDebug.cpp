@@ -38,7 +38,7 @@ namespace Yogi { namespace Common {
 |
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IDrawDebug( "JD::Common::IDrawDebug" );
+const IXID	IXID_IDrawDebug( "Yogi::Common::IDrawDebug" );
 
 
 

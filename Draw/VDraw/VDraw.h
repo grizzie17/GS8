@@ -103,7 +103,7 @@ typedef const class VXDraw&	ConstVDrawRef;
 \+---------------------------------------------------------------------*/
 
 class VXDraw : public VPluginWithAggregate,
-			implements_ IDraw
+				implements_ IDraw
 {
 //	class lifecycle  ----------------------------------------------------
 

@@ -37,6 +37,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
@@ -76,10 +78,10 @@ VPolylist::VPolylist
 		(
 		void
 		)
-		: VGraphic(),
-		m_nWidth( 1 ),
-		m_tColor(),
-		m_tPointList()
+		: VGraphic()
+		, m_nWidth( 1 )
+		, m_tColor()
+		, m_tPointList()
 {
 }
 
@@ -92,10 +94,10 @@ VPolylist::VPolylist
 		(
 		ConstVPolylistRef	r
 		)
-		: VGraphic( r ),
-		m_nWidth( 1 ),
-		m_tColor(),
-		m_tPointList()
+		: VGraphic( r )
+		, m_nWidth( 1 )
+		, m_tColor()
+		, m_tPointList()
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }

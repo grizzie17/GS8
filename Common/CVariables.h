@@ -65,7 +65,7 @@ public:
 			ResolveVariable
 			(
 			Yogi::Core::ConstCCharDescriptorRef	r
-			) = 0;
+			) const = 0;
 };
 
 /*---------------------------------------------------------------------+\
@@ -150,4 +150,3 @@ private:
 
 
 #endif /* _H_CVariables */
-

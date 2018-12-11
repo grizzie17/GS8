@@ -58,7 +58,7 @@ namespace Yogi { namespace Core {
 // LOGFILE_API functions as being imported from a DLL, whereas this DLL sees symbols
 // defined with this macro as being exported.
 
-#define LOGFILE_API(t)		DEF_API(t)
+#define LOGFILE_API(t)		DECL_API(t)
 // #if defined( MSC_VER )
 // #	define DCL	__cdecl
 // #	if defined( LOGFILE_EXPORTS )

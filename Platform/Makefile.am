@@ -29,8 +29,9 @@ libplatform_la_SOURCES = \
 		UPlatformTime.cpp
 libplatform_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libplatform_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libplatform_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED)
 libplatform_la_LIBADD = \
-		-lrt
+		-lpthread -ldl -lrt
 
 
 

@@ -67,7 +67,7 @@ public:
 
 	VEquationOperatorBinaryRef	operator=( VEquationOperatorBinaryRef r );		// assignment
 
-	virtual CVariantData	GetValue(VDictionaryPtr pDict) = 0;
+	virtual Yogi::Common::CVariantData	GetValue(VDictionaryPtr pDict) = 0;
 
 	void		SetLeft( VEquationPtr pLeft );
 	void		SetRight( VEquationPtr pRight );

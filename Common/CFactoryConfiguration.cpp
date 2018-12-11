@@ -533,7 +533,7 @@ Yogi::Core::CCharString
 		CFactoryConfiguration::ResolveVariable
 		(
 		Yogi::Core::ConstCCharDescriptorRef r
-		)
+		) const
 {
 	Yogi::Core::CCharString	sResult;
 
@@ -554,4 +554,3 @@ Yogi::Core::CCharString
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

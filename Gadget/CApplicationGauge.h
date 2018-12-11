@@ -157,8 +157,8 @@ public:
 	virtual bool	WindowTitle(Yogi::Core::ConstCCharDescriptorRef rChar );
 	virtual bool	PostCalculateNeeded( void );
 
-	void			SetDraw( VDrawPtr p );
-	VDrawPtr		Draw( void );
+	void			SetDraw( Yogi::Common::VDrawPtr p );
+	Yogi::Common::VDrawPtr		Draw( void );
 	virtual CQueuePtr	EventQueue( void );
 	CScreenPtr		Screen( void );
 
@@ -167,7 +167,7 @@ public:
 	virtual
 	long					GetUserIDNumber( void );
 
-	virtual NAMESPACE_COMMON_PREFIX VConfigurationPtr		Configuration( void );
+	virtual Yogi::Common::VConfigurationPtr		Configuration( void );
 
 	virtual void					DumpDictionary( void );
 	virtual VDictionaryPtr			Dictionary( void );
@@ -193,14 +193,14 @@ public:
 	virtual bool	Size( int x, int y );	// window/screen re/size
 	virtual bool	GetClientSize( int* pWidth, int* pHeight );
 
-	virtual bool	RegisterCOMObject( const char* sKey, NAMESPACE_COMMON_PREFIX ISupportsPtr p );
-	virtual NAMESPACE_COMMON_PREFIX ISupportsPtr
+	virtual bool	RegisterCOMObject( const char* sKey, Yogi::Common::ISupportsPtr p );
+	virtual Yogi::Common::ISupportsPtr
 					FindCOMObject( const char* sKey );
-	virtual NAMESPACE_COMMON_PREFIX ISupportsPtr
-					QueryCOMObject( NAMESPACE_COMMON_PREFIX ConstIXIDRef r );
+	virtual Yogi::Common::ISupportsPtr
+					QueryCOMObject( Yogi::Common::ConstIXIDRef r );
 
-	virtual bool	RegisterObject( const char* sKey, NAMESPACE_COMMON_PREFIX VObjectPtr p );
-	virtual NAMESPACE_COMMON_PREFIX VObjectPtr
+	virtual bool	RegisterObject( const char* sKey, Yogi::Common::VObjectPtr p );
+	virtual Yogi::Common::VObjectPtr
 					FindObject( const char* sKey );
 
 
@@ -218,10 +218,10 @@ public:
 	bool			OnMouseUp( int nButtonCode, uint_t mModifiers, GFLOAT x, GFLOAT y );
 	bool			OnMouseMove( int nButtonCode, uint_t mModifiers, GFLOAT x, GFLOAT y );
 	bool			OnMouseHover( int nButtonCode, uint_t mModifiers, GFLOAT x, GFLOAT y );
-	bool			SetMouseTransform( NAMESPACE_COMMON_PREFIX ISupportsPtr p );
+	bool			SetMouseTransform( Yogi::Common::ISupportsPtr p );
 
 
-	virtual bool	SendEvent( const char* sEventName, ConstCVariantDataRef rData );
+	virtual bool	SendEvent( const char* sEventName, Yogi::Common::ConstCVariantDataRef rData );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -243,14 +243,14 @@ protected:
 
 	void			HandleMouse( GFLOAT x, GFLOAT y );
 
-	virtual VDrawPtr					MakeDraw( void );
+	virtual Yogi::Common::VDrawPtr		MakeDraw( void );
 	virtual VDictionaryPageServerPtr	MakeDictionary( void );
 	virtual CScreenPtr					MakeScreen( void );
-	virtual NAMESPACE_COMMON_PREFIX VConfigurationPtr			MakeConfiguration( void );
+	virtual Yogi::Common::VConfigurationPtr			MakeConfiguration( void );
 
 //	protected data  -----------------------------------------------------
 
-	Yogi::Core::CCharString		m_sScreenName;
+	Yogi::Core::CCharString	m_sScreenName;
 	long					m_nTimeLastCalculate;
 	long					m_nMaximumCalculateTime;
 	long					m_nMaximumUpdateTime;
@@ -288,7 +288,7 @@ protected:
 	Yogi::Core::CCharString	m_sUserID;
 	long					m_nUserID;
 
-	IDrawPtr						m_pDraw;
+	Yogi::Common::IDrawPtr						m_pDraw;
 	Yogi::Core::TPointer<VDictionaryPageServer>	m_pDictionary;
 	Yogi::Core::TPointer<CQueue>				m_pEventQueue;
 	Yogi::Core::TPointer<CQueue>				m_pCommandQueue;
@@ -296,7 +296,7 @@ protected:
 	VFunctionProcessorPtr			m_pFunctionProcessor;
 	Yogi::Core::TPointer<CScreen>				m_pScreen;
 	Yogi::Core::TPointer<CMouseLocate>			m_pMouseLocate;
-	Yogi::Core::TPointer<NAMESPACE_COMMON_PREFIX VConfiguration>		m_pConfiguration;
+	Yogi::Core::TPointer<Yogi::Common::VConfiguration>		m_pConfiguration;
 
 	VDictionaryPagePtr		m_pDictPageActive;			// A - Active Page
 	VDictionaryPagePtr		m_pDictPageCommands;		// C - Command Page
@@ -306,10 +306,10 @@ protected:
 	VDictionaryPagePtr		m_pDictPageInput;			// I - Page
 	VDictionaryPagePtr		m_pDictPageNotify;			// N - Notifications
 
-	THashTable<Yogi::Core::CCharString, NAMESPACE_COMMON_PREFIX ISupportsPtr>	m_tCOMObjects;
-	THashTable<Yogi::Core::CCharString, NAMESPACE_COMMON_PREFIX VObjectPtr>		m_tObjects;
+	Yogi::Core::THashTable<Yogi::Core::CCharString, Yogi::Common::ISupportsPtr>	m_tCOMObjects;
+	Yogi::Core::THashTable<Yogi::Core::CCharString, Yogi::Common::VObjectPtr>	m_tObjects;
 
-	NAMESPACE_COMMON_PREFIX ISupportsPtr	m_pFactoryExternalXML;
+	Yogi::Common::ISupportsPtr	m_pFactoryExternalXML;
 
 private:
 //	private functions  --------------------------------------------------

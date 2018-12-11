@@ -86,7 +86,7 @@ private:
 	//	VRenderable
 public:
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 	virtual bool	GetSize( VDictionaryPtr pDict, long& rnWidth, long& rnHeight );
 
 };

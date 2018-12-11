@@ -69,7 +69,7 @@ public:
 	CEquationVariableRef	operator=( ConstCEquationVariableRef r );		// assignment
 
 	bool			SetVariableName( const char* sVariableName );
-	void			SetDesiredUoM( ConstCUnitsOfMeasureRef cUoM );
+	void			SetDesiredUoM( Yogi::Common::ConstCUnitsOfMeasureRef cUoM );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -80,8 +80,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CDictionarySelector	m_tSelector;
-	CUnitsOfMeasure		m_tUoM;
+	CDictionarySelector				m_tSelector;
+	Yogi::Common::CUnitsOfMeasure	m_tUoM;
 
 private:
 //	private functions  --------------------------------------------------
@@ -91,8 +91,8 @@ private:
 //============================== Overrides ==============================
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual VEquationPtr				Clone( void );
 
 };
 

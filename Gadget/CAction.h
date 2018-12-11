@@ -72,7 +72,7 @@ public:
 
 	bool		Merge( CActionPtr p );
 
-	friend CAction;
+	//friend CAction;
 
 protected:
 //	protected types  ----------------------------------------------------

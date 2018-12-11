@@ -14,7 +14,7 @@ libcdrawwin_la_SOURCES = CDrawWin.cpp
 
 libcdrawwin_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcdrawwin_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libcdrawwin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+libcdrawwin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-L$(top_builddir)/VDraw \
 		-L$(top_builddir)/VGDI \
 		-L$(top_builddir)/Common \

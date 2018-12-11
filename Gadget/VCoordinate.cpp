@@ -44,6 +44,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
@@ -83,9 +84,9 @@ VCoordinate::VCoordinate
 		(
 		void
 		)
-		: VRenderable(),
-		m_tX(),
-		m_tY()
+		: VRenderable()
+		, m_tX()
+		, m_tY()
 {
 }
 
@@ -98,9 +99,9 @@ VCoordinate::VCoordinate
 		(
 		ConstVCoordinateRef	r
 		)
-		: VRenderable( r ),
-		m_tX( r.m_tX ),
-		m_tY( r.m_tY )
+		: VRenderable( r )
+		, m_tX( r.m_tX )
+		, m_tY( r.m_tY )
 {
 }
 

@@ -513,7 +513,7 @@ unsigned long
 	const CVariantData*	pv = GetParameter( sKey );
 	if ( pv )
 	{
-		unsigned long	n = pv->GetValueUnsignedInteger();
+		unsigned long	n = static_cast<unsigned long>( pv->GetValueInteger() );
 		if ( CVariantData::MT_NUMERIC != pv->GetMetaType() )
 		{
 			Yogi::Core::LogPrint( "Problem with Parameter type as unsigned\n" );
@@ -776,4 +776,3 @@ Yogi::Core::CDateTime
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

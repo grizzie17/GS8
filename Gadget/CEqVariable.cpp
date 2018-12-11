@@ -41,6 +41,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
@@ -80,9 +82,9 @@ CEquationVariable::CEquationVariable
 		(
 		void
 		)
-		: VEquation(),
-		m_tSelector(),
-		m_tUoM()
+		: VEquation()
+		, m_tSelector()
+		, m_tUoM()
 {
 }
 
@@ -95,9 +97,9 @@ CEquationVariable::CEquationVariable
 		(
 		ConstCEquationVariableRef	r
 		)
-		: VEquation( r ),
-		m_tSelector( r.m_tSelector ),
-		m_tUoM( r.m_tUoM )
+		: VEquation( r )
+		, m_tSelector( r.m_tSelector )
+		, m_tUoM( r.m_tUoM )
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }
@@ -220,7 +222,7 @@ CVariantData
 					int		uv = v.GetUnits();
 					if ( uv != u )
 					{
-						GFLOAT	f = v;
+						GFLOAT	f = v.GetValueFloat();
 						f = CUnitsOfMeasure::Convert( u, uv, f );
 						v = f;
 						v.SetUnits( m_tUoM );

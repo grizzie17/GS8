@@ -118,12 +118,12 @@ public:
 	virtual void			EndCalculate( void ) = 0;
 
 
-	virtual Selector		LocateEntry( ConstCCharStringRef rName ) = 0;
+	virtual Selector		LocateEntry( Yogi::Core::ConstCCharStringRef rName ) = 0;
 	virtual Selector		LocateEntry( const char* sName ) = 0;
 
-	virtual CVariantDataPtr
+	virtual Yogi::Common::CVariantDataPtr
 							GetData(Selector nSel) = 0;
-	virtual bool			PutData(Selector nSel, CVariantDataPtr pData) = 0;
+	virtual bool			PutData(Selector nSel, Yogi::Common::CVariantDataPtr pData) = 0;
 
 	virtual bool			IsDataLocked( Selector nSel ) = 0;
 
@@ -144,7 +144,7 @@ public:
 	virtual VDictionaryEnumerator*
 							GetPageEnumerator( char cPageID ) = 0;
 
-	virtual VVariablePtr
+	virtual Yogi::Common::VVariablePtr
 							GetVariableIF(void) = 0;
 
 
@@ -169,7 +169,7 @@ private:
 };
 
 
-class VDictionaryEnumerator : public Yogi::Core::TEnumerator<NAMESPACE_COMMON_PREFIX CVariantData>
+class VDictionaryEnumerator : public Yogi::Core::TEnumerator<Yogi::Common::CVariantData>
 {
 public:
 	virtual	~VDictionaryEnumerator( void ) {};
@@ -178,11 +178,11 @@ public:
 
 	virtual bool									MoveNext( void ) = 0;
 	virtual void									Reset( void ) = 0;
-	virtual	NAMESPACE_COMMON_PREFIX CVariantData*	Current(void) = 0;
+	virtual	Yogi::Common::CVariantData*	Current(void) = 0;
 
 	virtual long									ID( void ) = 0;
 	virtual Yogi::Core::CCharString		Key(void) = 0;
-	virtual NAMESPACE_COMMON_PREFIX CVariantData	Value(void) = 0;
+	virtual Yogi::Common::CVariantData	Value(void) = 0;
 	virtual char									Page( void ) = 0;
 };
 

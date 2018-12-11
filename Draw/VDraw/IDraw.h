@@ -315,7 +315,7 @@ interface_ IDraw : public IDrawTmx
 					GFLOAT			yPosition,
 					GFLOAT			nWidth,
 					GFLOAT			nHeight,
-					CVariantDataRef	rSource,
+					Yogi::Common::CVariantDataRef	rSource,
 					EFitments		eFitment = F_FILL,
 					EAlignments		eAlign = A_CENTER,		// used for F_FitAspect & F_FillAspect
 					EVerticalAlignments	eVertAlign = V_MIDDLE,

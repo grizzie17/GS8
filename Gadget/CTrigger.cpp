@@ -76,9 +76,9 @@ CTrigger::CTrigger
 		(
 		void
 		)
-		: VEquation(),
-		m_tSelector(),
-		m_pEquation( 0 )
+		: VEquation()
+		, m_tSelector()
+		, m_pEquation( 0 )
 {
 }
 
@@ -91,9 +91,9 @@ CTrigger::CTrigger
 		(
 		ConstCTriggerRef	r
 		)
-		: VEquation( r ),
-		m_tSelector( r.m_tSelector ),
-		m_pEquation( 0 )
+		: VEquation( r )
+		, m_tSelector( r.m_tSelector )
+		, m_pEquation( 0 )
 {
 	if ( r.m_pEquation )
 		m_pEquation = r.m_pEquation->Clone();
@@ -153,7 +153,7 @@ bool	CTrigger::Calculate
 	bool	bResult = false;
 	if ( m_pEquation )
 	{
-		CVariantData	vData = m_pEquation->GetValue( pDict );
+		Yogi::Common::CVariantData	vData = m_pEquation->GetValue( pDict );
 
 		bResult = true;
 	}
@@ -182,7 +182,7 @@ bool	CTrigger::SetName
 \+---------------------------------------------------------------------*/
 bool	CTrigger::SetName
 		(
-		ConstCCharDescriptorRef rName
+		Yogi::Core::ConstCCharDescriptorRef rName
 		)
 {
 	m_tSelector.SetName( rName );
@@ -260,13 +260,13 @@ bool	CTrigger::Equals
  * GetValue -
 
 \+---------------------------------------------------------------------*/
-CVariantData
+Yogi::Common::CVariantData
 		CTrigger::GetValue
 		(
 		VDictionaryPtr pDict
 		)
 {
-	CVariantData	vData = (CVariantData)m_pEquation->GetValue( pDict );
+	Yogi::Common::CVariantData	vData = (Yogi::Common::CVariantData)m_pEquation->GetValue( pDict );
 	return vData;
 }
 

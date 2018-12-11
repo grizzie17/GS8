@@ -33,8 +33,13 @@ AC_PROG_SED
 
 #AC_PROG_RANLIB
 #AC_PROG_LIBTOOL
-AM_COND_IF([OS_MSYS], [AC_LIBTOOL_WIN32_DLL])
+AM_COND_IF([OS_MSYS], [
+AC_LIBTOOL_WIN32_DLL
+LT_INIT([shared,pic-only,win32-dll])
+])
+AM_COND_IF([OS_LINUX], [
 LT_INIT([shared,pic-only])
+])
 
 CFLAGS="$EXTERNAL_CFLAGS"
 CXXFLAGS="$EXTERNAL_CXXFLAGS"
@@ -77,7 +82,15 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
 
 # Checks for header files.
 #AC_HEADER_STDC
-AC_CHECK_HEADERS([arpa/inet.h fcntl.h float.h limits.h memory.h netdb.h netinet/in.h stddef.h stdint.h stdlib.h string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h termios.h unistd.h])
+AC_CHECK_HEADERS([arpa/inet.h cstddef ctype.h errno.h fcntl.h float.h limits.h math.h memory.h netdb.h netinet/in.h stdarg.h stddef.h stdexcept stdint.h stdio.h stdlib.h string string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h sys/types.h termios.h time.h unistd.h])
+
+AM_COND_IF([OS_MSYS], [
+	AC_CHECK_HEADERS([process.h tchar.h winbase.h winerror.h WinReg.h ws2tcpip.h])
+])
+
+AM_COND_IF([OS_LINUX], [
+	AC_CHECK_HEADERS([net/if.h pthread.h semaphore.h sys/stat.h])
+])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_CHECK_HEADER_STDBOOL
@@ -105,6 +118,7 @@ case `uname -s` in
 WDEFS="-DMSYS -DWIN64 -U__unix -U__unix__ -Uunix"
 AM_CPPFLAGS="$WDEFS"
 AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
+NO_UNDEFINED="-no-undefined"
 #CC="gcc $WDEFS"
 #CXX="g++ $WDEFS"
 CC="x86_64-pc-msys-gcc $WDEFS"
@@ -117,11 +131,13 @@ AC_SUBST([CXX])
 [Ll]inux* )
 AM_CPPFLAGS="-DLINUX"
 AM_CXXFLAGS="${GLOBAL_CXXFLAGS}"
+NO_UNDEFINED=""
 EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
 ;;
 esac
 AC_SUBST([AM_CPPFLAGS])
 AC_SUBST([AM_CXXFLAGS])
+AC_SUBST([NO_UNDEFINED])
 AC_SUBST([EXTSUBDIRS])
 AC_SUBST([OSCONFFILES])
 

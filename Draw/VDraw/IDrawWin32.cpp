@@ -38,7 +38,7 @@ namespace Yogi { namespace Common {
 |
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IDrawWin32( "JD::Common::IDrawWin32" );
+const IXID	IXID_IDrawWin32( "Yogi::Common::IDrawWin32" );
 
 
 
