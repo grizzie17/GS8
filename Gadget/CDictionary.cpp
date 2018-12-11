@@ -62,6 +62,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
+
 namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 
@@ -377,7 +380,7 @@ CVariantDataPtr
 bool	CDictionary::PutData
 		(
 		Selector nSel,
-		CVariantDataPtr pData
+		const CVariantData* pData
 		)
 {
 	bool			bResult = false;

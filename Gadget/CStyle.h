@@ -108,7 +108,7 @@ protected:
 	CResultValue	m_tLineWidth;
 	CResultValue	m_tFillColor;
 	CResultValue	m_tHaloColor;
-	VDraw::ENightColorModes m_eNightColor;
+	Yogi::Common::VDraw::ENightColorModes m_eNightColor;
 
 private:
 //	private types  ------------------------------------------------------
@@ -125,7 +125,7 @@ public:
 	virtual int		Calculate( VDictionaryPtr pDict );
 	virtual bool	Layout( VDictionaryPtr pDict );
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render(VDictionaryPtr pDict, VDrawPtr pDraw);
+	virtual bool	Render(VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw);
 	virtual bool	GetSize( VDictionaryPtr, long& rnWidth, long& rnHeight );
 	virtual bool	IsDisplayed( VDictionaryPtr pDict );
 

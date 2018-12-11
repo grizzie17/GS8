@@ -38,8 +38,8 @@ namespace Yogi { namespace Common {
 |
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IDrawTmx( "JD::Gadget::IDrawTmx" );
-const IXID	IXID_IDrawTmx2( "JD::Gadget::IDrawTmx2" );
+const IXID	IXID_IDrawTmx( "Yogi::Gadget::IDrawTmx" );
+const IXID	IXID_IDrawTmx2( "Yogi::Gadget::IDrawTmx2" );
 
 
 

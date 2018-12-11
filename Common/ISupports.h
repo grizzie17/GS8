@@ -37,6 +37,7 @@
 #ifndef	interface_
 	//! macro to make interface declaration more readable
 #	define	interface_	struct
+
 #endif
 
 #ifndef	implements_
@@ -134,4 +135,3 @@ interface_ ISupports
 
 
 #endif /* _H_ISupports */
-

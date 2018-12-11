@@ -44,6 +44,8 @@
 #include "CApplicationGaugeWin.h"
 
 #if defined( OS_MSWIN )
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -87,7 +89,7 @@ CApplicationGaugeWin::CApplicationGaugeWin
 		(
 		void
 		)
-		: CApplicationGauge()
+		: inherited()
 {
 }
 
@@ -100,7 +102,7 @@ CApplicationGaugeWin::CApplicationGaugeWin
 		(
 		ConstCApplicationGaugeWinRef	r
 		)
-		: CApplicationGauge( r )
+		: inherited( r )
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }
@@ -187,7 +189,7 @@ bool	CApplicationGaugeWin::OnDraw
 		pDraw->Size( w, h );
 	}
 
-	return CApplicationGauge::OnDraw();
+	return inherited::OnDraw();
 }
 
 

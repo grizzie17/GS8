@@ -69,7 +69,7 @@ typedef class CDictionary&		CDictionaryRef;
 \+---------------------------------------------------------------------*/
 
 class CDictionary : public VDictionaryPageServer,
-					public VVariable
+					public Yogi::Common::VVariable
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -116,10 +116,11 @@ public:
 	virtual void			BeginCalculate( void );
 	virtual void			EndCalculate( void );
 
-	virtual Selector		LocateEntry( ConstCCharStringRef rName );
+	virtual Selector		LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 	virtual Selector		LocateEntry( const char* sName );
-	virtual CVariantDataPtr	GetData( Selector nSel );
-	virtual bool			PutData( Selector nSel, CVariantDataPtr pData );
+	virtual Yogi::Common::CVariantDataPtr
+							GetData( Selector nSel );
+	virtual bool			PutData( Selector nSel, const Yogi::Common::CVariantData* pData );
 	virtual bool			IsDataLocked( Selector nSel );
 
 	virtual	bool			PushDictionaryPage( VDictionaryPage* pDict );
@@ -136,7 +137,8 @@ public:
 	virtual VDictionaryEnumerator*
 							GetPageEnumerator( char cPageID );
 
-	virtual VVariablePtr	GetVariableIF( void );
+	virtual Yogi::Common::VVariablePtr
+							GetVariableIF( void );
 
 	//	VDictionaryPageServer
 	virtual void			ClearMilliseconds( void );
@@ -148,10 +150,10 @@ public:
 	//	VVariables
 public:
 	virtual
-	CCharString
+	Yogi::Core::CCharString
 			ResolveVariable
 			(
-			ConstCCharDescriptorRef	r
+			Yogi::Core::ConstCCharDescriptorRef	r
 			);
 
 };
@@ -170,11 +172,14 @@ public:
 
 	virtual bool			MoveNext( void );
 	virtual void			Reset( void );
-	virtual	CVariantData*	Current( void );
+	virtual	Yogi::Common::CVariantData*
+							Current( void );
 
 	virtual long			ID( void );
-	virtual CCharString		Key( void );
-	virtual CVariantData	Value( void );
+	virtual Yogi::Core::CCharString
+							Key( void );
+	virtual Yogi::Common::CVariantData
+							Value( void );
 	virtual char			Page( void );
 
 protected:

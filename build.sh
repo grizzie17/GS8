@@ -1,6 +1,7 @@
 #!/bin/bash
-THISFILE=${BASH_COMMAND[0]}
+THISFILE=${BASH_SOURCE[0]}
 THISDIR=$(cd -P `dirname $THISFILE` && pwd -P)
+THISCMD=`basename $THISFILE`
 
 
 #$THISDIR/build-clean.sh  ||  exit $?
@@ -68,5 +69,10 @@ esac
 pushd $THISDIR/build$ARGDIR >/dev/null
 
 	make -j4 $ARGFILE 2>&1  |  tee $THISDIR/build/build.log  | tweak_paths
+	sts=${PIPESTATUS[0]}
 
 popd >/dev/null
+if [ 0 -ne $sts ]; then
+	echo "$THISCMD: make exited with status: $sts" >&2
+fi
+exit $sts

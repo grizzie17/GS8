@@ -34,6 +34,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
@@ -73,8 +74,8 @@ VEquationGauge::VEquationGauge
 		(
 		void
 		)
-		: VEquation(),
-		m_pGauge( 0 )
+		: VEquation()
+		, m_pGauge( 0 )
 {
 }
 
@@ -87,8 +88,8 @@ VEquationGauge::VEquationGauge
 		(
 		VEquationGaugeRef	r
 		)
-		: VEquation( r ),
-		m_pGauge( r.m_pGauge )
+		: VEquation( r )
+		, m_pGauge( r.m_pGauge )
 {
 }
 

@@ -41,8 +41,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -80,9 +81,9 @@ CResultValue::CResultValue
 		(
 		void
 		)
-		: VEquation(),
-		m_vCachedData(),
-		m_pEquation( 0 )
+		: VEquation()
+		, m_vCachedData()
+		, m_pEquation( 0 )
 {
 }
 
@@ -95,9 +96,9 @@ CResultValue::CResultValue
 		(
 		ConstCResultValueRef	r
 		)
-		: VEquation( r ),
-		m_vCachedData( r.m_vCachedData ),
-		m_pEquation( 0 )
+		: VEquation( r )
+		, m_vCachedData( r.m_vCachedData )
+		, m_pEquation( 0 )
 {
 	if ( r.m_pEquation )
 		m_pEquation = r.m_pEquation->Clone();

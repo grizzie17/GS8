@@ -35,10 +35,13 @@
 
 #include "CMutex.h"
 
-#ifndef DLL_EXPORT
-#define DLL_EXPORT
+#ifndef BUILDING_SHAREDLIB
+#define BUILDING_SHAREDLIB
 #endif
 #include "LogFile.h"
+
+#undef LOGFILE_API
+#define LOGFILE_API(t)	DEF_API(t)
 
 /*---------------------------------------------------------------------+\
 |

@@ -13,5 +13,5 @@ int main(int argc, const char* argv[])
 {
 	CHECK_LEAKS
 	int	nResult = Runner(argc, argv);
-	exit( nResult );
+	return nResult != 0 ? EXIT_FAILURE : EXIT_SUCCESS;
 }

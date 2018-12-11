@@ -4,7 +4,7 @@
 AM_CPPFLAGS += \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform
-AM_CXXFLAGS += -fPIC
+#AM_CXXFLAGS += -fPIC
 
 
 lib_LTLIBRARIES = libcommon.la
@@ -39,9 +39,10 @@ libcommon_la_SOURCES = \
 		XMLLiteImpl.cpp
 libcommon_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcommon_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libcommon_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+libcommon_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-L$(top_builddir)/Platform \
 		-L$(top_builddir)/Common
+
 libcommon_la_LIBADD = \
 		-lplatform \
 		-lpthread \

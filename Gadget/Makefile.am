@@ -171,7 +171,7 @@ libgadget_la_SOURCES = \
 		VPolylist.cpp
 libgadget_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libgadget_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-L$(top_builddir)/Draw/VDraw \
 		-L$(top_builddir)/Common \
 		-L$(top_builddir)/Platform
@@ -198,11 +198,11 @@ CHKLDFLAGS = \
 		-L$(top_builddir)/Gadget
 
 gadget_specs_SOURCES = \
-	Gadget_specs.cpp \
+	test/Gadget_specs.cpp \
 	\
-	CKeyNames_spec.cpp \
-	CQueue_spec.cpp \
-	Equations_spec.cpp
+	test/CKeyNames_spec.cpp \
+	test/CQueue_spec.cpp \
+	test/Equations_spec.cpp
 gadget_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
 gadget_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
 gadget_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(CHKLDFLAGS)

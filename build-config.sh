@@ -1,5 +1,5 @@
 #!/bin/bash
-THISFILE=${BASH_COMMAND[0]}
+THISFILE=${BASH_SOURCE[0]}
 THISDIR=$(cd -P `dirname $THISFILE` && pwd -P)
 
 
@@ -19,9 +19,10 @@ pushd $THISDIR >/dev/null
 		$THISDIR/configure --enable-debug  --prefix=$THISDIR/build  ||  exit $?
 		case `uname -o` in
 		[Mm]sys | cygwin* )
-			echo "patching libtool"
+			echo "patching libtool for Msys"
 			sed -e 's/ _spawnv / spawnv /g' -i libtool  ||  exit $?
-			patch $THISDIR/test-driver < $THISDIR/build-patches/test-driver.patch  ||  exit $?
+			#echo "patching test-driver"
+			#patch $THISDIR/test-driver < $THISDIR/build-patches/test-driver.patch  ||  exit $?
 			;;
 		esac
 	popd >/dev/null

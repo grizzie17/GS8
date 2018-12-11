@@ -72,7 +72,7 @@ public:
 	bool	AddPoint( CPointValuePtr pPoint );
 
 	void		SetLineWidth( short nWidth );
-	void		SetLineColor( ConstCColorRef tColor );
+	void		SetLineColor( Yogi::Core::ConstCColorRef tColor );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -82,8 +82,10 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	short		m_nWidth;
-	CColor		m_tColor;
-	TArray<CPointValuePtr>	m_tPointList;
+	Yogi::Core::CColor
+				m_tColor;
+	Yogi::Core::TArray<CPointValuePtr>
+				m_tPointList;
 
 private:
 //	private types  ------------------------------------------------------
@@ -101,7 +103,7 @@ private:
 	//	VGraphic
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

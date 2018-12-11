@@ -89,24 +89,24 @@ public:
 	virtual void	BeginCalculate( void ) {};
 	virtual void	EndCalculate( void ) {};
 
-	virtual bool	AddEntry( ConstCCharDescriptorRef rKey, ConstCVariantDataRef rData );
-			bool	AddEntry( const char* sName, ConstCVariantDataRef rData );
+	virtual bool	AddEntry( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
+			bool	AddEntry( const char* sName, Yogi::Common::ConstCVariantDataRef rData );
 			bool	AddEntry( const char* sName, const char* sData );
-			bool	AddEntry( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rData );
+			bool	AddEntry( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rData );
 
-	virtual long	LocateEntry( ConstCCharStringRef rName ) = 0;
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) = 0;
 			long	LocateEntry( const char* sName );
-	virtual CVariantDataPtr
+	virtual Yogi::Common::CVariantData*
 					GetData( unsigned long nSel ) = 0;
-	virtual bool	PutData( unsigned long nSel, CVariantDataPtr pData ) = 0;
+	virtual bool	PutData( unsigned long nSel, const Yogi::Common::CVariantData* pData ) = 0;
 
 
-			bool	UpdateByName( const char* sName, CVariantDataRef rData );
-	virtual bool	UpdateByName( CCharDescriptorRef rKey, CVariantDataRef rData ) = 0;
-	virtual bool	UpdateEntry( unsigned long nSel, CVariantDataRef rData );
+			bool	UpdateByName( const char* sName, Yogi::Common::ConstCVariantDataRef rData );
+	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData ) = 0;
+	virtual bool	UpdateEntry( unsigned long nSel, Yogi::Common::ConstCVariantDataRef rData );
 
 			bool	AddAlias( const char* sKey, const char* sAlias );
-	virtual bool	AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias ) = 0;
+	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias ) = 0;
 
 	virtual bool	IsDataLocked( unsigned long nSel );
 
@@ -160,9 +160,12 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< CCharString, TDATUM>	m_aContent;
+	Yogi::Common::TDictionaryIndexed< Yogi::Core::CCharString, TDATUM>	m_aContent;
 
 private:
+//	protected types  ----------------------------------------------------
+	typedef VDictionaryPage inherited;
+
 //	private functions  --------------------------------------------------
 
 //	private data  -------------------------------------------------------
@@ -171,10 +174,10 @@ private:
 
 	//	VDictionaryPage
 public:
-	virtual long	LocateEntry( ConstCCharStringRef rName );
-	virtual bool	AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 
-	virtual bool	UpdateByName( CCharDescriptorRef rKey, CVariantDataRef rData );
+	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
 
 };
 
@@ -202,8 +205,8 @@ TDictionaryPage<TDATUM>::TDictionaryPage
 		(
 		void
 		)
-		:  VDictionaryPage(),
-		m_aContent()
+		: inherited()
+		, m_aContent()
 {
 }
 
@@ -225,7 +228,7 @@ TDictionaryPage<TDATUM>::~TDictionaryPage
 template < class TDATUM >
 long	TDictionaryPage<TDATUM>::LocateEntry
 		(
-		ConstCCharStringRef	rName
+		Yogi::Core::ConstCCharStringRef	rName
 		)
 {
 	return m_aContent.IndexOf( rName );
@@ -241,12 +244,12 @@ long	TDictionaryPage<TDATUM>::LocateEntry
 template < class TDATUM >
 bool	TDictionaryPage<TDATUM>::AddAlias
 		(
-		ConstCCharDescriptorRef	rKey,
-		ConstCCharDescriptorRef	rAlias
+		Yogi::Core::ConstCCharDescriptorRef	rKey,
+		Yogi::Core::ConstCCharDescriptorRef	rAlias
 		)
 {
-	CCharString	tKey( rKey );
-	CCharString	tAlias( rAlias );
+	Yogi::Core::CCharString	tKey( rKey );
+	Yogi::Core::CCharString	tAlias( rAlias );
 	return m_aContent.AddAlias( tKey, tAlias );
 }
 
@@ -259,12 +262,13 @@ bool	TDictionaryPage<TDATUM>::AddAlias
 template < class TDATUM >
 bool	TDictionaryPage<TDATUM>::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		Yogi::Core::ConstCCharDescriptorRef	rKey,
+		Yogi::Common::ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;
-	long	n = m_aContent.IndexOf( CCharString( rKey ) );
+	Yogi::Core::CCharString	s(rKey);
+	long	n = m_aContent.IndexOf( s );
 	if ( -1 < n )
 	{
 		bResult = UpdateEntry( n, rData );

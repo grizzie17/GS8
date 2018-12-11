@@ -98,7 +98,7 @@ public:
 	virtual bool		OnDraw( void );
 
 protected:
-	virtual VDrawPtr	MakeDraw( void );
+	virtual Yogi::Common::VDrawPtr	MakeDraw( void );
 
 };
 

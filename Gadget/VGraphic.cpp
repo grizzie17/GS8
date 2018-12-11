@@ -37,8 +37,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -76,8 +77,8 @@ VGraphic::VGraphic
 		(
 		void
 		)
-		: VOwnership(),
-		m_pStyle( 0 )
+		: VOwnership()
+		, m_pStyle( 0 )
 {
 }
 
@@ -90,8 +91,8 @@ VGraphic::VGraphic
 		(
 		ConstVGraphicRef	r
 		)
-		: VOwnership( r ),
-		m_pStyle( 0 )
+		: VOwnership( r )
+		, m_pStyle( 0 )
 {
 	m_pStyle = new CStyle( r.m_pStyle );
 }

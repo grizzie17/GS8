@@ -67,20 +67,33 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual long
+			LocateEntry
+			(
+			Yogi::Core::ConstCCharStringRef rName
+			) const;
 
 	virtual CVariantDataPtr
-					GetData( index_t nSel );
-	virtual bool	PutData( index_t nSel, CVariantDataPtr pData );
+			GetData
+			(
+			index_t nSel
+			) const;
+	virtual bool
+			PutData
+			(
+			index_t nSel,
+			CVariantDataPtr pData
+			);
 
-	virtual bool	AddAlias
-					( 
-					Yogi::Core::ConstCCharDescriptorRef rKey, 
-					Yogi::Core::ConstCCharDescriptorRef rAlias 
-					);
+	virtual bool
+			AddAlias
+			(
+			Yogi::Core::ConstCCharDescriptorRef rKey,
+			Yogi::Core::ConstCCharDescriptorRef rAlias
+			);
 
 	virtual Enumerator
-					GetEnumerator( void );
+			GetEnumerator( void );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -106,37 +119,37 @@ public:
 			ResolveVariable
 			(
 			Yogi::Core::ConstCCharDescriptorRef	r
-			);
+			) const;
 
 	//	VConfiguration
 public:
 	virtual
 	bool	AddEntry
-			( 
-			const char* sKey, 
-			ConstCVariantDataRef rData 
+			(
+			const char* sKey,
+			ConstCVariantDataRef rData
 			);
 
 	virtual
-	CVariantDataPtr	
+	CVariantDataPtr
 			GetEntry
-			( 
-			const char* sKey 
-			);
+			(
+			const char* sKey
+			) const;
 
 	virtual
-	CVariantDataPtr	
+	CVariantDataPtr
 			GetEntry
-			( 
-			Yogi::Core::ConstCCharStringRef sKey 
-			);
+			(
+			Yogi::Core::ConstCCharStringRef sKey
+			) const;
 
 	virtual
 	long	GetEntryAsInteger
 			(
 			const char*	sKey,
 			long		nDefault = 0
-			);
+			) const;
 
 	virtual
 	unsigned long
@@ -144,14 +157,14 @@ public:
 			(
 			const char*		sKey,
 			unsigned long	nDefault = 0
-			);
+			) const;
 
 	virtual
 	GFLOAT	GetEntryAsFloat
 			(
 			const char*	sKey,
 			GFLOAT		fDefault = 0.0f
-			);
+			) const;
 
 	virtual
 	GFLOAT	GetEntryAsFloatUnits
@@ -159,15 +172,15 @@ public:
 			const char*	sKey,
 			const char*	sUnitName,
 			GFLOAT		fDefault = 0.0f
-			);
+			) const;
 
 	virtual
-	Yogi::Core::CCharString		
+	Yogi::Core::CCharString
 			GetEntryAsString
 			(
 			const char*	sKey,
 			const char*	sDefault = 0
-			);
+			) const;
 
 	virtual
 	long	GetEntryAsEnum
@@ -177,14 +190,14 @@ public:
 			const long			nEnumCount,
 			const long			nDefault = 0,
 			const long			nError = 0
-			);
+			) const;
 
 	virtual
 	bool	GetEntryAsBool
 			(
 			const char*	sKey,
 			const bool	bDefault = false
-			);
+			) const;
 
 	virtual
 	Yogi::Core::CColor
@@ -192,7 +205,7 @@ public:
 			(
 			const char*		sKey,
 			const Yogi::Core::CColor	cDefault = Yogi::Core::CColor()
-			);
+			) const;
 
 
 };
@@ -218,4 +231,3 @@ public:
 
 
 #endif /* _H_CConfiguration */
-

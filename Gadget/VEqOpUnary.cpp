@@ -71,8 +71,8 @@ VEquationOperatorUnary::VEquationOperatorUnary
 		(
 		void
 		)
-		: VEquation(),
-		m_pOperand( 0 )
+		: VEquation()
+		, m_pOperand( 0 )
 {
 }
 
@@ -85,8 +85,8 @@ VEquationOperatorUnary::VEquationOperatorUnary
 		(
 		ConstVEquationOperatorUnaryRef	r
 		)
-		: VEquation( r ),
-		m_pOperand( 0 )
+		: VEquation( r )
+		, m_pOperand( 0 )
 {
 	if ( r.m_pOperand )
 		m_pOperand = r.m_pOperand->Clone();

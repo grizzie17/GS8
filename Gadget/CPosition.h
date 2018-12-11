@@ -45,10 +45,10 @@
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Gadget {
 
-typedef class CPosition*		CPositionPtr;
-typedef TPointer<CPosition>		CPositionAutoPtr;
-typedef class CPosition&		CPositionRef;
-typedef const class CPosition&	ConstCPositionRef;
+typedef class CPosition*				CPositionPtr;
+typedef Yogi::Core::TPointer<CPosition>	CPositionAutoPtr;
+typedef class CPosition&				CPositionRef;
+typedef const class CPosition&			ConstCPositionRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -91,7 +91,7 @@ private:
 	//	VRenderable
 public:
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 	//	VOwnership
 

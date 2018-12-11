@@ -174,7 +174,7 @@ Yogi::Core::CCharString
 		CConfiguration::ResolveVariable
 		(
 		Yogi::Core::ConstCCharDescriptorRef r
-		)
+		) const
 {
 	Yogi::Core::CCharString	s = r;
 
@@ -190,7 +190,7 @@ Yogi::Core::CCharString
 long	CConfiguration::LocateEntry
 		(
 		Yogi::Core::ConstCCharStringRef	rName
-		)
+		) const
 {
 	return long(m_aContent.IndexOf( rName ));
 }
@@ -207,7 +207,7 @@ CVariantDataPtr
 		CConfiguration::GetEntry
 		(
 		const char*	sKey
-		)
+		) const
 {
 	Yogi::Core::CCharString	tName( sKey );
 	return GetEntry( tName );
@@ -223,7 +223,7 @@ CVariantDataPtr
 		CConfiguration::GetEntry
 		(
 		Yogi::Core::ConstCCharStringRef	sKey
-		)
+		) const
 {
 	return m_aContent.Find( sKey );
 }
@@ -238,7 +238,7 @@ CVariantDataPtr
 		CConfiguration::GetData
 		(
 		index_t	nSel
-		)
+		) const
 {
 	return m_aContent.ItemAtIndex( nSel );
 }
@@ -254,7 +254,7 @@ long	CConfiguration::GetEntryAsInteger
 		(
 		const char*	sKey,
 		long		nDefault	//=0
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
@@ -279,13 +279,13 @@ unsigned long
 		(
 		const char*		sKey,
 		unsigned long	nDefault	//=0
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		unsigned long	n = static_cast<unsigned long>(pv->GetValueUnsignedInteger());
+		unsigned long	n = static_cast<unsigned long>(pv->GetValueInteger());
 		return n;
 	}
 	else
@@ -303,7 +303,7 @@ GFLOAT	CConfiguration::GetEntryAsFloat
 		(
 		const char*	sKey,
 		GFLOAT		fDefault	//=0
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
@@ -329,14 +329,14 @@ GFLOAT	CConfiguration::GetEntryAsFloatUnits
 		const char*	sKey,
 		const char*	sUnitName,
 		GFLOAT		fDefault	//=0
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
 		if ( 0 < pv->GetUnits()
-			&&	sUnitName )
+				&&	sUnitName )
 		{
 			CUnitsOfMeasure	u;
 			u.SetUsingString( sUnitName );
@@ -364,7 +364,7 @@ Yogi::Core::CCharString
 		(
 		const char*	sKey,
 		const char*	sDefault	//=0
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
@@ -393,7 +393,7 @@ long	CConfiguration::GetEntryAsEnum
 		const long			nEnumCount,
 		const long			nDefault,	//= 0
 		const long			nError		//= 0
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
@@ -442,7 +442,7 @@ bool	CConfiguration::GetEntryAsBool
 		(
 		const char*		sKey,
 		const bool		bDefault	//= false
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
@@ -467,7 +467,7 @@ Yogi::Core::CColor
 		(
 		const char*					sKey,
 		const Yogi::Core::CColor	cDefault	//= CColor(0,0,0)
-		)
+		) const
 {
 	CVariantDataPtr	pv;
 	pv = GetEntry( sKey );
@@ -522,4 +522,3 @@ CConfiguration::Enumerator
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

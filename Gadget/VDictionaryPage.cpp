@@ -40,6 +40,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -78,9 +80,9 @@ VDictionaryPage::VDictionaryPage
 		(
 		void
 		)
-		: m_cPageID( 0 ),
-		m_nRefCount( 0 ),
-		m_pDictionary( 0 )
+		: m_cPageID( 0 )
+		, m_nRefCount( 0 )
+		, m_pDictionary( 0 )
 {
 }
 
@@ -274,7 +276,7 @@ VDictionaryPageServerPtr
 bool	VDictionaryPage::UpdateByName
 		(
 		const char*		sKey,
-		CVariantDataRef	rData
+		ConstCVariantDataRef	rData
 		)
 {
 	CCharDescriptor	tKey( sKey );
@@ -290,11 +292,11 @@ bool	VDictionaryPage::UpdateByName
 \+---------------------------------------------------------------------*/
 bool	VDictionaryPage::UpdateEntry
 		(
-		unsigned long	nSel,
-		CVariantDataRef	rData
+		unsigned long			nSel,
+		ConstCVariantDataRef	rData
 		)
 {
-	CVariantData	v = rData;
+	CVariantData	v( rData );
 	return PutData( nSel, &v );
 }
 
@@ -310,8 +312,8 @@ bool	VDictionaryPage::AddAlias
 		const char*	sAlias
 		)
 {
-	CCharString	tKey( sKey );
-	CCharString	tAlias( sAlias );
+	CCharDescriptor	tKey( sKey );
+	CCharDescriptor	tAlias( sAlias );
 
 	return AddAlias( tKey, tAlias );
 }

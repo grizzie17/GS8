@@ -74,16 +74,17 @@ public:
 	CResultValueRef	operator=( ConstCResultValueRef r );		// assignment
 
 	bool			Calculate( VDictionaryPtr pDict );
-	CVariantData	GetCachedValue(void);
+	Yogi::Common::CVariantData
+					GetCachedValue(void);
 	bool			HasEquation( void );
 	VEquationPtr	GetEquation( void );	// returns raw pointer to equation
 
 	bool			SetEquation( VEquationPtr pEquation );
-	bool			SetValue(ConstCVariantDataRef r);
+	bool			SetValue( Yogi::Common::ConstCVariantDataRef r);
 	bool			SetValue( GFLOAT f );
 
 	// if equation is set then clear it
-	bool			SetValueExclussive( ConstCVariantDataRef r);
+	bool			SetValueExclussive( Yogi::Common::ConstCVariantDataRef r);
 	bool			SetValueExclussive( GFLOAT f );
 
 protected:
@@ -93,8 +94,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CVariantData	m_vCachedData;
-	VEquationPtr	m_pEquation;
+	Yogi::Common::CVariantData	m_vCachedData;
+	VEquationPtr				m_pEquation;
 
 private:
 //	private functions  --------------------------------------------------
@@ -104,8 +105,8 @@ private:
 //============================== Overrides ==============================
 	//	VEquation
 public:
-	virtual CVariantData	GetValue(VDictionaryPtr pDict);
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue(VDictionaryPtr pDict);
+	virtual VEquationPtr				Clone( void );
 
 
 };

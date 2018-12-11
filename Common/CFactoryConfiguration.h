@@ -122,7 +122,7 @@ public:
 			ResolveVariable
 			(
 			Yogi::Core::ConstCCharDescriptorRef	r
-			);
+			) const;
 
 
 };
@@ -146,5 +146,3 @@ public:
 
 
 #endif /* _H_CFactoryConfiguration */
-
-

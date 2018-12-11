@@ -66,7 +66,7 @@ public:
 
 	VEquationOperatorUnaryRef	operator=( ConstVEquationOperatorUnaryRef r );		// assignment
 
-	virtual CVariantData
+	virtual Yogi::Common::CVariantData
 				GetValue( VDictionaryPtr pDict ) = 0;
 
 	void		SetOperand( VEquationPtr pOperand );

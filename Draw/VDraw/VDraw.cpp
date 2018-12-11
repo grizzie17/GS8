@@ -99,22 +99,22 @@ VXDraw::VXDraw
 		(
 		void
 		)
-		: inherited(),
-		m_pTmx( 0 ),
-		m_nWindowWidth( 0 ),
-		m_nWindowHeight( 0 ),
-		m_eDrawContext( CTX_UNDEFINED ),
-		m_aCropStack(),
-		m_nCropStackTop( 0 ),
-		m_eDayMode( D_NORMAL ),
-		m_nLineWidth( 1 ),
-		m_tLineColor(),
-		m_tFillColor(),
-		m_tHaloColor(),
-		m_tBackgroundColor(),
-		m_eNightColor( C_NORMAL ),
-		m_fFontHeight( 10.0 ),
-		m_tPointList()
+		: inherited()
+		, m_pTmx( 0 )
+		, m_nWindowWidth( 0 )
+		, m_nWindowHeight( 0 )
+		, m_eDrawContext( CTX_UNDEFINED )
+		, m_aCropStack()
+		, m_nCropStackTop( 0 )
+		, m_eDayMode( D_NORMAL )
+		, m_nLineWidth( 1 )
+		, m_tLineColor()
+		, m_tFillColor()
+		, m_tHaloColor()
+		, m_tBackgroundColor()
+		, m_eNightColor( C_NORMAL )
+		, m_fFontHeight( 10.0 )
+		, m_tPointList()
 
 {
 	::strcpy_s( m_sFontName, sizeof( m_sFontName ), "Arial" );
@@ -123,7 +123,7 @@ VXDraw::VXDraw
 	::strcpy_s( m_sFontMonospace, sizeof( m_sFontMonospace ), "Courier New" );
 	m_tPointList.SetBlockSize( 16 );
 	m_tFillColor.SetNonColor( true );
-	m_tBackgroundColor = CColor::ColorFromName( "background" );
+	m_tBackgroundColor = Yogi::Core::CColor::ColorFromName( "background" );
 }
 
 
@@ -131,22 +131,22 @@ VXDraw::VXDraw
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_pTmx( 0 ),
-		m_nWindowWidth( 0 ),
-		m_nWindowHeight( 0 ),
-		m_eDrawContext( CTX_UNDEFINED ),
-		m_aCropStack(),
-		m_nCropStackTop( 0 ),
-		m_eDayMode( D_NORMAL ),
-		m_nLineWidth( 1 ),
-		m_tLineColor(),
-		m_tFillColor(),
-		m_tHaloColor(),
-		m_tBackgroundColor(),
-		m_eNightColor( C_NORMAL ),
-		m_fFontHeight( 10.0 ),
-		m_tPointList()
+		: inherited( pOwner )
+		, m_pTmx( 0 )
+		, m_nWindowWidth( 0 )
+		, m_nWindowHeight( 0 )
+		, m_eDrawContext( CTX_UNDEFINED )
+		, m_aCropStack()
+		, m_nCropStackTop( 0 )
+		, m_eDayMode( D_NORMAL )
+		, m_nLineWidth( 1 )
+		, m_tLineColor()
+		, m_tFillColor()
+		, m_tHaloColor()
+		, m_tBackgroundColor()
+		, m_eNightColor( C_NORMAL )
+		, m_fFontHeight( 10.0 )
+		, m_tPointList()
 
 {
 	::strcpy_s( m_sFontName, sizeof( m_sFontName ), "Arial" );
@@ -155,7 +155,7 @@ VXDraw::VXDraw
 	::strcpy_s( m_sFontMonospace, sizeof( m_sFontMonospace ), "Courier New" );
 	m_tPointList.SetBlockSize( 16 );
 	m_tFillColor.SetNonColor( true );
-	m_tBackgroundColor = CColor::ColorFromName( "background" );
+	m_tBackgroundColor = Yogi::Core::CColor::ColorFromName( "background" );
 }
 
 
@@ -164,22 +164,22 @@ VXDraw::VXDraw
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_pTmx( 0 ),
-		m_nWindowWidth( 0 ),
-		m_nWindowHeight( 0 ),
-		m_eDrawContext( CTX_UNDEFINED ),
-		m_aCropStack(),
-		m_nCropStackTop( 0 ),
-		m_eDayMode( D_NORMAL ),
-		m_nLineWidth( 1 ),
-		m_tLineColor(),
-		m_tFillColor(),
-		m_tHaloColor(),
-		m_tBackgroundColor(),
-		m_eNightColor( C_NORMAL ),
-		m_fFontHeight( 10.0 ),
-		m_tPointList()
+		: inherited( sName, pOwner )
+		, m_pTmx( 0 )
+		, m_nWindowWidth( 0 )
+		, m_nWindowHeight( 0 )
+		, m_eDrawContext( CTX_UNDEFINED )
+		, m_aCropStack()
+		, m_nCropStackTop( 0 )
+		, m_eDayMode( D_NORMAL )
+		, m_nLineWidth( 1 )
+		, m_tLineColor()
+		, m_tFillColor()
+		, m_tHaloColor()
+		, m_tBackgroundColor()
+		, m_eNightColor( C_NORMAL )
+		, m_fFontHeight( 10.0 )
+		, m_tPointList()
 
 {
 	::strcpy_s( m_sFontName, sizeof( m_sFontName ), "Arial" );
@@ -188,7 +188,7 @@ VXDraw::VXDraw
 	::strcpy_s( m_sFontMonospace, sizeof( m_sFontMonospace ), "Courier New" );
 	m_tPointList.SetBlockSize( 16 );
 	m_tFillColor.SetNonColor( true );
-	m_tBackgroundColor = CColor::ColorFromName( "background" );
+	m_tBackgroundColor = Yogi::Core::CColor::ColorFromName( "background" );
 }
 
 
@@ -623,7 +623,7 @@ bool	VXDraw::LineWidth
 \+---------------------------------------------------------------------*/
 bool	VXDraw::LineColor
 		(
-		CColorRef	rColor
+		Yogi::Core::ConstCColorRef	rColor
 		)
 {
 	if ( m_tLineColor != rColor )
@@ -644,7 +644,7 @@ bool	VXDraw::LineColor
 \+---------------------------------------------------------------------*/
 bool	VXDraw::FillColor
 		(
-		CColorRef	rColor
+		Yogi::Core::ConstCColorRef	rColor
 		)
 {
 	if ( m_tFillColor != rColor )
@@ -666,7 +666,7 @@ bool	VXDraw::FillColor
 \+---------------------------------------------------------------------*/
 bool	VXDraw::HaloColor
 		(
-		CColorRef	rColor
+		Yogi::Core::ConstCColorRef	rColor
 		)
 {
 	if ( m_tHaloColor != rColor )
@@ -688,7 +688,7 @@ bool	VXDraw::HaloColor
 \+---------------------------------------------------------------------*/
 bool	VXDraw::BackgroundColor
 		(
-		ConstCColorRef	rColor
+		Yogi::Core::ConstCColorRef	rColor
 		)
 {
 	if ( m_tBackgroundColor != rColor )

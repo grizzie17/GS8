@@ -71,11 +71,11 @@ VEquationOperatorQuaternary::VEquationOperatorQuaternary
 		(
 		void
 		)
-		: VEquation(),
-		m_pOperand1( 0 ),
-		m_pOperand2( 0 ),
-		m_pOperand3( 0 ),
-		m_pOperand4( 0 )
+		: VEquation()
+		, m_pOperand1( 0 )
+		, m_pOperand2( 0 )
+		, m_pOperand3( 0 )
+		, m_pOperand4( 0 )
 {
 }
 
@@ -88,11 +88,11 @@ VEquationOperatorQuaternary::VEquationOperatorQuaternary
 		(
 		ConstVEquationOperatorQuaternaryRef	r
 		)
-		: VEquation( r ),
-		m_pOperand1( 0 ),
-		m_pOperand2( 0 ),
-		m_pOperand3( 0 ),
-		m_pOperand4( 0 )
+		: VEquation( r )
+		, m_pOperand1( 0 )
+		, m_pOperand2( 0 )
+		, m_pOperand3( 0 )
+		, m_pOperand4( 0 )
 {
 	if ( r.m_pOperand1 )
 		m_pOperand1 = r.m_pOperand1->Clone();

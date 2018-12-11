@@ -71,10 +71,10 @@ VEquationOperatorTrinary::VEquationOperatorTrinary
 		(
 		void
 		)
-		: VEquation(),
-		m_pControl( 0 ),
-		m_pLeft( 0 ),
-		m_pRight( 0 )
+		: VEquation()
+		, m_pControl( 0 )
+		, m_pLeft( 0 )
+		, m_pRight( 0 )
 {
 }
 
@@ -87,10 +87,10 @@ VEquationOperatorTrinary::VEquationOperatorTrinary
 		(
 		VEquationOperatorTrinaryRef	r
 		)
-		: VEquation( r ),
-		m_pControl( 0 ),
-		m_pLeft( 0 ),
-		m_pRight( 0 )
+		: VEquation( r )
+		, m_pControl( 0 )
+		, m_pLeft( 0 )
+		, m_pRight( 0 )
 {
 	if ( r.m_pControl )
 		m_pControl = r.m_pControl->Clone();

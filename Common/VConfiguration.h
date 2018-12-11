@@ -82,34 +82,34 @@ public:
 	CVariantDataPtr	GetEntry
 					(
 					const char* sKey
-					) = 0;
+					) const = 0;
 
 	virtual
 	CVariantDataPtr	GetEntry
 					(
 					Yogi::Core::ConstCCharStringRef sKey
-					) = 0;
+					) const = 0;
 
 	virtual
 	long			GetEntryAsInteger
 					(
 					const char*	sKey,
 					long		nDefault = 0
-					) = 0;
+					) const = 0;
 
 	virtual
 	unsigned long	GetEntryAsUnsigned
 					(
 					const char*		sKey,
 					unsigned long	nDefault = 0
-					) = 0;
+					) const = 0;
 
 	virtual
 	GFLOAT			GetEntryAsFloat
 					(
 					const char*	sKey,
 					GFLOAT		fDefault = 0.0f
-					) = 0;
+					) const = 0;
 
 	virtual
 	GFLOAT			GetEntryAsFloatUnits
@@ -117,7 +117,7 @@ public:
 					const char*	sKey,
 					const char*	sUnitName,
 					GFLOAT		fDefault = 0.0f
-					) = 0;
+					) const = 0;
 
 	virtual
 	Yogi::Core::CCharString
@@ -125,7 +125,7 @@ public:
 					(
 					const char*	sKey,
 					const char*	sDefault = 0
-					) = 0;
+					) const = 0;
 
 	virtual
 	long			GetEntryAsEnum
@@ -135,7 +135,7 @@ public:
 					const long			nEnumCount,
 					const long			nDefault = 0,
 					const long			nError = 0
-					) = 0;
+					) const = 0;
 
 
 	virtual
@@ -143,7 +143,7 @@ public:
 					(
 					const char*	sKey,
 					const bool	bDefault = false
-					) = 0;
+					) const = 0;
 
 	virtual
 	Yogi::Core::CColor
@@ -151,7 +151,7 @@ public:
 					(
 					const char*					sKey,
 					const Yogi::Core::CColor	cDefault = Yogi::Core::CColor()
-					) = 0;
+					) const = 0;
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -189,4 +189,3 @@ private:
 
 
 #endif /* _H_VConfiguration */
-

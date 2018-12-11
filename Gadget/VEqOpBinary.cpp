@@ -73,9 +73,9 @@ VEquationOperatorBinary::VEquationOperatorBinary
 		(
 		void
 		)
-		: VEquation(),
-		m_pLeft( 0 ),
-		m_pRight( 0 )
+		: VEquation()
+		, m_pLeft( 0 )
+		, m_pRight( 0 )
 {
 }
 
@@ -88,9 +88,9 @@ VEquationOperatorBinary::VEquationOperatorBinary
 		(
 		ConstVEquationOperatorBinaryRef	r
 		)
-		: VEquation( r ),
-		m_pLeft( 0 ),
-		m_pRight( 0 )
+		: VEquation( r )
+		, m_pLeft( 0 )
+		, m_pRight( 0 )
 {
 	if ( r.m_pLeft )
 		m_pLeft = r.m_pLeft->Clone();

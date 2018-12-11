@@ -51,7 +51,7 @@ typedef const class CQueue&	ConstCQueueRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CQueue : public TQueue<VDictionary::Selector>
+class CQueue : public Yogi::Common::TQueue<VDictionary::Selector>
 {
 //	class lifecycle  ----------------------------------------------------
 public:

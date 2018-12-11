@@ -66,7 +66,7 @@ public:
 
 	VEquationOperatorQuaternaryRef	operator=( ConstVEquationOperatorQuaternaryRef r );		// assignment
 
-	virtual CVariantData	GetValue( VDictionaryPtr pDict ) = 0;
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict ) = 0;
 
 	void		SetOperand1( VEquationPtr pOp );
 	void		SetOperand2( VEquationPtr pOp );

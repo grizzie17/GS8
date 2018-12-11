@@ -63,8 +63,8 @@ public:
 
 	virtual bool	ProcessEvent
 					(
-					VDictionaryPtr pDict,
-					VDictionary::Selector vEvent
+					VDictionaryPtr			pDict,
+					VDictionary::Selector	vEvent
 					) = 0;
 
 protected:

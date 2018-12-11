@@ -64,7 +64,7 @@ public:
 
 	VEquationOperatorTrinaryRef	operator=( VEquationOperatorTrinaryRef r );		// assignment
 
-	virtual CVariantData	GetValue(VDictionaryPtr pDict) = 0;
+	virtual Yogi::Common::CVariantData	GetValue(VDictionaryPtr pDict) = 0;
 
 	void		SetControl( VEquationPtr pControl );
 	void		SetLeft( VEquationPtr pLeft );

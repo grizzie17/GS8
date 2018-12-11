@@ -126,8 +126,8 @@ public:
 	virtual
 	bool	Render
 			(
-			VDictionaryPtr	pDict,
-			VDrawPtr		pDraw
+			VDictionaryPtr			pDict,
+			Yogi::Common::VDrawPtr	pDraw
 			) = 0;
 
 

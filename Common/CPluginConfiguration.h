@@ -278,4 +278,3 @@ private:
 
 
 #endif /* _H_CPluginConfiguration */
-
