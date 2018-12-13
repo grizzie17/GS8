@@ -42,7 +42,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -81,10 +82,10 @@ CElement::CElement
 		(
 		void
 		)
-		: VElement(),
-		m_aList(),
-		m_pVisible( 0 ),
-		m_eContext( CTX_GROUP )
+		: VElement()
+		, m_aList()
+		, m_pVisible( 0 )
+		, m_eContext( CTX_GROUP )
 {
 }
 

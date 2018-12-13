@@ -66,8 +66,8 @@ class VFactoryLite : public VFactory
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					VFactoryLite();
-	virtual			~VFactoryLite();
+				VFactoryLite();
+	virtual		~VFactoryLite();
 
 public:
 //	public types  -------------------------------------------------------
@@ -88,7 +88,7 @@ protected:
 
 //	protected functions  ------------------------------------------------
 
-	//	This function assumes that the input file-path is 
+	//	This function assumes that the input file-path is
 	//	relative to the GaugesXML folder.
 	bool		OpenFile( const char*	sName );
 
@@ -98,9 +98,9 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	Yogi::Core::CCharString		m_sRelativePath;
-	VVariablePtr	m_pVariable;
-	IExternalXMLPtr	m_pIExternalXML;
+	Yogi::Core::CCharString	m_sRelativePath;
+	VVariablePtr			m_pVariable;
+	IExternalXMLPtr			m_pIExternalXML;
 
 private:
 //	private functions  --------------------------------------------------
@@ -131,4 +131,3 @@ private:
 
 
 #endif /* _H_VFactoryLite */
-

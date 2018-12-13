@@ -49,7 +49,7 @@
 #define	PLUGIN_CREATE_FACTORY( sClass )		\
 	typedef TPluginFactory<sClass>	sClass##PluginFactory;	\
 extern "C"											\
-DLL_EXPORT											\
+SHLIB_EXPORT											\
 	VPluginFactoryPtr								\
 	CreatePluginFactory								\
 	(												\
@@ -65,7 +65,7 @@ DLL_EXPORT											\
 #define	PLUGIN_SSINGLETON_FACTORY( sClass )		\
 typedef TPluginSSingletonFactory<sClass>	sClass##PluginFactory;	\
 extern "C"												\
-DLL_EXPORT												\
+SHLIB_EXPORT												\
 VPluginFactoryPtr										\
 		CreatePluginFactory								\
 		(												\

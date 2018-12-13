@@ -100,7 +100,7 @@ private:
 	//	VRenderable
 public:
 	int		Calculate( VDictionaryPtr pDict );
-	bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

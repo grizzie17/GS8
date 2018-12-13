@@ -71,7 +71,7 @@ public:
 		~KEYEVENT() {};
 	} KEYEVENT;
 
-	typedef TArray<KEYEVENT>	KeyEventArray;
+	typedef Yogi::Core::TArray<KEYEVENT>	KeyEventArray;
 
 //	public functions  ---------------------------------------------------
 

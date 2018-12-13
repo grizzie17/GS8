@@ -36,7 +36,8 @@
 #include "stdafx.h"
 
 #include "CArc.h"
-//USING_NAMESPACE_COMMON
+
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -81,11 +82,11 @@ CArc::CArc
 		(
 		void
 		)
-		: VGraphic(),
-		m_tAxis(),
-		m_tRadius(),
-		m_tStartAngle(),
-		m_tEndAngle()
+		: VGraphic()
+		, m_tAxis()
+		, m_tRadius()
+		, m_tStartAngle()
+		, m_tEndAngle()
 {
 }
 
@@ -98,11 +99,11 @@ CArc::CArc
 		(
 		CArcRef	r
 		)
-		: VGraphic( r ),
-		m_tAxis( r.m_tAxis ),
-		m_tRadius( r.m_tRadius ),
-		m_tStartAngle( r.m_tStartAngle ),
-		m_tEndAngle( r.m_tEndAngle )
+		: VGraphic( r )
+		, m_tAxis( r.m_tAxis )
+		, m_tRadius( r.m_tRadius )
+		, m_tStartAngle( r.m_tStartAngle )
+		, m_tEndAngle( r.m_tEndAngle )
 {
 }
 
@@ -130,7 +131,7 @@ CArc::~CArc
 CArcRef
 		CArc::operator=
 		(
-		CArcRef	r
+		ConstCArcRef	r
 		)
 {
 	VGraphic::operator=( r );
@@ -241,8 +242,8 @@ int		CArc::Calculate
 \+---------------------------------------------------------------------*/
 bool	CArc::Render
 		(
-		VDictionaryPtr pDict,
-		VDrawPtr pDraw
+		VDictionaryPtr	pDict,
+		VDrawPtr		pDraw
 		)
 {
 	bool	bResult = VGraphic::Render( pDict, pDraw );

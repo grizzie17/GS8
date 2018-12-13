@@ -76,7 +76,7 @@ public:
 
 	virtual bool	AddGraphic( VRenderable*	pGraphic ) = 0;
 
-	virtual bool	RenderGraphics(VDictionaryPtr pDict, VDraw* pDraw) = 0;
+	virtual bool	RenderGraphics(VDictionaryPtr pDict, Yogi::Common::VDraw* pDraw) = 0;
 
 protected:
 //	protected types  ----------------------------------------------------

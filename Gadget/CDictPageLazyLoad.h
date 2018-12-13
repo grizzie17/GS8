@@ -85,7 +85,7 @@ private:
 //============================== Overrides ==============================
 	//	VDictionaryPage
 public:
-	virtual long		LocateEntry( ConstCCharStringRef rName );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 
 };
 

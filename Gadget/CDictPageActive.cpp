@@ -77,6 +77,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -119,8 +121,8 @@ CDictPageActiveEnumerator::CDictPageActiveEnumerator
 		(
 		CDictPageActive*	p
 		)
-		: m_pPage( p ),
-		m_nIndex( -1 )
+		: m_pPage( p )
+		, m_nIndex( -1 )
 {
 }
 
@@ -184,13 +186,13 @@ void	CDictPageActiveEnumerator::Reset
  * CDictPageActiveEnumerator::Current -
 
 \+---------------------------------------------------------------------*/
-CVariantData*
+const CVariantData*
 		CDictPageActiveEnumerator::Current
 		(
 		void
 		)
 {
-	VDictPageActiveDatumPtr* h = m_eList.Current();
+	VDictPageActiveDatum* const* h = m_eList.Current();
 	if ( h )
 	{
 		VDictPageActiveDatumPtr	p = *h;
@@ -247,7 +249,7 @@ CVariantData
 		void
 		)
 {
-	CVariantData*	p = Current();
+	const CVariantData*	p = Current();
 	return *p;
 }
 
@@ -277,11 +279,11 @@ char	CDictPageActiveEnumerator::Page
 VDictPageActiveDatum::VDictPageActiveDatum
 		(
 		)
-		: m_tData(),
-		m_nSelector( 0 ),
-		m_bReferenced(false),
-		m_sReset(),
-		m_sUnavailable()
+		: m_tData()
+		, m_nSelector( 0 )
+		, m_bReferenced(false)
+		, m_sReset()
+		, m_sUnavailable()
 {
 }
 
@@ -393,8 +395,8 @@ void	VDictPageActiveDatum::SetReferenced
 \+---------------------------------------------------------------------*/
 bool	VDictPageActiveDatum::UpdateData
 		(
-		CDictPageActivePtr	pPage,
-		CVariantDataRef		rData
+		CDictPageActivePtr		pPage,
+		ConstCVariantDataRef	rData
 		)
 {
 	CCharString	sData = rData.GetValueCCharString();
@@ -434,8 +436,8 @@ bool	CDictPageActiveDatumBool::UpdateData
 
 bool	CDictPageActiveDatumBool::UpdateData
 		(
-		CDictPageActivePtr	pPage,
-		CVariantDataRef		rData
+		CDictPageActivePtr		pPage,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	b = rData.GetValueBool();
@@ -571,8 +573,8 @@ bool	CDictPageActiveDatumInteger::UpdateData
 
 bool	CDictPageActiveDatumInteger::UpdateData
 		(
-		CDictPageActivePtr	pPage,
-		CVariantDataRef		rData
+		CDictPageActivePtr		pPage,
+		ConstCVariantDataRef	rData
 		)
 {
 	long	n;
@@ -720,8 +722,8 @@ bool	CDictPageActiveDatumFloat::UpdateData
 
 bool	CDictPageActiveDatumFloat::UpdateData
 		(
-		CDictPageActivePtr	pPage,
-		CVariantDataRef		rData
+		CDictPageActivePtr		pPage,
+		ConstCVariantDataRef	rData
 		)
 {
 	GFLOAT	n = GFLOAT_0;
@@ -808,12 +810,13 @@ bool	CDictPageActiveDatumDate::UpdateData
 			return false;
 		}
 	}
+	return false;
 }
 
 bool	CDictPageActiveDatumDate::UpdateData
 		(
-		CDictPageActivePtr	pPage,
-		CVariantDataRef		rData
+		CDictPageActivePtr		pPage,
+		ConstCVariantDataRef	rData
 		)
 {
 	CDateTime	t = rData;
@@ -883,8 +886,8 @@ bool	CDictPageActiveDatumString::UpdateData
 \+---------------------------------------------------------------------*/
 bool	CDictPageActiveDatumString::UpdateData
 		(
-		CDictPageActivePtr	pPage,
-		CVariantDataRef		rData
+		CDictPageActivePtr		pPage,
+		ConstCVariantDataRef	rData
 		)
 {
 	CCharString	sData = rData.GetValueCCharString();
@@ -903,8 +906,8 @@ CDictPageActiveDatumEnum::CDictPageActiveDatumEnum
 		(
 		void
 		)
-		: VDictPageActiveDatum(),
-		m_aList()
+		: VDictPageActiveDatum()
+		, m_aList()
 {
 	CUnitsOfMeasure	u;
 	u.SetUsingName( "enum" );
@@ -976,8 +979,8 @@ bool	CDictPageActiveDatumEnum::UpdateData
 
 bool	CDictPageActiveDatumEnum::UpdateData
 		(
-		CDictPageActivePtr	pPage,
-		CVariantDataRef		rData
+		CDictPageActivePtr		pPage,
+		ConstCVariantDataRef	rData
 		)
 {
 	long	n = rData;
@@ -1018,9 +1021,9 @@ CDictPageActive::CDictPageActive
 		(
 		void
 		)
-		: VDictionaryPage(),
-		m_aContent(),
-		m_nLastUpdate( 0 )
+		: VDictionaryPage()
+		, m_aContent()
+		, m_nLastUpdate( 0 )
 {
 }
 
@@ -1082,7 +1085,7 @@ bool	CDictPageActive::AddDatumEntry
 
 bool	CDictPageActive::AddDatumEntry
 		(
-		CCharDescriptorRef		rKey,
+		ConstCCharDescriptorRef	rKey,
 		VDictPageActiveDatumPtr pDatum
 		)
 {
@@ -1146,8 +1149,8 @@ bool	CDictPageActive::Update
 \+---------------------------------------------------------------------*/
 bool	CDictPageActive::Update
 		(
-		CCharDescriptorRef	rKey,
-		const char*			sData
+		ConstCCharDescriptorRef	rKey,
+		const char*				sData
 		)
 {
 	bool		bResult = false;
@@ -1173,8 +1176,8 @@ bool	CDictPageActive::Update
 \+---------------------------------------------------------------------*/
 bool	CDictPageActive::UpdateByName
 		(
-		CCharDescriptorRef rKey,
-		CVariantDataRef rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool		bResult = false;
@@ -1195,8 +1198,8 @@ bool	CDictPageActive::UpdateByName
 \+---------------------------------------------------------------------*/
 bool	CDictPageActive::UpdateEntry
 		(
-		unsigned long	nSel,
-		CVariantDataRef rData
+		unsigned long			nSel,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;

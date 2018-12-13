@@ -48,6 +48,7 @@
 
 #include "VDraw.h"
 
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\

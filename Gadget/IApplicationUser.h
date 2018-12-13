@@ -46,7 +46,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IApplicationUser*			IApplicationUserPtr;
 
-extern const IXID	IXID_IApplicationUser;
+extern const Yogi::Common::IXID	IXID_IApplicationUser;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -54,7 +54,7 @@ extern const IXID	IXID_IApplicationUser;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IApplicationUser : public ISupports
+interface_ IApplicationUser : public Yogi::Common::ISupports
 {
 	//
 	//!	SetApplication

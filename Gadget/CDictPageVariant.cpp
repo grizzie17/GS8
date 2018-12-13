@@ -45,6 +45,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -192,8 +194,8 @@ CVariantDataPtr
 \+---------------------------------------------------------------------*/
 bool	CDictPageVariant::PutData
 		(
-		unsigned long	nSel,
-		CVariantDataPtr pData
+		unsigned long		nSel,
+		const CVariantData*	pData
 		)
 {
 	CVariantDataPtr	p = m_aContent.ItemAtIndex( nSel );
@@ -221,8 +223,8 @@ bool	CDictPageVariant::PutData
 \+---------------------------------------------------------------------*/
 bool	CDictPageVariant::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;
@@ -242,8 +244,8 @@ bool	CDictPageVariant::UpdateByName
 \+---------------------------------------------------------------------*/
 bool	CDictPageVariant::UpdateEntry
 		(
-		unsigned long	nSel,
-		CVariantDataRef	rData
+		unsigned long			nSel,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;
@@ -376,13 +378,13 @@ void	CDictPageVariantEnumerator::Reset
  * Current -
 
 \+---------------------------------------------------------------------*/
-CVariantData*
+const CVariantData*
 		CDictPageVariantEnumerator::Current
 		(
 		void
 		)
 {
-	CVariantData* p = m_eList.Current();
+	const CVariantData* p = m_eList.Current();
 	if ( p )
 	{
 		return p;
@@ -438,7 +440,7 @@ CVariantData
 		void
 		)
 {
-	CVariantData*	p = Current();
+	const CVariantData*	p = Current();
 	if ( p )
 		return *p;
 	else

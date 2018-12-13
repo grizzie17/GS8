@@ -77,7 +77,7 @@ public:
 
 	virtual bool	AddGraphic( VRenderablePtr	pGraphic );
 
-	virtual bool	RenderGraphics(VDictionaryPtr pDict, VDrawPtr pDraw);
+	virtual bool	RenderGraphics(VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw);
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -107,7 +107,7 @@ protected:
 
 	bool			m_bVisible;
 
-	TArray<VRenderablePtr>	m_aGraphics;
+	Yogi::Core::TArray<VRenderablePtr>	m_aGraphics;
 
 private:
 //	private functions  --------------------------------------------------

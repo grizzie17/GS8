@@ -78,7 +78,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray<CMouseAreaPtr>	m_aList;
+	Yogi::Core::TArray<CMouseAreaPtr>	m_aList;
 
 private:
 //	private functions  --------------------------------------------------

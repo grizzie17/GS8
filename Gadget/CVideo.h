@@ -72,9 +72,9 @@ public:
 	CResultValuePtr	Source( void );
 	CPointValuePtr	Origin( void );
 	CSizePtr		Size( void );
-	void			SetAlign( VDraw::EAlignments e );
-	void			SetVertAlign( VDraw::EVerticalAlignments e );
-	void			SetFitment( VDraw::EFitments e );
+	void			SetAlign( Yogi::Common::VDraw::EAlignments e );
+	void			SetVertAlign( Yogi::Common::VDraw::EVerticalAlignments e );
+	void			SetFitment( Yogi::Common::VDraw::EFitments e );
 	CResultValuePtr	Mirror( void );
 
 
@@ -89,10 +89,10 @@ protected:
 	CResultValue	m_tSource;
 	CPointValue		m_tOrigin;
 	CSize			m_tSize;
-	VDraw::EAlignments	m_eAlign;
-	VDraw::EVerticalAlignments
+	Yogi::Common::VDraw::EAlignments	m_eAlign;
+	Yogi::Common::VDraw::EVerticalAlignments
 						m_eVertAlign;
-	VDraw::EFitments	m_eFitment;
+	Yogi::Common::VDraw::EFitments	m_eFitment;
 	CResultValue	m_tMirror;
 
 private:
@@ -108,7 +108,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

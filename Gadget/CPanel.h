@@ -56,10 +56,10 @@
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Gadget {
 
-typedef class CPanel*		CPanelPtr;
-typedef TPointer<CPanel>	CPanelAutoPtr;
-typedef class CPanel&		CPanelRef;
-typedef const class CPanel&	ConstCPanelRef;
+typedef class CPanel*					CPanelPtr;
+typedef Yogi::Core::TPointer<CPanel>	CPanelAutoPtr;
+typedef class CPanel&					CPanelRef;
+typedef const class CPanel&				ConstCPanelRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -97,8 +97,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray<VPanelChildPtr>	m_aChildren;
-	TPointer<VEquation>		m_pLayout;		// always called for Layout
+	Yogi::Core::TArray<VPanelChildPtr>	m_aChildren;
+	Yogi::Core::TPointer<VEquation>		m_pLayout;		// always called for Layout
 
 private:
 //	private functions  --------------------------------------------------
@@ -109,7 +109,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 	virtual bool	GetSize( VDictionaryPtr pDict, long& rnWidth, long& rnHeight );
 	virtual bool	IsDisplayed( VDictionaryPtr pDict );
 

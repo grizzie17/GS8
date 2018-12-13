@@ -44,6 +44,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -83,8 +85,8 @@ CDictPageConfigWrapper::CDictPageConfigWrapper
 		(
 		void
 		)
-		: VDictionaryPage(),
-		m_pConfig( 0 )
+		: VDictionaryPage()
+		, m_pConfig( 0 )
 {
 }
 
@@ -230,8 +232,8 @@ CVariantDataPtr
 \+---------------------------------------------------------------------*/
 bool	CDictPageConfigWrapper::PutData
 		(
-		unsigned long	nSel,
-		CVariantDataPtr pData
+		unsigned long		nSel,
+		const CVariantData*	pData
 		)
 {
 	bool	bResult = m_pConfig->PutData( nSel, pData );
@@ -252,8 +254,8 @@ bool	CDictPageConfigWrapper::PutData
 \+---------------------------------------------------------------------*/
 bool	CDictPageConfigWrapper::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;
@@ -278,8 +280,8 @@ bool	CDictPageConfigWrapper::UpdateByName
 \+---------------------------------------------------------------------*/
 bool	CDictPageConfigWrapper::UpdateEntry
 		(
-		unsigned long	nSel,
-		CVariantDataRef	rData
+		unsigned long			nSel,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;
@@ -340,8 +342,8 @@ CDictPageConfigWrapperEnumerator::CDictPageConfigWrapperEnumerator
 		(
 		CDictPageConfigWrapper*	p
 		)
-		: m_pPage( p ),
-		m_nIndex( -1 )
+		: m_pPage( p )
+		, m_nIndex( -1 )
 {
 }
 
@@ -405,13 +407,13 @@ void	CDictPageConfigWrapperEnumerator::Reset
  * Current -
 
 \+---------------------------------------------------------------------*/
-CVariantData*
+const CVariantData*
 		CDictPageConfigWrapperEnumerator::Current
 		(
 		void
 		)
 {
-	CVariantData* p = m_eList.Current();
+	const CVariantData* p = m_eList.Current();
 	if ( p )
 	{
 		return p;
@@ -467,7 +469,7 @@ CVariantData
 		void
 		)
 {
-	CVariantData*	p = Current();
+	const CVariantData*	p = Current();
 	if ( p )
 		return *p;
 	else

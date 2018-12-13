@@ -49,8 +49,9 @@
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Gadget {
 
-typedef class CArc*		CArcPtr;
-typedef class CArc&		CArcRef;
+typedef class CArc*			CArcPtr;
+typedef class CArc&			CArcRef;
+typedef const class CArc&	ConstCArcRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -70,7 +71,7 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	CArcRef	operator=( CArcRef r );		// assignment
+	CArcRef	operator=( ConstCArcRef r );		// assignment
 
 
 	CPointValuePtr	Axis( void );
@@ -103,7 +104,7 @@ private:
 	//	VRenderable
 public:
 	int		Calculate( VDictionaryPtr pDict );
-	bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

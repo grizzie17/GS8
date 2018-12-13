@@ -30,6 +30,8 @@
 #include "stdafx.h"
 #include "CDrawQueue.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -73,22 +75,22 @@ CDrawQueue::CDrawQueue
 		(
 		void
 		)
-		:
+		//:
 		//m_nCropLeft( 0.0f ),
 		//m_nCropTop( 0.0f ),
 		//m_nCropRight( 0.0f ),
-		//m_nCropBottom( 0.0f ),
-		m_bCropped( false ),
-		m_nXPosition( 0 ),
-		m_nYPosition( 0 ),
-		m_nXShift( 0 ),
-		m_nYShift( 0 ),
-		m_nXAxis( 0 ),
-		m_nYAxis( 0 ),
-		m_fRotation( 0.0 ),
-		m_fScale( 0.0 ),
-		m_bVisible( true ),
-		m_aGraphics()
+		//m_nCropBottom( 0.0f )
+		: m_bCropped( false )
+		, m_nXPosition( 0 )
+		, m_nYPosition( 0 )
+		, m_nXShift( 0 )
+		, m_nYShift( 0 )
+		, m_nXAxis( 0 )
+		, m_nYAxis( 0 )
+		, m_fRotation( 0.0 )
+		, m_fScale( 0.0 )
+		, m_bVisible( true )
+		, m_aGraphics()
 {
 	m_aGraphics.SetBlockSize( 16 );
 }

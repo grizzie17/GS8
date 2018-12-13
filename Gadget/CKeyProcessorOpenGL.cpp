@@ -34,6 +34,8 @@
 #include "CKeyProcessorOpenGL.h"
 #include "CKeyNames.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|

@@ -176,14 +176,14 @@ public:
 
 public:
 
-	virtual bool									MoveNext( void ) = 0;
-	virtual void									Reset( void ) = 0;
-	virtual	Yogi::Common::CVariantData*	Current(void) = 0;
+	virtual bool						MoveNext( void ) = 0;
+	virtual void						Reset( void ) = 0;
+	virtual	const Yogi::Common::CVariantData*	Current(void) = 0;
 
-	virtual long									ID( void ) = 0;
+	virtual long						ID( void ) = 0;
 	virtual Yogi::Core::CCharString		Key(void) = 0;
 	virtual Yogi::Common::CVariantData	Value(void) = 0;
-	virtual char									Page( void ) = 0;
+	virtual char						Page( void ) = 0;
 };
 
 /*---------------------------------------------------------------------+\

@@ -172,7 +172,7 @@ public:
 
 	virtual bool			MoveNext( void );
 	virtual void			Reset( void );
-	virtual	Yogi::Common::CVariantData*
+	virtual	const Yogi::Common::CVariantData*
 							Current( void );
 
 	virtual long			ID( void );

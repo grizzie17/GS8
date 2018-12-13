@@ -44,6 +44,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -82,8 +83,8 @@ CRotation::CRotation
 		(
 		void
 		)
-		: VElement(),
-		m_tValue()
+		: VElement()
+		, m_tValue()
 {
 }
 

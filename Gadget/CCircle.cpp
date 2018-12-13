@@ -36,7 +36,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
-//USING_NAMESPACE_COMMON
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -75,9 +75,9 @@ CCircle::CCircle
 		(
 		void
 		)
-		: VGraphic(),
-		m_tAxis(),
-		m_tRadius()
+		: VGraphic()
+		, m_tAxis()
+		, m_tRadius()
 {
 }
 
@@ -90,9 +90,9 @@ CCircle::CCircle
 		(
 		CCircleRef	r
 		)
-		: VGraphic( r ),
-		m_tAxis( r.m_tAxis ),
-		m_tRadius( r.m_tRadius )
+		: VGraphic( r )
+		, m_tAxis( r.m_tAxis )
+		, m_tRadius( r.m_tRadius )
 {
 }
 

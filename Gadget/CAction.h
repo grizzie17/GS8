@@ -57,9 +57,9 @@ class CAction : public VAction
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CAction();
-					CAction( ConstCActionRef r );	// copy constructor
-	virtual			~CAction();
+			CAction();
+			CAction( ConstCActionRef r );	// copy constructor
+	virtual	~CAction();
 
 public:
 //	public types  -------------------------------------------------------

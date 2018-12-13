@@ -35,6 +35,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -74,11 +76,11 @@ CFactoryExternalXML::CFactoryExternalXML
 		(
 		void
 		)
-		: inherited(),
-		m_aList(),
-		m_pApplication( 0 ),
-		m_pLibrary( 0 ),
-		m_pActive( 0 )
+		: inherited()
+		, m_aList()
+		, m_pApplication( 0 )
+		, m_pLibrary( 0 )
+		, m_pActive( 0 )
 {
 }
 
@@ -86,11 +88,11 @@ CFactoryExternalXML::CFactoryExternalXML
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_aList(),
-		m_pApplication( 0 ),
-		m_pLibrary( 0 ),
-		m_pActive( 0 )
+		: inherited( pOwner )
+		, m_aList()
+		, m_pApplication( 0 )
+		, m_pLibrary( 0 )
+		, m_pActive( 0 )
 {
 }
 
@@ -99,11 +101,11 @@ CFactoryExternalXML::CFactoryExternalXML
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_aList(),
-		m_pApplication( 0 ),
-		m_pLibrary( 0 ),
-		m_pActive( 0 )
+		: inherited( sName, pOwner )
+		, m_aList()
+		, m_pApplication( 0 )
+		, m_pLibrary( 0 )
+		, m_pActive( 0 )
 {
 }
 
@@ -154,7 +156,7 @@ bool	CFactoryExternalXML::SetApplication
 	bool	bResult = true;
 	m_pApplication = p;
 
- 	m_pLibrary = (IPluginLibraryPtr)p->QueryCOMObject( IXID_IPluginLibrary );
+	m_pLibrary = (IPluginLibraryPtr)p->QueryCOMObject( IXID_IPluginLibrary );
 
 	// TODO: add other initialization code here
 

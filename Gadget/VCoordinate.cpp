@@ -46,7 +46,7 @@
 \+---------------------------------------------------------------------*/
 using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -84,7 +84,7 @@ VCoordinate::VCoordinate
 		(
 		void
 		)
-		: VRenderable()
+		: inherited()
 		, m_tX()
 		, m_tY()
 {
@@ -99,7 +99,7 @@ VCoordinate::VCoordinate
 		(
 		ConstVCoordinateRef	r
 		)
-		: VRenderable( r )
+		: inherited( r )
 		, m_tX( r.m_tX )
 		, m_tY( r.m_tY )
 {
@@ -132,7 +132,7 @@ VCoordinateRef
 		ConstVCoordinateRef	r
 		)
 {
-	VRenderable::operator=( r );
+	inherited::operator=( r );
 	m_tX = r.m_tX;
 	m_tY = r.m_tY;
 	return *this;

@@ -39,6 +39,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -78,13 +80,13 @@ VControl::VControl
 		(
 		void
 		)
-		: VOwnership(),
-		m_pName( 0 ),
-		m_pUpdate( 0 ),
-		m_nFrequency( 0 ),
-		m_nNextUpdate( 0 ),
-		m_pAction( 0 ),
-		m_nMouseAreas( 0 )
+		: VOwnership()
+		, m_pName( 0 )
+		, m_pUpdate( 0 )
+		, m_nFrequency( 0 )
+		, m_nNextUpdate( 0 )
+		, m_pAction( 0 )
+		, m_nMouseAreas( 0 )
 {
 }
 

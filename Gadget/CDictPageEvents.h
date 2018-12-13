@@ -93,12 +93,12 @@ private:
 //============================== Overrides ==============================
 	//	VDictionaryPage
 public:
-	virtual bool	PutData( unsigned long nSel, CVariantDataPtr pData );
+	virtual bool	PutData( unsigned long nSel, const Yogi::Common::CVariantData* pData );
 
-	virtual bool	UpdateByName( CCharDescriptorRef rKey, CVariantDataRef rData );
-	virtual bool	UpdateEntry( unsigned long nSel, CVariantDataRef rData );
+	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
+	virtual bool	UpdateEntry( unsigned long nSel, Yogi::Common::ConstCVariantDataRef rData );
 
-	virtual bool	AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias );
+	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 
 };
 

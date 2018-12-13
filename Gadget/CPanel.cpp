@@ -53,7 +53,11 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -91,9 +95,9 @@ CPanel::CPanel
 		(
 		void
 		)
-		: VControlEventMap(),
-		m_aChildren(),
-		m_pLayout( 0 )
+		: VControlEventMap()
+		, m_aChildren()
+		, m_pLayout( 0 )
 {
 }
 
@@ -106,9 +110,9 @@ CPanel::CPanel
 		(
 		CPanelRef	r
 		)
-		: VControlEventMap( r ),
-		m_aChildren(),
-		m_pLayout( 0 )
+		: VControlEventMap( r )
+		, m_aChildren()
+		, m_pLayout( 0 )
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }

@@ -16,6 +16,8 @@
 |
 |	Revision History:					(most recent entries first)
 |
+	11-Dec-2018			J.Griswold
+		Migrate to correctly using namespaces.
 	26-Sep-2010			J.Griswold		(Reviewed by: xxxx)
 		Add support for the pseudo-interface VVariable
 	08-Mar-2010			J.Griswold		(Reviewed by: M.Rose)
@@ -68,6 +70,10 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
+using namespace Yogi::XMLLite;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -107,13 +113,13 @@ VFactoryComponent::VFactoryComponent
 		(
 		void
 		)
-		: VFactoryLite(),
-		m_pEqFactory( 0 ),
-		m_bHasGVariables( false ),
-		m_pKeyNames( 0 ),
-		m_pPanelChild( 0 ),
-		m_pDictionary( 0 ),
-		m_1000( 1000.0f )
+		: VFactoryLite()
+		, m_pEqFactory( 0 )
+		, m_bHasGVariables( false )
+		, m_pKeyNames( 0 )
+		, m_pPanelChild( 0 )
+		, m_pDictionary( 0 )
+		, m_1000( 1000.0f )
 {
 }
 
@@ -163,8 +169,8 @@ void	VFactoryComponent::SetDictionary
 VEquationPtr
 		VFactoryComponent::MakeEquation
 		(
-		CFactoryEquation::FEquationTargets eTarget,
-		CCharDescriptorRef	rString
+		CFactoryEquation::FEquationTargets	eTarget,
+		ConstCCharDescriptorRef				rString
 		)
 {
 	if ( 0 < rString.Length() )
@@ -181,9 +187,9 @@ VEquationPtr
 VEquationPtr
 		VFactoryComponent::MakeEquation
 		(
-		CFactoryEquation::FEquationTargets eTarget,
-		const char*	s,
-		size_t		n
+		CFactoryEquation::FEquationTargets	eTarget,
+		const char*							s,
+		size_t								n
 		)
 {
 	VEquationPtr	pEq = 0;
@@ -443,7 +449,7 @@ VEquationPtr
 \+---------------------------------------------------------------------*/
 int		VFactoryComponent::KeyName
 		(
-		CCharDescriptorRef	rName
+		ConstCCharDescriptorRef	rName
 		)
 {
 	if ( ! m_pKeyNames )

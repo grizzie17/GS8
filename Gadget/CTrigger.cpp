@@ -37,8 +37,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -182,7 +183,7 @@ bool	CTrigger::SetName
 \+---------------------------------------------------------------------*/
 bool	CTrigger::SetName
 		(
-		Yogi::Core::ConstCCharDescriptorRef rName
+		ConstCCharDescriptorRef rName
 		)
 {
 	m_tSelector.SetName( rName );

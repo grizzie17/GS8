@@ -40,8 +40,8 @@ namespace Yogi { namespace Gadget {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CDictPageP*			CDictPagePPtr;
-typedef class CDictPageP&			CDictPagePRef;
+typedef class CDictPageP*		CDictPagePPtr;
+typedef class CDictPageP&		CDictPagePRef;
 typedef const class CDictPageP&	ConstCDictPagePRef;
 /*---------------------------------------------------------------------+\
 |																		|

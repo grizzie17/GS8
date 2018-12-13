@@ -40,6 +40,7 @@
 #include <math.h>
 #include "VDrawTmx.h"
 
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\

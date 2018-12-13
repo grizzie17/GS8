@@ -44,8 +44,8 @@ namespace Yogi { namespace Gadget {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef class CEquationGaugeLeft*			CEquationGaugeLeftPtr;
-typedef class CEquationGaugeLeft&			CEquationGaugeLeftRef;
+typedef class CEquationGaugeLeft*		CEquationGaugeLeftPtr;
+typedef class CEquationGaugeLeft&		CEquationGaugeLeftRef;
 typedef const class CEquationGaugeLeft&	ConstCEquationGaugeLeftRef;
 /*---------------------------------------------------------------------+\
 |																		|
@@ -88,8 +88,8 @@ private:
 	//	VEquation-1
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual VEquationPtr				Clone( void );
 
 };
 

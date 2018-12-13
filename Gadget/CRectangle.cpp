@@ -41,8 +41,8 @@
 
 #include "CRectangle.h"
 
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|

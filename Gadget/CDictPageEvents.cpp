@@ -42,6 +42,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -81,8 +83,8 @@ CDictPageEvents::CDictPageEvents
 		(
 		void
 		)
-		: CDictPageLazyLoad(),
-		m_pEventQueue( 0 )
+		: CDictPageLazyLoad()
+		, m_pEventQueue( 0 )
 {
 }
 
@@ -158,8 +160,8 @@ CQueuePtr
 \+---------------------------------------------------------------------*/
 bool	CDictPageEvents::PutData
 		(
-		unsigned long	nSel,
-		CVariantDataPtr pData
+		unsigned long		nSel,
+		const CVariantData*	pData
 		)
 {
 	return UpdateEntry( nSel, *pData );
@@ -173,8 +175,8 @@ bool	CDictPageEvents::PutData
 \+---------------------------------------------------------------------*/
 bool	CDictPageEvents::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;
@@ -193,8 +195,8 @@ bool	CDictPageEvents::UpdateByName
 \+---------------------------------------------------------------------*/
 bool	CDictPageEvents::UpdateEntry
 		(
-		unsigned long	nSel,
-		CVariantDataRef	rData
+		unsigned long			nSel,
+		ConstCVariantDataRef	rData
 		)
 {
 	CVariantDataPtr	p = m_aContent.ItemAtIndex( nSel );

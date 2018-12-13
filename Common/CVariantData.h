@@ -175,20 +175,19 @@ public:
 	bool			operator< ( Yogi::Core::ConstCDateTimeRef r ) const;
 
 
-	// operator Yogi::Core::CCharDescriptor ( void ) const;
+	operator Yogi::Core::CCharDescriptor ( void ) const;
 	// //operator const CCharDescriptor* ( void );
 	// //operator CCharDescriptor* ( void ) const;
 	// //operator Yogi::Core::CCharDescriptorRef ( void );
-	// operator bool( void ) const;
-	// operator long( void ) const;
-	// operator GFLOAT( void ) const;
+	operator bool( void ) const;
+	operator long( void ) const;
+	operator GFLOAT( void ) const;
 	// operator double( void ) const;
-	// operator Yogi::Core::CCharString( void );
+	operator Yogi::Core::CCharString( void ) const;
 	// //operator const CCharString* ( void );
-	// //operator const CCharString( void );
-	// operator const char*( void ) const;
-	// operator Yogi::Core::CColor( void ) const;
-	// operator Yogi::Core::CDateTime( void ) const;
+	operator const char*( void ) const;
+	operator Yogi::Core::CColor( void ) const;
+	operator Yogi::Core::CDateTime( void ) const;
 
 	bool		GetValueBool( void ) const;
 	long		GetValueInteger( void ) const;
@@ -820,6 +819,16 @@ bool	CVariantData::operator <
 // }
 
 
+inline
+CVariantData::operator const char *
+		(
+		void
+		) const
+{
+	return GetValueString();
+}
+
+
 // inline
 // unsigned long
 // 		CVariantData::GetValueUnsignedInteger
@@ -838,4 +847,3 @@ bool	CVariantData::operator <
 
 
 #endif /* _H_CVariantData */
-

@@ -32,15 +32,15 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Interface Constants													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IDictionaryUser( "BCG::Gadget::IDictionaryUser" );
+const IXID	IXID_IDictionaryUser( "Yogi::Gadget::IDictionaryUser" );
 
 
 

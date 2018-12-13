@@ -103,6 +103,8 @@
 #include "CEqOpMax.h"
 #include "CEqOpMin.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|

@@ -37,8 +37,10 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -76,8 +78,8 @@ CDictPageVariantRead::CDictPageVariantRead
 		(
 		void
 		)
-		: CDictPageVariant(),
-		m_bLocked( false )
+		: CDictPageVariant()
+		, m_bLocked( false )
 {
 }
 
@@ -141,7 +143,7 @@ bool	CDictPageVariantRead::LockData
 bool	CDictPageVariantRead::PutData
 		(
 		unsigned long	,//nSel,
-		CVariantDataPtr //pData
+		const CVariantData* //pData
 		)
 {
 	// don't allow put -- this is Read-Only

@@ -49,6 +49,9 @@
 #include "CCommandProcessor.h"
 
 #include "CColor.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -94,10 +97,9 @@ CCommandProcessor::CCommandProcessor
 		(
 		void
 		)
-		: m_pApplication( 0 ),
-		//m_pLoaderControl( 0 ),
-		m_pPageData( 0 ),
-		m_pPageConstants( 0 )
+		: m_pApplication( 0 )
+		, m_pPageData( 0 )
+		, m_pPageConstants( 0 )
 {
 }
 

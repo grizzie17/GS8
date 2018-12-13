@@ -63,7 +63,7 @@ typedef class CScreen&			CScreenRef;
 typedef const class CScreen&	ConstCScreenRef;
 
 
-typedef TDictionaryIndexedEnumerator< CCharString, CPanelPtr >	CPanelEnumerator;
+typedef Yogi::Common::TDictionaryIndexedEnumerator< Yogi::Core::CCharString, CPanelPtr >	CPanelEnumerator;
 
 
 /*---------------------------------------------------------------------+\
@@ -107,7 +107,7 @@ protected:
 	//CResultValuePtr		m_pActivePanelSelector;
 	CResultValue		m_vActivePanel;
 	CPanelPtr			m_pActivePanel;
-	TDictionaryIndexed< CCharString, CPanelPtr >	m_tPanelList;
+	Yogi::Common::TDictionaryIndexed< Yogi::Core::CCharString, CPanelPtr >	m_tPanelList;
 
 	long				m_nWidth;
 	long				m_nHeight;
@@ -122,7 +122,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 	virtual bool	GetSize( VDictionaryPtr pDict, long& rnWidth, long& rnHeight );
 	virtual bool	IsDisplayed( VDictionaryPtr pDict );
 

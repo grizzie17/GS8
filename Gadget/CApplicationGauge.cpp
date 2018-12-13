@@ -16,6 +16,8 @@
 |
 |	Revision History:					(most recent entries first)
 |
+	11-Dec-2018			J.Griswold
+		Migrate to correctly using namespaces.
 	01-Sep-2010			J.Griswold		(Reviewed by: xxxx)
 		Fixed a problem where when we process ReloadScreen it would
 		distort the views based on the amount specified in the
@@ -248,7 +250,7 @@ CApplicationGauge::~CApplicationGauge
 	if ( m_pFactoryExternalXML )
 		m_pFactoryExternalXML->Release();
 
-	Yogi::Core::THashTableEnumerator<Yogi::Core::CCharString, Yogi::Common::ISupportsPtr>	tEnum = m_tCOMObjects.GetEnumerator();
+	THashTableEnumerator<Yogi::Core::CCharString, Yogi::Common::ISupportsPtr>	tEnum = m_tCOMObjects.GetEnumerator();
 	while ( tEnum.MoveNext() )
 	{
 		ISupportsPtr	pSup = tEnum.Value();
@@ -609,20 +611,20 @@ void	CApplicationGauge::DumpDictionary
 					vt = v.GetType();
 					nUnits = v.GetUnits();
 
-					sUnitName = Yogi::Core::CUnitsOfMeasure::NameFromUnits( nUnits );
+					sUnitName = CUnitsOfMeasure::NameFromUnits( nUnits );
 					if ( ! sUnitName )
 						sUnitName = sUnitDummy;
 
 					switch ( vt )
 					{
-					case Yogi::Common::CVariantData::T_BOOL:
+					case CVariantData::T_BOOL:
 						sType = sTypeBOOLEAN;
 						if ( v.GetValueBool() )
 							sprintf_s( sData, sizeof(sData), "%s", "True" );
 						else
 							sprintf_s( sData, sizeof(sData), "%s", "False" );
 						break;
-					case Yogi::Common::CVariantData::T_COLOR:
+					case CVariantData::T_COLOR:
 						sType = sTypeCOLOR;
 						color = v.GetValueColor();
 						sprintf_s( sData, sizeof(sData),
@@ -630,25 +632,25 @@ void	CApplicationGauge::DumpDictionary
 							color.GetRed(), color.GetGreen(), color.GetBlue(),
 							color.GetAlpha() );
 						break;
-					case Yogi::Common::CVariantData::T_DATETIME:
+					case CVariantData::T_DATETIME:
 						sType = sTypeDATETIME;
 						dt = v.GetValueDateTime();
 						dt.FormatISO( sData, sizeof(sData) );
 						break;
-					case Yogi::Common::CVariantData::T_FLOAT:
+					case CVariantData::T_FLOAT:
 						sType = sTypeFLOAT;
 						sprintf_s( sData, sizeof(sData), "%5.4f", v.GetValueFloat() );
 						break;
-					case Yogi::Common::CVariantData::T_INTEGER:
+					case CVariantData::T_INTEGER:
 						sType = sTypeINTEGER;
 						sprintf_s( sData, sizeof(sData), "%ld", v.GetValueInteger() );
 						break;
-					case Yogi::Common::CVariantData::T_STRING:
+					case CVariantData::T_STRING:
 						sType = sTypeSTRING;
 						sv = v.GetValueCCharString();
 						sv.CopyTo( sData, sizeof(sData) );
 						break;
-					case Yogi::Common::CVariantData::T_UNDEFINED:
+					case CVariantData::T_UNDEFINED:
 					default:
 						sType = sTypeUNDEFINED;
 						sv = v.GetValueCCharString();
@@ -1813,9 +1815,9 @@ bool	CApplicationGauge::RegisterCOMObject
 		Yogi::Common::ISupportsPtr	p
 		)
 {
-	bool						bResult = false;
-	Yogi::Core::CCharString		tKey( sKey );
-	Yogi::Common::ISupportsPtr*	hSup;
+	bool								bResult = false;
+	Yogi::Core::CCharString				tKey( sKey );
+	const Yogi::Common::ISupportsPtr*	hSup;
 
 	hSup = m_tCOMObjects.Find( tKey );
 	if ( ! hSup )
@@ -1840,9 +1842,9 @@ ISupportsPtr
 		const char*	sKey
 		)
 {
-	Yogi::Common::ISupportsPtr	pSup = 0;
-	Yogi::Common::ISupportsPtr*	hSup = 0;
-	Yogi::Core::CCharString		tKey( sKey );
+	Yogi::Common::ISupportsPtr			pSup = 0;
+	const Yogi::Common::ISupportsPtr*	hSup = 0;
+	Yogi::Core::CCharString				tKey( sKey );
 
 	hSup = m_tCOMObjects.Find( tKey );
 	if ( hSup )
@@ -1897,9 +1899,9 @@ bool	CApplicationGauge::RegisterObject
 		VObjectPtr	p
 		)
 {
-	bool			bResult = false;
-	CCharString		tKey( sKey );
-	VObjectPtr*		h;
+	bool				bResult = false;
+	CCharString			tKey( sKey );
+	const VObjectPtr*	h;
 
 	h = m_tObjects.Find( tKey );
 	if ( ! h )
@@ -1922,9 +1924,9 @@ VObjectPtr
 		const char*	sKey
 		)
 {
-	VObjectPtr		p = 0;
-	VObjectPtr*		h = 0;
-	CCharString		tKey( sKey );
+	VObjectPtr			p = 0;
+	const VObjectPtr*	h = 0;
+	CCharString			tKey( sKey );
 
 	h = m_tObjects.Find( tKey );
 	if ( h )
@@ -2180,7 +2182,7 @@ CScreenPtr
 		void
 		)
 {
-	CFactoryScreen							factoryScreen;
+	CFactoryScreen				factoryScreen;
 	Yogi::Common::ISupportsPtr	pExt;
 
 	if ( ! m_pFactoryExternalXML )

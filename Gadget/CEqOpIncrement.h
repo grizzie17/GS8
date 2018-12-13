@@ -41,8 +41,8 @@
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Gadget {
 
-typedef class CEquationOperatorIncrement*			CEquationOperatorIncrementPtr;
-typedef class CEquationOperatorIncrement&			CEquationOperatorIncrementRef;
+typedef class CEquationOperatorIncrement*		CEquationOperatorIncrementPtr;
+typedef class CEquationOperatorIncrement&		CEquationOperatorIncrementRef;
 typedef const class CEquationOperatorIncrement&	ConstCEquationOperatorIncrementRef;
 /*---------------------------------------------------------------------+\
 |																		|
@@ -82,8 +82,8 @@ private:
 	//	root
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual VEquationPtr				Clone( void );
 
 	//	VEquationOperatorBinary
 

@@ -46,8 +46,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -110,18 +111,18 @@ CDictPageT::CDictPageT
 		(
 		void
 		)
-		: VDictionaryPage(),
-		m_nValue( 0 ),
-		m_nMilli( 0 ),
-		m_bAscending( false ),
-		m_X( 100.0f ),
-		m_Y( 100.0f ),
-		m_Panel(),
-		m_Spin( 0.0f ),
-		m_Slider( 0.0f ),
-		m_SliderYellow( 45.0f ),
-		m_SliderRed( 75.0f ),
-		m_Milli( 0.0f )
+		: VDictionaryPage()
+		, m_nValue( 0 )
+		, m_nMilli( 0 )
+		, m_bAscending( false )
+		, m_X( 100.0f )
+		, m_Y( 100.0f )
+		, m_Panel()
+		, m_Spin( 0.0f )
+		, m_Slider( 0.0f )
+		, m_SliderYellow( 45.0f )
+		, m_SliderRed( 75.0f )
+		, m_Milli( 0.0f )
 {
 	m_Panel = CCharDescriptor( "test" );
 }
@@ -285,7 +286,7 @@ CVariantDataPtr
 bool	CDictPageT::PutData
 		(
 		unsigned long,			//nSel,
-		CVariantDataPtr //pData
+		const CVariantData* //pData
 		)
 {
 	return false;
@@ -299,8 +300,8 @@ bool	CDictPageT::PutData
 \+---------------------------------------------------------------------*/
 bool	CDictPageT::UpdateByName
 		(
-		CCharDescriptorRef		,//rKey,
-		CVariantDataRef	//rData
+		ConstCCharDescriptorRef		,//rKey,
+		ConstCVariantDataRef	//rData
 		)
 {
 	return false;

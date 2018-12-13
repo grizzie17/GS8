@@ -95,7 +95,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray<VRenderablePtr>	m_aList;
+	Yogi::Core::TArray<VRenderablePtr>	m_aList;
 	CVisiblePtr				m_pVisible;
 	EContext				m_eContext;
 
@@ -114,7 +114,7 @@ public:
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render(VDictionaryPtr pDict, VDrawPtr pDraw);
+	virtual bool	Render(VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw);
 	virtual bool	GetSize( VDictionaryPtr pDict, long& rnWidth, long& rnHeight );
 	virtual bool	IsDisplayed( VDictionaryPtr pDict );
 

@@ -48,6 +48,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
@@ -171,7 +173,7 @@ CVariantData
 {
 	CVariantData	vResult;
 	CVariantData	vOperand( m_pOperand->GetValue( pDict ) );
-	char			sOut[128];
+	char			sOut[512];
 
 	size_t			n = m_sFormat.Length();
 	if ( 0 < n )
@@ -203,8 +205,8 @@ CVariantData
 			{
 				if ( CVariantData::T_STRING == vOperand.GetType() )
 				{
-					const char*	s = vOperand;
-					sprintf_s( sOut, sizeof(sOut), m_sFormat.Pointer(), s );
+					CCharDescriptor	sd = vOperand;
+					sprintf_s( sOut, sizeof(sOut), m_sFormat.Pointer(), sd );
 				}
 				else
 				{

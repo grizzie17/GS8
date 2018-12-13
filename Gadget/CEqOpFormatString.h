@@ -75,7 +75,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString	m_sFormat;
+	Yogi::Core::CCharString	m_sFormat;
 
 private:
 //	private functions  --------------------------------------------------
@@ -87,8 +87,8 @@ private:
 	//	root
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual VEquationPtr				Clone( void );
 
 	//	VEquationOperatorBinary
 

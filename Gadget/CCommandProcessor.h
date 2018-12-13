@@ -114,11 +114,12 @@ private:
 //============================== Overrides ==============================
 	//	VFunctionProcessor
 public:
-	virtual bool	ProcessRequest
-					(
-					VDictionary::Selector	sel,
-					ConstCVariantDataRef	vData
-					);
+	virtual bool
+			ProcessRequest
+			(
+			VDictionary::Selector				sel,
+			Yogi::Common::ConstCVariantDataRef	vData
+			);
 
 
 };

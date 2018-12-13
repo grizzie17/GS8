@@ -37,8 +37,10 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -77,9 +79,9 @@ CDictPageCommands::CDictPageCommands
 		(
 		void
 		)
-		: CDictPageVariant(),
-		m_pCommandQueue( 0 ),
-		m_pFunctions( 0 )
+		: CDictPageVariant()
+		, m_pCommandQueue( 0 )
+		, m_pFunctions( 0 )
 {
 }
 
@@ -204,8 +206,8 @@ bool	CDictPageCommands::PutData
 \+---------------------------------------------------------------------*/
 bool	CDictPageCommands::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;

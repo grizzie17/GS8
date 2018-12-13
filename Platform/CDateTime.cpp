@@ -261,7 +261,7 @@ bool	CDateTime::Parse
 \+---------------------------------------------------------------------*/
 bool	CDateTime::Parse
 		(
-		CCharDescriptorRef r
+		ConstCCharDescriptorRef r
 		)
 {
 	bool	bResult = false;
@@ -967,4 +967,3 @@ long	CDateTime::SpanBlanks
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

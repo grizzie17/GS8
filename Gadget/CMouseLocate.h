@@ -56,7 +56,7 @@ typedef const class CMouseLocate&	ConstCMouseLocateRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CMouseLocate : public VDrawTmx
+class CMouseLocate : public Yogi::Common::VDrawTmx
 {
 //	class lifecycle  ----------------------------------------------------
 public:

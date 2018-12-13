@@ -74,11 +74,11 @@ public:
 public:
 	virtual bool			BeginCalculate( CDictPageSystemPtr pPage ) = 0;
 	virtual bool			EndCalculate( CDictPageSystemPtr pPage ) = 0;
-	virtual CVariantDataPtr	GetData( CDictPageSystemPtr pPage ) = 0;
-	virtual bool			PutData( CDictPageSystemPtr pPage, CVariantDataPtr pData ) = 0;
+	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageSystemPtr pPage ) = 0;
+	virtual bool			PutData( CDictPageSystemPtr pPage, Yogi::Common::CVariantDataPtr pData ) = 0;
 
 protected:
-	CVariantData		m_tData;
+	Yogi::Common::CVariantData	m_tData;
 
 };
 
@@ -110,7 +110,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< CCharString, VDictPageHandlerPtr>	m_aContent;
+	Yogi::Common::TDictionaryIndexed< Yogi::Core::CCharString, VDictPageHandlerPtr>	m_aContent;
 
 
 
@@ -124,12 +124,12 @@ private:
 public:
 	virtual void	BeginCalculate( void );
 	virtual void	EndCalculate( void );
-	virtual long	LocateEntry( ConstCCharStringRef rName );
-	virtual CVariantDataPtr
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual Yogi::Common::CVariantDataPtr
 					GetData( unsigned long nSel );
-	virtual bool	PutData( unsigned long nSel, CVariantDataPtr pData );
-	virtual bool	UpdateByName( CCharDescriptorRef rKey, CVariantDataRef rData );
-	virtual bool	AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias );
+	virtual bool	PutData( unsigned long nSel, Yogi::Common::CVariantDataPtr pData );
+	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
+	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 
 	virtual VDictionaryEnumerator*
 					GetEnumerator( void );
@@ -151,17 +151,17 @@ public:
 
 	virtual bool			MoveNext( void );
 	virtual void			Reset( void );
-	virtual CVariantData*	Current( void );
+	virtual const Yogi::Common::CVariantData*	Current( void );
 	virtual long			ID( void );
-	virtual CCharString		Key( void );
-	virtual CVariantData	Value( void );
+	virtual Yogi::Core::CCharString		Key( void );
+	virtual Yogi::Common::CVariantData	Value( void );
 	virtual	char			Page( void );
 
 protected:
 
 	CDictPageSystem*
 					m_pPage;
-	TDictionaryIndexedEnumerator<CCharString, VDictPageHandlerPtr>
+	Yogi::Common::TDictionaryIndexedEnumerator<Yogi::Core::CCharString, VDictPageHandlerPtr>
 					m_eList;
 	index_t			m_nIndex;
 

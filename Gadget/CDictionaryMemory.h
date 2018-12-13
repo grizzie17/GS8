@@ -41,7 +41,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "VDictionary.h"
-//#include "CVariantData.h"
+#include "CVariantData.h"
 #include "VControl.h"
 
 /*---------------------------------------------------------------------+\
@@ -68,14 +68,14 @@ class CDictionaryMemory : public VDictionary
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CDictionaryMemory();
-					CDictionaryMemory( VDictionaryPtr p );
-					CDictionaryMemory
-							(
-							VDictionaryPtr	pDict,
-							VControlPtr		pControl
-							);
-	virtual			~CDictionaryMemory();
+			CDictionaryMemory();
+			CDictionaryMemory( VDictionaryPtr p );
+			CDictionaryMemory
+					(
+					VDictionaryPtr	pDict,
+					VControlPtr		pControl
+					);
+	virtual	~CDictionaryMemory();
 
 public:
 //	public types  -------------------------------------------------------
@@ -87,8 +87,8 @@ public:
 	void			SetDictionary( VDictionaryPtr p );
 	void			SetVControl( VControlPtr p );
 
-	void			Store( int nRegister, CVariantDataRef rData );
-	CVariantData	Recall( int nRegister );
+	void			Store( int nRegister, Yogi::Common::ConstCVariantDataRef rData );
+	Yogi::Common::CVariantData	Recall( int nRegister );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -99,7 +99,7 @@ protected:
 
 	VDictionaryPtr	m_pDict;
 	VControlPtr		m_pControl;
-	CVariantData	m_aRegisters[16];
+	Yogi::Common::CVariantData	m_aRegisters[16];
 
 private:
 //	private functions  --------------------------------------------------
@@ -114,11 +114,11 @@ public:
 
 
 	virtual VDictionary::Selector
-							LocateEntry( ConstCCharStringRef rName );
+							LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 	virtual VDictionary::Selector
 							LocateEntry( const char* sName );
-	virtual CVariantDataPtr	GetData( VDictionary::Selector nSel );
-	virtual bool			PutData( VDictionary::Selector nSel, CVariantDataPtr pData );
+	virtual Yogi::Common::CVariantDataPtr	GetData( VDictionary::Selector nSel );
+	virtual bool			PutData( VDictionary::Selector nSel, Yogi::Common::CVariantDataPtr pData );
 	virtual bool			IsDataLocked( Selector nSel );
 
 	virtual	bool			PushDictionaryPage( VDictionaryPage* pDict );
@@ -134,7 +134,7 @@ public:
 							GetEnumerator( void );
 	virtual VDictionaryEnumerator*
 							GetPageEnumerator( char cPageID );
-	virtual VVariablePtr	GetVariableIF( void );
+	virtual Yogi::Common::VVariablePtr	GetVariableIF( void );
 
 };
 

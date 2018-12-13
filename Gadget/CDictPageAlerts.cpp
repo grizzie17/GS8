@@ -41,6 +41,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -80,10 +82,10 @@ CDictPageAlerts::CDictPageAlerts
 		(
 		void
 		)
-		: VDictionaryPage(),
-		m_aContent(),
-		m_pEventsPage( 0 ),
-		m_tAlertSelector()
+		: VDictionaryPage()
+		, m_aContent()
+		, m_pEventsPage( 0 )
+		, m_tAlertSelector()
 {
 	m_tAlertSelector.SetName( "E:Alert" );
 }
@@ -199,8 +201,8 @@ bool	CDictPageAlerts::Update
 \+---------------------------------------------------------------------*/
 bool	CDictPageAlerts::Update
 		(
-		CCharDescriptorRef	rKey,
-		CCharDescriptorRef	rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCCharDescriptorRef	rData
 		)
 {
 	bool	bResult = false;
@@ -220,8 +222,8 @@ bool	CDictPageAlerts::Update
 \+---------------------------------------------------------------------*/
 bool	CDictPageAlerts::Update
 		(
-		unsigned long		nSel,
-		CCharDescriptorRef	rData
+		unsigned long			nSel,
+		ConstCCharDescriptorRef	rData
 		)
 {
 	bool		bResult = false;
@@ -230,8 +232,10 @@ bool	CDictPageAlerts::Update
 	{
 		bool	b = false;
 		bool	bActive = p->v;
-		rData.ConvertUppercase();
-		if ( rData == "Y"  ||  rData == "T" )
+		CCharString	sData( rData );
+
+		sData.ConvertUppercase();
+		if ( sData == "Y"  ||  sData == "T" )
 			b = true;
 		if ( bActive != b )
 		{
@@ -268,8 +272,8 @@ bool	CDictPageAlerts::Update
 \+---------------------------------------------------------------------*/
 bool	CDictPageAlerts::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;
@@ -290,8 +294,8 @@ bool	CDictPageAlerts::UpdateByName
 \+---------------------------------------------------------------------*/
 bool	CDictPageAlerts::UpdateEntry
 		(
-		unsigned long	nSel,
-		CVariantDataRef	rData
+		unsigned long			nSel,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool		bResult = false;
@@ -501,13 +505,13 @@ void	CDictPageAlertsEnumerator::Reset
 	m_nIndex = -1;
 }
 
-CVariantData*
+const CVariantData*
 		CDictPageAlertsEnumerator::Current
 		(
 		void
 		)
 {
-	CDictPageAlerts::AlertInfo* p = m_eList.Current();
+	const CDictPageAlerts::AlertInfo* p = m_eList.Current();
 	if ( p )
 	{
 		return &p->v;
@@ -548,7 +552,7 @@ CVariantData
 		void
 		)
 {
-	CVariantData*	p = Current();
+	const CVariantData*	p = Current();
 	return *p;
 }
 

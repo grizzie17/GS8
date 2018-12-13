@@ -47,10 +47,10 @@ namespace Yogi { namespace Gadget {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef class VControlEventMap*			VControlEventMapPtr;
-typedef TPointer<VControlEventMap>		VControlEventMapAutoPtr;
-typedef class VControlEventMap&			VControlEventMapRef;
-typedef const class VControlEventMap&	ConstVControlEventMapRef;
+typedef class VControlEventMap*					VControlEventMapPtr;
+typedef Yogi::Core::TPointer<VControlEventMap>	VControlEventMapAutoPtr;
+typedef class VControlEventMap&					VControlEventMapRef;
+typedef const class VControlEventMap&			ConstVControlEventMapRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -94,7 +94,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TPointer<CKeyEventMap>	m_pKeyEventMap;
+	Yogi::Core::TPointer<CKeyEventMap>	m_pKeyEventMap;
 
 private:
 //	private functions  --------------------------------------------------

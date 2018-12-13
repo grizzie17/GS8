@@ -35,8 +35,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -74,8 +75,8 @@ CEquationConstant::CEquationConstant
 		(
 		void
 		)
-		: VEquation(),
-		m_vData()
+		: VEquation()
+		, m_vData()
 {
 }
 
@@ -88,8 +89,8 @@ CEquationConstant::CEquationConstant
 		(
 		CEquationConstantRef	r
 		)
-		: VEquation( r ),
-		m_vData( r.m_vData )
+		: VEquation( r )
+		, m_vData( r.m_vData )
 {
 }
 

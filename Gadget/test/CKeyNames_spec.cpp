@@ -6,6 +6,7 @@
 
 using namespace igloo;
 
+using namespace Yogi::Core;
 using namespace Yogi::Gadget;
 
 Context(KeyNames_class)

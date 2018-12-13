@@ -40,6 +40,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -79,9 +81,9 @@ CChooseWhen::CChooseWhen
 		(
 		void
 		)
-		: VElement(),
-		m_tValue(),
-		m_aList()
+		: VElement()
+		, m_tValue()
+		, m_aList()
 {
 }
 
@@ -94,9 +96,9 @@ CChooseWhen::CChooseWhen
 		(
 		ConstCChooseWhenRef	r
 		)
-		: VElement( r ),
-		m_tValue(),
-		m_aList()
+		: VElement( r )
+		, m_tValue()
+		, m_aList()
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }

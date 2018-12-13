@@ -39,8 +39,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -78,8 +79,8 @@ CEquationVariableAssign::CEquationVariableAssign
 		(
 		void
 		)
-		: VEquationOperatorUnary(),
-		m_tSelector()
+		: VEquationOperatorUnary()
+		, m_tSelector()
 {
 }
 
@@ -92,8 +93,8 @@ CEquationVariableAssign::CEquationVariableAssign
 		(
 		ConstCEquationVariableAssignRef	r
 		)
-		: VEquationOperatorUnary( r ),
-		m_tSelector( r.m_tSelector )
+		: VEquationOperatorUnary( r )
+		, m_tSelector( r.m_tSelector )
 {
 }
 
@@ -151,7 +152,7 @@ bool	CEquationVariableAssign::SetVariableName
 \+---------------------------------------------------------------------*/
 bool	CEquationVariableAssign::SetVariableName
 		(
-		CCharDescriptorRef rVariableName
+		ConstCCharDescriptorRef rVariableName
 		)
 {
 	m_tSelector.SetName( rVariableName );

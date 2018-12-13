@@ -37,8 +37,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -77,8 +78,8 @@ CDictionarySelector::CDictionarySelector
 		(
 		void
 		)
-		: m_nSelector( 0 ),
-		m_tName()
+		: m_nSelector( 0 )
+		, m_tName()
 {
 }
 
@@ -91,8 +92,8 @@ CDictionarySelector::CDictionarySelector
 		(
 		ConstCDictionarySelectorRef	r
 		)
-		: m_nSelector( 0 ),
-		m_tName( r.m_tName )
+		: m_nSelector( 0 )
+		, m_tName( r.m_tName )
 {
 }
 

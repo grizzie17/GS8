@@ -84,19 +84,22 @@ typedef const class VFactoryComponent&	ConstVFactoryComponentRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VFactoryComponent : public VFactoryLite
+class VFactoryComponent : public Yogi::Common::VFactoryLite
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					VFactoryComponent();
-	virtual			~VFactoryComponent();
+			VFactoryComponent();
+	virtual	~VFactoryComponent();
 
 public:
 //	public types  -------------------------------------------------------
 
 //	public functions  ---------------------------------------------------
 
-	void			SetDictionary( VDictionaryPtr pDict );
+	void	SetDictionary
+			(
+			VDictionaryPtr pDict	//!< [in] pointer to new dictionary object
+			);
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -104,65 +107,67 @@ protected:
 //	protected functions  ------------------------------------------------
 
 	virtual
-	VEquationPtr	MakeEquation
-					(
-					CFactoryEquation::FEquationTargets eTarget,
-					CCharDescriptorRef rString
-					);
+	VEquationPtr
+			MakeEquation
+			(
+			CFactoryEquation::FEquationTargets	eTarget,
+			Yogi::Core::ConstCCharDescriptorRef	rString
+			);
 	virtual
-	VEquationPtr	MakeEquation
-					(
-					CFactoryEquation::FEquationTargets eTarget,
-					const char* s,
-					size_t		n
-					);
-	bool			ConstantEquation( void );
-	char*			EquationErrorString( void );
-	void			SetEquationPanelChild( VPanelChildPtr p );
+	VEquationPtr
+			MakeEquation
+			(
+			CFactoryEquation::FEquationTargets eTarget,
+			const char* s,
+			size_t		n
+			);
+	bool	ConstantEquation( void );
+	char*	EquationErrorString( void );
+	void	SetEquationPanelChild( VPanelChildPtr p );
 
 
-	CActionPtr		ActionMap( XMLIteratorPtr pIt );
-	CTriggerPtr		Trigger( XMLIteratorPtr pIt );
+	CActionPtr		ActionMap( Yogi::Common::XMLIteratorPtr pIt );
+	CTriggerPtr		Trigger( Yogi::Common::XMLIteratorPtr pIt );
 	//CCharStringPtr	KeyEvent( const char* sTag );
-	VEquationPtr	ScriptContainer( XMLIteratorPtr pIt );
-	VEquationPtr	Script( XMLIteratorPtr pIt );
+	VEquationPtr	ScriptContainer( Yogi::Common::XMLIteratorPtr pIt );
+	VEquationPtr	Script( Yogi::Common::XMLIteratorPtr pIt );
 
-	int				KeyName( CCharDescriptorRef rName );
+	int				KeyName( Yogi::Core::ConstCCharDescriptorRef rName );
 
-	CKeyEventMapPtr	KeyEventMap( XMLIteratorPtr pIt );
-	bool			OnKeyEvent( const char* sTag, CKeyEventMap::KeyEventArray* p, XMLIteratorPtr pIt );
-	bool			OnKey( CKeyEventMap::KeyEventArray* p, XMLIteratorPtr pIt );
+	CKeyEventMapPtr	KeyEventMap( Yogi::Common::XMLIteratorPtr pIt );
+	bool			OnKeyEvent( const char* sTag, CKeyEventMap::KeyEventArray* p, Yogi::Common::XMLIteratorPtr pIt );
+	bool			OnKey( CKeyEventMap::KeyEventArray* p, Yogi::Common::XMLIteratorPtr pIt );
 
-	bool			Update( VControlPtr pControl, XMLIteratorPtr pIt );
+	bool			Update( VControlPtr pControl, Yogi::Common::XMLIteratorPtr pIt );
 
 
 	bool	LoadNumberEquation
 			(
 			CResultValuePtr	pRValue,
 			const char*		sAttr,
-			XMLIteratorPtr	pIt
+			Yogi::Common::XMLIteratorPtr	pIt
 			);
 
 	bool	GetAttributeEquation
 			(
 			VEquationPtr*	hEq,
 			const char*		sAttr,
-			XMLIteratorPtr	pIt
+			Yogi::Common::XMLIteratorPtr	pIt
 			);
 
 	bool	LoadXY
 			(
 			VCoordinatePtr	pNode,
-			XMLIteratorPtr	pIt
+			Yogi::Common::XMLIteratorPtr	pIt
 			);
 
-	CPositionPtr	Position( XMLIteratorPtr pIt );
+	CPositionPtr	Position( Yogi::Common::XMLIteratorPtr pIt );
 
 //	protected data  -----------------------------------------------------
 
-	TPointer<CFactoryEquation>	m_pEqFactory;
+	Yogi::Core::TPointer<CFactoryEquation>	m_pEqFactory;
 	bool						m_bHasGVariables;
-	TPointer<CKeyNames>			m_pKeyNames;
+	Yogi::Core::TPointer<CKeyNames>			m_pKeyNames;
 	VPanelChildPtr				m_pPanelChild;
 	VDictionaryPtr				m_pDictionary;
 

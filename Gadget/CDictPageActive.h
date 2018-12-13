@@ -56,6 +56,8 @@
 
 #include "TDictionaryIndexed.h"
 #include "CVariantData.h"
+#include "CCharDescriptor.h"
+#include "CCharString.h"
 #include "CCharStringHash.h"
 #include "UFloat.h"
 
@@ -97,21 +99,21 @@ public:
 	virtual		~VDictPageActiveDatum();
 
 public:
-	virtual CVariantDataPtr	GetData( CDictPageActivePtr pPage );
+	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageActivePtr pPage );
 	virtual bool			UpdateData( CDictPageActivePtr pPage, const char* sXML ) = 0;
-	virtual bool			UpdateData( CDictPageActivePtr pPage, CVariantDataRef rData );
+	virtual bool			UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void			ResetData( CDictPageActivePtr pPage );
 	virtual bool			SetUnits( int nUnits );
 	virtual void			SetReferenced( void );
-	virtual void			SetUnavailable( ConstCCharDescriptorRef r );
-	virtual void			SetReset( ConstCCharDescriptorRef r );
+	virtual void			SetUnavailable( Yogi::Core::ConstCCharDescriptorRef r );
+	virtual void			SetReset( Yogi::Core::ConstCCharDescriptorRef r );
 
 protected:
-	CVariantData			m_tData;
+	Yogi::Common::CVariantData	m_tData;
 	VDictionary::Selector	m_nSelector;
 	bool					m_bReferenced;
-	CCharString				m_sReset;
-	CCharString				m_sUnavailable;
+	Yogi::Core::CCharString	m_sReset;
+	Yogi::Core::CCharString	m_sUnavailable;
 
 };
 
@@ -135,11 +137,11 @@ public:
 //	public functions  ---------------------------------------------------
 
 	bool		AddDatumEntry( const char* sKey, VDictPageActiveDatumPtr pDatum );
-	bool		AddDatumEntry( CCharDescriptorRef rKey, VDictPageActiveDatumPtr pDatum );
+	bool		AddDatumEntry( Yogi::Core::ConstCCharDescriptorRef rKey, VDictPageActiveDatumPtr pDatum );
 
 	bool		BeginUpdate( void );
 	bool		Update( const char* sKey, const char* sData );
-	bool		Update( CCharDescriptorRef rKey, const char* sData );
+	bool		Update( Yogi::Core::ConstCCharDescriptorRef rKey, const char* sData );
 	bool		EndUpdate( void );
 
 	void		SetDirty( void );
@@ -156,7 +158,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< CCharString, VDictPageActiveDatumPtr>	m_aContent;
+	Yogi::Common::TDictionaryIndexed< Yogi::Core::CCharString, VDictPageActiveDatumPtr>	m_aContent;
 	long		m_nLastUpdate;
 
 
@@ -170,14 +172,14 @@ private:
 	//	VDictionaryPage
 public:
 
-	virtual long			LocateEntry( ConstCCharStringRef rName );
-	virtual CVariantDataPtr	GetData( unsigned long nSel );
-	virtual bool			PutData( unsigned long nSel, CVariantDataPtr pData );
+	virtual long			LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual Yogi::Common::CVariantDataPtr	GetData( unsigned long nSel );
+	virtual bool			PutData( unsigned long nSel, Yogi::Common::CVariantDataPtr pData );
 
-	virtual bool			UpdateByName( CCharDescriptorRef rKey, CVariantDataRef rData );
-	virtual bool			UpdateEntry( unsigned long nSel, CVariantDataRef rData );
+	virtual bool			UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
+	virtual bool			UpdateEntry( unsigned long nSel, Yogi::Common::ConstCVariantDataRef rData );
 
-	virtual bool			AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias );
+	virtual bool			AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 
 	virtual VDictionaryEnumerator*
 							GetEnumerator( void );
@@ -199,17 +201,17 @@ public:
 
 	virtual bool			MoveNext( void );
 	virtual void			Reset( void );
-	virtual CVariantData*	Current( void );
+	virtual const Yogi::Common::CVariantData*	Current( void );
 	virtual long			ID( void );
-	virtual CCharString		Key( void );
-	virtual CVariantData	Value( void );
+	virtual Yogi::Core::CCharString		Key( void );
+	virtual Yogi::Common::CVariantData	Value( void );
 	virtual	char			Page( void );
 
 protected:
 
 	CDictPageActive*
 					m_pPage;
-	TDictionaryIndexedEnumerator<CCharString, VDictPageActiveDatumPtr>
+	Yogi::Common::TDictionaryIndexedEnumerator<Yogi::Core::CCharString, VDictPageActiveDatumPtr>
 					m_eList;
 	index_t			m_nIndex;
 
@@ -236,7 +238,7 @@ public:
 
 public:
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
-	virtual bool	UpdateData( CDictPageActivePtr pPage, CVariantDataRef rData );
+	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void	ResetData( CDictPageActivePtr pPage );
 };
 
@@ -271,7 +273,7 @@ protected:
 
 public:
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
-	virtual bool	UpdateData( CDictPageActivePtr pPage, CVariantDataRef rData );
+	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void	ResetData( CDictPageActivePtr pPage );
 };
 
@@ -306,7 +308,7 @@ protected:
 
 public:
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
-	virtual bool	UpdateData( CDictPageActivePtr pPage, CVariantDataRef rData );
+	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void	ResetData( CDictPageActivePtr pPage );
 };
 
@@ -322,7 +324,7 @@ public:
 
 public:
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
-	virtual bool	UpdateData( CDictPageActivePtr pPage, CVariantDataRef rData );
+	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 };
 
 /*---------------------------------------------------------------------+\
@@ -339,13 +341,13 @@ public:
 	bool	AddItem( const char* s );
 
 protected:
-	TArray<CVariantData>	m_aList;
+	Yogi::Core::TArray<Yogi::Common::CVariantData>	m_aList;
 	int						m_nEnumUnits;
 
 public:
-	virtual CVariantDataPtr	GetData( CDictPageActivePtr pPage );
+	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageActivePtr pPage );
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
-	virtual bool	UpdateData( CDictPageActivePtr pPage, CVariantDataRef rData );
+	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void	ResetData( CDictPageActivePtr pPage );
 
 };
@@ -361,7 +363,7 @@ class CDictPageActiveDatumDate : public VDictPageActiveDatum
 public:
 	CDictPageActiveDatumDate() : VDictPageActiveDatum()
 	{
-		m_tData = CDateTime();
+		m_tData = Yogi::Core::CDateTime();
 		m_nDelta = 0;
 		m_bStale = false;
 	};
@@ -372,9 +374,9 @@ protected:
 	bool			m_bStale;
 
 public:
-	virtual CVariantDataPtr	GetData( CDictPageActivePtr pPage );
+	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageActivePtr pPage );
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
-	virtual bool	UpdateData( CDictPageActivePtr pPage, CVariantDataRef rData );
+	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void	ResetData( CDictPageActivePtr pPage );
 };
 

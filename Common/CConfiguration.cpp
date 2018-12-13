@@ -146,8 +146,8 @@ bool	CConfiguration::AddAlias
 \+---------------------------------------------------------------------*/
 bool	CConfiguration::PutData
 		(
-		index_t	nSel,
-		CVariantDataPtr pData
+		index_t				nSel,
+		const CVariantData*	pData
 		)
 {
 	bool	bResult = false;

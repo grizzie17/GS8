@@ -89,7 +89,7 @@ public:
 					operator time_t( void ) const;
 
 	bool			Parse( const char* s );
-	bool			Parse( CCharDescriptorRef r );
+	bool			Parse( ConstCCharDescriptorRef r );
 	bool			Load(
 						int	nYear,
 						int	nMon,
@@ -260,4 +260,3 @@ bool	CDateTime::IsBadTime
 
 
 #endif /* _H_CDateTime */
-

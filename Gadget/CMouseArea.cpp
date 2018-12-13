@@ -50,8 +50,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -89,12 +90,12 @@ CMouseArea::CMouseArea
 		(
 		void
 		)
-		: m_fLeft( 0 ),
-		m_fTop( 0 ),
-		m_fRight( 0 ),
-		m_fBottom( 0 ),
-		m_pVisibility( 0 ),
-		m_pEquation( 0 )
+		: m_fLeft( 0 )
+		, m_fTop( 0 )
+		, m_fRight( 0 )
+		, m_fBottom( 0 )
+		, m_pVisibility( 0 )
+		, m_pEquation( 0 )
 {
 }
 
@@ -107,12 +108,12 @@ CMouseArea::CMouseArea
 		(
 		ConstCMouseAreaRef	r
 		)
-		: m_fLeft( r.m_fLeft ),
-		m_fTop( r.m_fTop ),
-		m_fRight( r.m_fRight ),
-		m_fBottom( r.m_fBottom ),
-		m_pVisibility( r.m_pVisibility ),
-		m_pEquation( r.m_pEquation )
+		: m_fLeft( r.m_fLeft )
+		, m_fTop( r.m_fTop )
+		, m_fRight( r.m_fRight )
+		, m_fBottom( r.m_fBottom )
+		, m_pVisibility( r.m_pVisibility )
+		, m_pEquation( r.m_pEquation )
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }
@@ -221,7 +222,7 @@ void	CMouseArea::SetEquation
 \+---------------------------------------------------------------------*/
 void	CMouseArea::SetEvent
 		(
-		CCharDescriptorRef	rEvent
+		ConstCCharDescriptorRef	rEvent
 		)
 {
 	CEquationConstantPtr		pConst = new CEquationConstant;

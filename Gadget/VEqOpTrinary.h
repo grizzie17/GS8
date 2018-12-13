@@ -53,9 +53,9 @@ class VEquationOperatorTrinary : public VEquation
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					VEquationOperatorTrinary();
-					VEquationOperatorTrinary( VEquationOperatorTrinaryRef r );	// copy constructor
-	virtual			~VEquationOperatorTrinary();
+			VEquationOperatorTrinary();
+			VEquationOperatorTrinary( VEquationOperatorTrinaryRef r );	// copy constructor
+	virtual	~VEquationOperatorTrinary();
 
 public:
 //	public types  -------------------------------------------------------

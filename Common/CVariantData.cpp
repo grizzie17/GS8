@@ -78,6 +78,7 @@
 
 #include "CVariantData.h"
 
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -94,7 +95,7 @@ namespace Yogi { namespace Common {
 |	Private Global Variables											|
 |																		|
 \+---------------------------------------------------------------------*/
-Yogi::Core::CCharDescriptor	CVariantData::g_tCharDescriptor;
+CCharDescriptor	CVariantData::g_tCharDescriptor;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Public Global Variables												|
@@ -122,9 +123,9 @@ CVariantData::CVariantData
 		(
 		void
 		)
-		: m_eType( T_UNDEFINED ),
-		m_tUnits( 0 ),
-		m_pString( 0 )
+		: m_eType( T_UNDEFINED )
+		, m_tUnits( 0 )
+		, m_pString( 0 )
 {
 }
 
@@ -137,9 +138,9 @@ CVariantData::CVariantData
 		(
 		ConstCVariantDataRef	r
 		)
-		: m_eType( T_UNDEFINED ),
-		m_tUnits( 0 ),
-		m_pString( 0 )
+		: m_eType( T_UNDEFINED )
+		, m_tUnits( 0 )
+		, m_pString( 0 )
 {
 	LoadCopy( r );
 }
@@ -154,9 +155,9 @@ CVariantData::CVariantData
 		(
 		const char *s
 		)
-		: m_eType( T_UNDEFINED ),
-		m_tUnits( 0 ),
-		m_pString( 0 )
+		: m_eType( T_UNDEFINED )
+		, m_tUnits( 0 )
+		, m_pString( 0 )
 {
 	LoadCharString( s );
 }
@@ -171,9 +172,9 @@ CVariantData::CVariantData
 		(
 		GFLOAT	f
 		)
-		: m_eType( T_FLOAT ),
-		m_tUnits( 0 ),
-		m_fData( GXFLOAT_CAST(f) )
+		: m_eType( T_FLOAT )
+		, m_tUnits( 0 )
+		, m_fData( GXFLOAT_CAST(f) )
 {
 }
 
@@ -186,9 +187,9 @@ CVariantData::CVariantData
 		(
 		double	f
 		)
-		: m_eType( T_FLOAT ),
-		m_tUnits( 0 ),
-		m_fData( GXFLOAT_CAST(GFLOAT(f)) )
+		: m_eType( T_FLOAT )
+		, m_tUnits( 0 )
+		, m_fData( GXFLOAT_CAST(GFLOAT(f)) )
 {
 }
 
@@ -201,9 +202,9 @@ CVariantData::CVariantData
 		(
 		long	i
 		)
-		: m_eType( T_INTEGER ),
-		m_tUnits( 0 ),
-		m_nData( i )
+		: m_eType( T_INTEGER )
+		, m_tUnits( 0 )
+		, m_nData( i )
 {
 }
 
@@ -216,9 +217,9 @@ CVariantData::CVariantData
 		(
 		Yogi::Core::ConstCColorRef	r
 		)
-		: m_eType( T_COLOR ),
-		m_tUnits( 0 ),
-		m_tColor( r )
+		: m_eType( T_COLOR )
+		, m_tUnits( 0 )
+		, m_tColor( r )
 {
 }
 
@@ -231,9 +232,9 @@ CVariantData::CVariantData
 		(
 		bool	b
 		)
-		: m_eType( T_BOOL ),
-		m_tUnits( 0 ),
-		m_bData( b )
+		: m_eType( T_BOOL )
+		, m_tUnits( 0 )
+		, m_bData( b )
 {
 }
 
@@ -247,9 +248,9 @@ CVariantData::CVariantData
 		(
 		Yogi::Core::ConstCDateTimeRef	r
 		)
-		: m_eType( T_DATETIME ),
-		m_tUnits( 0 ),
-		m_tTime( r.ToTime_t() )
+		: m_eType( T_DATETIME )
+		, m_tUnits( 0 )
+		, m_tTime( r.ToTime_t() )
 {
 }
 
@@ -263,9 +264,9 @@ CVariantData::CVariantData
 		(
 		Yogi::Core::ConstCCharDescriptorRef r
 		)
-		: m_eType( T_UNDEFINED ),
-		m_tUnits( 0 ),
-		m_pString( 0 )
+		: m_eType( T_UNDEFINED )
+		, m_tUnits( 0 )
+		, m_pString( 0 )
 {
 	LoadCharDescriptor( r.Pointer(), r.Length() );
 }
@@ -475,13 +476,13 @@ CVariantDataRef
  * operator bool -
 
 \+---------------------------------------------------------------------*/
-// CVariantData::operator bool
-// 		(
-// 		void
-// 		)
-// {
-// 	return GetValueBool();
-// }
+CVariantData::operator bool
+		(
+		void
+		) const
+{
+	return GetValueBool();
+}
 
 
 /*---------------------------------------------------------------------+\
@@ -489,26 +490,26 @@ CVariantDataRef
  * operator long -
 
 \+---------------------------------------------------------------------*/
-// CVariantData::operator long
-// 		(
-// 		void
-// 		)
-// {
-// 	return GetValueInteger();
-// }
+CVariantData::operator long
+		(
+		void
+		) const
+{
+	return GetValueInteger();
+}
 
 /*---------------------------------------------------------------------+\
 
  * operator float -
 
 \+---------------------------------------------------------------------*/
-// CVariantData::operator GFLOAT
-// 		(
-// 		void
-// 		)
-// {
-// 	return GetValueFloat();
-// }
+CVariantData::operator GFLOAT
+		(
+		void
+		) const
+{
+	return GetValueFloat();
+}
 
 /*---------------------------------------------------------------------+\
 
@@ -543,13 +544,13 @@ CVariantDataRef
  * operator CCharString -
 
 \+---------------------------------------------------------------------*/
-// CVariantData::operator Yogi::Core::CCharString
-// 		(
-// 		void
-// 		)
-// {
-// 	return GetValueCCharString();
-// }
+CVariantData::operator Yogi::Core::CCharString
+		(
+		void
+		) const
+{
+	return GetValueCCharString();
+}
 
 
 
@@ -558,31 +559,31 @@ CVariantDataRef
  * operator CCharDescriptor -
 
 \+---------------------------------------------------------------------*/
-// CVariantData::operator Yogi::Core::CCharDescriptor
-// 		(
-// 		void
-// 		)
-// {
-// 	if ( T_STRING == m_eType )
-// 	{
-// 		if ( m_pString )
-// 			return Yogi::Core::CCharDescriptor( m_pString->Pointer(), m_pString->Length() );
-// 		else
-// 			return Yogi::Core::CCharDescriptor();
-// 	}
-// 	else if ( T_PACKED_CHARACTER == m_eType )
-// 	{
-// 		size_t	n = ::strlen( m_cData );
-// 		if ( 0 < n )
-// 			return Yogi::Core::CCharDescriptor( m_cData, n );
-// 		else
-// 			return Yogi::Core::CCharDescriptor();
-// 	}
-// 	else
-// 	{
-// 		return Yogi::Core::CCharDescriptor();
-// 	}
-// }
+CVariantData::operator Yogi::Core::CCharDescriptor
+		(
+		void
+		) const
+{
+	if ( T_STRING == m_eType )
+	{
+		if ( m_pString )
+			return Yogi::Core::CCharDescriptor( m_pString->Pointer(), m_pString->Length() );
+		else
+			return Yogi::Core::CCharDescriptor();
+	}
+	else if ( T_PACKED_CHARACTER == m_eType )
+	{
+		size_t	n = ::strlen( m_cData );
+		if ( 0 < n )
+			return Yogi::Core::CCharDescriptor( m_cData, n );
+		else
+			return Yogi::Core::CCharDescriptor();
+	}
+	else
+	{
+		return Yogi::Core::CCharDescriptor();
+	}
+}
 
 
 /*---------------------------------------------------------------------+\
@@ -649,15 +650,13 @@ CVariantDataRef
  * operator CColor -
 
 \+---------------------------------------------------------------------*/
-// CVariantData::operator Yogi::Core::CColor
-// 		(
-// 		void
-// 		)
-// {
-// 	Yogi::Core::CColor	c;
-// 	c = m_tColor;
-// 	return c;
-// }
+CVariantData::operator Yogi::Core::CColor
+		(
+		void
+		) const
+{
+	return GetValueColor();
+}
 
 
 /*---------------------------------------------------------------------+\
@@ -665,13 +664,13 @@ CVariantDataRef
  * operator CDateTime -
 
 \+---------------------------------------------------------------------*/
-// CVariantData::operator Yogi::Core::CDateTime
-// 		(
-// 		void
-// 		)
-// {
-// 	return GetValueDateTime();
-// }
+CVariantData::operator Yogi::Core::CDateTime
+		(
+		void
+		) const
+{
+	return GetValueDateTime();
+}
 
 
 /*---------------------------------------------------------------------+\
@@ -913,6 +912,8 @@ const char*
 			return m_pString->Pointer();
 		else
 			return 0;
+	case T_PACKED_CHARACTER:
+		return m_cData;
 	default:
 		return 0;
 	}

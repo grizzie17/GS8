@@ -77,7 +77,7 @@ private:
 //============================== Overrides ==============================
 	//	VDictionaryPage
 public:
-	virtual CVariantDataPtr	GetData( unsigned long nSel );
+	virtual Yogi::Common::CVariantDataPtr	GetData( unsigned long nSel );
 
 };
 

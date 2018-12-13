@@ -13,6 +13,7 @@
 #		define	DECLSPECEXPORT
 #	endif
 #endif
+#define SHLIB_EXPORT	DECLSPECEXPORT
 
 #ifndef DECLSPECIMPORT
 #	if defined( _WIN32 )

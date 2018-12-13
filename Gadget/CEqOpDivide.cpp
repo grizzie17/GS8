@@ -16,6 +16,8 @@
 |
 |	Revision History:					(most recent entries first)
 |
+	11-Dec-2018			J.Griswold
+		Migrate to correctly using namespaces.
 	09-Dec-2009			C.Cason			(Reviewed by:R.Hosea)
 		Changed GFLOAT variable declaration and assignment call
 	07-Dec-2009			J.Griswold		(Reviewed by: M.Rose)
@@ -44,8 +46,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|

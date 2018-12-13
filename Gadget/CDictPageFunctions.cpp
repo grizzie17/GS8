@@ -38,8 +38,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -78,8 +79,8 @@ CDictPageFunctions::CDictPageFunctions
 		(
 		void
 		)
-		: CDictPageVariant(),
-		m_pFunctions( 0 )
+		: CDictPageVariant()
+		, m_pFunctions( 0 )
 {
 }
 
@@ -143,8 +144,8 @@ void	CDictPageFunctions::SetFunctionProcessor
 \+---------------------------------------------------------------------*/
 bool	CDictPageFunctions::PutData
 		(
-		unsigned long	nSel,
-		CVariantDataPtr pData
+		unsigned long		nSel,
+		const CVariantData*	pData
 		)
 {
 	CVariantDataPtr	p = m_aContent.ItemAtIndex( nSel );
@@ -176,8 +177,8 @@ bool	CDictPageFunctions::PutData
 \+---------------------------------------------------------------------*/
 bool	CDictPageFunctions::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;

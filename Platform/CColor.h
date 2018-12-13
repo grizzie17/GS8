@@ -285,9 +285,9 @@ public:
 	bool		operator!=( const COLORDATA& r ) const;
 
 	static CColor	ColorFromName( const char* sName );
-	static CColor	ColorFromName( CCharDescriptorRef rName );
+	static CColor	ColorFromName( ConstCCharDescriptorRef rName );
 	static CColor	ColorFromNameAlpha( const char* sName, unsigned int alpha );
-	static CColor	ColorFromNameAlpha( CCharDescriptorRef rName, unsigned int alpha );
+	static CColor	ColorFromNameAlpha( ConstCCharDescriptorRef rName, unsigned int alpha );
 	static CColor	BackgroundColor( void );
 	static CColor	ErrorColor( void );
 
@@ -572,4 +572,3 @@ unsigned int
 
 
 #endif /* _H_CColor */
-

@@ -82,7 +82,7 @@ public:
 			PutData
 			(
 			index_t nSel,
-			CVariantDataPtr pData
+			const Yogi::Common::CVariantData* pData
 			);
 
 	virtual bool

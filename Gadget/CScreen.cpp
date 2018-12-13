@@ -41,6 +41,9 @@
 #include "stdafx.h"
 #include "CScreen.h"
 #include "LogFile.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -84,12 +87,12 @@ CScreen::CScreen
 		(
 		void
 		)
-		: VControlEventMap(),
-		m_vActivePanel(),
-		m_pActivePanel( 0 ),
-		m_tPanelList(),
-		m_nWidth( 0 ),
-		m_nHeight( 0 )
+		: VControlEventMap()
+		, m_vActivePanel()
+		, m_pActivePanel( 0 )
+		, m_tPanelList()
+		, m_nWidth( 0 )
+		, m_nHeight( 0 )
 {
 	m_tPanelList.SetHashTableSize( 20 );
 }

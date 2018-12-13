@@ -91,7 +91,7 @@ protected:
 
 	VDictionaryPagePtr		m_pLocalData;
 
-	TArray<VRenderablePtr>	m_aList;
+	Yogi::Core::TArray<VRenderablePtr>	m_aList;
 
 	//VActionPtr			m_pAction;	// declared in VControl
 	CMouseAreaListPtr		m_pMouseAreaList;
@@ -107,7 +107,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 	virtual int		GetChildContext( void );
 
 	//	VControl

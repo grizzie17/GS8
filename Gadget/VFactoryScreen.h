@@ -16,6 +16,8 @@
 |
 |	Revision History:					(most recent entries first)
 |
+	11-Dec-2018			J.Griswold
+		Migrate to correctly using namespaces.
 	05-Sep-2009			J.Griswold		(Reviewed by: M.Rose)
 		Change class hierarchy to support XMLLite parser
 	19-Jul-2009			J.Griswold

@@ -67,9 +67,9 @@ public:
 //	public functions  ---------------------------------------------------
 
 	unsigned char	GetKey( const char* sName );
-	unsigned char	GetKey( CCharDescriptorRef rName);
+	unsigned char	GetKey( Yogi::Core::ConstCCharDescriptorRef rName);
 
-	CCharString		GetName(unsigned int n);
+	Yogi::Core::CCharString		GetName(unsigned int n);
 
 
 protected:
@@ -80,7 +80,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 
-	THashTable< CCharString, unsigned int >	m_tNameMap;
+	Yogi::Common::THashTable< Yogi::Core::CCharString, unsigned int >	m_tNameMap;
 
 private:
 //	private functions  --------------------------------------------------

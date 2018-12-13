@@ -65,7 +65,7 @@ public:
 
 	CEquationConstantRef	operator=( CEquationConstantRef r );		// assignment
 
-	void			SetValue( ConstCVariantDataRef r );
+	void			SetValue( Yogi::Common::ConstCVariantDataRef r );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -74,7 +74,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CVariantData	m_vData;
+	Yogi::Common::CVariantData	m_vData;
 
 private:
 //	private functions  --------------------------------------------------
@@ -87,8 +87,8 @@ private:
 	//	VEquation-1
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual VEquationPtr				Clone( void );
 
 };
 

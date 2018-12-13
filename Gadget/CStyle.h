@@ -73,24 +73,24 @@ public:
 
 	CStyleRef	operator=( ConstCStyleRef r );		// assignment
 
-	void		SetLineColor(ConstCColorRef r);
+	void		SetLineColor(Yogi::Core::ConstCColorRef r);
 	void		SetLineColor( VEquationPtr p );
 
-	void		SetFillColor(ConstCColorRef r);
+	void		SetFillColor(Yogi::Core::ConstCColorRef r);
 	void		SetFillColor( VEquationPtr p );
 
-	void		SetHaloColor(ConstCColorRef r);
+	void		SetHaloColor(Yogi::Core::ConstCColorRef r);
 	void		SetHaloColor( VEquationPtr p );
 
-	void		SetNightColor(VDraw::ENightColorModes eMode);
+	void		SetNightColor(Yogi::Common::VDraw::ENightColorModes eMode);
 
 	void		SetLineWidth( float f );
 	void		SetLineWidth( VEquationPtr p );
 
-	CColor		GetLineColor(void);
+	Yogi::Core::CColor		GetLineColor(void);
 	GFLOAT		GetLineWidth( void );
-	CColor		GetFillColor(void);
-	CColor		GetHaloColor(void);
+	Yogi::Core::CColor		GetFillColor(void);
+	Yogi::Core::CColor		GetHaloColor(void);
 
 	CResultValuePtr	LineColor( void );
 	CResultValuePtr	LineWidth( void );

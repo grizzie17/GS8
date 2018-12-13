@@ -72,7 +72,7 @@ public:
 	CEquationVariableAssignRef	operator=( ConstCEquationVariableAssignRef r );		// assignment
 
 	bool			SetVariableName( const char* sVariableName );
-	bool			SetVariableName( CCharDescriptorRef rVariableName );
+	bool			SetVariableName( Yogi::Core::ConstCCharDescriptorRef rVariableName );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -93,7 +93,7 @@ private:
 //============================== Overrides ==============================
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
 	virtual VEquationPtr	Clone( void );
 
 };

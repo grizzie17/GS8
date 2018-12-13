@@ -83,8 +83,8 @@ private:
 //============================== Overrides ==============================
 	//	VDictionaryPage
 public:
-	virtual bool		PutData( unsigned long nSel, CVariantDataPtr pData );
-	virtual bool		IsDataLocked( unsigned long nSel );
+	virtual bool	PutData( unsigned long nSel, const Yogi::Common::CVariantData* pData );
+	virtual bool	IsDataLocked( unsigned long nSel );
 
 };
 

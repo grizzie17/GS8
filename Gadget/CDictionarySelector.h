@@ -83,7 +83,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	VDictionary::Selector				m_nSelector;
+	VDictionary::Selector	m_nSelector;
 	Yogi::Core::CCharString	m_tName;
 
 private:

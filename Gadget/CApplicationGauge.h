@@ -18,6 +18,8 @@
 |
 |	Revision History:					(most recent entries first)
 |
+	11-Dec-2018			J.Griswold
+		Migrate to correctly using namespaces.
 	23-Aug-2010			J.Griswold		(Reviewed by: xxxx)
 		Add support for the new SetPosition()
 	03-Aug-2010			J.Griswold		(Reviewed by: xxxx)
@@ -306,8 +308,8 @@ protected:
 	VDictionaryPagePtr		m_pDictPageInput;			// I - Page
 	VDictionaryPagePtr		m_pDictPageNotify;			// N - Notifications
 
-	Yogi::Core::THashTable<Yogi::Core::CCharString, Yogi::Common::ISupportsPtr>	m_tCOMObjects;
-	Yogi::Core::THashTable<Yogi::Core::CCharString, Yogi::Common::VObjectPtr>	m_tObjects;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::ISupportsPtr>	m_tCOMObjects;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::VObjectPtr>	m_tObjects;
 
 	Yogi::Common::ISupportsPtr	m_pFactoryExternalXML;
 

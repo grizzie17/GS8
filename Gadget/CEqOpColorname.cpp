@@ -35,8 +35,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -152,7 +153,7 @@ CVariantData
 	}
 	else if ( CVariantData::T_INTEGER == t )
 	{
-		unsigned long	n = vOperand;
+		unsigned long	n = vOperand.GetValueUnsignedInteger();
 		unsigned long	r;
 		unsigned long	g;
 		unsigned long	b;

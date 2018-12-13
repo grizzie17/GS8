@@ -72,7 +72,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CUnitsOfMeasure	m_unitDegree;
+	Yogi::Common::CUnitsOfMeasure	m_unitDegree;
 
 private:
 //	private functions  --------------------------------------------------
@@ -84,8 +84,8 @@ private:
 	//	root
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual VEquationPtr				Clone( void );
 
 	//	VEquationOperatorBinary
 

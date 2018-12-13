@@ -16,6 +16,8 @@
 
 using namespace igloo;
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 using namespace Yogi::Gadget;
 
 class MockDictionary : public VDictionary

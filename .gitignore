@@ -10,6 +10,7 @@ Release*
 #patches
 Makefile
 makefile
+configure
 ipch
 .codelite
 .deps
@@ -179,9 +180,10 @@ ltmain.sh
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/c_cpp_properties.json
 .history
 
 
 # End of https://www.gitignore.io/api/visualstudiocode
-Platform/config.h.in~
+config.h.in~
 libtool

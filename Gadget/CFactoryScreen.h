@@ -15,6 +15,8 @@
 |
 |	Revision History:					(most recent entries first)
 |
+	11-Dec-2018			J.Griswold
+		Migrate to correctly using namespaces.
 	05-Sep-2009			J.Griswold		(Reviewed by: M.Rose)
 		Major overhaul to support XMLLite parser
 	01-Jun-2009			J.Griswold
@@ -91,7 +93,7 @@ protected:
 
 
 	//VEquationPtr	MakeEquation( CFactoryEquation::FEquationTargets eTarget, const char* s );
-	CPanelPtr		MakePanel( CCharDescriptorRef rName );
+	CPanelPtr		MakePanel( Yogi::Core::CCharDescriptorRef rName );
 
 	//bool			ConstantEquation( void );
 
@@ -100,9 +102,9 @@ protected:
 	//bool			LoadXY( VCoordinatePtr p );
 	//bool			LoadRadius( CResultValuePtr p );
 
-	CScreenPtr		Screen( XMLIteratorPtr pIt );
+	CScreenPtr		Screen( Yogi::Common::XMLIteratorPtr pIt );
 
-	CPanelPtr		PanelInstance( XMLIteratorPtr pIt );
+	CPanelPtr		PanelInstance( Yogi::Common::XMLIteratorPtr pIt );
 
 	//CActionPtr		ActionMap( const char* sTagname );
 	//CTriggerPtr		Trigger( void );

@@ -44,6 +44,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -226,11 +228,11 @@ unsigned char
 unsigned char
 		CKeyNames::GetKey
 		(
-		CCharDescriptorRef	rName
+		ConstCCharDescriptorRef	rName
 		)
 {
 	unsigned int	i = 0;
-	unsigned int*	p;
+	const unsigned int*	p;
 	CCharString		tName;
 
 	tName = rName;

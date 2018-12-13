@@ -61,8 +61,8 @@ public:
 public:
 	virtual bool			BeginCalculate( CDictPageSystemPtr pPage );
 	virtual bool			EndCalculate( CDictPageSystemPtr pPage );
-	virtual CVariantDataPtr	GetData( CDictPageSystemPtr pPage );
-	virtual bool			PutData( CDictPageSystemPtr pPage, CVariantDataPtr pData );
+	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageSystemPtr pPage );
+	virtual bool			PutData( CDictPageSystemPtr pPage, Yogi::Common::CVariantDataPtr pData );
 
 };
 
@@ -74,7 +74,7 @@ public:
 	virtual	~CDictTime_Milli(){}
 
 public:
-	virtual CVariantDataPtr	GetData( CDictPageSystemPtr pPage );
+	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageSystemPtr pPage );
 };
 
 
@@ -86,7 +86,7 @@ public:
 	virtual	~CDictTime_Absolute_Time(){}
 
 public:
-	virtual CVariantDataPtr	GetData( CDictPageSystemPtr pPage );
+	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageSystemPtr pPage );
 };
 
 

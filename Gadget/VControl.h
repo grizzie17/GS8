@@ -73,7 +73,7 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	CCharStringPtr	Name( void );
+	Yogi::Core::CCharStringPtr	Name( void );
 	bool			SetUpdate( VEquationPtr p );
 	bool			SetUpdateFrequency( int n );
 	VActionPtr		Action( void );
@@ -97,11 +97,11 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TPointer<CCharString>	m_pName;
-	TPointer<VEquation>		m_pUpdate;		// always called for Calculate
+	Yogi::Core::TPointer<Yogi::Core::CCharString>	m_pName;
+	Yogi::Core::TPointer<VEquation>		m_pUpdate;		// always called for Calculate
 	int						m_nFrequency;	// update frequency
 	long					m_nNextUpdate;	// the millisecond timing of the next update
-	TPointer<VAction>		m_pAction;		// action object
+	Yogi::Core::TPointer<VAction>		m_pAction;		// action object
 	int						m_nMouseAreas;
 
 private:

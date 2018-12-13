@@ -86,7 +86,7 @@ public:
 	void		SetVisibility( CVisiblePtr pVis );
 	void		SetEquation( VEquationPtr pEq );
 	void		SetEvent( const char* sEvent );
-	void		SetEvent( CCharDescriptorRef rEvent );
+	void		SetEvent( Yogi::Core::ConstCCharDescriptorRef rEvent );
 
 	void		SetClickType( CMouseLocate::E_TYPE t );
 
@@ -108,8 +108,8 @@ protected:
 	CMouseLocate::E_TYPE
 						m_eClickType;
 
-	TPointer<CVisible>	m_pVisibility;
-	TPointer<VEquation>	m_pEquation;
+	Yogi::Core::TPointer<CVisible>	m_pVisibility;
+	Yogi::Core::TPointer<VEquation>	m_pEquation;
 
 
 private:

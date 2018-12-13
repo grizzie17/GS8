@@ -807,7 +807,7 @@ CColor	CColor::ColorFromNameAlpha
 //static
 CColor	CColor::ColorFromName
 		(
-		CCharDescriptorRef	rName
+		ConstCCharDescriptorRef	rName
 		)
 {
 	int			nTop = sizeof(g_aColorNames) / sizeof(ColorName) - 1;
@@ -868,8 +868,8 @@ CColor	CColor::ColorFromName
 //static
 CColor	CColor::ColorFromNameAlpha
 		(
-		CCharDescriptorRef	rName,
-		unsigned int		alpha
+		ConstCCharDescriptorRef	rName,
+		unsigned int			alpha
 		)
 {
 	CColor	c = ColorFromName( rName );
@@ -1244,4 +1244,3 @@ const ColorName*
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

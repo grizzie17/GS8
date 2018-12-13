@@ -86,7 +86,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	CChooseWhenPtr			m_pWhen;		// current case
-	TArray<CChooseWhenPtr>	m_aList;
+	Yogi::Core::TArray<CChooseWhenPtr>	m_aList;
 	CChooseWhenPtr			m_pOtherwise;
 
 
@@ -103,7 +103,7 @@ private:
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render(VDictionaryPtr pDict, VDrawPtr pDraw);
+	virtual bool	Render(VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw);
 	virtual int		GetChildContext( void );
 
 };

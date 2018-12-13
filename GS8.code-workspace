@@ -55,7 +55,12 @@
 		// 	"**/missing": true
 		// },
 		"svn.enabled": false,
-		"uncrustify.graphicalConfig": false
+		"uncrustify.graphicalConfig": false,
+		"doxdocgen.c.commentPrefix": "//! ",
+		"doxdocgen.c.firstLine": "///",
+		"doxdocgen.c.lastLine": "//",
+		"doxdocgen.c.triggerSequence": "///",
+		"doxdocgen.generic.briefTemplate": "{text}"
 
 	}
 }

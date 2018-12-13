@@ -45,7 +45,7 @@
 namespace Yogi { namespace Gadget {
 
 typedef class CAxis*		CAxisPtr;
-typedef TPointer<CAxis>		CAxisAutoPtr;
+typedef Yogi::Core::TPointer<CAxis>		CAxisAutoPtr;
 typedef class CAxis&		CAxisRef;
 typedef const class CAxis&	ConstCAxisRef;
 /*---------------------------------------------------------------------+\
@@ -94,7 +94,7 @@ private:
 	//	VRenderable
 public:
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 	//	VOwnership
 

@@ -71,8 +71,8 @@ public:
 	CDictPageSelectorRef	operator=( ConstCDictPageSelectorRef r );		// assignment
 
 	void			SetName( const char* sName );
-	void			SetName( ConstCCharDescriptorRef rName );
-	CCharStringPtr 	Name( void );
+	void			SetName( Yogi::Core::ConstCCharDescriptorRef rName );
+	Yogi::Core::CCharStringPtr 	Name( void );
 
 	unsigned long	GetSelector( VDictionaryPagePtr pDict );
 
@@ -84,7 +84,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	unsigned long	m_nSelector;
-	CCharString		m_tName;
+	Yogi::Core::CCharString		m_tName;
 
 private:
 //	private functions  --------------------------------------------------

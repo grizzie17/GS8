@@ -80,8 +80,8 @@ public:
 //	public functions  ---------------------------------------------------
 
 	virtual bool	Update( const char* sName, const char* sData );
-	virtual bool	Update( CCharDescriptorRef rKey, CCharDescriptorRef rData );
-	virtual bool	Update( unsigned long nSel, CCharDescriptorRef rData );
+	virtual bool	Update( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rData );
+	virtual bool	Update( unsigned long nSel, Yogi::Core::ConstCCharDescriptorRef rData );
 
 	void			ResetAllEntries( void );
 
@@ -92,8 +92,8 @@ protected:
 
 	typedef struct AlertInfo
 	{
-		CDictionarySelector	sel;
-		CVariantData		v;
+		CDictionarySelector			sel;
+		Yogi::Common::CVariantData	v;
 
 		AlertInfo( void ) : sel(), v() {}
 		AlertInfo( long n ) : sel(), v( n ) {}
@@ -103,7 +103,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< CCharString, AlertInfo>	m_aContent;
+	Yogi::Common::TDictionaryIndexed< Yogi::Core::CCharString, AlertInfo>	m_aContent;
 	CDictPageEventsPtr		m_pEventsPage;
 
 	CDictionarySelector		m_tAlertSelector;
@@ -117,20 +117,20 @@ private:
 	//	VDictionaryPage
 public:
 	// returns negative for error
-	virtual long	LocateEntry( ConstCCharStringRef rName );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 
-	virtual CVariantDataPtr
+	virtual Yogi::Common::CVariantDataPtr
 					GetData( unsigned long nSel );
-	virtual bool	PutData( unsigned long nSel, CVariantDataPtr pData );
+	virtual bool	PutData( unsigned long nSel, Yogi::Common::CVariantDataPtr pData );
 
-	virtual bool	AddEntry( ConstCCharDescriptorRef rKey, ConstCVariantDataRef rData );
+	virtual bool	AddEntry( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
 	//virtual bool	AddEntry( const char* sName, const char* sData );
-	virtual bool	AddEntry( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rData );
+	virtual bool	AddEntry( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rData );
 
-	virtual bool	UpdateByName( CCharDescriptorRef rKey, CVariantDataRef rData );
-	virtual bool	UpdateEntry( unsigned long nSel, CVariantDataRef rData );
+	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
+	virtual bool	UpdateEntry( unsigned long nSel, Yogi::Common::ConstCVariantDataRef rData );
 
-	virtual bool	AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias );
+	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 
 	virtual VDictionaryEnumerator*
 					GetEnumerator( void );
@@ -150,19 +150,19 @@ public:
 
 public:
 
-	virtual bool			MoveNext( void );
-	virtual void			Reset( void );
-	virtual CVariantData*	Current( void );
-	virtual long			ID( void );
-	virtual CCharString		Key( void );
-	virtual CVariantData	Value( void );
-	virtual	char			Page( void );
+	virtual bool						MoveNext( void );
+	virtual void						Reset( void );
+	virtual const Yogi::Common::CVariantData*	Current( void );
+	virtual long						ID( void );
+	virtual Yogi::Core::CCharString		Key( void );
+	virtual Yogi::Common::CVariantData	Value( void );
+	virtual	char						Page( void );
 
 protected:
 
 	CDictPageAlerts*
 					m_pPage;
-	TDictionaryIndexedEnumerator<CCharString, CDictPageAlerts::AlertInfo>
+	Yogi::Common::TDictionaryIndexedEnumerator<Yogi::Core::CCharString, CDictPageAlerts::AlertInfo>
 					m_eList;
 	index_t			m_nIndex;
 

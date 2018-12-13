@@ -3,10 +3,11 @@
 #include "IXID.h"
 
 
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 
-const IXID	IXID_IMouseTransform("BCG::Gadget::IMouseTransform");
+const IXID	IXID_IMouseTransform("Yogi::Gadget::IMouseTransform");
 
 
 }}

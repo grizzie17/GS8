@@ -43,6 +43,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -78,8 +80,8 @@ CDictPageSystemEnumerator::CDictPageSystemEnumerator
 		(
 		CDictPageSystem*	p
 		)
-		: m_pPage( p ),
-		m_nIndex( -1 )
+		: m_pPage( p )
+		, m_nIndex( -1 )
 {
 }
 
@@ -123,13 +125,13 @@ void	CDictPageSystemEnumerator::Reset
 	m_nIndex = -1;
 }
 
-CVariantData*
+const CVariantData*
 		CDictPageSystemEnumerator::Current
 		(
 		void
 		)
 {
-	VDictPageHandlerPtr* h = m_eList.Current();
+	const VDictPageHandlerPtr* h = m_eList.Current();
 	if ( h )
 	{
 		VDictPageHandlerPtr	p = *h;
@@ -173,7 +175,7 @@ CVariantData
 		void
 		)
 {
-	CVariantData*	p = Current();
+	const CVariantData*	p = Current();
 	if ( p )
 		return *p;
 	else
@@ -202,8 +204,8 @@ CDictPageSystem::CDictPageSystem
 		(
 		void
 		)
-		: VDictionaryPage(),
-		m_aContent()
+		: VDictionaryPage()
+		, m_aContent()
 {
 }
 
@@ -406,8 +408,8 @@ bool	CDictPageSystem::PutData
 \+---------------------------------------------------------------------*/
 bool	CDictPageSystem::UpdateByName
 		(
-		CCharDescriptorRef	rKey,
-		CVariantDataRef		rData
+		ConstCCharDescriptorRef	rKey,
+		ConstCVariantDataRef	rData
 		)
 {
 	bool	bResult = false;

@@ -54,10 +54,10 @@ namespace Yogi { namespace Gadget {
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CFactoryExternalXML : public VSupports,
+class CFactoryExternalXML : public Yogi::Common::VSupports,
 							implements_ IApplicationUser,
-							implements_ IExternalXML,
-							implements_ IExternalXMLServer
+							implements_ Yogi::Common::IExternalXML,
+							implements_ Yogi::Common::IExternalXMLServer
 {
 //	class lifecycle  ----------------------------------------------------
 
@@ -82,21 +82,21 @@ public:
 	virtual
 	bool	Initialize
 			(
-			IExternalXMLServerPtr p
+			Yogi::Common::IExternalXMLServerPtr p
 			);
 
 	virtual
-	XMLLite::VReadCallBack*
+	Yogi::XMLLite::VReadCallBack*
 			GetCallBack
 			(
 			const char*	sArg
 			);
 
 	virtual
-	XMLLite::VReadCallBack*
+	Yogi::XMLLite::VReadCallBack*
 			GetCallBack
 			(
-			ConstCCharDescriptorRef	rArg
+			Yogi::Core::ConstCCharDescriptorRef	rArg
 			);
 
 	virtual
@@ -109,8 +109,8 @@ public:
 	virtual
 	bool	Register
 			(
-			const char*		sName,
-			ISupportsPtr	pIF
+			const char*					sName,
+			Yogi::Common::ISupportsPtr	pIF
 			);
 
 
@@ -126,19 +126,18 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	THashTable<CCharString, IExternalXMLPtr>
-							m_aList;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::IExternalXMLPtr>
+									m_aList;
 
-	CApplicationGaugePtr	m_pApplication;
-	IPluginLibraryPtr		m_pLibrary;
+	CApplicationGaugePtr			m_pApplication;
+	Yogi::Common::IPluginLibraryPtr	m_pLibrary;
 
-
-	IExternalXMLPtr			m_pActive;
+	Yogi::Common::IExternalXMLPtr	m_pActive;
 
 private:
 //	private types  ------------------------------------------------------
 
-	typedef VSupports	inherited;
+	typedef Yogi::Common::VSupports	inherited;
 
 //	private functions  --------------------------------------------------
 
@@ -151,7 +150,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 };

@@ -45,6 +45,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -84,8 +86,8 @@ CDictionaryMemory::CDictionaryMemory
 		(
 		void
 		)
-		: m_pDict( 0 ),
-		m_pControl( 0 )
+		: m_pDict( 0 )
+		, m_pControl( 0 )
 {
 }
 
@@ -98,8 +100,8 @@ CDictionaryMemory::CDictionaryMemory
 		(
 		VDictionaryPtr	p
 		)
-		: m_pDict( p ),
-		m_pControl( 0 )
+		: m_pDict( p )
+		, m_pControl( 0 )
 {
 }
 
@@ -113,8 +115,8 @@ CDictionaryMemory::CDictionaryMemory
 		VDictionaryPtr	pDict,
 		VControlPtr		pControl
 		)
-		: m_pDict( pDict ),
-		m_pControl( pControl )
+		: m_pDict( pDict )
+		, m_pControl( pControl )
 {
 }
 
@@ -157,8 +159,8 @@ CDictionaryMemoryRef
 \+---------------------------------------------------------------------*/
 void	CDictionaryMemory::Store
 		(
-		int				nRegister,
-		CVariantDataRef	rData
+		int						nRegister,
+		ConstCVariantDataRef	rData
 		)
 {
 	if ( 0 <= nRegister  &&  nRegister < 16 )

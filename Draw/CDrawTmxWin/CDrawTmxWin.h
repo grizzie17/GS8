@@ -95,7 +95,7 @@ typedef const class CDrawTmxWin&	ConstCDrawTmxWinRef;
 \+---------------------------------------------------------------------*/
 
 class CDrawTmxWin : public VPluginWithAggregate,
-				implements_ IDrawTmx2
+					implements_ IDrawTmx2
 {
 //	class lifecycle  ----------------------------------------------------
 
@@ -207,7 +207,7 @@ protected:
 	CMatrix3x3			m_tMatrixActive;
 	CMatrix3x3			m_tMatrixBase;
 	int					m_nMatrixTop;
-	TArray<CMatrix3x3>	m_tMatrixStack;
+	Yogi::Core::TArray<CMatrix3x3>	m_tMatrixStack;
 	World				m_tWorld;
 
 	// margin

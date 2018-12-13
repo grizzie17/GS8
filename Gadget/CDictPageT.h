@@ -38,6 +38,7 @@
 
 #include "CDictPageActive.h"
 #include "CDictPageVariant.h"
+#include "CVariantData.h"
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -90,14 +91,14 @@ protected:
 	long			m_nMilli;
 	bool			m_bAscending;
 
-	CVariantData	m_X;
-	CVariantData	m_Y;
-	CVariantData	m_Panel;
-	CVariantData	m_Spin;
-	CVariantData	m_Slider;
-	CVariantData	m_SliderYellow;
-	CVariantData	m_SliderRed;
-	CVariantData	m_Milli;
+	Yogi::Common::CVariantData	m_X;
+	Yogi::Common::CVariantData	m_Y;
+	Yogi::Common::CVariantData	m_Panel;
+	Yogi::Common::CVariantData	m_Spin;
+	Yogi::Common::CVariantData	m_Slider;
+	Yogi::Common::CVariantData	m_SliderYellow;
+	Yogi::Common::CVariantData	m_SliderRed;
+	Yogi::Common::CVariantData	m_Milli;
 
 
 private:
@@ -109,11 +110,11 @@ private:
 	//	VDictionaryPage
 public:
 	virtual void	BeginCalculate( void );
-	virtual long	LocateEntry( ConstCCharStringRef rName );
-	virtual CVariantDataPtr	GetData( unsigned long nSel );
-	virtual bool	PutData( unsigned long nSel, CVariantDataPtr pData );
-	virtual bool	UpdateByName( CCharDescriptorRef rKey, CVariantDataRef rData );
-	virtual bool	AddAlias( ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual Yogi::Common::CVariantDataPtr	GetData( unsigned long nSel );
+	virtual bool	PutData( unsigned long nSel, const Yogi::Common::CVariantData* pData );
+	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
+	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 	virtual VDictionaryEnumerator*
 					GetEnumerator( void );
 

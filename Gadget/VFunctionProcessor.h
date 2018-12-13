@@ -51,7 +51,7 @@ typedef const class VFunctionProcessor&	ConstVFunctionProcessorRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VFunctionProcessor : public VObject
+class VFunctionProcessor : public Yogi::Common::VObject
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -61,11 +61,12 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	virtual bool	ProcessRequest
-					(
-					VDictionary::Selector	sel,
-					ConstCVariantDataRef	vData
-					) = 0;
+	virtual bool
+			ProcessRequest
+			(
+			VDictionary::Selector				sel,
+			Yogi::Common::ConstCVariantDataRef	vData
+			) = 0;
 
 
 protected:

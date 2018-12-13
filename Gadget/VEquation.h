@@ -54,7 +54,7 @@ class VEquation
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-	virtual			~VEquation(){};
+	virtual	~VEquation(){};
 
 public:
 //	public types  -------------------------------------------------------
@@ -62,7 +62,7 @@ public:
 //	public functions  ---------------------------------------------------
 
 	virtual Yogi::Common::CVariantData	GetValue(VDictionaryPtr pDict) = 0;
-	virtual VEquationPtr	Clone( void ) = 0;
+	virtual VEquationPtr				Clone( void ) = 0;
 
 protected:
 //	protected types  ----------------------------------------------------

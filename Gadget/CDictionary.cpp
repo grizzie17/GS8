@@ -759,7 +759,7 @@ void	CDictionaryEnumerator::Reset
 }
 
 
-CVariantData*
+const CVariantData*
 		CDictionaryEnumerator::Current
 		(
 		void

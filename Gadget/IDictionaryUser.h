@@ -46,7 +46,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IDictionaryUser*			IDictionaryUserPtr;
 
-extern const IXID	IXID_IDictionaryUser;
+extern const Yogi::Common::IXID	IXID_IDictionaryUser;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -54,7 +54,7 @@ extern const IXID	IXID_IDictionaryUser;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IDictionaryUser : public ISupports
+interface_ IDictionaryUser : public Yogi::Common::ISupports
 {
 	//
 	//	SetDictionary

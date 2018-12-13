@@ -43,7 +43,7 @@ namespace Yogi { namespace Gadget {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-extern const IXID	IXID_IMouseTransform;
+extern const Yogi::Common::IXID	IXID_IMouseTransform;
 
 typedef interface_ IMouseTransform*			IMouseTransformPtr;
 /*---------------------------------------------------------------------+\
@@ -52,7 +52,7 @@ typedef interface_ IMouseTransform*			IMouseTransformPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IMouseTransform : public ISupports
+interface_ IMouseTransform : public Yogi::Common::ISupports
 {
 
 	// set the size of the mouse area (screen)

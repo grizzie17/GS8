@@ -16,6 +16,8 @@
 |
 |	Revision History:					(most recent entries first)
 |
+	11-Dec-2018			J.Griswold
+		Migrate to correctly using namespaces.
 	18-Nov-2009			J.Griswold		(Reviewed by: M.Rose)
 		Add support for passing the dictionary down to the Equation
 		Factory so it can use it to validate the scripts.
@@ -47,6 +49,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
+using namespace Yogi::XMLLite;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -85,8 +90,8 @@ CFactoryScreen::CFactoryScreen
 		(
 		void
 		)
-		: VFactoryScreen(),
-		m_pPnlFactory( 0 )
+		: VFactoryScreen()
+		, m_pPnlFactory( 0 )
 {
 }
 

@@ -29,15 +29,16 @@ if [ -n "$2" ]; then
 	if [ "X-check" = "X$2" ]; then
 		ARGFILE="check"
 		ARGDIR="${ARGDIR%/test}"
+	elif [ "X-make" = "X$2" ]; then
+		ARGFILE=""
+		ARGDIR="${ARGDIR%/test}"
 	fi
 fi
 
-export CXXFLAGS="-g -ggdb -O0"
-export LDFLAGS="-g -ggdb"
 
 
-echo "THISDIR=$THISDIR"
-echo "ARG=$ARG"
+#echo "THISDIR=$THISDIR"
+#echo "ARG=$ARG"
 echo "ARGDIR=$ARGDIR"
 echo "ARGFILE=$ARGFILE"
 

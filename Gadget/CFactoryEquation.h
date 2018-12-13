@@ -176,7 +176,7 @@ protected:
 	int				TokenNonBlank( const char* s, const char* sEnd );
 
 	MapToken*		FindMapEntry( const char* sToken, int nToken );
-	bool			FindColorEntry( const char* sToken, size_t nToken, CColorPtr pColor );
+	bool			FindColorEntry( const char* sToken, size_t nToken, Yogi::Core::CColorPtr pColor );
 
 	// returns	0 for no entry
 	//			1 for valid entry
@@ -225,7 +225,7 @@ public:
 	virtual VEquationPtr
 				MakeToken
 				(
-				EquationTokenType*	pTokenType,		// OUT
+				EquationTokenType*	pTokenType,		//!< [out]
 				CFactoryEquation::MapToken*	pMap,
 				const char*			sToken,
 				int					n,
