@@ -47,7 +47,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IEventsKeyboard*			IEventsKeyboardPtr;
 
-extern const IXID	IXID_IEventsKeyboard;
+extern const Yogi::Common::IXID	IXID_IEventsKeyboard;
 
 /*---------------------------------------------------------------------+\
 |
@@ -64,14 +64,14 @@ interface_ IEventsKeyboard : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	KeyDown
+	Yogi::Core::NResult	KeyDown
 			(
 			int		k,
 			time_t	nTime
 			) PURE;
 
 	virtual
-	NResult	KeyUp
+	Yogi::Core::NResult	KeyUp
 			(
 			int		k,
 			time_t	nTime

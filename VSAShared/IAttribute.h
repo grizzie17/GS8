@@ -47,7 +47,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IAttribute*			IAttributePtr;
 
-extern const IXID	IXID_IAttribute;
+extern const Yogi::Common::IXID	IXID_IAttribute;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -63,17 +63,17 @@ interface_ IAttribute : public ISupports
 	//	Retrieves the named attribute as an argument of CVariantData.
 	//
 	virtual
-	CVariantDataPtr
+	Yogi::Common::CVariantDataPtr
 			GetAttribute
 			(
 			const char*		sName	// IN:	description of arg2
 			) PURE;
 
 	virtual
-	CVariantDataPtr
+	Yogi::Common::CVariantDataPtr
 			GetAttribute
 			(
-			ConstCCharDescriptorRef	rName	// IN:	description of arg2
+			Yogi::Core::ConstYogi::Core::CCharDescriptorRef	rName	// IN:	description of arg2
 			) PURE;
 };
 

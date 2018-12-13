@@ -47,7 +47,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IApplet*			IAppletPtr;
 
-extern const IXID	IXID_IApplet;
+extern const Yogi::Common::IXID	IXID_IApplet;
 
 /*---------------------------------------------------------------------+\
 |
@@ -62,13 +62,13 @@ interface_ IApplet : public ISupports
 	/// Typically includes Storage Broker Registration
 	///
 	virtual
-	NResult	OnLoad
+	Yogi::Core::NResult	OnLoad
 			(
 			IHuskPtr	pHusk
 			) PURE;
 
 	virtual
-	NResult	OnUnload
+	Yogi::Core::NResult	OnUnload
 			(
 			) PURE;
 
@@ -80,22 +80,22 @@ interface_ IApplet : public ISupports
 	///			needs to display
 	///
 	virtual
-	NResult	OnStart
+	Yogi::Core::NResult	OnStart
 			(
 			) PURE;
 
 	virtual
-	NResult	OnStop
+	Yogi::Core::NResult	OnStop
 			(
 			) PURE;
 
 	virtual
-	NResult	OnPause
+	Yogi::Core::NResult	OnPause
 			(
 			) PURE;
 
 	virtual
-	NResult	OnResume
+	Yogi::Core::NResult	OnResume
 			(
 			) PURE;
 
@@ -107,7 +107,7 @@ interface_ IApplet : public ISupports
 			);
 
 	virtual
-	ConstCCharStringRef
+	ConstYogi::Core::CCharStringRef
 			GetID
 			(
 			void

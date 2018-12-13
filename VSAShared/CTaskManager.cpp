@@ -131,7 +131,7 @@ bool	CTaskManager::LoadTasks
 		char*	sName
 		)
 {
-	CCharString		sXML;
+	Yogi::Core::CCharString		sXML;
 
 	if ( sName )
 		sXML = sName;
@@ -139,7 +139,7 @@ bool	CTaskManager::LoadTasks
 		sXML = "default";
 
 	ISupportsArray*	aSup;
-	CCharString		sPath = "plugins/tasks";
+	Yogi::Core::CCharString		sPath = "plugins/tasks";
 
 	sPath += sXML;
 

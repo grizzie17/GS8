@@ -44,7 +44,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IVehicleDataSample*			IVehicleDataSamplePtr;
 
-extern const IXID	IXID_IVehicleDataSample;
+extern const Yogi::Common::IXID	IXID_IVehicleDataSample;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -52,7 +52,7 @@ extern const IXID	IXID_IVehicleDataSample;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IVehicleDataSample : public ISupports
+interface_ IVehicleDataSample : public Yogi::Common::ISupports
 {
 	//
 	//	SomeFunction
@@ -61,19 +61,19 @@ interface_ IVehicleDataSample : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	StartDataFlow
+	Yogi::Core::NResult	StartDataFlow
 			(
 			void
 			) PURE;
 
 	virtual
-	NResult	StopDataFlow
+	Yogi::Core::NResult	StopDataFlow
 			(
 			void
 			) PURE;
 
 	virtual
-	NResult	ToggleDataFlow
+	Yogi::Core::NResult	ToggleDataFlow
 			(
 			void
 			) PURE;

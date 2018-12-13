@@ -44,7 +44,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IDeskManager*			IDeskManagerPtr;
 
-extern const IXID	IXID_IDeskManager;
+extern const Yogi::Common::IXID	IXID_IDeskManager;
 
 /*---------------------------------------------------------------------+\
 |
@@ -61,7 +61,7 @@ interface_ IDeskManager : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	SomeFunction
+	Yogi::Core::NResult	SomeFunction
 			(
 			) PURE;
 };

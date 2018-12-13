@@ -53,9 +53,9 @@ namespace Yogi { namespace Gadget {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef interface_ ICommandPlugin*			ICommandPluginPtr;
+typedef interface_ ICommandPlugin*	ICommandPluginPtr;
 
-extern const IXID	IXID_ICommandPlugin;
+extern const Yogi::Common::IXID		IXID_ICommandPlugin;
 
 typedef class VCommandSetup*		VCommandSetupPtr;
 
@@ -75,22 +75,22 @@ public:
 			RegisterCommand
 			(
 			const char*		sCommandName,
-			CVariantDataPtr	pInitialState = 0
+			Yogi::Common::CVariantDataPtr	pInitialState = 0
 			) = 0;
 
 	virtual
 	VDictionary::Selector
 			RegisterCommand
 			(
-			ConstCCharDescriptorRef	rCommandName,
-			CVariantDataPtr			pInitialState = 0
+			Yogi::Core::ConstYogi::Core::CCharDescriptorRef	rCommandName,
+			Yogi::Common::CVariantDataPtr			pInitialState = 0
 			) = 0;
 };
 
 
 
 
-interface_ ICommandPlugin : public ISupports
+interface_ ICommandPlugin : public Yogi::Common::ISupports
 {
 
 	//	Implementors of this function should call back on the
@@ -111,7 +111,7 @@ interface_ ICommandPlugin : public ISupports
 	bool	ProcessRequest
 			(
 			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			Yogi::Common::ConstCVariantDataRef	vData
 			) PURE;
 
 };

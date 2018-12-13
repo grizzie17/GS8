@@ -78,7 +78,7 @@ public:
 	bool			StopServices( void );
 
 	IServicePtr		FindServiceByName( const char* sName );
-	ISupportsPtr	FindServiceByIF( ConstIXIDRef rIID );
+	Yogi::Common::ISupportsPtr	FindServiceByIF( ConstIXIDRef rIID );
 
 	bool			SetLibrary( ISupportsPtr pI );
 
@@ -89,8 +89,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	THashTable<CCharString, IServicePtr>	m_aList;
-	IPluginLibraryPtr						m_pLibrary;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, IServicePtr>	m_aList;
+	Yogi::Common::IPluginLibraryPtr						m_pLibrary;
 	CApplicationGauge*						m_pApplication;
 	CMutex									m_oMutex;
 

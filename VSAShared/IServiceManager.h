@@ -41,7 +41,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IServiceManager*		IServiceManagerPtr;
 
-extern const IXID	IXID_IServiceManager;
+extern const Yogi::Common::IXID	IXID_IServiceManager;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -49,7 +49,7 @@ extern const IXID	IXID_IServiceManager;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IServiceManager : public ISupports
+interface_ IServiceManager : public Yogi::Common::ISupports
 {
 	virtual
 	IServicePtr
@@ -60,7 +60,7 @@ interface_ IServiceManager : public ISupports
 
 
 	virtual
-	ISupportsPtr
+	Yogi::Common::ISupportsPtr
 			FindServiceByIF
 			(
 			ConstIXIDRef rIID

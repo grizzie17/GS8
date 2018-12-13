@@ -155,16 +155,16 @@ void	CFunctionProcessorForPlugins::InitializeFunctions
 	if ( m_pDictCommands )
 	{
 		CVariantDataPtr	pv;
-		CCharString		sXML;
+		Yogi::Core::CCharString		sXML;
 
 		pv = m_pApplication->Configuration()->GetEntry( "Active Functions" );
 		if ( pv )
-			sXML = pv->GetValueCCharString();
+			sXML = pv->GetValueYogi::Core::CCharString();
 		else
 			sXML = "default";
 
 		ISupportsArray*	aSup;
-		CCharString		sPath = "plugins/functions";
+		Yogi::Core::CCharString		sPath = "plugins/functions";
 
 		sPath += sXML;
 
@@ -280,7 +280,7 @@ VDictionary::Selector
 		CVariantDataPtr	pInitialState //= 0
 		)
 {
-	CCharDescriptor	sName( sCommandName );
+	Yogi::Core::CCharDescriptor	sName( sCommandName );
 	return RegisterCommand( sName, pInitialState );
 }
 
@@ -295,7 +295,7 @@ VDictionary::Selector
 VDictionary::Selector
 		CFunctionProcessorForPlugins::RegisterCommand
 		(
-		ConstCCharDescriptorRef	rCommandName,
+		ConstYogi::Core::CCharDescriptorRef	rCommandName,
 		CVariantDataPtr			pInitialState //= 0
 		)
 {

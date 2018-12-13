@@ -30,6 +30,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "VPluginService.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -74,10 +77,10 @@ VPluginService::VPluginService
 		(
 		void
 		)
-		: inherited(),
-		m_sID(),
-		m_bRunning(false),
-		m_oMutex()
+		: inherited()
+		, m_sID()
+		, m_bRunning(false)
+		, m_oMutex()
 {
 }
 
@@ -85,10 +88,10 @@ VPluginService::VPluginService
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_sID(),
-		m_bRunning(false),
-		m_oMutex()
+		: inherited( pOwner )
+		, m_sID()
+		, m_bRunning(false)
+		, m_oMutex()
 {
 }
 
@@ -97,10 +100,10 @@ VPluginService::VPluginService
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_sID(),
-		m_bRunning(false),
-		m_oMutex()
+		: inherited( sName, pOwner )
+		, m_sID()
+		, m_bRunning(false)
+		, m_oMutex()
 {
 }
 

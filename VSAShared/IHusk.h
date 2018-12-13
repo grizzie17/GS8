@@ -46,7 +46,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IHusk*			IHuskPtr;
 
-extern const IXID	IXID_IHusk;
+extern const Yogi::Common::IXID	IXID_IHusk;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -54,7 +54,7 @@ extern const IXID	IXID_IHusk;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IHusk : public ISupports
+interface_ IHusk : public Yogi::Common::ISupports
 {
 	//
 	//	AddService
@@ -62,37 +62,37 @@ interface_ IHusk : public ISupports
 	//	Add a new service to the Husk
 	//
 	virtual
-	NResult	AddService
+	Yogi::Core::NResult	AddService
 			(
-			ISupportsPtr	pI,
+			Yogi::Common::ISupportsPtr	pI,
 			const char*		sName
 			) PURE;
 
 	virtual
-	ISupportsPtr
+	Yogi::Common::ISupportsPtr
 			FindServiceByName
 			(
 			const char* sName
 			) PURE;
 
 	virtual
-	ISupportsPtr
+	Yogi::Common::ISupportsPtr
 			FindServiceByIF
 			(
-			ConstIXIDRef rIID
+			Yogi::Common::ConstIXIDRef rIID
 			) PURE;
 
 
 
 	virtual
-	NResult	AddStorage
+	Yogi::Core::NResult	AddStorage
 			(
-			ISupportsPtr	pI,
+			Yogi::Common::ISupportsPtr	pI,
 			const char*		sName
 			) PURE;
 
 	virtual
-	ISupportsPtr
+	Yogi::Common::ISupportsPtr
 			FindStorageByName
 			(
 			const char* sName
@@ -101,14 +101,14 @@ interface_ IHusk : public ISupports
 
 
 	virtual
-	NResult	AddWidget
+	Yogi::Core::NResult	AddWidget
 			(
-			ISupportsPtr	pI,
+			Yogi::Common::ISupportsPtr	pI,
 			const char*		sName
 			) PURE;
 
 	virtual
-	ISupportsPtr
+	Yogi::Common::ISupportsPtr
 			MakeWidget
 			(
 			const char*		sName

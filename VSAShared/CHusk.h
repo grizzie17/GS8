@@ -72,24 +72,24 @@ public:
 
 	//	IHusk
 	virtual
-	NResult	AddService
+	Yogi::Core::NResult	AddService
 			(
-			ISupportsPtr	Ip,
+			Yogi::Common::ISupportsPtr	Ip,
 			const char*		sName
 			);
 
 	virtual
-	NResult	AddStorage
+	Yogi::Core::NResult	AddStorage
 			(
-			ISupportsPtr	pI,
+			Yogi::Common::ISupportsPtr	pI,
 			const char*		sName
 			);
 
 
 	virtual
-	NResult	AddWidget
+	Yogi::Core::NResult	AddWidget
 			(
-			ISupportsPtr	pI,
+			Yogi::Common::ISupportsPtr	pI,
 			const char*		sName
 			);
 
@@ -139,8 +139,8 @@ protected:
 	//CLayoutServicePtr	m_pLayout;
 	//CNotificationServicePtr	m_pNotification;
 
-	THashTable<CCharString, ISupportsPtr>	m_tCOMObjects;
-	THashTable<CCharString, VObjectPtr>		m_tObjects;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, ISupportsPtr>	m_tCOMObjects;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, VObjectPtr>		m_tObjects;
 
 
 

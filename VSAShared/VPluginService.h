@@ -57,7 +57,7 @@ typedef const class VPluginService&	ConstVPluginServiceRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VPluginService : public VPluginWithAggregateList,
+class VPluginService : public Yogi::Common::VPluginWithAggregateList,
 						implements_ IService
 {
 //	class lifecycle  ----------------------------------------------------
@@ -72,13 +72,13 @@ public:
 
 	//	IService
 	virtual
-	NResult	Start
+	Yogi::Core::NResult	Start
 			(
 			void
 			);
 
 	virtual
-	NResult	Stop
+	Yogi::Core::NResult	Stop
 			(
 			void
 			);
@@ -90,7 +90,7 @@ public:
 			);
 
 	virtual
-	ConstCCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetID
 			(
 			void
@@ -108,9 +108,9 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sID;
-	bool			m_bRunning;
-	CMutex			m_oMutex;
+	Yogi::Core::CCharString		m_sID;
+	bool						m_bRunning;
+	Yogi::Core::CMutex			m_oMutex;
 
 
 private:
@@ -129,7 +129,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 public:
@@ -137,8 +137,8 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 };

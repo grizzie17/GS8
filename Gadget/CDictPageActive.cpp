@@ -835,7 +835,7 @@ bool	CDictPageActiveDatumDate::UpdateData
  * CDictPageActiveDatumDate::GetData -
 
 \+---------------------------------------------------------------------*/
-ConstConstCVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageActiveDatumDate::GetData
 		(
 		CDictPageActivePtr pPage

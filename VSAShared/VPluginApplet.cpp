@@ -275,7 +275,7 @@ bool	VPluginApplet::IsRunning
  * <remarks/>
 
 \+---------------------------------------------------------------------*/
-ConstCCharStringRef
+ConstYogi::Core::CCharStringRef
 		VPluginApplet::GetID
 		(
 		void

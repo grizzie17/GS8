@@ -54,7 +54,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IPanAndTilt*			IPanAndTiltPtr;
 
-extern const IXID	IXID_IPanAndTilt;
+extern const Yogi::Common::IXID	IXID_IPanAndTilt;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -62,7 +62,7 @@ extern const IXID	IXID_IPanAndTilt;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IPanAndTilt : public ISupports
+interface_ IPanAndTilt : public Yogi::Common::ISupports
 {
 
 	///	MoveViaSpeed
@@ -76,7 +76,7 @@ interface_ IPanAndTilt : public ISupports
 	///	This is an asyncronous request
 	///
 	virtual
-	NResult	MoveViaSpeed
+	Yogi::Core::NResult	MoveViaSpeed
 			(
 			GFLOAT		fPanNorm,	//!< [in]	normalized speed for rotation
 			GFLOAT		fTiltNorm	//!< [in]	normalized speed for elevation
@@ -90,7 +90,7 @@ interface_ IPanAndTilt : public ISupports
 	///	This is an asyncronous request
 	///
 	virtual
-	NResult	MoveDelta
+	Yogi::Core::NResult	MoveDelta
 			(
 			GFLOAT		fPan,		//!< [in]	degrees
 			GFLOAT		fTilt,		//!< [in]	degrees
@@ -109,7 +109,7 @@ interface_ IPanAndTilt : public ISupports
 	///	This is an asyncronous request
 	///
 	virtual
-	NResult	MoveAbsolute
+	Yogi::Core::NResult	MoveAbsolute
 			(
 			GFLOAT		fPan,		//!< [in]	degrees
 			GFLOAT		fTilt,		//!< [in]	degrees
@@ -124,7 +124,7 @@ interface_ IPanAndTilt : public ISupports
 	///	This is an asyncronous request
 	///
 	virtual
-	NResult	AutoPan
+	Yogi::Core::NResult	AutoPan
 			(
 			GFLOAT		fPanLeft,		//!< [in]	left side of virtual window
 			GFLOAT		fTiltTop,		//!< [in]	top side of virtual window
@@ -141,7 +141,7 @@ interface_ IPanAndTilt : public ISupports
 	///	This is an asyncronous request
 	///
 	virtual
-	NResult	MoveHome
+	Yogi::Core::NResult	MoveHome
 			(
 			void
 			) PURE;
@@ -154,7 +154,7 @@ interface_ IPanAndTilt : public ISupports
 	///	Pan&Tilt module supports the SetHome command
 	///
 	virtual
-	NResult	SetHome
+	Yogi::Core::NResult	SetHome
 			(
 			void
 			) PURE;
@@ -165,7 +165,7 @@ interface_ IPanAndTilt : public ISupports
 	///	Get the current Pan & Tilt angles
 	///
 	virtual
-	NResult	GetPosition
+	Yogi::Core::NResult	GetPosition
 			(
 			GFLOAT*		pPan,	//!< [out]	rotation position in degrees
 			GFLOAT*		pTilt	//!< [out]	elevation position in degrees
@@ -177,13 +177,13 @@ interface_ IPanAndTilt : public ISupports
 	///	information for the current Pan & Tilt device
 	///
 	virtual
-	NResult	RegisterClient
+	Yogi::Core::NResult	RegisterClient
 			(
 			IPanAndTiltClientPtr	p
 			) PURE;
 
 	virtual
-	NResult	UnregisterClient
+	Yogi::Core::NResult	UnregisterClient
 			(
 			IPanAndTiltClientPtr	p
 			) PURE;

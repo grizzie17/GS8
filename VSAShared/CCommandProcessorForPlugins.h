@@ -79,9 +79,9 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	THashTable<VDictionary::Selector, ICommandPluginPtr>
+	Yogi::Common::THashTable<VDictionary::Selector, ICommandPluginPtr>
 							m_tCommands;
-	IPluginLibraryPtr		m_pLibrary;
+	Yogi::Common::IPluginLibraryPtr		m_pLibrary;
 	VDictionaryPtr			m_pDictionary;
 	VDictionaryPagePtr		m_pDictCommands;
 
@@ -104,7 +104,7 @@ public:
 	bool	ProcessRequest
 			(
 			VDictionary::Selector	sel,
-			ConstCVariantDataRef	vData
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	CCommandProcessor
@@ -123,7 +123,7 @@ public:
 	virtual
 	void    AddCommandPlugin
 			(
-			ISupportsPtr pSupports
+			Yogi::Common::ISupportsPtr pSupports
 			);
 
 	//	VCommandSetup
@@ -132,15 +132,15 @@ public:
 			RegisterCommand
 			(
 			const char*		sCommandName,
-			CVariantDataPtr	pInitialState = 0
+			Yogi::Common::CVariantDataPtr	pInitialState = 0
 			);
 
 	virtual
 	VDictionary::Selector
 			RegisterCommand
 			(
-			ConstCCharDescriptorRef	rCommandName,
-			CVariantDataPtr			pInitialState = 0
+			Yogi::Core::ConstYogi::Core::CCharDescriptorRef	rCommandName,
+			Yogi::Common::CVariantDataPtr		pInitialState = 0
 			);
 
 

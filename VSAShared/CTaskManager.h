@@ -80,7 +80,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	TArray<ITaskPtr>		m_aList;
-	IPluginLibraryPtr		m_pLibrary;
+	Yogi::Common::IPluginLibraryPtr		m_pLibrary;
 
 
 private:

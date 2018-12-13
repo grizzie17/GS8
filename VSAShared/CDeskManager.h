@@ -47,7 +47,7 @@ namespace Yogi { namespace Gadget {
 |
 \+---------------------------------------------------------------------*/
 
-class CDeskManager : public VSupports,
+class CDeskManager : public Yogi::Common::VSupports,
 					implements_ IDeskManager
 {
 //	class lifecycle  ----------------------------------------------------
@@ -63,7 +63,8 @@ public:
 
 	//	IDeskManager
 	virtual
-		NResult	SomeFunction
+	Yogi::Core::NResult
+			SomeFunction
 			(
 			);
 
@@ -92,7 +93,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 };

@@ -10,10 +10,10 @@ AM_CXXFLAGS += -fPIC
 lib_LIBRARIES = libvgdi.a
 
 libvgdi_a_SOURCES = \
-	CGDIBrush.cpp \
-	CGDIFont.cpp \
-	CGDIPen.cpp \
-	VGDI.cpp
+		CGDIBrush.cpp \
+		CGDIFont.cpp \
+		CGDIPen.cpp \
+		VGDI.cpp
 
 libvgdi_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libvgdi_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)

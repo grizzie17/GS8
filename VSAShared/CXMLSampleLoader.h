@@ -111,7 +111,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	CApplicationGaugePtr	m_pApplication;
-	TPointer<CFactoryVehicleData>	m_pVehicleData;
+	Yogi::Core::TPointer<CFactoryVehicleData>	m_pVehicleData;
 
 	long					m_nMilliStart;
 	long					m_nMilli;

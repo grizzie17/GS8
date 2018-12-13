@@ -44,12 +44,12 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IActiveXML*			IActiveXMLPtr;
 
-extern const IXID	IXID_IActiveXML;
+extern const Yogi::Common::IXID	IXID_IActiveXML;
 
 
 typedef interface_ IActiveXMLClient*	IActiveXMLClientPtr;
 
-extern const IXID	IXID_IActiveXMLClient;
+extern const Yogi::Common::IXID	IXID_IActiveXMLClient;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -66,7 +66,7 @@ interface_ IActiveXML : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	RegisterXMLClient
+	Yogi::Core::NResult	RegisterXMLClient
 			(
 			IActiveXMLClientPtr	p
 			) PURE;
@@ -104,7 +104,7 @@ interface_ IActiveXMLClient : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	NotifyXMLAvailable
+	Yogi::Core::NResult	NotifyXMLAvailable
 			(
 			void
 			) PURE;

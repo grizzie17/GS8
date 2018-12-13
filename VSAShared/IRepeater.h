@@ -47,7 +47,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IRepeater*			IRepeaterPtr;
 
-extern const IXID	IXID_IRepeater;
+extern const Yogi::Common::IXID	IXID_IRepeater;
 
 /*---------------------------------------------------------------------+\
 |
@@ -68,12 +68,12 @@ struct VRepeaterSetup
 	virtual
 	bool	RegisterRepeater
 			(
-			ConstCCharDescriptorRef	rName,
-			long					nMilliSeconds
+			Yogi::Core::ConstCCharDescriptorRef	rName,
+			long								nMilliSeconds
 			) PURE;
 };
 
-interface_ IRepeater : public ISupports
+interface_ IRepeater : public Yogi::Common::ISupports
 {
 	virtual
 	bool	Initialize

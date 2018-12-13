@@ -729,7 +729,7 @@ int		CVehicleDataReader::ReadActiveData
 \+---------------------------------------------------------------------*/
 void	CVehicleDataReader::SetMCAddress
 		(
-		CCharDescriptorRef r
+		Yogi::Core::CCharDescriptorRef r
 		)
 {
 	r.CopyTo(m_sMultiCastAddr,sizeof(m_sMultiCastAddr));

@@ -39,7 +39,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ ITask*		ITaskPtr;
 
-extern const IXID	IXID_ITask;
+extern const Yogi::Common::IXID	IXID_ITask;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -47,7 +47,7 @@ extern const IXID	IXID_ITask;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ ITask : public ISupports
+interface_ ITask : public Yogi::Common::ISupports
 {
 	//
 	//	Start
@@ -55,13 +55,13 @@ interface_ ITask : public ISupports
 	//	Begin processing the task
 	//
 	virtual
-	NResult	Start
+	Yogi::Core::NResult	Start
 			(
 			void
 			) PURE;
 
 	virtual
-	NResult	Stop
+	Yogi::Core::NResult	Stop
 			(
 			void
 			) PURE;

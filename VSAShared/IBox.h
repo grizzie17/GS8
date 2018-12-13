@@ -44,7 +44,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IBox*			IBoxPtr;
 
-extern const IXID	IXID_IBox;
+extern const Yogi::Common::IXID	IXID_IBox;
 
 /*---------------------------------------------------------------------+\
 |
@@ -61,52 +61,52 @@ interface_ IBox : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	OnLoad
+	Yogi::Core::NResult	OnLoad
 			(
 			) PURE;
 
 	virtual
-	NResult	OnUnload
+	Yogi::Core::NResult	OnUnload
 			(
 			) PURE;
 
 	virtual
-	NResult	OnShow
+	Yogi::Core::NResult	OnShow
 			(
 			) PURE;
 
 	virtual
-	NResult	OnHide
+	Yogi::Core::NResult	OnHide
 			(
 			) PURE;
 
 	virtual
-	NResult	OnFocus
+	Yogi::Core::NResult	OnFocus
 			(
 			) PURE;
 
 	virtual
-	NResult	OnBlur
+	Yogi::Core::NResult	OnBlur
 			(
 			) PURE;
 
 	virtual
-	NResult	OnResize
+	Yogi::Core::NResult	OnResize
 			(
 			) PURE;
 
 	virtual
-	NResult	OnMove
+	Yogi::Core::NResult	OnMove
 			(
 			) PURE;
 
 	virtual
-	NResult	OnMoving
+	Yogi::Core::NResult	OnMoving
 			(
 			) PURE;
 
 	virtual
-	NResult	OnDraw
+	Yogi::Core::NResult	OnDraw
 			(
 			) PURE;
 

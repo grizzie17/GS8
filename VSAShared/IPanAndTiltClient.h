@@ -56,7 +56,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IPanAndTiltClient*			IPanAndTiltClientPtr;
 
-extern const IXID	IXID_IPanAndTiltClient;
+extern const Yogi::Common::IXID	IXID_IPanAndTiltClient;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -64,7 +64,7 @@ extern const IXID	IXID_IPanAndTiltClient;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IPanAndTiltClient : public ISupports
+interface_ IPanAndTiltClient : public Yogi::Common::ISupports
 {
 	//
 	//	State
@@ -72,7 +72,7 @@ interface_ IPanAndTiltClient : public ISupports
 	//	Receive postion information
 	//
 	virtual
-	NResult	EptmState
+	Yogi::Core::NResult	EptmState
 			(
 			GFLOAT		fPan,
 			GFLOAT		fTilt,

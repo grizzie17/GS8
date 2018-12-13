@@ -97,7 +97,7 @@ CServiceManager::~CServiceManager
 		void
 		)
 {
-	THashTableEnumerator< CCharString, IServicePtr>
+	THashTableEnumerator< Yogi::Core::CCharString, IServicePtr>
 			enumSvcs = m_aList.GetEnumerator();
 
 	while ( enumSvcs.MoveNext() )
@@ -147,7 +147,7 @@ bool	CServiceManager::LoadServices
 		const char*	sName
 		)
 {
-	CCharString		sXML;
+	Yogi::Core::CCharString		sXML;
 
 	if ( sName )
 		sXML = sName;
@@ -155,7 +155,7 @@ bool	CServiceManager::LoadServices
 		sXML = "default";
 
 	ISupportsArray*	aSup;
-	CCharString		sPath = "plugins/services";
+	Yogi::Core::CCharString		sPath = "plugins/services";
 
 	sPath += sXML;
 
@@ -178,7 +178,7 @@ bool	CServiceManager::LoadServices
 				IServicePtr	pI = QI_( *h, IService );
 				if ( pI )
 				{
-					CCharString	sID = pI->GetID();
+					Yogi::Core::CCharString	sID = pI->GetID();
 					if ( ! m_aList.Find( sID ) )
 					{
 						IApplicationUserPtr	pIApp = QI_( pI, IApplicationUser );
@@ -225,7 +225,7 @@ bool	CServiceManager::StopServices
 		void
 		)
 {
-	THashTableEnumerator< CCharString, IServicePtr>
+	THashTableEnumerator< Yogi::Core::CCharString, IServicePtr>
 		enumSvcs = m_aList.GetEnumerator();
 
 	while ( enumSvcs.MoveNext() )
@@ -255,7 +255,7 @@ IServicePtr
 {
 	IServicePtr		pSup = 0;
 	IServicePtr*	hSup = 0;
-	CCharString		tKey( sName );
+	Yogi::Core::CCharString		tKey( sName );
 
 	hSup = m_aList.Find( tKey );
 	if ( hSup )
@@ -280,7 +280,7 @@ ISupportsPtr
 		)
 {
 	ISupportsPtr	pIf = 0;
-	THashTableEnumerator<CCharString, IServicePtr>	tEnum = m_aList.GetEnumerator();
+	THashTableEnumerator<Yogi::Core::CCharString, IServicePtr>	tEnum = m_aList.GetEnumerator();
 
 	while ( tEnum.MoveNext() )
 	{

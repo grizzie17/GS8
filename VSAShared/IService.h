@@ -40,7 +40,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IService*		IServicePtr;
 
-extern const IXID	IXID_IService;
+extern const Yogi::Common::IXID	IXID_IService;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -48,7 +48,7 @@ extern const IXID	IXID_IService;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IService : public ISupports
+interface_ IService : public Yogi::Common::ISupports
 {
 	//
 	//	Start
@@ -56,13 +56,13 @@ interface_ IService : public ISupports
 	//	Begin processing the task
 	//
 	virtual
-	NResult	Start
+	Yogi::Core::NResult	Start
 			(
 			void
 			) PURE;
 
 	virtual
-	NResult	Stop
+	Yogi::Core::NResult	Stop
 			(
 			void
 			) PURE;
@@ -77,7 +77,7 @@ interface_ IService : public ISupports
 			) PURE;
 
 	virtual
-	ConstCCharStringRef
+	ConstYogi::Core::CCharStringRef
 			GetID
 			(
 			void

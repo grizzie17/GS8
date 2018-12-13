@@ -47,7 +47,7 @@ namespace Yogi { namespace Gadget {
 |
 \+---------------------------------------------------------------------*/
 
-class VDesk : public VSupports,
+class VDesk : public Yogi::Common::VSupports,
 					implements_ IDesk
 {
 //	class lifecycle  ----------------------------------------------------
@@ -63,19 +63,19 @@ public:
 
 	//	IDesk
 	virtual
-		NResult	OnActivate
+		Yogi::Core::NResult	OnActivate
 		(
 		);
 
 	virtual
-		NResult	OnDeactivate
+		Yogi::Core::NResult	OnDeactivate
 		(
 		);
 
 	virtual
-		NResult	OnRender
+		Yogi::Core::NResult	OnRender
 		(
-		VDrawPtr	pDraw
+		Yogi::Common::VDrawPtr	pDraw
 		);
 
 
@@ -94,7 +94,7 @@ protected:
 private:
 //	private types  ------------------------------------------------------
 
-	typedef VSupports	inherited;
+	typedef Yogi::Common::VSupports	inherited;
 
 //	private functions  --------------------------------------------------
 
@@ -107,7 +107,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 };

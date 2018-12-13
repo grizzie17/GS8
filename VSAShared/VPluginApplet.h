@@ -68,34 +68,34 @@ public:
 
 	//	IApplet
 	virtual
-	NResult	OnLoad
+	Yogi::Core::NResult	OnLoad
 			(
 			IHuskPtr	pHusk
 			);
 
 	virtual
-	NResult	OnUnload
+	Yogi::Core::NResult	OnUnload
 			(
 			);
 
 
 	virtual
-	NResult	OnStart
+	Yogi::Core::NResult	OnStart
 			(
 			);
 
 	virtual
-	NResult	OnExit
+	Yogi::Core::NResult	OnExit
 			(
 			);
 
 	virtual
-	NResult	OnPause
+	Yogi::Core::NResult	OnPause
 			(
 			);
 
 	virtual
-	NResult	OnResume
+	Yogi::Core::NResult	OnResume
 			(
 			);
 
@@ -106,7 +106,7 @@ public:
 			);
 
 	virtual
-	ConstCCharStringRef
+	ConstYogi::Core::CCharStringRef
 			GetID
 			(
 			void
@@ -124,7 +124,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sID;
+	Yogi::Core::CCharString		m_sID;
 	bool			m_bRunning;
 	CMutex			m_oMutex;
 

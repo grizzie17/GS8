@@ -358,8 +358,8 @@ ConstCVariantDataPtr
 		Selector nSel
 		)
 {
-	CVariantDataPtr	pData = 0;
-	unsigned long	nPage = GET_PAGEID( nSel );
+	ConstCVariantDataPtr	pData = 0;
+	unsigned long			nPage = GET_PAGEID( nSel );
 	if ( nPage )
 	{
 		unsigned long		n = GET_VARID( nSel );

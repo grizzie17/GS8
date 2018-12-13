@@ -1008,7 +1008,7 @@ bool	CApplicationGauge::FunctionQueueProcess
 		)
 {
 	bool					bResult = false;
-	CosntCVariantDataPtr	pv;
+	ConstCVariantDataPtr	pv;
 	VDictionary::Selector	tFunc;
 
 	if ( m_pScreen )

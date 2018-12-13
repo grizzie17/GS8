@@ -81,7 +81,7 @@ public:
 	bool	ProcessRequest
 			(
 			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 public:
@@ -96,7 +96,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString				m_sID;
+	Yogi::Core::CCharString	m_sID;
 	CApplicationGaugePtr	m_pApplication;
 	VDictionaryPagePtr		m_pDataPage;		// D - Data Response Page
 	VDictionaryPagePtr		m_pConstantsPage;	// K - Data Response Page
@@ -105,7 +105,7 @@ protected:
 private:
 //	private types  ------------------------------------------------------
 
-	typedef	VPluginWithAggregateList	inherited;
+	typedef	Yogi::Common::VPluginWithAggregateList	inherited;
 
 //	private functions  --------------------------------------------------
 
@@ -118,7 +118,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 public:
@@ -126,8 +126,8 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 };

@@ -79,12 +79,12 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	CCharStringRef	operator=( ConstCCharStringRef r );		// assignment
-	CCharStringRef	operator=( ConstCCharDescriptorRef r );
-	CCharStringRef	operator=( const char* s );
-	CCharStringRef	operator=( const std::string& r );
-	CCharStringRef	operator+=( ConstCCharDescriptorRef r );
-	CCharStringRef	operator+=( const char* s );
+	ConstCCharStringRef	operator=( ConstCCharStringRef r );		// assignment
+	ConstCCharStringRef	operator=( ConstCCharDescriptorRef r );
+	ConstCCharStringRef	operator=( const char* s );
+	ConstCCharStringRef	operator=( const std::string& r );
+	ConstCCharStringRef	operator+=( ConstCCharDescriptorRef r );
+	ConstCCharStringRef	operator+=( const char* s );
 
 	operator const std::string& ( void ) const;
 
@@ -194,7 +194,7 @@ private:
 
 \+---------------------------------------------------------------------*/
 inline
-CCharStringRef
+ConstCCharStringRef
 		CCharString::operator=
 		(
 		ConstCCharStringRef	r
@@ -206,7 +206,7 @@ CCharStringRef
 
 
 inline
-CCharStringRef
+ConstCCharStringRef
 		CCharString::operator=
 		(
 		ConstCCharDescriptorRef	r
@@ -218,7 +218,7 @@ CCharStringRef
 
 
 inline
-CCharStringRef
+ConstCCharStringRef
 		CCharString::operator=
 		(
 		const char* s
@@ -230,7 +230,7 @@ CCharStringRef
 
 
 inline
-CCharStringRef
+ConstCCharStringRef
 		CCharString::operator=
 		(
 		const std::string&	r
@@ -250,7 +250,7 @@ CCharStringRef
 
 \+---------------------------------------------------------------------*/
 inline
-CCharStringRef
+ConstCCharStringRef
 		CCharString::operator +=
 		(
 		ConstCCharDescriptorRef r
@@ -261,7 +261,7 @@ CCharStringRef
 }
 
 inline
-CCharStringRef
+ConstCCharStringRef
 		CCharString::operator +=
 		(
 		const char* s
@@ -319,6 +319,29 @@ bool	operator==
 }
 
 
+inline
+bool	operator==
+		(
+		ConstCCharStringRef		lhs,
+		ConstCCharDescriptorRef	rhs
+		)
+{
+	return 0 == lhs.Compare(rhs);
+}
+
+
+inline
+bool	operator==
+		(
+		ConstCCharDescriptorRef	lhs,
+		ConstCCharStringRef		rhs
+		)
+{
+	return 0 == rhs.Compare(lhs);
+}
+
+
+
 /*---------------------------------------------------------------------+\
 
  * operator!= - Non-Equality
@@ -362,7 +385,7 @@ bool	operator!=
 		const std::string&	rhs
 		)
 {
-	return 0 == lhs.Compare(rhs.c_str());
+	return 0 != lhs.Compare(rhs.c_str());
 }
 
 

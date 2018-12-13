@@ -46,7 +46,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IEventsMouse*			IEventsMousePtr;
 
-extern const IXID	IXID_IEventsMouse;
+extern const Yogi::Common::IXID	IXID_IEventsMouse;
 
 /*---------------------------------------------------------------------+\
 |
@@ -63,7 +63,7 @@ interface_ IEventsMouse : public ISupports
 	//	operational restrictions.
 	//
 	virtual
-	NResult	MouseDown
+	Yogi::Core::NResult	MouseDown
 			(
 			long	x,
 			long	y,
@@ -71,7 +71,7 @@ interface_ IEventsMouse : public ISupports
 			) PURE;
 
 	virtual
-	NResult	MouseMove
+	Yogi::Core::NResult	MouseMove
 			(
 			long	x,
 			long	y,
@@ -79,7 +79,7 @@ interface_ IEventsMouse : public ISupports
 			) PURE;
 
 	virtual
-	NResult	MouseUp
+	Yogi::Core::NResult	MouseUp
 			(
 			long	x,
 			long	y,

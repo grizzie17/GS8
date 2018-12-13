@@ -46,7 +46,7 @@ namespace Yogi { namespace Gadget {
 
 typedef interface_ IDesk*			IDeskPtr;
 
-extern const IXID	IXID_IDesk;
+extern const Yogi::Common::IXID	IXID_IDesk;
 
 /*---------------------------------------------------------------------+\
 |
@@ -58,19 +58,19 @@ interface_ IDesk : public ISupports
 {
 
 	virtual
-	NResult	OnActivate
+	Yogi::Core::NResult	OnActivate
 			(
 			) PURE;
 
 	virtual
-	NResult	OnDeactivate
+	Yogi::Core::NResult	OnDeactivate
 			(
 			) PURE;
 
 	virtual
-	NResult	OnRender
+	Yogi::Core::NResult	OnRender
 			(
-			VDrawPtr	pDraw
+			Yogi::Common::VDrawPtr	pDraw
 			) PURE;
 };
 
