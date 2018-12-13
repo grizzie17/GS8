@@ -93,9 +93,9 @@ CFactoryPanel::CFactoryPanel
 		(
 		void
 		)
-		: VFactoryPanel(),
-		m_pGauge( 0 ),
-		m_pGgFactory( 0 )
+		: VFactoryPanel()
+		, m_pGauge( 0 )
+		, m_pGgFactory( 0 )
 {
 }
 
@@ -184,7 +184,7 @@ CPanelPtr
 CGaugePtr
 		CFactoryPanel::MakeGauge
 		(
-		CCharDescriptorRef	rName
+		ConstCCharDescriptorRef	rName
 		)
 {
 	CGaugePtr	pG = 0;

@@ -74,7 +74,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CUnitsOfMeasure	m_unitRadian;
+	Yogi::Common::CUnitsOfMeasure	m_unitRadian;
 
 private:
 //	private functions  --------------------------------------------------
@@ -86,7 +86,7 @@ private:
 	//	root
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
 	virtual VEquationPtr	Clone( void );
 
 	//	VEquationOperatorBinary

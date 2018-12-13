@@ -177,7 +177,7 @@ long	CDictPageVariant::LocateEntry
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageVariant::GetData
 		(
 		unsigned long	nSel
@@ -194,8 +194,8 @@ CVariantDataPtr
 \+---------------------------------------------------------------------*/
 bool	CDictPageVariant::PutData
 		(
-		unsigned long		nSel,
-		const CVariantData*	pData
+		unsigned long			nSel,
+		ConstCVariantDataPtr	pData
 		)
 {
 	CVariantDataPtr	p = m_aContent.ItemAtIndex( nSel );

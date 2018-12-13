@@ -143,7 +143,7 @@ bool	CDictPageVariantRead::LockData
 bool	CDictPageVariantRead::PutData
 		(
 		unsigned long	,//nSel,
-		const CVariantData* //pData
+		ConstCVariantDataPtr //pData
 		)
 {
 	// don't allow put -- this is Read-Only

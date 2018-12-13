@@ -354,7 +354,7 @@ long	CDictPageSystem::LocateEntry
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageSystem::GetData
 		(
 		unsigned long	nSel
@@ -382,8 +382,8 @@ CVariantDataPtr
 \+---------------------------------------------------------------------*/
 bool	CDictPageSystem::PutData
 		(
-		unsigned long	nSel,
-		CVariantDataPtr	pData
+		unsigned long			nSel,
+		ConstCVariantDataPtr	pData
 		)
 {
 	VDictPageHandlerPtr*	p = m_aContent.PointArray( nSel );

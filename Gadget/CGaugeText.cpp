@@ -53,6 +53,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 //USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
@@ -92,14 +94,14 @@ CGaugeText::CGaugeText
 		(
 		void
 		)
-		: VGraphic(),
-		m_pPoint( 0 ),
-		m_nMaxLength( 0 ),
-		m_tFontName(),
-		m_tFontHeight(),
-		m_eAlign( VDraw::A_LEFT ),
-		m_eVertAlign( VDraw::V_BASELINE ),
-		m_aStrings()
+		: VGraphic()
+		, m_pPoint( 0 )
+		, m_nMaxLength( 0 )
+		, m_tFontName()
+		, m_tFontHeight()
+		, m_eAlign( VDraw::A_LEFT )
+		, m_eVertAlign( VDraw::V_BASELINE )
+		, m_aStrings()
 {
 	m_tFontName = CCharDescriptor("sans-serif");
 	m_tFontHeight.SetValue( CVariantData( GFLOAT_10 ) );
@@ -203,7 +205,7 @@ void	CGaugeText::SetFontName
 \+---------------------------------------------------------------------*/
 void	CGaugeText::SetFontName
 		(
-		CCharDescriptorRef r
+		ConstCCharDescriptorRef r
 		)
 {
 	m_tFontName = r;

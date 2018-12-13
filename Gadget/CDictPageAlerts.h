@@ -119,9 +119,9 @@ public:
 	// returns negative for error
 	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 
-	virtual Yogi::Common::CVariantDataPtr
+	virtual Yogi::Common::ConstCVariantDataPtr
 					GetData( unsigned long nSel );
-	virtual bool	PutData( unsigned long nSel, Yogi::Common::CVariantDataPtr pData );
+	virtual bool	PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData );
 
 	virtual bool	AddEntry( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
 	//virtual bool	AddEntry( const char* sName, const char* sData );

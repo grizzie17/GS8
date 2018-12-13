@@ -115,10 +115,10 @@ class TIteratorExt : public TIterator<T, TTok>
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-				TIteratorExt( TTok* pTokenizer );
-				TIteratorExt( VIterator<T, TTok>* p );
-				TIteratorExt( VIterator<T, TTok>& r );
-	virtual		~TIteratorExt();
+			TIteratorExt( TTok* pTokenizer );
+			TIteratorExt( VIterator<T, TTok>* p );
+			TIteratorExt( VIterator<T, TTok>& r );
+	virtual	~TIteratorExt();
 
 public:
 //	public types  -------------------------------------------------------
@@ -546,4 +546,3 @@ Yogi::Core::CDateTime
 
 
 #endif /* _H_XMLLiteExtImpl */
-

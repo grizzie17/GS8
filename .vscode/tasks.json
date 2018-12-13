@@ -57,7 +57,7 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "build",
+			"label": "build ALL",
 			"type": "shell",
 			"command": "./build.sh",
 			"group": "build",
@@ -97,7 +97,7 @@
 			}
 		},
 		{
-			"label": "build  --check",
+			"label": "build  --check <currentFileDirectory>",
 			"type": "shell",
 			"command": "./build.sh",
 			"args": [
@@ -117,7 +117,7 @@
 			}
 		},
 		{
-			"label": "build  --make",
+			"label": "build  --make <currentFileDirectory>",
 			"type": "shell",
 			"command": "./build.sh",
 			"args": [

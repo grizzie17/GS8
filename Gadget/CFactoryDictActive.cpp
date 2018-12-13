@@ -88,6 +88,7 @@
 \+---------------------------------------------------------------------*/
 using namespace Yogi::Core;
 using namespace Yogi::Common;
+using namespace Yogi::XMLLite;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -126,12 +127,12 @@ CFactoryDictActive::CFactoryDictActive
 		(
 		void
 		)
-		: VFactoryLite(),
-		m_pActive( 0 ),
-		m_pBase( 0 ),
-		m_pNotify( 0 ),
-		m_aRanges(),
-		m_aEnumList()
+		: VFactoryLite()
+		, m_pActive( 0 )
+		, m_pBase( 0 )
+		, m_pNotify( 0 )
+		, m_aRanges()
+		, m_aEnumList()
 {
 	m_tDegreesUnits.SetUsingString( "degree" );
 	m_tColorUnits.SetUsingString( "color" );
@@ -445,7 +446,7 @@ bool	CFactoryDictActive::Alert
 			CColor	c;
 			tValue.ConvertLowercase();
 			if ( tValue == "green" )
-				 c.SetRGB( 0, 255, 0 );
+				c.SetRGB( 0, 255, 0 );
 			else if ( tValue == "red" )
 				c.SetRGB( 255, 0, 0 );
 			else if ( tValue == "yellow" )
@@ -524,9 +525,9 @@ bool	CFactoryDictActive::Alert
 \+---------------------------------------------------------------------*/
 bool	CFactoryDictActive::AlertSim
 		(
-		GFLOAT*	pfFreq,
-		GFLOAT*	pfDur,
-		XMLIteratorPtr pIt
+		GFLOAT*			pfFreq,
+		GFLOAT*			pfDur,
+		XMLIteratorPtr	pIt
 		)
 {
 	bool			bResult = true;
@@ -963,7 +964,7 @@ bool	CFactoryDictActive::RangeMultiColor
 
 bool	CFactoryDictActive::Range
 		(
-		CCharDescriptorRef,
+		ConstCCharDescriptorRef,
 		CVariantData::V_TYPE,
 		int,
 		XMLIteratorPtr			pIt

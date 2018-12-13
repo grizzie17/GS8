@@ -303,7 +303,7 @@ VDictPageActiveDatum::~VDictPageActiveDatum
  * VDictPageActiveDatum::GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		VDictPageActiveDatum::GetData
 		(
 		CDictPageActivePtr //pPage
@@ -835,7 +835,7 @@ bool	CDictPageActiveDatumDate::UpdateData
  * CDictPageActiveDatumDate::GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstConstCVariantDataPtr
 		CDictPageActiveDatumDate::GetData
 		(
 		CDictPageActivePtr pPage
@@ -940,7 +940,7 @@ bool	CDictPageActiveDatumEnum::AddItem
  * CDictPageActiveDatumEnum::GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageActiveDatumEnum::GetData
 		(
 		CDictPageActivePtr //pPage
@@ -1337,7 +1337,7 @@ long	CDictPageActive::LocateEntry
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageActive::GetData
 		(
 		unsigned long	nSel
@@ -1366,7 +1366,7 @@ CVariantDataPtr
 bool	CDictPageActive::PutData
 		(
 		unsigned long,			//nSel,
-		CVariantDataPtr	//pData
+		ConstCVariantDataPtr	//pData
 		)
 {
 	return false;

@@ -302,9 +302,14 @@ bool	CFactoryGauge::AttributeColor
 			{
 				v = pEq->GetValue( 0 );
 				if ( CVariantData::T_STRING == v.GetType() )
-					c = CColor::ColorFromName( v.operator CCharDescriptorRef() );
+				{
+					CCharDescriptor r = v;
+					c = CColor::ColorFromName( r );
+				}
 				else
+				{
 					c = v.GetValueColor();
+				}
 				v = c;
 				pRValue->SetValue( v );
 				delete pEq;
@@ -2497,7 +2502,7 @@ VEquationPtr
 VEquationPtr
 		CFactoryGauge::GaugeStringParse
 		(
-		CCharDescriptorRef	rString
+		ConstCCharDescriptorRef	rString
 		)
 {
 	VEquationPtr				pEq = 0;
@@ -2944,8 +2949,8 @@ CImagePtr
 
 						if ( tName == "File" )
 						{
-							CCharStringPtr	ps = pNode->File();
-							CCharDescriptor	cs = it.NodeValue();
+							ConstsCCharStringPtr	ps = pNode->File();
+							CCharDescriptor			cs = it.NodeValue();
 
 							char	sFolder[1024];
 							char	sFile[128];
@@ -4556,9 +4561,14 @@ bool	CFactoryGauge::ResultValueFromNodeColorScript
 					CColor	c;
 					v = pEq->GetValue( 0 );
 					if ( CVariantData::T_STRING == v.GetType() )
-						c = CColor::ColorFromName( v.operator CCharDescriptorRef() );
+					{
+						CCharDescriptor	cd = v;
+						c = CColor::ColorFromName( cd );
+					}
 					else
+					{
 						c = v.GetValueColor();
+					}
 					v = c;
 					pResult->SetValue( v );
 					delete pEq;

@@ -172,8 +172,8 @@ protected:
 	bool				ParseHeader( void );
 	bool				ParseElement( void );
 	bool				ParseEndElement( void );
-	bool				ParseElementValue( Yogi::Core::TCharDescriptor<T>& rName );
-	bool				ParseElementValueEnd( Yogi::Core::TCharDescriptor<T>& rName );
+	bool				ParseElementValue( const Yogi::Core::TCharDescriptor<T>& rName );
+	bool				ParseElementValueEnd( const Yogi::Core::TCharDescriptor<T>& rName );
 	bool				ParseCData( void );
 	bool				ParseText( void );
 	bool				ParseEntity( void );
@@ -185,29 +185,29 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	bool					m_bHeaderRequired;	// allow <?xml?> to be optional
+	bool							m_bHeaderRequired;	// allow <?xml?> to be optional
 	XMLLite::VReadCallBack*			m_pReadCallBack;
-	Yogi::Core::TArray<T>				m_sStream;
-	Yogi::Core::TArray<char>			m_sStreamName;
-	Yogi::Core::TCharDescriptor<T>		m_tFullStream;
+	Yogi::Core::TArray<T>			m_sStream;
+	Yogi::Core::TArray<char>		m_sStreamName;
+	Yogi::Core::TCharDescriptor<T>	m_tFullStream;
 
-	Yogi::Core::TArray<TCD>				m_aNodeStack;
-	int						m_nNodeStack;	// size of stack
+	Yogi::Core::TArray<TCD>			m_aNodeStack;
+	int								m_nNodeStack;	// size of stack
 	Yogi::Core::TArray<AttributeInfo>	m_aAttributes;
 
-	ENODETYPE				m_eNodeType;
-	Yogi::Core::TCharDescriptor<T>		m_tNodeName;	// name of current element
-	Yogi::Core::TCharDescriptor<T>		m_tNodeValue;
+	ENODETYPE						m_eNodeType;
+	Yogi::Core::TCharDescriptor<T>	m_tNodeName;	// name of current element
+	Yogi::Core::TCharDescriptor<T>	m_tNodeValue;
 
-	T*						m_pCurrentPosition;
-	T*						m_pEndPosition;		// actually one past the end
+	T*								m_pCurrentPosition;
+	T*								m_pEndPosition;		// actually one past the end
 
-	index_t					m_nErrorLine;
-	Yogi::Core::TCharDescriptor<T>		m_tErrorToken;
-	Yogi::Core::TArray<char>			m_sErrorString;
+	index_t							m_nErrorLine;
+	Yogi::Core::TCharDescriptor<T>	m_tErrorToken;
+	Yogi::Core::TArray<char>		m_sErrorString;
 
-	ETEXT_FORMAT			m_eTargetFormat;
-	ETEXT_FORMAT			m_eSourceFormat;
+	ETEXT_FORMAT					m_eTargetFormat;
+	ETEXT_FORMAT					m_eSourceFormat;
 
 private:
 //	private functions  --------------------------------------------------
@@ -1810,7 +1810,7 @@ bool	TTokenizer<T>::ParseEndElement
 template < class T >
 bool	TTokenizer<T>::ParseElementValueEnd
 		(
-		Yogi::Core::TCharDescriptor<T>&	rName
+		const Yogi::Core::TCharDescriptor<T>&	rName
 		)
 {
 	bool	bResult = false;
@@ -1868,7 +1868,7 @@ bool	TTokenizer<T>::ParseElementValueEnd
 template < class T >
 bool	TTokenizer<T>::ParseElementValue
 		(
-		Yogi::Core::TCharDescriptor<T>& rName
+		const Yogi::Core::TCharDescriptor<T>& rName
 		)
 {
 	bool	bResult = false;
@@ -2708,4 +2708,3 @@ GFLOAT
 
 
 #endif /* _H_XMLLiteImpl */
-

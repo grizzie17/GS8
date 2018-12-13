@@ -78,9 +78,9 @@ class CVariables
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CVariables();
-					CVariables( VVariablePtr pVariable );
-	virtual			~CVariables();
+			CVariables();
+			CVariables( VVariablePtr pVariable );
+	virtual	~CVariables();
 
 public:
 //	public types  -------------------------------------------------------

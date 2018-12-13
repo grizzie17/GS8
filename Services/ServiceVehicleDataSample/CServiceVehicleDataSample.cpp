@@ -54,6 +54,8 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -176,7 +178,7 @@ bool	CServiceVehicleDataSample::SetDictionary
 	if ( ! m_pDictionary )
 	{
 		VDictionary::Selector	sel;
-		CVariantDataPtr			pv;
+		ConstCVariantDataPtr	pv;
 
 		m_pDictionary = p;
 
@@ -564,8 +566,8 @@ long	CServiceVehicleDataSample::BuildVehicleXML
 	VDictionaryPtr		pDict = m_pDictionary;
 	//CDictPageActivePtr	pAct = m_pApplication->DictPageActive();
 
-	char			sData[80];
-	CVariantDataPtr	pv;
+	char					sData[80];
+	ConstCVariantDataPtr	pv;
 	VDictionary::Selector	nSel;
 
 
@@ -648,8 +650,8 @@ long	CServiceVehicleDataSample::BuildVehicleXML
 			CCharString	sLabel;
 			long		nWave = 2;
 			GFLOAT		fFreq = 10.0f;
-			CVariantDataPtr	pvHigh = 0;
-			CVariantDataPtr	pvLow = 0;
+			ConstCVariantDataPtr	pvHigh = 0;
+			ConstCVariantDataPtr	pvLow = 0;
 
 			pv = pDictEnum->Current();
 			if ( pv )

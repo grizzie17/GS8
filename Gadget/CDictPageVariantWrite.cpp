@@ -119,7 +119,7 @@ CDictPageVariantWrite::~CDictPageVariantWrite
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageVariantWrite::GetData
 		(
 		unsigned long	//nSel

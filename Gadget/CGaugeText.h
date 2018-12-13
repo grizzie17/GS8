@@ -78,11 +78,11 @@ public:
 	CPointValuePtr	Point( void );
 	void			SetMaxLength( long n );
 	void			SetFontName( const char* s );
-	void			SetFontName( CCharDescriptorRef r );
+	void			SetFontName( Yogi::Core::ConstCCharDescriptorRef r );
 	void			SetFontHeight( float f );
 	CResultValuePtr	FontHeight( void );
-	void			SetAlign( VDraw::EAlignments e );
-	void			SetVertAlign( VDraw::EVerticalAlignments e );
+	void			SetAlign( Yogi::Common::VDraw::EAlignments e );
+	void			SetVertAlign( Yogi::Common::VDraw::EVerticalAlignments e );
 	void			AddString( CGaugeStringPtr pString );
 
 protected:
@@ -92,15 +92,15 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CPointValuePtr		m_pPoint;		// origin of text string
-	long				m_nMaxLength;	// number of characters to display
-	CCharString			m_tFontName;	// name of font
-	CResultValue		m_tFontHeight;
-	VDraw::EAlignments	m_eAlign;
-	VDraw::EVerticalAlignments
-						m_eVertAlign;
-	TArray<CGaugeStringPtr>
-						m_aStrings;
+	CPointValuePtr			m_pPoint;		// origin of text string
+	long					m_nMaxLength;	// number of characters to display
+	Yogi::Core::CCharString	m_tFontName;	// name of font
+	CResultValue			m_tFontHeight;
+	Yogi::Common::VDraw::EAlignments	m_eAlign;
+	Yogi::Common::VDraw::EVerticalAlignments
+							m_eVertAlign;
+	Yogi::Core::TArray<CGaugeStringPtr>
+							m_aStrings;
 
 private:
 //	private types  ------------------------------------------------------
@@ -118,7 +118,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

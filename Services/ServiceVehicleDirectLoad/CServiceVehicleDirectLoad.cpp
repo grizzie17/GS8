@@ -56,6 +56,8 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -196,7 +198,7 @@ bool	CServiceVehicleDirectLoad::SetDictionary
 	if ( ! m_pDictionary )
 	{
 		VDictionary::Selector	sel;
-		CVariantDataPtr			pv;
+		ConstCVariantDataPtr	pv;
 
 		m_pDictionary = p;
 
@@ -597,7 +599,7 @@ void	CServiceVehicleDirectLoad::BuildPageLists
 	VDictionaryPtr		pDict = m_pDictionary;
 	//CDictPageActivePtr	pAct = m_pApplication->DictPageActive();
 
-	CVariantDataPtr	pv;
+	ConstCVariantDataPtr	pv;
 	VDictionary::Selector	nSel;
 
 	m_aAPage.SetBlockSize( 8 );

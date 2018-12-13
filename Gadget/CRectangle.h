@@ -86,7 +86,7 @@ public:
 	CSizePtr		Size( void );
 	CResultValuePtr	Width( void );
 	CResultValuePtr	Height( void );
-	void			SetCornerStyle( VDraw::CORNERSTYLE c );
+	void			SetCornerStyle( Yogi::Common::VDraw::CORNERSTYLE c );
 	CResultValuePtr	Corner( void );
 
 protected:
@@ -98,7 +98,7 @@ protected:
 
 	CPointValue			m_tOrigin;
 	CSize				m_tSize;
-	VDraw::CORNERSTYLE	m_eCornerStyle;
+	Yogi::Common::VDraw::CORNERSTYLE	m_eCornerStyle;
 	CResultValue		m_tCorner;	// size of bevel or rounding
 
 private:
@@ -114,7 +114,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

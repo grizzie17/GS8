@@ -38,9 +38,9 @@
 
 #include "CFactoryEquation.h"
 #include "CFactoryGauge.h"
+#include ""
 
 #include "CPanel.h"
-
 
 #include "CGauge.h"
 
@@ -89,11 +89,11 @@ protected:
 //	protected functions  ------------------------------------------------
 
 
-	CGaugePtr		MakeGauge( CCharDescriptorRef rName );
+	CGaugePtr		MakeGauge( Yogi::Core::ConstCCharDescriptorRef rName );
 
-	CPanelPtr		Panel( XMLIteratorPtr pIt );
+	CPanelPtr		Panel( Yogi::Common::XMLIteratorPtr pIt );
 
-	CGaugePtr		GaugeInstance( XMLIteratorPtr pIt );
+	CGaugePtr		GaugeInstance( Yogi::Common::XMLIteratorPtr pIt );
 
 
 

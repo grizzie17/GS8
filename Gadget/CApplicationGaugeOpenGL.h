@@ -99,7 +99,7 @@ public:
 // 					);
 
 protected:
-	virtual VDrawPtr					MakeDraw( void );
+	virtual Yogi::Common::VDrawPtr					MakeDraw( void );
 	virtual VDictionaryPageServerPtr	MakeDictionary( void );
 	virtual CScreenPtr					MakeScreen( void );
 

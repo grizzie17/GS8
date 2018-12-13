@@ -72,6 +72,7 @@ namespace Yogi { namespace Common {
 typedef class CVariantData*			CVariantDataPtr;
 typedef class CVariantData&			CVariantDataRef;
 typedef const class CVariantData&	ConstCVariantDataRef;
+typedef const class CVariantData*	ConstCVariantDataPtr;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|

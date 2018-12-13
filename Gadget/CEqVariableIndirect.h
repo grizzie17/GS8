@@ -88,7 +88,7 @@ private:
 //============================== Overrides ==============================
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
 	virtual VEquationPtr	Clone( void );
 
 };

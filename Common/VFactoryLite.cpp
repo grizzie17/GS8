@@ -142,7 +142,7 @@ void	VFactoryLite::SetRelativePath
 }
 
 
-Yogi::Core::CCharStringRef
+Yogi::Core::CCharString
 		VFactoryLite::GetRelativePath
 		(
 		void
@@ -351,4 +351,3 @@ Yogi::Core::CCharString
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

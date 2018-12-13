@@ -73,7 +73,7 @@ public:
 			Yogi::Core::ConstCCharStringRef rName
 			) const;
 
-	virtual CVariantDataPtr
+	virtual ConstCVariantDataPtr
 			GetData
 			(
 			index_t nSel

@@ -215,7 +215,7 @@ long	CDictPageConfigWrapper::LocateEntry
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageConfigWrapper::GetData
 		(
 		unsigned long	nSel
@@ -232,8 +232,8 @@ CVariantDataPtr
 \+---------------------------------------------------------------------*/
 bool	CDictPageConfigWrapper::PutData
 		(
-		unsigned long		nSel,
-		const CVariantData*	pData
+		unsigned long			nSel,
+		ConstCVariantDataPtr	pData
 		)
 {
 	bool	bResult = m_pConfig->PutData( nSel, pData );

@@ -134,7 +134,7 @@ bool	CDictTimeBase::EndCalculate
 }
 
 
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictTimeBase::GetData
 		(
 		CDictPageSystemPtr //pPage
@@ -147,7 +147,7 @@ CVariantDataPtr
 bool	CDictTimeBase::PutData
 		(
 		CDictPageSystemPtr,
-		CVariantDataPtr
+		ConstCVariantDataPtr
 		)
 {
 	return false;	// no public put data allowed
@@ -155,7 +155,7 @@ bool	CDictTimeBase::PutData
 
 
 
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictTime_Milli::GetData
 		(
 		CDictPageSystemPtr pPage
@@ -167,7 +167,7 @@ CVariantDataPtr
 
 
 
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictTime_Absolute_Time::GetData
 		(
 		CDictPageSystemPtr pPage

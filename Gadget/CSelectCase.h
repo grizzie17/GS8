@@ -74,10 +74,10 @@ public:
 	CSelectCaseRef	operator=( ConstCSelectCaseRef r );		// assignment
 
 	int				CalculateCase( VDictionaryPtr pDict );
-	CVariantData	GetValue( VDictionaryPtr pDict );
+	Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
 
 	bool			SetEquation( VEquationPtr pEq );
-	bool			SetValue( ConstCVariantDataRef v );
+	bool			SetValue( Yogi::Common::ConstCVariantDataRef v );
 
 	bool			AddRenderable( VRenderablePtr p );
 
@@ -88,8 +88,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CResultValue			m_tValue;
-	TArray<VRenderablePtr>	m_aList;
+	CResultValue						m_tValue;
+	Yogi::Core::TArray<VRenderablePtr>	m_aList;
 
 private:
 //	private functions  --------------------------------------------------
@@ -101,7 +101,7 @@ private:
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 	virtual int		GetChildContext( void );
 
 };

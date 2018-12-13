@@ -89,7 +89,7 @@ protected:
 
 	CResultValue			m_tSelect;
 	CSelectCasePtr			m_pCase;		// current case
-	TArray<CSelectCasePtr>	m_aList;
+	Yogi::Core::TArray<CSelectCasePtr>	m_aList;
 	CSelectCasePtr			m_pCaseElse;
 
 
@@ -106,7 +106,7 @@ private:
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
 	virtual bool	PreRender( VDictionaryPtr pDict, VDrawQueuePtr pQueue );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 	virtual int		GetChildContext( void );
 
 };

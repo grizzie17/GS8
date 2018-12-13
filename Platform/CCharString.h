@@ -5,7 +5,7 @@
 //!
 //!	@note	unlike the 'descriptor' classes this class does manage
 //! 		the memory
-//! 
+//!
 //!	@see	CCharDescriptor.h
 //!
 //=====================================================================//
@@ -55,6 +55,7 @@ namespace Yogi { namespace Core {
 typedef class CCharString*			CCharStringPtr;
 typedef class CCharString&			CCharStringRef;
 typedef const class CCharString&	ConstCCharStringRef;
+typedef const class CCharString*	ConstCCharStringPtr;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -481,4 +482,3 @@ size_t CCharString::Length( void ) const
 
 
 #endif /* _H_CCharString */
-

@@ -74,8 +74,8 @@ public:
 public:
 	virtual bool			BeginCalculate( CDictPageSystemPtr pPage ) = 0;
 	virtual bool			EndCalculate( CDictPageSystemPtr pPage ) = 0;
-	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageSystemPtr pPage ) = 0;
-	virtual bool			PutData( CDictPageSystemPtr pPage, Yogi::Common::CVariantDataPtr pData ) = 0;
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( CDictPageSystemPtr pPage ) = 0;
+	virtual bool			PutData( CDictPageSystemPtr pPage, Yogi::Common::ConstCVariantDataPtr pData ) = 0;
 
 protected:
 	Yogi::Common::CVariantData	m_tData;
@@ -127,7 +127,7 @@ public:
 	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 	virtual Yogi::Common::CVariantDataPtr
 					GetData( unsigned long nSel );
-	virtual bool	PutData( unsigned long nSel, Yogi::Common::CVariantDataPtr pData );
+	virtual bool	PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData );
 	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
 	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 

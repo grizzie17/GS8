@@ -57,6 +57,7 @@ class CCharString;	// forward reference
 typedef class CCharDescriptor*			CCharDescriptorPtr;
 typedef class CCharDescriptor&			CCharDescriptorRef;
 typedef const class CCharDescriptor&	ConstCCharDescriptorRef;
+typedef const class CCharDescriptor*	ConstCCharDescriptorPtr;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -496,4 +497,3 @@ int		strcmp
 
 
 #endif /* _H_CCharDescriptor */
-

@@ -413,7 +413,7 @@ long	CDictPageAlerts::LocateEntry
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageAlerts::GetData
 		(
 		unsigned long	nSel
@@ -435,7 +435,7 @@ CVariantDataPtr
 bool	CDictPageAlerts::PutData
 		(
 		unsigned long	,//nSel,
-		CVariantDataPtr //pData
+		ConstCVariantDataPtr //pData
 		)
 {
 	return false;

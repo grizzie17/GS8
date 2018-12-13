@@ -159,9 +159,9 @@ CVariantData
 		break;
 	case CVariantData::T_INTEGER:
 		{
-			unsigned long	f = vControl;
-			unsigned long	f1 = vLeft;
-			unsigned long	f2 = vRight;
+			unsigned long	f = vControl.GetValueUnsignedInteger();
+			unsigned long	f1 = vLeft.GetValueUnsignedInteger();
+			unsigned long	f2 = vRight.GetValueUnsignedInteger();
 
 			color = CColor( f1, f2, f );
 		}

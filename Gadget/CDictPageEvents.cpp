@@ -160,8 +160,8 @@ CQueuePtr
 \+---------------------------------------------------------------------*/
 bool	CDictPageEvents::PutData
 		(
-		unsigned long		nSel,
-		const CVariantData*	pData
+		unsigned long			nSel,
+		ConstCVariantDataPtr	pData
 		)
 {
 	return UpdateEntry( nSel, *pData );

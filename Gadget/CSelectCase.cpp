@@ -40,6 +40,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
 using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
@@ -80,9 +81,9 @@ CSelectCase::CSelectCase
 		(
 		void
 		)
-		: VElement(),
-		m_tValue(),
-		m_aList()
+		: VElement()
+		, m_tValue()
+		, m_aList()
 {
 }
 
@@ -95,9 +96,9 @@ CSelectCase::CSelectCase
 		(
 		ConstCSelectCaseRef	r
 		)
-		: VElement( r ),
-		m_tValue(),
-		m_aList()
+		: VElement( r )
+		, m_tValue()
+		, m_aList()
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }

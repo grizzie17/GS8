@@ -76,7 +76,7 @@ public:
 
 
 	void		SetRelativePath( const char* s );
-	Yogi::Core::CCharStringRef
+	Yogi::Core::CCharString
 				GetRelativePath( void );
 
 	void		SetVariableIF( VVariablePtr p );

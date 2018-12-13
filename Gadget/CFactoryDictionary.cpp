@@ -102,8 +102,8 @@ protected:
 public:
 	virtual bool			BeginCalculate( CDictPageSystemPtr pPage );
 	virtual bool			EndCalculate( CDictPageSystemPtr pPage );
-	virtual CVariantDataPtr	GetData( CDictPageSystemPtr pPage );
-	virtual bool			PutData( CDictPageSystemPtr pPage, CVariantDataPtr pData );
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( CDictPageSystemPtr pPage );
+	virtual bool			PutData( CDictPageSystemPtr pPage, ConstCVariantDataPtr pData );
 
 };
 
@@ -124,7 +124,7 @@ bool	CDictAppHdlrBase::EndCalculate
 }
 
 
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictAppHdlrBase::GetData
 		(
 		CDictPageSystemPtr //pPage
@@ -137,7 +137,7 @@ CVariantDataPtr
 bool	CDictAppHdlrBase::PutData
 		(
 		CDictPageSystemPtr,
-		CVariantDataPtr
+		ConstCVariantDataPtr
 		)
 {
 	return false;	// no public put data allowed
@@ -151,7 +151,7 @@ public:
 	CDictAppHdlr_Screen_Width( CApplicationGaugePtr p ) : CDictAppHdlrBase( p ){}
 	virtual ~CDictAppHdlr_Screen_Width(){}
 
-	virtual CVariantDataPtr	GetData( CDictPageSystemPtr pPage )
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( CDictPageSystemPtr pPage )
 	{
 		int		w;
 		int		h;
@@ -169,7 +169,7 @@ public:
 	CDictAppHdlr_Screen_Height( CApplicationGaugePtr p ) : CDictAppHdlrBase( p ){}
 	virtual ~CDictAppHdlr_Screen_Height(){}
 
-	virtual CVariantDataPtr	GetData( CDictPageSystemPtr pPage )
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( CDictPageSystemPtr pPage )
 	{
 		int		w;
 		int		h;
@@ -257,7 +257,7 @@ VDictionaryPageServerPtr
 	CDictionaryPtr	pDict = new CDictionary;
 	if ( pDict )
 	{
-		CCharString		sSettings = tSettings;
+		CCharString			sSettings = tSettings;
 		CFactoryDictActive	aPage;
 
 		aPage.SetVariableIF( pApp->Configuration() );

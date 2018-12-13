@@ -62,13 +62,13 @@ typedef class VFactory&			VFactoryRef;
 typedef const class VFactory&	ConstVFactoryRef;
 
 
-typedef	XMLLite::TTokenizerExt<char>	XMLParser;
-typedef XMLParser*						XMLParserPtr;
-typedef	XMLLite::TTokenizerExt<char>	XMLTokenizer;
-typedef	XMLTokenizer*					XMLTokenizerPtr;
+typedef	Yogi::XMLLite::TTokenizerExt<char>	XMLParser;
+typedef XMLParser*							XMLParserPtr;
+typedef	Yogi::XMLLite::TTokenizerExt<char>	XMLTokenizer;
+typedef	XMLTokenizer*						XMLTokenizerPtr;
 
-typedef XMLLite::TIteratorExt<char,XMLTokenizer>	XMLIterator;
-typedef	XMLIterator*				XMLIteratorPtr;
+typedef Yogi::XMLLite::TIteratorExt<char,XMLTokenizer>	XMLIterator;
+typedef	XMLIterator*						XMLIteratorPtr;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -97,7 +97,7 @@ public:
 protected:
 //	protected types  ----------------------------------------------------
 
-	typedef XMLLite::VTokenizer<char>	XTokenizer;
+	typedef Yogi::XMLLite::VTokenizer<char>	XTokenizer;
 
 //	protected functions  ------------------------------------------------
 
@@ -144,4 +144,3 @@ private:
 
 
 #endif /* _H_VFactory */
-

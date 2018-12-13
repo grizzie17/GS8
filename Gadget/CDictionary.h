@@ -69,7 +69,7 @@ typedef class CDictionary&		CDictionaryRef;
 \+---------------------------------------------------------------------*/
 
 class CDictionary : public VDictionaryPageServer,
-					public Yogi::Common::VVariable
+					public virtual Yogi::Common::VVariable
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -118,9 +118,9 @@ public:
 
 	virtual Selector		LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 	virtual Selector		LocateEntry( const char* sName );
-	virtual Yogi::Common::CVariantDataPtr
+	virtual Yogi::Common::ConstCVariantDataPtr
 							GetData( Selector nSel );
-	virtual bool			PutData( Selector nSel, const Yogi::Common::CVariantData* pData );
+	virtual bool			PutData( Selector nSel, Yogi::Common::ConstCVariantDataPtr pData );
 	virtual bool			IsDataLocked( Selector nSel );
 
 	virtual	bool			PushDictionaryPage( VDictionaryPage* pDict );
@@ -154,7 +154,7 @@ public:
 			ResolveVariable
 			(
 			Yogi::Core::ConstCCharDescriptorRef	r
-			);
+			) const;
 
 };
 

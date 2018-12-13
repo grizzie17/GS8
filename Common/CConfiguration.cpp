@@ -234,7 +234,7 @@ CVariantDataPtr
  * GetEntry -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CConfiguration::GetData
 		(
 		index_t	nSel

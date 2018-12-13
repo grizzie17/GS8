@@ -77,7 +77,7 @@ public:
 				End( void );
 
 	void		SetLineWidth( short nWidth );
-	void		SetLineColor( ConstCColorRef tColor );
+	void		SetLineColor( Yogi::Core::ConstCColorRef tColor );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -86,10 +86,10 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CPointValue	m_tBegin;
-	CPointValue	m_tEnd;
-	short		m_nWidth;
-	CColor		m_tColor;
+	CPointValue			m_tBegin;
+	CPointValue			m_tEnd;
+	short				m_nWidth;
+	Yogi::Core::CColor	m_tColor;
 
 
 
@@ -109,7 +109,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 	virtual bool	GetSize( VDictionaryPtr pDict, long& rnWidth, long& rnHeight );
 	virtual bool	IsDisplayed( VDictionaryPtr pDict );
 

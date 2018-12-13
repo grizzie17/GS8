@@ -1,23 +1,4 @@
 /*---------------------------------------------------------------------+\
-|																		|
-|	Copyright 2009 DRS Test & Energy Management LLC						|
-|	All Rights Reserved													|
-|																		|
-|	Including software, file formats, and audio-visual displays;		|
-|	may only be used pursuant to applicable software license			|
-|	agreement; contains confidential and proprietary information of		|
-|	DRS-TEM and/or third parties which is protected by copyright		|
-|	and trade secret law and may not be provided or otherwise made		|
-|	available without proper authorization.								|
-|																		|
-|	Unpublished -- rights reserved under the Copyright Laws of the		|
-|	United States.														|
-|																		|
-|	DRS Test & Energy Management LLC									|
-|	110 Wynn Drive, P.O. Box 1929, Huntsville, AL 35805					|
-|																		|
-\+---------------------------------------------------------------------*/
-/*---------------------------------------------------------------------+\
 |
 |	CXMLSampleLoader.cpp  --  brief description of what CXMLSampleLoader.cpp is for
 |
@@ -100,6 +81,9 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
+using namespace Yogi::XMLLite;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -137,8 +121,8 @@ public:
 		(
 		char* s
 		)
-		: m_sData( s ),
-		m_nLength( ::strlen( s ) )
+		: m_sData( s )
+		, m_nLength( ::strlen( s ) )
 	{}
 
 	virtual
@@ -267,20 +251,9 @@ void	CXMLSampleLoader::UpdateActivePage
 	VDictionaryPtr		pDict = m_pApplication->Dictionary();
 	//CDictPageActivePtr	pAct = m_pApplication->DictPageActive();
 
-	char			sData[80];
-	CVariantDataPtr	pv;
+	char					sData[80];
+	ConstCVariantDataPtr	pv;
 	VDictionary::Selector	nSel;
-
-	//float	fValueHi;
-	//float	fValueLo;
-	//float	fValue;
-	//float	fValueRange;
-	//long	nValueHi;
-	//long	nValueLo;
-	//long	nValue;
-	//long	nValueRange;
-	//float	fSteering;
-	//char	cGear;
 
 
 	//strcpy_s( m_sData, sizeof(m_sData), "<?xml version='1.0'?>" );
@@ -307,7 +280,7 @@ void	CXMLSampleLoader::UpdateActivePage
 			pv = pDictEnum->Current();
 			if ( pv )
 			{
-				CVariantData			v;
+				CVariantData	v;
 
 				v = *pv;
 
@@ -392,8 +365,8 @@ void	CXMLSampleLoader::UpdateActivePage
 			CCharString	sLabel;
 			long		nWave = 2;
 			GFLOAT		fFreq = 10.0f;
-			CVariantDataPtr	pvHigh = 0;
-			CVariantDataPtr	pvLow = 0;
+			ConstCVariantDataPtr	pvHigh = 0;
+			ConstCVariantDataPtr	pvLow = 0;
 
 			pv = pDictEnum->Current();
 			if ( pv )

@@ -144,8 +144,8 @@ void	CDictPageFunctions::SetFunctionProcessor
 \+---------------------------------------------------------------------*/
 bool	CDictPageFunctions::PutData
 		(
-		unsigned long		nSel,
-		const CVariantData*	pData
+		unsigned long			nSel,
+		ConstCVariantDataPtr	pData
 		)
 {
 	CVariantDataPtr	p = m_aContent.ItemAtIndex( nSel );

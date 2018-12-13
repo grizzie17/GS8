@@ -14,5 +14,5 @@ libcdrawtmxwin_la_SOURCES = CDrawTmxWin.cpp
 libcdrawtmxwin_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcdrawtmxwin_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 libcdrawtmxwin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS)  $(NO_UNDEFINED) \
-		-L$(top_builddir)/VDraw
+		-L$(top_builddir)/Draw/VDraw
 libcdrawtmxwin_la_LIBADD = -lvdraw -lplatform

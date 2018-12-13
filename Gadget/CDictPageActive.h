@@ -99,7 +99,7 @@ public:
 	virtual		~VDictPageActiveDatum();
 
 public:
-	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageActivePtr pPage );
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( CDictPageActivePtr pPage );
 	virtual bool			UpdateData( CDictPageActivePtr pPage, const char* sXML ) = 0;
 	virtual bool			UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void			ResetData( CDictPageActivePtr pPage );
@@ -173,8 +173,8 @@ private:
 public:
 
 	virtual long			LocateEntry( Yogi::Core::ConstCCharStringRef rName );
-	virtual Yogi::Common::CVariantDataPtr	GetData( unsigned long nSel );
-	virtual bool			PutData( unsigned long nSel, Yogi::Common::CVariantDataPtr pData );
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( unsigned long nSel );
+	virtual bool			PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData );
 
 	virtual bool			UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
 	virtual bool			UpdateEntry( unsigned long nSel, Yogi::Common::ConstCVariantDataRef rData );
@@ -345,7 +345,7 @@ protected:
 	int						m_nEnumUnits;
 
 public:
-	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageActivePtr pPage );
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( CDictPageActivePtr pPage );
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
 	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void	ResetData( CDictPageActivePtr pPage );
@@ -374,7 +374,7 @@ protected:
 	bool			m_bStale;
 
 public:
-	virtual Yogi::Common::CVariantDataPtr	GetData( CDictPageActivePtr pPage );
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( CDictPageActivePtr pPage );
 	virtual bool	UpdateData( CDictPageActivePtr pPage, const char* sXML );
 	virtual bool	UpdateData( CDictPageActivePtr pPage, Yogi::Common::ConstCVariantDataRef rData );
 	virtual void	ResetData( CDictPageActivePtr pPage );

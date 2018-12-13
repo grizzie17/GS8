@@ -74,8 +74,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sUnitName;
-	CUnitsOfMeasure	m_tUnits;
+	Yogi::Core::CCharString			m_sUnitName;
+	Yogi::Common::CUnitsOfMeasure	m_tUnits;
 
 private:
 //	private functions  --------------------------------------------------
@@ -87,8 +87,8 @@ private:
 	//	root
 	//	VEquation
 public:
-	virtual CVariantData	GetValue( VDictionaryPtr pDict );
-	virtual VEquationPtr	Clone( void );
+	virtual Yogi::Common::CVariantData	GetValue( VDictionaryPtr pDict );
+	virtual VEquationPtr				Clone( void );
 
 	//	VEquationOperatorBinary
 

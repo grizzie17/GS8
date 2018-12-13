@@ -174,7 +174,7 @@ void	CDictPageCommands::SetFunctionProcessor
 bool	CDictPageCommands::PutData
 		(
 		unsigned long nSel,
-		CVariantDataPtr pData
+		ConstCVariantDataPtr pData
 		)
 {
 	bool	bResult = false;

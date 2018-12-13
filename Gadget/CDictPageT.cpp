@@ -234,7 +234,7 @@ long	CDictPageT::LocateEntry
 
 
 
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictPageT::GetData
 		(
 		unsigned long nSel
@@ -286,7 +286,7 @@ CVariantDataPtr
 bool	CDictPageT::PutData
 		(
 		unsigned long,			//nSel,
-		const CVariantData* //pData
+		ConstCVariantDataPtr //pData
 		)
 {
 	return false;

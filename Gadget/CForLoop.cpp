@@ -41,6 +41,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
 using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
@@ -80,11 +81,11 @@ CForLoop::CForLoop
 		(
 		void
 		)
-		: VElement(),
-		m_tInit(),
-		m_pTest( 0 ),
-		m_pIncr( 0 ),
-		m_aList()
+		: VElement()
+		, m_tInit()
+		, m_pTest( 0 )
+		, m_pIncr( 0 )
+		, m_aList()
 {
 }
 

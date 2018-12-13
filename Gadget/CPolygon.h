@@ -83,7 +83,7 @@ private:
 //============================== Overrides ==============================
 	//	VRenderable
 public:
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

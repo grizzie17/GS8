@@ -87,12 +87,12 @@ CShift::CShift
 		(
 		void
 		)
-		: VRenderable(),
-		m_tExpression(),
-		m_tMinimum(),
-		m_tMaximum(),
-		m_fScaleX( GFLOAT_0 ),
-		m_fScaleY( GFLOAT_1 )
+		: VRenderable()
+		, m_tExpression()
+		, m_tMinimum()
+		, m_tMaximum()
+		, m_fScaleX( GFLOAT_0 )
+		, m_fScaleY( GFLOAT_1 )
 {
 	CVariantData	zero( 0L );
 	m_tExpression.SetValue( zero );
@@ -109,10 +109,12 @@ CShift::CShift
 		(
 		ConstCShiftRef	r
 		)
-		: VRenderable( r ),
-		m_tExpression(),
-		m_fScaleX( r.m_fScaleX ),
-		m_fScaleY( r.m_fScaleY )
+		: VRenderable( r )
+		, m_tExpression()
+		, m_tMinimum()
+		, m_tMaximum()
+		, m_fScaleX( r.m_fScaleX )
+		, m_fScaleY( r.m_fScaleY )
 {
 }
 

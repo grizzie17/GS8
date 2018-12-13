@@ -111,8 +111,8 @@ private:
 public:
 	virtual void	BeginCalculate( void );
 	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
-	virtual Yogi::Common::CVariantDataPtr	GetData( unsigned long nSel );
-	virtual bool	PutData( unsigned long nSel, const Yogi::Common::CVariantData* pData );
+	virtual Yogi::Common::ConstCVariantDataPtr	GetData( unsigned long nSel );
+	virtual bool	PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData );
 	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
 	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 	virtual VDictionaryEnumerator*

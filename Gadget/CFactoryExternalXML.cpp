@@ -124,7 +124,7 @@ CFactoryExternalXML::~CFactoryExternalXML
 
 	while ( enumCmd.MoveNext() )
 	{
-		IExternalXMLPtr*	h = enumCmd.Current();
+		const IExternalXMLPtr*	h = enumCmd.Current();
 		if ( h )
 			(*h)->Release();
 	}
@@ -277,7 +277,7 @@ XMLLite::VReadCallBack*
 			{
 				CCharString	sName( s, n );
 
-				IExternalXMLPtr*	pIx = m_aList.Find( sName );
+				const IExternalXMLPtr*	pIx = m_aList.Find( sName );
 				if ( pIx )
 				{
 					m_pActive = *pIx;
@@ -322,7 +322,7 @@ bool	CFactoryExternalXML::Register
 {
 	bool			bResult = false;
 	CCharString		tName( sName );
-	IExternalXMLPtr*	hIx = m_aList.Find( tName );
+	const IExternalXMLPtr*	hIx = m_aList.Find( tName );
 
 	if ( ! hIx )
 	{

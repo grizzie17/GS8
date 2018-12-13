@@ -146,7 +146,7 @@ CEquationVariableAssignConditionalRef
  * GetValue -
 
 \+---------------------------------------------------------------------*/
-CVariantData
+ConstCVariantData
 		CEquationVariableAssignConditional::GetValue
 		(
 		VDictionaryPtr pDict
@@ -154,7 +154,7 @@ CVariantData
 {
 	VDictionary::Selector tSel = m_tSelector.GetSelector( pDict );
 	CVariantData	vOperand( m_pOperand->GetValue( pDict ) );
-	CVariantDataPtr	pPrevious = pDict->GetData( tSel );
+	ConstCVariantDataPtr	pPrevious = pDict->GetData( tSel );
 
 	if ( pPrevious )
 	{

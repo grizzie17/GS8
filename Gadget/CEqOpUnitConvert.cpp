@@ -75,9 +75,9 @@ CEquationOperatorUnitConvert::CEquationOperatorUnitConvert
 		(
 		void
 		)
-		: VEquationOperatorBinary(),
-		m_sUnitName(),
-		m_tUnits()
+		: VEquationOperatorBinary()
+		, m_sUnitName()
+		, m_tUnits()
 {
 }
 
@@ -90,9 +90,9 @@ CEquationOperatorUnitConvert::CEquationOperatorUnitConvert
 		(
 		CEquationOperatorUnitConvertRef	r
 		)
-		: VEquationOperatorBinary( r ),
-		m_sUnitName( r.m_sUnitName ),
-		m_tUnits( r.m_tUnits )
+		: VEquationOperatorBinary( r )
+		, m_sUnitName( r.m_sUnitName )
+		, m_tUnits( r.m_tUnits )
 {
 	// handled by base class
 }

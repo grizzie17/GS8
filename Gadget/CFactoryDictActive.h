@@ -79,7 +79,7 @@ typedef const class CFactoryDictActive&	ConstCFactoryDictActiveRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CFactoryDictActive : public VFactoryLite
+class CFactoryDictActive : public Yogi::Common::VFactoryLite
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -117,36 +117,36 @@ protected:
 
 //	protected functions  ------------------------------------------------
 
-	bool			Settings( XMLIteratorPtr pIt );
+	bool	Settings( Yogi::Common::XMLIteratorPtr pIt );
 
-	bool			Alerts( XMLIteratorPtr pIt );
-	bool			Alert( XMLIteratorPtr pIt );
-	bool			AlertSim
-					(
-					GFLOAT*					pfFreq,
-					GFLOAT*					pfDur,
-					XMLIteratorPtr			pIt
-					);
+	bool	Alerts( Yogi::Common::XMLIteratorPtr pIt );
+	bool	Alert( Yogi::Common::XMLIteratorPtr pIt );
+	bool	AlertSim
+			(
+			GFLOAT*							pfFreq,
+			GFLOAT*							pfDur,
+			Yogi::Common::XMLIteratorPtr	pIt
+			);
 
 
-	bool			Parameters( XMLIteratorPtr pIt );
-	bool			Param( XMLIteratorPtr pIt );
-	bool			RangeMultiColor( void );
-	bool			Range
-					(
-					CCharDescriptorRef		rID,
-					CVariantData::V_TYPE	eType,
-					int						nUnits,
-					XMLIteratorPtr			pIt
-					);
-	bool			ParamSim
-					(
-					int*					pnWave,
-					GFLOAT*					pfFreq,
-					XMLIteratorPtr			pIt
-					);
+	bool	Parameters( Yogi::Common::XMLIteratorPtr pIt );
+	bool	Param( Yogi::Common::XMLIteratorPtr pIt );
+	bool	RangeMultiColor( void );
+	bool	Range
+			(
+			Yogi::Core::ConstCCharDescriptorRef	rID,
+			Yogi::Common::CVariantData::V_TYPE	eType,
+			int									nUnits,
+			Yogi::Common::XMLIteratorPtr		pIt
+			);
+	bool	ParamSim
+			(
+			int*							pnWave,
+			GFLOAT*							pfFreq,
+			Yogi::Common::XMLIteratorPtr	pIt
+			);
 
-	bool			Enum( XMLIteratorPtr pIt );
+	bool	Enum( Yogi::Common::XMLIteratorPtr pIt );
 
 
 
@@ -156,17 +156,17 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TPointer<CDictPageActive>	m_pActive;
-	TPointer<CDictPageVariantRead>	m_pBase;
-	TPointer<CDictPageAlerts>	m_pNotify;
-	TArray<RangeItem>			m_aRanges;
-	TArray<CCharString>			m_aEnumList;
-	GFLOAT						m_fLow;
-	GFLOAT						m_fHigh;
-	CUnitsOfMeasure				m_tDegreesUnits;
-	CUnitsOfMeasure				m_tColorUnits;
-	CUnitsOfMeasure				m_tNumberUnits;
-	CUnitsOfMeasure				m_tStringUnits;
+	Yogi::Core::TPointer<CDictPageActive>		m_pActive;
+	Yogi::Core::TPointer<CDictPageVariantRead>	m_pBase;
+	Yogi::Core::TPointer<CDictPageAlerts>		m_pNotify;
+	Yogi::Core::TArray<RangeItem>				m_aRanges;
+	Yogi::Core::TArray<Yogi::Core::CCharString>	m_aEnumList;
+	GFLOAT										m_fLow;
+	GFLOAT										m_fHigh;
+	Yogi::Common::CUnitsOfMeasure				m_tDegreesUnits;
+	Yogi::Common::CUnitsOfMeasure				m_tColorUnits;
+	Yogi::Common::CUnitsOfMeasure				m_tNumberUnits;
+	Yogi::Common::CUnitsOfMeasure				m_tStringUnits;
 
 
 private:

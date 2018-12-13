@@ -69,12 +69,12 @@ public:
 
 	CImageRef	operator=( CImageRef r );		// assignment
 
-	CCharStringPtr	File( void );
+	Yogi::Core::ConstCCharStringPtr	File( void );
 	CPointValuePtr	Origin( void );
 	CSizePtr		Size( void );
-	void			SetAlign( VDraw::EAlignments e );
-	void			SetVertAlign( VDraw::EVerticalAlignments e );
-	void			SetFitment( VDraw::EFitments e );
+	void			SetAlign( Yogi::Common::VDraw::EAlignments e );
+	void			SetVertAlign( Yogi::Common::VDraw::EVerticalAlignments e );
+	void			SetFitment( Yogi::Common::VDraw::EFitments e );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -83,15 +83,15 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString		m_sFile;
-	CPointValue		m_tOrigin;
-	CSize			m_tSize;
-	IDraw::EAlignments	m_eAlign;
-	IDraw::EVerticalAlignments
-						m_eVertAlign;
-	IDraw::EFitments	m_eFitment;
+	Yogi::Core::CCharString		m_sFile;
+	CPointValue					m_tOrigin;
+	CSize						m_tSize;
+	Yogi::Common::IDraw::EAlignments	m_eAlign;
+	Yogi::Common::IDraw::EVerticalAlignments
+								m_eVertAlign;
+	Yogi::Common::IDraw::EFitments	m_eFitment;
 
-	IDraw::VImagePtr	m_pImage;
+	Yogi::Common::IDraw::VImagePtr	m_pImage;
 
 
 
@@ -108,7 +108,7 @@ private:
 	//	VRenderable
 public:
 	virtual int		Calculate( VDictionaryPtr pDict );
-	virtual bool	Render( VDictionaryPtr pDict, VDrawPtr pDraw );
+	virtual bool	Render( VDictionaryPtr pDict, Yogi::Common::VDrawPtr pDraw );
 
 };
 

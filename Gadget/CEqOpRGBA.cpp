@@ -171,10 +171,10 @@ CVariantData
 			&&	CVariantData::T_INTEGER == tOperand3
 			&&	CVariantData::T_INTEGER == tOperand4 )
 	{
-		unsigned long	r = vOperand1;
-		unsigned long	g = vOperand2;
-		unsigned long	b = vOperand3;
-		unsigned long	a = vOperand4;
+		unsigned long	r = vOperand1.GetValueUnsignedInteger();
+		unsigned long	g = vOperand2.GetValueUnsignedInteger();
+		unsigned long	b = vOperand3.GetValueUnsignedInteger();
+		unsigned long	a = vOperand4.GetValueUnsignedInteger();
 
 		color = CColor( r, g, b, a );
 	}

@@ -150,10 +150,10 @@ CDictionary::CDictionary
 		(
 		void
 		)
-		: VDictionaryPageServer(),
-		m_bDirty( false ),
-		m_cPushPage( 'G' ),
-		m_nPushCount( 0 )
+		: VDictionaryPageServer()
+		, m_bDirty( false )
+		, m_cPushPage( 'G' )
+		, m_nPushCount( 0 )
 {
 	VDictionaryPagePtr*	p = m_aPages;
 	VDictionaryPagePtr*	pEnd = m_aPages + kPageCount;
@@ -352,7 +352,7 @@ VDictionary::Selector
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictionary::GetData
 		(
 		Selector nSel
@@ -379,8 +379,8 @@ CVariantDataPtr
 \+---------------------------------------------------------------------*/
 bool	CDictionary::PutData
 		(
-		Selector nSel,
-		const CVariantData* pData
+		Selector				nSel,
+		ConstCVariantDataPtr	pData
 		)
 {
 	bool			bResult = false;
@@ -629,7 +629,7 @@ CCharString
 		CDictionary::ResolveVariable
 		(
 		ConstCCharDescriptorRef r
-		)
+		) const
 {
 	CCharString	sResult;
 	CCharString	s = r;
@@ -638,7 +638,7 @@ CCharString
 	sel = LocateEntry( s );
 	if ( sel )
 	{
-		CVariantDataPtr	pv;
+		ConstCVariantDataPtr	pv;
 		pv = GetData( sel );
 		if ( pv )
 		{

@@ -268,7 +268,7 @@ VDictionary::Selector
  * GetData -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		CDictionaryMemory::GetData
 		(
 		VDictionary::Selector nSel
@@ -286,7 +286,7 @@ CVariantDataPtr
 bool	CDictionaryMemory::PutData
 		(
 		VDictionary::Selector nSel,
-		CVariantDataPtr pData
+		ConstCVariantDataPtr pData
 		)
 {
 	return m_pDict->PutData( nSel, pData );
