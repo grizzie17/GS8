@@ -34,7 +34,7 @@ public:
 		return LocateEntry( s );
 	};
 
-	virtual Yogi::Common::ConstCVariantDataPtr	GetData( Selector nSel ) { return 0;};
+	virtual ConstCVariantDataPtr	GetData( Selector nSel ) const { return 0;};
 	virtual bool			PutData( Selector nSel, ConstCVariantDataPtr pData ) {return false;};
 
 	virtual bool			IsDataLocked( Selector nSel ) { return false; };

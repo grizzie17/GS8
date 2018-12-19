@@ -141,7 +141,7 @@ private:
 	bool	SelectFont(void);
 	bool	FindFontByName( char* sFile, size_t nFile, const char* sName );
 	//FontData*	BestFont(void);
-	long	LocateEntry(const char* sName);
+	long	LocateEntry(const char* sName) const;
 	//bool 	glIndex(int color, int alpha);
 
 //	private data  -------------------------------------------------------

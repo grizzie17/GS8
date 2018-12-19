@@ -21,6 +21,8 @@
 #include "LogFile.h"
 #include "UPlatform.h"
 #include "UPlatformThreads.h"
+
+using namespace Yogi::Core;
 /*---------------------------------------------------------------------+\
 |								
 |	Local defines / constants	
@@ -31,7 +33,7 @@
 |	Local Type Definitions	
 |							
 \+---------------------------------------------------------------------*/
-namespace Yogi { namespace Core {
+//namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
 |							
 |	Private Global Variables
@@ -190,7 +192,7 @@ void	ThreadClose
 
 
 
-}}
+//}}
 
 
 /**--------------------------------------------------------------------+\

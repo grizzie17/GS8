@@ -119,7 +119,7 @@ public:
 			ResolveVariable
 			(
 			Yogi::Core::ConstCCharDescriptorRef	r
-			) const;
+			);
 
 	//	VConfiguration
 public:

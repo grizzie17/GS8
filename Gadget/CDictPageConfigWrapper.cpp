@@ -200,7 +200,7 @@ bool	CDictPageConfigWrapper::AddEntry
 long	CDictPageConfigWrapper::LocateEntry
 		(
 		ConstCCharStringRef	rName
-		)
+		) const
 {
 	return m_pConfig->LocateEntry( rName );
 }

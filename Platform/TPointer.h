@@ -272,7 +272,6 @@ void	TPointer<T>::Set
 		)
 {
 	m_p = p;
-	return m_p;
 }
 
 
@@ -391,4 +390,3 @@ T&		TArrayPointer<T>::operator =
 
 
 #endif /* _H_TPointer */
-

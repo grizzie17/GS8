@@ -174,7 +174,7 @@ Yogi::Core::CCharString
 		CConfiguration::ResolveVariable
 		(
 		Yogi::Core::ConstCCharDescriptorRef r
-		) const
+		)
 {
 	Yogi::Core::CCharString	s = r;
 

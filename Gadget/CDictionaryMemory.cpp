@@ -242,7 +242,7 @@ VDictionary::Selector
 		CDictionaryMemory::LocateEntry
 		(
 		ConstCCharStringRef	rName
-		)
+		) const
 {
 	return m_pDict->LocateEntry( rName );
 }
@@ -257,7 +257,7 @@ VDictionary::Selector
 		CDictionaryMemory::LocateEntry
 		(
 		const char* sName
-		)
+		) const
 {
 	return m_pDict->LocateEntry( sName );
 }

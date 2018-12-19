@@ -30,6 +30,7 @@
 //#include "ISupports.h"
 
 #include "CCharString.h"
+#include "CCharDescriptor.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -65,7 +66,7 @@ public:
 			ResolveVariable
 			(
 			Yogi::Core::ConstCCharDescriptorRef	r
-			) const = 0;
+			) = 0;
 };
 
 /*---------------------------------------------------------------------+\

@@ -1241,8 +1241,7 @@ strftime(char * const s, const size_t maxsize, const char *format, const struct 
 #if defined( OS_LINUX )  ||  \
 	defined( OS_MSWIN_WCE )  ||  \
 	defined( OS_MACINTOSH )  ||  \
-	defined( __MSYS__ )  ||  \
-	defined( __GNUC__ )
+	defined( __MSYS__ )
 
 /*---------------------------------------------------------------------+\
 
@@ -1321,6 +1320,7 @@ int		tmcomp
  * mkgmtime -
 
 \+---------------------------------------------------------------------*/
+#if 0
 time_t	mkgmtime
 		(
 		struct tm * const	tmp
@@ -1373,6 +1373,7 @@ time_t	mkgmtime
 #endif
 }
 #endif
+#endif
 
 
 
@@ -1381,4 +1382,3 @@ time_t	mkgmtime
  * GetApplicationFolder -
 
 \+---------------------------------------------------------------------*/
-

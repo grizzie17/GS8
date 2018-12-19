@@ -19,7 +19,7 @@ public:
 
 public:
 
-	virtual CCharString	ResolveVariable( ConstCCharDescriptorRef r ) const
+	virtual CCharString	ResolveVariable( ConstCCharDescriptorRef r )
 	{
 		if ( r == "george" )
 			return CCharString( "GEORGIA" );

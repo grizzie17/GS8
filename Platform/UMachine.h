@@ -89,8 +89,6 @@
 				NEWLINE_CRLF
 				NEWLINE_LF
 
-|	Author and Date:	J.Griswold			17-Oct-1989
-|
 |	Restrictions/Warnings:
 |
 |		Please take note that some of the preprocessor symbols depend
@@ -172,6 +170,8 @@
 		Add BITFIELDS_ASCEND and BITFIELDS_DESCEND
 	01-Aug-1993
 		Add the definitions for rs6000
+	17-Oct-1989			J.Griswold
+		Original version
 |
 \+---------------------------------------------------------------------*/
 #ifndef _H_UMachine
@@ -190,8 +190,7 @@
 #if defined( winNT )  || defined( WINNT )			\
 		||	defined( _WIN32 )  ||  defined( WIN32 )	\
 		||	defined( _WIN64 )  ||  defined( WIN64 )	\
-		||	defined( _WIN32_WCE )	\
-		||	(defined( __MWERKS__ )  &&  defined( __INTEL__ ))
+		||	defined( _WIN32_WCE )
 
 
 #	ifdef		msdos	/* we don't do no dos */
@@ -218,6 +217,8 @@
 
 #	if defined( __MSYS__ )
 #		define	OS_MSWIN_MSYS	1
+#	elif defined( __MINGW64__ )
+#		define  OS_MSWIN_MINGW	1
 #	elif defined( __GNUC__ )
 #		define	OS_MSWIN_GNU	1
 #	endif
@@ -696,4 +697,3 @@
 
 
 #endif  /* _H_machine */
-

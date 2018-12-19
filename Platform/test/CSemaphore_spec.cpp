@@ -17,7 +17,7 @@ public:
 	int			m_nValue;
 	void start()
 	{
-		m_thread = ThreadCreate( static_cast<UThreadFunction>(thread), this );
+		m_thread = ::ThreadCreate( static_cast<UThreadFunction>(thread), this );
 	}
 	static UThreadRtn THREADAPI thread( void * this_ )
 	{
@@ -34,7 +34,7 @@ public:
 	~MockThread()
 	{
 		if ( m_thread )
-			ThreadClose( m_thread );
+			::ThreadClose( m_thread );
 	}
 };
 

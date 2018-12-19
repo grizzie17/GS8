@@ -155,6 +155,7 @@ public:
 
 
 	T*			PointArray( index_t nIndex = 0 ) const;
+	const T*	PointArrayConst( index_t nIndex = 0 ) const;
 	T*			PointItem( index_t nIndex = 0 );
 
 
@@ -412,6 +413,32 @@ void	TArray<T>::Sort
 \+---------------------------------------------------------------------*/
 template< class T >
 T*		TArray<T>::PointArray
+		(
+		index_t nIndex
+		) const
+{
+	if ( nIndex < 0 )
+		throw TArrayRange( nIndex );
+
+	if ( m_nUsed < 1 )
+		return 0;
+	else if ( 0 <= nIndex  &&  nIndex < index_t(m_nUsed) )
+		return m_pArray + nIndex;
+	else
+		return 0;
+}
+
+
+/*---------------------------------------------------------------------+\
+
+ * PointArrayConst - get pointer to array base
+
+ * can return null if index is out of used bounds
+
+\+---------------------------------------------------------------------*/
+template< class T >
+const T*
+		TArray<T>::PointArrayConst
 		(
 		index_t nIndex
 		) const
@@ -1043,4 +1070,3 @@ const T*
 
 
 #endif /* _H_TArray */
-

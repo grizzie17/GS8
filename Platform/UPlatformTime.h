@@ -30,7 +30,7 @@
 #include "UTypes.h"
 #if defined( OS_MSWIN )
 #	include <windows.h>
-#	include <w32api/synchapi.h>
+//#	include <w32api/synchapi.h>
 #elif defined( OS_LINUX )
 #	include <sys/time.h>
 #endif
@@ -164,4 +164,3 @@ errno_t	millisleep
 
 
 #endif /* _H_UPlatformTime */
-

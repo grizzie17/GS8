@@ -33,7 +33,7 @@
 |	Type Definitions	
 |						
 \+---------------------------------------------------------------------*/
-namespace Yogi { namespace Core {
+//namespace Yogi { namespace Core {
 
 #if defined( THREADS_POSIX )
 
@@ -70,25 +70,23 @@ namespace Yogi { namespace Core {
 ||						
 \+=====================================================================*/
 
-/**
- *	@brief	ThreadCreate - start a thread
- *
- *	@see UThreadFunction
- */
+//! start a thread
+//!
+//! @see UThreadFunction
+//!
 UThreadHdl
-		ThreadCreate					///@return handle to the thread
-		(
-		UThreadFunction	pFunc,			///< [in] pointer to a UThreadFunction (see above)
-		void*			pArg,			///< [in] pointer to be passed to pFunc
-		const char*		sName = NULL	///< [in] optional name for thread
+		ThreadCreate
+		(								//!@return handle to the thread
+		UThreadFunction	pFunc,			//!< [in] pointer to a UThreadFunction (see above)
+		void*			pArg,			//!< [in] pointer to be passed to pFunc
+		const char*		sName = NULL	//!< [in] optional name for thread
 		);
 
-/**
- *	@brief	ThreadClose - shutdown/close a thread
- */
+//!	shutdown/close a thread
+//!
 void	ThreadClose
 		(
-		UThreadHdl	hThread		///< [in] handle to thread to shutdown/close
+		UThreadHdl	hThread		//!< [in] handle to thread to shutdown/close
 		);
 
 
@@ -98,7 +96,7 @@ void	ThreadClose
 ||						
 \+=====================================================================*/
 
-}}
+//}}
 
 
 

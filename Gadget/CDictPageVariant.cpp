@@ -162,7 +162,7 @@ bool	CDictPageVariant::AddEntry
 long	CDictPageVariant::LocateEntry
 		(
 		ConstCCharStringRef	rName
-		)
+		) const
 {
 	return long(m_aContent.IndexOf( rName ));
 }

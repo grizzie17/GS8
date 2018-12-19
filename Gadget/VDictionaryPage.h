@@ -97,7 +97,7 @@ public:
 	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) = 0;
 			long	LocateEntry( const char* sName );
 	virtual Yogi::Common::ConstCVariantDataPtr
-					GetData( unsigned long nSel ) = 0;
+					GetData( unsigned long nSel ) const = 0;
 	virtual bool	PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData ) = 0;
 
 
@@ -174,7 +174,7 @@ private:
 
 	//	VDictionaryPage
 public:
-	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) const;
 	virtual bool	AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Core::ConstCCharDescriptorRef rAlias );
 
 	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
@@ -229,7 +229,7 @@ template < class TDATUM >
 long	TDictionaryPage<TDATUM>::LocateEntry
 		(
 		Yogi::Core::ConstCCharStringRef	rName
-		)
+		) const
 {
 	return m_aContent.IndexOf( rName );
 }

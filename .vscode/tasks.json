@@ -24,14 +24,14 @@
 		{
 			"label": "c++ predefined variables",
 			"type": "shell",
-			"command": "echo | x86_64-pc-msys-gcc -xc++ -dM -E -mwindows - | sort",
+			"command": "echo | x86_64-w64-mingw32-gcc -xc++ -dM -E -mwindows - | sort",
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},
 		{
 			"label": "c++ predefined include paths",
 			"type": "shell",
-			"command": "echo | gcc -xc++ -E -v - ",
+			"command": "echo | x86_64-w64-mingw32-gcc -xc++ -E -v - ",
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},
@@ -47,6 +47,9 @@
 					"severity": 2,
 					"message": 3
 				}
+			},
+			"presentation": {
+				"clear": true
 			}
 		},
 		{
@@ -54,7 +57,10 @@
 			"type": "shell",
 			"command": "./build-clean.sh",
 			"group": "build",
-			"problemMatcher": []
+			"problemMatcher": [],
+			"presentation": {
+				"clear": true
+			}
 		},
 		{
 			"label": "build ALL",
@@ -70,6 +76,9 @@
 					"severity": 4,
 					"message": 5
 				}
+			},
+			"presentation": {
+				"clear": true
 			}
 		},
 		{
@@ -114,6 +123,9 @@
 					"severity": 4,
 					"message": 5
 				}
+			},
+			"presentation": {
+				"clear": true
 			}
 		},
 		{
@@ -134,6 +146,9 @@
 					"severity": 4,
 					"message": 5
 				}
+			},
+			"presentation": {
+				"clear": true
 			}
 		}
 	]

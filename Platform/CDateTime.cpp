@@ -55,6 +55,7 @@
 //#include <sys/timeb.h>
 
 #include "CDateTime.h"
+#include "CCharDescriptor.h"
 
 #include "UPlatform.h"
 #include "UPlatformTime.h"

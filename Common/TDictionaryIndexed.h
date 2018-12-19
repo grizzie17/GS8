@@ -117,8 +117,8 @@ class TDictionaryIndexed
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					TDictionaryIndexed();
-	virtual			~TDictionaryIndexed();
+			TDictionaryIndexed();
+	virtual	~TDictionaryIndexed();
 
 public:
 //	public types  -------------------------------------------------------
@@ -133,6 +133,7 @@ public:
 	index_t	IndexOf( const TKey& key ) const;
 	TData*	Items( void );
 	TData*	PointArray( index_t nIndex = 0 );
+	const TData* PointArrayConst( index_t nIndex = 0 ) const;
 
 	size_t	Count( void );
 	size_t	Length( void );
@@ -192,10 +193,10 @@ TDictionaryIndexedEnumerator<TKey, TData>::TDictionaryIndexedEnumerator
 		(
 		void
 		)
-		: m_pTable( 0 ),
-		m_eKeys(),
-		m_eList(),
-		m_nIndex( -1 )
+		: m_pTable( 0 )
+		, m_eKeys()
+		, m_eList()
+		, m_nIndex( -1 )
 {
 }
 
@@ -304,7 +305,7 @@ const TData*
 		if ( n < 0 )
 			return 0;
 		else
-			return m_pTable->m_aList.PointArray( n );
+			return m_pTable->m_aList.PointArrayConst( n );
 	}
 }
 
@@ -348,7 +349,7 @@ const TData&
 
 	index_t	n = m_eKeys.Value();
 
-	TData*	p = m_pTable->m_aList.PointArray( n );
+	const TData*	p = m_pTable->m_aList.PointArrayConst( n );
 	Yogi::Core::DbgAssert( 0 != p, "TDictionaryIndexedEnum::Value - bad internal pointer" );
 	return *p;
 }
@@ -366,8 +367,8 @@ TDictionaryIndexed<TKey, TData>::TDictionaryIndexed
 		(
 		void
 		)
-		: m_aList(),
-		m_aKeys()
+		: m_aList()
+		, m_aKeys()
 {
 }
 
@@ -490,6 +491,21 @@ TData*	TDictionaryIndexed<TKey, TData>::PointArray
 		)
 {
 	return m_aList.PointArray( nIndex );
+}
+
+/*---------------------------------------------------------------------+\
+
+ * PointArrayConst -
+
+\+---------------------------------------------------------------------*/
+template < class TKey, class TData >
+const TData*
+		TDictionaryIndexed<TKey, TData>::PointArrayConst
+		(
+		index_t	nIndex
+		) const
+{
+	return m_aList.PointArrayConst( nIndex );
 }
 
 /*---------------------------------------------------------------------+\

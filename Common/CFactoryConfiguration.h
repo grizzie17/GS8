@@ -122,7 +122,7 @@ public:
 			ResolveVariable
 			(
 			Yogi::Core::ConstCCharDescriptorRef	r
-			) const;
+			);
 
 
 };

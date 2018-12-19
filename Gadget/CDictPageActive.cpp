@@ -1315,11 +1315,11 @@ long	CDictPageActive::LocateEntry
 	long	n = long(m_aContent.IndexOf( rName ));
 	if ( -1 < n )
 	{
-		VDictPageActiveDatumPtr*	p = m_aContent.PointArray( n );
-		if ( p )
+		VDictPageActiveDatum**	h = m_aContent.PointArray( n );
+		if ( h )
 		{
-			if ( *p )
-				(*p)->SetReferenced();
+			if ( *h )
+				(*h)->SetReferenced();
 		}
 	}
 	return n;

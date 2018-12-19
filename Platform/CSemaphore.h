@@ -50,8 +50,8 @@ class CSemaphore
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CSemaphore();
-	virtual			~CSemaphore();
+			CSemaphore();
+	virtual	~CSemaphore();
 
 public:
 //	public types  -------------------------------------------------------

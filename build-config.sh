@@ -8,6 +8,12 @@ $THISDIR/build-clean.sh
 
 pushd $THISDIR >/dev/null
 
+	case `uname -o` in
+	[Mm]sys | cygwin* )
+		export CC="x86_64-w64-mingw32-gcc"
+		export CXX="x86_64-w64-mingw32-g++"
+		;;
+	esac
 	$THISDIR/autogen.sh  ||  exit $?
 
 

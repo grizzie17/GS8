@@ -102,7 +102,7 @@ public:
 	virtual bool	AddEntry( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );
 
 	// returns negative for error
-	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) const;
 
 	virtual Yogi::Common::ConstCVariantDataPtr
 					GetData( unsigned long nSel );

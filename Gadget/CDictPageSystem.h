@@ -124,7 +124,7 @@ private:
 public:
 	virtual void	BeginCalculate( void );
 	virtual void	EndCalculate( void );
-	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) const;
 	virtual Yogi::Common::CVariantDataPtr
 					GetData( unsigned long nSel );
 	virtual bool	PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData );

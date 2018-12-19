@@ -33,7 +33,6 @@ libgadget_la_SOURCES = \
 		CDictPageConfigWrapper.cpp \
 		CDictPageEvents.cpp \
 		CDictPageFunctions.cpp \
-		CDictPageLazyLoad.cpp \
 		CDictPageP.cpp \
 		CDictPageSelector.cpp \
 		CDictPageSystem.cpp \

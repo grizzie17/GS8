@@ -52,10 +52,6 @@ AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 
 
 
-
-
-
-
 #AC_DEFINE([_POSIX_REALTIME_SIGNALS],[])
 
 # GCC is a bit picky about redefinitions of built-in macros. Alas, "built-in"
@@ -85,7 +81,7 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
 AC_CHECK_HEADERS([arpa/inet.h cstddef ctype.h errno.h fcntl.h float.h limits.h math.h memory.h netdb.h netinet/in.h stdarg.h stddef.h stdexcept stdint.h stdio.h stdlib.h string string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h sys/types.h termios.h time.h unistd.h])
 
 AM_COND_IF([OS_MSYS], [
-	AC_CHECK_HEADERS([process.h tchar.h winbase.h winerror.h WinReg.h ws2tcpip.h])
+	AC_CHECK_HEADERS([process.h tchar.h winbase.h winerror.h WinReg.h])
 ])
 
 AM_COND_IF([OS_LINUX], [
@@ -115,14 +111,16 @@ AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname getti
 GLOBAL_CXXFLAGS=" -std=c++11 -Werror -Wall"
 case `uname -s` in
 [Mm]sys* | mingw* | MINGW* )
-WDEFS="-DMSYS -DWIN64 -U__unix -U__unix__ -Uunix"
+WDEFS="-DMSYS -DWIN64"
 AM_CPPFLAGS="$WDEFS"
 AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
 NO_UNDEFINED="-no-undefined"
 #CC="gcc $WDEFS"
 #CXX="g++ $WDEFS"
-CC="x86_64-pc-msys-gcc $WDEFS"
-CXX="x86_64-pc-msys-g++ $WDEFS"
+#CC="x86_64-pc-msys-gcc $WDEFS"
+#CXX="x86_64-pc-msys-g++ $WDEFS"
+CC="x86_64-w64-mingw32-gcc $WDEFS"
+CXX="x86_64-w64-mingw32-g++ $WDEFS"
 EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
 AC_SUBST([CC])
 AC_SUBST([CXX])

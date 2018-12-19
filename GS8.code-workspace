@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "C:/msys64/mingw64"
 		}
 	],
 	"settings": {
@@ -55,7 +58,6 @@
 		// 	"**/missing": true
 		// },
 		"svn.enabled": false,
-		"uncrustify.graphicalConfig": false,
 		"doxdocgen.c.commentPrefix": "//! ",
 		"doxdocgen.c.firstLine": "///",
 		"doxdocgen.c.lastLine": "//",

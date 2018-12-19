@@ -30,8 +30,7 @@ libplatform_la_SOURCES = \
 libplatform_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libplatform_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 libplatform_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED)
-libplatform_la_LIBADD = \
-		-lpthread -ldl -lrt
+libplatform_la_LIBADD = -lpthread -lc
 
 
 
@@ -63,10 +62,12 @@ platform_specs_SOURCES = \
 platform_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
 platform_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
 platform_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
-		-L$(top_builddir)/Platform
+		-L$(top_builddir)/Platform \
+		-L$(top_builddir)/Platform/.libs
 platform_specs_LDADD = \
 		-lplatform \
-		-lpthread -ldl
+		-lpthread \
+		-lc
 
 # check-local:
 # 	$(top_builddir)/Platform/platform_specs

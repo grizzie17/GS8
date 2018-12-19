@@ -306,8 +306,7 @@ VDictionary::Selector
 		ConstCCharStringRef	rName
 		)
 {
-	const char*	sName = rName.Pointer();
-	return LocateEntry( sName );
+	return LocateEntry( rName.Pointer() );
 }
 
 
@@ -333,7 +332,7 @@ VDictionary::Selector
 			if ( 'A' <= c  &&  c <= 'Z' )
 			{
 				unsigned int	i = static_cast<unsigned int>(c - 'A');
-				VDictionaryPagePtr p = m_aPages[i];
+				VDictionaryPage* p = m_aPages[i];
 				if ( p )
 				{
 					long n = p->LocateEntry( sName+2 );
@@ -356,7 +355,7 @@ ConstCVariantDataPtr
 		CDictionary::GetData
 		(
 		Selector nSel
-		)
+		) const
 {
 	ConstCVariantDataPtr	pData = 0;
 	unsigned long			nPage = GET_PAGEID( nSel );
@@ -629,7 +628,7 @@ CCharString
 		CDictionary::ResolveVariable
 		(
 		ConstCCharDescriptorRef r
-		) const
+		)
 {
 	CCharString	sResult;
 	CCharString	s = r;
@@ -665,9 +664,9 @@ CDictionaryEnumerator::CDictionaryEnumerator
 		(
 		CDictionary*	p
 		)
-		: m_pDictionary( p ),
-		m_pEnumPage( 0 ),
-		m_nIndex( -1 )
+		: m_pDictionary( p )
+		, m_pEnumPage( 0 )
+		, m_nIndex( -1 )
 {
 }
 

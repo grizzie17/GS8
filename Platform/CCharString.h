@@ -87,18 +87,7 @@ public:
 	ConstCCharStringRef	operator+=( const char* s );
 
 	operator const std::string& ( void ) const;
-
-	//operator char* ( void ) const;
-	//operator const char* ( void );
-	//operator CCharString ( void );
 	operator const CCharDescriptor ( void ) const;
-	//operator ConstCCharDescriptorRef ( void ) const;
-	//operator const CCharDescriptorPtr ( void ) const;
-	//operator CCharDescriptorPtr ( void ) const;
-
-	//bool	operator==( const char* s );
-	//bool	operator==( ConstCCharStringRef r );
-
 
 	size_t		Length( void ) const;
 	const char*	Pointer( index_t n = 0 ) const;
@@ -123,16 +112,12 @@ public:
 	int		CompareIgnoreCase( ConstCCharDescriptorRef r ) const;
 	int		CompareIgnoreCase( const char* s, size_t n ) const;
 	int		CompareIgnoreCase( const char* s ) const;
-	//int		CompareIgnoreCase( const std::string& r ) const;
 
 	void	ConvertUppercase( void );
 	void	ConvertLowercase( void );
 
 
-
 	CCharStringRef	Format( const char* sFormat, ... );
-
-
 
 
 	void	ClearString( void );
@@ -329,16 +314,6 @@ bool	operator==
 	return 0 == lhs.Compare(rhs);
 }
 
-
-inline
-bool	operator==
-		(
-		ConstCCharDescriptorRef	lhs,
-		ConstCCharStringRef		rhs
-		)
-{
-	return 0 == rhs.Compare(lhs);
-}
 
 
 
