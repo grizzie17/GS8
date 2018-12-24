@@ -27,6 +27,7 @@
 #if ! defined( OS_MSWIN )
 #include <pthread.h>
 #endif
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -48,7 +49,7 @@ typedef const class CMutex&	ConstCMutexRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CMutex
+class DECL_CLASS CMutex
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -60,16 +61,14 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	/**
-	 * 	Lock code section
-	 *
-	 *	Bounded code will only execute a single thread
-	 */
+	//!	Lock code section
+	//!
+	//!	Bounded code will only execute a single thread
+	//!
 	void	Lock( void );
 
-	/**
-	 *	Unlock the previously locked mutex
-	 */
+	//!	Unlock the previously locked mutex
+	//!
 	void	Unlock( void );
 
 protected:
@@ -165,4 +164,3 @@ protected:
 
 
 #endif /* _H_CMutex */
-

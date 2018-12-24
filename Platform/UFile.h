@@ -55,24 +55,24 @@ namespace Yogi { namespace Core {
 
 //!	FileExists -- deterimine if file exists
 //!
-bool	FileExists				//!@return true if file exists, false otherwise
-		(
+bool	FileExists
+		(						//!@return true if file exists, false otherwise
 		const char*	sFilePath	//!< [in] file to check
 		);
 
 //!	FolderExists -- determine if a folder exists
 //!
-bool	FolderExists			//!@return true if folder exists, false otherwise
-		(
+bool	FolderExists
+		(						//!@return true if folder exists, false otherwise
 		const char*	sFilePath	//!< [in] folder to check
 		);
 
 bool	PathBuild
 		(
-		char*		sBuffer,
-		size_t		nSizeBuffer,
-		const char*	sBasePath,
-		const char*	sAddPath
+		char*		sBuffer,		//!< [out] buffer to receive new path
+		size_t		nSizeBuffer,	//!< [in] size of output buffer
+		const char*	sBasePath,		//!< [in] first part of path
+		const char*	sAddPath		//!< [in] path to append to base-path
 		);
 
 

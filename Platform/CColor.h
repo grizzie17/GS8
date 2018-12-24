@@ -48,6 +48,7 @@
 \+---------------------------------------------------------------------*/
 #include "CCharDescriptor.h"
 #include "TEnumerator.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -167,7 +168,7 @@ typedef const class CColor&	ConstCColorRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CColorEnumerator : public TEnumerator<const ColorName>
+class DECL_CLASS CColorEnumerator : public TEnumerator<const ColorName>
 {
 public:
 			CColorEnumerator( void );
@@ -187,7 +188,7 @@ protected:
 
 
 
-class CColor
+class DECL_CLASS CColor
 {
 //	class lifecycle  ----------------------------------------------------
 public:

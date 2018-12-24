@@ -40,6 +40,7 @@
 #include <ctype.h>
 
 #include "TCharDescriptor.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -52,7 +53,7 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-class CCharString;	// forward reference
+class DECL_CLASS CCharString;	// forward reference
 
 typedef class CCharDescriptor*			CCharDescriptorPtr;
 typedef class CCharDescriptor&			CCharDescriptorRef;
@@ -69,7 +70,7 @@ typedef const class CCharDescriptor*	ConstCCharDescriptorPtr;
  *
  *	Specialization of TCharDescriptor
  */
-class CCharDescriptor : public TCharDescriptor<char>
+class DECL_CLASS CCharDescriptor : public TCharDescriptor<char>
 {
 //	class lifecycle  ----------------------------------------------------
 public:

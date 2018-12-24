@@ -66,19 +66,21 @@ class CFactoryConfiguration : public VFactoryLite,
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CFactoryConfiguration();
-	virtual			~CFactoryConfiguration();
+			CFactoryConfiguration();
+	virtual	~CFactoryConfiguration();
 
 public:
 //	public types  -------------------------------------------------------
 
 //	public functions  ---------------------------------------------------
 
-	virtual VConfigurationPtr	Make
-								(
-								const char*			sName,
-								VConfigurationPtr	pConfig = 0
-								);
+	virtual
+	VConfigurationPtr
+			Make
+			(
+			const char*			sName,
+			VConfigurationPtr	pConfig = 0
+			);
 
 
 
@@ -88,18 +90,23 @@ protected:
 
 //	protected functions  ------------------------------------------------
 
-	VConfigurationPtr	Configuration( VConfigurationPtr pConfig );
-	bool				Item
-						(
-						VConfigurationPtr	pConfig,
-						XMLIteratorPtr		pIt
-						);
+	VConfigurationPtr
+			Configuration
+			(
+			VConfigurationPtr pConfig
+			);
 
-	bool				IncludeFile
-						(
-						VConfigurationPtr	pConfig,
-						XMLIteratorPtr		pIt
-						);
+	bool	Item
+			(
+			VConfigurationPtr	pConfig,
+			XMLIteratorPtr		pIt
+			);
+
+	bool	IncludeFile
+			(
+			VConfigurationPtr	pConfig,
+			XMLIteratorPtr		pIt
+			);
 
 
 

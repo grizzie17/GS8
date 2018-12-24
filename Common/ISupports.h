@@ -37,7 +37,6 @@
 #ifndef	interface_
 	//! macro to make interface declaration more readable
 #	define	interface_	struct
-
 #endif
 
 #ifndef	implements_
@@ -96,7 +95,7 @@ interface_ ISupports
 	//!	@note	automatically called by QueryInterface
 	virtual
 	NRefCount
-			AddRef			///@return current reference count
+			AddRef			//!@return current reference count
 			(
 			void
 			) PURE;
@@ -106,7 +105,7 @@ interface_ ISupports
 	//!	@note	call when you are finished with the interface/component
 	virtual
 	NRefCount
-			Release			///@return current reference count
+			Release			//!@return current reference count
 			(
 			void
 			) PURE;

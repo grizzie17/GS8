@@ -90,6 +90,7 @@
 
 #include "UTypes.h"
 #include "UFile.h"
+#include "UDeclSpec.h"
 //#include "UMath.h"
 
 /*---------------------------------------------------------------------+\
@@ -218,8 +219,8 @@
 /**
  *	@brief GetApplicationFolder - get the path of the application
  */
-const
-char*	GetApplicationFolder	///@return const path to the application
+DECL_API(const char*)
+		GetApplicationFolder	///@return const path to the application
 		(
 		void
 		);
@@ -230,8 +231,8 @@ char*	GetApplicationFolder	///@return const path to the application
  * 	If the application is nested in a "debug" or "release" folder
  *	this function returns the folder above
  */
-const
-char*	GetApplicationRootFolder	///@return const path
+DECL_API(const char*)
+		GetApplicationRootFolder	///@return const path
 		(
 		void
 		);
@@ -242,8 +243,8 @@ char*	GetApplicationRootFolder	///@return const path
  * 	This function will return the equivalent of calling GetApplicationRootFolder
  *	and then appending "Config"
  */
-const
-char*	GetUserConfigFolder		///@return const path
+DECL_API(const char*)
+		GetUserConfigFolder		///@return const path
 		(
 		void
 		);
@@ -254,7 +255,7 @@ char*	GetUserConfigFolder		///@return const path
 /**
  *	DLLOpen - load a shared-library into memory
  */
-ULibraryHdl
+DECL_API(ULibraryHdl)
 		DLLOpen						///@return handle to open library
 		(
 		const char*	sLibraryName	///< [in] name of library file to open
@@ -265,7 +266,7 @@ ULibraryHdl
  *
  *	@see ULibraryFuncPtr
  */
-ULibraryFuncPtr
+DECL_API(ULibraryFuncPtr)
 		DLLGetProcedure
 		(
 		ULibraryHdl	hLibrary,
@@ -276,7 +277,8 @@ ULibraryFuncPtr
 /**
  *	DLLClose - close and release the shared library handle
  */
-void	DLLClose
+DECL_API(void)
+		DLLClose
 		(
 		ULibraryHdl	hLibrary		///< [in] handle to library @see DLLOpen
 		);
@@ -284,8 +286,8 @@ void	DLLClose
 /**
  *	DLLErrorString - get an extended error string
  */
-const
-char*	DLLErrorString
+DECL_API(const char*)
+		DLLErrorString
 		(
 		void
 		);

@@ -33,6 +33,7 @@
 #if defined( SIGNAL_POSIX )
 #	include <pthread.h>
 #endif
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -54,7 +55,7 @@ typedef const class CSignal&	ConstCSignalRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CSignal
+class DECL_CLASS CSignal
 {
 //	class lifecycle  ----------------------------------------------------
 public:

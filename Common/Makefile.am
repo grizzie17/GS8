@@ -45,8 +45,7 @@ libcommon_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 
 libcommon_la_LIBADD = \
 		-lplatform \
-		-lpthread \
-		-ldl
+		-lpthread
 
 
 
@@ -75,7 +74,7 @@ common_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 common_specs_LDADD = \
 		-lcommon \
 		-lplatform \
-		-lpthread -ldl -lrt
+		-lpthread -lc
 
 
 # check-local:

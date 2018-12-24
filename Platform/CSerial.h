@@ -46,6 +46,7 @@
 #include "TArray.h"
 #include "CMutex.h"
 #include "UNResult.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -86,7 +87,7 @@ typedef const class CSerial&	ConstCSerialRef;
 |	CSerialPortSettings													|
 \+---------------------------------------------------------------------*/
 
-class CSerialPortSettings
+class DECL_CLASS CSerialPortSettings
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -167,7 +168,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSerial : public CSerialPortSettings
+class DECL_CLASS CSerial : public CSerialPortSettings
 {
 //	class lifecycle  ----------------------------------------------------
 public:

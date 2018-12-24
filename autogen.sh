@@ -122,18 +122,18 @@ grep '^[ \t]*AM_INIT_AUTOMAKE' $CONFIGURE_F  &>/dev/null
 
 ## autopoint ##
 need_autopoint=no
-grep '^[ \t]*AM_GNU_GETTEXT' $CONFIGURE_F  &>/dev/null
+grep '^[ \t]*AM_GNU_GETTEXT_VERSION' $CONFIGURE_F  &>/dev/null
 [ 0 -eq $? ]  &&  need_autopoint=yes
-
-## libtoolize ##
-need_libtoolize=no
-grep '^[ \t]*LT_INIT' $CONFIGURE_F  &>/dev/null
-[ 0 -eq $? ]  &&  need_libtoolize=yes
 
 ## intltoolize ##
 need_intltoolize=no
 grep '^[ \t]*AC_PROG_INTLTOOL' $CONFIGURE_F  &>/dev/null
 [ 0 -eq $? ]  &&  need_intltoolize=yes
+
+## libtoolize ##
+need_libtoolize=no
+grep '^[ \t]*LT_INIT' $CONFIGURE_F  &>/dev/null
+[ 0 -eq $? ]  &&  need_libtoolize=yes
 
 
 pushd $CONFIGURE_D >/dev/null

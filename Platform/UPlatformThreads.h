@@ -22,6 +22,7 @@
 \+---------------------------------------------------------------------*/
 #include "UOSIncludes.h"
 #include "UMachine.h"
+#include "UDeclSpec.h"
 
 /*---------------------------------------------------------------------+\
 |						
@@ -74,7 +75,7 @@
 //!
 //! @see UThreadFunction
 //!
-UThreadHdl
+DECL_API(UThreadHdl)
 		ThreadCreate
 		(								//!@return handle to the thread
 		UThreadFunction	pFunc,			//!< [in] pointer to a UThreadFunction (see above)
@@ -84,7 +85,8 @@ UThreadHdl
 
 //!	shutdown/close a thread
 //!
-void	ThreadClose
+DECL_API(void)
+		ThreadClose
 		(
 		UThreadHdl	hThread		//!< [in] handle to thread to shutdown/close
 		);

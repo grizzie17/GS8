@@ -30,6 +30,7 @@
 #endif
 
 #include "CCharString.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -93,7 +94,7 @@ typedef const class CSocketICMP&	ConstCSocketICMPRef;
 |	CSocket
 \+---------------------------------------------------------------------*/
 
-class CSocket // BaseClass
+class DECL_CLASS CSocket // BaseClass
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -201,7 +202,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketCommunicate : public CSocket
+class DECL_CLASS CSocketCommunicate : public CSocket
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -287,7 +288,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketTCP : public CSocketCommunicate
+class DECL_CLASS CSocketTCP : public CSocketCommunicate
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -349,7 +350,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketTCPServer : public CSocket
+class DECL_CLASS CSocketTCPServer : public CSocket
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -422,7 +423,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketUDP : public CSocketCommunicate
+class DECL_CLASS CSocketUDP : public CSocketCommunicate
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -532,7 +533,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketICMP : public CSocket
+class DECL_CLASS CSocketICMP : public CSocket
 {
 //	class lifecycle  ----------------------------------------------------
 public:

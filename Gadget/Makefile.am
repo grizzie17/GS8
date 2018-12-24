@@ -209,4 +209,4 @@ gadget_specs_LDADD = \
 		-lgadget \
 		-lcommon \
 		-lplatform \
-		-lpthread -ldl
+		-lpthread

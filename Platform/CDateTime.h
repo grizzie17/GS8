@@ -44,6 +44,7 @@
 #include <time.h>
 
 #include "CCharDescriptor.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -67,7 +68,7 @@ typedef const class CDateTime&	ConstCDateTimeRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CDateTime
+class DECL_CLASS CDateTime
 {
 //	class lifecycle  ----------------------------------------------------
 public:

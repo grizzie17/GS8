@@ -81,7 +81,7 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
 AC_CHECK_HEADERS([arpa/inet.h cstddef ctype.h errno.h fcntl.h float.h limits.h math.h memory.h netdb.h netinet/in.h stdarg.h stddef.h stdexcept stdint.h stdio.h stdlib.h string string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h sys/types.h termios.h time.h unistd.h])
 
 AM_COND_IF([OS_MSYS], [
-	AC_CHECK_HEADERS([process.h tchar.h winbase.h winerror.h WinReg.h])
+	AC_CHECK_HEADERS([process.h tchar.h winbase.h winerror.h])
 ])
 
 AM_COND_IF([OS_LINUX], [

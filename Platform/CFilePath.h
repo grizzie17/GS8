@@ -117,6 +117,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "CCharDescriptor.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -138,7 +139,7 @@ typedef const class CFilePath&	ConstCFilePathRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CFilePath
+class DECL_CLASS CFilePath
 {
 //	class lifecycle  ----------------------------------------------------
 public:

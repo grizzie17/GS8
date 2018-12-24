@@ -40,6 +40,7 @@
 \+---------------------------------------------------------------------*/
 #include <string>
 #include "CCharDescriptor.h"
+#include "UDeclSpec.h"
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -62,7 +63,7 @@ typedef const class CCharString*	ConstCCharStringPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CCharString : public std::string
+class DECL_CLASS CCharString : public std::string
 {
 //	class lifecycle  ----------------------------------------------------
 public:

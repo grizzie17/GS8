@@ -176,7 +176,7 @@ END_IGNORE_WARNING
 #ifndef FIXED_USE_FLOAT
 
 
-class fixed_t
+class DECL_CLASS fixed_t
 {
 //	class lifecycle  ----------------------------------------------------
 public:

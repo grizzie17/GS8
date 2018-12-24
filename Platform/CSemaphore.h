@@ -25,6 +25,7 @@
 #	include <pthread.h>
 #	include <semaphore.h>
 #endif
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -46,7 +47,7 @@ typedef const class CSemaphore&	ConstCSemaphoreRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CSemaphore
+class DECL_CLASS CSemaphore
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -58,17 +59,17 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	/**
-	 *	Wait for signal to be triggered
-	 */
-	bool	Wait						///@return true=signal, false=timeout
-			(
-			unsigned	nTimeout = 0	///< [in] milliseconds (0 == infinite)
+
+	//!	Wait for signal to be triggered
+	//!
+	bool	Wait
+			(							//!@return true=signal, false=timeout
+			unsigned	nTimeout = 0	//!< [in] milliseconds (0 == infinite)
 			);
 
-	/**
-	 * 	Signal a semaphore
-	 */
+
+	//! Signal a semaphore
+	//!
 	void	Signal
 			(
 			void

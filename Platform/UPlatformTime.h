@@ -68,7 +68,8 @@
 ||																		|
 \+=====================================================================*/
 
-long	milliseconds
+DECL_API(long)
+		milliseconds
 		(
 		void
 		);
