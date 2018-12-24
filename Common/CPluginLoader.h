@@ -33,6 +33,8 @@
 #include "CCharString.h"
 #include "CMutex.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -53,7 +55,7 @@ typedef const class CPluginLoader&	ConstCPluginLoaderRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CPluginLoader
+class DECL_CLASS CPluginLoader
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -112,4 +114,3 @@ private:
 
 
 #endif /* _H_CPluginLoader */
-

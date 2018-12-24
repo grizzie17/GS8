@@ -169,7 +169,7 @@ libgadget_la_SOURCES = \
 		VPanelChild.cpp \
 		VPolylist.cpp
 libgadget_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libgadget_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libgadget_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) -DBUILDING_SHAREDLIB
 libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-L$(top_builddir)/Draw/VDraw \
 		-L$(top_builddir)/Common \

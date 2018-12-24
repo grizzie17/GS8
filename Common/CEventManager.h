@@ -44,6 +44,7 @@
 |
 \+---------------------------------------------------------------------*/
 #include "VObject.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -65,7 +66,7 @@ typedef const class CEventManager&	ConstCEventManagerRef;
 |
 \+---------------------------------------------------------------------*/
 
-class CEventManager : public VObject
+class DECL_CLASS CEventManager : public VObject
 {
 	//	class lifecycle  ----------------------------------------------------
 public:
@@ -125,4 +126,3 @@ private:
 
 
 #endif /* _H_CEventManager */
-

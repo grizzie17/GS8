@@ -30,6 +30,7 @@
 #include "TPointer.h"
 #include "TArray.h"
 #include "ISupports.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Common {
 
@@ -56,7 +57,7 @@ typedef const class CFactoryPlugin&	ConstCFactoryPluginRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CFactoryPlugin : public VFactoryLite
+class DECL_CLASS CFactoryPlugin : public VFactoryLite
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -161,5 +162,3 @@ private:
 
 
 #endif /* _H_CFactoryPlugin */
-
-

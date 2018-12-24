@@ -49,6 +49,7 @@ function assertCmd()
 	local sts=0
 	local fullcmd
 	local var
+	local ver
 
 	fullcmd=`which $ARCH_PREFIX$cmd 2>/dev/null`
 	sts=$?
@@ -60,11 +61,12 @@ function assertCmd()
 	#echo "fullcmd=$fullcmd" >&2
 
 	if [ 0 -eq $sts ]; then
-		$fullcmd --version | head -1 | sed -r -e 's/^.*[^0-9.]([0-9][0-9.]*)/\1/'
+		ver=`$fullcmd --version | head -1 | sed -r -e 's/^.*[^0-9.]([0-9][0-9.]*)/\1/'`
 		sts=$?
 		if [ 0 -eq $sts ]; then
 			var=`echo "$cmd" | tr '[a-z]' '[A-Z]' | sed -e 's/-//g'`
 			eval export $var=$fullcmd
+			eval export ${var}_V=$ver
 			#echo "$var=${!var}" >&2
 		else
 			fatal $sts "command does not know about version option: $cmd"
@@ -89,16 +91,16 @@ else
 fi
 
 # assure the needed commands exist
-ACLOCAL_V=`assertCmd $ACLOCAL`
-AUTOCONF_V=`assertCmd $AUTOCONF`
-AUTOHEADER_V=`assertCmd $AUTOHEADER`
-AUTOMAKE_V=`assertCmd $AUTOMAKE`
-AUTOPOINT_V=`assertCmd $AUTOPOINT`
-AUTORECONF_V=`assertCmd $AUTORECONF`
-LIBTOOLIZE_V=`assertCmd $LIBTOOLIZE`
-INTLTOOLIZE_V=`assertCmd $INTLTOOLIZE`
-PKGCONFIG_V=`assertCmd $PKGCONFIG`
-MKDIR_V=`assertCmd mkdir`
+assertCmd $ACLOCAL
+assertCmd $AUTOCONF
+assertCmd $AUTOHEADER
+assertCmd $AUTOMAKE
+assertCmd $AUTOPOINT
+assertCmd $AUTORECONF
+assertCmd $LIBTOOLIZE
+assertCmd $INTLTOOLIZE
+assertCmd $PKGCONFIG
+assertCmd mkdir
 
 # echo "ACLOCAL=$ACLOCAL"
 # echo "AUTOCONF=$AUTOCONF"
@@ -107,6 +109,7 @@ MKDIR_V=`assertCmd mkdir`
 # echo "AUTOPOINT=$AUTOPOINT"
 # echo "AUTORECONF=$AUTORECONF"
 # echo "LIBTOOLIZE=$LIBTOOLIZE"
+# echo "INTLTOOLIZE=$INTLTOOLIZE"
 # echo "PKGCONFIG=$PKGCONFIG"
 # echo "MKDIR=$MKDIR"
 

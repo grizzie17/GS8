@@ -25,6 +25,8 @@
 #include "ISupports.h"
 
 #include "UWarnings.h"
+
+#include "UDeclSpec.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -154,7 +156,7 @@ interface_ ISupportsNonDelegating
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VBaseComObject
+class DECL_CLASS VBaseComObject
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -197,7 +199,7 @@ private:
 };
 
 //!	Base class used for all COM implementations
-class VSupports : public ISupportsNonDelegating
+class DECL_CLASS VSupports : public ISupportsNonDelegating
 {
 //	class lifecycle  ----------------------------------------------------
 

@@ -38,6 +38,7 @@
 #include "CVariables.h"
 #include "TPointer.h"
 #include "TArray.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Common {
 
@@ -61,7 +62,7 @@ typedef const class CFactoryConfiguration&	ConstCFactoryConfigurationRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CFactoryConfiguration : public VFactoryLite,
+class DECL_CLASS CFactoryConfiguration : public VFactoryLite,
 							public virtual VVariable
 {
 //	class lifecycle  ----------------------------------------------------

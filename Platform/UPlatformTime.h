@@ -37,6 +37,8 @@
 
 #include <time.h>
 
+#include "UDeclSpec.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -109,19 +111,22 @@ time_t w32_filetime_to_time_t(FILETIME* ft);
 	defined( __MSYS__ )  ||  \
 	defined( __GNUC__ )
 
-errno_t	gmtime_s
+DECL_API(errno_t)
+		gmtime_s
 		(
 		struct tm*		ptm,
 		const time_t*	pTime
 		);
 
-errno_t	localtime_s
+DECL_API(errno_t)
+		localtime_s
 		(
 		struct tm*		ptm,
 		const time_t*	pTime
 		);
 
-time_t	mkgmtime
+DECL_API(time_t)
+		mkgmtime
 		(
 		struct tm * const	tmp
 		);

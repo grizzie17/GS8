@@ -3,6 +3,7 @@
 
 #include <time.h>
 #include "UPlatform.h"
+#include "UDeclSpec.h"
 
 //#define USE_CHRONOS  1
 
@@ -53,7 +54,7 @@ enum ChronosID
 };
 
 
-class Chronos
+class DECL_CLASS Chronos
 {
 public:
    Chronos();

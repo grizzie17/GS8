@@ -38,6 +38,8 @@
 #include "TArray.h"
 #include "ISupports.h"
 
+#include "UDeclSpec.h"
+
 
 namespace Yogi { namespace Common {
 
@@ -65,7 +67,7 @@ typedef const class XOSchema&	ConstXOSchemaRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class XOSchema : public VFactoryLite
+class DECL_CLASS XOSchema : public VFactoryLite
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -78,12 +80,13 @@ public:
 //	public functions  ---------------------------------------------------
 
 	virtual
-	XOParsePtr	Make
-				(
-				const char*			sNameXML,
-				VPluginLibraryPtr	pLib,
-				VPluginFilterPtr	pFilter = 0
-				);
+	XOParsePtr
+			Make
+			(
+			const char*			sNameXML,
+			VPluginLibraryPtr	pLib,
+			VPluginFilterPtr	pFilter = 0
+			);
 
 
 protected:

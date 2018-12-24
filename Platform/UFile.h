@@ -22,6 +22,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "UOSIncludes.h"
+#include "UDeclSpec.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -53,21 +54,26 @@
 \+=====================================================================*/
 namespace Yogi { namespace Core {
 
-//!	FileExists -- deterimine if file exists
+//!	deterimine if file exists
 //!
-bool	FileExists
+DECL_API(bool)
+		FileExists
 		(						//!@return true if file exists, false otherwise
 		const char*	sFilePath	//!< [in] file to check
 		);
 
-//!	FolderExists -- determine if a folder exists
+//!	determine if a folder exists
 //!
-bool	FolderExists
+DECL_API(bool)
+		FolderExists
 		(						//!@return true if folder exists, false otherwise
 		const char*	sFilePath	//!< [in] folder to check
 		);
 
-bool	PathBuild
+//! add onto an existing path
+//!
+DECL_API(bool)
+		PathBuild
 		(
 		char*		sBuffer,		//!< [out] buffer to receive new path
 		size_t		nSizeBuffer,	//!< [in] size of output buffer
@@ -87,4 +93,3 @@ bool	PathBuild
 
 
 #endif /* _H_UFile */
-

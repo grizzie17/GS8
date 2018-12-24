@@ -90,6 +90,8 @@
 #include "UPlatform.h"
 #include "UPlatformString.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace XMLLite {
 
 /*---------------------------------------------------------------------+\
@@ -327,7 +329,7 @@ public:
 |	CReadFile															|
 \+---------------------------------------------------------------------*/
 
-class CReadFile : public XMLLite::VReadCallBack
+class DECL_CLASS CReadFile : public XMLLite::VReadCallBack
 {
 public:
 			CReadFile();

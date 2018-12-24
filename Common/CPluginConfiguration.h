@@ -43,6 +43,8 @@
 #include "CCharDescriptor.h"
 #include "CVariantData.h"
 
+#include "UDeclSpec.h"
+
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -64,21 +66,21 @@ typedef const class CPluginConfiguration&	ConstCPluginConfigurationRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CPluginConfiguration : public VPluginConfiguration
+class DECL_CLASS CPluginConfiguration : public VPluginConfiguration
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CPluginConfiguration();
-	virtual			~CPluginConfiguration();
+			CPluginConfiguration();
+	virtual	~CPluginConfiguration();
 
 public:
 //	public types  -------------------------------------------------------
 
 //	public functions  ---------------------------------------------------
 
-	void			SetClass( Yogi::Core::ConstCCharDescriptorRef r );
-	void			SetGroup( Yogi::Core::ConstCCharDescriptorRef r );
-	void			SetID( Yogi::Core::ConstCCharDescriptorRef r );
+	void	SetClass( Yogi::Core::ConstCCharDescriptorRef r );
+	void	SetGroup( Yogi::Core::ConstCCharDescriptorRef r );
+	void	SetID( Yogi::Core::ConstCCharDescriptorRef r );
 
 	virtual
 	VPluginConfiguration*

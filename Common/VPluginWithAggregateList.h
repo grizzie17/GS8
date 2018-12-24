@@ -30,6 +30,8 @@
 #include "VPlugin.h"
 #include "TArray.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -50,7 +52,7 @@ typedef const class VPluginWithAggregateList&	ConstVPluginWithAggregateListRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VPluginWithAggregateList : public VPlugin
+class DECL_CLASS VPluginWithAggregateList : public VPlugin
 {
 //	class lifecycle  ----------------------------------------------------
 
@@ -124,4 +126,3 @@ public:
 
 
 #endif /* _H_VPluginWithAggregateList */
-

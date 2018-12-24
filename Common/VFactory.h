@@ -46,6 +46,8 @@
 #include "TPointer.h"
 #include "UFloat.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -76,7 +78,7 @@ typedef	XMLIterator*						XMLIteratorPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VFactory : public XMLParser
+class DECL_CLASS VFactory : public XMLParser
 {
 //	class lifecycle  ----------------------------------------------------
 public:

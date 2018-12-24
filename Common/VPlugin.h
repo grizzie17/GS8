@@ -36,6 +36,8 @@
 
 #include "ISupportsLocal.h"
 
+#include "UDeclSpec.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -56,7 +58,7 @@ typedef const class VPlugin&	ConstVPluginRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VPlugin :
+class DECL_CLASS VPlugin :
 				public VSupports,
 				implements_ IPlugin,
 				implements_ IPluginLoadConfiguration,
@@ -159,4 +161,3 @@ protected:
 
 
 #endif /* _H_VPlugin */
-

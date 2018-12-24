@@ -32,6 +32,11 @@
 #include "IXOParse.h"
 
 #include "THash.h"
+#include "UNResult.h"
+
+#include "UDeclSpec.h"
+
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -49,7 +54,7 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-class XOLibrary : public VSupports//,
+class DECL_CLASS XOLibrary : public VSupports//,
 					//implements_ IInterface
 {
 //	class lifecycle  ----------------------------------------------------

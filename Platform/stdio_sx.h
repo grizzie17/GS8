@@ -16,43 +16,46 @@
 #define _H_stdio_sx
 #pragma once
 /*---------------------------------------------------------------------+\
-|						
-|	Include Files		
-|						
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include <stdio.h>
 #include "UTypes.h"
+#include "UDeclSpec.h"
 /*---------------------------------------------------------------------+\
-|						
-|	Defines				
-|						
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 #define	HAS_STDIO_SX
 /*---------------------------------------------------------------------+\
-|						
-|	Type Definitions	
-|						
+|
+|	Type Definitions
+|
 \+---------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 
-int		fopen_sx
+DECL_API(int)
+		fopen_sx
 		(
 		FILE**		hFile,
 		const char*	sName,
 		const char* sMode
 		);
 
-errno_t	getenv_sx
+DECL_API(errno_t)
+		getenv_sx
 		(
 		size_t*		pReturnValue,
 		char*		pTarget,
@@ -60,7 +63,8 @@ errno_t	getenv_sx
 		const char*	sName
 		);
 
-errno_t	sprintf_sx
+DECL_API(errno_t)
+		sprintf_sx
 		(
 		char*		sBuffer,
 		size_t		nSizeBuffer,
@@ -69,13 +73,12 @@ errno_t	sprintf_sx
 		);
 
 /*=====================================================================+\
-||						
-||	Inline Functions	
-||						
+||
+||	Inline Functions
+||
 \+=====================================================================*/
 
 
 
 
 #endif /* _H_stdio_sx */
-

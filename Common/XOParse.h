@@ -29,6 +29,8 @@
 \+---------------------------------------------------------------------*/
 #include "VSupports.h"
 #include "IXOParse.h"
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -49,7 +51,7 @@ typedef const class XOParse&	ConstXOParseRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class XOParse : public VSupports,
+class DECL_CLASS XOParse : public VSupports,
 					implements_ IXOParse
 {
 //	class lifecycle  ----------------------------------------------------
@@ -98,7 +100,7 @@ protected:
 
 
 
-class XOParseType : public VSupports,
+class DECL_CLASS XOParseType : public VSupports,
 					implements_ IXOParse
 {
 //	class lifecycle  ----------------------------------------------------
@@ -148,7 +150,7 @@ protected:
 
 
 
-class XOParseAttribute : public VSupports,
+class DECL_CLASS XOParseAttribute : public VSupports,
 					implements_ IXOParse
 {
 //	class lifecycle  ----------------------------------------------------
@@ -197,7 +199,7 @@ protected:
 
 
 
-class XOParseRoot : public VSupports,
+class DECL_CLASS XOParseRoot : public VSupports,
 					implements_ IXOParse
 {
 //	class lifecycle  ----------------------------------------------------
@@ -244,7 +246,7 @@ protected:
 
 };
 
-class XOParseSet : public VSupports,
+class DECL_CLASS XOParseSet : public VSupports,
 					implements_ IXOParse
 {
 //	class lifecycle  ----------------------------------------------------
@@ -292,7 +294,7 @@ protected:
 };
 
 
-class XOParseProperty : public VSupports,
+class DECL_CLASS XOParseProperty : public VSupports,
 					implements_ IXOParse
 {
 //	class lifecycle  ----------------------------------------------------
@@ -340,7 +342,7 @@ protected:
 };
 
 
-class XOParseNProperty : public VSupports,
+class DECL_CLASS XOParseNProperty : public VSupports,
 					implements_ IXOParse
 {
 //	class lifecycle  ----------------------------------------------------

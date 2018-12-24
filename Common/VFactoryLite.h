@@ -38,6 +38,8 @@
 #include "CVariables.h"
 #include "IExternalXML.h"
 
+#include "UDeclSpec.h"
+
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -62,7 +64,7 @@ typedef const class VFactoryLite&	ConstVFactoryLiteRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VFactoryLite : public VFactory
+class DECL_CLASS VFactoryLite : public VFactory
 {
 //	class lifecycle  ----------------------------------------------------
 public:

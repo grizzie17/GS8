@@ -16,18 +16,19 @@
 #define _H_UPlatformString
 #pragma once
 /*---------------------------------------------------------------------+\
-|						
-|	Include Files		
-|						
+|
+|	Include Files
+|
 \+---------------------------------------------------------------------*/
 #include "UOSIncludes.h"
 #include "string_sx.h"
+#include "UDeclSpec.h"
 //#include "UMath.h"
 
 /*---------------------------------------------------------------------+\
-|						
-|	Defines				
-|						
+|
+|	Defines
+|
 \+---------------------------------------------------------------------*/
 #if ! defined( __STDC_SECURE_LIB__ )  ||  (__STDC_SECURE_LIB__ < 200410L )
 #	define NEED_FUNC_S		1
@@ -55,27 +56,27 @@
 #endif
 
 /*---------------------------------------------------------------------+\
-|						
-|	Type Definitions	
-|						
+|
+|	Type Definitions
+|
 \+---------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------+\
-|						
-|	Class Definitions	
-|						
+|
+|	Class Definitions
+|
 \+---------------------------------------------------------------------*/
 
 
 /*---------------------------------------------------------------------+\
-|						
-|	External Variables	
-|						
+|
+|	External Variables
+|
 \+---------------------------------------------------------------------*/
 /*=====================================================================+\
-||						
-||	Function Prototypes	
-||						
+||
+||	Function Prototypes
+||
 \+=====================================================================*/
 
 #if defined( _MSC_VER )
@@ -119,7 +120,8 @@
 
 #	ifndef HAS_STRING_SX
 
-errno_t	memcpy_s
+DECL_API(errno_t)
+		memcpy_s
 		(
 		void*		t,
 		size_t		tc,
@@ -127,14 +129,16 @@ errno_t	memcpy_s
 		size_t		sc
 		);
 
-errno_t	strcpy_s
+DECL_API(errno_t)
+		strcpy_s
 		(
 		char*		t,
 		size_t		tc,
 		const char*	s
 		);
 
-errno_t	strncpy_s
+DECL_API(errno_t)
+		strncpy_s
 		(
 		char*		t,
 		size_t		tc,
@@ -142,14 +146,16 @@ errno_t	strncpy_s
 		size_t		sc
 		);
 
-errno_t	strcat_s
+DECL_API(errno_t)
+		strcat_s
 		(
 		char*		t,
 		size_t		tc,
 		const char*	s
 		);
 
-errno_t	strncat_s
+DECL_API(errno_t)
+		strncat_s
 		(
 		char*		t,
 		size_t		tc,
@@ -166,19 +172,22 @@ errno_t	strncat_s
 
 #if defined( OS_MSWIN )
 
-WCHAR*	WideStringFromString
+DECL_API(WCHAR*)
+		WideStringFromString
 		(
 		const char*	sString
 		);
 
 #	if defined OS_MSWIN_WCE
 
-char*	strerror
+DECL_API(const char*)
+		strerror
 		(
 		errno_t errnum
 		);
 
-char*	getenv
+DECL_API(const char*)
+		getenv
 		(
 		const char* name
 		);
@@ -187,13 +196,12 @@ char*	getenv
 
 #endif
 /*=====================================================================+\
-||						
-||	Inline Functions	
-||						
+||
+||	Inline Functions
+||
 \+=====================================================================*/
 
 
 
 
 #endif /* _H_UPlatformString */
-

@@ -46,6 +46,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "UFloat.h"
+#include "UDeclSpec.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -66,7 +67,7 @@ typedef const class CMatrix3x3d&	ConstCMatrix3x3dRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CMatrix3x3d
+class DECL_CLASS CMatrix3x3d
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -192,4 +193,3 @@ CMatrix3x3dRef
 
 
 #endif /* _H_CMatrix3x3d */
-

@@ -39,6 +39,8 @@
 #include "CCharDescriptor.h"
 #include "UFloat.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -92,7 +94,7 @@ typedef enum UNITFAMILY
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CUnitsOfMeasure
+class DECL_CLASS CUnitsOfMeasure
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -394,4 +396,3 @@ CUnitsOfMeasure::operator int
 
 
 #endif /* _H_CUnitsOfMeasure */
-

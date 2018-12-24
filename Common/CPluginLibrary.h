@@ -43,6 +43,8 @@
 #include "CVariantData.h"
 #include "CMutex.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -63,7 +65,7 @@ typedef const class CPluginLibrary&	ConstCPluginLibraryRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CPluginLibrary : public VSupports,
+class DECL_CLASS CPluginLibrary : public VSupports,
 					implements_ IPluginLibrary
 {
 //	class lifecycle  ----------------------------------------------------
@@ -194,4 +196,3 @@ protected:
 
 
 #endif /* _H_CPluginLibrary */
-

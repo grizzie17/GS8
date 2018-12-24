@@ -56,6 +56,8 @@
 #include "UFloat.h"
 #include "TArray.h"
 
+#include "UDeclSpec.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -79,7 +81,7 @@ typedef const class CVariantData*	ConstCVariantDataPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CVariantData
+class DECL_CLASS CVariantData
 {
 //	class lifecycle  ----------------------------------------------------
 public:

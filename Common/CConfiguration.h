@@ -29,6 +29,7 @@
 #include "CCharStringHash.h"
 #include "CVariantData.h"
 #include "UTypes.h"
+#include "UDeclSpec.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -50,7 +51,7 @@ typedef const class CConfiguration&	ConstCConfigurationRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CConfiguration : public VConfiguration
+class DECL_CLASS CConfiguration : public VConfiguration
 {
 //	class lifecycle  ----------------------------------------------------
 public:

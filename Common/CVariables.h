@@ -32,6 +32,8 @@
 #include "CCharString.h"
 #include "CCharDescriptor.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -57,7 +59,7 @@ typedef class VVariable*		VVariablePtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VVariable
+class DECL_CLASS VVariable
 {
 public:
 
@@ -75,7 +77,7 @@ public:
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CVariables
+class DECL_CLASS CVariables
 {
 //	class lifecycle  ----------------------------------------------------
 public:

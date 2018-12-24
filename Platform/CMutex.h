@@ -110,9 +110,9 @@ private:
 		void class::somefunction()
 		{
 			try {
-				CMutexLocker	oLocker( &amp;m_oMutex );
+				CMutexLocker	oLocker( &m_oMutex );
 				// do some stuff that must be thread locked
-				// notice that when 'oLock' goes out of scope
+				// notice that when 'oLocker' goes out of scope
 				// the mutex is unlocked.
 			} catch ( ... ) {
 				// do something

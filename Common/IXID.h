@@ -31,6 +31,8 @@
 #include <string.h>
 //#include "CCharDescriptor.h"
 
+#include "UDeclSpec.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -123,7 +125,7 @@ struct test_const
 
 
 
-class IXID
+class DECL_CLASS IXID
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -139,7 +141,7 @@ public:
 
 	bool	operator==( ConstIXIDRef r ) const;
 	bool	operator==( const char* s ) const;
-	
+
 	bool	Equals( ConstIXIDRef r ) const;
 	bool	Equals( const char* s ) const;
 
@@ -435,4 +437,3 @@ bool	IXID::Equals
 
 
 #endif /* _H_IXID */
-

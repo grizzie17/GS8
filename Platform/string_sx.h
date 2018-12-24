@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------*//**
+/************************************************************************
 *
 *	@file string_sx.h
 *
@@ -12,7 +12,7 @@
 			sc	= source count
 
 *
-*//*-------------------------------------------------------------------*/
+\***********************************************************************/
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include "UTypes.h"
+#include "UDeclSpec.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -61,7 +62,8 @@
 ||																		|
 \+=====================================================================*/
 
-errno_t	memcpy_sx
+DECL_API(errno_t)
+		memcpy_sx
 		(
 		void*		t,
 		size_t		tc,
@@ -69,14 +71,16 @@ errno_t	memcpy_sx
 		size_t		sc
 		);
 
-errno_t	strcpy_sx
+DECL_API(errno_t)
+		strcpy_sx
 		(
 		char*		t,
 		size_t		tc,
 		const char*	s
 		);
 
-errno_t	strncpy_sx
+DECL_API(errno_t)
+		strncpy_sx
 		(
 		char*		t,
 		size_t		tc,
@@ -84,14 +88,16 @@ errno_t	strncpy_sx
 		size_t		sc
 		);
 
-errno_t	strcat_sx
+DECL_API(errno_t)
+		strcat_sx
 		(
 		char*		t,
 		size_t		tc,
 		const char*	s
 		);
 
-errno_t	strncat_sx
+DECL_API(errno_t)
+		strncat_sx
 		(
 		char*		t,
 		size_t		tc,
@@ -109,4 +115,3 @@ errno_t	strncat_sx
 
 
 #endif /* _H_string_sx */
-
