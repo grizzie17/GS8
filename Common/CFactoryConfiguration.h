@@ -38,7 +38,7 @@
 #include "CVariables.h"
 #include "TPointer.h"
 #include "TArray.h"
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {
 

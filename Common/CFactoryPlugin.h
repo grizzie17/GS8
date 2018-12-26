@@ -30,7 +30,7 @@
 #include "TPointer.h"
 #include "TArray.h"
 #include "ISupports.h"
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {
 

@@ -31,6 +31,8 @@
 #include "CColor.h"
 #include "THash.h"
 
+#include "UDeclSpec.h"
+
 #if defined( GL_GDI )
 
 namespace Yogi { namespace Common {
@@ -53,7 +55,7 @@ typedef const class CGDIPen&	ConstCGDIPenRef;
 |
 \+---------------------------------------------------------------------*/
 
-class CGDIPen : public VGDI
+class DECL_CLASS CGDIPen : public VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:

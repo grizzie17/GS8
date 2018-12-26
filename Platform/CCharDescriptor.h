@@ -40,7 +40,7 @@
 #include <ctype.h>
 
 #include "TCharDescriptor.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\

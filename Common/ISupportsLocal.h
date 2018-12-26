@@ -48,7 +48,7 @@ namespace Yogi { namespace Common {
 
 typedef interface_ ISupportsLocal*		ISupportsLocalPtr;
 
-extern const IXID	IXID_ISupportsLocal;
+extern const IXID DECL_CLASS	IXID_ISupportsLocal;
 
 
 /*---------------------------------------------------------------------+\
@@ -92,4 +92,3 @@ interface_ ISupportsLocal : public ISupports
 
 
 #endif /* _H_ISupportsLocal */
-

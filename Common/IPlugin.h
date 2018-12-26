@@ -33,6 +33,8 @@
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
+#include "UDeclCommon.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -46,7 +48,7 @@ namespace Yogi { namespace Common {
 \+---------------------------------------------------------------------*/
 typedef interface_ IPlugin*			IPluginPtr;
 
-extern const IXID	IXID_IPlugin;
+extern const IXID DECL_CLASS	IXID_IPlugin;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -58,9 +60,9 @@ interface_ IPlugin : public ISupports
 {
 
 	virtual
-	const char*	
+	const char*
 			ClassName		///@return pointer to class name
-			( 
+			(
 			void
 			) const throw() = 0;
 
@@ -94,4 +96,3 @@ interface_ IPlugin : public ISupports
 
 
 #endif /* _H_IPlugin */
-

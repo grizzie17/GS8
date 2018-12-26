@@ -33,7 +33,7 @@
 #if defined( SIGNAL_POSIX )
 #	include <pthread.h>
 #endif
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -123,4 +123,3 @@ private:
 
 
 #endif /* _H_CSignal */
-

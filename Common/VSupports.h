@@ -26,7 +26,7 @@
 
 #include "UWarnings.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|

@@ -27,6 +27,8 @@
 #include "IXID.h"
 #include "UNResult.h"
 
+#include "UDeclCommon.h"
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -67,11 +69,11 @@ typedef interface_ ISupports*		ISupportsPtr;
 typedef interface_ ISupports&		ISupportsRef;
 typedef const interface_ ISupports&	ConstISupportsRef;
 
-extern const IXID	IXID_ISupports;
+extern const IXID DECL_CLASS	IXID_ISupports;
 
 //! this is a special ID that should always return the controlling
 //!	ISupports of the local object (not the owner).
-extern const IXID	IXID_IRootSupports;
+extern const IXID DECL_CLASS	IXID_IRootSupports;
 
 /*---------------------------------------------------------------------+\
 |																		|

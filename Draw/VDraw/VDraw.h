@@ -63,6 +63,8 @@
 
 #include "UOSIncludes.h"
 
+#include "UDeclSpec.h"
+
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -102,7 +104,7 @@ typedef const class VXDraw&	ConstVDrawRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VXDraw : public VPluginWithAggregate,
+class DECL_CLASS VXDraw : public VPluginWithAggregate,
 				implements_ IDraw
 {
 //	class lifecycle  ----------------------------------------------------

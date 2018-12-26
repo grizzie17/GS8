@@ -37,7 +37,7 @@
 
 #include <time.h>
 
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 /*---------------------------------------------------------------------+\
 |																		|

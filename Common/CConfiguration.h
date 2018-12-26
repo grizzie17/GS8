@@ -29,7 +29,7 @@
 #include "CCharStringHash.h"
 #include "CVariantData.h"
 #include "UTypes.h"
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\

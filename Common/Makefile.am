@@ -38,7 +38,7 @@ libcommon_la_SOURCES = \
 		VSupports.cpp \
 		XMLLiteImpl.cpp
 libcommon_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libcommon_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)  -DBUILDING_SHAREDLIB
+libcommon_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)  -DSHLIB_COMMON
 libcommon_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-L$(top_builddir)/Platform \
 		-L$(top_builddir)/Common

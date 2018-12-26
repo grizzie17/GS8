@@ -34,6 +34,8 @@
 #include "VPluginConfiguration.h"
 #include "VPluginLibrary.h"
 
+#include "UDeclCommon.h"
+
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -46,7 +48,7 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-extern const IXID	IXID_IPluginLoadConfiguration;
+extern const IXID DECL_CLASS	IXID_IPluginLoadConfiguration;
 
 typedef interface_ IPluginLoadConfiguration*		IPluginLoadConfigurationPtr;
 typedef interface_ IPluginLoadConfiguration&		IPluginLoadConfigurationRef;

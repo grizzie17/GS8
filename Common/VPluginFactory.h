@@ -36,7 +36,7 @@
 #include "CCharString.h"
 #include "CCharDescriptor.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 /*---------------------------------------------------------------------+\
 |																		|

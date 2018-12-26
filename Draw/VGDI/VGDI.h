@@ -28,6 +28,9 @@
 |
 \+---------------------------------------------------------------------*/
 #include "UPlatform.h"
+
+#include "UDeclSpec.h"
+
 #if defined( GL_GDI )		// brackets entire file
 
 
@@ -51,7 +54,7 @@ typedef const class VGDI&	ConstVGDIRef;
 |
 \+---------------------------------------------------------------------*/
 
-class VGDI
+class DECL_CLASS VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:

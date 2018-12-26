@@ -43,7 +43,7 @@
 #include "CCharDescriptor.h"
 #include "CVariantData.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 
 namespace Yogi { namespace Common {

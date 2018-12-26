@@ -36,7 +36,7 @@
 
 #include "ISupportsLocal.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 /*---------------------------------------------------------------------+\
 |																		|

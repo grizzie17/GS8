@@ -90,7 +90,7 @@
 
 #include "UTypes.h"
 #include "UFile.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 //#include "UMath.h"
 
 /*---------------------------------------------------------------------+\
@@ -305,4 +305,3 @@ DECL_API(const char*)
 
 
 #endif /* _H_UPlatform */
-

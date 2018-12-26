@@ -35,6 +35,8 @@
 #include "XMLLite.h"
 #include "CCharDescriptor.h"
 
+#include "UDeclCommon.h"
+
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -51,8 +53,8 @@ namespace Yogi { namespace Common {
 typedef interface_ IExternalXML*			IExternalXMLPtr;
 typedef interface_ IExternalXMLServer*		IExternalXMLServerPtr;
 
-extern const IXID	IXID_IExternalXML;
-extern const IXID	IXID_IExternalXMLServer;
+extern const DECL_CLASS IXID	IXID_IExternalXML;
+extern const DECL_CLASS IXID	IXID_IExternalXMLServer;
 
 /*---------------------------------------------------------------------+\
 |																		|

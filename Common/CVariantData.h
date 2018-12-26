@@ -56,7 +56,7 @@
 #include "UFloat.h"
 #include "TArray.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 /*---------------------------------------------------------------------+\
 |																		|

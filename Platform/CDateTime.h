@@ -43,8 +43,9 @@
 \+---------------------------------------------------------------------*/
 #include <time.h>
 
+#include "UMachine.h"
 #include "CCharDescriptor.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\

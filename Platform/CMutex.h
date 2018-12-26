@@ -27,7 +27,7 @@
 #if ! defined( OS_MSWIN )
 #include <pthread.h>
 #endif
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\

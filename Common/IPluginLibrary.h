@@ -33,6 +33,8 @@
 #include "CCharDescriptor.h"
 #include "CVariantData.h"
 
+#include "UDeclCommon.h"
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -47,7 +49,7 @@ namespace Yogi { namespace Common {
 
 typedef interface_ IPluginLibrary*			IPluginLibraryPtr;
 
-extern const IXID	IXID_IPluginLibrary;
+extern const IXID DECL_CLASS	IXID_IPluginLibrary;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -65,7 +67,7 @@ interface_ IPluginLibrary : public ISupports
 					) PURE;
 	virtual
 	ISupportsPtr	Create
-					( 
+					(
 					Yogi::Core::ConstCCharDescriptorRef rLibraryname,
 					ISupportsPtr	pOwner = 0
 					) PURE;
@@ -105,4 +107,3 @@ interface_ IPluginLibrary : public ISupports
 
 
 #endif /* _H_IPluginLibrary */
-

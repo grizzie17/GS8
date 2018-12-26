@@ -41,7 +41,7 @@ BEGIN_IGNORE_WARNING( 4514 )	// unreferenced inline function
 #	include <float.h>
 END_IGNORE_WARNING
 #endif
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 //#include "UMath.h"
 
 //

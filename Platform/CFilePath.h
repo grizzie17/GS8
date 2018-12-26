@@ -117,7 +117,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "CCharDescriptor.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -214,4 +214,3 @@ private:
 
 
 #endif /* _H_CFilePath */
-

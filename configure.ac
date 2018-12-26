@@ -172,28 +172,22 @@ else
 fi
 
 
-AC_CONFIG_FILES([
-	Platform/Makefile
+AC_CONFIG_FILES([Platform/Makefile
 	Common/Makefile
 	Draw/VDraw/Makefile
 	Draw/CDrawTmxWin/Makefile
 	Gadget/Makefile
 	VSAShared/Makefile
-	WorkbenchShared/Makefile
-])
-AM_COND_IF([OS_MSYS], [
-	AC_CONFIG_FILES([
-		Draw/VGDI/Makefile
+	WorkbenchShared/Makefile])
+AM_COND_IF([OS_MSYS],
+	AC_CONFIG_FILES([Draw/VGDI/Makefile
 		Draw/CDrawWin/Makefile
-		WorkbenchWin/Makefile
-	])
-])
-AM_COND_IF([OS_LINUX], [
-	AC_CONFIG_FILES([
-		Draw/VDrawOpenGL/Makefile
+		WorkbenchWin/Makefile])
+)
+AM_COND_IF([OS_LINUX],
+	AC_CONFIG_FILES([Draw/VDrawOpenGL/Makefile
 		Draw/CDrawOpenGL/Makefile
-		WorkbenchGLUT/Makefile
-	])
-])
+		WorkbenchGLUT/Makefile])
+)
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

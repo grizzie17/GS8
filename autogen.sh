@@ -25,6 +25,7 @@ export AUTORECONF=autoreconf
 export INTLTOOLIZE=intltoolize
 export LIBTOOLIZE=libtoolize
 export PKGCONFIG=pkg-config
+export MKDIR=mkdir
 
 
 
@@ -67,7 +68,7 @@ function assertCmd()
 			var=`echo "$cmd" | tr '[a-z]' '[A-Z]' | sed -e 's/-//g'`
 			eval export $var=$fullcmd
 			eval export ${var}_V=$ver
-			#echo "$var=${!var}" >&2
+			echo "$var=${!var}" >&2
 		else
 			fatal $sts "command does not know about version option: $cmd"
 		fi
@@ -100,7 +101,7 @@ assertCmd $AUTORECONF
 assertCmd $LIBTOOLIZE
 assertCmd $INTLTOOLIZE
 assertCmd $PKGCONFIG
-assertCmd mkdir
+assertCmd $MKDIR
 
 # echo "ACLOCAL=$ACLOCAL"
 # echo "AUTOCONF=$AUTOCONF"

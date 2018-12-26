@@ -29,7 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "VPlugin.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\

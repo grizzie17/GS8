@@ -30,7 +30,7 @@
 #endif
 
 #include "CCharString.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -303,7 +303,7 @@ public:
 	virtual	~CSocketTCP();
 
 private:
-	
+
 	CSocketTCP( SOCKETHDL nNewConnSD );
 
 	friend class CSocketTCPServer;
@@ -636,4 +636,3 @@ private:
 
 
 #endif /* _H_CSocket */
-

@@ -1227,6 +1227,44 @@ bool	CVariantData::LessThanFloat
 	}
 }
 
+bool	CVariantData::LessThanDouble
+		(
+		double fData
+		) const
+{
+	switch ( m_eType )
+	{
+	case T_FLOAT:
+		return m_fData < GXFLOAT_CAST(fData);
+		break;
+	case T_INTEGER:
+		return GFLOAT(m_nData) < fData;
+		break;
+	case T_STRING:
+		{
+			GFLOAT	d = GFLOAT_MAX;
+			if ( m_pString )
+			{
+				if ( 0 < m_pString->Length() )
+				{
+					size_t	nCount;
+					d = m_pString->ParseFloat( &nCount );
+					if ( nCount != m_pString->Length() )
+						d = GFLOAT_MAX;
+				}
+			}
+			return d < fData;
+		}
+		break;
+	case T_UNDEFINED:
+		return (0.0f < fData);
+		break;
+	default:
+		return false;
+		break;
+	}
+}
+
 /*---------------------------------------------------------------------+\
 
  * EqualsBool - Equality

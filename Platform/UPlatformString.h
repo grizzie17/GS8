@@ -22,7 +22,7 @@
 \+---------------------------------------------------------------------*/
 #include "UOSIncludes.h"
 #include "string_sx.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 //#include "UMath.h"
 
 /*---------------------------------------------------------------------+\

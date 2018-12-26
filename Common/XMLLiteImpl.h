@@ -90,7 +90,7 @@
 #include "UPlatform.h"
 #include "UPlatformString.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 namespace Yogi { namespace XMLLite {
 

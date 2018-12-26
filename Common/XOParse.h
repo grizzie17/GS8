@@ -29,7 +29,7 @@
 \+---------------------------------------------------------------------*/
 #include "VSupports.h"
 #include "IXOParse.h"
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\

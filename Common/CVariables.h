@@ -32,7 +32,7 @@
 #include "CCharString.h"
 #include "CCharDescriptor.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\

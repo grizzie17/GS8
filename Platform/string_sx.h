@@ -34,7 +34,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include "UTypes.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|

@@ -46,7 +46,7 @@
 #include "TArray.h"
 #include "CMutex.h"
 #include "UNResult.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -308,4 +308,3 @@ private:
 
 
 #endif /* _H_CSerial */
-

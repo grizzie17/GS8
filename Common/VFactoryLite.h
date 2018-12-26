@@ -38,7 +38,7 @@
 #include "CVariables.h"
 #include "IExternalXML.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 
 /*---------------------------------------------------------------------+\

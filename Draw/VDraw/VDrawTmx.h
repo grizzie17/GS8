@@ -53,6 +53,8 @@
 #include "UFloat.h"
 #include "UMachine.h"
 
+#include "UDeclSpec.h"
+
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -94,7 +96,7 @@ typedef const class VDrawTmx&	ConstVDrawTmxRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VDrawTmx : public VPluginWithAggregate,
+class DECL_CLASS VDrawTmx : public VPluginWithAggregate,
 				implements_ IDrawTmx
 {
 //	class lifecycle  ----------------------------------------------------

@@ -3,7 +3,7 @@
 
 #include <time.h>
 #include "UPlatform.h"
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 //#define USE_CHRONOS  1
 

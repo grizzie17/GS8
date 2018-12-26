@@ -48,7 +48,7 @@
 \+---------------------------------------------------------------------*/
 #include "CCharDescriptor.h"
 #include "TEnumerator.h"
-#include "UDeclSpec.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\

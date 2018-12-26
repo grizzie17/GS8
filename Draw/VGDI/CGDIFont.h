@@ -34,6 +34,8 @@
 #include "CCharString.h"
 #include "THash.h"
 
+#include "UDeclSpec.h"
+
 #if defined( GL_GDI )
 
 namespace Yogi { namespace Common {
@@ -56,7 +58,7 @@ typedef const class CGDIFont&	ConstCGDIFontRef;
 |
 \+---------------------------------------------------------------------*/
 
-class CGDIFont : public VGDI
+class DECL_CLASS CGDIFont : public VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:
