@@ -53,7 +53,7 @@
 #include "UFloat.h"
 #include "UMachine.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 
 namespace Yogi { namespace Common {

@@ -1457,7 +1457,7 @@ bool	CVariantData::EqualsString
 	if ( sData )
 	{
 		Yogi::Core::CCharDescriptor	tData( sData );
-		return EqualsCCharString( tData );
+		return EqualsCCharDescriptor( tData );
 	}
 	else
 	{
@@ -1493,7 +1493,7 @@ bool	CVariantData::EqualsCCharString
 		Yogi::Core::ConstCCharStringRef	r
 		) const
 {
-	Yogi::Core::CCharDescriptor	d( r.c_str(), r.length() );
+	const Yogi::Core::CCharDescriptor	d = r;
 	return EqualsCCharDescriptor( d );
 }
 

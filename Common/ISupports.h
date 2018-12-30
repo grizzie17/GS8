@@ -38,7 +38,7 @@
 
 #ifndef	interface_
 	//! macro to make interface declaration more readable
-#	define	interface_	struct
+#	define	interface_	struct /**/
 #endif
 
 #ifndef	implements_
@@ -84,7 +84,7 @@ extern const IXID DECL_CLASS	IXID_IRootSupports;
 //!	Base Interface for all other interfaces
 interface_ ISupports
 {
-	//!	QueryInterface - find the supported interface
+	//!	find the supported interface
 	virtual
 	void*	QueryInterface						//!@return pointer to interface
 			(
@@ -92,7 +92,7 @@ interface_ ISupports
 			Yogi::Core::NResultPtr	pResult = 0	//!< [out] optional result
 			) PURE;
 
-	//!	AddRef - call to bump reference count
+	//!	call to bump reference count
 	//!
 	//!	@note	automatically called by QueryInterface
 	virtual
@@ -102,7 +102,7 @@ interface_ ISupports
 			void
 			) PURE;
 
-	//!	Release - decrement reference count (self destruct when zero)
+	//!	decrement reference count (self destruct when zero)
 	//!
 	//!	@note	call when you are finished with the interface/component
 	virtual

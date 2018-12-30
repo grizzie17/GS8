@@ -5,6 +5,16 @@
 #include "LogFile.h"
 #include "UPlatform.h"
 #include "UPlatformTime.h"
+
+#include "UDeclCommon.h"
+
+#undef DECL_CLASS
+#define DECL_CLASS
+
+#undef DECL_API
+#define DECL_API(t)		t
+
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |
 |	Private Global Variables
@@ -19,34 +29,47 @@ Chronos::ChronosLogEntry   Chronos::g_aLog[TE_MAX+1] = {{0}};
 
 
 
+DECL_CLASS
 Chronos::Chronos()
 		: m_nStart(0)
 		, m_nID(0)
 {
-   StartTimer();
+	StartTimer();
 }
 
-Chronos::Chronos( int nID )
+DECL_CLASS
+Chronos::Chronos
+		(
+		int nID
+		)
 		: m_nStart(0)
 		, m_nID( nID )
 {
-   StartTimer();
+	StartTimer();
 }
 
-Chronos::Chronos( int nID, const char* sName )
+DECL_CLASS 
+Chronos::Chronos
+		(
+		int nID,
+		const char* sName
+		)
 		: m_nStart(0)
 		, m_nID( nID )
 {
-   g_aLog[nID].sName = sName;
-   StartTimer();
+	g_aLog[nID].sName = sName;
+	StartTimer();
 }
 
+DECL_CLASS
 Chronos::~Chronos()
 {
 	StopTimer();
 }
 
-time_t	Chronos::StartTimer()
+
+DECL_API(time_t)
+		Chronos::StartTimer()
 {
 #if defined( OS_MSWIN )
 	LARGE_INTEGER	pc;
@@ -61,7 +84,8 @@ time_t	Chronos::StartTimer()
 #endif
 }
 
-time_t	Chronos::StopTimer()
+DECL_API(time_t)
+		Chronos::StopTimer()
 {
 	time_t	nDelta = 0;
 #if defined( OS_MSWIN )
@@ -80,7 +104,8 @@ time_t	Chronos::StopTimer()
 }
 
 //static
-time_t	Chronos::Frequency()
+DECL_API(time_t)
+		Chronos::Frequency()
 {
 #if defined( OS_MSWIN )
 	LARGE_INTEGER  frq;
@@ -93,29 +118,31 @@ time_t	Chronos::Frequency()
 }
 
 //static
-void	Chronos::PrintLog()
+DECL_API(void)
+		Chronos::PrintLog()
 {
 #ifdef USE_CHRONOS
 
-   ChronosLogEntry*  p = g_aLog;
-   ChronosLogEntry*  pEnd = p + TE_MAX;
-   LogPrint( "Chronos log\n");
-   const char sUnk[] = "Unknown";
-   double            freq = (double)Frequency() / 1000.0;
+	ChronosLogEntry*  p = g_aLog;
+	ChronosLogEntry*  pEnd = p + TE_MAX;
+	LogPrint( "Chronos log\n");
+	const char sUnk[] = "Unknown";
+	double            freq = (double)Frequency() / 1000.0;
 
-   LogPrint( "calls, ticks, milli, milli per call, function\n");
-   while ( p < pEnd )
-   {
-      const char* s = p->sName ? p->sName : sUnk;
-      double   dMilli = (double)p->nElapsedTime / freq;
-      double   dPerCall = 0 < p->nCount ? dMilli / (double)p->nCount : 0.0;
+	LogPrint( "calls, ticks, milli, milli per call, function\n");
+	while ( p < pEnd )
+	{
+		const char* s = p->sName ? p->sName : sUnk;
+		double   dMilli = (double)p->nElapsedTime / freq;
+		double   dPerCall = 0 < p->nCount ? dMilli / (double)p->nCount : 0.0;
 
-      LogPrint( "%10ld, %16llu, %0.6f, %0.6f, %s\n", p->nCount, p->nElapsedTime, dMilli, dPerCall, s );
-      p++;
-   }
-   LogPrint( "Chronos done\n");
+		LogPrint( "%10ld, %16llu, %0.6f, %0.6f, %s\n", p->nCount, p->nElapsedTime, dMilli, dPerCall, s );
+		p++;
+	}
+	LogPrint( "Chronos done\n");
 
 #endif
 }
 
 
+}}

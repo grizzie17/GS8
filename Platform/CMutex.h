@@ -121,7 +121,7 @@ private:
 
  *	@endcode
  */
-class CMutexLocker
+class DECL_CLASS CMutexLocker
 {
 public:
 	inline

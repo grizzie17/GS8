@@ -37,15 +37,15 @@ libplatform_la_LIBADD = -lpthread -lc
 
 
 
-TESTS = platform_specs
-check_PROGRAMS = platform_specs
-EXTRA_platform_specs_DEPENDENCIES = libplatform.la
+TESTS = Platform_specs
+check_PROGRAMS = Platform_specs
+EXTRA_Platform_specs_DEPENDENCIES = libplatform.la
 
 CHKCPPFLAGS = \
 		-I$(top_srcdir)/3rdParty \
 		-I$(top_srcdir)/3rdParty/igloo
 
-platform_specs_SOURCES = \
+Platform_specs_SOURCES = \
 	test/Platform_specs.cpp \
 	\
 	test/CCharDescriptor_spec.cpp \
@@ -59,12 +59,12 @@ platform_specs_SOURCES = \
 	test/UMachine_spec.cpp \
 	test/UNResult_spec.cpp \
 	test/UPlatformString_spec.cpp
-platform_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
-platform_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
-platform_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+Platform_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS) $(GLOBAL_CXXFLAGS)
+Platform_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
+Platform_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 		-L$(top_builddir)/Platform \
 		-L$(top_builddir)/Platform/.libs
-platform_specs_LDADD = \
+Platform_specs_LDADD = \
 		-lplatform \
 		-lpthread \
 		-lc

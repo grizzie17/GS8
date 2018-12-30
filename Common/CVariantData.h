@@ -359,15 +359,15 @@ bool	CVariantData::operator==
 }
 
 
-//inline
-//bool	operator==
-//		(
-//		ConstCCharDescriptorRef	a,
-//		ConstCVariantDataRef	b
-//		)
-//{
-//	return b.EqualsCCharString( a );
-//}
+// inline
+// bool	operator==
+// 		(
+// 		Yogi::Core::ConstCCharDescriptorRef	a,
+// 		ConstCVariantDataRef	b
+// 		)
+// {
+// 	return b.EqualsCCharDescriptor( a );
+// }
 
 
 
@@ -381,15 +381,15 @@ bool	CVariantData::operator==
 }
 
 
-//inline
-//bool	operator==
-//		(
-//		double					a,
-//		ConstCVariantDataRef	b
-//		)
-//{
-//	return b.EqualsDouble( a );
-//}
+inline
+bool	operator==
+		(
+		double					a,
+		ConstCVariantDataRef	b
+		)
+{
+	return b.EqualsDouble( a );
+}
 
 
 
@@ -425,15 +425,15 @@ bool	CVariantData::operator==
 }
 
 
-//inline
-//bool	operator==
-//		(
-//		bool					a,
-//		ConstCVariantDataRef	b
-//		)
-//{
-//	return b.EqualsBool( a );
-//}
+inline
+bool	operator==
+		(
+		bool					a,
+		ConstCVariantDataRef	b
+		)
+{
+	return b.EqualsBool( a );
+}
 
 
 
@@ -448,15 +448,15 @@ bool	CVariantData::operator==
 }
 
 
-//inline
-//bool	operator==
-//		(
-//		long					a,
-//		ConstCVariantDataRef	b
-//		)
-//{
-//	return b.EqualsInteger( a );
-//}
+inline
+bool	operator==
+		(
+		long					a,
+		ConstCVariantDataRef	b
+		)
+{
+	return b.EqualsInteger( a );
+}
 
 
 

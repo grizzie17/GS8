@@ -62,8 +62,8 @@ public:
 
 	//!	Wait for signal to be triggered
 	//!
-	bool	Wait
-			(							//!@return true=signal, false=timeout
+	bool	Wait						//!@return true=signal, false=timeout
+			(
 			unsigned	nTimeout = 0	//!< [in] milliseconds (0 == infinite)
 			);
 

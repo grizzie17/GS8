@@ -21,9 +21,9 @@ EXTERNAL_CPPFLAGS="$CPPFLAGS"
 
 # Checks for programs.
 AC_PROG_CXX
-AC_PROG_AWK
 AC_PROG_CC
 AC_PROG_CPP
+AC_PROG_AWK
 AM_PROG_AR
 AC_PROG_INSTALL
 AC_PROG_LN_S
@@ -41,9 +41,9 @@ AM_COND_IF([OS_LINUX], [
 LT_INIT([shared,pic-only])
 ])
 
-CFLAGS="$EXTERNAL_CFLAGS"
-CXXFLAGS="$EXTERNAL_CXXFLAGS"
-CPPFLAGS="$EXTERNAL_CPPFLAGS"
+# CFLAGS="$EXTERNAL_CFLAGS"
+# CXXFLAGS="$EXTERNAL_CXXFLAGS"
+# CPPFLAGS="$EXTERNAL_CPPFLAGS"
 
 
 AC_LANG([C++])
@@ -111,25 +111,26 @@ AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname getti
 GLOBAL_CXXFLAGS=" -std=c++11 -Werror -Wall"
 case `uname -s` in
 [Mm]sys* | mingw* | MINGW* )
-WDEFS="-DMSYS -DWIN64"
-AM_CPPFLAGS="$WDEFS"
-AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
-NO_UNDEFINED="-no-undefined"
-#CC="gcc $WDEFS"
-#CXX="g++ $WDEFS"
-#CC="x86_64-pc-msys-gcc $WDEFS"
-#CXX="x86_64-pc-msys-g++ $WDEFS"
-CC="x86_64-w64-mingw32-gcc $WDEFS"
-CXX="x86_64-w64-mingw32-g++ $WDEFS"
+GLOBAL_CXXFLAGS+=" -mwindows "
+# WDEFS="-DMSYS -DWIN64"
+# AM_CPPFLAGS="$WDEFS"
+# AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
+# NO_UNDEFINED="-no-undefined"
+# #CC="gcc $WDEFS"
+# #CXX="g++ $WDEFS"
+# #CC="x86_64-pc-msys-gcc $WDEFS"
+# #CXX="x86_64-pc-msys-g++ $WDEFS"
+# CC="x86_64-w64-mingw32-gcc $WDEFS"
+# CXX="x86_64-w64-mingw32-g++ $WDEFS"
 EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
-AC_SUBST([CC])
-AC_SUBST([CXX])
+# AC_SUBST([CC])
+# AC_SUBST([CXX])
 ;;
 
 [Ll]inux* )
-AM_CPPFLAGS="-DLINUX"
-AM_CXXFLAGS="${GLOBAL_CXXFLAGS}"
-NO_UNDEFINED=""
+# AM_CPPFLAGS="-DLINUX"
+# AM_CXXFLAGS="${GLOBAL_CXXFLAGS}"
+# NO_UNDEFINED=""
 EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
 ;;
 esac
@@ -137,39 +138,40 @@ AC_SUBST([AM_CPPFLAGS])
 AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([NO_UNDEFINED])
 AC_SUBST([EXTSUBDIRS])
-AC_SUBST([OSCONFFILES])
+AC_SUBST([GLOBAL_CXXFLAGS])
+# AC_SUBST([OSCONFFILES])
 
 
 
-AC_ARG_ENABLE([debug],
-	AS_HELP_STRING([--enable-debug],[enable debugging, default=no]),
-	[
-		case "${enableval}" in
-		yes|true) debug=true ;;
-		no|false) debug=false ;;
-		*) AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
-		esac
-	],
-	[
-		debug=false
-	]
-)
-AM_CONDITIONAL([DEBUG], [test "x$debug" = "xtrue"])
+# AC_ARG_ENABLE([debug],
+# 	AS_HELP_STRING([--enable-debug],[enable debugging, default=no]),
+# 	[
+# 		case "${enableval}" in
+# 		yes|true) debug=true ;;
+# 		no|false) debug=false ;;
+# 		*) AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
+# 		esac
+# 	],
+# 	[
+# 		debug=false
+# 	]
+# )
+# AM_CONDITIONAL([DEBUG], [test "x$debug" = "xtrue"])
 
-changequote({,})
-CXXFLAGS=`echo "$CXXFLAGS"  |  $SED -e 's/-O[0-9s]*//g' -e 's/-g[gdb0-9]*//g'`
-CPPFLAGS=`echo "$CPPFLAGS"  |  $SED -e 's/-D_*DEBUG\b//g'`
-LDFLAGS=`echo "$LDFLAGS"  |  $SED -e 's/-Wl,-s//g' -e 's/-Wl,--strip-all//g'`
-changequote([,])
-if test x$debug = xtrue; then
-	CXXFLAGS="$CXXFLAGS -g -ggdb -O0"
-	CPPFLAGS="$CPPFLAGS -D_DEBUG"
-	LDFLAGS="$LDFLAGS -g -ggdb -Wl,--discard-none"
-else
-	CXXFLAGS="$CXXFLAGS -O3"
-	CPPFLAGS="$CPPFLAGS -DNDEBUG"
-	LDFLAGS="$LDFLAGS -Wl,-S"
-fi
+# changequote({,})
+# CXXFLAGS=`echo "$CXXFLAGS"  |  $SED -e 's/-O[0-9s]*//g' -e 's/-g[gdb0-9]*//g'`
+# CPPFLAGS=`echo "$CPPFLAGS"  |  $SED -e 's/-D_*DEBUG\b//g'`
+# LDFLAGS=`echo "$LDFLAGS"  |  $SED -e 's/-Wl,-s//g' -e 's/-Wl,--strip-all//g'`
+# changequote([,])
+# if test x$debug = xtrue; then
+# 	CXXFLAGS="$CXXFLAGS -g -O0"
+# 	CPPFLAGS="$CPPFLAGS -D_DEBUG"
+# 	LDFLAGS="$LDFLAGS -g"
+# else
+# 	CXXFLAGS="$CXXFLAGS -O3"
+# 	CPPFLAGS="$CPPFLAGS -DNDEBUG"
+# 	LDFLAGS="$LDFLAGS -Wl,-S"
+# fi
 
 
 AC_CONFIG_FILES([Platform/Makefile

@@ -299,7 +299,8 @@ unsigned long
  * GetParameterAsFloat -
 
 \+---------------------------------------------------------------------*/
-GFLOAT	CConfiguration::GetEntryAsFloat
+GFLOAT
+		CConfiguration::GetEntryAsFloat
 		(
 		const char*	sKey,
 		GFLOAT		fDefault	//=0
@@ -324,7 +325,8 @@ GFLOAT	CConfiguration::GetEntryAsFloat
  * GetParameterAsFloatUnits -
 
 \+---------------------------------------------------------------------*/
-GFLOAT	CConfiguration::GetEntryAsFloatUnits
+DECL_API(GFLOAT)
+		CConfiguration::GetEntryAsFloatUnits
 		(
 		const char*	sKey,
 		const char*	sUnitName,
@@ -359,7 +361,7 @@ GFLOAT	CConfiguration::GetEntryAsFloatUnits
  * GetParameterAsString -
 
 \+---------------------------------------------------------------------*/
-Yogi::Core::CCharString
+DECL_API(Yogi::Core::CCharString)
 		CConfiguration::GetEntryAsString
 		(
 		const char*	sKey,
@@ -386,7 +388,8 @@ Yogi::Core::CCharString
  * GetEntryAsEnum -
 
 \+---------------------------------------------------------------------*/
-long	CConfiguration::GetEntryAsEnum
+DECL_API(long)
+		CConfiguration::GetEntryAsEnum
 		(
 		const char*			sKey,
 		const VConfiguration::EnumDatumPtr	pEnumList,
@@ -438,7 +441,8 @@ long	CConfiguration::GetEntryAsEnum
  * GetEntryAsBool -
 
 \+---------------------------------------------------------------------*/
-bool	CConfiguration::GetEntryAsBool
+DECL_API(bool)
+		CConfiguration::GetEntryAsBool
 		(
 		const char*		sKey,
 		const bool		bDefault	//= false
@@ -462,7 +466,7 @@ bool	CConfiguration::GetEntryAsBool
  * GetEntryAsColor -
 
 \+---------------------------------------------------------------------*/
-Yogi::Core::CColor
+DECL_API(Yogi::Core::CColor)
 		CConfiguration::GetEntryAsColor
 		(
 		const char*					sKey,
@@ -487,7 +491,7 @@ Yogi::Core::CColor
  * GetEnumerator -
 
 \+---------------------------------------------------------------------*/
-CConfiguration::Enumerator
+DECL_API(CConfiguration::Enumerator)
 		CConfiguration::GetEnumerator
 		(
 		void

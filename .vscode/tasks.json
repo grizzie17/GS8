@@ -150,6 +150,24 @@
 			"presentation": {
 				"clear": true
 			}
+		},
+		{
+			"label": "run common_specs",
+			"type": "shell",
+			"command": "/C/Users/jgriswold/Documents/GS8/build/Common/common_specs.exe",
+			"args": [],
+			"group": "build",
+			"problemMatcher": {
+				"pattern": {
+					"regexp": "^([^(]+)\\(([0-9]+)\\):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"message": 3
+				}
+			},
+			"presentation": {
+				"clear": true
+			}
 		}
 	]
 }

@@ -31,7 +31,7 @@
 #include "CColor.h"
 #include "THash.h"
 
-#include "UDeclSpec.h"
+#include "UDeclCommon.h"
 
 #if defined( GL_GDI )
 

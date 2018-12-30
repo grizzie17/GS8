@@ -22,13 +22,14 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "VConfiguration.h"
 
 #include "TDictionaryIndexed.h"
 #include "CCharString.h"
 #include "CCharStringHash.h"
 #include "CVariantData.h"
 #include "UTypes.h"
+
+#include "VConfiguration.h"
 #include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {

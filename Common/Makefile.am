@@ -49,14 +49,14 @@ libcommon_la_LIBADD = \
 
 
 
-TESTS = common_specs
-bin_PROGRAMS = common_specs
-EXTRA_common_specs_DEPENDENCIES = libcommon.la
+TESTS = Common_specs
+bin_PROGRAMS = Common_specs
+EXTRA_Common_specs_DEPENDENCIES = libcommon.la
 
 CHKCPPFLAGS = \
 		-I$(top_srcdir)/Platform/test \
 		-I$(top_srcdir)/3rdParty/igloo
-common_specs_SOURCES = \
+Common_specs_SOURCES = \
 	test/Common_specs.cpp \
 	\
 	test/CMatrix3x3_spec.cpp \
@@ -66,12 +66,12 @@ common_specs_SOURCES = \
 	test/TComPointer_spec.cpp \
 	test/TDictionaryIndexed_spec.cpp \
 	test/TQueue_spec.cpp
-common_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
-common_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
-common_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
+Common_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
+Common_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
+Common_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 		-L$(top_builddir)/Platform \
 		-L$(top_builddir)/Common
-common_specs_LDADD = \
+Common_specs_LDADD = \
 		-lcommon \
 		-lplatform \
 		-lpthread -lc

@@ -94,98 +94,98 @@ CColor CColor::g_tErrorColor( 0xFF, 0x66, 0x99 );
 
 const ColorName g_aColorNames[]
 = {
-	{ "abbey",			{76, 79, 86} },		//
-	{ "aeroblue",		{201, 255, 229} },	//
+	{ "abbey",			{76, 79, 86} },			//
+	{ "aeroblue",		{201, 255, 229} },		//
 	{ "airforceblue",	{93, 138, 168} },		//
 	{ "aliceblue",		{240, 248, 255} },
 //	{ "alizarin",		{227, 38, 54} },		//
-	{ "almond",			{239, 222, 205} },	// crayola
-	{ "aluminium",		{169, 172, 182} },	//
+	{ "almond",			{239, 222, 205} },		// crayola
+	{ "aluminium",		{169, 172, 182} },		//
 	{ "amaranth",		{229, 43, 80} },		//
-	{ "amaranthpink",	{241, 156, 187} },	//
+	{ "amaranthpink",	{241, 156, 187} },		//
 	{ "amber",			{255, 191, 0} },		//
 	{ "amber2",			{255, 126, 0} },		//
-	{ "amethyst",		{153, 102, 204} },	//
-	{ "antiquebrass",	{200, 138, 101} },	//
-	{ "antiquebronze",	{112, 74, 7} },		//
+	{ "amethyst",		{153, 102, 204} },		//
+	{ "antiquebrass",	{200, 138, 101} },		//
+	{ "antiquebronze",	{112, 74, 7} },			//
 	{ "antiquewhite",	{250, 235, 215} },
 	{ "apple",			{79, 168, 61} },		//
-	{ "applegreen",		{226, 243, 236} },	//
-	{ "apricot",		{251, 206, 177} },	//
+	{ "applegreen",		{226, 243, 236} },		//
+	{ "apricot",		{251, 206, 177} },		//
 	{ "aqua",			{0, 255, 255} },
 	{ "aquamarine",		{127, 255, 212} },
-	{ "aquamarineblue",	{113, 217, 226} },	//
-	{ "armygreen",		{75, 83, 32} },		//
-	{ "arsenic",		{59, 68, 75} },		//
-	{ "ash",			{198, 195, 181} },	//
+	{ "aquamarineblue",	{113, 217, 226} },		//
+	{ "armygreen",		{75, 83, 32} },			//
+	{ "arsenic",		{59, 68, 75} },			//
+	{ "ash",			{198, 195, 181} },		//
 	{ "asparagus",		{123, 160, 91} },		//
-	{ "asphalt",		{19, 10, 6} },		//
-//	{ "atomictangerine",{255, 164, 116} },	// crayola
+	{ "asphalt",		{19, 10, 6} },			//
+//	{ "atomictangerine",{255, 164, 116} },		// crayola
 	{ "auburn",			{109, 53, 26} },		//
 	{ "azure",			{240, 255, 255} },
 	{ "azuredark",		{0, 127, 255} },		//
-//	{ "babyblue",		{224, 255, 255} },	//
+//	{ "babyblue",		{224, 255, 255} },		//
 	{ "background",		{0, 0, 0} },
-	{ "bakerschocolate",{92, 51, 23} },		//
-//	{ "bananamania",	{250, 231, 181} },	// crayola
-	{ "battleshipgray",	{130, 143, 114} },	//
-	{ "beaver",			{159, 129, 112} },	// crayola
-//	{ "beeswax",		{254, 242, 199} },	//
+	{ "bakerschocolate",{92, 51, 23} },			//
+//	{ "bananamania",	{250, 231, 181} },		// crayola
+	{ "battleshipgray",	{130, 143, 114} },		//
+	{ "beaver",			{159, 129, 112} },		// crayola
+//	{ "beeswax",		{254, 242, 199} },		//
 	{ "beige",			{245, 245, 220} },
 	{ "bisque",			{255, 228, 196} },
-	{ "bistre",			{61, 43, 31} },		//
-//	{ "bittersweet",	{253, 124, 110} },	// crayola
+	{ "bistre",			{61, 43, 31} },			//
+//	{ "bittersweet",	{253, 124, 110} },		// crayola
 	{ "black",			{2, 2, 2} },
-	{ "blackberry",		{77, 1, 53} },		//
-	{ "blackrose",		{103, 3, 45} },		//
+	{ "blackberry",		{77, 1, 53} },			//
+	{ "blackrose",		{103, 3, 45} },			//
 	{ "blanchedalmond",	{255, 235, 205} },
-//	{ "blizzardblue",	{172, 229, 238} },	// crayola
+//	{ "blizzardblue",	{172, 229, 238} },		// crayola
 	{ "blue",			{0, 0, 255} },
-	{ "bluebell",		{162, 162, 208} },	// crayola
+	{ "bluebell",		{162, 162, 208} },		// crayola
 	{ "bluecrayola",	{31,117, 254} },		// crayola
-	{ "bluegray",		{102, 153, 204} },	// crayola
+	{ "bluegray",		{102, 153, 204} },		// crayola
 	{ "bluegreen",		{0, 221, 221} },		//
 	{ "blueviolet",		{138, 43, 226} },
 //	{ "blush",			{222, 93, 131} },		// crayola
 	{ "bole",			{121, 68, 59} },		//
 	{ "bondiblue",		{0, 149, 182} },		//
-	{ "bone",			{228, 209, 192} },	//
+	{ "bone",			{228, 209, 192} },		//
 //	{ "brandeisblue",	{0, 112, 255} },		//
 	{ "brass",			{181, 166, 66} },		//
 	{ "brickred",		{203, 65, 84} },		// crayola
 	{ "brightgreen",	{102, 255, 0} },		//
 //	{ "brightpink",		{255, 0, 127} },		//
-	{ "brightred",		{177, 0, 0} },		//
+	{ "brightred",		{177, 0, 0} },			//
 	{ "brightturquoise",{8, 232, 222} },		//
 	{ "brilliantrose",	{255, 85, 163} },		//
 	{ "brinkpink",		{251, 96, 127} },		//
-	{ "britishracinggreen", {0, 66, 37} },	//
+	{ "britishracinggreen", {0, 66, 37} },		//
 	{ "bronze",			{205, 127, 50} },		//
 	{ "brown",			{165, 42, 42} },
-	{ "buff",			{240, 220, 130} },	//
-	{ "burgundy",		{128, 0, 32} },		//
+	{ "buff",			{240, 220, 130} },		//
+	{ "burgundy",		{128, 0, 32} },			//
 	{ "burlywood",		{222, 184, 135} },
-	{ "burntorange",	{204, 85, 0} },		//
+	{ "burntorange",	{204, 85, 0} },			//
 	{ "burntsienna",	{233, 116, 81} },		//
 	{ "burntumber",		{138, 51, 36} },		//
 	{ "buttercup",		{243, 173, 22} },		//
-//	{ "buttermilk",		{255, 241, 181} },	//
+//	{ "buttermilk",		{255, 241, 181} },		//
 	{ "byzantium",		{112, 41, 99} },		//
 	{ "cadetblue",		{95, 158, 160} },
-	{ "cambridgeblue",	{163, 193, 173} },	//
-	{ "camouflagegreen",{120, 134, 107} },	//
-	{ "canary",			{255, 255, 153} },	// crayola
-	{ "caputmortuum",	{89, 39, 32} },		//
+	{ "cambridgeblue",	{163, 193, 173} },		//
+	{ "camouflagegreen",{120, 134, 107} },		//
+	{ "canary",			{255, 255, 153} },		// crayola
+	{ "caputmortuum",	{89, 39, 32} },			//
 	{ "cardinal",		{196, 30, 58} },		//
 	{ "caribbeangreen",	{28, 211, 162} },		// crayola
-	{ "carmine",		{150, 0, 24} },		//
+	{ "carmine",		{150, 0, 24} },			//
 	{ "carminepink",	{235, 76, 66} },		//
-	{ "carnationpink",	{255, 170, 204} },	// crayola
+	{ "carnationpink",	{255, 170, 204} },		// crayola
 	{ "carrotorange",	{237, 145, 33} },		//
 	{ "cerulean",		{29, 172, 214} },		// crayola
 	{ "ceruleanblue",	{42, 82, 190} },		//
-	{ "champagne",		{247, 231, 206} },	//
-	{ "charcoal",		{70, 70, 70} },		//
+	{ "champagne",		{247, 231, 206} },		//
+	{ "charcoal",		{70, 70, 70} },			//
 	{ "chartreuse",		{127, 255, 0} },
 	{ "chartreusetraditional", {223, 255, 0} },	//
 	{ "cherryblossompink",	{255, 183, 197} },	//
@@ -193,24 +193,24 @@ const ColorName g_aColorNames[]
 	{ "coolcopper",		{217, 135, 25} },		//
 	{ "copper",			{184, 115, 51} },		//
 	{ "coral",			{255, 127, 80} },
-//	{ "coralpink",		{248, 131, 121} },	//
+//	{ "coralpink",		{248, 131, 121} },		//
 	{ "coralred",		{255, 64, 64} },		//
 	{ "corn",			{251, 236, 93} },		//
 	{ "cornflowerblue",	{100, 149, 237} },
 	{ "cornsilk",		{255, 248, 220} },
-	{ "cottoncandy",	{255, 188, 217} },	// crayola
+	{ "cottoncandy",	{255, 188, 217} },		// crayola
 	{ "crimson",		{220, 20, 60} },
 	{ "cyan",			{0, 255, 255} },
-//	{ "dandelion",		{253, 219, 109} },	// crayola
+//	{ "dandelion",		{253, 219, 109} },		// crayola
 	{ "darkblue",		{0, 0, 139} },
 	{ "darkbrown",		{101, 67, 33} },		//
-	{ "darkcerulean",	{8, 69, 126} },		//
+	{ "darkcerulean",	{8, 69, 126} },			//
 	{ "darkcoral",		{205, 91, 69} },		//
 	{ "darkcyan",		{0, 139, 139} },
 	{ "darkgoldenrod",	{184, 134, 11} },
 	{ "darkgray",		{169, 169, 169} },
 	{ "darkgreen",		{0, 100, 0} },
-	{ "darkgreen2",		{1, 50, 32} },		//
+	{ "darkgreen2",		{1, 50, 32} },			//
 	{ "darkkhaki",		{189, 183, 107} },
 	{ "darkmagenta",	{139, 0, 139} },
 	{ "darkolivegreen",	{85, 107, 47} },
@@ -225,56 +225,56 @@ const ColorName g_aColorNames[]
 	{ "darktan",		{145, 129, 81} },		//
 	{ "darkturquoise",	{0, 206, 209} },
 	{ "darkviolet",		{148, 0, 211} },
-	{ "davysgray",		{85, 85, 85} },		//
+	{ "davysgray",		{85, 85, 85} },			//
 	{ "deepmagenta",	{205, 0, 204} },		//
 	{ "deeppink",		{255, 20, 147} },
 	{ "deepsaffron",	{255, 153, 51} },		//
 	{ "deepskyblue",	{0, 191, 255} },
 	{ "denim",			{43, 108, 196} },		// crayola
-	{ "desertsand",		{239, 205, 184} },	// crayola
+	{ "desertsand",		{239, 205, 184} },		// crayola
 	{ "dimgray",		{105, 105, 105} },
 	{ "dodgerblue",		{30, 144, 255} },
-	{ "dukeblue",		{0, 0, 156} },		//
-	{ "eggplant",		{97, 64, 81} },		//
-//	{ "electricgreen",	{0, 255, 0} },		//
+	{ "dukeblue",		{0, 0, 156} },			//
+	{ "eggplant",		{97, 64, 81} },			//
+//	{ "electricgreen",	{0, 255, 0} },			//
 	{ "electriclime",	{206, 255, 29} },		// crayola
 	{ "emerald",		{80, 200, 120} },		//
-	{ "fallow",			{193, 154, 107} },	//
+	{ "fallow",			{193, 154, 107} },		//
 	{ "falured",		{128, 24, 24} },		//
-	{ "feldgray",		{77, 93, 83} },		//
+	{ "feldgray",		{77, 93, 83} },			//
 	{ "ferngreen",		{79, 121, 66} },		//
 	{ "firebrick",		{178, 34, 34} },
 	{ "fireenginered",	{206, 22, 32} },		//
 	{ "floralwhite",	{255, 250, 240} },
 	{ "forestgreen",	{34, 139, 34} },
 	{ "fuchsia",		{255, 0, 255} },
-	{ "fuchsiapink",	{255, 119, 255} },	//
+	{ "fuchsiapink",	{255, 119, 255} },		//
 	{ "gainsboro",		{220, 220, 220} },
 	{ "ghostwhite",		{248, 248, 255} },
 	{ "gold",			{255, 215, 0} },
 	{ "goldenrod",		{218, 165, 32} },
 	{ "goldmetallic",	{212, 175, 55} },		//
-	{ "grannysmithapple",{168, 228, 160} },	// crayola
+	{ "grannysmithapple",{168, 228, 160} },		// crayola
 	{ "gray",			{128, 128, 128} },
 	{ "green",			{0, 128, 0} },
 	{ "greenyellow",	{240, 232, 145} },
 	{ "honeydew",		{240, 255, 240} },
 	{ "hotmagenta",		{248, 23, 62} },		// crayola
 	{ "hotpink",		{255, 105, 180} },
-	{ "huntergreen",	{53, 94, 59} },		//
+	{ "huntergreen",	{53, 94, 59} },			//
 	{ "inchworm",		{178, 236, 93} },		// crayola
 	{ "indianred",		{205, 92, 92} },
 	{ "indigo",			{75, 0, 130} },
-	{ "indigodye",		{0, 65, 106} },		//
+	{ "indigodye",		{0, 65, 106} },			//
 	{ "ivory",			{255, 255, 240} },
 	{ "jade",			{0, 168, 107} },		//
 	{ "junglegreen",	{59, 176, 143} },		// crayola
 	{ "kellygreen",		{76, 187, 23} },		//
 	{ "khaki",			{240, 230, 140} },
 	{ "lavender",		{230, 230, 250} },
-//	{ "lavenderblue",	{204, 204, 255} },	//
+//	{ "lavenderblue",	{204, 204, 255} },		//
 	{ "lavenderblush",	{255, 240, 245} },
-	{ "lavendergray",	{196, 195, 208} },	//
+	{ "lavendergray",	{196, 195, 208} },		//
 	{ "lawngreen",		{124, 252, 0} },
 	{ "lemon",			{253, 233, 16} },		//
 	{ "lemonchiffon",	{255, 250, 205} },
@@ -284,7 +284,7 @@ const ColorName g_aColorNames[]
 	{ "lightgoldenrodyellow",	{250, 250, 210} },
 	{ "lightgray",		{211, 211, 211} },
 	{ "lightgreen",		{144, 238, 144} },
-//	{ "lightkhaki",		{240, 230, 140} },	//
+//	{ "lightkhaki",		{240, 230, 140} },		//
 	{ "lightpink",		{255, 182, 193} },
 	{ "lightsalmon",	{255, 160, 122} },
 	{ "lightseagreen",	{32, 178, 170} },
@@ -297,7 +297,7 @@ const ColorName g_aColorNames[]
 	{ "linen",			{250, 240, 230} },
 	{ "magenta",		{255, 0, 255} },
 	{ "mahogany",		{205, 74, 76} },		// crayola
-	{ "manatee",		{151, 154, 170} },	// crayola
+	{ "manatee",		{151, 154, 170} },		// crayola
 	{ "maroon",			{128, 0, 0} },
 	{ "mediumaquamarine",	{102, 205, 170} },
 	{ "mediumblue",		{0, 0, 205} },
@@ -311,10 +311,10 @@ const ColorName g_aColorNames[]
 	{ "metallicgold",	{212, 175, 55} },		//
 	{ "midnightblue",	{25, 25, 112} },
 	{ "mintcream",		{245, 255, 250} },
-//	{ "mintgreen",		{152, 255, 152} },	//
+//	{ "mintgreen",		{152, 255, 152} },		//
 	{ "mistyrose",		{255, 228, 225} },
 	{ "moccasin",		{255, 228, 181} },
-	{ "mossgreen",		{173, 223, 173} },	//
+	{ "mossgreen",		{173, 223, 173} },		//
 	{ "mustard",		{255, 219, 88} },		//
 	{ "navajowhite",	{255, 222, 173} },
 	{ "navy",			{0, 0, 128} },
@@ -327,33 +327,33 @@ const ColorName g_aColorNames[]
 //	{ "orangepeel",		{255, 160, 0} },		//
 	{ "orangered",		{255, 69, 0} },
 	{ "orchid",			{218, 112, 214} },
-	{ "outerspace",		{65, 74, 76} },		// crayola
-//	{ "paleblue",		{175, 238, 238} },	//
+	{ "outerspace",		{65, 74, 76} },			// crayola
+//	{ "paleblue",		{175, 238, 238} },		//
 	{ "palebrown",		{152, 118, 84} },		//
 	{ "palegoldenrod",	{238, 232, 170} },
 	{ "palegreen",		{152, 251, 152} },
 	{ "paleturquoise",	{175, 238, 238} },
 	{ "palevioletred",	{219, 112, 147} },
 	{ "papayawhip",		{255, 239, 213} },
-	{ "pastelgreen",	{119, 221, 119} },	//
-//	{ "peach",			{255, 229, 180} },	//
-	{ "peachorange",	{255, 204, 153} },	//
+	{ "pastelgreen",	{119, 221, 119} },		//
+//	{ "peach",			{255, 229, 180} },		//
+	{ "peachorange",	{255, 204, 153} },		//
 //	{ "peachpuff",		{255, 218, 185} },
-	{ "periwinkle",		{204, 204, 255} },	//
-	{ "persimmon",		{236, 88, 0} },		//
+	{ "periwinkle",		{204, 204, 255} },		//
+	{ "persimmon",		{236, 88, 0} },			//
 	{ "peru",			{205, 133, 63} },
 	{ "pigmentblue",	{51, 51, 153} },		//
-	{ "pigmentgreen",	{0, 165, 80} },		//
+	{ "pigmentgreen",	{0, 165, 80} },			//
 	{ "pigmentred",		{237, 28, 36} },		//
 	{ "pinegreen",		{21, 128, 120} },		// crayola
 	{ "pink",			{255, 192, 203} },
-	{ "platinum",		{229, 228, 226} },	//
+	{ "platinum",		{229, 228, 226} },		//
 	{ "plum",			{221, 160, 221} },
 	{ "powderblue",		{176, 224, 230} },
 //	{ "processcyan",	{0, 183, 235} },		//
 	{ "processmagenta",	{255, 0, 144} },		//
 	{ "processyellow",	{255, 239, 0} },		//
-	{ "puce",			{204, 136, 153} },	//
+	{ "puce",			{204, 136, 153} },		//
 	{ "pumpkin",		{255, 117, 24} },		//
 	{ "purple",			{128, 0, 128} },
 	{ "rawumber",		{113, 75, 35} },		// crayola
@@ -368,10 +368,10 @@ const ColorName g_aColorNames[]
 	{ "saffron",		{244, 196, 48} },		//
 	{ "salmon",			{250, 128, 114} },
 	{ "sandybrown",		{244, 164, 96} },
-	{ "sapphire",		{8, 37, 103} },		//
-//	{ "scarlet",		{255, 36, 0} },		//
+	{ "sapphire",		{8, 37, 103} },			//
+//	{ "scarlet",		{255, 36, 0} },			//
 //	{ "schoolbusyellow",{255, 216, 0} },		//
-	{ "screamingreen",	{118, 255, 122} },	// crayola
+	{ "screamingreen",	{118, 255, 122} },		// crayola
 	{ "seagreen",		{46, 139, 87} },
 	{ "seashell",		{255, 245, 238} },
 	{ "sienna",			{160, 82, 45} },
@@ -385,13 +385,13 @@ const ColorName g_aColorNames[]
 	{ "tan",			{210, 180, 140} },
 	{ "tangerine",		{242, 133, 0} },		//
 //	{ "tangerineyellow",{255, 204, 0} },		//
-	{ "taupe",			{72, 60, 50} },		//
-	{ "taupegray",		{139, 133, 137} },	//
-//	{ "tawny",			{205, 87, 0} },		//
-	{ "teagreen",		{208, 240, 192} },	//
+	{ "taupe",			{72, 60, 50} },			//
+	{ "taupegray",		{139, 133, 137} },		//
+//	{ "tawny",			{205, 87, 0} },			//
+	{ "teagreen",		{208, 240, 192} },		//
 	{ "teal",			{0, 128, 128} },
 	{ "thistle",		{216, 191, 216} },
-	{ "timberwolf",		{219, 215, 210} },	// crayola
+	{ "timberwolf",		{219, 215, 210} },		// crayola
 	{ "tomato",			{255, 99, 71} },
 	{ "transparent",	{0, 0, 0} },
 //	{ "tropicalrainforest",{23, 128, 109} },	// crayola
@@ -405,7 +405,7 @@ const ColorName g_aColorNames[]
 	{ "wheat",			{245, 222, 179} },
 	{ "white",			{255, 255, 255} },
 	{ "whitesmoke",		{245, 245, 245} },
-	{ "wildblueyonder",	{162, 173, 208} },	// crayola
+	{ "wildblueyonder",	{162, 173, 208} },		// crayola
 	{ "yellow",			{255, 255, 0} },
 	{ "yellowgreen",	{197, 227, 132} },
 	{ "yelloworange",	{255, 174, 66} }		// crayola

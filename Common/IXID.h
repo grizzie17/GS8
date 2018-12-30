@@ -237,7 +237,9 @@ private:
 //}
 
 inline
-bool	IXID::operator ==
+bool
+IMPL_SHLIB
+		IXID::operator ==
 		(
 		ConstIXIDRef	r
 		) const
@@ -246,7 +248,9 @@ bool	IXID::operator ==
 }
 
 inline
-bool	IXID::operator ==
+bool 
+IMPL_SHLIB
+		IXID::operator ==
 		(
 		const char*	s
 		) const
@@ -257,7 +261,9 @@ bool	IXID::operator ==
 
 
 inline
-bool	IXID::Equals
+bool
+IMPL_SHLIB
+		IXID::Equals
 		(
 		ConstIXIDRef r
 		) const
@@ -271,7 +277,9 @@ bool	IXID::Equals
 
 
 inline
-bool	IXID::Equals
+bool 
+IMPL_SHLIB
+		IXID::Equals
 		(
 		const char*	s
 		) const

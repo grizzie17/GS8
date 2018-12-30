@@ -10,9 +10,7 @@
                 "CONFNAME=MSYS",
                 "_DEBUG",
                 "WIN64",
-                "__MINGW64__",
-                "interface_=struct",
-                "implements_=public virtual"
+                "__MINGW64__"
             ],
             "includePath": [
                 ".",

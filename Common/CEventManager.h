@@ -1,16 +1,3 @@
-/*---------------------------------------------------------------------+\
-|	Delete this comment block
-|
-|	globally substitute "CEventManager" to be the name of this file (no suffix).
-|	globally substitute "26-Dec-2014" to be today's date.
-|	globally substitute "J.Griswold" to be your First initial and Lastname
-|	add brief description at the top of the file.
-|
-|	globally substitute "CEventManager" to be the name of this class.
-|	substitute "BaseClass" to be the name of the base class.
-|
-|	Delete this comment block
-\+---------------------------------------------------------------------*/
 /*=====================================================================*/
 /**
 *	@file	CEventManager.h

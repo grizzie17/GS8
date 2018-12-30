@@ -119,12 +119,12 @@ public:
 //	public functions  ---------------------------------------------------
 
 
-	///	GetLocalAddress
-	///
-	///	Get the local address of the socket
-	///
+	//!	GetLocalAddress
+	//!
+	//!	Get the local address of the socket
+	//!
 	CCharString
-			GetLocalAddress		///@return the local address of the socket
+			GetLocalAddress		//!@return the local address of the socket
 			(
 			void
 			);

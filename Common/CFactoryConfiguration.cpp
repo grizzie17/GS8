@@ -56,11 +56,12 @@
 //#include "stdafx.h"
 #include <float.h>
 
-#include "CFactoryConfiguration.h"
-
 #include "UPlatform.h"
 #include "CCharString.h"
 #include "CUnitsOfMeasure.h"
+
+#include "CFactoryConfiguration.h"
+#include "UDeclCommon.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
@@ -100,12 +101,13 @@ namespace Yogi { namespace Common {
  * CFactoryConfiguration - constructor
 
 \+---------------------------------------------------------------------*/
-CFactoryConfiguration::CFactoryConfiguration
+DECL_CLASS
+		CFactoryConfiguration::CFactoryConfiguration
 		(
 		void
 		)
-		: VFactoryLite(),
-		m_pConfig( 0 )
+		: VFactoryLite()
+		, m_pConfig( 0 )
 {
 	m_pVariable = (VVariablePtr)this;
 }
@@ -116,7 +118,8 @@ CFactoryConfiguration::CFactoryConfiguration
  * ~CFactoryConfiguration - destructor
 
 \+---------------------------------------------------------------------*/
-CFactoryConfiguration::~CFactoryConfiguration
+DECL_CLASS
+		CFactoryConfiguration::~CFactoryConfiguration
 		(
 		void
 		)
@@ -134,7 +137,7 @@ CFactoryConfiguration::~CFactoryConfiguration
  * Make -
 
 \+---------------------------------------------------------------------*/
-VConfigurationPtr
+DECL_API(VConfigurationPtr)
 		CFactoryConfiguration::Make
 		(
 		const char*			sName,
@@ -186,7 +189,7 @@ VConfigurationPtr
  * Configuration -
 
 \+---------------------------------------------------------------------*/
-VConfigurationPtr
+DECL_API(VConfigurationPtr)
 		CFactoryConfiguration::Configuration
 		(
 		VConfigurationPtr	pConfig
@@ -251,7 +254,8 @@ VConfigurationPtr
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
 
-bool	CFactoryConfiguration::Item
+DECL_API(bool)
+		CFactoryConfiguration::Item
 		(
 		VConfigurationPtr	pConfig,
 		XMLIteratorPtr		pit
@@ -462,7 +466,8 @@ bool	CFactoryConfiguration::Item
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
 
-bool	CFactoryConfiguration::IncludeFile
+DECL_API(bool)
+		CFactoryConfiguration::IncludeFile
 		(
 		VConfigurationPtr	pConfig,
 		XMLIteratorPtr		pIt
@@ -529,7 +534,7 @@ bool	CFactoryConfiguration::IncludeFile
  * ResolveVariable -
 
 \+---------------------------------------------------------------------*/
-Yogi::Core::CCharString
+DECL_API(Yogi::Core::CCharString)
 		CFactoryConfiguration::ResolveVariable
 		(
 		Yogi::Core::ConstCCharDescriptorRef r

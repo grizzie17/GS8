@@ -22,7 +22,7 @@
 		//------------------------------
 		"terminal.integrated.shell.windows": "C:/msys64/usr/bin/bash.exe",
 		"terminal.integrated.shellArgs.windows":[
-			"--login"
+			"--login", "-i"
 		],
 		"terminal.integrated.env.windows": {
 			"MSYSTEM": "MINGW64",
@@ -62,7 +62,8 @@
 		"doxdocgen.c.firstLine": "///",
 		"doxdocgen.c.lastLine": "//",
 		"doxdocgen.c.triggerSequence": "///",
-		"doxdocgen.generic.briefTemplate": "{text}"
+		"doxdocgen.generic.briefTemplate": "{text}",
+		"editor.tabCompletion": "on"
 
 	}
 }

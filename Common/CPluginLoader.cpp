@@ -78,8 +78,8 @@ CPluginLoader::CPluginLoader
 		(
 		void
 		)
-		: m_sPath(),
-		m_oMutex()
+		: m_sPath()
+		, m_oMutex()
 {
 }
 

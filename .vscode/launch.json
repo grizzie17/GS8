@@ -5,20 +5,19 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "(gdb) Launch",
+			"name": "gdb Common_specs",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/build/Common/common_specs.exe",
+			"program": "${workspaceFolder}/build/Common/Common_specs.exe",
 			"args": [],
 			"stopAtEntry": true,
-			"cwd": "${workspaceFolder}\\build\\Common",
-			"environment": [],
+			"cwd": "${workspaceFolder}",
 			"externalConsole": false,
 			"MIMode": "gdb",
-			"miDebuggerPath": "C:\\msys64\\usr\\bin\\gdb.exe",
-            "sourceFileMap": {
-                "/c/Users/jgriswold/Documents/GS8/build": "${workspaceFolder}"
-            },
+			"miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+            // "sourceFileMap": {
+            //     "/c/Users/jgriswold/Documents/GS8/build": "${workspaceFolder}"
+            // },
 			"setupCommands": [
 				// {
 				// 	"description": "Enable pretty-printing for gdb",
@@ -26,16 +25,49 @@
 				// 	"ignoreFailures": true
 				// },
 				{
-					"text": "directory /c/Users/jgriswold/Documents/GS8/Common/test"
+					"text": "set solib-search-path C:/Users/jgriswold/Documents/GS8/build/Common;C:/Users/jgriswold/Documents/GS8/build/Platform"
 				},
 				{
-					"text": "directory /c/Users/jgriswold/Documents/GS8/Common"
+					"text": "directory C:/Users/jgriswold/Documents/GS8/Common/test"
 				},
 				{
-					"text": "directory /c/Users/jgriswold/Documents/GS8/Platform"
+					"text": "directory C:/Users/jgriswold/Documents/GS8/Common"
 				},
 				{
-					"text": "cd /c/Users/jgriswold/Documents/GS8/Common/test"
+					"text": "directory C:/Users/jgriswold/Documents/GS8/build/Common"
+				},
+				{
+					"text": "directory C:/Users/jgriswold/Documents/GS8/build/Common/test"
+				},
+				{
+					"text": "directory C:/Users/jgriswold/Documents/GS8/Platform"
+				},
+				{
+					"text": "directory C:/Users/jgriswold/Documents/GS8/Platform/test"
+				},
+				{
+					"text": "directory C:/Users/jgriswold/Documents/GS8/build/Platform"
+				},
+				{
+					"text": "set debug-file-directory C:/Users/jgriswold/Documents/GS8/build/Platform/.libs"
+				},
+				{
+					"text": "set debug-file-directory C:/Users/jgriswold/Documents/GS8/build/Common/"
+				},
+				{
+					"text": "set debug-file-directory C:/Users/jgriswold/Documents/GS8/build/Common/.libs"
+				},
+				{
+					"text": "symbol-file C:/Users/jgriswold/Documents/GS8/build/Common/.libs/libcommon-0.dll"
+				},
+				{
+					"text": "symbol-file C:/Users/jgriswold/Documents/GS8/build/Common/.libs/Common_specs.exe"
+				},
+				// {
+				// 	"text": "file C:/Users/jgriswold/Documents/GS8/build/Common/Common_specs.exe"
+				// },
+				{
+					"text": "cd C:/Users/jgriswold/Documents/GS8/build/Common"
 				}
 			],
             "logging": {

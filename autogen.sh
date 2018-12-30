@@ -68,7 +68,7 @@ function assertCmd()
 			var=`echo "$cmd" | tr '[a-z]' '[A-Z]' | sed -e 's/-//g'`
 			eval export $var=$fullcmd
 			eval export ${var}_V=$ver
-			echo "$var=${!var}" >&2
+			#echo "$var=${!var}" >&2
 		else
 			fatal $sts "command does not know about version option: $cmd"
 		fi
@@ -138,11 +138,11 @@ grep '^[ \t]*AC_PROG_INTLTOOL' $CONFIGURE_F  &>/dev/null
 need_libtoolize=no
 grep '^[ \t]*LT_INIT' $CONFIGURE_F  &>/dev/null
 [ 0 -eq $? ]  &&  need_libtoolize=yes
+grep '^[ \t]*AC_PROG_LIBTOOL' $CONFIGURE_F  &>/dev/null
+[ 0 -eq $? ]  &&  need_libtoolize=yes
 
 
 pushd $CONFIGURE_D >/dev/null
-
-	mkdir -p $CONFIGURE_D/m4  ||  fatal $? "unable to make $CONFIGURE_D/m4"
 
 	if [ "Xyes" = "X$need_autopoint" ]; then
 		echo "...autopoint... $AUTOPOINT_V"
@@ -151,6 +151,7 @@ pushd $CONFIGURE_D >/dev/null
 
 	#second aclocal to get around problem with aclocal 1.15
 	echo "...aclocal... $ACLOCAL_V"
+	mkdir -p $CONFIGURE_D/m4  ||  fatal $? "unable to make $CONFIGURE_D/m4"
 	$ACLOCAL -I m4 --install 2>/dev/null  ||  echo "...:::aclocal rerun..."  &&  $ACLOCAL -I m4  ||  fatal $? "aclocal exited with an error"
 
 	if [ "Xyes" = "X$need_libtoolize" ]; then

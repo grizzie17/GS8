@@ -33,16 +33,21 @@
 #	define	STD_CALL
 #endif
 
-#if defined( BUILDING_SHAREDLIB )
-#	define DECL_SHLIB	DECLSPECEXPORT
-#	define DECL_API(t)	t DECLSPECEXPORT
-#	define DECL_CLASS	DECLSPECEXPORT
-#else
-#	define DECL_SHLIB	DECLSPECIMPORT
-#	define DECL_API(t)	t DECLSPECIMPORT
-#	define DECL_CLASS	DECLSPECIMPORT
-#endif
+// #if defined( BUILDING_SHAREDLIB )
+// #	define DECL_SHLIB	DECLSPECEXPORT
+// #	define DECL_API(t)	t DECLSPECEXPORT
+// #	define DECL_CLASS	DECLSPECEXPORT
+// #else
+// #	define DECL_SHLIB	DECLSPECIMPORT
+// #	define DECL_API(t)	t DECLSPECIMPORT
+// #	define DECL_CLASS	DECLSPECIMPORT
+// #endif
 #define DEF_API(t)	STD_CALL t
+
+#undef DECLSPECEXPORT
+#undef DECLSPECIMPORT
+#define DECLSPECEXPORT
+#define DECLSPECIMPORT
 
 
 // The following ifdef block is the standard way of creating macros which make exporting
