@@ -25,50 +25,114 @@
 				// 	"ignoreFailures": true
 				// },
 				{
-					"text": "set solib-search-path C:/Users/jgriswold/Documents/GS8/build/Common;C:/Users/jgriswold/Documents/GS8/build/Platform"
+					"text": "set solib-search-path ${workspaceFolder}/build/Common;${workspaceFolder}/build/Platform"
 				},
 				{
-					"text": "directory C:/Users/jgriswold/Documents/GS8/Common/test"
+					"text": "directory ${workspaceFolder}/Common/test"
 				},
 				{
-					"text": "directory C:/Users/jgriswold/Documents/GS8/Common"
+					"text": "directory ${workspaceFolder}/Common"
 				},
 				{
-					"text": "directory C:/Users/jgriswold/Documents/GS8/build/Common"
+					"text": "directory ${workspaceFolder}/build/Common"
 				},
 				{
-					"text": "directory C:/Users/jgriswold/Documents/GS8/build/Common/test"
+					"text": "directory ${workspaceFolder}/build/Common/test"
 				},
 				{
-					"text": "directory C:/Users/jgriswold/Documents/GS8/Platform"
+					"text": "directory ${workspaceFolder}/Platform"
 				},
 				{
-					"text": "directory C:/Users/jgriswold/Documents/GS8/Platform/test"
+					"text": "directory ${workspaceFolder}/Platform/test"
 				},
 				{
-					"text": "directory C:/Users/jgriswold/Documents/GS8/build/Platform"
+					"text": "directory ${workspaceFolder}/build/Platform"
 				},
 				{
-					"text": "set debug-file-directory C:/Users/jgriswold/Documents/GS8/build/Platform/.libs"
+					"text": "set debug-file-directory ${workspaceFolder}/build/Platform/.libs"
 				},
 				{
-					"text": "set debug-file-directory C:/Users/jgriswold/Documents/GS8/build/Common/"
+					"text": "set debug-file-directory ${workspaceFolder}/build/Common/"
 				},
 				{
-					"text": "set debug-file-directory C:/Users/jgriswold/Documents/GS8/build/Common/.libs"
+					"text": "set debug-file-directory ${workspaceFolder}/build/Common/.libs"
 				},
 				{
-					"text": "symbol-file C:/Users/jgriswold/Documents/GS8/build/Common/.libs/libcommon-0.dll"
+					"text": "symbol-file ${workspaceFolder}/build/Common/.libs/libcommon-0.dll"
 				},
 				{
-					"text": "symbol-file C:/Users/jgriswold/Documents/GS8/build/Common/.libs/Common_specs.exe"
+					"text": "symbol-file ${workspaceFolder}/build/Common/.libs/Common_specs.exe"
 				},
 				// {
-				// 	"text": "file C:/Users/jgriswold/Documents/GS8/build/Common/Common_specs.exe"
+				// 	"text": "file ${workspaceFolder}/build/Common/Common_specs.exe"
 				// },
 				{
-					"text": "cd C:/Users/jgriswold/Documents/GS8/build/Common"
+					"text": "cd ${workspaceFolder}/build/Common"
 				}
+			],
+            "logging": {
+                "engineLogging": true
+            }
+		},
+		{
+			"name": "gdb Platorm_specs",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/Platform/Platform_specs.exe",
+			"args": [],
+			"stopAtEntry": true,
+			"cwd": "${workspaceFolder}/build/Platform",
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+			"environment": [
+				{
+					"name": "sandbox",
+					"value": "C:/Users/john/LocalDocuments/GS8"
+				}
+			],
+            "sourceFileMap": {
+                "${workspaceFolder}/build": "${workspaceFolder}"
+            },
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"text": "set solib-search-path C:/Users/john/LocalDocuments/GS8/build/Platform/.libs"
+				},
+				{
+					"text": "set solib-search-path C:/Users/john/LocalDocuments/GS8/build/Platform"
+				},
+				{
+					"text": "directory C:/Users/john/LocalDocuments/GS8/Platform/test"
+				},
+				{
+					"text": "directory C:/Users/john/LocalDocuments/GS8/Platform"
+				},
+				// {
+				// 	"text": "directory C:/Users/john/LocalDocuments/GS8/build/Platform"
+				// },
+				// {
+				// 	"text": "directory C:/Users/john/LocalDocuments/GS8/build/Platform/test"
+				// },
+				// {
+				// 	"text": "set debug-file-directory C:/Users/john/LocalDocuments/GS8/build/Platform/.libs"
+				// },
+				// {
+				// 	"text": "set debug-file-directory C:/Users/john/LocalDocuments/GS8/build/Platform/"
+				// },
+				// {
+				// 	"text": "symbol-file C:/Users/john/LocalDocuments/GS8/build/Platform/.libs/libplatform-0.dll"
+				// },
+				// {
+				// 	"text": "symbol-file C:/Users/john/LocalDocuments/GS8/build/Platform/.libs/Platform_specs.exe"
+				// }
+				// {
+				// 	"text": "cd C:/Users/john/LocalDocuments/GS8/build/Platform"
+				// }
 			],
             "logging": {
                 "engineLogging": true
