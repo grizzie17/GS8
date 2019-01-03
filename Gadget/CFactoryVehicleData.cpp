@@ -98,10 +98,10 @@ CFactoryVehicleData::CFactoryVehicleData
 		(
 		void
 		)
-		: VFactory(),
-		m_pActive( 0 ),
-		m_pNotify( 0 ),
-		m_sAAName()
+		: VFactory()
+		, m_pActive( 0 )
+		, m_pNotify( 0 )
+		, m_sAAName()
 {
 	m_sAAName = "Alerts Active";
 	::strcpy_s( m_sTrue, sizeof(m_sTrue), "Y" );
@@ -305,7 +305,7 @@ bool	CFactoryVehicleData::Alert
 		XMLIteratorPtr	pIt
 		)
 {
-	bool			bResult = false;
+	bool	bResult = false;
 
 	if ( pIt->NodeEmpty() )
 	{

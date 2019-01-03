@@ -37,6 +37,8 @@
 #include "CFactoryPlugin.h"
 #include "IPluginLibrary.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -104,7 +106,7 @@ CCommandProcessorForPlugins::~CCommandProcessorForPlugins
 
 	while ( enumCmd.MoveNext() )
 	{
-		ICommandPluginPtr*	h = enumCmd.Current();
+		const ICommandPluginPtr*	h = enumCmd.Current();
 		if ( h )
 			(*h)->Release();
 	}
@@ -154,16 +156,16 @@ void	CCommandProcessorForPlugins::InitializeFunctions
 	if ( m_pDictCommands )
 	{
 		CVariantDataPtr	pv;
-		Yogi::Core::CCharString		sXML;
+		CCharString		sXML;
 
 		pv = m_pApplication->Configuration()->GetEntry( "Active Commands" );
 		if ( pv )
-			sXML = pv->GetValueYogi::Core::CCharString();
+			sXML = pv->GetValueCCharString();
 		else
 			sXML = "default";
 
 		ISupportsArray*	aSup;
-		Yogi::Core::CCharString		sPath = "plugins/commands";
+		CCharString		sPath = "plugins/commands";
 
 		sPath += sXML;
 
@@ -257,7 +259,7 @@ bool	CCommandProcessorForPlugins::ProcessRequest
 	bool	bResult = inherited::ProcessRequest( sel, vDataRef );
 	if ( ! bResult )
 	{
-		ICommandPluginPtr*	h = m_tCommands.Find( sel );
+		const ICommandPluginPtr*	h = m_tCommands.Find( sel );
 		if ( h )
 		{
 			bResult = (*h)->ProcessRequest( sel, vDataRef );
@@ -295,7 +297,7 @@ VDictionary::Selector
 VDictionary::Selector
 		CCommandProcessorForPlugins::RegisterCommand
 		(
-		ConstYogi::Core::CCharDescriptorRef	rCommandName,
+		ConstCCharDescriptorRef	rCommandName,
 		CVariantDataPtr			pInitialState //= 0
 		)
 {

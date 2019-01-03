@@ -178,8 +178,7 @@ CVariantData
 	}
 	VDictionary::Selector tSel = m_tSelector.GetSelector( pDict );
 
-	CVariantDataPtr	pv;
-	pv = pDict->GetData( tSel );
+	ConstCVariantDataPtr	pv = pDict->GetData( tSel );
 	if ( pv )
 		return *pv;
 	else

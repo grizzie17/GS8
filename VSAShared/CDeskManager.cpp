@@ -28,6 +28,10 @@
 #include "stdafx.h"
 #include "CDeskManager.h"
 //USING_NAMESPACE_COMMON
+
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |

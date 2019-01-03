@@ -9,6 +9,13 @@
 	],
 	"settings": {
 
+		"workbench.colorCustomizations": {
+			"titleBar.activeBackground": "#523232",
+			"titleBar.inactiveBackground": "#413030",
+			"activityBar.background": "#462b2b"
+		},
+
+
 		"C_Cpp.formatting": "Disabled",
 		"uncrustify.configPath": "uncrustify.cfg",
 

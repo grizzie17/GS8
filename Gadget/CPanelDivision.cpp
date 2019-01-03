@@ -34,6 +34,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -72,9 +74,9 @@ CPanelDivision::CPanelDivision
 		(
 		void
 		)
-		: VPanelChild(),
-		m_aList(),
-		m_pVisible( 0 )
+		: VPanelChild()
+		, m_aList()
+		, m_pVisible( 0 )
 {
 }
 
@@ -87,9 +89,9 @@ CPanelDivision::CPanelDivision
 		(
 		CPanelDivisionRef	r
 		)
-		: VPanelChild( r ),
-		m_aList(),
-		m_pVisible( 0 )
+		: VPanelChild( r )
+		, m_aList()
+		, m_pVisible( 0 )
 {
 	// TODO: add instructions to copy data from "r" to "this"
 }

@@ -27,6 +27,9 @@
 \+---------------------------------------------------------------------*/
 #include "Stdafx.h"
 #include "CHusk.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |
@@ -75,6 +78,8 @@ CHusk::CHusk
 		, m_bRunning( false )
 		, m_pConfiguration( 0 )
 		, m_pServiceManager( 0 )
+		, m_tCOMObjects()
+		, m_tObjects()
 {
 }
 
@@ -86,6 +91,8 @@ CHusk::CHusk
 		, m_bRunning( false )
 		, m_pConfiguration( 0 )
 		, m_pServiceManager( 0 )
+		, m_tCOMObjects()
+		, m_tObjects()
 {
 }
 
@@ -98,6 +105,8 @@ CHusk::CHusk
 		, m_bRunning( false )
 		, m_pConfiguration( 0 )
 		, m_pServiceManager( 0 )
+		, m_tCOMObjects()
+		, m_tObjects()
 {
 }
 

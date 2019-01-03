@@ -1,11 +1,11 @@
-/*==================================================================*//**
-*
-*	@file	CCharDescriptor.h
-*	@brief	Implementation of TCharDescriptor as "char"
-*
-*	@see	TCharDescriptor.h
-*
-*//*===================================================================*/
+//=====================================================================+|
+//
+//!	@file	CCharDescriptor.h
+//!	@brief	Implementation of TCharDescriptor as "char"
+//!
+//!	@see	TCharDescriptor.h
+//
+//=====================================================================+|
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -70,7 +70,7 @@ typedef const class CCharDescriptor*	ConstCCharDescriptorPtr;
  *
  *	Specialization of TCharDescriptor
  */
-class DECL_CLASS CCharDescriptor : public TCharDescriptor<char>
+class CCharDescriptor : public TCharDescriptor<char>
 {
 //	class lifecycle  ----------------------------------------------------
 public:

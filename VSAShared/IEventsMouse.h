@@ -54,7 +54,7 @@ extern const Yogi::Common::IXID	IXID_IEventsMouse;
 |
 \+---------------------------------------------------------------------*/
 
-interface_ IEventsMouse : public ISupports
+interface_ IEventsMouse : public Yogi::Common::ISupports
 {
 	//
 	//	SomeFunction

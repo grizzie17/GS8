@@ -55,7 +55,7 @@ extern const Yogi::Common::IXID	IXID_IEventsKeyboard;
 |
 \+---------------------------------------------------------------------*/
 
-interface_ IEventsKeyboard : public ISupports
+interface_ IEventsKeyboard : public Yogi::Common::ISupports
 {
 	//
 	//	SomeFunction

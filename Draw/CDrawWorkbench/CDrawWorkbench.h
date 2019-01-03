@@ -36,7 +36,6 @@
 
 
 
-using namespace Yogi::Gadget;
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -49,8 +48,8 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef class CDrawWorkbench*			CDrawWorkbenchPtr;
-typedef class CDrawWorkbench&			CDrawWorkbenchRef;
+typedef class CDrawWorkbench*		CDrawWorkbenchPtr;
+typedef class CDrawWorkbench&		CDrawWorkbenchRef;
 typedef const class CDrawWorkbench&	ConstCDrawWorkbenchRef;
 /*---------------------------------------------------------------------+\
 |																		|
@@ -101,7 +100,7 @@ protected:
 	CApplicationGaugePtr	m_pApplication;
 	int						m_nFeed;
 
-	THashTable< CCharString, VImagePtr >	m_oVideoCache;
+	THashTable< Yogi::Core::CCharString, VImagePtr >	m_oVideoCache;
 	Chronos					m_oChronos;
 
 
@@ -245,11 +244,11 @@ public:
 	// --- Style properties ---
 
 	virtual bool	LineWidth( short nWidth );
-	virtual bool	LineColor( CColorRef rColor );
-	virtual bool	FillColor( CColorRef rColor );
-	virtual bool	HaloColor( CColorRef rColor );
+	virtual bool	LineColor( Yogi::Core::CColorRef rColor );
+	virtual bool	FillColor( Yogi::Core::CColorRef rColor );
+	virtual bool	HaloColor( Yogi::Core::CColorRef rColor );
 
-	virtual bool	BackgroundColor( ConstCColorRef rColor );	// identify color to be used for background
+	virtual bool	BackgroundColor( Yogi::Core::ConstCColorRef rColor );	// identify color to be used for background
 	virtual bool	NightColor( ENightColorModes eMode );
 
 	virtual bool	FontParams

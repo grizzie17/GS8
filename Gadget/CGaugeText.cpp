@@ -388,7 +388,8 @@ bool	CGaugeText::Render
 			{
 				if ( *p )
 				{
-					sText = (CCharDescriptorRef)(*p)->GetCachedValue();
+					CVariantData vd = (*p)->GetCachedValue();
+					sText = vd.GetValueCCharDescriptor();
 					//sText = (*p)->GetCachedValue();
 					long	n = long(sText.Length());
 					if ( 0 < n )

@@ -39,6 +39,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -78,10 +80,9 @@ CKeyEventMap::CKeyEventMap
 		(
 		void
 		)
-		:
-		m_aDown(),
-		m_aRepeat(),
-		m_aUp()
+		: m_aDown()
+		, m_aRepeat()
+		, m_aUp()
 {
 }
 

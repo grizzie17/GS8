@@ -150,9 +150,21 @@ ConstCCharStringPtr
 		CImage::File
 		(
 		void
-		)
+		) const
 {
 	return &m_sFile;
+}
+
+bool	CImage::SetFile
+		(
+		ConstCCharDescriptorRef	r
+		)
+{
+	if ( 0 < r.Length() )
+		return false;
+
+	m_sFile = r;
+	return true;
 }
 
 

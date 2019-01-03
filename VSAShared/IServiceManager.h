@@ -63,7 +63,7 @@ interface_ IServiceManager : public Yogi::Common::ISupports
 	Yogi::Common::ISupportsPtr
 			FindServiceByIF
 			(
-			ConstIXIDRef rIID
+			Yogi::Common::ConstIXIDRef rIID
 			) PURE;
 };
 

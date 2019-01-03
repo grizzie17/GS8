@@ -146,7 +146,7 @@ CEquationVariableAssignConditionalRef
  * GetValue -
 
 \+---------------------------------------------------------------------*/
-ConstCVariantData
+CVariantData
 		CEquationVariableAssignConditional::GetValue
 		(
 		VDictionaryPtr pDict

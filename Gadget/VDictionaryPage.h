@@ -97,7 +97,7 @@ public:
 	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) = 0;
 			long	LocateEntry( const char* sName );
 	virtual Yogi::Common::ConstCVariantDataPtr
-					GetData( unsigned long nSel ) const = 0;
+					GetData( unsigned long nSel ) = 0;
 	virtual bool	PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData ) = 0;
 
 

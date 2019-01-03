@@ -58,13 +58,13 @@ typedef const class CGDIFont&	ConstCGDIFontRef;
 |
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CGDIFont : public VGDI
+class CGDIFont : public VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:
 					CGDIFont();
 					CGDIFont( CGDIFontRef r );	// copy constructor
-					CGDIFont( ConstCCharDescriptorRef rName, unsigned long nHeight );
+					CGDIFont( Yogi::Core::ConstCCharDescriptorRef rName, unsigned long nHeight );
 					CGDIFont( const char* sName, unsigned long nHeight );
 	virtual			~CGDIFont();
 
@@ -77,7 +77,7 @@ public:
 		unsigned long	nHeight;
 
 		Parameters() : nHeight( 0 ) { sName[0] = 0; };
-		Parameters( ConstCCharDescriptorRef rName, unsigned long n ) : nHeight( n ) { rName.CopyTo( sName, sizeof(sName) ); };
+		Parameters( Yogi::Core::ConstCCharDescriptorRef rName, unsigned long n ) : nHeight( n ) { rName.CopyTo( sName, sizeof(sName) ); };
 		Parameters( const char* s, unsigned long n ) : nHeight( n ) { ::strcpy_s( sName, sizeof(sName), s ); };
 		Parameters( const Parameters& r ) : nHeight( r.nHeight ) { ::strcpy_s( sName, sizeof(sName), r.sName ); };
 
@@ -89,7 +89,7 @@ public:
 			return *this;
 		};
 
-		bool	operator == ( const Parameters& r )
+		bool	operator == ( const Parameters& r ) const
 		{
 			if ( 0 != ::strcmp( sName, r.sName ) )
 				return false;
@@ -100,7 +100,7 @@ public:
 
 		uintmax_t	Hash( void ) const
 		{
-			CCharDescriptor	dName( sName );
+			Yogi::Core::CCharDescriptor	dName( sName );
 			return dName.Hash() + nHeight;
 		}
 	} Parameters;
@@ -109,7 +109,7 @@ public:
 
 	CGDIFontRef	operator=( CGDIFontRef r );		// assignment
 
-	bool	SetParameters( ConstCCharDescriptorRef rName, unsigned long nHeight );
+	bool	SetParameters( Yogi::Core::ConstCCharDescriptorRef rName, unsigned long nHeight );
 	bool	SetParameters( const char* sName, unsigned long nHeight );
 
 	HFONT	ToHFONT( void );

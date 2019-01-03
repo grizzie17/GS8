@@ -40,18 +40,18 @@ libcommon_la_SOURCES = \
 libcommon_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcommon_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)  -DSHLIB_COMMON
 libcommon_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
-		-L$(top_builddir)/Platform \
-		-L$(top_builddir)/Common
+		$(top_builddir)/Platform/libplatform.la
 
 libcommon_la_LIBADD = \
-		-lplatform \
-		-lpthread
+		-lpthread \
+		-lc
+libcommon_la_DEPENDENCIES = $(top_builddir)/Platform/libplatform.la
 
 
 
 TESTS = Common_specs
 bin_PROGRAMS = Common_specs
-EXTRA_Common_specs_DEPENDENCIES = libcommon.la
+EXTRA_Common_specs_DEPENDENCIES = libcommon.la $(top_builddir)/Platform/libplatform.la
 
 CHKCPPFLAGS = \
 		-I$(top_srcdir)/Platform/test \
@@ -69,11 +69,9 @@ Common_specs_SOURCES = \
 Common_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
 Common_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
 Common_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
-		-L$(top_builddir)/Platform \
-		-L$(top_builddir)/Common
+		libcommon.la \
+		$(top_builddir)/Platform/libplatform.la \
 Common_specs_LDADD = \
-		-lcommon \
-		-lplatform \
 		-lpthread -lc
 
 

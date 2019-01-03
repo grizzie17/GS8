@@ -30,6 +30,7 @@
 #include "VPluginWithAggregateList.h"
 
 #include "IApplet.h"
+#include "VPluginLibrary.h"
 #include "CMutex.h"
 
 
@@ -53,7 +54,7 @@ typedef const class VPluginApplet&	ConstVPluginAppletRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VPluginApplet : public VPluginWithAggregateList,
+class VPluginApplet : public Yogi::Common::VPluginWithAggregateList,
 						implements_ IApplet
 {
 //	class lifecycle  ----------------------------------------------------
@@ -68,34 +69,40 @@ public:
 
 	//	IApplet
 	virtual
-	Yogi::Core::NResult	OnLoad
+	Yogi::Core::NResult	
+			OnLoad
 			(
 			IHuskPtr	pHusk
 			);
 
 	virtual
-	Yogi::Core::NResult	OnUnload
+	Yogi::Core::NResult	
+			OnUnload
 			(
 			);
 
 
 	virtual
-	Yogi::Core::NResult	OnStart
+	Yogi::Core::NResult	
+			OnStart
 			(
 			);
 
 	virtual
-	Yogi::Core::NResult	OnExit
+	Yogi::Core::NResult	
+			OnExit
 			(
 			);
 
 	virtual
-	Yogi::Core::NResult	OnPause
+	Yogi::Core::NResult	
+			OnPause
 			(
 			);
 
 	virtual
-	Yogi::Core::NResult	OnResume
+	Yogi::Core::NResult	
+			OnResume
 			(
 			);
 
@@ -106,7 +113,7 @@ public:
 			);
 
 	virtual
-	ConstYogi::Core::CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetID
 			(
 			void
@@ -125,16 +132,16 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	Yogi::Core::CCharString		m_sID;
-	bool			m_bRunning;
-	CMutex			m_oMutex;
+	bool						m_bRunning;
+	Yogi::Core::CMutex			m_oMutex;
 
-	IHuskPtr		m_pHusk;
+	IHuskPtr					m_pHusk;
 
 
 private:
 //	private types  ------------------------------------------------------
 
-	typedef	VPluginWithAggregateList	inherited;
+	typedef	Yogi::Common::VPluginWithAggregateList	inherited;
 
 //	private functions  --------------------------------------------------
 
@@ -147,7 +154,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 public:
@@ -155,8 +162,8 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr		pLib
 			);
 
 };

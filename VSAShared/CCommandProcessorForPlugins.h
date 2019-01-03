@@ -59,8 +59,8 @@ typedef const class CCommandProcessorForPlugins&	ConstCCommandProcessorForPlugin
 \+---------------------------------------------------------------------*/
 
 class CCommandProcessorForPlugins
-					: public CCommandProcessor,
-					public VCommandSetup
+					: public CCommandProcessor
+					, implements_ VCommandSetup
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -139,7 +139,7 @@ public:
 	VDictionary::Selector
 			RegisterCommand
 			(
-			Yogi::Core::ConstYogi::Core::CCharDescriptorRef	rCommandName,
+			Yogi::Core::ConstCCharDescriptorRef	rCommandName,
 			Yogi::Common::CVariantDataPtr		pInitialState = 0
 			);
 

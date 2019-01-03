@@ -61,7 +61,7 @@ typedef const class CFactoryVehicleData&	ConstCFactoryVehicleDataRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CFactoryVehicleData : public VFactory
+class CFactoryVehicleData : public Yogi::Common::VFactory
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -87,24 +87,24 @@ protected:
 
 //	protected functions  ------------------------------------------------
 
-	bool			VehicleData( XMLIteratorPtr pIt );
-	bool			Alerts( XMLIteratorPtr pIt );
-	bool			Alert( XMLIteratorPtr pIt );
-	bool			Parameters( XMLIteratorPtr pIt );
-	bool			Param( XMLIteratorPtr pIt );
+	bool			VehicleData( Yogi::Common::XMLIteratorPtr pIt );
+	bool			Alerts( Yogi::Common::XMLIteratorPtr pIt );
+	bool			Alert( Yogi::Common::XMLIteratorPtr pIt );
+	bool			Parameters( Yogi::Common::XMLIteratorPtr pIt );
+	bool			Param( Yogi::Common::XMLIteratorPtr pIt );
 
 
 
 
 //	protected data  -----------------------------------------------------
 
-	CDictPageActivePtr	m_pActive;
-	CDictPageAlertsPtr	m_pNotify;
+	CDictPageActivePtr		m_pActive;
+	CDictPageAlertsPtr		m_pNotify;
 
-	bool				m_bNotifyActive;
-	CCharString			m_sAAName;
-	char				m_sTrue[2];
-	char				m_sFalse[2];
+	bool					m_bNotifyActive;
+	Yogi::Core::CCharString	m_sAAName;
+	char					m_sTrue[2];
+	char					m_sFalse[2];
 
 private:
 //	private functions  --------------------------------------------------

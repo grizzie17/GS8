@@ -1,4 +1,5 @@
 AM_CPPFLAGS += \
+		-I$(top_srcdir)/Gadget \
 		-I$(top_srcdir)/Common \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Draw/VDraw

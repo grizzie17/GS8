@@ -55,25 +55,25 @@ typedef const class CGDIPen&	ConstCGDIPenRef;
 |
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CGDIPen : public VGDI
+class CGDIPen : public VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CGDIPen();
-					CGDIPen( CGDIPenRef r );	// copy constructor
-					CGDIPen( ConstCColorRef rColor, long nWidth );
-	virtual			~CGDIPen();
+			CGDIPen();
+			CGDIPen( CGDIPenRef r );	// copy constructor
+			CGDIPen( Yogi::Core::ConstCColorRef rColor, long nWidth );
+	virtual	~CGDIPen();
 
 public:
 //	public types  -------------------------------------------------------
 
 	typedef	struct Parameters
 	{
-		CColor	oColor;
-		long	nWidth;
+		Yogi::Core::CColor	oColor;
+		long				nWidth;
 
 		Parameters() : oColor(), nWidth(0) {};
-		Parameters( const CColor& c, long n ) : oColor( c ), nWidth( n ) {};
+		Parameters( Yogi::Core::ConstCColorRef c, long n ) : oColor( c ), nWidth( n ) {};
 		Parameters( const Parameters& r ) : oColor( r.oColor ), nWidth( r.nWidth ) {};
 
 		Parameters&	operator = ( const Parameters& r )
@@ -109,6 +109,7 @@ public:
 					| ((b >> 3) << 10)
 					| (nWidth << 16);
 			}
+			return 0;
 		}
 	} Parameters;
 
@@ -116,7 +117,7 @@ public:
 
 	CGDIPenRef	operator=( CGDIPenRef r );		// assignment
 
-	bool	SetParameters( ConstCColorRef oColor, long nWidth );
+	bool	SetParameters( Yogi::Core::ConstCColorRef oColor, long nWidth );
 
 	HPEN	ToHPEN( void );
 

@@ -44,6 +44,8 @@
 #include "CMouseProcessorWB.h"
 
 #include "UFloat.h"
+
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|

@@ -38,7 +38,6 @@
 
 #include "CFactoryEquation.h"
 #include "CFactoryGauge.h"
-#include ""
 
 #include "CPanel.h"
 

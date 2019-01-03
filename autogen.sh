@@ -22,6 +22,7 @@ export AUTOHEADER=autoheader
 export AUTOMAKE=automake
 export AUTOPOINT=autopoint
 export AUTORECONF=autoreconf
+export GETTEXTIZE=gettextize
 export INTLTOOLIZE=intltoolize
 export LIBTOOLIZE=libtoolize
 export PKGCONFIG=pkg-config
@@ -98,8 +99,9 @@ assertCmd $AUTOHEADER
 assertCmd $AUTOMAKE
 assertCmd $AUTOPOINT
 assertCmd $AUTORECONF
-assertCmd $LIBTOOLIZE
+assertCmd $GETTEXTIZE
 assertCmd $INTLTOOLIZE
+assertCmd $LIBTOOLIZE
 assertCmd $PKGCONFIG
 assertCmd $MKDIR
 
@@ -124,10 +126,10 @@ need_automake=no
 grep '^[ \t]*AM_INIT_AUTOMAKE' $CONFIGURE_F  &>/dev/null
 [ 0 -eq $? ]  &&  need_automake=yes
 
-## autopoint ##
-need_autopoint=no
-grep '^[ \t]*AM_GNU_GETTEXT_VERSION' $CONFIGURE_F  &>/dev/null
-[ 0 -eq $? ]  &&  need_autopoint=yes
+## gettextize ##
+need_gettextize=no
+grep '^[ \t]*AM_GNU_GETTEXT' $CONFIGURE_F  &>/dev/null
+[ 0 -eq $? ]  &&  need_gettextize=yes
 
 ## intltoolize ##
 need_intltoolize=no
@@ -144,9 +146,9 @@ grep '^[ \t]*AC_PROG_LIBTOOL' $CONFIGURE_F  &>/dev/null
 
 pushd $CONFIGURE_D >/dev/null
 
-	if [ "Xyes" = "X$need_autopoint" ]; then
-		echo "...autopoint... $AUTOPOINT_V"
-		$AUTOPOINT --force  ||  fatal $? "autopoint exited with an error"
+	if [ "Xyes" = "X$need_gettextize" ]; then
+		echo "...gettextize... $GETTEXTIZE_V"
+		$GETTEXTIZE --force  ||  fatal $? "gettextize exited with an error"
 	fi
 
 	#second aclocal to get around problem with aclocal 1.15

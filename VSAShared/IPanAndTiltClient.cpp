@@ -25,6 +25,7 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -32,7 +33,7 @@ namespace Yogi { namespace Gadget {
 |																		|
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IPanAndTiltClient( "BCG::Gadget::IPanAndTiltClient" );
+const IXID	IXID_IPanAndTiltClient( "Yogi::Gadget::IPanAndTiltClient" );
 
 
 

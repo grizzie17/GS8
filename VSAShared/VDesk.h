@@ -63,17 +63,20 @@ public:
 
 	//	IDesk
 	virtual
-		Yogi::Core::NResult	OnActivate
+	Yogi::Core::NResult
+		OnActivate
 		(
 		);
 
 	virtual
-		Yogi::Core::NResult	OnDeactivate
+	Yogi::Core::NResult
+		OnDeactivate
 		(
 		);
 
 	virtual
-		Yogi::Core::NResult	OnRender
+	Yogi::Core::NResult
+		OnRender
 		(
 		Yogi::Common::VDrawPtr	pDraw
 		);

@@ -30,6 +30,10 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "VPluginCommand.h"
+#include "VPluginLibrary.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -74,11 +78,11 @@ VPluginCommand::VPluginCommand
 		(
 		void
 		)
-		: inherited(),
-		m_sID(),
-		m_pApplication( 0 ),
-		m_pDataPage( 0 ),
-		m_pConstantsPage( 0 )
+		: inherited()
+		, m_sID()
+		, m_pApplication( 0 )
+		, m_pDataPage( 0 )
+		, m_pConstantsPage( 0 )
 {
 }
 
@@ -86,11 +90,11 @@ VPluginCommand::VPluginCommand
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_sID(),
-		m_pApplication( 0 ),
-		m_pDataPage( 0 ),
-		m_pConstantsPage( 0 )
+		: inherited( pOwner )
+		, m_sID()
+		, m_pApplication( 0 )
+		, m_pDataPage( 0 )
+		, m_pConstantsPage( 0 )
 {
 }
 
@@ -99,11 +103,11 @@ VPluginCommand::VPluginCommand
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_sID(),
-		m_pApplication( 0 ),
-		m_pDataPage( 0 ),
-		m_pConstantsPage( 0 )
+		: inherited( sName, pOwner )
+		, m_sID()
+		, m_pApplication( 0 )
+		, m_pDataPage( 0 )
+		, m_pConstantsPage( 0 )
 {
 }
 

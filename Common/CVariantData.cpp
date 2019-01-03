@@ -340,6 +340,22 @@ CVariantDataRef
 }
 
 
+/*----------------------------------------------------------------------+\
+
+ * operator= - assignment operator
+
+\+---------------------------------------------------------------------*/
+CVariantDataRef
+		CVariantData::operator =
+		(
+		Yogi::Core::ConstCCharStringRef r
+		)
+{
+	LoadCharDescriptor( r.Pointer(), r.Length() );
+	return *this;
+}
+
+
 /*---------------------------------------------------------------------+\
 
  * operator= - assignment operator
@@ -992,7 +1008,10 @@ bool	CVariantData::EqualsVariant
 			case T_STRING:
 				{
 					Yogi::Core::CCharDescriptor	s = r.GetValueCCharDescriptor();
-					return EqualsCCharDescriptor( s );
+					if ( s.Length() < 1 )
+						return true;
+					else
+						return EqualsCCharDescriptor( s );
 				}
 				break;
 			case T_INTEGER:

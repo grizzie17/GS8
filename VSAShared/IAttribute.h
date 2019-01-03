@@ -55,25 +55,25 @@ extern const Yogi::Common::IXID	IXID_IAttribute;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IAttribute : public ISupports
+interface_ IAttribute : public Yogi::Common::ISupports
 {
-	//
-	//	GetAttribute
-	//
-	//	Retrieves the named attribute as an argument of CVariantData.
-	//
+	//!
+	//!	GetAttribute
+	//!
+	//!	Retrieves the named attribute as an argument of CVariantData.
+	//!
 	virtual
 	Yogi::Common::CVariantDataPtr
 			GetAttribute
 			(
-			const char*		sName	// IN:	description of arg2
+			const char*		sName	//!< [in] description of arg2
 			) PURE;
 
 	virtual
 	Yogi::Common::CVariantDataPtr
 			GetAttribute
 			(
-			Yogi::Core::ConstYogi::Core::CCharDescriptorRef	rName	// IN:	description of arg2
+			Yogi::Core::ConstCCharDescriptorRef	rName	//!< [in] description of arg2
 			) PURE;
 };
 

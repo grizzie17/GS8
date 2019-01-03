@@ -173,11 +173,15 @@ libgadget_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) -DSHLIB_GADGET
 libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-L$(top_builddir)/Draw/VDraw \
 		-L$(top_builddir)/Common \
-		-L$(top_builddir)/Platform
+		-L$(top_builddir)/Platform \
+		-Wl,--whole-archive \
+		-lvdraw.a \
+		-Wl,--no-whole-archive
 libgadget_la_LIBADD = \
-		-lvdraw \
-		-lcommon \
-		-lplatform
+		-lcommon.la \
+		-lplatform.la \
+		-lpthread \
+		-lc
 
 
 
@@ -206,7 +210,8 @@ gadget_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
 gadget_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
 gadget_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(CHKLDFLAGS)
 gadget_specs_LDADD = \
-		-lgadget \
-		-lcommon \
-		-lplatform \
-		-lpthread
+		-lgadget.la \
+		-lcommon.la \
+		-lplatform.la \
+		-lpthread \
+		-lc

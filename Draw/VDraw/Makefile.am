@@ -6,7 +6,7 @@ AM_CXXFLAGS += -fPIC
 
 
 
-lib_LIBRARIES = libvdraw.a
+noinst_LIBRARIES = libvdraw.a
 
 libvdraw_a_SOURCES = \
 		IDraw.cpp \

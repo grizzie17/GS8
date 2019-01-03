@@ -55,12 +55,12 @@ extern const Yogi::Common::IXID	IXID_IApplet;
 |
 \+---------------------------------------------------------------------*/
 
-interface_ IApplet : public ISupports
+interface_ IApplet : public Yogi::Common::ISupports
 {
-	/// OnLoad - called right after applet is loaded
-	///
-	/// Typically includes Storage Broker Registration
-	///
+	//! OnLoad - called right after applet is loaded
+	//!
+	//! Typically includes Storage Broker Registration
+	//!
 	virtual
 	Yogi::Core::NResult	OnLoad
 			(
@@ -72,13 +72,13 @@ interface_ IApplet : public ISupports
 			(
 			) PURE;
 
-	/// OnStart - the applet is about to become visible
-	///
-	/// Typical operations include:
-	///		* Start any threads that are required
-	///		* Register with the box manager any boxes this application
-	///			needs to display
-	///
+	//! OnStart - the applet is about to become visible
+	//!
+	//! Typical operations include:
+	//!		* Start any threads that are required
+	//!		* Register with the box manager any boxes this application
+	//!			needs to display
+	//!
 	virtual
 	Yogi::Core::NResult	OnStart
 			(
@@ -107,7 +107,7 @@ interface_ IApplet : public ISupports
 			);
 
 	virtual
-	ConstYogi::Core::CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetID
 			(
 			void

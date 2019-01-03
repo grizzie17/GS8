@@ -82,8 +82,8 @@ public:
 	VDictionary::Selector
 			RegisterCommand
 			(
-			Yogi::Core::ConstYogi::Core::CCharDescriptorRef	rCommandName,
-			Yogi::Common::CVariantDataPtr			pInitialState = 0
+			Yogi::Core::ConstCCharDescriptorRef	rCommandName,
+			Yogi::Common::CVariantDataPtr		pInitialState = 0
 			) = 0;
 };
 

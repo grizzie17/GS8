@@ -60,8 +60,8 @@ typedef const class CFunctionProcessorForPlugins&	ConstCFunctionProcessorForPlug
 \+---------------------------------------------------------------------*/
 
 class CFunctionProcessorForPlugins
-					: public CFunctionProcessor,
-					public VCommandSetup
+					: public CFunctionProcessor
+					, implements_ VCommandSetup
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -100,7 +100,7 @@ public:
 	virtual
 	bool	ProcessRequest
 			(
-			VDictionary::Selector	sel,
+			VDictionary::Selector				sel,
 			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
@@ -128,7 +128,7 @@ public:
 	VDictionary::Selector
 			RegisterCommand
 			(
-			const char*		sCommandName,
+			const char*						sCommandName,
 			Yogi::Common::CVariantDataPtr	pInitialState = 0
 			);
 
@@ -136,8 +136,8 @@ public:
 	VDictionary::Selector
 			RegisterCommand
 			(
-			Yogi::Core::ConstYogi::Core::CCharDescriptorRef	rCommandName,
-			Yogi::Common::CVariantDataPtr			pInitialState = 0
+			Yogi::Core::ConstCCharDescriptorRef	rCommandName,
+			Yogi::Common::CVariantDataPtr		pInitialState = 0
 			);
 
 

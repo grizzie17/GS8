@@ -69,7 +69,8 @@ public:
 
 	CImageRef	operator=( CImageRef r );		// assignment
 
-	Yogi::Core::ConstCCharStringPtr	File( void );
+	Yogi::Core::ConstCCharStringPtr	File( void ) const;
+	bool			SetFile( Yogi::Core::ConstCCharDescriptorRef );
 	CPointValuePtr	Origin( void );
 	CSizePtr		Size( void );
 	void			SetAlign( Yogi::Common::VDraw::EAlignments e );

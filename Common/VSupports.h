@@ -156,7 +156,7 @@ interface_ ISupportsNonDelegating
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VBaseComObject
+class VBaseComObject
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -199,7 +199,7 @@ private:
 };
 
 //!	Base class used for all COM implementations
-class DECL_CLASS VSupports : public ISupportsNonDelegating
+class VSupports : public ISupportsNonDelegating
 {
 //	class lifecycle  ----------------------------------------------------
 

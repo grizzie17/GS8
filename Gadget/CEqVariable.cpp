@@ -209,7 +209,7 @@ CVariantData
 	VDictionary::Selector tSel = m_tSelector.GetSelector( pDict );
 	if ( tSel )
 	{
-		CVariantDataPtr	p;
+		ConstCVariantDataPtr	p;
 		p = pDict->GetData( tSel );
 		if ( p )
 		{

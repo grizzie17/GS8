@@ -35,9 +35,6 @@
 #include "THash.h"
 #include "CMutex.h"
 
-
-
-//USING_NAMESPACE_COMMON
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -60,7 +57,7 @@ typedef const class CServiceManager&	ConstCServiceManagerRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CServiceManager : public VObject
+class CServiceManager : public Yogi::Common::VObject
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -78,9 +75,9 @@ public:
 	bool			StopServices( void );
 
 	IServicePtr		FindServiceByName( const char* sName );
-	Yogi::Common::ISupportsPtr	FindServiceByIF( ConstIXIDRef rIID );
+	Yogi::Common::ISupportsPtr	FindServiceByIF( Yogi::Common::ConstIXIDRef rIID );
 
-	bool			SetLibrary( ISupportsPtr pI );
+	bool			SetLibrary( Yogi::Common::ISupportsPtr pI );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -89,10 +86,11 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	Yogi::Common::THashTable<Yogi::Core::CCharString, IServicePtr>	m_aList;
-	Yogi::Common::IPluginLibraryPtr						m_pLibrary;
-	CApplicationGauge*						m_pApplication;
-	CMutex									m_oMutex;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, IServicePtr>
+									m_aList;
+	Yogi::Common::IPluginLibraryPtr	m_pLibrary;
+	CApplicationGauge*				m_pApplication;
+	Yogi::Core::CMutex				m_oMutex;
 
 
 private:

@@ -7,7 +7,7 @@ AM_CPPFLAGS += \
 AM_CXXFLAGS += -fPIC
 
 
-lib_LIBRARIES = libvgdi.a
+noinst_LIBRARIES = libvgdi.a
 
 libvgdi_a_SOURCES = \
 		CGDIBrush.cpp \

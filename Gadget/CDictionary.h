@@ -119,7 +119,7 @@ public:
 	virtual Selector		LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 	virtual Selector		LocateEntry( const char* sName );
 	virtual Yogi::Common::ConstCVariantDataPtr
-							GetData( Selector nSel ) const;
+							GetData( Selector nSel );
 	virtual bool			PutData( Selector nSel, Yogi::Common::ConstCVariantDataPtr pData );
 	virtual bool			IsDataLocked( Selector nSel );
 

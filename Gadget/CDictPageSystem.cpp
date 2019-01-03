@@ -339,7 +339,7 @@ void	CDictPageSystem::EndCalculate
 long	CDictPageSystem::LocateEntry
 		(
 		ConstCCharStringRef	rName
-		) const
+		)
 {
 	long	n = long(m_aContent.IndexOf( rName ));
 	return n;

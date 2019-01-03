@@ -179,14 +179,14 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	EDrawContexts	m_eLastContext;
-	bool		m_bDoubleBuffer;
-	bool		m_bDisplayDirtyRectangle;
-	CColor		m_clrDirtyRectangle;
-	CColor		m_clrNone;
-	CColor		m_clrBackBuffer;
-	CColor		m_clrForeBuffer;
-	CColor		m_clrBothBuffer;
+	EDrawContexts		m_eLastContext;
+	bool				m_bDoubleBuffer;
+	bool				m_bDisplayDirtyRectangle;
+	Yogi::Core::CColor	m_clrDirtyRectangle;
+	Yogi::Core::CColor	m_clrNone;
+	Yogi::Core::CColor	m_clrBackBuffer;
+	Yogi::Core::CColor	m_clrForeBuffer;
+	Yogi::Core::CColor	m_clrBothBuffer;
 
 	HDC			m_hdc;		// active DC
 	HDC			m_hdcWindow;
@@ -202,12 +202,12 @@ protected:
 	//int			m_nCX;		// width of buffer
 	//int			m_nCY;		// height of buffer
 
-	PenList		m_oPenList;
-	CGDIPenPtr	m_pPen;
-	BrushList	m_oBrushList;
-	CGDIBrushPtr m_pBrush;
-	FontList	m_oFontList;
-	CGDIFontPtr	m_pFont;
+	PenList			m_oPenList;
+	const CGDIPen*	m_pPen;
+	BrushList		m_oBrushList;
+	const CGDIBrush* m_pBrush;
+	FontList		m_oFontList;
+	const CGDIFont*	m_pFont;
 	//HPEN		m_hPen;
 	//HPEN		m_hPenHalo;
 	//HBRUSH		m_hBrush;
@@ -292,9 +292,9 @@ public:
 
 
 	virtual bool	LineWidth( short nWidth );
-	virtual bool	LineColor( CColorRef rColor );
-	virtual bool	FillColor( CColorRef rColor );
-	virtual bool	HaloColor( CColorRef rColor );
+	virtual bool	LineColor( Yogi::Core::CColorRef rColor );
+	virtual bool	FillColor( Yogi::Core::CColorRef rColor );
+	virtual bool	HaloColor( Yogi::Core::CColorRef rColor );
 
 	virtual bool	FontParams( const char* sFontName, GFLOAT fFontHeight );
 

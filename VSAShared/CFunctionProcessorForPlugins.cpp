@@ -36,7 +36,8 @@
 #include "LogFile.h"
 #include "CFactoryPlugin.h"
 
-
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -81,11 +82,11 @@ CFunctionProcessorForPlugins::CFunctionProcessorForPlugins
 		(
 		void
 		)
-		: CFunctionProcessor(),
-		m_tCommands(),
-		m_pLibrary( 0 ),
-		m_pDictionary( 0 ),
-		m_pDictCommands( 0 )
+		: CFunctionProcessor()
+		, m_tCommands()
+		, m_pLibrary( 0 )
+		, m_pDictionary( 0 )
+		, m_pDictCommands( 0 )
 {
 }
 
@@ -105,7 +106,7 @@ CFunctionProcessorForPlugins::~CFunctionProcessorForPlugins
 
 	while ( enumCmd.MoveNext() )
 	{
-		ICommandPluginPtr*	h = enumCmd.Current();
+		const ICommandPluginPtr*	h = enumCmd.Current();
 		if ( h )
 			(*h)->Release();
 	}
@@ -155,16 +156,16 @@ void	CFunctionProcessorForPlugins::InitializeFunctions
 	if ( m_pDictCommands )
 	{
 		CVariantDataPtr	pv;
-		Yogi::Core::CCharString		sXML;
+		CCharString		sXML;
 
 		pv = m_pApplication->Configuration()->GetEntry( "Active Functions" );
 		if ( pv )
-			sXML = pv->GetValueYogi::Core::CCharString();
+			sXML = pv->GetValueCCharString();
 		else
 			sXML = "default";
 
 		ISupportsArray*	aSup;
-		Yogi::Core::CCharString		sPath = "plugins/functions";
+		CCharString		sPath = "plugins/functions";
 
 		sPath += sXML;
 
@@ -257,7 +258,7 @@ bool	CFunctionProcessorForPlugins::ProcessRequest
 	bool	bResult = CFunctionProcessor::ProcessRequest( sel, vDataRef );
 	if ( ! bResult )
 	{
-		ICommandPluginPtr*	h = m_tCommands.Find( sel );
+		const ICommandPluginPtr*	h = m_tCommands.Find( sel );
 		if ( h )
 		{
 			bResult = (*h)->ProcessRequest( sel, vDataRef );
@@ -280,7 +281,7 @@ VDictionary::Selector
 		CVariantDataPtr	pInitialState //= 0
 		)
 {
-	Yogi::Core::CCharDescriptor	sName( sCommandName );
+	CCharDescriptor	sName( sCommandName );
 	return RegisterCommand( sName, pInitialState );
 }
 
@@ -295,7 +296,7 @@ VDictionary::Selector
 VDictionary::Selector
 		CFunctionProcessorForPlugins::RegisterCommand
 		(
-		ConstYogi::Core::CCharDescriptorRef	rCommandName,
+		ConstCCharDescriptorRef	rCommandName,
 		CVariantDataPtr			pInitialState //= 0
 		)
 {

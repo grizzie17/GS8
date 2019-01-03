@@ -1,9 +1,9 @@
-/*=====================================================================*/
+//=====================================================================+|
 //
 //!	@file	CColor.h
 //!	@brief	Class to represent color values
 //
-/*=====================================================================*/
+//=====================================================================+/
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -168,7 +168,7 @@ typedef const class CColor&	ConstCColorRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CColorEnumerator : public TEnumerator<const ColorName>
+class CColorEnumerator : public TEnumerator<const ColorName>
 {
 public:
 			CColorEnumerator( void );
@@ -188,7 +188,7 @@ protected:
 
 
 
-class DECL_CLASS CColor
+class CColor
 {
 //	class lifecycle  ----------------------------------------------------
 public:

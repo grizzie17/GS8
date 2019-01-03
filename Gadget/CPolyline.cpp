@@ -34,8 +34,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
-//USING_NAMESPACE_COMMON
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local Type Definitions												|
@@ -144,8 +144,8 @@ CPolylineRef
 \+---------------------------------------------------------------------*/
 bool	CPolyline::Render
 		(
-		VDictionaryPtr pDict,
-		VDrawPtr pDraw
+		VDictionaryPtr	pDict,
+		VDrawPtr 		pDraw
 		)
 {
 	bool	bResult = VPolylist::Render( pDict, pDraw );

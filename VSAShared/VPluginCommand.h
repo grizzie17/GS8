@@ -56,7 +56,7 @@ typedef const class VPluginCommand&	ConstVPluginCommandRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VPluginCommand : public VPluginWithAggregateList,
+class VPluginCommand : public Yogi::Common::VPluginWithAggregateList,
 						implements_ ICommandPlugin
 {
 //	class lifecycle  ----------------------------------------------------

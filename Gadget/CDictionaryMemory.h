@@ -114,9 +114,9 @@ public:
 
 
 	virtual VDictionary::Selector
-							LocateEntry( Yogi::Core::ConstCCharStringRef rName ) const;
+							LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 	virtual VDictionary::Selector
-							LocateEntry( const char* sName ) const;
+							LocateEntry( const char* sName );
 	virtual Yogi::Common::ConstCVariantDataPtr	GetData( VDictionary::Selector nSel );
 	virtual bool			PutData( VDictionary::Selector nSel, Yogi::Common::ConstCVariantDataPtr pData );
 	virtual bool			IsDataLocked( Selector nSel );

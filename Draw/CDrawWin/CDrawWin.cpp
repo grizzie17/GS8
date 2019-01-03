@@ -73,6 +73,7 @@
 
 #include "TPointer.h"
 
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -616,7 +617,7 @@ bool	CDrawWin::PenSelect
 			parm.oColor = m_tLineColor;
 		parm.nWidth = m_nLineWidth;
 
-		CGDIPenPtr	pPen = m_oPenList.Find( parm );
+		const CGDIPen*	pPen = m_oPenList.Find( parm );
 		if ( ! pPen )
 		{
 			CGDIPen	oPen( parm.oColor, parm.nWidth );
@@ -688,7 +689,7 @@ bool	CDrawWin::PenHaloSelect
 		parm.oColor = m_tHaloColor;
 	parm.nWidth = m_nLineWidth;
 
-	CGDIPenPtr	pPen = m_oPenList.Find( parm );
+	const CGDIPen*	pPen = m_oPenList.Find( parm );
 	if ( ! pPen )
 	{
 		CGDIPen	oPen( parm.oColor, parm.nWidth );
@@ -753,7 +754,7 @@ bool	CDrawWin::BrushSelect
 		else
 			parm.oColor = m_tFillColor;
 
-		CGDIBrushPtr	pBrush = m_oBrushList.Find( parm );
+		const CGDIBrush*	pBrush = m_oBrushList.Find( parm );
 		if ( ! pBrush )
 		{
 			CGDIBrush	oBrush( parm.oColor );
@@ -812,7 +813,7 @@ bool	CDrawWin::FontSelect
 		//parm.sName = m_sFontName;
 		parm.nHeight = (unsigned long)TransformLength( m_fFontHeight );
 
-		CGDIFontPtr	pFont = m_oFontList.Find( parm );
+		const CGDIFont*	pFont = m_oFontList.Find( parm );
 		if ( ! pFont )
 		{
 			CGDIFont	oFont( parm.sName, parm.nHeight );

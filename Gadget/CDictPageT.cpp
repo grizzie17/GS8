@@ -208,7 +208,7 @@ void	CDictPageT::BeginCalculate
 long	CDictPageT::LocateEntry
 		(
 		ConstCCharStringRef	rName
-		) const
+		)
 {
 	const char*	sName = rName.Pointer();
 	if ( 0 == ::_stricmp( sName, "X" ) )

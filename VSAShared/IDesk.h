@@ -54,7 +54,7 @@ extern const Yogi::Common::IXID	IXID_IDesk;
 |
 \+---------------------------------------------------------------------*/
 
-interface_ IDesk : public ISupports
+interface_ IDesk : public Yogi::Common::ISupports
 {
 
 	virtual

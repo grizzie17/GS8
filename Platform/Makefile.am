@@ -64,8 +64,8 @@ Platform_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
 Platform_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 		-L$(top_builddir)/Platform \
 		-L$(top_builddir)/Platform/.libs
+		-lplatform.la \
 Platform_specs_LDADD = \
-		-lplatform \
 		-lpthread \
 		-lc
 

@@ -355,7 +355,7 @@ ConstCVariantDataPtr
 		CDictionary::GetData
 		(
 		Selector nSel
-		) const
+		)
 {
 	ConstCVariantDataPtr	pData = 0;
 	unsigned long			nPage = GET_PAGEID( nSel );

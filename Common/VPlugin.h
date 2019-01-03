@@ -58,11 +58,11 @@ typedef const class VPlugin&	ConstVPluginRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VPlugin :
-				public VSupports,
-				implements_ IPlugin,
-				implements_ IPluginLoadConfiguration,
-				implements_ ISupportsLocal
+class VPlugin 
+				: public VSupports
+				, implements_ IPlugin
+				, implements_ IPluginLoadConfiguration
+				, implements_ ISupportsLocal
 {
 //	class lifecycle  ----------------------------------------------------
 

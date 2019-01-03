@@ -52,7 +52,7 @@ extern const Yogi::Common::IXID	IXID_IDeskManager;
 |
 \+---------------------------------------------------------------------*/
 
-interface_ IDeskManager : public ISupports
+interface_ IDeskManager : public Yogi::Common::ISupports
 {
 	//
 	//	SomeFunction

@@ -56,8 +56,8 @@ namespace Yogi { namespace Gadget {
 |
 \+---------------------------------------------------------------------*/
 
-class CHusk : public VPluginWithAggregateList,
-					implements_ IHusk
+class CHusk : public Yogi::Common::VPluginWithAggregateList
+			, implements_ IHusk
 {
 //	class lifecycle  ----------------------------------------------------
 
@@ -72,14 +72,16 @@ public:
 
 	//	IHusk
 	virtual
-	Yogi::Core::NResult	AddService
+	Yogi::Core::NResult
+			AddService
 			(
 			Yogi::Common::ISupportsPtr	Ip,
 			const char*		sName
 			);
 
 	virtual
-	Yogi::Core::NResult	AddStorage
+	Yogi::Core::NResult
+			AddStorage
 			(
 			Yogi::Common::ISupportsPtr	pI,
 			const char*		sName
@@ -87,7 +89,8 @@ public:
 
 
 	virtual
-	Yogi::Core::NResult	AddWidget
+	Yogi::Core::NResult
+			AddWidget
 			(
 			Yogi::Common::ISupportsPtr	pI,
 			const char*		sName
@@ -125,7 +128,7 @@ protected:
 
 	bool	m_bRunning;
 
-	VConfigurationPtr	m_pConfiguration;
+	Yogi::Common::VConfigurationPtr	m_pConfiguration;
 
 	//CLoaderPtr		m_pLoader;
 	//CEventsPtr		m_pEvents;
@@ -139,8 +142,8 @@ protected:
 	//CLayoutServicePtr	m_pLayout;
 	//CNotificationServicePtr	m_pNotification;
 
-	Yogi::Common::THashTable<Yogi::Core::CCharString, ISupportsPtr>	m_tCOMObjects;
-	Yogi::Common::THashTable<Yogi::Core::CCharString, VObjectPtr>		m_tObjects;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::ISupportsPtr>	m_tCOMObjects;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::VObjectPtr>		m_tObjects;
 
 
 
@@ -148,7 +151,7 @@ protected:
 private:
 //	private types -------------------------------------------------------
 
-	typedef VPluginWithAggregateList	inherited;
+	typedef Yogi::Common::VPluginWithAggregateList	inherited;
 
 //	private functions  --------------------------------------------------
 
@@ -161,7 +164,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 };

@@ -35,8 +35,6 @@
 #include "CPluginLibrary.h"
 
 
-
-//USING_NAMESPACE_COMMON
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -57,7 +55,7 @@ typedef const class CTaskManager&	ConstCTaskManagerRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CTaskManager : public VObject
+class CTaskManager : public Yogi::Common::VObject
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -70,7 +68,7 @@ public:
 //	public functions  ---------------------------------------------------
 
 	bool		LoadTasks( char* sName );
-	bool		SetLibrary( ISupportsPtr pI );
+	bool		SetLibrary( Yogi::Common::ISupportsPtr pI );
 
 protected:
 //	protected types  ----------------------------------------------------
@@ -79,7 +77,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray<ITaskPtr>		m_aList;
+	Yogi::Core::TArray<ITaskPtr>		m_aList;
 	Yogi::Common::IPluginLibraryPtr		m_pLibrary;
 
 

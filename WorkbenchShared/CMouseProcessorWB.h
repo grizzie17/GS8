@@ -77,10 +77,10 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	VMouseProcessorWinPtr	m_pRealProcessor;
+	VMouseProcessorWinPtr		m_pRealProcessor;
 
-	CApplicationGaugePtr	m_pApplication;
-	CMatrix3x3				m_tFudge;
+	CApplicationGaugePtr		m_pApplication;
+	Yogi::Common::CMatrix3x3	m_tFudge;
 
 private:
 //	private functions  --------------------------------------------------

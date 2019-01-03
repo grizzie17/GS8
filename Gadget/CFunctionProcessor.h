@@ -117,8 +117,8 @@ private:
 public:
 	virtual bool	ProcessRequest
 					(
-					VDictionary::Selector	sel,
-					ConstCVariantDataRef	vData
+					VDictionary::Selector				sel,
+					Yogi::Common::ConstCVariantDataRef	vData
 					);
 
 

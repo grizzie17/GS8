@@ -1,11 +1,11 @@
-/*==================================================================*//**
-*
-*	@file	CDateTime.h
-*	@brief	encapsulate date/time
-*
-*	@note	The date/time is always stored in UTC (Zulu) zone
-*
-*//*===================================================================*/
+//=====================================================================+|
+//
+//!	@file	CDateTime.h
+//!	@brief	encapsulate date/time
+//!
+//!	@note	The date/time is always stored in UTC (Zulu) zone
+//
+//=====================================================================+/
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -69,7 +69,7 @@ typedef const class CDateTime&	ConstCDateTimeRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CDateTime
+class CDateTime
 {
 //	class lifecycle  ----------------------------------------------------
 public:

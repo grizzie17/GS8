@@ -52,7 +52,7 @@ extern const Yogi::Common::IXID	IXID_IBox;
 |
 \+---------------------------------------------------------------------*/
 
-interface_ IBox : public ISupports
+interface_ IBox : public Yogi::Common::ISupports
 {
 	//
 	//	SomeFunction

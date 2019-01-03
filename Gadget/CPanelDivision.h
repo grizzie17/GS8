@@ -74,8 +74,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	TArray<VPanelChildPtr>	m_aList;
-	CVisiblePtr				m_pVisible;
+	Yogi::Core::TArray<VPanelChildPtr>	m_aList;
+	CVisiblePtr							m_pVisible;
 
 private:
 //	private functions  --------------------------------------------------

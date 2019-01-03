@@ -19,8 +19,12 @@ libcdrawwin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-L$(top_builddir)/Draw/VGDI \
 		-L$(top_builddir)/Common \
 		-L$(top_builddir)/Platform
+		-Wl,--whole-archive \
+		-lvdraw.a \
+		-lvgdi.a \
+		-Wl,--no-whole-archive
 libcdrawwin_la_LIBADD = \
-		-lvdraw \
-		-lvgdi \
-		-lcommon \
-		-lplatform
+		-lcommon.la \
+		-lplatform.la \
+		-lpthread \
+		-lc

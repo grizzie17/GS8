@@ -2949,8 +2949,8 @@ CImagePtr
 
 						if ( tName == "File" )
 						{
-							ConstsCCharStringPtr	ps = pNode->File();
-							CCharDescriptor			cs = it.NodeValue();
+							//ConstCCharStringPtr	ps = pNode->File();
+							CCharDescriptor		cs = it.NodeValue();
 
 							char	sFolder[1024];
 							char	sFile[128];
@@ -2970,7 +2970,9 @@ CImagePtr
 
 							::strcat_s( sFolder, sizeof(sFolder), sFile );
 
-							*ps = sFolder;
+							CCharDescriptor	cd( sFolder );
+							pNode->SetFile( cd );
+							//*ps = sFolder;
 
 							break;
 						}

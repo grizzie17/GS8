@@ -5,11 +5,11 @@ AM_CPPFLAGS += \
 		-I$(top_srcdir)/Draw/VDraw \
 		-I$(top_srcdir)/Gadget \
 		-I$(top_srcdir)/VSAShared
-AM_CXXFLAGS += -fPIC
+#AM_CXXFLAGS += -fPIC
 
 #libdir = $(top_builddir)/lib
 
-lib_LIBRARIES = libvsashared.a
+noinst_LIBRARIES = libvsashared.a
 
 libvsashared_a_SOURCES = \
 		CCommandProcessorForPlugins.cpp \

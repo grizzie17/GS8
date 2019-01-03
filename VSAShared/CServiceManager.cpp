@@ -36,6 +36,8 @@
 #include "IApplicationUser.h"
 #include "LogFile.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -97,12 +99,12 @@ CServiceManager::~CServiceManager
 		void
 		)
 {
-	THashTableEnumerator< Yogi::Core::CCharString, IServicePtr>
+	THashTableEnumerator< CCharString, IServicePtr>
 			enumSvcs = m_aList.GetEnumerator();
 
 	while ( enumSvcs.MoveNext() )
 	{
-		IServicePtr*	h = enumSvcs.Current();
+		const IServicePtr*	h = enumSvcs.Current();
 		if ( h )
 		{
 			if ( (*h)->IsRunning() )
@@ -147,7 +149,7 @@ bool	CServiceManager::LoadServices
 		const char*	sName
 		)
 {
-	Yogi::Core::CCharString		sXML;
+	CCharString		sXML;
 
 	if ( sName )
 		sXML = sName;
@@ -155,7 +157,7 @@ bool	CServiceManager::LoadServices
 		sXML = "default";
 
 	ISupportsArray*	aSup;
-	Yogi::Core::CCharString		sPath = "plugins/services";
+	CCharString		sPath = "plugins/services";
 
 	sPath += sXML;
 
@@ -178,7 +180,7 @@ bool	CServiceManager::LoadServices
 				IServicePtr	pI = QI_( *h, IService );
 				if ( pI )
 				{
-					Yogi::Core::CCharString	sID = pI->GetID();
+					CCharString	sID = pI->GetID();
 					if ( ! m_aList.Find( sID ) )
 					{
 						IApplicationUserPtr	pIApp = QI_( pI, IApplicationUser );
@@ -230,7 +232,7 @@ bool	CServiceManager::StopServices
 
 	while ( enumSvcs.MoveNext() )
 	{
-		IServicePtr*	h = enumSvcs.Current();
+		const IServicePtr*	h = enumSvcs.Current();
 		if ( h )
 		{
 			if ( (*h)->IsRunning() )
@@ -253,8 +255,8 @@ IServicePtr
 		const char* sName
 		)
 {
-	IServicePtr		pSup = 0;
-	IServicePtr*	hSup = 0;
+	IServicePtr			pSup = 0;
+	const IServicePtr*	hSup = 0;
 	Yogi::Core::CCharString		tKey( sName );
 
 	hSup = m_aList.Find( tKey );

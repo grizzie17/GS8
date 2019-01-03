@@ -1,4 +1,4 @@
-//=====================================================================//
+//=====================================================================+|
 //!
 //!	@file	CCharString.h
 //!	@brief	Class encapsulating a character string
@@ -8,7 +8,7 @@
 //!
 //!	@see	CCharDescriptor.h
 //!
-//=====================================================================//
+//=====================================================================+/
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -63,7 +63,7 @@ typedef const class CCharString*	ConstCCharStringPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CCharString : public std::string
+class CCharString : public std::string
 {
 //	class lifecycle  ----------------------------------------------------
 public:

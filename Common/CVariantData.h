@@ -136,6 +136,7 @@ public:
 
 	CVariantDataRef	operator=( ConstCVariantDataRef r );		// assignment
 	CVariantDataRef	operator=( Yogi::Core::ConstCCharDescriptorRef r );
+	CVariantDataRef	operator=( Yogi::Core::ConstCCharStringRef r );
 
 	CVariantDataRef operator=( const double fData );
 	CVariantDataRef operator=( const GFLOAT fData );

@@ -12,6 +12,8 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
 AM_CONDITIONAL([OS_MSYS], [test "xMsys" = x$(uname -o)])
 AM_CONDITIONAL([OS_LINUX], [test "xLinux" = x$(uname -s)])
+AC_SUBST([OS_MSYS])
+AC_SUBST([OS_LINUX])
 
 
 
@@ -57,11 +59,13 @@ AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 # GCC is a bit picky about redefinitions of built-in macros. Alas, "built-in"
 # simply means "starts with double underscore", so we have to hack around that
 # below. Note that clang is happy, even without the guard.
-AH_VERBATIM([__STDC_WANT_LIB_EXT1__], [/* we want C11 library extensions  */
+AH_VERBATIM([__STDC_WANT_LIB_EXT1__], 
+[/* we want C11 library extensions  */
 #ifndef __STDC_WANT_LIB_EXT1__
 # define __STDC_WANT_LIB_EXT1__ 1
 #endif])
-AH_VERBATIM([__STDC_WANT_SECURE_LIB__], [/* we want C11 secure library  */
+AH_VERBATIM([__STDC_WANT_SECURE_LIB__], 
+[/* we want C11 secure library  */
 #ifndef __STDC_WANT_SECURE_LIB__
 # define __STDC_WANT_SECURE_LIB__ 1
 #endif])
@@ -109,31 +113,38 @@ AC_FUNC_REALLOC
 AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
 
 GLOBAL_CXXFLAGS=" -std=c++11 -Werror -Wall"
-case `uname -s` in
-[Mm]sys* | mingw* | MINGW* )
-GLOBAL_CXXFLAGS+=" -mwindows "
-# WDEFS="-DMSYS -DWIN64"
-# AM_CPPFLAGS="$WDEFS"
-# AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
-# NO_UNDEFINED="-no-undefined"
-# #CC="gcc $WDEFS"
-# #CXX="g++ $WDEFS"
-# #CC="x86_64-pc-msys-gcc $WDEFS"
-# #CXX="x86_64-pc-msys-g++ $WDEFS"
-# CC="x86_64-w64-mingw32-gcc $WDEFS"
-# CXX="x86_64-w64-mingw32-g++ $WDEFS"
-EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
-# AC_SUBST([CC])
-# AC_SUBST([CXX])
-;;
+AM_COND_IF([OS_MSYS],
+	[
+		GLOBAL_CXXFLAGS+=" -mwindows "
+		EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
+		# NO_UNDEFINED="-no-undefined"
+	])
+AM_COND_IF([OS_LINUX],
+	[
+		EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
+	])
 
-[Ll]inux* )
-# AM_CPPFLAGS="-DLINUX"
-# AM_CXXFLAGS="${GLOBAL_CXXFLAGS}"
-# NO_UNDEFINED=""
-EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
-;;
-esac
+# case `uname -s` in
+# [Mm]sys* | mingw* | MINGW* )
+# # WDEFS="-DMSYS -DWIN64"
+# # AM_CPPFLAGS="$WDEFS"
+# # AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
+# # #CC="gcc $WDEFS"
+# # #CXX="g++ $WDEFS"
+# # #CC="x86_64-pc-msys-gcc $WDEFS"
+# # #CXX="x86_64-pc-msys-g++ $WDEFS"
+# # CC="x86_64-w64-mingw32-gcc $WDEFS"
+# # CXX="x86_64-w64-mingw32-g++ $WDEFS"
+# # AC_SUBST([CC])
+# # AC_SUBST([CXX])
+# ;;
+
+# [Ll]inux* )
+# # AM_CPPFLAGS="-DLINUX"
+# # AM_CXXFLAGS="${GLOBAL_CXXFLAGS}"
+# # NO_UNDEFINED=""
+# ;;
+# esac
 AC_SUBST([AM_CPPFLAGS])
 AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([NO_UNDEFINED])
@@ -141,37 +152,24 @@ AC_SUBST([EXTSUBDIRS])
 AC_SUBST([GLOBAL_CXXFLAGS])
 # AC_SUBST([OSCONFFILES])
 
+AM_CONDITIONAL([DEBUG], [echo "$CXXFLAGS" | grep '\-g[gdb0-9]*'])
 
-
-# AC_ARG_ENABLE([debug],
-# 	AS_HELP_STRING([--enable-debug],[enable debugging, default=no]),
-# 	[
-# 		case "${enableval}" in
-# 		yes|true) debug=true ;;
-# 		no|false) debug=false ;;
-# 		*) AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
-# 		esac
-# 	],
-# 	[
-# 		debug=false
-# 	]
-# )
-# AM_CONDITIONAL([DEBUG], [test "x$debug" = "xtrue"])
-
-# changequote({,})
-# CXXFLAGS=`echo "$CXXFLAGS"  |  $SED -e 's/-O[0-9s]*//g' -e 's/-g[gdb0-9]*//g'`
-# CPPFLAGS=`echo "$CPPFLAGS"  |  $SED -e 's/-D_*DEBUG\b//g'`
-# LDFLAGS=`echo "$LDFLAGS"  |  $SED -e 's/-Wl,-s//g' -e 's/-Wl,--strip-all//g'`
-# changequote([,])
-# if test x$debug = xtrue; then
-# 	CXXFLAGS="$CXXFLAGS -g -O0"
-# 	CPPFLAGS="$CPPFLAGS -D_DEBUG"
-# 	LDFLAGS="$LDFLAGS -g"
-# else
-# 	CXXFLAGS="$CXXFLAGS -O3"
-# 	CPPFLAGS="$CPPFLAGS -DNDEBUG"
-# 	LDFLAGS="$LDFLAGS -Wl,-S"
-# fi
+changequote({,})
+CXXFLAGS=`echo "$CXXFLAGS"  |  $SED -e 's/-O[0-9s]*//g' -e 's/-g[gdb0-9]*//g'`
+CPPFLAGS=`echo "$CPPFLAGS"  |  $SED -e 's/-D_*DEBUG\b//g'`
+LDFLAGS=`echo "$LDFLAGS"  |  $SED -e 's/-Wl,-s//g' -e 's/-Wl,--strip-all//g'`
+changequote([,])
+AM_COND_IF([DEBUG],
+	[
+	CXXFLAGS="$CXXFLAGS -g -O0"
+	CPPFLAGS="$CPPFLAGS -D_DEBUG"
+	LDFLAGS="$LDFLAGS -g"
+	],
+	[
+	CXXFLAGS="$CXXFLAGS -O3"
+	CPPFLAGS="$CPPFLAGS -DNDEBUG"
+	LDFLAGS="$LDFLAGS -Wl,-S"
+	])
 
 
 AC_CONFIG_FILES([Platform/Makefile

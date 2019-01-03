@@ -23,8 +23,14 @@ workbench_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 		-L$(top_builddir)/Gadget \
 		-L$(top_builddir)/Draw/VDraw \
 		-L$(top_builddir)/VSAShared \
-		-L$(top_builddir)/WorkbenchShared
+		-L$(top_builddir)/WorkbenchShared \
+		-Wl,--whole-archive \
+		-lvsashared.a \
+		-lworkbenchshared.a \
+		-Wl,--no-whole-archive
 workbench_LDADD = \
-		-lcommon \
-		-lplatform \
-		-ldl
+		-lcommon.la \
+		-lplatform.la \
+		-lpthreads \
+		-ldl \
+		-lc

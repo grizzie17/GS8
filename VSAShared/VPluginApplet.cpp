@@ -28,6 +28,8 @@
 #include "Stdafx.h"
 #include "VPluginApplet.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -74,11 +76,11 @@ VPluginApplet::VPluginApplet
 		(
 		void
 		)
-		: inherited(),
-		m_sID(),
-		m_bRunning(false),
-		m_oMutex(),
-		m_pHusk( 0 )
+		: inherited()
+		, m_sID()
+		, m_bRunning(false)
+		, m_oMutex()
+		, m_pHusk( 0 )
 {
 }
 
@@ -86,11 +88,11 @@ VPluginApplet::VPluginApplet
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_sID(),
-		m_bRunning(false),
-		m_oMutex(),
-		m_pHusk( 0 )
+		: inherited( pOwner )
+		, m_sID()
+		, m_bRunning(false)
+		, m_oMutex()
+		, m_pHusk( 0 )
 {
 }
 
@@ -99,11 +101,11 @@ VPluginApplet::VPluginApplet
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_sID(),
-		m_bRunning(false),
-		m_oMutex(),
-		m_pHusk( 0 )
+		: inherited( sName, pOwner )
+		, m_sID()
+		, m_bRunning(false)
+		, m_oMutex()
+		, m_pHusk( 0 )
 {
 }
 
@@ -275,7 +277,7 @@ bool	VPluginApplet::IsRunning
  * <remarks/>
 
 \+---------------------------------------------------------------------*/
-ConstYogi::Core::CCharStringRef
+ConstCCharStringRef
 		VPluginApplet::GetID
 		(
 		void

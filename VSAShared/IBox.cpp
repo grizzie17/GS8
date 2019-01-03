@@ -31,6 +31,7 @@
 |	Namespace
 |
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |
@@ -38,7 +39,7 @@ namespace Yogi { namespace Gadget {
 |
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IBox( "JD::Gadget::IBox" );
+const IXID	IXID_IBox( "Yogi::Gadget::IBox" );
 
 
 

@@ -398,7 +398,7 @@ void	CDictPageAlerts::ResetAllEntries
 long	CDictPageAlerts::LocateEntry
 		(
 		ConstCCharStringRef	rName
-		) const
+		)
 {
 	return long(m_aContent.IndexOf( rName ));
 }

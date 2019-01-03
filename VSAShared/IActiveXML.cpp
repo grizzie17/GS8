@@ -31,6 +31,7 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -38,8 +39,8 @@ namespace Yogi { namespace Gadget {
 |																		|
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IActiveXML( "BCG::Gadget::IActiveXML" );
-const IXID	IXID_IActiveXMLClient( "BCG::Gadget::IActiveXMLClient" );
+const IXID	IXID_IActiveXML( "Yogi::Gadget::IActiveXML" );
+const IXID	IXID_IActiveXMLClient( "Yogi::Gadget::IActiveXMLClient" );
 
 
 

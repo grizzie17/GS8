@@ -110,7 +110,7 @@ private:
 	//	VDictionaryPage
 public:
 	virtual void	BeginCalculate( void );
-	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) const;
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 	virtual Yogi::Common::ConstCVariantDataPtr	GetData( unsigned long nSel );
 	virtual bool	PutData( unsigned long nSel, Yogi::Common::ConstCVariantDataPtr pData );
 	virtual bool	UpdateByName( Yogi::Core::ConstCCharDescriptorRef rKey, Yogi::Common::ConstCVariantDataRef rData );

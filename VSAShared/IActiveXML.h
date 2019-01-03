@@ -57,14 +57,14 @@ extern const Yogi::Common::IXID	IXID_IActiveXMLClient;
 |																		|
 \+---------------------------------------------------------------------*/
 
-interface_ IActiveXML : public ISupports
+interface_ IActiveXML : public Yogi::Common::ISupports
 {
-	//
-	//	RegisterXMLClient
-	//
-	//	Description of what SomeFunction is used for along with any
-	//	operational restrictions.
-	//
+	//!
+	//!	RegisterXMLClient
+	//!
+	//!	Description of what SomeFunction is used for along with any
+	//!	operational restrictions.
+	//!
 	virtual
 	Yogi::Core::NResult	RegisterXMLClient
 			(
@@ -72,30 +72,30 @@ interface_ IActiveXML : public ISupports
 			) PURE;
 
 
-	//	FetchXMLData
-	//
-	//	Gets the next available buffer from the service
-	//
-	//	returns an ID that is used to release the buffer
-	//
+	//!	FetchXMLData
+	//!
+	//!	Gets the next available buffer from the service
+	//!
+	//!	returns an ID that is used to release the buffer
+	//!
 	virtual
 	int		FetchXMLData
 			(
-			char**	hBuffer,	// OUT:	address of buffer
-			size_t*	pnSize,		// OUT:	number of bytes in buffer
-			size_t*	pnSequence	// OUT: sequence identifier
+			char**	hBuffer,	//!< [out] address of buffer
+			size_t*	pnSize,		//!< [out] number of bytes in buffer
+			size_t*	pnSequence	//!< [out] sequence identifier
 			) PURE;
 
 
 	virtual
 	void	ReleaseXMLData
 			(
-			int		nID			// IN:	id of buffer to release
+			int		nID			//!< [in] id of buffer to release
 			) PURE;
 };
 
 
-interface_ IActiveXMLClient : public ISupports
+interface_ IActiveXMLClient : public Yogi::Common::ISupports
 {
 	//
 	//	SomeFunction

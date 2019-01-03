@@ -77,7 +77,7 @@ interface_ IService : public Yogi::Common::ISupports
 			) PURE;
 
 	virtual
-	ConstYogi::Core::CCharStringRef
+	Yogi::Core::ConstCCharStringRef
 			GetID
 			(
 			void

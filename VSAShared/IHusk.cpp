@@ -25,6 +25,7 @@
 |	Namespace															|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -32,7 +33,7 @@ namespace Yogi { namespace Gadget {
 |																		|
 \+---------------------------------------------------------------------*/
 
-const IXID	IXID_IHusk( "BCG::Gadget::IHusk" );
+const IXID	IXID_IHusk( "Yogi::Gadget::IHusk" );
 
 
 

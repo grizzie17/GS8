@@ -35,7 +35,8 @@
 
 #include "CFactoryPlugin.h"
 
-
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -101,7 +102,7 @@ CTaskManager::~CTaskManager
 
 	while ( enumTasks.MoveNext() )
 	{
-		ITaskPtr*	h = enumTasks.Current();
+		const ITaskPtr*	h = enumTasks.Current();
 		if ( h )
 		{
 			(*h)->Stop();

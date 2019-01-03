@@ -109,7 +109,7 @@ private:
 	//	VDictionaryPage
 public:
 	// returns negative for error
-	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName ) const;
+	virtual long	LocateEntry( Yogi::Core::ConstCCharStringRef rName );
 
 	virtual Yogi::Common::ConstCVariantDataPtr
 					GetData( unsigned long nSel );

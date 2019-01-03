@@ -61,7 +61,7 @@ class DECL_CLASS CGDIBrush : public VGDI
 public:
 					CGDIBrush();
 					CGDIBrush( CGDIBrushRef r );	// copy constructor
-					CGDIBrush( ConstCColorRef rColor );
+					CGDIBrush( Yogi::Core::ConstCColorRef rColor );
 	virtual			~CGDIBrush();
 
 public:
@@ -69,10 +69,10 @@ public:
 
 	typedef	struct Parameters
 	{
-		CColor	oColor;
+		Yogi::Core::CColor	oColor;
 
 		Parameters() : oColor() {};
-		Parameters( const CColor& c ) : oColor( c ) {};
+		Parameters( Yogi::Core::ConstCColorRef c ) : oColor( c ) {};
 		Parameters( const Parameters& r ) : oColor( r.oColor ) {};
 
 		Parameters&	operator = ( const Parameters& r )
@@ -105,7 +105,7 @@ public:
 
 	CGDIBrushRef	operator=( CGDIBrushRef r );		// assignment
 
-	bool	SetParameters( ConstCColorRef oColor );
+	bool	SetParameters( Yogi::Core::ConstCColorRef oColor );
 
 	HBRUSH	ToHBRUSH( void );
 

@@ -36,6 +36,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "CApplicationGauge.h"
+#include "VConfiguration.h"
 
 #include "UMachine.h"
 #if defined( OS_MSWIN )
@@ -82,7 +83,7 @@ public:
 	//CDrawWinDDPtr	DrawWin( void );
 
 	void			SetVPostCalculate( VPostCalculate* p );
-	void			SetConfiguration( VConfigurationPtr p );
+	void			SetConfiguration( Yogi::Common::VConfigurationPtr p );
 
 protected:
 //	protected functions  ------------------------------------------------
@@ -104,11 +105,11 @@ private:
 	//	CApplicationGauge
 public:
 
-	virtual bool		WindowTitle( ConstCCharDescriptorRef rChar );
+	virtual bool		WindowTitle( Yogi::Core::ConstCCharDescriptorRef rChar );
 	virtual bool		PostCalculateNeeded( void );
 
 protected:
-	virtual VConfigurationPtr
+	virtual Yogi::Common::VConfigurationPtr
 						MakeConfiguration( void );
 
 };
