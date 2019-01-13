@@ -187,8 +187,8 @@ bool	CDictPageAlerts::Update
 		const char*	sData
 		)
 {
-	CCharDescriptor	tName( sKey );
-	CCharDescriptor	tData( sData );
+	const CCharDescriptor	tName( sKey );
+	const CCharDescriptor	tData( sData );
 
 	return Update( tName, tData );
 }

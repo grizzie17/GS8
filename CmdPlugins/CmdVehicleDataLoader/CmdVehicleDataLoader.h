@@ -79,7 +79,8 @@ public:
 
 	//	IActiveXMLClient
 	virtual
-	NResult	NotifyXMLAvailable
+	Yogi::Core::NResult
+			NotifyXMLAvailable
 			(
 			void
 			);
@@ -103,12 +104,12 @@ protected:
 
 	bool	CmdLoadData
 			(
-			ConstCVariantDataRef	rData
+			Yogi::Common::ConstCVariantDataRef	rData
 			);
 
 	bool	CmdLoadInit
 			(
-			ConstCVariantDataRef	rData
+			Yogi::Common::ConstCVariantDataRef	rData
 			);
 
 
@@ -119,7 +120,7 @@ protected:
 	VDictionary::Selector	m_nCmdLoadInit;
 	CFactoryVehicleDataPtr	m_pFactory;
 
-	CCharString				m_sServiceName;
+	Yogi::Core::CCharString	m_sServiceName;
 	IActiveXMLPtr			m_pIActiveXML;
 	index_t					m_nSequence;
 	long					m_nLastNotify;
@@ -145,7 +146,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 
@@ -154,8 +155,8 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 
@@ -170,8 +171,8 @@ public:
 	virtual
 	bool	ProcessRequest
 			(
-			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			VDictionary::Selector				selCommand,
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 };

@@ -60,8 +60,8 @@ class CmdReturnTrue : public VPluginCommand
 //	class lifecycle  ----------------------------------------------------
 public:
 					CmdReturnTrue();
-					CmdReturnTrue( ISupportsPtr pOwner );
-					CmdReturnTrue( const char* sName, ISupportsPtr pOwner );
+					CmdReturnTrue( Yogi::Common::ISupportsPtr pOwner );
+					CmdReturnTrue( const char* sName, Yogi::Common::ISupportsPtr pOwner );
 protected:
 	virtual			~CmdReturnTrue();
 
@@ -78,7 +78,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	THashTable<CCharString, CVariantData>	m_aList;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::CVariantData>	m_aList;
 
 private:
 //	private functions  --------------------------------------------------
@@ -98,16 +98,16 @@ public:
 	virtual
 	bool	ProcessRequest
 			(
-			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			VDictionary::Selector				selCommand,
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 

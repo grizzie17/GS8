@@ -82,7 +82,8 @@ public:
 
 
 	virtual
-	NResult	EptmState
+	Yogi::Core::NResult
+			EptmState
 			(
 			GFLOAT		fPan,
 			GFLOAT		fTilt,
@@ -108,23 +109,23 @@ protected:
 //	protected functions  ------------------------------------------------
 
 	// registered commands
-	bool		JoystickStart( ConstCVariantDataRef r );
-	bool		JoystickMove( ConstCVariantDataRef r );
-	bool		JoystickStop( ConstCVariantDataRef r );
+	bool		JoystickStart( Yogi::Common::ConstCVariantDataRef r );
+	bool		JoystickMove( Yogi::Common::ConstCVariantDataRef r );
+	bool		JoystickStop( Yogi::Common::ConstCVariantDataRef r );
 
-	bool		AutoPanStart( ConstCVariantDataRef r );
-	bool		AutoPanStop( ConstCVariantDataRef r );
-	bool		AutoPanDefineLeft( ConstCVariantDataRef r );
-	bool		AutoPanDefineRight( ConstCVariantDataRef r );
-	bool		AutoPanChangeSpeed( ConstCVariantDataRef r );	// arugment +/-
+	bool		AutoPanStart( Yogi::Common::ConstCVariantDataRef r );
+	bool		AutoPanStop( Yogi::Common::ConstCVariantDataRef r );
+	bool		AutoPanDefineLeft( Yogi::Common::ConstCVariantDataRef r );
+	bool		AutoPanDefineRight( Yogi::Common::ConstCVariantDataRef r );
+	bool		AutoPanChangeSpeed( Yogi::Common::ConstCVariantDataRef r );	// arugment +/-
 
-	bool		EPTMCalculate( ConstCVariantDataRef r );
+	bool		EPTMCalculate( Yogi::Common::ConstCVariantDataRef r );
 
-	bool		EPTMHome( ConstCVariantDataRef r );
-	bool		EPTMSetHome( ConstCVariantDataRef r );
+	bool		EPTMHome( Yogi::Common::ConstCVariantDataRef r );
+	bool		EPTMSetHome( Yogi::Common::ConstCVariantDataRef r );
 
-	bool		EPTMSlew( ConstCVariantDataRef r );
-	bool		EPTMSetSlewCenter( ConstCVariantDataRef r );
+	bool		EPTMSlew( Yogi::Common::ConstCVariantDataRef r );
+	bool		EPTMSetSlewCenter( Yogi::Common::ConstCVariantDataRef r );
 
 	bool		SendJoystick( GFLOAT x, GFLOAT y );
 
@@ -196,7 +197,7 @@ protected:
 
 	bool				m_bDirty;
 
-	CMutex				m_oMutex;
+	Yogi::Core::CMutex	m_oMutex;
 
 
 
@@ -215,7 +216,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 	virtual
@@ -237,15 +238,15 @@ public:
 	bool	ProcessRequest
 			(
 			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr		pLib
 			);
 
 

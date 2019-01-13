@@ -97,14 +97,14 @@ CServiceVehicleDataSample::CServiceVehicleDataSample
 		(
 		void
 		)
-		: inherited(),
-		m_pDictionary( 0 ),
-		m_pSocket( 0 ),
-		m_sMCAddress(),
-		m_nMCPort( 0 ),
-		m_hThread( 0 ),
-		m_nFrequency( 200 ),
-		m_oTime()
+		: inherited()
+		, m_pDictionary( 0 )
+		, m_pSocket( 0 )
+		, m_sMCAddress()
+		, m_nMCPort( 0 )
+		, m_hThread( 0 )
+		, m_nFrequency( 200 )
+		, m_oTime()
 {
 }
 
@@ -112,14 +112,14 @@ CServiceVehicleDataSample::CServiceVehicleDataSample
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_pDictionary( 0 ),
-		m_pSocket( 0 ),
-		m_sMCAddress(),
-		m_nMCPort( 0 ),
-		m_hThread( 0 ),
-		m_nFrequency( 200 ),
-		m_oTime()
+		: inherited( pOwner )
+		, m_pDictionary( 0 )
+		, m_pSocket( 0 )
+		, m_sMCAddress()
+		, m_nMCPort( 0 )
+		, m_hThread( 0 )
+		, m_nFrequency( 200 )
+		, m_oTime()
 {
 }
 
@@ -128,14 +128,14 @@ CServiceVehicleDataSample::CServiceVehicleDataSample
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_pDictionary( 0 ),
-		m_pSocket( 0 ),
-		m_sMCAddress(),
-		m_nMCPort( 0 ),
-		m_hThread( 0 ),
-		m_nFrequency( 200 ),
-		m_oTime()
+		: inherited( sName, pOwner )
+		, m_pDictionary( 0 )
+		, m_pSocket( 0 )
+		, m_sMCAddress()
+		, m_nMCPort( 0 )
+		, m_hThread( 0 )
+		, m_nFrequency( 200 )
+		, m_oTime()
 {
 }
 
@@ -425,7 +425,7 @@ NResult	CServiceVehicleDataSample::LocalStart
 
 	//CMutexLocker	lock( &m_oMutex );
 
-	LOCAL_PRINT( "CServiceVehicleDataSample::Start - Begin\n" );
+	LOCAL_PRINT( "CServiceVehicleDataSample::LocalStart - Begin\n" );
 
 	do_sequence
 	{
@@ -456,7 +456,7 @@ NResult	CServiceVehicleDataSample::LocalStart
 		m_bRunning = false;
 
 	}
-	LOCAL_PRINT( "CServiceVehicleDataSample::Start - End\n" );
+	LOCAL_PRINT( "CServiceVehicleDataSample::LocalStart - End\n" );
 
 	return nr;
 

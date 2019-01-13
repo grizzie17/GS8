@@ -85,13 +85,13 @@ protected:
 
 	VDictionaryPtr				m_pDictionary;
 
-	CCharString					m_sName;
+	Yogi::Core::CCharString		m_sName;
 	CDictionarySelector			m_selCEditCamera;
 	CDictPageSelector			m_pagDEditCamera;
 	CDictPageSelector			m_pagDCameraSelector;
 	CDictionarySelector			m_selUCurrentVideoFeed;
-	THashTable<CCharString, CVariantData>	m_aList;
-	THashTable<long, CDictPageSelector>		m_aTransitions;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::CVariantData>	m_aList;
+	Yogi::Common::THashTable<long, CDictPageSelector>		m_aTransitions;
 
 private:
 //	private functions  --------------------------------------------------

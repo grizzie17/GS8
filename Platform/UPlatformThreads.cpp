@@ -22,7 +22,6 @@
 #include "UPlatform.h"
 #include "UPlatformThreads.h"
 
-using namespace Yogi::Core;
 /*---------------------------------------------------------------------+\
 |								
 |	Local defines / constants	
@@ -33,7 +32,7 @@ using namespace Yogi::Core;
 |	Local Type Definitions	
 |							
 \+---------------------------------------------------------------------*/
-//namespace Yogi { namespace Core {
+using namespace Yogi::Core;
 /*---------------------------------------------------------------------+\
 |							
 |	Private Global Variables

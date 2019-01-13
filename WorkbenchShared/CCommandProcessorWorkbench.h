@@ -45,6 +45,7 @@
 \+---------------------------------------------------------------------*/
 #include "CCommandProcessorForPlugins.h"
 
+#include "CVariantData.h"
 #include "CApplicationGauge.h"
 #include "CDictPageVariantRead.h"
 #include "VDictionary.h"
@@ -112,11 +113,11 @@ protected:
 	//long					m_nVideoFeed4;
 
 	// cached values
-	CVariantData			m_xViewLayout;
-	CVariantData			m_xVideoFeed1;
-	CVariantData			m_xVideoFeed2;
-	CVariantData			m_xVideoFeed3;
-	CVariantData			m_xVideoFeed4;
+	Yogi::Common::CVariantData		m_xViewLayout;
+	Yogi::Common::CVariantData		m_xVideoFeed1;
+	Yogi::Common::CVariantData		m_xVideoFeed2;
+	Yogi::Common::CVariantData		m_xVideoFeed3;
+	Yogi::Common::CVariantData		m_xVideoFeed4;
 
 	bool					m_bVideoDirty;
 
@@ -187,8 +188,8 @@ private:
 public:
 	virtual bool	ProcessRequest
 					(
-					VDictionary::Selector	sel,
-					ConstCVariantDataRef	vData
+					VDictionary::Selector				sel,
+					Yogi::Common::ConstCVariantDataRef	vData
 					);
 
 	//	CCommandProcessor

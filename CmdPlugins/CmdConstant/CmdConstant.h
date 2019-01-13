@@ -47,8 +47,8 @@ namespace Yogi { namespace Gadget {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CmdConstant*		CmdConstantPtr;
-typedef class CmdConstant&		CmdConstantRef;
+typedef class CmdConstant*			CmdConstantPtr;
+typedef class CmdConstant&			CmdConstantRef;
 typedef const class CmdConstant&	ConstCmdConstantRef;
 /*---------------------------------------------------------------------+\
 |																		|
@@ -75,7 +75,7 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	THashTable<CCharString, CVariantData>	m_aList;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::CVariantData>	m_aList;
 
 private:
 //	private functions  --------------------------------------------------

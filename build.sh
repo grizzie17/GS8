@@ -7,23 +7,30 @@ THISCMD=`basename $THISFILE`
 #$THISDIR/build-clean.sh  ||  exit $?
 #$THISDIR/build-config.sh  ||  exit $?
 
+source $THISDIR/build-common.inc
+
 
 ARG="$1"
 ARGDIR=""
 ARGFILE=""
 
 if [ -n "$ARG" ]; then
-	ARGDIR=`dirname $ARG`
-	ARGFILE=`basename $ARG | sed -e 's/\.[^.]*$/.o/'`
+	if [ "ALL" = "$ARG" ]; then
+		ARGDIR=""
+		ARGFILE=""
+	else
+		ARGDIR=`dirname $ARG`
+		ARGFILE=`basename $ARG | sed -e 's/\.[^.]*$/.o/'`
 
-	case "$ARGDIR" in
-	/* )
-		# do nothing
-		;;
-	* )
-		ARGDIR="/$ARGDIR"
-		;;
-	esac
+		case "$ARGDIR" in
+		/* )
+			# do nothing
+			;;
+		* )
+			ARGDIR="/$ARGDIR"
+			;;
+		esac
+	fi
 fi
 if [ -n "$2" ]; then
 	if [ "X-check" = "X$2" ]; then

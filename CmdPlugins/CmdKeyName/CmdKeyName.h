@@ -116,15 +116,15 @@ public:
 	bool	ProcessRequest
 			(
 			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr		pLib
 			);
 
 

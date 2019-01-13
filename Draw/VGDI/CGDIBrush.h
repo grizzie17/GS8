@@ -46,8 +46,8 @@ namespace Yogi { namespace Common {
 |	Type Definitions
 |
 \+---------------------------------------------------------------------*/
-typedef class CGDIBrush*			CGDIBrushPtr;
-typedef class CGDIBrush&			CGDIBrushRef;
+typedef class CGDIBrush*		CGDIBrushPtr;
+typedef class CGDIBrush&		CGDIBrushRef;
 typedef const class CGDIBrush&	ConstCGDIBrushRef;
 /*---------------------------------------------------------------------+\
 |
@@ -55,14 +55,14 @@ typedef const class CGDIBrush&	ConstCGDIBrushRef;
 |
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CGDIBrush : public VGDI
+class CGDIBrush : public VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CGDIBrush();
-					CGDIBrush( CGDIBrushRef r );	// copy constructor
-					CGDIBrush( Yogi::Core::ConstCColorRef rColor );
-	virtual			~CGDIBrush();
+			CGDIBrush();
+			CGDIBrush( CGDIBrushRef r );	// copy constructor
+			CGDIBrush( Yogi::Core::ConstCColorRef rColor );
+	virtual	~CGDIBrush();
 
 public:
 //	public types  -------------------------------------------------------
@@ -75,13 +75,13 @@ public:
 		Parameters( Yogi::Core::ConstCColorRef c ) : oColor( c ) {};
 		Parameters( const Parameters& r ) : oColor( r.oColor ) {};
 
-		Parameters&	operator = ( const Parameters& r )
+		const Parameters&	operator = ( const Parameters& r )
 		{
 			oColor = r.oColor;
 			return *this;
 		};
 
-		bool	operator == ( const Parameters& r )
+		bool	operator == ( const Parameters& r ) const
 		{
 			if ( oColor != r.oColor )
 				return false;
@@ -103,7 +103,7 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	CGDIBrushRef	operator=( CGDIBrushRef r );		// assignment
+	ConstCGDIBrushRef	operator=( CGDIBrushRef r );		// assignment
 
 	bool	SetParameters( Yogi::Core::ConstCColorRef oColor );
 

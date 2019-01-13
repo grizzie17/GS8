@@ -7,13 +7,13 @@ AM_CPPFLAGS += \
 AM_CXXFLAGS += -fPIC
 
 
-noinst_LIBRARIES = libvgdi.a
+noinst_LTLIBRARIES = libvgdi.la
 
-libvgdi_a_SOURCES = \
+libvgdi_la_SOURCES = \
 		CGDIBrush.cpp \
 		CGDIFont.cpp \
 		CGDIPen.cpp \
 		VGDI.cpp
 
-libvgdi_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libvgdi_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libvgdi_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libvgdi_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)

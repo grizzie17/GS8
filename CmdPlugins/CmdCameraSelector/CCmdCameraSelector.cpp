@@ -35,6 +35,8 @@
 #include "LogFile.h"
 #include "VPluginFactory.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -87,14 +89,14 @@ CCmdCameraSelector::CCmdCameraSelector
 		(
 		void
 		)
-		: VPluginCommand(),
-		m_sName(),
-		m_selCEditCamera(),
-		m_pagDEditCamera(),
-		m_pagDCameraSelector(),
-		m_selUCurrentVideoFeed(),
-		m_aList(),
-		m_aTransitions()
+		: VPluginCommand()
+		, m_sName()
+		, m_selCEditCamera()
+		, m_pagDEditCamera()
+		, m_pagDCameraSelector()
+		, m_selUCurrentVideoFeed()
+		, m_aList()
+		, m_aTransitions()
 
 {
 }
@@ -103,14 +105,14 @@ CCmdCameraSelector::CCmdCameraSelector
 		(
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( pOwner ),
-		m_sName(),
-		m_selCEditCamera(),
-		m_pagDEditCamera(),
-		m_pagDCameraSelector(),
-		m_selUCurrentVideoFeed(),
-		m_aList(),
-		m_aTransitions()
+		: VPluginCommand( pOwner )
+		, m_sName()
+		, m_selCEditCamera()
+		, m_pagDEditCamera()
+		, m_pagDCameraSelector()
+		, m_selUCurrentVideoFeed()
+		, m_aList()
+		, m_aTransitions()
 {
 }
 
@@ -119,14 +121,14 @@ CCmdCameraSelector::CCmdCameraSelector
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( sName, pOwner ),
-		m_sName(),
-		m_selCEditCamera(),
-		m_pagDEditCamera(),
-		m_pagDCameraSelector(),
-		m_selUCurrentVideoFeed(),
-		m_aList(),
-		m_aTransitions()
+		: VPluginCommand( sName, pOwner )
+		, m_sName()
+		, m_selCEditCamera()
+		, m_pagDEditCamera()
+		, m_pagDCameraSelector()
+		, m_selUCurrentVideoFeed()
+		, m_aList()
+		, m_aTransitions()
 {
 }
 
@@ -178,7 +180,7 @@ bool	CCmdCameraSelector::Initialize
 {
 
 //	long			id;
-	CVariantDataPtr	pv;
+	ConstCVariantDataPtr	pv;
 
 	LOCAL_PRINT("CCmdCameraSelector::Initialize\n");
 
@@ -268,9 +270,9 @@ bool	CCmdCameraSelector::ProcessRequest
 	long			nPage;
 
 	long			nNewCam = 0;
-	CVariantDataPtr	pvNewCam = 0;
+	ConstCVariantDataPtr	pvNewCam = 0;
 
-	CDictPageSelectorPtr	pPSel;
+	const CDictPageSelector*	pPSel;
 	pPSel = m_aTransitions.Find( button );
 	if ( pPSel )
 	{

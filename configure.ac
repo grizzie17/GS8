@@ -25,18 +25,14 @@ EXTERNAL_CPPFLAGS="$CPPFLAGS"
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
-AC_PROG_AWK
+#AC_PROG_AWK
 AM_PROG_AR
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
-AC_PROG_RANLIB
 AC_PROG_SED
 
-#AC_PROG_RANLIB
-#AC_PROG_LIBTOOL
-AM_COND_IF([OS_MSYS], [
-AC_LIBTOOL_WIN32_DLL
+AM_COND_IF([OS_MSYS], [ 
 LT_INIT([shared,pic-only,win32-dll])
 ])
 AM_COND_IF([OS_LINUX], [
@@ -59,16 +55,20 @@ AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 # GCC is a bit picky about redefinitions of built-in macros. Alas, "built-in"
 # simply means "starts with double underscore", so we have to hack around that
 # below. Note that clang is happy, even without the guard.
-AH_VERBATIM([__STDC_WANT_LIB_EXT1__], 
-[/* we want C11 library extensions  */
+AH_VERBATIM([__STDC_WANT_LIB_EXT1__],
+[
+/* we want C11 library extensions  */
 #ifndef __STDC_WANT_LIB_EXT1__
 # define __STDC_WANT_LIB_EXT1__ 1
-#endif])
-AH_VERBATIM([__STDC_WANT_SECURE_LIB__], 
-[/* we want C11 secure library  */
+#endif
+])
+AH_VERBATIM([__STDC_WANT_SECURE_LIB__],
+[
+/* we want C11 secure library  */
 #ifndef __STDC_WANT_SECURE_LIB__
 # define __STDC_WANT_SECURE_LIB__ 1
-#endif])
+#endif
+])
 # AH_VERBATIM([_POSIX_REALTIME_SIGNALS], [/* we want posix library  */
 # #ifndef _POSIX_REALTIME_SIGNALS
 # # define _POSIX_REALTIME_SIGNALS 1
@@ -82,28 +82,28 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__],
 
 # Checks for header files.
 #AC_HEADER_STDC
-AC_CHECK_HEADERS([arpa/inet.h cstddef ctype.h errno.h fcntl.h float.h limits.h math.h memory.h netdb.h netinet/in.h stdarg.h stddef.h stdexcept stdint.h stdio.h stdlib.h string string.h strings.h sys/ioctl.h sys/socket.h sys/time.h sys/timeb.h sys/types.h termios.h time.h unistd.h])
+AC_CHECK_HEADERS([cstddef ctype.h errno.h fcntl.h float.h limits.h math.h memory.h stdarg.h stddef.h stdexcept stdint.h stdio.h stdlib.h string string.h strings.h sys/time.h sys/timeb.h sys/types.h time.h unistd.h])
 
 AM_COND_IF([OS_MSYS], [
-	AC_CHECK_HEADERS([process.h tchar.h winbase.h winerror.h])
+	AC_CHECK_HEADERS([process.h tchar.h winerror.h])
 ])
 
 AM_COND_IF([OS_LINUX], [
-	AC_CHECK_HEADERS([net/if.h pthread.h semaphore.h sys/stat.h])
+	AC_CHECK_HEADERS([arpa/inet.h netdb.h net/if.h netinet/in.h pthread.h semaphore.h sys/ioctl.h sys/socket.h  sys/stat.h termios.h ])
 ])
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_CHECK_HEADER_STDBOOL
-AC_C_INLINE
-AC_TYPE_INT16_T
-AC_TYPE_INT32_T
-AC_TYPE_INT64_T
-AC_TYPE_INT8_T
-AC_TYPE_SIZE_T
-AC_TYPE_UINT16_T
-AC_TYPE_UINT32_T
-AC_TYPE_UINT64_T
-AC_TYPE_UINT8_T
+#AC_CHECK_HEADER_STDBOOL
+# AC_C_INLINE
+# AC_TYPE_INT16_T
+# AC_TYPE_INT32_T
+# AC_TYPE_INT64_T
+# AC_TYPE_INT8_T
+# AC_TYPE_SIZE_T
+# AC_TYPE_UINT16_T
+# AC_TYPE_UINT32_T
+# AC_TYPE_UINT64_T
+# AC_TYPE_UINT8_T
 AC_CHECK_TYPES([ptrdiff_t])
 
 # Checks for library functions.
@@ -113,22 +113,12 @@ AC_FUNC_REALLOC
 AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
 
 GLOBAL_CXXFLAGS=" -std=c++11 -Werror -Wall"
-AM_COND_IF([OS_MSYS],
-	[
-		GLOBAL_CXXFLAGS+=" -mwindows "
-		EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
-		# NO_UNDEFINED="-no-undefined"
-	])
-AM_COND_IF([OS_LINUX],
-	[
-		EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
-	])
-
 # case `uname -s` in
 # [Mm]sys* | mingw* | MINGW* )
 # # WDEFS="-DMSYS -DWIN64"
 # # AM_CPPFLAGS="$WDEFS"
 # # AM_CXXFLAGS=" ${GLOBAL_CXXFLAGS} -mwindows"
+# # NO_UNDEFINED="-no-undefined"
 # # #CC="gcc $WDEFS"
 # # #CXX="g++ $WDEFS"
 # # #CC="x86_64-pc-msys-gcc $WDEFS"
@@ -145,6 +135,18 @@ AM_COND_IF([OS_LINUX],
 # # NO_UNDEFINED=""
 # ;;
 # esac
+AM_COND_IF([OS_MSYS],
+	[
+		GLOBAL_CXXFLAGS+=" -mwindows "
+		EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
+		NO_UNDEFINED="-no-undefined"
+	])
+AM_COND_IF([OS_LINUX],
+	[
+		EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
+		NO_UNDEFINED=""
+	])
+
 AC_SUBST([AM_CPPFLAGS])
 AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([NO_UNDEFINED])
@@ -152,7 +154,8 @@ AC_SUBST([EXTSUBDIRS])
 AC_SUBST([GLOBAL_CXXFLAGS])
 # AC_SUBST([OSCONFFILES])
 
-AM_CONDITIONAL([DEBUG], [echo "$CXXFLAGS" | grep '\-g[gdb0-9]*'])
+AM_CONDITIONAL([DEBUG], [test -n $(echo "$CXXFLAGS" | grep '\-g[gdb0-9]*' 2>/dev/null)])
+
 
 changequote({,})
 CXXFLAGS=`echo "$CXXFLAGS"  |  $SED -e 's/-O[0-9s]*//g' -e 's/-g[gdb0-9]*//g'`
@@ -172,22 +175,29 @@ AM_COND_IF([DEBUG],
 	])
 
 
-AC_CONFIG_FILES([Platform/Makefile
-	Common/Makefile
+AC_CONFIG_FILES(
+	[Platform/Makefile
 	Draw/VDraw/Makefile
+	Common/Makefile
 	Draw/CDrawTmxWin/Makefile
 	Gadget/Makefile
 	VSAShared/Makefile
-	WorkbenchShared/Makefile])
+	WorkbenchShared/Makefile]
+	)
 AM_COND_IF([OS_MSYS],
 	AC_CONFIG_FILES([Draw/VGDI/Makefile
 		Draw/CDrawWin/Makefile
 		WorkbenchWin/Makefile])
 )
 AM_COND_IF([OS_LINUX],
-	AC_CONFIG_FILES([Draw/VDrawOpenGL/Makefile
+	AC_CONFIG_FILES(							[Draw/VDrawOpenGL/Makefile
 		Draw/CDrawOpenGL/Makefile
 		WorkbenchGLUT/Makefile])
 )
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES(
+	[CmdPlugins/CmdConstant/Makefile]
+)
+AC_CONFIG_FILES(
+	[Makefile]
+)
 AC_OUTPUT

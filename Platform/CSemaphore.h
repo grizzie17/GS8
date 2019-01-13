@@ -21,11 +21,18 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "UPlatform.h"
-#if defined( SEMAPHORE_POSIX )  ||  defined( SEMAPHORE_MACINTOSH )
+#if defined( SEMAPHORE_WINDOWS )
+#	if ! defined( OS_MSWIN_WCE )
+#		include <process.h>
+#	endif
+#elif defined ( SEMAPHORE_POSIX )  ||  defined( SEMAPHORE_MACINTOSH )
 #	include <pthread.h>
 #	include <semaphore.h>
 #endif
 #include "UDeclPlatform.h"
+
+
+
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -47,7 +54,7 @@ typedef const class CSemaphore&	ConstCSemaphoreRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CSemaphore
+class CSemaphore
 {
 //	class lifecycle  ----------------------------------------------------
 public:

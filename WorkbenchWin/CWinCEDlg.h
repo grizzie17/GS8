@@ -32,7 +32,7 @@
 
 #include "TPointer.h"
 #include "TComPointer.h"
-#include "CApplicationGaugeWorkbench.h"
+#include "CApplicationGaugeWorkbenchWin.h"
 #include "CKeyProcessorWin.h"
 #include "CMouseProcessorWin.h"
 #include "CMouseProcessorWB.h"
@@ -44,7 +44,7 @@
 
 
 
-using namespace Yogi::Gadget;
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |
 |	Defines
@@ -55,8 +55,8 @@ using namespace Yogi::Gadget;
 |	Type Definitions
 |
 \+---------------------------------------------------------------------*/
-typedef class CWinCEDlg*			CWinCEDlgPtr;
-typedef class CWinCEDlg&			CWinCEDlgRef;
+typedef class CWinCEDlg*		CWinCEDlgPtr;
+typedef class CWinCEDlg&		CWinCEDlgRef;
 typedef const class CWinCEDlg&	ConstCWinCEDlgRef;
 /*---------------------------------------------------------------------+\
 |
@@ -68,12 +68,13 @@ class CWinCEDlg : public VPostCalculate
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-				CWinCEDlg();
-	virtual		~CWinCEDlg();
+			CWinCEDlg();
+	virtual	~CWinCEDlg();
 
 private:
-				CWinCEDlg( const CWinCEDlg& r );	// copy constructor
-	CWinCEDlg&	operator=( const CWinCEDlg& r );		// assignment
+			CWinCEDlg( ConstCWinCEDlgRef r );	// copy constructor
+	ConstCWinCEDlgRef
+			operator=( ConstCWinCEDlgRef r );	// assignment
 
 public:
 //	public types  -------------------------------------------------------
@@ -130,17 +131,17 @@ protected:
 
 
 
-	TPointer<CApplicationGaugeWorkbench>
+	Yogi::Core::TPointer<CApplicationGaugeWorkbenchWin>
 									m_pApplicationGauge;
-	TPointer<CKeyProcessorWin>		m_pKeyProcessor;
-	TPointer<VMouseProcessorWin>	m_pMouseProcessor;
+	Yogi::Core::TPointer<CKeyProcessorWin>		m_pKeyProcessor;
+	Yogi::Core::TPointer<VMouseProcessorWin>	m_pMouseProcessor;
 	//bool							m_bSampleLoader;
-	TPointer<CCommandProcessorWorkbench>
+	Yogi::Core::TPointer<CCommandProcessorWorkbench>
 									m_pCommandProcessor;
-	TPointer<CFunctionProcessorForPlugins>
+	Yogi::Core::TPointer<CFunctionProcessorForPlugins>
 									m_pFunctionProcessor;
-	TPointer<CTaskManager>			m_pTaskManager;
-	TPointer<CServiceManager>		m_pServiceManager;
+	Yogi::Core::TPointer<CTaskManager>			m_pTaskManager;
+	Yogi::Core::TPointer<CServiceManager>		m_pServiceManager;
 
 	bool					m_bRemapBezelKeys;
 	bool					m_bFullScreen;
@@ -187,7 +188,7 @@ public:
 ||
 \+=====================================================================*/
 
-
+}}
 
 
 #endif /* _H_CWinCEDlg */

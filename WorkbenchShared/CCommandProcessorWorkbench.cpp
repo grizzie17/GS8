@@ -53,7 +53,8 @@
 #include "stdafx.h"
 #include "CCommandProcessorWorkbench.h"
 
-
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -170,8 +171,8 @@ void	CCommandProcessorWorkbench::InitializeFunctions
 
 bool	CCommandProcessorWorkbench::ProcessRequest
 		(
-		VDictionary::Selector sel,
-		ConstCVariantDataRef vData
+		VDictionary::Selector	sel,
+		ConstCVariantDataRef	vData
 		)
 {
 	bool			bResult = true;

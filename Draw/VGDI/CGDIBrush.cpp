@@ -127,7 +127,7 @@ CGDIBrush::~CGDIBrush
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CGDIBrushRef
+ConstCGDIBrushRef
 		CGDIBrush::operator=
 		(
 		CGDIBrushRef	r

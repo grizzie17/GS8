@@ -39,6 +39,9 @@
 #include "IDictionaryUser.h"
 
 #include "VPluginFactory.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -91,9 +94,9 @@ CmdVehicleDataSample::CmdVehicleDataSample
 		(
 		void
 		)
-		: inherited(),
-		m_sServiceName(),
-		m_pIVDS( 0 )
+		: inherited()
+		, m_sServiceName()
+		, m_pIVDS( 0 )
 {
 }
 
@@ -101,9 +104,9 @@ CmdVehicleDataSample::CmdVehicleDataSample
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_sServiceName(),
-		m_pIVDS( 0 )
+		: inherited( pOwner )
+		, m_sServiceName()
+		, m_pIVDS( 0 )
 {
 }
 
@@ -112,9 +115,9 @@ CmdVehicleDataSample::CmdVehicleDataSample
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_sServiceName(),
-		m_pIVDS( 0 )
+		: inherited( sName, pOwner )
+		, m_sServiceName()
+		, m_pIVDS( 0 )
 {
 }
 

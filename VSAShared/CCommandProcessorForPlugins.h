@@ -37,7 +37,6 @@
 #include "CPluginLibrary.h"
 
 
-//USING_NAMESPACE_COMMON
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -103,7 +102,7 @@ public:
 	virtual
 	bool	ProcessRequest
 			(
-			VDictionary::Selector	sel,
+			VDictionary::Selector				sel,
 			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
@@ -131,7 +130,7 @@ public:
 	VDictionary::Selector
 			RegisterCommand
 			(
-			const char*		sCommandName,
+			const char*						sCommandName,
 			Yogi::Common::CVariantDataPtr	pInitialState = 0
 			);
 

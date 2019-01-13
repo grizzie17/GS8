@@ -626,7 +626,7 @@ bool	CDrawWin::PenSelect
 		}
 		if ( pPen )
 		{
-			m_pPen = pPen;
+			m_pPen = (CGDIPen*)pPen;
 			m_pPen->Select( m_hdc );
 		}
 	}
@@ -698,7 +698,7 @@ bool	CDrawWin::PenHaloSelect
 	}
 	if ( pPen )
 	{
-		m_pPen = pPen;
+		m_pPen = (CGDIPen*)pPen;
 		m_pPen->Select( m_hdc );
 	}
 #else
@@ -763,7 +763,7 @@ bool	CDrawWin::BrushSelect
 		}
 		if ( pBrush )
 		{
-			m_pBrush = pBrush;
+			m_pBrush = (CGDIBrush*)pBrush;
 			m_pBrush->Select( m_hdc );
 		}
 	}
@@ -822,7 +822,7 @@ bool	CDrawWin::FontSelect
 		}
 		if ( pFont )
 		{
-			m_pFont = pFont;
+			m_pFont = (CGDIFont*)pFont;
 			if ( m_pFont->Select( m_hdc ) )
 				::GetTextMetrics( m_hdc, &m_tTextMetric );
 		}
@@ -1081,7 +1081,7 @@ bool	CDrawWin::Load
 		SetDoubleBackingstore( bDoubleBackingstore );
 		SetDisplayDirtyRectangle( bDisplayDR );
 
-		CVariantDataPtr	pv;
+		ConstCVariantDataPtr	pv;
 
 		pv = pConfig->GetParameter( "Background Color" );
 		if ( pv )

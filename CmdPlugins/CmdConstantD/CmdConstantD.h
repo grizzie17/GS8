@@ -60,8 +60,8 @@ class CmdConstantD : public VPluginCommand
 //	class lifecycle  ----------------------------------------------------
 public:
 					CmdConstantD();
-					CmdConstantD( ISupportsPtr pOwner );
-					CmdConstantD( const char* sName, ISupportsPtr pOwner );
+					CmdConstantD( Yogi::Common::ISupportsPtr pOwner );
+					CmdConstantD( const char* sName, Yogi::Common::ISupportsPtr pOwner );
 protected:
 	virtual			~CmdConstantD();
 
@@ -70,7 +70,7 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	THashTable<CCharString, CVariantData>	m_aList;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::CVariantData>	m_aList;
 
 
 protected:
@@ -100,15 +100,15 @@ public:
 	bool	ProcessRequest
 			(
 			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 

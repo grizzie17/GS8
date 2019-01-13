@@ -73,12 +73,13 @@ class CDateTime
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CDateTime();
-					CDateTime( int nYear, int nMon, int nDay, int nHour, int nMin, int nSec );
-					CDateTime( const char* s );
-					CDateTime( time_t t );
-					CDateTime( ConstCDateTimeRef r );	// copy constructor
-					~CDateTime();
+			CDateTime();
+			CDateTime( ConstCDateTimeRef r );	// copy constructor
+			CDateTime( int nYear, int nMon, int nDay, int nHour, int nMin, int nSec );
+			CDateTime( const char* s );
+			CDateTime( ConstCCharDescriptorRef r );
+			CDateTime( time_t t );
+			~CDateTime();
 
 public:
 //	public types  -------------------------------------------------------
@@ -87,6 +88,11 @@ public:
 
 	CDateTimeRef	operator=( ConstCDateTimeRef r );		// assignment
 	CDateTimeRef	operator=( const time_t t );
+	CDateTimeRef	operator=( const char* s );
+
+	bool			operator==( ConstCDateTimeRef r ) const;
+	bool			operator==( const time_t t ) const;
+	bool			operator==( const char* s ) const;
 
 					operator time_t( void ) const;
 
@@ -207,7 +213,54 @@ CDateTimeRef
 	return *this;
 }
 
-/*----------------------------------------------------------------------+\
+inline
+CDateTimeRef
+		CDateTime::operator =
+		(
+		const char*	s
+		)
+{
+	Parse( s );
+	return *this;
+}
+
+/*---------------------------------------------------------------------+\
+
+ * operator== - equality
+
+\+---------------------------------------------------------------------*/
+inline
+bool	CDateTime::operator==
+		(
+		ConstCDateTimeRef	r
+		) const
+{
+	return m_t == r.m_t;
+}
+
+
+inline
+bool	CDateTime::operator==
+		(
+		const char*	s
+		) const
+{
+	CDateTime	t( s );
+	return m_t == t;
+}
+
+
+inline
+bool	CDateTime::operator==
+		(
+		const time_t	t
+		) const
+{
+	return m_t == t;
+}
+
+
+/*---------------------------------------------------------------------+\
 
  * operator time_t - operator
 

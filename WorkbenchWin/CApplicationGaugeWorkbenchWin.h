@@ -27,8 +27,8 @@
 		Initial Revision
 |
 \+---------------------------------------------------------------------*/
-#ifndef _H_CApplicationGaugeWorkbench
-#define _H_CApplicationGaugeWorkbench
+#ifndef _H_CApplicationGaugeWorkbenchWin
+#define _H_CApplicationGaugeWorkbenchWin
 #pragma once
 /*---------------------------------------------------------------------+\
 |																		|
@@ -58,9 +58,9 @@ namespace Yogi { namespace Gadget {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CApplicationGaugeWorkbench*		CApplicationGaugeWorkbenchPtr;
-typedef class CApplicationGaugeWorkbench&		CApplicationGaugeWorkbenchRef;
-typedef const class CApplicationGaugeWorkbench&	ConstCApplicationGaugeWorkbenchRef;
+typedef class CApplicationGaugeWorkbenchWin*		CApplicationGaugeWorkbenchWinPtr;
+typedef class CApplicationGaugeWorkbenchWin&		CApplicationGaugeWorkbenchWinRef;
+typedef const class CApplicationGaugeWorkbenchWin&	ConstCApplicationGaugeWorkbenchWinRef;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -68,22 +68,24 @@ typedef const class CApplicationGaugeWorkbench&	ConstCApplicationGaugeWorkbenchR
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CApplicationGaugeWorkbench : public CApplicationGauge
+class CApplicationGaugeWorkbenchWin : public CApplicationGauge
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CApplicationGaugeWorkbench();
-	virtual			~CApplicationGaugeWorkbench();
+			CApplicationGaugeWorkbenchWin();
+	virtual	~CApplicationGaugeWorkbenchWin();
 
 public:
 //	public types  -------------------------------------------------------
 
 //	public functions  ---------------------------------------------------
 
-	//CDrawWinDDPtr	DrawWin( void );
+	//CDrawWinDDPtr	DrawWin( void )
+	//void	SetCView( CView* p );
 
-	void			SetVPostCalculate( VPostCalculate* p );
-	void			SetConfiguration( Yogi::Common::VConfigurationPtr p );
+
+	void	SetVPostCalculate( VPostCalculate* p );
+	void	SetConfiguration( Yogi::Common::VConfigurationPtr p );
 
 protected:
 //	protected functions  ------------------------------------------------
@@ -91,6 +93,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	VPostCalculate*		m_pDialog;
+	//CView*	m_pCView;
 
 private:
 //	protected types  ----------------------------------------------------
@@ -105,12 +108,13 @@ private:
 	//	CApplicationGauge
 public:
 
-	virtual bool		WindowTitle( Yogi::Core::ConstCCharDescriptorRef rChar );
-	virtual bool		PostCalculateNeeded( void );
+	virtual bool	WindowTitle( Yogi::Core::ConstCCharDescriptorRef rChar );
+	virtual bool	PostCalculateNeeded( void );
 
 protected:
-	virtual Yogi::Common::VConfigurationPtr
-						MakeConfiguration( void );
+	virtual 
+	Yogi::Common::VConfigurationPtr
+			MakeConfiguration( void );
 
 };
 

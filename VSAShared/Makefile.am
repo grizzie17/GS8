@@ -9,9 +9,17 @@ AM_CPPFLAGS += \
 
 #libdir = $(top_builddir)/lib
 
-noinst_LIBRARIES = libvsashared.a
+noinst_LTLIBRARIES = libvsashared.la
 
-libvsashared_a_SOURCES = \
+disabledSources = \
+		CVehicleDataLoader.cpp \
+		IBox.cpp \
+		IServiceManager.cpp \
+		VDesk.cpp \
+		VPluginApplet.cpp
+
+
+libvsashared_la_SOURCES = \
 		CCommandProcessorForPlugins.cpp \
 		CDesk.cpp \
 		CDeskManager.cpp \
@@ -19,11 +27,9 @@ libvsashared_a_SOURCES = \
 		CHusk.cpp \
 		CServiceManager.cpp \
 		CTaskManager.cpp \
-		CVehicleDataLoader.cpp \
 		IActiveXML.cpp \
 		IApplet.cpp \
 		IAttribute.cpp \
-		IBox.cpp \
 		ICommandPlugin.cpp \
 		IDesk.cpp \
 		IDeskManager.cpp \
@@ -34,13 +40,10 @@ libvsashared_a_SOURCES = \
 		IPanAndTilt.cpp \
 		IRepeater.cpp \
 		IService.cpp \
-		IServiceManager.cpp \
 		ITask.cpp \
 		IVehicleDataSample.cpp \
-		VDesk.cpp \
-		VPluginApplet.cpp \
 		VPluginCommand.cpp \
 		VPluginService.cpp \
 		VSAShared.cpp
-libvsagadget_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libvsagadget_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libvsashared_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libvsashared_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)

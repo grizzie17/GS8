@@ -30,6 +30,8 @@
 
 #include "VPluginFactory.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -76,9 +78,9 @@ CmdCopyToD::CmdCopyToD
 		(
 		void
 		)
-		: VPluginCommand(),
-		m_aList(),
-		m_aCommands()
+		: VPluginCommand()
+		, m_aList()
+		, m_aCommands()
 {
 }
 
@@ -86,9 +88,9 @@ CmdCopyToD::CmdCopyToD
 		(
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( pOwner ),
-		m_aList(),
-		m_aCommands()
+		: VPluginCommand( pOwner )
+		, m_aList()
+		, m_aCommands()
 {
 }
 
@@ -97,9 +99,9 @@ CmdCopyToD::CmdCopyToD
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( sName, pOwner ),
-		m_aList(),
-		m_aCommands()
+		: VPluginCommand( sName, pOwner )
+		, m_aList()
+		, m_aCommands()
 {
 }
 

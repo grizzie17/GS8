@@ -41,8 +41,8 @@ using namespace Yogi::Gadget;
 |	Type Definitions
 |
 \+---------------------------------------------------------------------*/
-typedef class CWinCEApp*			CWinCEAppPtr;
-typedef class CWinCEApp&			CWinCEAppRef;
+typedef class CWinCEApp*		CWinCEAppPtr;
+typedef class CWinCEApp&		CWinCEAppRef;
 typedef const class CWinCEApp&	ConstCWinCEAppRef;
 /*---------------------------------------------------------------------+\
 |

@@ -34,7 +34,6 @@
 |	Type Definitions
 |
 \+---------------------------------------------------------------------*/
-//namespace Yogi { namespace Core {
 
 #if defined( THREADS_POSIX )
 
@@ -75,7 +74,7 @@
 //!
 //! @see UThreadFunction
 //!
-DECL_API(UThreadHdl)
+UThreadHdl
 		ThreadCreate
 		(								//!@return handle to the thread
 		UThreadFunction	pFunc,			//!< [in] pointer to a UThreadFunction (see above)
@@ -85,7 +84,7 @@ DECL_API(UThreadHdl)
 
 //!	shutdown/close a thread
 //!
-DECL_API(void)
+void
 		ThreadClose
 		(
 		UThreadHdl	hThread		//!< [in] handle to thread to shutdown/close
@@ -98,7 +97,6 @@ DECL_API(void)
 ||
 \+=====================================================================*/
 
-//}}
 
 
 

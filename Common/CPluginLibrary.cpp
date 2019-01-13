@@ -164,7 +164,7 @@ ISupportsPtr
 		ISupportsPtr	pOwner	// = 0
 		)
 {
-	Yogi::Core::CCharDescriptor	tLib( sLibraryname );
+	Yogi::Core::CCharDescriptor	tLib( (char*)sLibraryname );
 	return Create( tLib, pOwner );
 }
 

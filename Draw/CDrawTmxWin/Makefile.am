@@ -5,17 +5,16 @@ AM_CPPFLAGS += \
 #AM_CXXFLAGS += -fPIC
 
 
-lib_LTLIBRARIES = libcdrawtmxwin.la
+lib_LTLIBRARIES = CDrawTmxWin.la
 
-libcdrawtmxwin_la_SOURCES = CDrawTmxWin.cpp
+CDrawTmxWin_la_SOURCES = CDrawTmxWin.cpp
 
-libcdrawtmxwin_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libcdrawtmxwin_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libcdrawtmxwin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS)  $(NO_UNDEFINED) \
-		-L$(top_builddir)/Draw/VDraw \
-		-L$(top_builddir)/Common \
-		-L$(top_builddir)/Platform \
-		-Wl,--whole-archive \
-		-lvdraw.a \
-		-Wl,--no-whole-archive
-libcdrawtmxwin_la_LIBADD = -lcommon.la -lplatform.la -lpthread -lc
+CDrawTmxWin_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+CDrawTmxWin_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+CDrawTmxWin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS)  $(NO_UNDEFINED) -module \
+		$(top_builddir)/Common/libcommon.la \
+		$(top_builddir)/Platform/libplatform.la
+CDrawTmxWin_la_LIBADD = -lstdc++ -lc
+CDrawTmxWin_la_DEPENDENCIES = \
+		$(top_builddir)/Common/libcommon.la \
+		$(top_builddir)/Platform/libplatform.la

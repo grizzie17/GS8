@@ -53,6 +53,23 @@
 			}
 		},
 		{
+			"label": "build-config  --clean",
+			"type": "shell",
+			"command": "./build-config.sh --clean",
+			"group": "build",
+			"problemMatcher": {
+				"pattern": {
+					"regexp": "^([^:]+):\\s+([^:]+):\\s+(.*)$",
+					"file": 1,
+					"severity": 2,
+					"message": 3
+				}
+			},
+			"presentation": {
+				"clear": true
+			}
+		},
+		{
 			"label": "build-clean",
 			"type": "shell",
 			"command": "./build-clean.sh",
@@ -103,6 +120,9 @@
 					"severity": 4,
 					"message": 5
 				}
+			},
+			"presentation": {
+				"clear": true
 			}
 		},
 		{
@@ -111,6 +131,29 @@
 			"command": "./build.sh",
 			"args": [
 				"${relativeFile}",
+				"-check"
+			],
+			"group": "build",
+			"problemMatcher": {
+				"pattern": {
+					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			},
+			"presentation": {
+				"clear": true
+			}
+		},
+		{
+			"label": "build  --check ALL",
+			"type": "shell",
+			"command": "./build.sh",
+			"args": [
+				"ALL",
 				"-check"
 			],
 			"group": "build",

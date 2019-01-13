@@ -101,11 +101,24 @@ Context(CDateTimeInitialization)
 		bool		b = o.Parse( "2000-13-32 26:00:30" );
 		AssertThat(b, IsFalse());
 
-		// Feb 31 should be a problem
-		//b = o.Parse( "2000-02-31 12:00:00");
-		//AssertThat(b, IsFalse());
+		//Feb 31 should be a problem
+		b = o.Parse( "2000-02-31 12:00:00");
+		AssertThat(b, IsFalse());
 
 	}
 
+};
+
+
+Context(CDateTimeOperation)
+{
+	Spec(CompareEquality)
+	{
+		CDateTime	d1( "20010101T120000" );
+		CDateTime	d2( "2001-01-01 12:00:00" );
+
+		AssertThat( d1 == d2, IsTrue() );
+		AssertThat( d1 == "20010101T120000", IsTrue() );
+	}
 };
 

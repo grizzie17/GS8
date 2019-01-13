@@ -55,7 +55,7 @@ typedef const class VPluginExternalXML&	ConstVPluginExternalXMLRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VPluginExternalXML : public VPluginWithAggregateList,
+class VPluginExternalXML : public Yogi::Common::VPluginWithAggregateList,
 						implements_ IApplicationUser,
 						implements_ IExternalXML,
 						public virtual XMLLite::VReadCallBack
@@ -164,7 +164,7 @@ protected:
 			);
 
 
-	CCharString
+	Yogi::Core::CCharString
 			BuildPath
 			(
 			const char*	sFilename
@@ -173,10 +173,10 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	CCharString				m_sID;
-	CApplicationGaugePtr	m_pApplication;
-	TArray<char>			m_sData;
-	index_t					m_nDataIndex;
+	Yogi::Core::CCharString		m_sID;
+	CApplicationGaugePtr		m_pApplication;
+	Yogi::Core::TArray<char>	m_sData;
+	index_t						m_nDataIndex;
 
 private:
 //	private functions  --------------------------------------------------
@@ -192,7 +192,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 public:
@@ -200,8 +200,8 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 };

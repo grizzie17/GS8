@@ -44,6 +44,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -88,16 +90,16 @@ CmdEptm::CmdEptm
 		(
 		void
 		)
-		: inherited(),
-		m_pIPanAndTilt( 0 ),
-		m_pDictionary( 0 ),
-		m_nCmdJoystickStart( 0 ),
-		m_nCmdJoystickMove( 0 ),
-		m_nCmdJoystickStop( 0 ),
-		m_nUJoystickOriginX( 0 ),
-		m_nUJoystickOriginY( 0 ),
-		m_nUJoystickRadius( 0 ),
-		m_oMutex()
+		: inherited()
+		, m_pIPanAndTilt( 0 )
+		, m_pDictionary( 0 )
+		, m_nCmdJoystickStart( 0 )
+		, m_nCmdJoystickMove( 0 )
+		, m_nCmdJoystickStop( 0 )
+		, m_nUJoystickOriginX( 0 )
+		, m_nUJoystickOriginY( 0 )
+		, m_nUJoystickRadius( 0 )
+		, m_oMutex()
 {
 }
 
@@ -105,16 +107,16 @@ CmdEptm::CmdEptm
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_pIPanAndTilt( 0 ),
-		m_pDictionary( 0 ),
-		m_nCmdJoystickStart( 0 ),
-		m_nCmdJoystickMove( 0 ),
-		m_nCmdJoystickStop( 0 ),
-		m_nUJoystickOriginX( 0 ),
-		m_nUJoystickOriginY( 0 ),
-		m_nUJoystickRadius( 0 ),
-		m_oMutex()
+		: inherited( pOwner )
+		, m_pIPanAndTilt( 0 )
+		, m_pDictionary( 0 )
+		, m_nCmdJoystickStart( 0 )
+		, m_nCmdJoystickMove( 0 )
+		, m_nCmdJoystickStop( 0 )
+		, m_nUJoystickOriginX( 0 )
+		, m_nUJoystickOriginY( 0 )
+		, m_nUJoystickRadius( 0 )
+		, m_oMutex()
 {
 }
 
@@ -123,16 +125,16 @@ CmdEptm::CmdEptm
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_pIPanAndTilt( 0 ),
-		m_pDictionary( 0 ),
-		m_nCmdJoystickStart( 0 ),
-		m_nCmdJoystickMove( 0 ),
-		m_nCmdJoystickStop( 0 ),
-		m_nUJoystickOriginX( 0 ),
-		m_nUJoystickOriginY( 0 ),
-		m_nUJoystickRadius( 0 ),
-		m_oMutex()
+		: inherited( sName, pOwner )
+		, m_pIPanAndTilt( 0 )
+		, m_pDictionary( 0 )
+		, m_nCmdJoystickStart( 0 )
+		, m_nCmdJoystickMove( 0 )
+		, m_nCmdJoystickStop( 0 )
+		, m_nUJoystickOriginX( 0 )
+		, m_nUJoystickOriginY( 0 )
+		, m_nUJoystickRadius( 0 )
+		, m_oMutex()
 {
 }
 
@@ -202,7 +204,7 @@ bool	CmdEptm::JoystickStart
 		ConstCVariantDataRef
 		)
 {
-	CVariantDataPtr	pv;
+	ConstCVariantDataPtr	pv;
 
 	pv = m_pDictionary->GetData( m_nUJoystickOriginX );
 	if ( pv )
@@ -286,7 +288,7 @@ bool	CmdEptm::JoystickMove
 	{
 		long	x = 0;
 		long	y = 0;
-		CVariantDataPtr	pv;
+		ConstCVariantDataPtr	pv;
 
 		pv = m_pDictionary->GetData( m_nIX );
 		if ( pv )
@@ -479,7 +481,7 @@ bool	CmdEptm::EPTMSlew
 	long	y = 0;
 	long	w = 0;
 	long	h = 0;
-	CVariantDataPtr	pv;
+	ConstCVariantDataPtr	pv;
 
 	pv = m_pDictionary->GetData( m_nIX );
 	if ( pv )

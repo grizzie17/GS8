@@ -114,16 +114,16 @@ protected:
 //	protected functions  ------------------------------------------------
 
 	// registered commands
-	bool		Install( ConstCVariantDataRef r );
-	bool		Calibrate( ConstCVariantDataRef	r );
-	bool		Start( ConstCVariantDataRef	r );
-	bool		Point( ConstCVariantDataRef	r );
-	bool		Timeout( ConstCVariantDataRef r );
+	bool		Install( Yogi::Common::ConstCVariantDataRef r );
+	bool		Calibrate( Yogi::Common::ConstCVariantDataRef	r );
+	bool		Start( Yogi::Common::ConstCVariantDataRef	r );
+	bool		Point( Yogi::Common::ConstCVariantDataRef	r );
+	bool		Timeout( Yogi::Common::ConstCVariantDataRef r );
 
 	bool		SaveData( void );
 	bool		LoadData( void );
 
-	CCharString	BuildPath( void );
+	Yogi::Core::CCharString	BuildPath( void );
 
 	bool		GenerateMatrix( void );
 	bool		ValidateMatrix( void );
@@ -146,13 +146,13 @@ protected:
 	VDictionary::Selector	m_nUScreenX;
 	VDictionary::Selector	m_nUScreenY;
 	VDictionary::Selector	m_nUPanel;
-	CVariantData			m_vUPanel;
+	Yogi::Common::CVariantData			m_vUPanel;
 	VDictionary::Selector	m_nUPhase;
 	VDictionary::Selector	m_nUPrompt;
 
-	CMatrix3x3				m_tMatrix;
-	CCharString				m_sFilePath;
-	CCharString				m_sFilename;
+	Yogi::Common::CMatrix3x3	m_tMatrix;
+	Yogi::Core::CCharString	m_sFilePath;
+	Yogi::Core::CCharString	m_sFilename;
 	GFLOAT					m_fTolerance;	// number of pixels for fudge
 	GFLOAT					m_fScreenWidth;
 	GFLOAT					m_fScreenHeight;
@@ -176,7 +176,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 	virtual
@@ -197,16 +197,16 @@ public:
 	virtual
 	bool	ProcessRequest
 			(
-			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			VDictionary::Selector				selCommand,
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 

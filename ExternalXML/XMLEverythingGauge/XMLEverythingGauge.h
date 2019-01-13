@@ -82,14 +82,14 @@ protected:
 
 	void			WriteLine( const char* s );
 	void			WriteString( const char* s );
-	void			WriteString( ConstCCharStringRef r );
+	void			WriteString( Yogi::Core::ConstCCharStringRef r );
 
 
 	void			BufferAppend( const char* s );
 	void			BufferEOS( void );
 	void			BufferLine( const char* s );
 	void			BufferString( const char* s );
-	void			BufferString( ConstCCharStringRef r );
+	void			BufferString( Yogi::Core::ConstCCharStringRef r );
 
 
 	void			WriteHeader( void );
@@ -104,7 +104,7 @@ protected:
 	long					m_nAlertCount;
 	long					m_nPosition;
 
-	TArray<char>			m_sBuffer;
+	Yogi::Core::TArray<char>			m_sBuffer;
 
 
 
@@ -138,7 +138,7 @@ public:
 	XMLLite::VReadCallBack*
 			GetCallBack
 			(
-			ConstCCharDescriptorRef	rArg
+			Yogi::Core::ConstCCharDescriptorRef	rArg
 			);
 
 	virtual

@@ -56,7 +56,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -170,32 +171,16 @@ CApplicationGaugeWorkbenchRef
  * (author)J.Griswold  --  05-Aug-2009
 
 \+---------------------------------------------------------------------*/
-CDrawWinPtr
+IDrawPtr
 		CApplicationGaugeWorkbench::DrawWin
 		(
 		void
 		)
 {
-	return CDrawWinPtr( Draw() );
+	return QI_( Draw(), IDraw );
+	//return CDrawWinPtr( Draw() );
 }
 
-
-/**--------------------------------------------------------------------+\
-
- * <summary>SetCView - brief statement</summary>
-
- * <remarks/>
-
- * (author)J.Griswold  --  26-Jun-2010
-
-\+---------------------------------------------------------------------*/
-void	CApplicationGaugeWorkbench::SetCView
-		(
-		CView *p
-		)
-{
-	m_pCView = p;
-}
 
 /*=====================================================================+\
 ||	 protected member functions											|
@@ -233,9 +218,11 @@ bool	CApplicationGaugeWorkbench::OnDraw
 		m_pScreen->GetSize( 0, w, h );
 	if ( m_pDraw )
 	{
-		CDrawWinPtr	pDraw = DrawWin();
+		IDrawPtr	pDraw = DrawWin();
 
 		pDraw->Size( w, h );
+
+		pDraw->Release();
 	}
 
 	return CApplicationGauge::OnDraw();

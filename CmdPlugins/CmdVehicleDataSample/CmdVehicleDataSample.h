@@ -86,9 +86,9 @@ protected:
 //	protected functions  ------------------------------------------------
 
 	// registered commands
-	bool		cmdStart( ConstCVariantDataRef r );
-	bool		cmdStop( ConstCVariantDataRef r );
-	bool		cmdToggle( ConstCVariantDataRef r );
+	bool		cmdStart( Yogi::Common::ConstCVariantDataRef r );
+	bool		cmdStop( Yogi::Common::ConstCVariantDataRef r );
+	bool		cmdToggle( Yogi::Common::ConstCVariantDataRef r );
 
 
 
@@ -102,7 +102,7 @@ protected:
 	VDictionary::Selector	m_nCmdToggle;
 	VDictionary::Selector	m_nCmdToggleLegacy;
 
-	CCharString				m_sServiceName;
+	Yogi::Core::CCharString	m_sServiceName;
 	IVehicleDataSamplePtr	m_pIVDS;
 
 
@@ -131,16 +131,16 @@ public:
 	virtual
 	bool	ProcessRequest
 			(
-			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			VDictionary::Selector				selCommand,
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 

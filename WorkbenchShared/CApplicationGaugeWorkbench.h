@@ -37,11 +37,8 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "CApplicationGauge.h"
+#include "IDraw.h"
 
-#include "UMachine.h"
-#if defined( OS_MSWIN )
-//#include <afxwin.h>
-#include "CDrawWinWorkbench.h"
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -54,8 +51,8 @@ namespace Yogi { namespace Gadget {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CApplicationGaugeWorkbench*			CApplicationGaugeWorkbenchPtr;
-typedef class CApplicationGaugeWorkbench&			CApplicationGaugeWorkbenchRef;
+typedef class CApplicationGaugeWorkbench*		CApplicationGaugeWorkbenchPtr;
+typedef class CApplicationGaugeWorkbench&		CApplicationGaugeWorkbenchRef;
 typedef const class CApplicationGaugeWorkbench&	ConstCApplicationGaugeWorkbenchRef;
 /*---------------------------------------------------------------------+\
 |																		|
@@ -67,9 +64,9 @@ class CApplicationGaugeWorkbench : public CApplicationGauge
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CApplicationGaugeWorkbench();
-					CApplicationGaugeWorkbench( ConstCApplicationGaugeWorkbenchRef r );	// copy constructor
-	virtual			~CApplicationGaugeWorkbench();
+			CApplicationGaugeWorkbench();
+			CApplicationGaugeWorkbench( ConstCApplicationGaugeWorkbenchRef r );	// copy constructor
+	virtual	~CApplicationGaugeWorkbench();
 
 public:
 //	public types  -------------------------------------------------------
@@ -78,7 +75,7 @@ public:
 
 	CApplicationGaugeWorkbenchRef	operator=( ConstCApplicationGaugeWorkbenchRef r );		// assignment
 
-	CDrawWinPtr		DrawWin( void );
+	Yogi::Common::IDrawPtr		DrawWin( void );
 
 	void			SetCView( CView* p );
 
@@ -99,14 +96,26 @@ private:
 //============================== Overrides ==============================
 	//	CApplicationGauge
 public:
-	virtual bool		OnDraw( void );
+	virtual bool
+			OnDraw( void );
 
-	virtual bool		WindowTitle( ConstCCharDescriptorRef rChar );
+	virtual bool
+			WindowTitle
+			(
+			Yogi::Core::ConstCCharDescriptorRef rChar
+			);
 
 protected:
-	virtual VDrawPtr	MakeDraw( void );
+	virtual VDrawPtr
+			MakeDraw
+			(
+				void
+			);
 	virtual VConfigurationPtr
-						MakeConfiguration( void );
+			MakeConfiguration
+			(
+				void
+			);
 
 };
 
@@ -129,6 +138,5 @@ protected:
 }}
 
 
-#endif	//	OS_MSWIN
 
 #endif /* _H_CApplicationGaugeWorkbench */

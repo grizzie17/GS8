@@ -180,6 +180,14 @@ CDateTime::CDateTime
 	Parse( s );
 }
 
+CDateTime::CDateTime
+		(
+		ConstCCharDescriptorRef	r
+		)
+{
+	Parse( r );
+}
+
 /*---------------------------------------------------------------------+\
 
  * CDateTime - copy constructor

@@ -29,6 +29,8 @@
 
 #include "VPluginFactory.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -75,8 +77,8 @@ CmdConstant::CmdConstant
 		(
 		void
 		)
-		: VPluginCommand(),
-		m_aList()
+		: VPluginCommand()
+		, m_aList()
 {
 }
 
@@ -84,8 +86,8 @@ CmdConstant::CmdConstant
 		(
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( pOwner ),
-		m_aList()
+		: VPluginCommand( pOwner )
+		, m_aList()
 {
 }
 
@@ -94,8 +96,8 @@ CmdConstant::CmdConstant
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( sName, pOwner ),
-		m_aList()
+		: VPluginCommand( sName, pOwner )
+		, m_aList()
 {
 }
 

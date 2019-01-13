@@ -40,7 +40,7 @@
 #include <ctype.h>
 
 #include "TCharDescriptor.h"
-#include "UDeclPlatform.h"
+//#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -53,7 +53,7 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-class DECL_CLASS CCharString;	// forward reference
+class CCharString;	// forward reference
 
 typedef class CCharDescriptor*			CCharDescriptorPtr;
 typedef class CCharDescriptor&			CCharDescriptorRef;
@@ -77,8 +77,10 @@ public:
 			CCharDescriptor();
 			CCharDescriptor( ConstCCharDescriptorRef r );	// copy constructor
 			CCharDescriptor( const TCharDescriptor<char>& r );
-			CCharDescriptor( const char* s );	// search for null and set Length
 			CCharDescriptor( const char* s, size_t n );
+			CCharDescriptor( char* s, size_t n );
+			CCharDescriptor( const char* s );
+			CCharDescriptor( char* s );	// search for null and set Length
 	virtual	~CCharDescriptor();
 
 
@@ -152,6 +154,97 @@ char	TCharDescriptorCompareFilter<char>
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
+
+
+/*---------------------------------------------------------------------+\
+
+ * CCharDescriptor - constructors
+
+\+---------------------------------------------------------------------*/
+inline
+CCharDescriptor::CCharDescriptor
+		(
+		void
+		)
+		: TCharDescriptor<char>()
+{
+}
+
+
+inline
+CCharDescriptor::CCharDescriptor
+		(
+		ConstCCharDescriptorRef	r
+		)
+		: TCharDescriptor<char>( r )
+{
+}
+
+
+
+inline
+CCharDescriptor::CCharDescriptor
+		(
+		const TCharDescriptor<char>&	r
+		)
+		: TCharDescriptor<char>( r )
+{
+}
+
+
+
+inline
+CCharDescriptor::CCharDescriptor
+		(
+		char*	s,
+		size_t	n
+		)
+		: TCharDescriptor<char>( s, n )
+{
+}
+
+inline
+CCharDescriptor::CCharDescriptor
+		(
+		const char*	s,
+		size_t	n
+		)
+		: TCharDescriptor<char>( (char*)s, n )
+{
+}
+
+inline
+CCharDescriptor::CCharDescriptor
+		(
+		char*	s
+		)
+		: TCharDescriptor<char>( s )
+{
+}
+
+inline
+CCharDescriptor::CCharDescriptor
+		(
+		const char*	s
+		)
+		: TCharDescriptor<char>( (char*)s )
+{
+}
+
+
+/*---------------------------------------------------------------------+\
+
+ * ~CCharDescriptor - destructor
+
+\+---------------------------------------------------------------------*/
+inline
+CCharDescriptor::~CCharDescriptor
+		(
+		void
+		)
+{
+}
+
 
 /*---------------------------------------------------------------------+\
 
@@ -317,76 +410,6 @@ bool	operator>=
 #endif
 
 
-/*---------------------------------------------------------------------+\
-
- * CCharDescriptor - constructors
-
-\+---------------------------------------------------------------------*/
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		void
-		)
-		: TCharDescriptor<char>()
-{
-}
-
-
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		ConstCCharDescriptorRef	r
-		)
-		: TCharDescriptor<char>( r )
-{
-}
-
-
-
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		const TCharDescriptor<char>&	r
-		)
-		: TCharDescriptor<char>( r )
-{
-}
-
-
-
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		const char*	s,
-		size_t		n
-		)
-		: TCharDescriptor<char>( (char*)s, n )
-{
-}
-
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		const char*	s
-		)
-		: TCharDescriptor<char>( (char*)s )
-{
-}
-
-
-/*---------------------------------------------------------------------+\
-
- * ~CCharDescriptor - destructor
-
-\+---------------------------------------------------------------------*/
-inline
-CCharDescriptor::~CCharDescriptor
-		(
-		void
-		)
-{
-}
-
 
 /*---------------------------------------------------------------------+\
 
@@ -485,7 +508,7 @@ int		strcmp
 		const CCharDescriptor&	b
 		)
 {
-	CCharDescriptor	x( a );
+	const CCharDescriptor	x( (char*)a );
 	return x.Compare( b );
 }
 

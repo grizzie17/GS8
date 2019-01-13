@@ -202,7 +202,7 @@ bool	VFactoryLite::OpenFile
 	if ( m_pVariable )
 	{
 		CVariables	var( m_pVariable );
-		sName = var.Substitute( Yogi::Core::CCharDescriptor( s ) );
+		sName = var.Substitute( Yogi::Core::CCharDescriptor( (char*)s ) );
 	}
 	else
 	{

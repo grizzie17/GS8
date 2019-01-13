@@ -59,8 +59,8 @@ class CDictPageLazyLoad : public CDictPageVariant
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CDictPageLazyLoad();
-	virtual			~CDictPageLazyLoad();
+			CDictPageLazyLoad();
+	virtual	~CDictPageLazyLoad();
 
 public:
 //	public types  -------------------------------------------------------

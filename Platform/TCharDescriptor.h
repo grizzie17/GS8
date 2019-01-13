@@ -125,20 +125,20 @@ public:
 	TCharDescriptor<T>&	operator=( const T* s );
 
 
-	T		AtIndex		///@return the character identified by the index
+	T		AtIndex		//!@return the character identified by the index
 			(
-			index_t	n	///< [in] requested index (zero based)
+			index_t	n	//!< [in] requested index (zero based)
 			) const;
 
 
 	const T*
-			Pointer			///@return const pointer to character at index
+			Pointer			//!@return const pointer to character at index
 			(
-			index_t n = 0	///< [in] requested index
+			index_t n = 0	//!< [in] requested index
 			) const;
 
 
-	size_t	Length			///@return number of characters identified by descriptor
+	size_t	Length			//!@return number of characters identified by descriptor
 			(
 			void
 			) const;
@@ -151,20 +151,20 @@ public:
 	//!			is too small then false is returned and no data
 	//!			is copied.
 	//!
-	bool	CopyTo		///@return result of copy operation
+	bool	CopyTo		//!@return result of copy operation
 			(
-			T*		s,	///< [in] address of target buffer to fill
-			size_t	n	///< [in] size of target buffer
+			T*		s,	//!< [in] address of target buffer to fill
+			size_t	n	//!< [in] size of target buffer
 			) const;
 
 	//!	ConcatenateTo
 	//!
 	//!	@see CopyTo
 	//!
-	bool	ConcatenateTo	///@return result of concatenate operation
+	bool	ConcatenateTo	//!@return result of concatenate operation
 			(
-			T*		s,		///< [in] address of target buffer to append
-			size_t	n		///< [in] size of target buffer
+			T*		s,		//!< [in] address of target buffer to append
+			size_t	n		//!< [in] size of target buffer
 			) const;
 
 	//!	Compare
@@ -197,10 +197,10 @@ protected:
 
 //	protected functions  ------------------------------------------------
 
-	/// @return number of characters before null; -1 if no null found
+	//! @return number of characters before null; -1 if no null found
 	index_t		FindPossibleNull( size_t nMaxChars );
 
-	/// @return index of character or -1 if not found
+	//! @return index of character or -1 if not found
 	index_t		FindCharacter( const T* s, T ch, size_t nMaxChars ) const;
 
 	int			DiffCharacters( T t1, T t2 ) const;
@@ -208,7 +208,7 @@ protected:
 //	protected data  -----------------------------------------------------
 
 	T*			m_s;	//!< pointer to data
-	size_t		m_n;	//!< data count
+	size_t		m_n;	//!< data count (without null)
 
 private:
 //	private functions  --------------------------------------------------
@@ -282,8 +282,8 @@ TCharDescriptor< T >::TCharDescriptor
 		(
 		void
 		)
-		: m_s( 0 ),
-		m_n( 0 )
+		: m_s( 0 )
+		, m_n( 0 )
 {
 }
 
@@ -299,8 +299,8 @@ TCharDescriptor< T >::TCharDescriptor
 		(
 		const TCharDescriptor<T>&	r
 		)
-		: m_s( r.m_s ),
-		m_n( r.m_n )
+		: m_s( r.m_s )
+		, m_n( r.m_n )
 {
 }
 
@@ -315,8 +315,8 @@ TCharDescriptor< T >::TCharDescriptor
 		(
 		T*	s
 		)
-		: m_s( s ),
-		m_n( 0 )
+		: m_s( s )
+		, m_n( 0 )
 {
 	index_t	n = FindPossibleNull( 32000 );		// TODO: change to #define
 	if ( n < 0 )
@@ -337,8 +337,8 @@ TCharDescriptor< T >::TCharDescriptor
 		T*		s,
 		size_t	n
 		)
-		: m_s( s ),
-		m_n( n )
+		: m_s( s )
+		, m_n( n )
 {
 }
 

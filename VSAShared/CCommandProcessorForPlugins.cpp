@@ -82,11 +82,11 @@ CCommandProcessorForPlugins::CCommandProcessorForPlugins
 		(
 		void
 		)
-		: inherited(),
-		m_tCommands(),
-		m_pLibrary( 0 ),
-		m_pDictionary( 0 ),
-		m_pDictCommands( 0 )
+		: inherited()
+		, m_tCommands()
+		, m_pLibrary( 0 )
+		, m_pDictionary( 0 )
+		, m_pDictCommands( 0 )
 {
 }
 

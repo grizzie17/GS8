@@ -202,12 +202,12 @@ protected:
 	//int			m_nCX;		// width of buffer
 	//int			m_nCY;		// height of buffer
 
-	PenList			m_oPenList;
-	const CGDIPen*	m_pPen;
-	BrushList		m_oBrushList;
-	const CGDIBrush* m_pBrush;
-	FontList		m_oFontList;
-	const CGDIFont*	m_pFont;
+	PenList		m_oPenList;
+	CGDIPen*	m_pPen;
+	BrushList	m_oBrushList;
+	CGDIBrush*	m_pBrush;
+	FontList	m_oFontList;
+	CGDIFont*	m_pFont;
 	//HPEN		m_hPen;
 	//HPEN		m_hPenHalo;
 	//HBRUSH		m_hBrush;

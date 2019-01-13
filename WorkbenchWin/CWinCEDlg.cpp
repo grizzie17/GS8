@@ -58,6 +58,9 @@
 #	define CS_OWNDC		0
 #endif
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
+namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |
 |	Local Type Definitions
@@ -560,8 +563,8 @@ void CWinCEDlg::LazySetup
 	//bool	bDisplayDR = false;
 	//bool	bDoubleBackingstore = true;
 
-	CApplicationGaugeWorkbenchPtr	pApp;
-	pApp = new CApplicationGaugeWorkbench;
+	CApplicationGaugeWorkbenchWinPtr	pApp;
+	pApp = new CApplicationGaugeWorkbenchWin;
 	if ( pApp )
 	{
 		pApp->SetVPostCalculate( this );
@@ -1037,3 +1040,7 @@ void CWinCEDlg::OnSize
 ||	 Overrides
 ||
 \+=====================================================================*/
+
+
+
+}}

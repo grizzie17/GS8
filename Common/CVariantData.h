@@ -81,7 +81,7 @@ typedef const class CVariantData*	ConstCVariantDataPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CVariantData
+class CVariantData
 {
 //	class lifecycle  ----------------------------------------------------
 public:

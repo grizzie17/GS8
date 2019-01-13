@@ -241,7 +241,7 @@ XMLLite::VReadCallBack*
 		const char*	sArg
 		)
 {
-	CCharDescriptor	tArg( sArg );
+	const CCharDescriptor	tArg( sArg );
 
 	return GetCallBack( tArg );
 }
@@ -264,7 +264,7 @@ XMLLite::VReadCallBack*
 			++s;
 			size_t	n;
 
-			char*	sSpace = ::strchr( (char*)s, ' ' );
+			char*	sSpace = ::strchr( s, ' ' );
 			if ( sSpace )
 			{
 				n = static_cast<size_t>(sSpace - s);

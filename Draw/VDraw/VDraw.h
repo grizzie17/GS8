@@ -104,7 +104,7 @@ typedef const class VXDraw&	ConstVDrawRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VXDraw : public VPluginWithAggregate,
+class VXDraw : public VPluginWithAggregate,
 				implements_ IDraw
 {
 //	class lifecycle  ----------------------------------------------------
@@ -366,12 +366,13 @@ protected:
 	virtual CMatrix3x3
 			InitialMatrix( void );
 
+	//! pass a point(x,y) through the active transformation matrix
 	void	TransformPoint
 			(
-			GFLOAT&	rfXOut,
-			GFLOAT&	rfYOut,
-			GFLOAT	fXIn,
-			GFLOAT	fYIn
+			GFLOAT&	rfXOut,	//!< [out] x transformed coordinate
+			GFLOAT&	rfYOut,	//!< [out] y transformed coordinate
+			GFLOAT	fXIn,	//!< [in] x coordinate
+			GFLOAT	fYIn	//!< [in] y coordinate
 			);
 
 	float	TransformLength

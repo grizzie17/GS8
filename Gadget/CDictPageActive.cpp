@@ -929,7 +929,7 @@ bool	CDictPageActiveDatumEnum::AddItem
 		)
 {
 	CVariantData v;
-	v = CCharDescriptor( s );
+	v = CCharDescriptor( (char*)s );
 	v.SetUnits( m_nEnumUnits );
 	m_aList.AppendData( &v );
 	return true;

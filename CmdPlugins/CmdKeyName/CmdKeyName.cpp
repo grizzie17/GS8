@@ -35,6 +35,8 @@
 
 #include "VPluginFactory.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -81,12 +83,12 @@ CmdKeyName::CmdKeyName
 		(
 		void
 		)
-		: VPluginCommand(),
-		m_pDictionary( 0 ),
-		m_nCmdKeyName( 0 ),
-		m_nDictKeyCode( 0 ),
-		m_nDictKeyName( 0 ),
-		m_aKeys()
+		: VPluginCommand()
+		, m_pDictionary( 0 )
+		, m_nCmdKeyName( 0 )
+		, m_nDictKeyCode( 0 )
+		, m_nDictKeyName( 0 )
+		, m_aKeys()
 {
 }
 
@@ -94,12 +96,12 @@ CmdKeyName::CmdKeyName
 		(
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( pOwner ),
-		m_pDictionary( 0 ),
-		m_nCmdKeyName( 0 ),
-		m_nDictKeyCode( 0 ),
-		m_nDictKeyName( 0 ),
-		m_aKeys()
+		: VPluginCommand( pOwner )
+		, m_pDictionary( 0 )
+		, m_nCmdKeyName( 0 )
+		, m_nDictKeyCode( 0 )
+		, m_nDictKeyName( 0 )
+		, m_aKeys()
 {
 }
 
@@ -108,12 +110,12 @@ CmdKeyName::CmdKeyName
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( sName, pOwner ),
-		m_pDictionary( 0 ),
-		m_nCmdKeyName( 0 ),
-		m_nDictKeyCode( 0 ),
-		m_nDictKeyName( 0 ),
-		m_aKeys()
+		: VPluginCommand( sName, pOwner )
+		, m_pDictionary( 0 )
+		, m_nCmdKeyName( 0 )
+		, m_nDictKeyCode( 0 )
+		, m_nDictKeyName( 0 )
+		, m_aKeys()
 {
 }
 
@@ -203,8 +205,8 @@ bool	CmdKeyName::ProcessRequest
 {
 	bool	bResult = true;
 
-	CVariantData	v;
-	CVariantData*	pv;
+	CVariantData		v;
+	const CVariantData*	pv;
 	pv = m_pDictionary->GetData( m_nDictKeyCode );
 	if ( pv )
 	{

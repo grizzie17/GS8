@@ -108,7 +108,7 @@ INT WINAPI
 	MSG		msg = {0};
 
 
-	DbgPrint( "Starting Application ...\n" );
+	Yogi::Core::DbgPrint( "Starting Application ...\n" );
 
 	try
 	{
@@ -124,7 +124,7 @@ INT WINAPI
 		// This determines if we're allowed to run and instantiates the VTWin32Dlg app.
 		if (!g_pApplication->InitInstance(hInstance, TEXT(APPLICATION_NAME))) 
 		{
-			DbgPrint( "Application did not initialize\n" );
+			Yogi::Core::DbgPrint( "Application did not initialize\n" );
 			return 1;
 		}
 

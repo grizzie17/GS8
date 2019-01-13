@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------+\
 |
-|	CApplicationGaugeWorkbench.cpp  --  brief description of what CApplicationGaugeWorkbench.cpp is for
+|	CApplicationGaugeWorkbenchWin.cpp  --  brief description of what CApplicationGaugeWorkbench.cpp is for
 |
 |	Purpose:
 |
@@ -39,7 +39,7 @@
 \+---------------------------------------------------------------------*/
 #include "stdafx.h"
 
-#include "CApplicationGaugeWorkbench.h"
+#include "CApplicationGaugeWorkbenchWin.h"
 
 #if defined( OS_MSWIN )
 #include "CDictionary.h"
@@ -88,7 +88,7 @@ namespace Yogi { namespace Gadget {
  * CApplicationGaugeWorkbench - constructor
 
 \+---------------------------------------------------------------------*/
-CApplicationGaugeWorkbench::CApplicationGaugeWorkbench
+CApplicationGaugeWorkbenchWin::CApplicationGaugeWorkbenchWin
 		(
 		void
 		)
@@ -102,7 +102,7 @@ CApplicationGaugeWorkbench::CApplicationGaugeWorkbench
  * ~CApplicationGaugeWorkbench - destructor
 
 \+---------------------------------------------------------------------*/
-CApplicationGaugeWorkbench::~CApplicationGaugeWorkbench
+CApplicationGaugeWorkbenchWin::~CApplicationGaugeWorkbenchWin
 		(
 		void
 		)
@@ -113,15 +113,32 @@ CApplicationGaugeWorkbench::~CApplicationGaugeWorkbench
 ||	 public member functions											|
 \+=====================================================================*/
 
+/**--------------------------------------------------------------------+\
+
+ * <summary>SetCView - brief statement</summary>
+
+ * <remarks/>
+
+ * (author)J.Griswold  --  26-Jun-2010
+
+\+---------------------------------------------------------------------*/
+// void	CApplicationGaugeWorkbenchWin::SetCView
+// 		(
+// 		CView*	p
+// 		)
+// {
+// 	m_pCView = p;
+// }
+
 
 
 
 /*---------------------------------------------------------------------+\
 
- * SetCView -
+ * SetVPostCalculate -
 
 \+---------------------------------------------------------------------*/
-void	CApplicationGaugeWorkbench::SetVPostCalculate
+void	CApplicationGaugeWorkbenchWin::SetVPostCalculate
 		(
 		VPostCalculate*	p
 		)
@@ -136,7 +153,7 @@ void	CApplicationGaugeWorkbench::SetVPostCalculate
  * SetConfiguration -
 
 \+---------------------------------------------------------------------*/
-void	CApplicationGaugeWorkbench::SetConfiguration
+void	CApplicationGaugeWorkbenchWin::SetConfiguration
 		(
 		VConfigurationPtr	p
 		)
@@ -168,7 +185,7 @@ void	CApplicationGaugeWorkbench::SetConfiguration
  * WindowTitle -
 
 \+---------------------------------------------------------------------*/
-bool	CApplicationGaugeWorkbench::WindowTitle
+bool	CApplicationGaugeWorkbenchWin::WindowTitle
 		(
 		ConstCCharDescriptorRef rChar
 		)
@@ -191,7 +208,7 @@ bool	CApplicationGaugeWorkbench::WindowTitle
  * PostCalculateNeeded -
 
 \+---------------------------------------------------------------------*/
-bool	CApplicationGaugeWorkbench::PostCalculateNeeded
+bool	CApplicationGaugeWorkbenchWin::PostCalculateNeeded
 		(
 		void
 		)
@@ -210,7 +227,7 @@ bool	CApplicationGaugeWorkbench::PostCalculateNeeded
 
 \+---------------------------------------------------------------------*/
 VConfigurationPtr
-		CApplicationGaugeWorkbench::MakeConfiguration
+		CApplicationGaugeWorkbenchWin::MakeConfiguration
 		(
 		void
 		)
@@ -220,8 +237,7 @@ VConfigurationPtr
 	factory.SetRelativePath( "dictionary" );
 	VConfigurationPtr	pConfig = factory.Make( sName.Pointer() );
 
-	CCharString		sOS = OS_NAME;
-	CVariantData	v = sOS;
+	CVariantData	v(OS_NAME);
 	pConfig->AddEntry( "OS", v );
 
 	return pConfig;

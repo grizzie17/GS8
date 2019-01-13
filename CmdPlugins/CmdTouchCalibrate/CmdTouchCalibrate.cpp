@@ -41,6 +41,9 @@
 
 #include "VPluginFactory.h"
 
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -87,25 +90,25 @@ CmdTouchCalibrate::CmdTouchCalibrate
 		(
 		void
 		)
-		: VPluginCommand(),
-		m_pDictionary( 0 ),
-		m_nCmdInstall( 0 ),
-		m_nCmdCalibrate( 0 ),
-		m_nCmdStart( 0 ),
-		m_nCmdPoint( 0 ),
-		m_nCmdTimeout( 0 ),
-		m_nUPointX( 0 ),
-		m_nUPointY( 0 ),
-		m_nUScreenX( 0 ),
-		m_nUScreenY( 0 ),
-		m_nUPanel( 0 ),
-		m_vUPanel(),
-		m_nUPrompt( 0 ),
-		m_tMatrix(),
-		m_sFilePath(),
-		m_sFilename(),
-		m_fTolerance( 20.0f ),
-		m_nCount( 0 )
+		: VPluginCommand()
+		, m_pDictionary( 0 )
+		, m_nCmdInstall( 0 )
+		, m_nCmdCalibrate( 0 )
+		, m_nCmdStart( 0 )
+		, m_nCmdPoint( 0 )
+		, m_nCmdTimeout( 0 )
+		, m_nUPointX( 0 )
+		, m_nUPointY( 0 )
+		, m_nUScreenX( 0 )
+		, m_nUScreenY( 0 )
+		, m_nUPanel( 0 )
+		, m_vUPanel()
+		, m_nUPrompt( 0 )
+		, m_tMatrix()
+		, m_sFilePath()
+		, m_sFilename()
+		, m_fTolerance( 20.0f )
+		, m_nCount( 0 )
 {
 }
 
@@ -113,25 +116,25 @@ CmdTouchCalibrate::CmdTouchCalibrate
 		(
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( pOwner ),
-		m_pDictionary( 0 ),
-		m_nCmdInstall( 0 ),
-		m_nCmdCalibrate( 0 ),
-		m_nCmdStart( 0 ),
-		m_nCmdPoint( 0 ),
-		m_nCmdTimeout( 0 ),
-		m_nUPointX( 0 ),
-		m_nUPointY( 0 ),
-		m_nUScreenX( 0 ),
-		m_nUScreenY( 0 ),
-		m_nUPanel( 0 ),
-		m_vUPanel(),
-		m_nUPrompt( 0 ),
-		m_tMatrix(),
-		m_sFilePath(),
-		m_sFilename(),
-		m_fTolerance( 20.0f ),
-		m_nCount( 0 )
+		: VPluginCommand( pOwner )
+		, m_pDictionary( 0 )
+		, m_nCmdInstall( 0 )
+		, m_nCmdCalibrate( 0 )
+		, m_nCmdStart( 0 )
+		, m_nCmdPoint( 0 )
+		, m_nCmdTimeout( 0 )
+		, m_nUPointX( 0 )
+		, m_nUPointY( 0 )
+		, m_nUScreenX( 0 )
+		, m_nUScreenY( 0 )
+		, m_nUPanel( 0 )
+		, m_vUPanel()
+		, m_nUPrompt( 0 )
+		, m_tMatrix()
+		, m_sFilePath()
+		, m_sFilename()
+		, m_fTolerance( 20.0f )
+		, m_nCount( 0 )
 {
 }
 
@@ -140,25 +143,25 @@ CmdTouchCalibrate::CmdTouchCalibrate
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VPluginCommand( sName, pOwner ),
-		m_pDictionary( 0 ),
-		m_nCmdInstall( 0 ),
-		m_nCmdCalibrate( 0 ),
-		m_nCmdStart( 0 ),
-		m_nCmdPoint( 0 ),
-		m_nCmdTimeout( 0 ),
-		m_nUPointX( 0 ),
-		m_nUPointY( 0 ),
-		m_nUScreenX( 0 ),
-		m_nUScreenY( 0 ),
-		m_nUPanel( 0 ),
-		m_vUPanel(),
-		m_nUPrompt( 0 ),
-		m_tMatrix(),
-		m_sFilePath(),
-		m_sFilename(),
-		m_fTolerance( 20.0f ),
-		m_nCount( 0 )
+		: VPluginCommand( sName, pOwner )
+		, m_pDictionary( 0 )
+		, m_nCmdInstall( 0 )
+		, m_nCmdCalibrate( 0 )
+		, m_nCmdStart( 0 )
+		, m_nCmdPoint( 0 )
+		, m_nCmdTimeout( 0 )
+		, m_nUPointX( 0 )
+		, m_nUPointY( 0 )
+		, m_nUScreenX( 0 )
+		, m_nUScreenY( 0 )
+		, m_nUPanel( 0 )
+		, m_vUPanel()
+		, m_nUPrompt( 0 )
+		, m_tMatrix()
+		, m_sFilePath()
+		, m_sFilename()
+		, m_fTolerance( 20.0f )
+		, m_nCount( 0 )
 {
 }
 

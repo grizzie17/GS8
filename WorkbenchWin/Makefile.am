@@ -11,26 +11,40 @@ AM_CPPFLAGS += \
 bin_PROGRAMS = workbench
 
 workbench_SOURCES = \
-		CApplicationGaugeWorkbench.cpp \
+		CApplicationGaugeWorkbenchWin.cpp \
 		CWinCEApp.cpp \
 		CWinCEDlg.cpp \
 		winmain.cpp
 workbench_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 workbench_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 workbench_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
-		-L$(top_builddir)/Platform \
-		-L$(top_builddir)/Common \
-		-L$(top_builddir)/Gadget \
-		-L$(top_builddir)/Draw/VDraw \
-		-L$(top_builddir)/VSAShared \
-		-L$(top_builddir)/WorkbenchShared \
 		-Wl,--whole-archive \
-		-lvsashared.a \
-		-lworkbenchshared.a \
-		-Wl,--no-whole-archive
+		$(top_builddir)/WorkbenchShared/libworkbenchshared.la \
+		$(top_builddir)/VSAShared/libvsashared.a \
+		-Wl,--no-whole-archive \
+		$(top_builddir)/Gadget/libgadget.la \
+		$(top_builddir)/Common/libcommon.la \
+		$(top_builddir)/Platform/libplatform.la
+if OS_MSYS
 workbench_LDADD = \
-		-lcommon.la \
-		-lplatform.la \
-		-lpthreads \
-		-ldl \
+		-lkernel32 \
+		-luser32 \
+		-lgdi32 \
+		-lwinspool \
+		-lcomdlg32 \
+		-ladvapi32 \
+		-lshell32 \
+		-lole32 \
+		-loeaut32 \
+		-luuid \
+		-lodbc32 \
+		-lodbccp32
+		-lstdc++ \
 		-lc
+endif
+workbench_DEPENDENCIES = \
+		$(top_builddir)/WorkbenchShared/libworkbenchshared.a \
+		$(top_builddir)/VSAShared/libvsashared.a \
+		$(top_builddir)/Gadget/libgadget.la \
+		$(top_builddir)/Common/libcommon.la \
+		$(top_builddir)/Platform/libplatform.la

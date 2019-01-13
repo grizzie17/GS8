@@ -60,8 +60,8 @@ class CmdCopyToD : public VPluginCommand
 //	class lifecycle  ----------------------------------------------------
 public:
 					CmdCopyToD();
-					CmdCopyToD( ISupportsPtr pOwner );
-					CmdCopyToD( const char* sName, ISupportsPtr pOwner );
+					CmdCopyToD( Yogi::Common::ISupportsPtr pOwner );
+					CmdCopyToD( const char* sName, Yogi::Common::ISupportsPtr pOwner );
 protected:
 	virtual			~CmdCopyToD();
 
@@ -78,8 +78,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	THashTable<CCharString, CVariantData>	m_aList;
-	THashTable<VDictionary::Selector, long>	m_aCommands;
+	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::CVariantData>	m_aList;
+	Yogi::Common::THashTable<VDictionary::Selector, long>	m_aCommands;
 
 
 private:
@@ -101,15 +101,15 @@ public:
 	bool	ProcessRequest
 			(
 			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr		pLib
 			);
 
 

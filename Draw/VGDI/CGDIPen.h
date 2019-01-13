@@ -83,7 +83,7 @@ public:
 			return *this;
 		};
 
-		bool	operator == ( const Parameters& r )
+		bool	operator == ( const Parameters& r ) const
 		{
 			if ( oColor != r.oColor )
 				return false;

@@ -39,6 +39,9 @@
 #include "IDictionaryUser.h"
 
 #include "VPluginFactory.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -96,8 +99,8 @@ public:
 		char*	s,
 		long	n
 		)
-		: m_pMsg( s ),
-		m_nMsgLen( (size_t)n )
+		: m_pMsg( s )
+		, m_nMsgLen( (size_t)n )
 	{}
 
 	virtual
@@ -167,12 +170,12 @@ CmdVehicleDataLoader::CmdVehicleDataLoader
 		(
 		void
 		)
-		: inherited(),
-		m_pFactory( 0 ),
-		m_sServiceName(),
-		m_pIActiveXML( 0 ),
-		m_nSequence( -1 ),
-		m_nLastNotify( 0 )
+		: inherited()
+		, m_pFactory( 0 )
+		, m_sServiceName()
+		, m_pIActiveXML( 0 )
+		, m_nSequence( -1 )
+		, m_nLastNotify( 0 )
 {
 }
 
@@ -180,12 +183,12 @@ CmdVehicleDataLoader::CmdVehicleDataLoader
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_pFactory( 0 ),
-		m_sServiceName(),
-		m_pIActiveXML( 0 ),
-		m_nSequence( -1 ),
-		m_nLastNotify( 0 )
+		: inherited( pOwner )
+		, m_pFactory( 0 )
+		, m_sServiceName()
+		, m_pIActiveXML( 0 )
+		, m_nSequence( -1 )
+		, m_nLastNotify( 0 )
 {
 }
 
@@ -194,12 +197,12 @@ CmdVehicleDataLoader::CmdVehicleDataLoader
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_pFactory( 0 ),
-		m_sServiceName(),
-		m_pIActiveXML( 0 ),
-		m_nSequence( -1 ),
-		m_nLastNotify( 0 )
+		: inherited( sName, pOwner )
+		, m_pFactory( 0 )
+		, m_sServiceName()
+		, m_pIActiveXML( 0 )
+		, m_nSequence( -1 )
+		, m_nLastNotify( 0 )
 {
 }
 
