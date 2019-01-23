@@ -264,16 +264,15 @@ bool	CCmdCameraSelector::ProcessRequest
 	long			button = vData;
 	CCharString		sVideoFeed;
 
-	CVariantDataPtr	pv;
-	CVariantData	v;
+	ConstCVariantDataPtr	pv;
+	CVariantData			v;
 	VDictionary::Selector	sel = 0;
 	long			nPage;
 
 	long			nNewCam = 0;
 	ConstCVariantDataPtr	pvNewCam = 0;
 
-	const CDictPageSelector*	pPSel;
-	pPSel = m_aTransitions.Find( button );
+	CDictPageSelectorPtr	pPSel = (CDictPageSelectorPtr)m_aTransitions.Find( button );
 	if ( pPSel )
 	{
 		LOCAL_PRINT("CCmdCameraSelector::Button found\n");

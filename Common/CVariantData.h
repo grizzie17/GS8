@@ -134,17 +134,17 @@ public:
 //	public functions  ---------------------------------------------------
 
 
-	CVariantDataRef	operator=( ConstCVariantDataRef r );		// assignment
-	CVariantDataRef	operator=( Yogi::Core::ConstCCharDescriptorRef r );
-	CVariantDataRef	operator=( Yogi::Core::ConstCCharStringRef r );
+	ConstCVariantDataRef	operator=( ConstCVariantDataRef r );		// assignment
+	ConstCVariantDataRef	operator=( Yogi::Core::ConstCCharDescriptorRef r );
+	ConstCVariantDataRef	operator=( Yogi::Core::ConstCCharStringRef r );
 
-	CVariantDataRef operator=( const double fData );
-	CVariantDataRef operator=( const GFLOAT fData );
-	CVariantDataRef	operator=( const bool bData );
-	CVariantDataRef	operator=( const long nData );
-	CVariantDataRef operator=( const char* sData );
-	CVariantDataRef	operator=( Yogi::Core::ConstCColorRef r );
-	CVariantDataRef	operator=( Yogi::Core::ConstCDateTimeRef r );
+	ConstCVariantDataRef	operator=( double fData );
+	ConstCVariantDataRef	operator=( GFLOAT fData );
+	ConstCVariantDataRef	operator=( bool bData );
+	ConstCVariantDataRef	operator=( long nData );
+	ConstCVariantDataRef	operator=( const char* sData );
+	ConstCVariantDataRef	operator=( Yogi::Core::ConstCColorRef r );
+	ConstCVariantDataRef	operator=( Yogi::Core::ConstCDateTimeRef r );
 
 	bool			operator==( ConstCVariantDataRef r ) const;
 	bool			operator==( Yogi::Core::ConstCCharStringRef r ) const;
@@ -189,7 +189,7 @@ public:
 	// operator double( void ) const;
 	operator Yogi::Core::CCharString( void ) const;
 	// //operator const CCharString* ( void );
-	operator const char*( void ) const;
+	// operator const char*( void ) const;
 	operator Yogi::Core::CColor( void ) const;
 	operator Yogi::Core::CDateTime( void ) const;
 
@@ -823,14 +823,14 @@ bool	CVariantData::operator <
 // }
 
 
-inline
-CVariantData::operator const char *
-		(
-		void
-		) const
-{
-	return GetValueString();
-}
+// inline
+// CVariantData::operator const char *
+// 		(
+// 		void
+// 		) const
+// {
+// 	return GetValueString();
+// }
 
 
 // inline

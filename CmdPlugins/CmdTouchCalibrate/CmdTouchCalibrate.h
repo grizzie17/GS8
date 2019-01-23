@@ -146,7 +146,7 @@ protected:
 	VDictionary::Selector	m_nUScreenX;
 	VDictionary::Selector	m_nUScreenY;
 	VDictionary::Selector	m_nUPanel;
-	Yogi::Common::CVariantData			m_vUPanel;
+	Yogi::Common::CVariantData	m_vUPanel;
 	VDictionary::Selector	m_nUPhase;
 	VDictionary::Selector	m_nUPrompt;
 

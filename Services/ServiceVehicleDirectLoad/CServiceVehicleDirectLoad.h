@@ -92,19 +92,22 @@ public:
 	//	IVehicleDataSample
 
 	virtual
-	NResult	StartDataFlow
+	Yogi::Core::NResult
+			StartDataFlow
 			(
 			void
 			);
 
 	virtual
-	NResult	StopDataFlow
+	Yogi::Core::NResult
+			StopDataFlow
 			(
 			void
 			);
 
 	virtual
-	NResult	ToggleDataFlow
+	Yogi::Core::NResult
+			ToggleDataFlow
 			(
 			void
 			);
@@ -112,7 +115,8 @@ public:
 
 	//	IActiveXML
 	virtual
-	NResult	RegisterXMLClient
+	Yogi::Core::NResult
+			RegisterXMLClient
 			(
 			IActiveXMLClientPtr	p
 			);
@@ -152,19 +156,19 @@ protected:
 		char*	pBuffer;
 
 		DBuf()
-			: nUsers(0),
-			nSequence(0),
-			nAlloc(0),
-			nSize(0),
-			pBuffer(0)
+			: nUsers(0)
+			, nSequence(0)
+			, nAlloc(0)
+			, nSize(0)
+			, pBuffer(0)
 		{};
 
 		DBuf( const DBuf& r )
-			: nUsers(r.nUsers),
-			nSequence(r.nSequence),
-			nAlloc(r.nAlloc),
-			nSize(r.nSize),
-			pBuffer(r.pBuffer)
+			: nUsers(r.nUsers)
+			, nSequence(r.nSequence)
+			, nAlloc(r.nAlloc)
+			, nSize(r.nSize)
+			, pBuffer(r.pBuffer)
 		{
 		};
 
@@ -178,7 +182,7 @@ protected:
 
 	typedef struct NPage
 	{
-		CCharString	sID;
+		Yogi::Core::CCharString	sID;
 		GFLOAT		fFrequency;
 		GFLOAT		fDuration;
 
@@ -203,15 +207,15 @@ protected:
 
 	typedef struct APage
 	{
-		CVariantData::V_TYPE	eType;
-		CCharString	sKey;
+		Yogi::Common::CVariantData::V_TYPE	eType;
+		Yogi::Core::CCharString				sKey;
 		long		nWave;
 		GFLOAT		fFreq;
 		GFLOAT		fHigh;
 		GFLOAT		fLow;
 
 		APage()
-			: eType( CVariantData::T_INTEGER )
+			: eType( Yogi::Common::CVariantData::T_INTEGER )
 			, sKey()
 			, nWave(2)
 			, fFreq(10.0f)
@@ -236,13 +240,15 @@ protected:
 //	protected functions  ------------------------------------------------
 
 	virtual
-	NResult	LocalStart
+	Yogi::Core::NResult
+			LocalStart
 			(
 			void
 			);
 
 	virtual
-	NResult	LocalStop
+	Yogi::Core::NResult
+			LocalStop
 			(
 			void
 			);
@@ -309,16 +315,16 @@ protected:
 
 	VDictionaryPtr			m_pDictionary;
 
-	TArray<APage>			m_aAPage;
-	TArray<NPage>			m_aNPage;
+	Yogi::Core::TArray<APage>	m_aAPage;
+	Yogi::Core::TArray<NPage>	m_aNPage;
 
-	CMutex					m_oMutex;
+	Yogi::Core::CMutex			m_oMutex;
 	long					m_nFrequency;	// milliseconds
 
 	UThreadHdl				m_hThread;
 
-	TArray<IActiveXMLClientPtr>	m_aClients;
-	TArray<DBuf>			m_aBuffers;
+	Yogi::Core::TArray<IActiveXMLClientPtr>	m_aClients;
+	Yogi::Core::TArray<DBuf>			m_aBuffers;
 
 
 	char					m_sData[1024*4];
@@ -358,7 +364,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 public:
@@ -366,20 +372,22 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 	//	IService
 public:
 	virtual
-	NResult	Start
+	Yogi::Core::NResult
+			Start
 			(
 			void
 			);
 
 	virtual
-	NResult	Stop
+	Yogi::Core::NResult
+			Stop
 			(
 			void
 			);

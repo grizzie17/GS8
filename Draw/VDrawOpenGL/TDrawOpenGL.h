@@ -145,7 +145,7 @@ protected:
 	//HGLRC	m_hRC;
 
 	//RECT	m_tUpdateRect;
-	CColor	m_clrNone;
+	Yogi::Core::CColor	m_clrNone;
 
 	GLuint	m_nFboApplication;
 	GLuint	m_nFboBackground;
@@ -154,7 +154,7 @@ protected:
 	//THashTable< CCharString, CBitmapFont* >	m_tFontTable;
 	//CBitmapFont*	m_pFont;
 
-	TArray<XVert>	m_aVertexList;
+	Yogi::Core::TArray<XVert>	m_aVertexList;
 	int				m_nGLMode;
 
 
@@ -217,9 +217,9 @@ public:
 
 
 	virtual bool	LineWidth( short nWidth );
-	virtual bool	LineColor( CColorRef rColor );
-	virtual bool	FillColor( CColorRef rColor );
-	virtual bool	HaloColor( CColorRef rColor );
+	virtual bool	LineColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	FillColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	HaloColor( Yogi::Core::ConstCColorRef rColor );
 
 	virtual bool	FontParams( const char* sFontName, GFLOAT fFontHeight );
 

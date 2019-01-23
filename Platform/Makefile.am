@@ -17,6 +17,7 @@ libplatform_la_SOURCES = \
 		CSemaphore.cpp \
 		CSerial.cpp \
 		CSignal.cpp \
+		CSocket.cpp \
 		fixed_t.cpp \
 		LogFile.cpp \
 		stdio_sx.cpp \
@@ -30,7 +31,7 @@ libplatform_la_SOURCES = \
 libplatform_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libplatform_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) -DSHLIB_PLATFORM
 libplatform_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED)
-libplatform_la_LIBADD = -lpthread -lstdc++ -lc
+libplatform_la_LIBADD = -lWs2_32 -lpthread -lstdc++ -lc
 
 
 

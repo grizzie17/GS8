@@ -33,10 +33,11 @@ AC_PROG_MAKE_SET
 AC_PROG_SED
 
 AM_COND_IF([OS_MSYS], [ 
-LT_INIT([shared,pic-only,win32-dll])
+	LT_INIT([shared,pic-only,win32-dll])
 ])
+
 AM_COND_IF([OS_LINUX], [
-LT_INIT([shared,pic-only])
+	LT_INIT([shared,pic-only])
 ])
 
 # CFLAGS="$EXTERNAL_CFLAGS"
@@ -99,7 +100,7 @@ AM_COND_IF([OS_LINUX], [
 # AC_TYPE_INT32_T
 # AC_TYPE_INT64_T
 # AC_TYPE_INT8_T
-# AC_TYPE_SIZE_T
+AC_TYPE_SIZE_T
 # AC_TYPE_UINT16_T
 # AC_TYPE_UINT32_T
 # AC_TYPE_UINT64_T
@@ -190,12 +191,23 @@ AM_COND_IF([OS_MSYS],
 		WorkbenchWin/Makefile])
 )
 AM_COND_IF([OS_LINUX],
-	AC_CONFIG_FILES(							[Draw/VDrawOpenGL/Makefile
+	AC_CONFIG_FILES([Draw/VDrawOpenGL/Makefile
 		Draw/CDrawOpenGL/Makefile
 		WorkbenchGLUT/Makefile])
 )
 AC_CONFIG_FILES(
-	[CmdPlugins/CmdConstant/Makefile]
+	[Services/ServiceVehicleDataSample/Makefile
+	Services/ServiceVehicleDirectLoad/Makefile
+	CmdPlugins/CmdCameraSelector/Makefile
+	CmdPlugins/CmdConstant/Makefile
+	CmdPlugins/CmdConstantD/Makefile
+	CmdPlugins/CmdCopyToD/Makefile
+	CmdPlugins/CmdKeyName/Makefile
+	CmdPlugins/CmdReturnTrue/Makefile
+	CmdPlugins/CmdTouchCalibrate/Makefile
+	CmdPlugins/CmdVehicleDataLoader/Makefile
+	CmdPlugins/CmdVehicleDataSample/Makefile
+	]
 )
 AC_CONFIG_FILES(
 	[Makefile]

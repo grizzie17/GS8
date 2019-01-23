@@ -307,7 +307,7 @@ CVariantData::~CVariantData
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
 		ConstCVariantDataRef	r
@@ -329,7 +329,7 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
 		ConstCCharDescriptorRef r
@@ -345,7 +345,7 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
 		ConstCCharStringRef r
@@ -361,10 +361,10 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
-		const bool b
+		bool b
 		)
 {
 	PrepareLoad( T_BOOL );
@@ -381,10 +381,10 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
-		const long n
+		long n
 		)
 {
 	PrepareLoad( T_INTEGER );
@@ -399,10 +399,10 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
-		const double fData
+		double fData
 		)
 {
 	PrepareLoad( T_FLOAT );
@@ -418,10 +418,10 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
-		const GFLOAT f
+		GFLOAT f
 		)
 {
 	PrepareLoad( T_FLOAT );
@@ -436,7 +436,7 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
 		const char*	s
@@ -451,7 +451,7 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
 		ConstCColorRef	r
@@ -471,7 +471,7 @@ CVariantDataRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-CVariantDataRef
+ConstCVariantDataRef
 		CVariantData::operator =
 		(
 		ConstCDateTimeRef	r

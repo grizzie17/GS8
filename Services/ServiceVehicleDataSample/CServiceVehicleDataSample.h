@@ -27,17 +27,18 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
+#include "CSocket.h"
 #include "VPluginService.h"
 
 #include "IDictionaryUser.h"
 #include "IVehicleDataSample.h"
 
-#include "CSocket.h"
 #include "CCharString.h"
 #include "CCharStringHash.h"
 #include "CVariantData.h"
 #include "VDictionary.h"
 #include "CMutex.h"
+#include "UPlatformThreads.h"
 
 #include "CDateTime.h"
 //#include <sys/timeb.h>
@@ -92,19 +93,22 @@ public:
 	//	IVehicleDataSample
 
 	virtual
-	NResult	StartDataFlow
+	Yogi::Core::NResult
+			StartDataFlow
 			(
 			void
 			);
 
 	virtual
-	NResult	StopDataFlow
+	Yogi::Core::NResult
+			StopDataFlow
 			(
 			void
 			);
 
 	virtual
-	NResult	ToggleDataFlow
+	Yogi::Core::NResult
+			ToggleDataFlow
 			(
 			void
 			);
@@ -123,13 +127,15 @@ protected:
 
 
 	virtual
-	NResult	LocalStart
+	Yogi::Core::NResult
+			LocalStart
 			(
 			void
 			);
 
 	virtual
-	NResult	LocalStop
+	Yogi::Core::NResult
+			LocalStop
 			(
 			void
 			);
@@ -157,11 +163,11 @@ protected:
 
 	VDictionaryPtr			m_pDictionary;
 
-	CSocketUDPPtr			m_pSocket;		// multicast socket
-	CCharString				m_sMCAddress;
+	Yogi::Core::CSocketUDPPtr	m_pSocket;		// multicast socket
+	Yogi::Core::CCharString	m_sMCAddress;
 	long					m_nMCPort;
 
-	UThreadHdl				m_hThread;
+	::UThreadHdl			m_hThread;
 
 	long					m_nFrequency;	// milliseconds
 
@@ -169,7 +175,7 @@ protected:
 
 	long					m_nMilliStart;
 	long					m_nMilli;
-	CDateTime				m_oTime;
+	Yogi::Core::CDateTime	m_oTime;
 	//timeb					m_tTimeb;
 	//struct tm				m_tTm;
 
@@ -191,7 +197,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(
-			ConstIXIDRef	rIID
+			Yogi::Common::ConstIXIDRef	rIID
 			);
 
 public:
@@ -199,20 +205,22 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr pConfig,
-			VPluginLibraryPtr pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 public:
 	//	IService
 	virtual
-	NResult	Start
+	Yogi::Core::NResult
+			Start
 			(
 			void
 			);
 
 	virtual
-	NResult	Stop
+	Yogi::Core::NResult
+			Stop
 			(
 			void
 			);

@@ -4,7 +4,7 @@ AM_CPPFLAGS += \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Draw/VDraw \
 		-I$(top_srcdir)/VSAShared
-AM_CXXFLAGS += -fPIC
+#AM_CXXFLAGS += -fPIC
 
 
 

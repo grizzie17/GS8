@@ -10,6 +10,18 @@ SUBDIRS = \
 	VSAShared \
 	WorkbenchShared \
 	$(EXTSUBDIRS) \
-	CmdPlugins/CmdConstant
+	\
+	Services/ServiceVehicleDataSample \
+	Services/ServiceVehicleDirectLoad \
+	\
+	CmdPlugins/CmdCameraSelector \
+	CmdPlugins/CmdConstant \
+	CmdPlugins/CmdConstantD \
+	CmdPlugins/CmdCopyToD \
+	CmdPlugins/CmdKeyName \
+	CmdPlugins/CmdReturnTrue \
+	CmdPlugins/CmdTouchCalibrate \
+	CmdPlugins/CmdVehicleDataLoader \
+	CmdPlugins/CmdVehicleDataSample
 
 

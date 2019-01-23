@@ -26,12 +26,12 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
+#include "CServiceVehicleDataSample.h"
 #include "LogFile.h"
 #include "UPlatform.h"
 #include "UPlatformTime.h"
 #include "UPlatformThreads.h"
 #include "UPlatformString.h"
-#include "CServiceVehicleDataSample.h"
 #include "VPluginFactory.h"
 #include "UNResult.h"
 

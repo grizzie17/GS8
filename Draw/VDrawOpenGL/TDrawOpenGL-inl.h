@@ -107,7 +107,7 @@ TDrawOpenGL::TDrawOpenGL
 {
 	FontInitialize();
 
-	m_clrNone = CColor::ColorFromName( "background" );
+	m_clrNone = Yogi::Core::CColor::ColorFromName( "background" );
 }
 
 
@@ -120,7 +120,7 @@ TDrawOpenGL::TDrawOpenGL
 {
 	FontInitialize();
 
-	m_clrNone = CColor::ColorFromName( "background" );
+	m_clrNone = Yogi::Core::CColor::ColorFromName( "background" );
 }
 
 
@@ -135,7 +135,7 @@ TDrawOpenGL::TDrawOpenGL
 {
 	FontInitialize();
 
-	m_clrNone = CColor::ColorFromName( "background" );
+	m_clrNone = Yogi::Core::CColor::ColorFromName( "background" );
 
 }
 
@@ -236,7 +236,7 @@ bool	TDrawOpenGL::begin
 
 		if ((err = glGetError()) != GL_NO_ERROR)
 		{
-			LogPrint("%s: Error : %d\n", __FUNCTION__, err);
+			Yogi::Core::LogPrint("%s: Error : %d\n", __FUNCTION__, err);
 			bResult = false;
 		}
 	}
@@ -579,7 +579,7 @@ bool	TDrawOpenGL::LineWidth
 \+---------------------------------------------------------------------*/
 bool	TDrawOpenGL::LineColor
 		(
-		CColorRef rColor
+		Yogi::Core::ConstCColorRef rColor
 		)
 {
 	return inherited::LineColor( rColor );
@@ -592,7 +592,7 @@ bool	TDrawOpenGL::LineColor
 \+---------------------------------------------------------------------*/
 bool	TDrawOpenGL::FillColor
 		(
-		CColorRef rColor
+		Yogi::Core::ConstCColorRef rColor
 		)
 {
 	return inherited::FillColor( rColor );
@@ -606,7 +606,7 @@ bool	TDrawOpenGL::FillColor
 \+---------------------------------------------------------------------*/
 bool	TDrawOpenGL::HaloColor
 		(
-		CColorRef rColor
+		Yogi::Core::ConstCColorRef rColor
 		)
 {
 	return inherited::HaloColor( rColor );
@@ -747,7 +747,7 @@ bool	TDrawOpenGL::Ellipse
 		)
 {
 
-	LogPrint("TDrawOpenGL::Ellipse called but not implemented.");
+	Yogi::Core::LogPrint("TDrawOpenGL::Ellipse called but not implemented.");
 	return true;
 }
 
@@ -799,8 +799,8 @@ bool 	TDrawOpenGL::SetFillParms()
 	}
 	else
 	{
-		CColorPtr	pClr;
-		if ( CColor::BackgroundColor() == m_tFillColor )
+		Yogi::Core::CColorPtr	pClr;
+		if ( Yogi::Core::CColor::BackgroundColor() == m_tFillColor )
 			pClr = &m_tBackgroundColor;
 		else
 			pClr = &m_tFillColor;
@@ -829,8 +829,8 @@ bool 	TDrawOpenGL::SetLineParms()
 	}
 	else
 	{
-		CColorPtr	pClr;
-		if ( CColor::BackgroundColor() == m_tFillColor )
+		Yogi::Core::CColorPtr	pClr;
+		if ( Yogi::Core::CColor::BackgroundColor() == m_tFillColor )
 			pClr = &m_tBackgroundColor;
 		else
 			pClr = &m_tLineColor;
@@ -1360,8 +1360,8 @@ bool	TDrawOpenGL::Video
 		bool		//bMirror // = false
 		)
 {
-	bool		bResult = false;
-	CColor		c;
+	bool				bResult = false;
+	Yogi::Core::CColor	c;
 
 	c.SetNonColor( true );
 	FillColor( c );

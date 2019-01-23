@@ -3,14 +3,12 @@
         {
             "name": "MSYS",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe",
+            "compilerPath": "C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "defines": [
                 "CONFNAME=MSYS",
-                "_DEBUG",
-                "WIN64",
-                "__MINGW64__"
+                "_DEBUG"
             ],
             "includePath": [
                 ".",

@@ -13,6 +13,7 @@ libvdraw_la_SOURCES = \
 		IDrawDebug.cpp \
 		IDrawTmx.cpp \
 		IDrawWin32.cpp \
+		IPicture.cpp \
 		VDraw.cpp \
 		VDrawTmx.cpp
 libvdraw_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)

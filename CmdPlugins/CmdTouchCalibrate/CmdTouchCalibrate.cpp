@@ -38,6 +38,7 @@
 #include "CGauge.h"
 #include "CFactoryPanel.h"
 #include "CFactoryGauge.h"
+#include "CCharDescriptor.h"
 
 #include "VPluginFactory.h"
 
@@ -314,7 +315,7 @@ bool	CmdTouchCalibrate::Calibrate
 	//	save U:PANEL value
 	m_nUPanel = m_pDictionary->LocateEntry( "U:PANEL" );
 
-	CVariantDataPtr	pv;
+	ConstCVariantDataPtr	pv;
 
 	pv = m_pDictionary->GetData( m_nUPanel );
 	if ( pv )
@@ -351,7 +352,7 @@ bool	CmdTouchCalibrate::Start
 	{
 		GFLOAT	fWidth = 0;
 		GFLOAT	fHeight = 0;
-		CVariantDataPtr	pv;
+		ConstCVariantDataPtr	pv;
 
 		pv = m_pDictionary->GetData( nSel );
 		if ( pv )
@@ -437,7 +438,7 @@ bool	CmdTouchCalibrate::Point
 
 	if ( m_nCount < TOUCH_K_POINTCOUNT )
 	{
-		CVariantDataPtr	pv;
+		ConstCVariantDataPtr	pv;
 
 		pv = m_pDictionary->GetData( m_nUScreenX );
 		if ( pv )
@@ -502,7 +503,7 @@ bool	CmdTouchCalibrate::Point
 				s = "Please reselect points";
 			}
 		}
-		CVariantData	v = s;
+		CVariantData	v( s );
 		m_pDictionary->PutData( m_nUPrompt, &v );
 	}
 	return true;
@@ -569,7 +570,7 @@ bool	CmdTouchCalibrate::LoadData
 				j = 0;
 				for ( i = 0; i < 9; ++i )
 				{
-					a[i] = ParseFloat( sBuffer + j, nSize - j, &n );
+					a[i] = ParseFloatT( sBuffer + j, nSize - j, &n );
 					if ( 0 < n )
 					{
 						j += n;

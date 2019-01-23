@@ -18,16 +18,17 @@
 \+---------------------------------------------------------------------*/
 #ifndef _H_CSocket
 #define _H_CSocket
-#pragma once
 /*---------------------------------------------------------------------+\
 |																		|
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "UPlatform.h"
+#include "UMachine.h"
 #if defined( OS_MSWIN )
 #	include <winsock2.h>
+#	include <windows.h>
 #endif
+#include "UPlatform.h"
 
 #include "CCharString.h"
 #include "UDeclPlatform.h"
@@ -94,7 +95,7 @@ typedef const class CSocketICMP&	ConstCSocketICMPRef;
 |	CSocket
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CSocket // BaseClass
+class CSocket // BaseClass
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -202,7 +203,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class DECL_CLASS CSocketCommunicate : public CSocket
+class CSocketCommunicate : public CSocket
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -288,7 +289,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class DECL_CLASS CSocketTCP : public CSocketCommunicate
+class CSocketTCP : public CSocketCommunicate
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -350,7 +351,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class DECL_CLASS CSocketTCPServer : public CSocket
+class CSocketTCPServer : public CSocket
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -423,7 +424,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class DECL_CLASS CSocketUDP : public CSocketCommunicate
+class CSocketUDP : public CSocketCommunicate
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -470,8 +471,8 @@ public:
 
 	int		RecvFrom
 			(
-			void*		pBuffer,
-			size_t		nBufferLen,
+			void*			pBuffer,
+			size_t			nBufferLen,
 			CCharStringPtr	psSourceAddress,
 			unsigned short*	pnSourcePort
 			);
@@ -533,7 +534,7 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class DECL_CLASS CSocketICMP : public CSocket
+class CSocketICMP : public CSocket
 {
 //	class lifecycle  ----------------------------------------------------
 public:

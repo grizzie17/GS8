@@ -20,7 +20,7 @@ workbench_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 workbench_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 		-Wl,--whole-archive \
 		$(top_builddir)/WorkbenchShared/libworkbenchshared.la \
-		$(top_builddir)/VSAShared/libvsashared.a \
+		$(top_builddir)/VSAShared/libvsashared.la \
 		-Wl,--no-whole-archive \
 		$(top_builddir)/Gadget/libgadget.la \
 		$(top_builddir)/Common/libcommon.la \
@@ -35,16 +35,15 @@ workbench_LDADD = \
 		-ladvapi32 \
 		-lshell32 \
 		-lole32 \
-		-loeaut32 \
-		-luuid \
+		-loleaut32 \
 		-lodbc32 \
 		-lodbccp32
 		-lstdc++ \
 		-lc
 endif
 workbench_DEPENDENCIES = \
-		$(top_builddir)/WorkbenchShared/libworkbenchshared.a \
-		$(top_builddir)/VSAShared/libvsashared.a \
+		$(top_builddir)/WorkbenchShared/libworkbenchshared.la \
+		$(top_builddir)/VSAShared/libvsashared.la \
 		$(top_builddir)/Gadget/libgadget.la \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la

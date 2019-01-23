@@ -83,8 +83,8 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	unsigned long	m_nSelector;
-	Yogi::Core::CCharString		m_tName;
+	unsigned long			m_nSelector;
+	Yogi::Core::CCharString	m_tName;
 
 private:
 //	private functions  --------------------------------------------------

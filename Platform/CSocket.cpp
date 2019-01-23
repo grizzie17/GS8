@@ -837,8 +837,8 @@ void	CSocketUDP::Disconnect
 \+---------------------------------------------------------------------*/
 void	CSocketUDP::SendTo
 		(
-		const void*	pBuffer,
-		int			nBufferLen,
+		const void*			pBuffer,
+		int					nBufferLen,
 		ConstCCharStringRef rForeignAddress,
 		unsigned short		nForeignPort
 		)

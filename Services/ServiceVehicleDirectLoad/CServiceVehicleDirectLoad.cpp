@@ -669,8 +669,8 @@ void	CServiceVehicleDirectLoad::BuildPageLists
 			GFLOAT		fFreq = 10.0f;
 			GFLOAT		fHigh = 0.0f;
 			GFLOAT		fLow = 0.0f;
-			CVariantDataPtr	pvHigh = 0;
-			CVariantDataPtr	pvLow = 0;
+			ConstCVariantDataPtr	pvHigh = 0;
+			ConstCVariantDataPtr	pvLow = 0;
 
 			pv = pDictEnum->Current();
 			if ( pv )

@@ -18,18 +18,20 @@ CDrawWin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 		-Wl,--whole-archive \
 		$(top_builddir)/Draw/VGDI/libvgdi.la \
 		-Wl,--no-whole-archive \
+		$(top_builddir)/Gadget/libgadget.la \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la
 CDrawWin_la_LIBADD = \
-		-lgdi32 \
-		-ladvapi32 \
 		-lole32 \
 		-loleaut32 \
+		-lgdi32 \
+		-ladvapi32 \
 		-luuid \
 		-lstdc++ \
 		-lc
 CDrawWin_la_DEPENDENCIES = \
 		$(top_builddir)/Draw/VGDI/libvgdi.la \
+		$(top_builddir)/Gadget/libgadget.la \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la
 

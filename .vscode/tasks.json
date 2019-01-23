@@ -59,10 +59,11 @@
 			"group": "build",
 			"problemMatcher": {
 				"pattern": {
-					"regexp": "^([^:]+):\\s+([^:]+):\\s+(.*)$",
+					"regexp": "^([^:]+):\\s+([^:]+):\\s+([^:]+):\\s+(.*)$",
 					"file": 1,
-					"severity": 2,
-					"message": 3
+					"line": 2,
+					"severity": 3,
+					"message": 4
 				}
 			},
 			"presentation": {

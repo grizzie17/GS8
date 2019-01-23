@@ -12,14 +12,14 @@ deplibs = \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la
 
-lib_LTLIBRARIES = CmdConstant.la
+lib_LTLIBRARIES = CmdReturnTrue.la
 
-CmdConstant_la_SOURCES = CmdConstant.cpp
+CmdReturnTrue_la_SOURCES = CmdReturnTrue.cpp
 
-CmdConstant_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-CmdConstant_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-CmdConstant_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
+CmdReturnTrue_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+CmdReturnTrue_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+CmdReturnTrue_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 		$(deplibs)
-CmdConstant_la_LIBADD = -lstdc++ -lc
-CmdConstant_la_DEPENDENCIES = \
+CmdReturnTrue_la_LIBADD = -lstdc++ -lc
+CmdReturnTrue_la_DEPENDENCIES = \
 		$(deplibs)

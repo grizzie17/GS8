@@ -78,6 +78,10 @@ protected:
 	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::CVariantData>	m_aList;
 
 private:
+//	private types  ----------------------------------------------------
+
+	typedef VPluginCommand inherited;
+
 //	private functions  --------------------------------------------------
 
 //	private data  -------------------------------------------------------
@@ -95,16 +99,16 @@ public:
 	virtual
 	bool	ProcessRequest
 			(
-			VDictionary::Selector	selCommand,
-			ConstCVariantDataRef	vData
+			VDictionary::Selector				selCommand,
+			Yogi::Common::ConstCVariantDataRef	vData
 			);
 
 	//	IPluginLoadConfiguration
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 

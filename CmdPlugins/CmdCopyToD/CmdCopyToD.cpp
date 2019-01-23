@@ -189,7 +189,7 @@ bool	CmdCopyToD::ProcessRequest
 		ConstCVariantDataRef	vData
 		)
 {
-	long*	pn;
+	const long*	pn;
 	pn = m_aCommands.Find( selCommand );
 	if ( pn )
 	{
