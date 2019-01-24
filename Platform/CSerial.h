@@ -87,7 +87,7 @@ typedef const class CSerial&	ConstCSerialRef;
 |	CSerialPortSettings													|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CSerialPortSettings
+class CSerialPortSettings
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -168,14 +168,14 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class DECL_CLASS CSerial : public CSerialPortSettings
+class CSerial : public CSerialPortSettings
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-				CSerial();
-				CSerial( ConstCSerialRef r );	// copy constructor
-				CSerial( ConstCSerialPortSettingsRef r );
-	virtual		~CSerial();
+			CSerial();
+			CSerial( ConstCSerialRef r );	// copy constructor
+			CSerial( ConstCSerialPortSettingsRef r );
+	virtual	~CSerial();
 
 public:
 //	public types  -------------------------------------------------------

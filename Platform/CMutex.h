@@ -1,11 +1,11 @@
-/*==================================================================*//**
-*
-*	@file	CMutex.h
-*	@brief	create execution mutecies (locks) for threaded coded
-*
-*	@see	CMutexLocker
-*
-*//*===================================================================*/
+//=====================================================================+!
+//
+//!	@file	CMutex.h
+//!	@brief	create execution mutecies (locks) for threaded coded
+//!
+//!	@see	CMutexLocker
+//
+//=====================================================================*/
 /*---------------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
@@ -49,7 +49,7 @@ typedef const class CMutex&	ConstCMutexRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CMutex
+class CMutex
 {
 //	class lifecycle  ----------------------------------------------------
 public:
@@ -121,7 +121,7 @@ private:
 
  *	@endcode
  */
-class DECL_CLASS CMutexLocker
+class CMutexLocker
 {
 public:
 	inline

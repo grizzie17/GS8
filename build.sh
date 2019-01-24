@@ -39,6 +39,10 @@ if [ -n "$2" ]; then
 	elif [ "X-make" = "X$2" ]; then
 		ARGFILE=""
 		ARGDIR="${ARGDIR%/test}"
+	elif [ "X-install" = "X$2" ]; then
+		ARGFILE="install"
+		ARGDIR=""
+		export DESTDIR="$THISDIR/build"
 	fi
 fi
 

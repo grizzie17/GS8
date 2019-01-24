@@ -80,9 +80,9 @@ class TArrayEnumerator : public TEnumerator<T>
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-				TArrayEnumerator( void );
-				TArrayEnumerator( const TArray<T>* p );
-	virtual		~TArrayEnumerator( void );
+			TArrayEnumerator( void );
+			TArrayEnumerator( const TArray<T>* p );
+	virtual	~TArrayEnumerator( void );
 
 public:
 //	public types  -------------------------------------------------------
@@ -126,11 +126,11 @@ class TArray
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-				TArray();
-				TArray( const TArray<T>& r );	// copy constructor
-				TArray( const T* pData, size_t nDataCount );
-				TArray( size_t nInitialAlloc );
-	virtual		~TArray();
+			TArray();
+			TArray( const TArray<T>& r );	// copy constructor
+			TArray( const T* pData, size_t nDataCount );
+			TArray( size_t nInitialAlloc );
+	virtual	~TArray();
 
 public:
 //	public types  -------------------------------------------------------
@@ -226,10 +226,10 @@ TArray<T>::TArray
 		(
 		void
 		)
-		: m_pArray( 0 ),
-		m_nAlloc( 0 ),
-		m_nUsed( 0 ),
-		m_nBlockSize( 4 )
+		: m_pArray( 0 )
+		, m_nAlloc( 0 )
+		, m_nUsed( 0 )
+		, m_nBlockSize( 4 )
 {
 }
 
@@ -242,12 +242,12 @@ TArray<T>::TArray
 template< class T >
 TArray<T>::TArray
 		(
-		const TArray<T> &r
+		const TArray<T>&	r
 		)
-		: m_pArray( 0 ),
-		m_nAlloc( 0 ),
-		m_nUsed( 0 ),
-		m_nBlockSize( 4 )
+		: m_pArray( 0 )
+		, m_nAlloc( 0 )
+		, m_nUsed( 0 )
+		, m_nBlockSize( 4 )
 {
 	LoadData( r.m_pArray, r.m_nUsed );
 }
@@ -264,10 +264,10 @@ TArray<T>::TArray
 		const T*	pData,
 		size_t		nDataCount
 		)
-		: m_pArray( 0 ),
-		m_nAlloc( 0 ),
-		m_nUsed( 0 ),
-		m_nBlockSize( 4 )
+		: m_pArray( 0 )
+		, m_nAlloc( 0 )
+		, m_nUsed( 0 )
+		, m_nBlockSize( 4 )
 {
 	LoadData( pData, nDataCount );
 }
@@ -283,10 +283,10 @@ TArray<T>::TArray
 		(
 		size_t	nInitialAlloc
 		)
-		: m_pArray( 0 ),
-		m_nAlloc( 0 ),
-		m_nUsed( 0 ),
-		m_nBlockSize( 4 )
+		: m_pArray( 0 )
+		, m_nAlloc( 0 )
+		, m_nUsed( 0 )
+		, m_nBlockSize( 4 )
 {
 	AdjustAlloc( nInitialAlloc );
 }

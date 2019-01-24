@@ -70,8 +70,7 @@
 ||																		|
 \+=====================================================================*/
 
-DECL_API(long)
-		milliseconds
+long	milliseconds
 		(
 		void
 		);
@@ -111,22 +110,19 @@ time_t w32_filetime_to_time_t(FILETIME* ft);
 	defined( __MSYS__ )  ||  \
 	defined( __GNUC__ )
 
-DECL_API(errno_t)
-		gmtime_s
+errno_t	gmtime_s
 		(
 		struct tm*		ptm,
 		const time_t*	pTime
 		);
 
-DECL_API(errno_t)
-		localtime_s
+errno_t	localtime_s
 		(
 		struct tm*		ptm,
 		const time_t*	pTime
 		);
 
-DECL_API(time_t)
-		mkgmtime
+time_t	mkgmtime
 		(
 		struct tm * const	tmp
 		);

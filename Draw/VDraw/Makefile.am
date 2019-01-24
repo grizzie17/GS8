@@ -22,3 +22,5 @@ libvdraw_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS)  $(NO_UNDEFINED) \
 		$(top_builddir)/Platform/libplatform.la
 libvdraw_la_LIBADD = \
 		-lc
+libvdraw_la_DEPENDENCIES = \
+		$(top_builddir)/Platform/libplatform.la

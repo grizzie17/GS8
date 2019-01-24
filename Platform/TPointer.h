@@ -63,11 +63,11 @@ class TPointer
 //	class lifecycle  ----------------------------------------------------
 public:
 
-				TPointer();
-				TPointer( T* p );
-				TPointer( const TPointer<T>& r );	// copy constructor
+			TPointer();
+			TPointer( T* p );
+			TPointer( const TPointer<T>& r );	// copy constructor
 
-				~TPointer();
+			~TPointer();
 
 public:
 //	public types  -------------------------------------------------------
@@ -76,15 +76,15 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	T&			operator=( T* p );
-	T&			operator=( TPointer<T>& r );
+	T&		operator=( T* p );
+	T&		operator=( TPointer<T>& r );
 
-	T&			operator*( void ) const;
-	T*			operator->( void ) const;
-				operator T*( void );
-	T*			Get( void ) const;
-	void		Set( T* p );
-	void		Destroy( void );
+	T&		operator*( void ) const;
+	T*		operator->( void ) const;
+			operator T*( void );
+	T*		Get( void ) const;
+	void	Set( T* p );
+	void	Destroy( void );
 
 
 protected:

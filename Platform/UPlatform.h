@@ -219,7 +219,7 @@
 /**
  *	@brief GetApplicationFolder - get the path of the application
  */
-DECL_API(const char*)
+const char*
 		GetApplicationFolder	///@return const path to the application
 		(
 		void
@@ -231,7 +231,7 @@ DECL_API(const char*)
  * 	If the application is nested in a "debug" or "release" folder
  *	this function returns the folder above
  */
-DECL_API(const char*)
+const char*
 		GetApplicationRootFolder	///@return const path
 		(
 		void
@@ -243,7 +243,7 @@ DECL_API(const char*)
  * 	This function will return the equivalent of calling GetApplicationRootFolder
  *	and then appending "Config"
  */
-DECL_API(const char*)
+const char*
 		GetUserConfigFolder		///@return const path
 		(
 		void
@@ -255,7 +255,7 @@ DECL_API(const char*)
 /**
  *	DLLOpen - load a shared-library into memory
  */
-DECL_API(ULibraryHdl)
+ULibraryHdl
 		DLLOpen						///@return handle to open library
 		(
 		const char*	sLibraryName	///< [in] name of library file to open
@@ -266,7 +266,7 @@ DECL_API(ULibraryHdl)
  *
  *	@see ULibraryFuncPtr
  */
-DECL_API(ULibraryFuncPtr)
+ULibraryFuncPtr
 		DLLGetProcedure
 		(
 		ULibraryHdl	hLibrary,
@@ -277,7 +277,7 @@ DECL_API(ULibraryFuncPtr)
 /**
  *	DLLClose - close and release the shared library handle
  */
-DECL_API(void)
+void
 		DLLClose
 		(
 		ULibraryHdl	hLibrary		///< [in] handle to library @see DLLOpen
@@ -286,7 +286,7 @@ DECL_API(void)
 /**
  *	DLLErrorString - get an extended error string
  */
-DECL_API(const char*)
+const char*
 		DLLErrorString
 		(
 		void

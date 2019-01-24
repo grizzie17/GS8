@@ -86,9 +86,9 @@ public:
 
 //	public functions  ---------------------------------------------------
 
-	CDateTimeRef	operator=( ConstCDateTimeRef r );		// assignment
-	CDateTimeRef	operator=( const time_t t );
-	CDateTimeRef	operator=( const char* s );
+	ConstCDateTimeRef	operator=( ConstCDateTimeRef r );		// assignment
+	ConstCDateTimeRef	operator=( const time_t t );
+	ConstCDateTimeRef	operator=( const char* s );
 
 	bool			operator==( ConstCDateTimeRef r ) const;
 	bool			operator==( const time_t t ) const;
@@ -192,7 +192,7 @@ private:
 
 \+---------------------------------------------------------------------*/
 inline
-CDateTimeRef
+ConstCDateTimeRef
 		CDateTime::operator=
 		(
 		ConstCDateTimeRef	r
@@ -203,7 +203,7 @@ CDateTimeRef
 }
 
 inline
-CDateTimeRef
+ConstCDateTimeRef
 		CDateTime::operator =
 		(
 		const time_t t
@@ -214,7 +214,7 @@ CDateTimeRef
 }
 
 inline
-CDateTimeRef
+ConstCDateTimeRef
 		CDateTime::operator =
 		(
 		const char*	s

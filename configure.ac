@@ -186,12 +186,14 @@ AC_CONFIG_FILES(
 	WorkbenchShared/Makefile]
 	)
 AM_COND_IF([OS_MSYS],
-	AC_CONFIG_FILES([Draw/VGDI/Makefile
+	AC_CONFIG_FILES(
+		[Draw/VGDI/Makefile
 		Draw/CDrawWin/Makefile
 		WorkbenchWin/Makefile])
 )
 AM_COND_IF([OS_LINUX],
-	AC_CONFIG_FILES([Draw/VDrawOpenGL/Makefile
+	AC_CONFIG_FILES(
+		[Draw/VDrawOpenGL/Makefile
 		Draw/CDrawOpenGL/Makefile
 		WorkbenchGLUT/Makefile])
 )

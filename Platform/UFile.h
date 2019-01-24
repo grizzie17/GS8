@@ -56,24 +56,21 @@ namespace Yogi { namespace Core {
 
 //!	deterimine if file exists
 //!
-DECL_API(bool)
-		FileExists				//!@return true if file exists, false otherwise
+bool	FileExists				//!@return true if file exists, false otherwise
 		(
 		const char*	sFilePath	//!< [in] file to check
 		);
 
 //!	determine if a folder exists
 //!
-DECL_API(bool)
-		FolderExists			//!@return true if folder exists, false otherwise
+bool	FolderExists			//!@return true if folder exists, false otherwise
 		(
 		const char*	sFilePath	//!< [in] folder to check
 		);
 
 //! add onto an existing path
 //!
-DECL_API(bool)
-		PathBuild					//!@return false if error
+bool	PathBuild					//!@return false if error
 		(
 		char*		sBuffer,		//!< [out] buffer to receive new path
 		size_t		nSizeBuffer,	//!< [in] size of output buffer

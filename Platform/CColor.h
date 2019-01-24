@@ -243,23 +243,23 @@ public:
 				unsigned int a
 				);
 
-	/**
-	 * 	SetColorLong - set the color value based on the COLORLONG convention
-	 *
-	 * 	value is treated as AARRGGBB - AA-Alpha, RR-Red, GG-Green, BB-Blue
-	 */
+	
+	//!	SetColorLong - set the color value based on the COLORLONG convention
+	//!
+	//!	value is treated as AARRGGBB - AA-Alpha, RR-Red, GG-Green, BB-Blue
+	//!
 	void		SetColorLong
 				(
-				long n		// please note this is not the same as COLORDATA
+				long n		//!< please note this is not the same as COLORDATA
 				);
 
-	/**
-	 * 	GetValue
-	 */
-	unsigned int	GetRed( void ) const;	///@return red component of color
-	unsigned int	GetGreen( void ) const;	///@return green component of color
-	unsigned int	GetBlue( void ) const;	///@return blue component of color
-	unsigned int	GetAlpha( void ) const;	///@return alpha component of color
+
+	//!	GetValue
+	//!
+	unsigned int	GetRed( void ) const;	//!@return red component of color
+	unsigned int	GetGreen( void ) const;	//!@return green component of color
+	unsigned int	GetBlue( void ) const;	//!@return blue component of color
+	unsigned int	GetAlpha( void ) const;	//!@return alpha component of color
 
 	void		SetColorByte( ConstRGBColorByteRef a );
 	void		SetColorByte( ConstRGBAColorByteRef a );
@@ -269,11 +269,11 @@ public:
 	void		SetNonColor( bool b );
 	bool		IsNonColor( void ) const;
 
-	CColorRef	operator=( ConstCColorRef r );		// assignment
-	CColorRef	operator=( const COLORDATA& r );
-	CColorRef	operator=( ConstRGBColorByteRef r );
-	CColorRef	operator=( ConstRGBAColorByteRef r );
-	CColorRef	operator=( const char* sName );
+	ConstCColorRef	operator=( ConstCColorRef r );		// assignment
+	ConstCColorRef	operator=( const COLORDATA& r );
+	ConstCColorRef	operator=( ConstRGBColorByteRef r );
+	ConstCColorRef	operator=( ConstRGBAColorByteRef r );
+	ConstCColorRef	operator=( const char* sName );
 				operator COLORDATA( void ) const;
 				operator RGBColorByte( void );
 				operator RGBAColorByte( void );
@@ -373,7 +373,8 @@ inline void
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline CColorRef
+inline 
+ConstCColorRef
 		CColor::operator =
 		(
 		ConstCColorRef r
@@ -388,7 +389,8 @@ inline CColorRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline CColorRef
+inline
+ConstCColorRef
 		CColor::operator =
 		(
 		const COLORDATA&	r
@@ -405,7 +407,8 @@ inline CColorRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline CColorRef
+inline
+ConstCColorRef
 		CColor::operator =
 		(
 		ConstRGBColorByteRef r
@@ -420,7 +423,8 @@ inline CColorRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline CColorRef
+inline
+ConstCColorRef
 		CColor::operator=
 		(
 		const char*	sName

@@ -46,7 +46,7 @@
 ||
 \+=====================================================================*/
 
-DECL_API(int)
+int
 		fopen_sx
 		(
 		FILE**		hFile,
@@ -54,7 +54,7 @@ DECL_API(int)
 		const char* sMode
 		);
 
-DECL_API(errno_t)
+errno_t
 		getenv_sx
 		(
 		size_t*		pReturnValue,
@@ -63,7 +63,7 @@ DECL_API(errno_t)
 		const char*	sName
 		);
 
-DECL_API(errno_t)
+errno_t
 		sprintf_sx
 		(
 		char*		sBuffer,

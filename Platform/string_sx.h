@@ -62,8 +62,7 @@
 ||																		|
 \+=====================================================================*/
 
-DECL_API(errno_t)
-		memcpy_sx
+errno_t	memcpy_sx
 		(
 		void*		t,
 		size_t		tc,
@@ -71,16 +70,14 @@ DECL_API(errno_t)
 		size_t		sc
 		);
 
-DECL_API(errno_t)
-		strcpy_sx
+errno_t	strcpy_sx
 		(
 		char*		t,
 		size_t		tc,
 		const char*	s
 		);
 
-DECL_API(errno_t)
-		strncpy_sx
+errno_t	strncpy_sx
 		(
 		char*		t,
 		size_t		tc,
@@ -88,16 +85,14 @@ DECL_API(errno_t)
 		size_t		sc
 		);
 
-DECL_API(errno_t)
-		strcat_sx
+errno_t	strcat_sx
 		(
 		char*		t,
 		size_t		tc,
 		const char*	s
 		);
 
-DECL_API(errno_t)
-		strncat_sx
+errno_t	strncat_sx
 		(
 		char*		t,
 		size_t		tc,

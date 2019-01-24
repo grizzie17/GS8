@@ -55,7 +55,7 @@ typedef const class CSignal&	ConstCSignalRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CSignal
+class CSignal
 {
 //	class lifecycle  ----------------------------------------------------
 public:

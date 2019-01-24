@@ -120,7 +120,7 @@
 
 #	ifndef HAS_STRING_SX
 
-DECL_API(errno_t)
+errno_t
 		memcpy_s
 		(
 		void*		t,
@@ -129,7 +129,7 @@ DECL_API(errno_t)
 		size_t		sc
 		);
 
-DECL_API(errno_t)
+errno_t
 		strcpy_s
 		(
 		char*		t,
@@ -137,7 +137,7 @@ DECL_API(errno_t)
 		const char*	s
 		);
 
-DECL_API(errno_t)
+errno_t
 		strncpy_s
 		(
 		char*		t,
@@ -146,7 +146,7 @@ DECL_API(errno_t)
 		size_t		sc
 		);
 
-DECL_API(errno_t)
+errno_t
 		strcat_s
 		(
 		char*		t,
@@ -154,7 +154,7 @@ DECL_API(errno_t)
 		const char*	s
 		);
 
-DECL_API(errno_t)
+errno_t
 		strncat_s
 		(
 		char*		t,
@@ -172,7 +172,7 @@ DECL_API(errno_t)
 
 #if defined( OS_MSWIN )
 
-DECL_API(WCHAR*)
+WCHAR*
 		WideStringFromString
 		(
 		const char*	sString
@@ -180,13 +180,13 @@ DECL_API(WCHAR*)
 
 #	if defined OS_MSWIN_WCE
 
-DECL_API(const char*)
+const char*
 		strerror
 		(
 		errno_t errnum
 		);
 
-DECL_API(const char*)
+const char*
 		getenv
 		(
 		const char* name

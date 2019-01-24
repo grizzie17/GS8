@@ -65,11 +65,11 @@ typedef const class CCharDescriptor*	ConstCCharDescriptorPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-/**
- *	@class CCharDescriptor
- *
- *	Specialization of TCharDescriptor
- */
+
+//!	@class CCharDescriptor
+//!
+//!	Specialization of TCharDescriptor
+//!
 class CCharDescriptor : public TCharDescriptor<char>
 {
 //	class lifecycle  ----------------------------------------------------
