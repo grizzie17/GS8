@@ -23,7 +23,7 @@ pushd $THISDIR >/dev/null
 	mkdir -p $THISDIR/build/lib  ||  exit $?
 	pushd $THISDIR/build >/dev/null
 		echo ":::configure:::"
-		$THISDIR/configure  --prefix=$THISDIR/build  ||  exit $?
+		$THISDIR/configure  ||  exit $?
 		case `uname -o` in
 		[Mm]sys | cygwin* )
 			#echo "patching libtool for Msys"
