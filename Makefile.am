@@ -9,10 +9,13 @@ SUBDIRS = \
 	Gadget \
 	VSAShared \
 	WorkbenchShared \
+	Config \
 	$(EXTSUBDIRS) \
 	\
 	Services/ServiceVehicleDataSample \
 	Services/ServiceVehicleDirectLoad \
+	\
+	GenericContainer \
 	\
 	CmdPlugins/CmdCameraSelector \
 	CmdPlugins/CmdConstant \

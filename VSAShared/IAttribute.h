@@ -63,14 +63,14 @@ interface_ IAttribute : public Yogi::Common::ISupports
 	//!	Retrieves the named attribute as an argument of CVariantData.
 	//!
 	virtual
-	Yogi::Common::CVariantDataPtr
+	Yogi::Common::ConstCVariantDataPtr
 			GetAttribute
 			(
 			const char*		sName	//!< [in] description of arg2
 			) PURE;
 
 	virtual
-	Yogi::Common::CVariantDataPtr
+	Yogi::Common::ConstCVariantDataPtr
 			GetAttribute
 			(
 			Yogi::Core::ConstCCharDescriptorRef	rName	//!< [in] description of arg2

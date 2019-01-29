@@ -18,7 +18,8 @@ pushd $THISDIR >/dev/null
 	rm -rf \
 		aclocal.m4 ar-lib autom4te.cache \
 		build \
-		compile configure config.guess config.sub config.log config.status config.h.in \
+		compile configure config.guess \
+		config.sub config.log config.status config.h.in config.h.in~ \
 		depcomp .deps */.deps \
 		install-sh install.sh \
 		ltmain.sh \

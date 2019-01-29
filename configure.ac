@@ -47,7 +47,7 @@ AM_COND_IF([OS_LINUX], [
 
 AC_LANG([C++])
 
-AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+AX_CXX_COMPILE_STDCXX_14([noext],[mandatory])
 
 
 
@@ -183,7 +183,8 @@ AC_CONFIG_FILES(
 	Draw/CDrawTmxWin/Makefile
 	Gadget/Makefile
 	VSAShared/Makefile
-	WorkbenchShared/Makefile]
+	WorkbenchShared/Makefile
+	Config/Makefile]
 	)
 AM_COND_IF([OS_MSYS],
 	AC_CONFIG_FILES(
@@ -200,6 +201,7 @@ AM_COND_IF([OS_LINUX],
 AC_CONFIG_FILES(
 	[Services/ServiceVehicleDataSample/Makefile
 	Services/ServiceVehicleDirectLoad/Makefile
+	GenericContainer/Makefile
 	CmdPlugins/CmdCameraSelector/Makefile
 	CmdPlugins/CmdConstant/Makefile
 	CmdPlugins/CmdConstantD/Makefile

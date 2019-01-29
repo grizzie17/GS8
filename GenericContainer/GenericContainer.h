@@ -56,7 +56,7 @@ typedef const class GenericContainer&	ConstGenericContainerRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class GenericContainer : public VPluginWithAggregateList,
+class GenericContainer : public Yogi::Common::VPluginWithAggregateList,
 						implements_ IAttribute
 {
 //	class lifecycle  ----------------------------------------------------
@@ -73,17 +73,17 @@ public:
 
 	//	IAttribute
 	virtual
-	CVariantDataPtr
+	Yogi::Common::ConstCVariantDataPtr
 			GetAttribute
 			(
 			const char*		sName	// IN:	description of arg2
 			);
 
 	virtual
-	CVariantDataPtr
+	Yogi::Common::ConstCVariantDataPtr
 			GetAttribute
 			(
-			ConstCCharDescriptorRef	rName	// IN:	description of arg2
+			Yogi::Core::ConstCCharDescriptorRef	rName	// IN:	description of arg2
 			);
 
 
@@ -99,7 +99,9 @@ protected:
 
 //	protected data  -----------------------------------------------------
 
-	THashTable<CCharString, CVariantData>			m_aAttributes;
+	Yogi::Common::THashTable
+			<Yogi::Core::CCharString, Yogi::Common::CVariantData>
+					m_aAttributes;
 
 private:
 //	private functions  --------------------------------------------------
@@ -113,7 +115,7 @@ protected:
 	virtual
 	void*	FindInternalInterface
 			(						// RTN:	pointer to discovered i/f
-			ConstIXIDRef	rIID	// IN:	id of requested interface
+			Yogi::Common::ConstIXIDRef	rIID	// IN:	id of requested interface
 			);
 
 	//	IPluginLoadConfiguration
@@ -121,8 +123,8 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr		pLib
 			);
 
 };

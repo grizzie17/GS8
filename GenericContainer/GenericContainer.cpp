@@ -29,6 +29,8 @@
 
 #include "VPluginFactory.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -75,8 +77,8 @@ GenericContainer::GenericContainer
 		(
 		void
 		)
-		: VPluginWithAggregateList(),
-		m_aAttributes()
+		: VPluginWithAggregateList()
+		, m_aAttributes()
 {
 }
 
@@ -84,8 +86,8 @@ GenericContainer::GenericContainer
 		(
 		ISupportsPtr	pOwner
 		)
-		: VPluginWithAggregateList( pOwner ),
-		m_aAttributes()
+		: VPluginWithAggregateList( pOwner )
+		, m_aAttributes()
 {
 }
 
@@ -94,8 +96,8 @@ GenericContainer::GenericContainer
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VPluginWithAggregateList( sName, pOwner ),
-		m_aAttributes()
+		: VPluginWithAggregateList( sName, pOwner )
+		, m_aAttributes()
 {
 }
 
@@ -126,7 +128,7 @@ GenericContainer::~GenericContainer
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		GenericContainer::GetAttribute
 		(
 		const char*		sName	// IN:	description of arg2
@@ -141,7 +143,7 @@ CVariantDataPtr
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-CVariantDataPtr
+ConstCVariantDataPtr
 		GenericContainer::GetAttribute
 		(
 		ConstCCharDescriptorRef	rName	// IN:	description of arg2
