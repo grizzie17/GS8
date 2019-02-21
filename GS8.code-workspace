@@ -17,7 +17,7 @@
 
 
 		"C_Cpp.formatting": "Disabled",
-		"uncrustify.configPath": "uncrustify.cfg",
+		//"uncrustify.configPath": "uncrustify.cfg",
 
 		//==Terminal====================
 		//------------------------------
@@ -64,12 +64,12 @@
 		// 	"**/install-sh": true,
 		// 	"**/missing": true
 		// },
-		"svn.enabled": false,
-		"doxdocgen.c.commentPrefix": "//! ",
-		"doxdocgen.c.firstLine": "///",
-		"doxdocgen.c.lastLine": "//",
-		"doxdocgen.c.triggerSequence": "///",
-		"doxdocgen.generic.briefTemplate": "{text}",
+		//"svn.enabled": false,
+		// "doxdocgen.c.commentPrefix": "//! ",
+		// "doxdocgen.c.firstLine": "///",
+		// "doxdocgen.c.lastLine": "//",
+		// "doxdocgen.c.triggerSequence": "///",
+		// "doxdocgen.generic.briefTemplate": "{text}",
 		"editor.tabCompletion": "on"
 
 	}

@@ -88,6 +88,7 @@ CGDIBrush::CGDIBrush
 {
 }
 
+
 /*---------------------------------------------------------------------+\
 
  * CGDIBrush - copy constructor
