@@ -802,13 +802,13 @@ int		TCharDescriptor<T>::Compare
 		size_t		n
 		) const
 {
-	int					nResult = 0;	// assume equal
-	register const T*	p1 = m_s;
-	const T*			p1End = p1 + m_n;
-	T					t1;
-	register const T*	p2 = s;
-	const T*			p2End = p2 + n;
-	T					t2;
+	int			nResult = 0;	// assume equal
+	const T*	p1 = m_s;
+	const T*	p1End = p1 + m_n;
+	T			t1;
+	const T*	p2 = s;
+	const T*	p2End = p2 + n;
+	T			t2;
 
 	if ( p1  &&  p2 )	// check for null
 	{
@@ -950,13 +950,13 @@ int		TCharDescriptor<T>::CompareFiltered
 		size_t		n
 		) const
 {
-	int					nResult = 0;	// assume equal
-	register const T*	p1 = m_s;
-	const T*			p1End = p1 + m_n;
-	T					t1;
-	register const T*	p2 = s;
-	const T*			p2End = p2 + n;
-	T					t2;
+	int			nResult = 0;	// assume equal
+	const T*	p1 = m_s;
+	const T*	p1End = p1 + m_n;
+	T			t1;
+	const T*	p2 = s;
+	const T*	p2End = p2 + n;
+	T			t2;
 
 	if ( p1  &&  p2 )	// check for null
 	{
@@ -1408,7 +1408,7 @@ uintmax_t
 		void
 		) const
 {
-	register uintmax_t hash = 5381;
+	uintmax_t hash = 5381;
 
 	T*		arKey = m_s;
 	size_t	nKeyLength = m_n;
@@ -1481,9 +1481,9 @@ index_t	TCharDescriptor< T >::FindCharacter
 {
 	if ( sString )
 	{
-		const T*			pBegin = sString;
-		register const T*	p = pBegin;
-		register const T*	pEnd = p + nMaxChars;
+		const T*	pBegin = sString;
+		const T*	p = pBegin;
+		const T*	pEnd = p + nMaxChars;
 
 		while ( p < pEnd )
 		{

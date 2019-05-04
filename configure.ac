@@ -33,11 +33,11 @@ AC_PROG_MAKE_SET
 AC_PROG_SED
 
 AM_COND_IF([OS_MSYS], [ 
-	LT_INIT([shared,pic-only,win32-dll])
+LT_INIT([shared,pic-only,win32-dll])
 ])
 
 AM_COND_IF([OS_LINUX], [
-	LT_INIT([shared,pic-only])
+LT_INIT([shared,pic-only])
 ])
 
 # CFLAGS="$EXTERNAL_CFLAGS"
@@ -47,7 +47,7 @@ AM_COND_IF([OS_LINUX], [
 
 AC_LANG([C++])
 
-AX_CXX_COMPILE_STDCXX_14([noext],[mandatory])
+AX_CXX_COMPILE_STDCXX_17([noext],[mandatory])
 
 
 
@@ -113,7 +113,8 @@ AC_FUNC_MKTIME
 AC_FUNC_REALLOC
 AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
 
-GLOBAL_CXXFLAGS=" -std=c++11 -Werror -Wall"
+#GLOBAL_CXXFLAGS=" -std=c++17 -Werror -Wall"
+GLOBAL_CXXFLAGS=""
 # case `uname -s` in
 # [Mm]sys* | mingw* | MINGW* )
 # # WDEFS="-DMSYS -DWIN64"
@@ -165,14 +166,14 @@ LDFLAGS=`echo "$LDFLAGS"  |  $SED -e 's/-Wl,-s//g' -e 's/-Wl,--strip-all//g'`
 changequote([,])
 AM_COND_IF([DEBUG],
 	[
-	CXXFLAGS="$CXXFLAGS -g -O0"
-	CPPFLAGS="$CPPFLAGS -D_DEBUG"
-	LDFLAGS="$LDFLAGS -g"
+	CXXFLAGS="$CXXFLAGS -g -ggdb  -O0 "
+	CPPFLAGS="$CPPFLAGS -D_DEBUG "
+	LDFLAGS="$LDFLAGS -g -ggdb "
 	],
 	[
-	CXXFLAGS="$CXXFLAGS -O3"
-	CPPFLAGS="$CPPFLAGS -DNDEBUG"
-	LDFLAGS="$LDFLAGS -Wl,-S"
+	CXXFLAGS="$CXXFLAGS -O3 "
+	CPPFLAGS="$CPPFLAGS -DNDEBUG "
+	LDFLAGS="$LDFLAGS -Wl,-S "
 	])
 
 

@@ -45,8 +45,9 @@ libcommon_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-Wl,--no-whole-archive \
 		$(top_builddir)/Platform/libplatform.la
 
-libcommon_la_LIBADD = -lpthread -lstdc++ -lc
-libcommon_la_DEPENDENCIES = $(top_builddir)/Platform/libplatform.la
+libcommon_la_LIBADD = -lWs2_32 -lpthread -lstdc++ -lc
+libcommon_la_DEPENDENCIES = $(top_builddir)/Platform/libplatform.la \
+		$(top_builddir)/Draw/VDraw/libvdraw.la
 
 
 

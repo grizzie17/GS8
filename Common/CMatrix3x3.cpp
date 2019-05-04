@@ -86,10 +86,9 @@ CMatrix3x3::CMatrix3x3
 		(
 		void
 		)
-		:
-		m_11( GFLOAT_1 ), m_12( GFLOAT_0 ), m_13( GFLOAT_0 ),
-		m_21( GFLOAT_0 ), m_22( GFLOAT_1 ), m_23( GFLOAT_0 ),
-		m_31( GFLOAT_0 ), m_32( GFLOAT_0 ), m_33( GFLOAT_1 )
+		: m_11( GFLOAT_1 ), m_12( GFLOAT_0 ), m_13( GFLOAT_0 )
+		, m_21( GFLOAT_0 ), m_22( GFLOAT_1 ), m_23( GFLOAT_0 )
+		, m_31( GFLOAT_0 ), m_32( GFLOAT_0 ), m_33( GFLOAT_1 )
 {
 }
 
@@ -102,10 +101,9 @@ CMatrix3x3::CMatrix3x3
 		(
 		ConstCMatrix3x3Ref	r
 		)
-		:
-		m_11( r.m_11 ), m_12( r.m_12 ), m_13( r.m_13 ),
-		m_21( r.m_21 ), m_22( r.m_22 ), m_23( r.m_23 ),
-		m_31( r.m_31 ), m_32( r.m_32 ), m_33( r.m_33 )
+		: m_11( r.m_11 ), m_12( r.m_12 ), m_13( r.m_13 )
+		, m_21( r.m_21 ), m_22( r.m_22 ), m_23( r.m_23 )
+		, m_31( r.m_31 ), m_32( r.m_32 ), m_33( r.m_33 )
 {
 }
 
@@ -120,10 +118,9 @@ CMatrix3x3::CMatrix3x3
 		GFLOAT m21, GFLOAT m22, GFLOAT m23,
 		GFLOAT m31, GFLOAT m32, GFLOAT m33
 		)
-		:
-		m_11( m11 ), m_12( m12 ), m_13( m13 ),
-		m_21( m21 ), m_22( m22 ), m_23( m23 ),
-		m_31( m31 ), m_32( m32 ), m_33( m33 )
+		: m_11( m11 ), m_12( m12 ), m_13( m13 )
+		, m_21( m21 ), m_22( m22 ), m_23( m23 )
+		, m_31( m31 ), m_32( m32 ), m_33( m33 )
 {
 }
 
@@ -138,9 +135,9 @@ CMatrix3x3::CMatrix3x3
 		GFLOAT m21, GFLOAT m22,
 		GFLOAT ofX, GFLOAT ofY
 		)
-		:m_11( m11 ), m_12( m12 ), m_13( 0.0f ),
-		m_21( m21 ), m_22( m22 ), m_23( 0.0f ),
-		m_31( ofX ), m_32( ofY ), m_33( 1.0f )
+		: m_11( m11 ), m_12( m12 ), m_13( 0.0f )
+		, m_21( m21 ), m_22( m22 ), m_23( 0.0f )
+		, m_31( ofX ), m_32( ofY ), m_33( 1.0f )
 {
 }
 

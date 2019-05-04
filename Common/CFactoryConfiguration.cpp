@@ -162,10 +162,12 @@ DECL_API(VConfigurationPtr)
 				if ( tName == "Configuration" )
 				{
 					pNode = Configuration( pConfig );
+					if ( ! pNode )
+						return NULL;
 				}
 				break;
-            default:
-                break;
+			default:
+				break;
 			}
 		}
 	}
@@ -208,7 +210,7 @@ DECL_API(VConfigurationPtr)
 		XMLIterator	it( this );
 		Yogi::Core::CCharDescriptor	tName;
 		Yogi::Core::CCharDescriptor	tValue;
-		//bool			bResult = false;
+		bool		bResult = false;
 
 		while ( it.NextChild() )
 		{
@@ -218,13 +220,11 @@ DECL_API(VConfigurationPtr)
 				tName = it.NodeName();
 				if ( tName == "Item" )
 				{
-					//bResult =
-					Item( pNode, &it );
+					bResult = Item( pNode, &it );
 				}
 				else if ( tName == "Include" )
 				{
-					//bResult =
-					IncludeFile( pNode, &it );
+					bResult = IncludeFile( pNode, &it );
 				}
 				break;
 			case XMLLite::NODE_COMMENT:
@@ -234,11 +234,13 @@ DECL_API(VConfigurationPtr)
 				//bResult = false;
 				break;
 			}
-			//if ( ! bResult )
-			//	break;
+			if ( ! bResult )
+			{
+				pNode = NULL;
+				break;
+			}
 		}
 	}
-
 
 	return pNode;
 }
@@ -298,7 +300,6 @@ DECL_API(bool)
 			nUnits = units.GetUnits();
 		}
 
-
 		tValue = pit->AttributeValue( "Type" );
 		if ( 0 < tValue.Length() )
 		{
@@ -338,8 +339,6 @@ DECL_API(bool)
 			bResult = false;
 		}
 
-
-
 	}
 	else
 	{
@@ -364,9 +363,8 @@ DECL_API(bool)
 			break;
 		case CVariantData::T_COLOR:
 			{
-				long			nValue;
-				size_t			n;
-				nValue = tValue.ParseInt( &n );
+				size_t	n;
+				long	nValue = tValue.ParseInt( &n );
 				if ( 0 < n )
 				{
 					Yogi::Core::CColor	c;
@@ -446,8 +444,6 @@ DECL_API(bool)
 
 		pConfig->AddEntry( sID, v );
 	}
-
-
 
 	return bResult;
 }

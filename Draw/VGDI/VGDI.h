@@ -58,22 +58,22 @@ class DECL_CLASS VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-				VGDI();
-				VGDI( VGDIRef r );	// copy constructor
-	virtual		~VGDI();
+			VGDI();
+			VGDI( VGDIRef r );	// copy constructor
+	virtual	~VGDI();
 
 public:
 //	public types  -------------------------------------------------------
 
 //	public functions  ---------------------------------------------------
 
-	VGDIRef		operator=( VGDIRef r );		// assignment
+	VGDIRef	operator=( VGDIRef r );		// assignment
 
 	virtual
-	bool		Select( HDC h );
+	bool	Select( HDC h );
 
 	virtual
-	bool		Deselect( void );
+	bool	Deselect( void );
 
 	virtual
 	uintmax_t	GetHash( void ) const;

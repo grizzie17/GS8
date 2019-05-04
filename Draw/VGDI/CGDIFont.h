@@ -62,11 +62,11 @@ class CGDIFont : public VGDI
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CGDIFont();
-					CGDIFont( CGDIFontRef r );	// copy constructor
-					CGDIFont( Yogi::Core::ConstCCharDescriptorRef rName, unsigned long nHeight );
-					CGDIFont( const char* sName, unsigned long nHeight );
-	virtual			~CGDIFont();
+			CGDIFont();
+			CGDIFont( CGDIFontRef r );	// copy constructor
+			CGDIFont( Yogi::Core::ConstCCharDescriptorRef rName, unsigned long nHeight );
+			CGDIFont( const char* sName, unsigned long nHeight );
+	virtual	~CGDIFont();
 
 public:
 //	public types  -------------------------------------------------------

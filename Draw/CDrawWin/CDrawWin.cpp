@@ -124,31 +124,31 @@ CDrawWin::CDrawWin
 		(
 		void
 		)
-		: inherited(),
-		m_eLastContext( CTX_UNDEFINED ),
-		m_bDoubleBuffer( true ),
-		m_bDisplayDirtyRectangle( false ),
-		m_hdc( 0 ),
-		m_hdcWindow( 0 ),
-		m_hdcApplication( 0 ),
-		m_hdcBackground( 0 ),
-		m_hdcForeground( 0 ),
-		m_pBMApplication( 0 ),
-		m_pBMBackground( 0 ),
-		m_pBMForeground( 0 ),
-		m_oPenList(),
-		m_pPen( 0 ),
-		m_oBrushList(),
-		m_pBrush( 0 ),
-		m_oFontList(),
-		m_pFont( 0 ),
-		//m_hPen( 0 ),
-		//m_hPenHalo( 0 ),
-		//m_hBrush( 0 ),
-		//m_hBrushHalo( 0 ),
-		//m_hPenOld( 0 ),
-		//m_hBrushOld( 0 ),
-		m_tUpdateRect()
+		: inherited()
+		, m_eLastContext( CTX_UNDEFINED )
+		, m_bDoubleBuffer( true )
+		, m_bDisplayDirtyRectangle( false )
+		, m_hdc( 0 )
+		, m_hdcWindow( 0 )
+		, m_hdcApplication( 0 )
+		, m_hdcBackground( 0 )
+		, m_hdcForeground( 0 )
+		, m_pBMApplication( 0 )
+		, m_pBMBackground( 0 )
+		, m_pBMForeground( 0 )
+		, m_oPenList()
+		, m_pPen( 0 )
+		, m_oBrushList()
+		, m_pBrush( 0 )
+		, m_oFontList()
+		, m_pFont( 0 )
+		//, m_hPen( 0 )
+		//, m_hPenHalo( 0 )
+		//, m_hBrush( 0 )
+		//, m_hBrushHalo( 0 )
+		//, m_hPenOld( 0 )
+		//, m_hBrushOld( 0 )
+		, m_tUpdateRect()
 {
 	::strcpy_s( m_sFontName, sizeof( m_sFontName ), "Arial" );
 	::strcpy_s( m_sFontSansSerif, sizeof( m_sFontSansSerif ), "Arial" );
@@ -166,31 +166,31 @@ CDrawWin::CDrawWin
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_eLastContext( CTX_UNDEFINED ),
-		m_bDoubleBuffer( true ),
-		m_bDisplayDirtyRectangle( false ),
-		m_hdc( 0 ),
-		m_hdcWindow( 0 ),
-		m_hdcApplication( 0 ),
-		m_hdcBackground( 0 ),
-		m_hdcForeground( 0 ),
-		m_pBMApplication( 0 ),
-		m_pBMBackground( 0 ),
-		m_pBMForeground( 0 ),
-		m_oPenList(),
-		m_pPen( 0 ),
-		m_oBrushList(),
-		m_pBrush( 0 ),
-		m_oFontList(),
-		m_pFont( 0 ),
-		//m_hPen( 0 ),
-		//m_hPenHalo( 0 ),
-		//m_hBrush( 0 ),
-		//m_hBrushHalo( 0 ),
-		//m_hPenOld( 0 ),
-		//m_hBrushOld( 0 ),
-		m_tUpdateRect()
+		: inherited( pOwner )
+		, m_eLastContext( CTX_UNDEFINED )
+		, m_bDoubleBuffer( true )
+		, m_bDisplayDirtyRectangle( false )
+		, m_hdc( 0 )
+		, m_hdcWindow( 0 )
+		, m_hdcApplication( 0 )
+		, m_hdcBackground( 0 )
+		, m_hdcForeground( 0 )
+		, m_pBMApplication( 0 )
+		, m_pBMBackground( 0 )
+		, m_pBMForeground( 0 )
+		, m_oPenList()
+		, m_pPen( 0 )
+		, m_oBrushList()
+		, m_pBrush( 0 )
+		, m_oFontList()
+		, m_pFont( 0 )
+		//, m_hPen( 0 )
+		//, m_hPenHalo( 0 )
+		//, m_hBrush( 0 )
+		//, m_hBrushHalo( 0 )
+		//, m_hPenOld( 0 )
+		//, m_hBrushOld( 0 )
+		, m_tUpdateRect()
 {
 	::strcpy_s( m_sFontName, sizeof( m_sFontName ), "Arial" );
 	::strcpy_s( m_sFontSansSerif, sizeof( m_sFontSansSerif ), "Arial" );
@@ -209,31 +209,31 @@ CDrawWin::CDrawWin
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_eLastContext( CTX_UNDEFINED ),
-		m_bDoubleBuffer( true ),
-		m_bDisplayDirtyRectangle( false ),
-		m_hdc( 0 ),
-		m_hdcWindow( 0 ),
-		m_hdcApplication( 0 ),
-		m_hdcBackground( 0 ),
-		m_hdcForeground( 0 ),
-		m_pBMApplication( 0 ),
-		m_pBMBackground( 0 ),
-		m_pBMForeground( 0 ),
-		m_oPenList(),
-		m_pPen( 0 ),
-		m_oBrushList(),
-		m_pBrush( 0 ),
-		m_oFontList(),
-		m_pFont( 0 ),
-		//m_hPen( 0 ),
-		//m_hPenHalo( 0 ),
-		//m_hBrush( 0 ),
-		//m_hBrushHalo( 0 ),
-		//m_hPenOld( 0 ),
-		//m_hBrushOld( 0 ),
-		m_tUpdateRect()
+		: inherited( sName, pOwner )
+		, m_eLastContext( CTX_UNDEFINED )
+		, m_bDoubleBuffer( true )
+		, m_bDisplayDirtyRectangle( false )
+		, m_hdc( 0 )
+		, m_hdcWindow( 0 )
+		, m_hdcApplication( 0 )
+		, m_hdcBackground( 0 )
+		, m_hdcForeground( 0 )
+		, m_pBMApplication( 0 )
+		, m_pBMBackground( 0 )
+		, m_pBMForeground( 0 )
+		, m_oPenList()
+		, m_pPen( 0 )
+		, m_oBrushList()
+		, m_pBrush( 0 )
+		, m_oFontList()
+		, m_pFont( 0 )
+		//, m_hPen( 0 )
+		//, m_hPenHalo( 0 )
+		//, m_hBrush( 0 )
+		//, m_hBrushHalo( 0 )
+		//, m_hPenOld( 0 )
+		//, m_hBrushOld( 0 )
+		, m_tUpdateRect()
 {
 	::strcpy_s( m_sFontName, sizeof( m_sFontName ), "Arial" );
 	::strcpy_s( m_sFontSansSerif, sizeof( m_sFontSansSerif ), "Arial" );

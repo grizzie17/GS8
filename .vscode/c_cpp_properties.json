@@ -8,11 +8,11 @@
             "cppStandard": "c++17",
             "defines": [
                 "CONFNAME=MSYS",
-                "_DEBUG"
+                "_DEBUG",
+                "DEVROOT=${workspaceFolder}"
             ],
             "includePath": [
                 ".",
-                "${fileDirname}",
                 "${workspaceFolder}",
                 "${workspaceFolder}\\**",
                 "${workspaceFolder}\\**\\**",
@@ -53,7 +53,6 @@
             ],
             "includePath": [
                 ".",
-                "${fileDirname}",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**",

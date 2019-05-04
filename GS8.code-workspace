@@ -7,17 +7,22 @@
 			"path": "C:/msys64/mingw64"
 		}
 	],
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools"
+		]
+	},
 	"settings": {
 
 		"workbench.colorCustomizations": {
-			"titleBar.activeBackground": "#523232",
-			"titleBar.inactiveBackground": "#413030",
+			// "titleBar.activeBackground": "#523232",
+			// "titleBar.inactiveBackground": "#413030",
 			"activityBar.background": "#462b2b"
 		},
 
 
 		"C_Cpp.formatting": "Disabled",
-		//"uncrustify.configPath": "uncrustify.cfg",
+		"uncrustify.configPath": "uncrustify.cfg",
 
 		//==Terminal====================
 		//------------------------------
