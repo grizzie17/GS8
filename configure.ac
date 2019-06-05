@@ -32,13 +32,13 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_SED
 
-AM_COND_IF([OS_MSYS], [ 
-LT_INIT([shared,pic-only,win32-dll])
-])
+# AM_COND_IF([OS_MSYS], [
+# LT_INIT([shared,pic-only,win32-dll])
+# ])
 
-AM_COND_IF([OS_LINUX], [
+#AM_COND_IF([OS_LINUX], [
 LT_INIT([shared,pic-only])
-])
+#])
 
 # CFLAGS="$EXTERNAL_CFLAGS"
 # CXXFLAGS="$EXTERNAL_CXXFLAGS"
@@ -47,7 +47,7 @@ LT_INIT([shared,pic-only])
 
 AC_LANG([C++])
 
-AX_CXX_COMPILE_STDCXX_17([noext],[mandatory])
+AX_CXX_COMPILE_STDCXX_14([noext],[mandatory])
 
 
 
@@ -83,15 +83,21 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__],
 
 # Checks for header files.
 #AC_HEADER_STDC
-AC_CHECK_HEADERS([cstddef ctype.h errno.h fcntl.h float.h limits.h math.h memory.h stdarg.h stddef.h stdexcept stdint.h stdio.h stdlib.h string string.h strings.h sys/time.h sys/timeb.h sys/types.h time.h unistd.h])
-
+AC_LANG_PUSH([C])
+AC_CHECK_HEADERS([assert.h ctype.h errno.h fcntl.h float.h limits.h math.h memory.h stdarg.h stddef.h stdint.h stdio.h stdlib.h string.h strings.h sys/time.h sys/timeb.h sys/types.h time.h unistd.h])
 AM_COND_IF([OS_MSYS], [
 	AC_CHECK_HEADERS([process.h tchar.h winerror.h])
 ])
-
 AM_COND_IF([OS_LINUX], [
-	AC_CHECK_HEADERS([arpa/inet.h netdb.h net/if.h netinet/in.h pthread.h semaphore.h sys/ioctl.h sys/socket.h  sys/stat.h termios.h ])
+	AC_CHECK_HEADERS([arpa/inet.h dirent.h netdb.h net/if.h netinet/in.h pthread.h semaphore.h sys/ioctl.h sys/socket.h  sys/stat.h termios.h ])
 ])
+AC_LANG_POP([C])
+# AC_LANG_PUSH([C++])
+# AC_CHECK_HEADERS([cstddef stdexcept string])
+# AC_LANG_POP([C++])
+# AC_CHECK_HEADERS([cstddef ctype.h errno.h fcntl.h float.h limits.h math.h memory.h stdarg.h stddef.h stdexcept stdint.h stdio.h stdlib.h string string.h strings.h sys/time.h sys/timeb.h sys/types.h time.h unistd.h],[],[])
+
+
 
 # Checks for typedefs, structures, and compiler characteristics.
 #AC_CHECK_HEADER_STDBOOL
@@ -142,16 +148,19 @@ AM_COND_IF([OS_MSYS],
 		GLOBAL_CXXFLAGS+=" -mwindows "
 		EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
 		NO_UNDEFINED="-no-undefined"
+		WS2_32="-lWs2_32"
 	])
 AM_COND_IF([OS_LINUX],
 	[
 		EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
 		NO_UNDEFINED=""
+		WS2_32=""
 	])
 
 AC_SUBST([AM_CPPFLAGS])
 AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([NO_UNDEFINED])
+AC_SUBST([WS2_32])
 AC_SUBST([EXTSUBDIRS])
 AC_SUBST([GLOBAL_CXXFLAGS])
 # AC_SUBST([OSCONFFILES])

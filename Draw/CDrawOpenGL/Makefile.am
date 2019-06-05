@@ -14,5 +14,5 @@ libcdrawopengl_la_SOURCES = CDrawOpenGL.cpp
 
 libcdrawopengl_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libcdrawopengl_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
-libcdrawopengl_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) -L$(top_builddir)/VDraw -L$(top_builddir)/VDrawOpenGL
+libcdrawopengl_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) -L../VDraw -L../VDrawOpenGL
 libcdrawopengl_la_LIBADD = -lvdraw -lvdrawopengl -lplatform

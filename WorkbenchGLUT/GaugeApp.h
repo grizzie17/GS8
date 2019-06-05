@@ -1,5 +1,5 @@
-#ifndef _GAUGE_APP_H_
-#define _GAUGE_APP_H_
+#ifndef H_GaugeApp
+#define H_GaugeApp
 
 
 enum videoCommands
@@ -18,7 +18,4 @@ enum videoCommands
 	CMD_COUNT
 };
 
-#endif // _GAUGE_APP_H_
-
-
-
+#endif // H_GaugeApp

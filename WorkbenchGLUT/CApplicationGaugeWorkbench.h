@@ -28,8 +28,8 @@
 		Initial Revision
 |
 \+---------------------------------------------------------------------*/
-#ifndef _H_CApplicationGaugeWorkbench
-#define _H_CApplicationGaugeWorkbench
+#ifndef H_CApplicationGaugeWorkbench
+#define H_CApplicationGaugeWorkbench
 #pragma once
 /*---------------------------------------------------------------------+\
 |																		|
@@ -130,4 +130,4 @@ protected:
 
 #endif	//	OS_LINUX
 
-#endif /* _H_CApplicationGaugeWorkbench */
+#endif /* H_CApplicationGaugeWorkbench */

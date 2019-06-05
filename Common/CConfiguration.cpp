@@ -36,6 +36,7 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
@@ -110,7 +111,7 @@ bool	CConfiguration::AddEntry
 		)
 {
 	bool		bResult = false;
-	Yogi::Core::CCharString	tName( sName );
+	CCharString	tName( sName );
 
 	bResult = m_aContent.Add( tName, rData );
 
@@ -126,12 +127,12 @@ bool	CConfiguration::AddEntry
 \+---------------------------------------------------------------------*/
 bool	CConfiguration::AddAlias
 		(
-		Yogi::Core::ConstCCharDescriptorRef	rKey,
-		Yogi::Core::ConstCCharDescriptorRef	rAlias
+		ConstCCharDescriptorRef	rKey,
+		ConstCCharDescriptorRef	rAlias
 		)
 {
-	Yogi::Core::CCharString	tKey( rKey );
-	Yogi::Core::CCharString	tAlias( rAlias );
+	CCharString	tKey( rKey );
+	CCharString	tAlias( rAlias );
 	return m_aContent.AddAlias( tKey, tAlias );
 }
 
@@ -173,10 +174,10 @@ bool	CConfiguration::PutData
 Yogi::Core::CCharString
 		CConfiguration::ResolveVariable
 		(
-		Yogi::Core::ConstCCharDescriptorRef r
+		ConstCCharDescriptorRef r
 		)
 {
-	Yogi::Core::CCharString	s = r;
+	CCharString	s = r;
 
 	return GetEntryAsString( s.Pointer() );
 }
@@ -189,7 +190,7 @@ Yogi::Core::CCharString
 \+---------------------------------------------------------------------*/
 long	CConfiguration::LocateEntry
 		(
-		Yogi::Core::ConstCCharStringRef	rName
+		ConstCCharStringRef	rName
 		) const
 {
 	return long(m_aContent.IndexOf( rName ));
@@ -209,7 +210,7 @@ CVariantDataPtr
 		const char*	sKey
 		) const
 {
-	Yogi::Core::CCharString	tName( sKey );
+	CCharString	tName( sKey );
 	return GetEntry( tName );
 }
 
@@ -222,7 +223,7 @@ CVariantDataPtr
 CVariantDataPtr
 		CConfiguration::GetEntry
 		(
-		Yogi::Core::ConstCCharStringRef	sKey
+		ConstCCharStringRef	sKey
 		) const
 {
 	return m_aContent.Find( sKey );
@@ -372,12 +373,12 @@ DECL_API(Yogi::Core::CCharString)
 	pv = GetEntry( sKey );
 	if ( pv )
 	{
-		Yogi::Core::CCharString	s = pv->GetValueString();
+		CCharString	s = pv->GetValueString();
 		return s;
 	}
 	else
 	{
-		Yogi::Core::CCharString	s( sDefault );
+		CCharString	s( sDefault );
 		return s;
 	}
 }

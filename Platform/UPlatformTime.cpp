@@ -1320,7 +1320,7 @@ int		tmcomp
  * mkgmtime -
 
 \+---------------------------------------------------------------------*/
-#if 0
+#if defined( OS_LINUX )
 time_t	mkgmtime
 		(
 		struct tm * const	tmp

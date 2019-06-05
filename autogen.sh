@@ -27,6 +27,7 @@ export GETTEXTIZE=gettextize
 export GLIBGETTEXTIZE=glib-gettextize
 export INTLTOOLIZE=intltoolize
 export LIBTOOLIZE=libtoolize
+# export LIBTOOL=libtool
 export M4=m4
 export MAKE=make
 export PKGCONFIG=pkg-config
@@ -113,6 +114,7 @@ assertCmd $GETTEXTIZE
 assertCmd $GLIBGETTEXTIZE optional
 assertCmd $INTLTOOLIZE
 assertCmd $LIBTOOLIZE
+# assertCmd $LIBTOOL
 assertCmd $MAKE
 assertCmd $PKGCONFIG
 assertCmd $MKDIR

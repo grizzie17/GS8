@@ -264,7 +264,7 @@ XMLLite::VReadCallBack*
 			++s;
 			size_t	n;
 
-			char*	sSpace = ::strchr( s, ' ' );
+			const char*	sSpace = ::strchr( s, ' ' );
 			if ( sSpace )
 			{
 				n = static_cast<size_t>(sSpace - s);

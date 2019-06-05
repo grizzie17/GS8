@@ -37,7 +37,7 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include "CApplicationGaugeWorkbench.h"
 

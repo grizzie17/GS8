@@ -3,6 +3,7 @@
 #pragma once
 
 #include <stdio.h>
+#include "UMachine.h"
 #include "UWarnings.h"
 
 
@@ -20,8 +21,9 @@
 #	elif defined( __linux__ )	\
 		||	defined( _linux )	\
 		||	defined( linux )
-#		include <valgrind/memcheck.h>
 #		define CHECK_VALGRIND
+#		include <valgrind/valgrind.h>
+#		include <valgrind/memcheck.h>
 #	endif
 #endif // _DEBUG
 #ifndef CHECK_LEAKS

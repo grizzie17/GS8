@@ -55,9 +55,9 @@ class VEquationOperatorUnary : public VEquation
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-				VEquationOperatorUnary();
-				VEquationOperatorUnary( ConstVEquationOperatorUnaryRef r );	// copy constructor
-	virtual		~VEquationOperatorUnary();
+			VEquationOperatorUnary();
+			VEquationOperatorUnary( ConstVEquationOperatorUnaryRef r );	// copy constructor
+	virtual	~VEquationOperatorUnary();
 
 public:
 //	public types  -------------------------------------------------------

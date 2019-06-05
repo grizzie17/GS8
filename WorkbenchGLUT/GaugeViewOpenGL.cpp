@@ -58,6 +58,8 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi :: Core;
+using namespace Yogi :: Common;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Private Global Variables											|
@@ -215,10 +217,10 @@ GaugeViewOpenGL::GaugeViewOpenGL(int width, int height) :
 GaugeViewOpenGL::~GaugeViewOpenGL()
 {
 
-  if(m_pApplicationGauge)
-  {
-    delete m_pApplicationGauge;
-  }
+	if( m_pApplicationGauge )
+	{
+		delete m_pApplicationGauge;
+	}
 
 }
 

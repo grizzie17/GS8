@@ -23,6 +23,14 @@ case `uname -o` in
 	#export LDFLAGS="-g -ggdb -Wl,--discard-none -Wl,--gc-keep-exported -L/$MINGX/$ARCH/lib"
 	export LDFLAGS="-g -ggdb -L/$MINGX/$ARCH/lib"
 	;;
+* )
+	export ARCH=
+	export ARCH_PREFIX=
+	export CC=gcc
+	export CXX=g++
+	export CXXFLAGS="-g -ggdb -O0"
+	export CPPFLAGS="-D_DEBUG -DOPENGL"
+	export LDFLAGS="-g -ggdb"
 esac
 unset MINGX
 unset WXX
@@ -30,4 +38,3 @@ unset XMACHINE
 
 echo "ARCH=$ARCH"
 echo "LDFLAGS=$LDFLAGS"
-

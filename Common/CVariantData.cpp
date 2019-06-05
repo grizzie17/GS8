@@ -1795,7 +1795,7 @@ bool	CVariantData::EqualsDateTime
 	switch ( m_eType )
 	{
 	case T_DATETIME:
-		return m_tTime == t;
+		return t == m_tTime;
 		break;
 	default:
 		return false;
