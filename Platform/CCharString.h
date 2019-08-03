@@ -87,7 +87,7 @@ public:
 	ConstCCharStringRef	operator+=( ConstCCharDescriptorRef r );
 	ConstCCharStringRef	operator+=( const char* s );
 
-	operator const std::string& ( void ) const;
+	const std::string& toString( void ) const;
 	operator const CCharDescriptor ( void ) const;
 
 	size_t		Length( void ) const;
@@ -448,7 +448,8 @@ CCharString::operator const CCharDescriptor
 }
 
 inline
-CCharString::operator const std::string&
+const std::string& 
+CCharString::toString
 		(
 		void
 		) const

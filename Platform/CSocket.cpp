@@ -26,7 +26,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "stdafx.h"
-#include "UOSIncludes.h"
+#include "UMachine.h"
+#include "UWarnings.h"
+//#include "UOSIncludes.h"
 #if defined( OS_MSWIN )
 #	define INCL_WINSOCK_API_TYPEDEFS	1
 	BEGIN_IGNORE_WARNING(4365)

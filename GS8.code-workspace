@@ -10,7 +10,9 @@
 	"extensions": {
 		"recommendations": [
 			"ms-vscode.cpptools",
-			"maelvalais.autoconf"
+			"maelvalais.autoconf",
+			"laurenttreguier.uncrustify",
+			"github.vscode-pull-request-github"
 		]
 	},
 	"settings": {
@@ -23,7 +25,7 @@
 
 
 		"C_Cpp.formatting": "Disabled",
-		"uncrustify.configPath": "uncrustify.cfg",
+		//"uncrustify.configPath": "uncrustify.cfg",
 
 		//==Terminal====================
 		//------------------------------
@@ -33,14 +35,17 @@
 		//------------------------------
 		// MSYS
 		//------------------------------
-		"terminal.integrated.shell.windows": "/bin/bash",
+		"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+		//"terminal.integrated.shell.windows": "C:\\msys64\\msys2_shell.cmd",
 		"terminal.integrated.shellArgs.windows":[
 			"--login", "-i"
+			//"-defterm", "-mingw64", "-here", "-no-start"
 		],
 		"terminal.integrated.env.windows": {
 			"MSYSTEM": "MINGW64",
 			"CHERE_INVOKING": "1"
 		},
+		//"terminal.integrated.cwd": "${workspaceFolder}",
 		//==End-Terminal=================
 
 		"github.repositories": [
