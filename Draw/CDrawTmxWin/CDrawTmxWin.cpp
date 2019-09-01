@@ -89,18 +89,18 @@ CDrawTmxWin::CDrawTmxWin
 		(
 		void
 		)
-		: inherited(),
-		m_bMatrixDirty( true ),
-		m_bMatrixAffine( true ),
-		m_tMatrixActive(),
-		m_tMatrixBase(),
-		m_nMatrixTop( 0 ),
-		m_tMatrixStack(),
-		m_tWorld(),
-		m_nLeft( 0 ),
-		m_nTop( 0 ),
-		m_nRight( 0 ),
-		m_nBottom( 0 )
+		: inherited()
+		, m_bMatrixDirty( true )
+		, m_bMatrixAffine( true )
+		, m_tMatrixActive()
+		, m_tMatrixBase()
+		, m_nMatrixTop( 0 )
+		, m_tMatrixStack()
+		, m_tWorld()
+		, m_nLeft( 0 )
+		, m_nTop( 0 )
+		, m_nRight( 0 )
+		, m_nBottom( 0 )
 {
 }
 
@@ -108,18 +108,18 @@ CDrawTmxWin::CDrawTmxWin
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_bMatrixDirty( true ),
-		m_bMatrixAffine( true ),
-		m_tMatrixActive(),
-		m_tMatrixBase(),
-		m_nMatrixTop( 0 ),
-		m_tMatrixStack(),
-		m_tWorld(),
-		m_nLeft( 0 ),
-		m_nTop( 0 ),
-		m_nRight( 0 ),
-		m_nBottom( 0 )
+		: inherited( pOwner )
+		, m_bMatrixDirty( true )
+		, m_bMatrixAffine( true )
+		, m_tMatrixActive()
+		, m_tMatrixBase()
+		, m_nMatrixTop( 0 )
+		, m_tMatrixStack()
+		, m_tWorld()
+		, m_nLeft( 0 )
+		, m_nTop( 0 )
+		, m_nRight( 0 )
+		, m_nBottom( 0 )
 {
 }
 
@@ -128,18 +128,18 @@ CDrawTmxWin::CDrawTmxWin
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_bMatrixDirty( true ),
-		m_bMatrixAffine( true ),
-		m_tMatrixActive(),
-		m_tMatrixBase(),
-		m_nMatrixTop( 0 ),
-		m_tMatrixStack(),
-		m_tWorld(),
-		m_nLeft( 0 ),
-		m_nTop( 0 ),
-		m_nRight( 0 ),
-		m_nBottom( 0 )
+		: inherited( sName, pOwner )
+		, m_bMatrixDirty( true )
+		, m_bMatrixAffine( true )
+		, m_tMatrixActive()
+		, m_tMatrixBase()
+		, m_nMatrixTop( 0 )
+		, m_tMatrixStack()
+		, m_tWorld()
+		, m_nLeft( 0 )
+		, m_nTop( 0 )
+		, m_nRight( 0 )
+		, m_nBottom( 0 )
 {
 }
 

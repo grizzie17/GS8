@@ -483,7 +483,12 @@ const unsigned char a2bits[] = { 0x00, 0x66, 0x99, 0xFF };
 const unsigned int	kColorRamp = kBitsAll / sizeof(a216);
 const unsigned int	kColorRamp2 = kColorRamp / 4;
 const unsigned int	kColorDiv = kColorsAll / kColorRamp;
-inline unsigned int VDDSINDEX( unsigned int x )
+inline
+unsigned int
+		VDDSINDEX
+		(
+		unsigned int x
+		)
 {
 	if ( kBitsAll == x )
 	{
@@ -498,7 +503,12 @@ inline unsigned int VDDSINDEX( unsigned int x )
 	}
 }
 
-inline unsigned int VDDSINDEX2( unsigned int x )
+inline
+unsigned int
+		VDDSINDEX2
+		(
+		unsigned int x
+		)
 {
 	if ( kBitsAll == x )
 	{
@@ -514,7 +524,12 @@ inline unsigned int VDDSINDEX2( unsigned int x )
 	}
 }
 
-inline unsigned int VDDSINDEX3( unsigned int x )
+inline
+unsigned int
+		VDDSINDEX3
+		(
+		unsigned int x
+		)
 {
 	if ( kBitsAll == x )
 	{
@@ -531,22 +546,42 @@ inline unsigned int VDDSINDEX3( unsigned int x )
 }
 
 
-inline unsigned int	VDDSEMULATE( unsigned int x )
+inline
+unsigned int
+		VDDSEMULATE
+		(
+		unsigned int x
+		)
 {
 	return a216[ VDDSINDEX( x ) ];
 }
 
-inline unsigned int	VDDSEMULATE2( unsigned int x )
+inline
+unsigned int
+		VDDSEMULATE2
+		(
+		unsigned int x
+		)
 {
 	return a2bits[ VDDSINDEX2( x ) ];
 }
 
-inline unsigned int	VDDSEMULATE3( unsigned int x )
+inline
+unsigned int
+		VDDSEMULATE3
+		(
+		unsigned int x
+		)
 {
 	return a3bits[ VDDSINDEX3( x ) ];
 }
 
-inline unsigned int	VDDSVALUE( unsigned int x )
+inline
+unsigned int
+		VDDSVALUE
+		(
+		unsigned int x
+		)
 {
 	return VDDSEMULATE( x );
 	//return VDDSINDEX( x ) << 5;
@@ -2239,6 +2274,11 @@ bool	CDrawWin::Image
 }
 
 
+/*---------------------------------------------------------------------+\
+
+ * ImagePreloaded -
+
+\+---------------------------------------------------------------------*/
 bool	CDrawWin::ImagePreloaded
 		(
 		GFLOAT		xPosition,
@@ -2421,6 +2461,11 @@ bool	CDrawWin::ImagePreloaded
 	return bResult;
 }
 
+/*---------------------------------------------------------------------+\
+
+ * ImageLoadFile -
+
+\+---------------------------------------------------------------------*/
 bool	CDrawWin::ImageLoadFile
 		(
 		const char*			sSource,
@@ -2520,6 +2565,11 @@ bool	CDrawWin::ImageLoadFile
 	return bResult;
 }
 
+/*---------------------------------------------------------------------+\
+
+ * ImageRelease -
+
+\+---------------------------------------------------------------------*/
 bool	CDrawWin::ImageRelease
 		(
 		IDraw::VImagePtr	pImage

@@ -47,9 +47,9 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef interface_ IPluginLibrary*			IPluginLibraryPtr;
+typedef interface_ IPluginLibrary*	IPluginLibraryPtr;
 
-extern const IXID DECL_CLASS	IXID_IPluginLibrary;
+extern const IXID DECL_CLASS		IXID_IPluginLibrary;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -60,29 +60,31 @@ extern const IXID DECL_CLASS	IXID_IPluginLibrary;
 interface_ IPluginLibrary : public ISupports
 {
 	virtual
-	ISupportsPtr	Create
-					(
-					const char*		sLibraryname,
-					ISupportsPtr	pOwner = 0
-					) PURE;
+	ISupportsPtr
+			Create
+			(
+			const char*		sLibraryname,
+			ISupportsPtr	pOwner = 0
+			) PURE;
 	virtual
-	ISupportsPtr	Create
-					(
-					Yogi::Core::ConstCCharDescriptorRef rLibraryname,
-					ISupportsPtr	pOwner = 0
-					) PURE;
+	ISupportsPtr
+			Create
+			(
+			Yogi::Core::ConstCCharDescriptorRef rLibraryname,
+			ISupportsPtr	pOwner = 0
+			) PURE;
 
 	virtual
-	void			SetBaseFolder
-					(
-					const char* sFolder
-					) PURE;
+	void	SetBaseFolder
+			(
+			const char* sFolder
+			) PURE;
 
 	virtual
-	void			SetRelativeFolder
-					(
-					const char*	sFolder
-					) PURE;
+	void	SetRelativeFolder
+			(
+			const char*	sFolder
+			) PURE;
 };
 
 

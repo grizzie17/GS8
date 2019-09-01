@@ -43,7 +43,7 @@ namespace Yogi { namespace Common {
 |
 \+---------------------------------------------------------------------*/
 
-typedef interface_ IKeyboard*			IKeyboardPtr;
+typedef interface_ IKeyboard*	IKeyboardPtr;
 
 extern const IXID DECL_CLASS	IXID_IKeyboard;
 

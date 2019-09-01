@@ -46,7 +46,7 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef interface_ IPlugin*			IPluginPtr;
+typedef interface_ IPlugin*		IPluginPtr;
 
 extern const IXID DECL_CLASS	IXID_IPlugin;
 
