@@ -66,6 +66,7 @@
 			GUI_xxxx
 
 				GUI_ENV5
+				GUI_GLUT
 				GUI_MACINTOSH
 				GUI_MOTIF
 				GUI_MSWINDOWS
@@ -203,9 +204,14 @@
 
 #	define	OS_MSWIN		1
 #	define	OS_MSWINDOWS	1
-#	define	GUI_MSWINDOWS	1
-#	define	GL_GDI			1
-#	define	GL_DIRECTX		1
+#	if defined( GLUT )
+#		define GUI_GLUT			1
+#		define GL_OPENGL 		1
+#	else
+#		define	GUI_MSWINDOWS	1
+#		define	GL_GDI			1
+#		define	GL_DIRECTX		1
+#	endif
 
 #	undef OS_LINUX
 #	undef OS_MACINTOSH

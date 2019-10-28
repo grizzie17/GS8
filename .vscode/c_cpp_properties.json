@@ -30,14 +30,17 @@
             "defines": [
                 "CONFNAME=MSYS",
                 "_DEBUG",
-                "DEVROOT=${workspaceFolder}"
+                "DEVROOT=${workspaceFolder}",
+                "OPENGL",
+                "GLUT"
             ],
             "includePath": [
                 ".",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**"
+                "${workspaceFolder}/**/**/**",
+                "C:/msys64/mingw64/include/freetype2"
             ]
         },
         {
@@ -49,7 +52,9 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "LINUX"
+                "LINUX",
+                "OPENGL",
+                "GLUT"
             ],
             "includePath": [
                 ".",
@@ -58,6 +63,21 @@
                 "${workspaceFolder}/**/**",
                 "${workspaceFolder}/**/**/**"
             ]
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
         }
     ],
     "version": 4

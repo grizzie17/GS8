@@ -46,10 +46,10 @@
 #if defined( GL_OPENGL )	// brackets whole file
 
 
-#	include <GL/gl.h>
-#	include <GL/glut.h>
-#	include <math.h>
-#	include <float.h>
+#include <GL/gl.h>
+#include <GL/glut.h>
+#include <math.h>
+#include <float.h>
 
 #include <ft2build.h>
 #include <FTGL/ftgl.h>
@@ -59,14 +59,21 @@
 //#	include "image_helper.h"
 //#	include "stb_image_aug.h"
 
-#include "TDrawOpenGL-inl.h"
-#include "UFile.h"
+#	include "TDrawOpenGL-inl.h"
+#	include "UFile.h"
 
 /*---------------------------------------------------------------------+\
 |																		|
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+
+// change the comment below to allow printing of the local information
+
+//#define	LOCAL_PRINT( fmt, ... )	DbgPrint( fmt, ## __VA_ARGS__ )
+#define	LOCAL_PRINT( fmt, ... )
+
+
 #ifdef GL_OPENGL_SM501
 //extern BitmapFontRec font9x15;
 //extern BitmapFontRec font8x13;
@@ -301,16 +308,16 @@ void	CDrawOpenGL::FontInitialize()
 {
 #if 1
 	if ( !FindFontByName( m_sFontName, sizeof( m_sFontName ), "sans-serif" ) )
-		LogPrint( "Unable to find 'sansserif' font" );
+		LOCAL_PRINT( "Unable to find 'sansserif' font" );
 
 	if ( !FindFontByName( m_sFontSansSerif, sizeof( m_sFontSansSerif ), "sansserif" ) )
-		LogPrint( "Unable to find 'sansserif' font" );
+		LOCAL_PRINT( "Unable to find 'sansserif' font" );
 
 	if ( !FindFontByName( m_sFontSerif, sizeof( m_sFontSerif ), "serif" ) )
-		LogPrint( "Unable to find 'serif' font" );
+		LOCAL_PRINT( "Unable to find 'serif' font" );
 
 	if ( !FindFontByName( m_sFontMonospace, sizeof( m_sFontMonospace ), "monospace" ) )
-		LogPrint( "Unable to find 'monospace' font" );
+		LOCAL_PRINT( "Unable to find 'monospace' font" );
 //#else
 //	if ( FolderExists( "/usr/share/fonts/truetype/freefont" ) )
 //	{

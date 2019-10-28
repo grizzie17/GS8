@@ -67,6 +67,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
@@ -380,10 +381,10 @@ CDrawWinGL::~CDrawWinGL
 
 	while ( e.MoveNext() )
 	{
-		CBitmapFont**	pp = e.Current();
+		ConstCBitmapFontPtr*	pp = e.Current();
 		if ( pp )
 		{
-			CBitmapFont*	p = *pp;
+			ConstCBitmapFontPtr	p = *pp;
 			if ( p )
 				delete p;
 		}
@@ -560,7 +561,7 @@ bool	CDrawWinGL::FontSelect
 	{
 		bResult = false;
 
-		CBitmapFont**	ppFont;
+		ConstCBitmapFontPtr*	ppFont;
 		CCharString		sKey;
 		long			nHeight = long(TransformLength( m_fFontHeight ) + GFLOAT_1_2);
 
@@ -1007,7 +1008,7 @@ bool	CDrawWinGL::LineWidth
 \+---------------------------------------------------------------------*/
 bool	CDrawWinGL::LineColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return inherited::LineColor( rColor );
@@ -1020,7 +1021,7 @@ bool	CDrawWinGL::LineColor
 \+---------------------------------------------------------------------*/
 bool	CDrawWinGL::FillColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return inherited::FillColor( rColor );
@@ -1034,7 +1035,7 @@ bool	CDrawWinGL::FillColor
 \+---------------------------------------------------------------------*/
 bool	CDrawWinGL::HaloColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return inherited::HaloColor( rColor );

@@ -73,6 +73,7 @@
 |	Local Type Definitions												|
 |																		|
 \+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 
 /*---------------------------------------------------------------------+\
@@ -388,7 +389,7 @@ VDrawOpenGL::~VDrawOpenGL
 
 	while ( e.MoveNext() )
 	{
-		CBitmapFont**	pp = e.Current();
+		CBitmapFont*const*	pp = e.Current();
 		if ( pp )
 		{
 			CBitmapFont*	p = *pp;
@@ -503,7 +504,7 @@ bool	VDrawOpenGL::FontSelect
 	{
 		bResult = false;
 
-		CBitmapFont**	ppFont;
+		CBitmapFont*const*	ppFont;
 		CCharString		sKey;
 		long			nHeight = long(TransformLength( m_fFontHeight ) + GFLOAT_1_2);
 
@@ -978,7 +979,7 @@ bool	VDrawOpenGL::LineWidth
 \+---------------------------------------------------------------------*/
 bool	VDrawOpenGL::LineColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return inherited::LineColor( rColor );
@@ -991,7 +992,7 @@ bool	VDrawOpenGL::LineColor
 \+---------------------------------------------------------------------*/
 bool	VDrawOpenGL::FillColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return inherited::FillColor( rColor );
@@ -1005,7 +1006,7 @@ bool	VDrawOpenGL::FillColor
 \+---------------------------------------------------------------------*/
 bool	VDrawOpenGL::HaloColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return inherited::HaloColor( rColor );

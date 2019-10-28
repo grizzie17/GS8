@@ -34,6 +34,9 @@
 #include "UPlatform.h"
 
 #include "VPluginFactory.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -80,8 +83,8 @@ XMLEverythingAlert::XMLEverythingAlert
 		(
 		void
 		)
-		: VPluginExternalXML(),
-		m_nAlertCount( 0 )
+		: VPluginExternalXML()
+		, m_nAlertCount( 0 )
 {
 }
 
@@ -89,9 +92,9 @@ XMLEverythingAlert::XMLEverythingAlert
 		(
 		ISupportsPtr	pOwner
 		)
-		: VPluginExternalXML( pOwner ),
-		m_pDictionary( 0 ),
-		m_nAlertCount( 0 )
+		: VPluginExternalXML( pOwner )
+		, m_pDictionary( 0 )
+		, m_nAlertCount( 0 )
 {
 }
 
@@ -100,9 +103,9 @@ XMLEverythingAlert::XMLEverythingAlert
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VPluginExternalXML( sName, pOwner ),
-		m_pDictionary( 0 ),
-		m_nAlertCount( 0 )
+		: VPluginExternalXML( sName, pOwner )
+		, m_pDictionary( 0 )
+		, m_nAlertCount( 0 )
 {
 }
 
@@ -322,7 +325,7 @@ XMLLite::VReadCallBack*
 				VDictionary::Selector	sel = m_pDictionary->LocateEntry( sLevel );
 				if ( sel )
 				{
-					CVariantDataPtr	pv;
+					ConstCVariantDataPtr	pv;
 					pv = m_pDictionary->GetData( sel );
 					if ( pv )
 					{

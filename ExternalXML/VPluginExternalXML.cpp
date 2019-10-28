@@ -28,6 +28,8 @@
 #include "stdafx.h"
 #include "VPluginExternalXML.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 
 /*---------------------------------------------------------------------+\
@@ -72,10 +74,10 @@ VPluginExternalXML::VPluginExternalXML
 		(
 		void
 		)
-		: inherited(),
-		m_sID(),
-		m_pApplication( 0 ),
-		m_sData()
+		: inherited()
+		, m_sID()
+		, m_pApplication( 0 )
+		, m_sData()
 {
 	m_sData.SetBlockSize( 1024 );
 }
@@ -84,10 +86,10 @@ VPluginExternalXML::VPluginExternalXML
 		(
 		ISupportsPtr	pOwner
 		)
-		: inherited( pOwner ),
-		m_sID(),
-		m_pApplication( 0 ),
-		m_sData()
+		: inherited( pOwner )
+		, m_sID()
+		, m_pApplication( 0 )
+		, m_sData()
 {
 }
 
@@ -96,10 +98,10 @@ VPluginExternalXML::VPluginExternalXML
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: inherited( sName, pOwner ),
-		m_sID(),
-		m_pApplication( 0 ),
-		m_sData()
+		: inherited( sName, pOwner )
+		, m_sID()
+		, m_pApplication( 0 )
+		, m_sData()
 {
 }
 

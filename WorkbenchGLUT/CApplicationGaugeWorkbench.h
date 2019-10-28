@@ -39,7 +39,7 @@
 #include "CApplicationGauge.h"
 
 #include "UMachine.h"
-#if defined( OS_LINUX )
+#if defined( OS_LINUX )  ||  defined( GUI_GLUT )
 //#include "CDrawLinuxDTWorkbench.h"
 
 /*---------------------------------------------------------------------+\
@@ -66,9 +66,9 @@ class CApplicationGaugeWorkbench : public CApplicationGauge
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CApplicationGaugeWorkbench();
-					CApplicationGaugeWorkbench( ConstCApplicationGaugeWorkbenchRef r );	// copy constructor
-	virtual			~CApplicationGaugeWorkbench();
+			CApplicationGaugeWorkbench();
+			CApplicationGaugeWorkbench( ConstCApplicationGaugeWorkbenchRef r );	// copy constructor
+	virtual	~CApplicationGaugeWorkbench();
 
 public:
 //	public types  -------------------------------------------------------

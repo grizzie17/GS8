@@ -85,17 +85,17 @@ class CVariantData
 {
 //	class lifecycle  ----------------------------------------------------
 public:
-					CVariantData();
-					CVariantData( ConstCVariantDataRef r );	// copy constructor
-					CVariantData( double f );
-					CVariantData( GFLOAT f );
-					CVariantData( long i );
-					CVariantData( const char* s );
-					CVariantData( Yogi::Core::ConstCColorRef r );
-					CVariantData( bool b );
-					CVariantData( Yogi::Core::ConstCDateTimeRef t );
-					CVariantData( Yogi::Core::ConstCCharDescriptorRef r );
-	virtual			~CVariantData();
+			CVariantData();
+			CVariantData( ConstCVariantDataRef r );	// copy constructor
+			CVariantData( double f );
+			CVariantData( GFLOAT f );
+			CVariantData( long i );
+			CVariantData( const char* s );
+			CVariantData( Yogi::Core::ConstCColorRef r );
+			CVariantData( bool b );
+			CVariantData( Yogi::Core::ConstCDateTimeRef t );
+			CVariantData( Yogi::Core::ConstCCharDescriptorRef r );
+	virtual	~CVariantData();
 
 public:
 //	public types  -------------------------------------------------------
@@ -201,36 +201,40 @@ public:
 	double		GetValueDouble( void ) const;
 	GFLOAT		GetValueFloatAsUnits( int nUnits ) const;
 	const char*	GetValueString( void ) const;
-	Yogi::Core::CCharString	GetValueCCharString( void ) const;
-	Yogi::Core::CCharDescriptor	GetValueCCharDescriptor( void ) const;
-	Yogi::Core::CColor		GetValueColor( void ) const;
-	Yogi::Core::CDateTime	GetValueDateTime( void ) const;
+	Yogi::Core::CCharString
+			GetValueCCharString( void ) const;
+	Yogi::Core::CCharDescriptor
+			GetValueCCharDescriptor( void ) const;
+	Yogi::Core::CColor
+			GetValueColor( void ) const;
+	Yogi::Core::CDateTime
+			GetValueDateTime( void ) const;
 
-	bool		EqualsVariant( ConstCVariantDataRef vData ) const;
-	bool		EqualsCCharString( Yogi::Core::ConstCCharStringRef r ) const;
-	bool		EqualsCCharDescriptor( Yogi::Core::ConstCCharDescriptorRef r ) const;
-	bool		EqualsDouble( double fData ) const;
-	bool		EqualsFloat( GFLOAT fData ) const;
-	bool		EqualsBool( bool bData ) const;
-	bool		EqualsInteger( long nData ) const;
-	bool		EqualsString( const char* sData ) const;
-	bool		EqualsColor( Yogi::Core::ConstCColorRef r ) const;
-	bool		EqualsDateTime( Yogi::Core::ConstCDateTimeRef r ) const;
+	bool	EqualsVariant( ConstCVariantDataRef vData ) const;
+	bool	EqualsCCharString( Yogi::Core::ConstCCharStringRef r ) const;
+	bool	EqualsCCharDescriptor( Yogi::Core::ConstCCharDescriptorRef r ) const;
+	bool	EqualsDouble( double fData ) const;
+	bool	EqualsFloat( GFLOAT fData ) const;
+	bool	EqualsBool( bool bData ) const;
+	bool	EqualsInteger( long nData ) const;
+	bool	EqualsString( const char* sData ) const;
+	bool	EqualsColor( Yogi::Core::ConstCColorRef r ) const;
+	bool	EqualsDateTime( Yogi::Core::ConstCDateTimeRef r ) const;
 
-	bool		LessThanVariant( ConstCVariantDataRef r ) const;
-	bool		LessThanCCharString( Yogi::Core::ConstCCharStringRef r ) const;
-	bool		LessThanCCharDescriptor( Yogi::Core::ConstCCharDescriptorRef r ) const;
-	bool		LessThanDouble( double fData ) const;
-	bool		LessThanFloat( GFLOAT fData ) const;
-	bool		LessThanBool( bool bData ) const;
-	bool		LessThanInteger( long nData ) const;
-	bool		LessThanString( const char* sData ) const;
-	bool		LessThanColor( Yogi::Core::ConstCColorRef r ) const;
-	bool		LessThanDateTime( Yogi::Core::ConstCDateTimeRef r ) const;
+	bool	LessThanVariant( ConstCVariantDataRef r ) const;
+	bool	LessThanCCharString( Yogi::Core::ConstCCharStringRef r ) const;
+	bool	LessThanCCharDescriptor( Yogi::Core::ConstCCharDescriptorRef r ) const;
+	bool	LessThanDouble( double fData ) const;
+	bool	LessThanFloat( GFLOAT fData ) const;
+	bool	LessThanBool( bool bData ) const;
+	bool	LessThanInteger( long nData ) const;
+	bool	LessThanString( const char* sData ) const;
+	bool	LessThanColor( Yogi::Core::ConstCColorRef r ) const;
+	bool	LessThanDateTime( Yogi::Core::ConstCDateTimeRef r ) const;
 
-	bool		LoadCopy( ConstCVariantDataRef r );		// assignment
-	bool		LoadCharString( const char* s );
-	bool		LoadCharDescriptor( const char* s, size_t n );
+	bool	LoadCopy( ConstCVariantDataRef r );		// assignment
+	bool	LoadCharString( const char* s );
+	bool	LoadCharDescriptor( const char* s, size_t n );
 
 	// array operations
 	size_t			ItemCount( void ) const;

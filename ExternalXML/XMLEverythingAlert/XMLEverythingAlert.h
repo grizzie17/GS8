@@ -112,8 +112,8 @@ public:
 	virtual
 	bool	Load
 			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
+			Yogi::Common::VPluginConfigurationPtr	pConfig,
+			Yogi::Common::VPluginLibraryPtr			pLib
 			);
 
 
@@ -121,14 +121,14 @@ public:
 	virtual
 	bool	Initialize
 			(
-			IExternalXMLServerPtr p
+			Yogi::Common::IExternalXMLServerPtr p
 			);
 
 	virtual
 	XMLLite::VReadCallBack*
 			GetCallBack
 			(
-			ConstCCharDescriptorRef	rArg
+			Yogi::Core::ConstCCharDescriptorRef	rArg
 			);
 
 	virtual

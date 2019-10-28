@@ -60,9 +60,15 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef class CDrawWinGL*			CDrawWinGLPtr;
-typedef class CDrawWinGL&			CDrawWinGLRef;
+typedef class CDrawWinGL*		CDrawWinGLPtr;
+typedef class CDrawWinGL&		CDrawWinGLRef;
+typedef const class CDrawWinGL*	ConstCDrawWinGLPtr;
 typedef const class CDrawWinGL&	ConstCDrawWinGLRef;
+
+typedef class CBitmapFont*			CBitmapFontPtr;
+typedef class CBitmapFont&			CBitmapFontRef;
+typedef const class CBitmapFont*	ConstCBitmapFontPtr;
+typedef const class CBitmapFont&	ConstCBitmapFontRef;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -300,9 +306,9 @@ public:
 
 
 	virtual bool	LineWidth( short nWidth );
-	virtual bool	LineColor( CColorRef rColor );
-	virtual bool	FillColor( CColorRef rColor );
-	virtual bool	HaloColor( CColorRef rColor );
+	virtual bool	LineColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	FillColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	HaloColor( Yogi::Core::ConstCColorRef rColor );
 
 	virtual bool	FontParams( const char* sFontName, GFLOAT fFontHeight );
 

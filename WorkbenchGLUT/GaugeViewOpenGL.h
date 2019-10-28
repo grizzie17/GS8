@@ -44,9 +44,10 @@ using namespace Yogi::Gadget;
 
 class GaugeViewOpenGL
 {
-  public:
+public:
     GaugeViewOpenGL(int width, int height);
     virtual ~GaugeViewOpenGL();
+
 	bool Calculate();
 	bool CalculateNow();
 	bool StaleData();
@@ -62,18 +63,18 @@ class GaugeViewOpenGL
     //static int SendMulticastCommand(int command);
 	//static void SocketHandler(int *socketFd );
 
-  private:
+private:
 
-	TPointer<CApplicationGaugeWorkbench>	m_pApplicationGauge;
-	TPointer<CKeyProcessorOpenGL>			m_pKeyProcessor;
-	TPointer<CMouseProcessorWin>			m_pMouseProcessor;
-	TPointer<CCommandProcessorWorkbench>	m_pCommandProcessor;
-	TPointer<CFunctionProcessorForPlugins>	m_pFunctionProcessor;
+	Yogi::Core::TPointer<Yogi::Gadget::CApplicationGaugeWorkbench>	m_pApplicationGauge;
+	Yogi::Core::TPointer<CKeyProcessorOpenGL>			m_pKeyProcessor;
+	Yogi::Core::TPointer<CMouseProcessorWin>			m_pMouseProcessor;
+	Yogi::Core::TPointer<CCommandProcessorWorkbench>	m_pCommandProcessor;
+	Yogi::Core::TPointer<CFunctionProcessorForPlugins>	m_pFunctionProcessor;
 	//TPointer<CXMLSampleLoader>		m_pSampleLoaderXML;
 	//TPointer<CVehicleDataLoader>		m_pVehicleData;
 	//TPointer<CVehicleDataReader>		m_pVehicleDataXML;
 
-	TPointer<CServiceManager>			m_pServiceManager;
+	Yogi::Core::TPointer<CServiceManager>			m_pServiceManager;
 
 	int m_nSocketFd;
 

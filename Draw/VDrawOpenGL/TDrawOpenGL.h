@@ -36,15 +36,15 @@
 #include "CVariantData.h"
 #include "THash.h"
 
-//#if defined( OPENGLES )
-//#	include <GLES/gl.h>
-//#	include <EGL/egl.h>
-//#	pragma message( "building OpenGL ES")
-//#else
-//#	include <GL/gl.h>
-//#	include <GL/glu.h>
-//#	pragma message( "building OpenGL")
-//#endif
+#if defined( OPENGLES )
+#	include <GLES/gl.h>
+#	include <EGL/egl.h>
+// #	pragma message( "building OpenGL ES")
+#else
+#	include <GL/gl.h>
+#	include <GL/glu.h>
+// #	pragma message( "building OpenGL")
+#endif
 
 //	GL includes must be included by Template instantiation file
 

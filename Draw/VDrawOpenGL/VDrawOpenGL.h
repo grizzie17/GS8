@@ -35,6 +35,7 @@
 #include "TDictionaryIndexed.h"
 #include "IDrawWin32.h"
 #include "CVariantData.h"
+#include "CColor.h"
 #include "THash.h"
 
 #	include <GL/gl.h>
@@ -201,7 +202,7 @@ protected:
 	HGLRC	m_hRC;
 
 	RECT	m_tUpdateRect;
-	CColor		m_clrNone;
+	CColor	m_clrNone;
 
 	GLuint	m_nFboApplication;
 	GLuint	m_nFboBackground;
@@ -282,9 +283,9 @@ public:
 
 
 	virtual bool	LineWidth( short nWidth );
-	virtual bool	LineColor( CColorRef rColor );
-	virtual bool	FillColor( CColorRef rColor );
-	virtual bool	HaloColor( CColorRef rColor );
+	virtual bool	LineColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	FillColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	HaloColor( Yogi::Core::ConstCColorRef rColor );
 
 	virtual bool	FontParams( const char* sFontName, GFLOAT fFontHeight );
 

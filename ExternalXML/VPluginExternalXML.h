@@ -57,7 +57,7 @@ typedef const class VPluginExternalXML&	ConstVPluginExternalXMLRef;
 
 class VPluginExternalXML : public Yogi::Common::VPluginWithAggregateList,
 						implements_ IApplicationUser,
-						implements_ IExternalXML,
+						implements_ Yogi::Common::IExternalXML,
 						public virtual XMLLite::VReadCallBack
 {
 //	class lifecycle  ----------------------------------------------------
@@ -83,7 +83,7 @@ public:
 	virtual
 	bool	Initialize
 			(
-			IExternalXMLServerPtr p
+			Yogi::Common::IExternalXMLServerPtr p
 			);
 
 	virtual
@@ -97,7 +97,7 @@ public:
 	XMLLite::VReadCallBack*
 			GetCallBack
 			(
-			ConstCCharDescriptorRef	rArg
+			Yogi::Core::ConstCCharDescriptorRef	rArg
 			);
 
 	virtual
