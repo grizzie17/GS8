@@ -377,14 +377,14 @@ CDrawWinGL::~CDrawWinGL
 		void
 		)
 {
-	THashTableEnumerator<CCharString, CBitmapFont*>	e = m_tFontTable.GetEnumerator();
+	THashTableEnumerator<CCharString, CBitmapFontPtr>	e = m_tFontTable.GetEnumerator();
 
 	while ( e.MoveNext() )
 	{
-		ConstCBitmapFontPtr*	pp = e.Current();
+		CBitmapFontPtr*	pp = e.Current();
 		if ( pp )
 		{
-			ConstCBitmapFontPtr	p = *pp;
+			CBitmapFontPtr	p = *pp;
 			if ( p )
 				delete p;
 		}

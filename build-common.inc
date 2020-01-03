@@ -1,6 +1,7 @@
 #!/bin/bash
 
 XMACHINE=`uname -m`
+XLIBDIR=
 
 case `uname -o` in
 [Mm]sys | cygwin* )
@@ -21,7 +22,8 @@ case `uname -o` in
 	export CXXFLAGS="-g -ggdb -O0"
 	export CPPFLAGS="-D_DEBUG"
 	#export LDFLAGS="-g -ggdb -Wl,--discard-none -Wl,--gc-keep-exported -L/$MINGX/$ARCH/lib"
-	export LDFLAGS="-g -ggdb -L/$MINGX/$ARCH/lib"
+	export XLIBDIR="/$MINGX/$ARCH/lib"
+	export LDFLAGS="-g -ggdb -L$XLIBDIR"
 	;;
 * )
 	export ARCH=
@@ -30,6 +32,7 @@ case `uname -o` in
 	export CXX=g++
 	export CXXFLAGS="-g -ggdb -O0"
 	export CPPFLAGS="-D_DEBUG -DOPENGL"
+	export XLIBDIR="/usr/lib"
 	export LDFLAGS="-g -ggdb"
 esac
 unset MINGX

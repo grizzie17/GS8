@@ -1,5 +1,5 @@
 
-#include "IPicture.h"
+#include "IXPicture.h"
 
 
 namespace Yogi { namespace Common {

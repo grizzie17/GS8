@@ -16,10 +16,12 @@ elif [ -n "$(command -v pacman)" ]; then
 	pacman -S -yy \
 		base-devel \
 		$AUTOTOOLS \
+		libutil-linux-devel \
 		${PFX}boost \
 		${PFX}python2 ${PFX}python3 \
 		${PFX}gtk2 ${PFX}gtk3 \
 		${PFX}clang ${PFX}glib2 \
+		${PFX}dlfcn \
 		${PFX}freeglut ${PFX}freetype ${PFX}ftgl
 else
 	echo "no recognized package manager"

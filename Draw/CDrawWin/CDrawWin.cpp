@@ -72,7 +72,7 @@
 //#include <atlwin.h>
 
 #include "TPointer.h"
-#include "IPicture.h"
+//#include "IPicture.h"
 
 using namespace Yogi::Core;
 namespace Yogi { namespace Common {

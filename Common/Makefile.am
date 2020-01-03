@@ -45,7 +45,7 @@ libcommon_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
 		-Wl,--no-whole-archive \
 		$(top_builddir)/Platform/libplatform.la
 
-libcommon_la_LIBADD = $(WS2_32) -ldl -lpthread -lstdc++ -lc
+libcommon_la_LIBADD = $(WS2_32) -lpthread -lstdc++ -lc
 libcommon_la_DEPENDENCIES = $(top_builddir)/Platform/libplatform.la \
 		$(top_builddir)/Draw/VDraw/libvdraw.la
 
@@ -72,6 +72,7 @@ Common_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
 Common_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
 Common_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) \
 		$(top_builddir)/Common/libcommon.la \
+		$(top_builddir)/Draw/VDraw/libvdraw.la \
 		$(top_builddir)/Platform/libplatform.la
 Common_specs_LDADD = -lpthread -lstdc++ -lc
 

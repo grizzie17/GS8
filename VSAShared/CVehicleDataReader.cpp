@@ -74,6 +74,7 @@
 #include "CVehicleDataReader.h"
 
 #include "UPlatform.h"
+#include "UPlatformTime.h"
 //#include "gauges.h"
 
 #if defined( OS_LINUX )
@@ -434,7 +435,7 @@ int		CVehicleDataReader::Initialize
 
 	// do windows mutex work here
 
-	mutex_save_vdr = CreateMutex(NULL,false,p_mutexName);
+	mutex_save_vdr = CreateMutexW(NULL,false,p_mutexName);
 
 	m_mreq.imr_multiaddr.s_addr = inet_addr(m_sMultiCastAddr);
 
@@ -452,19 +453,19 @@ int		CVehicleDataReader::Initialize
 
 	char sHost[128] = {0};
 	if ( ::gethostname(sHost, sizeof(sHost)) == 0 ) // get local host name
-		{
+	{
 		struct hostent* pHost = ::gethostbyname(sHost);
-			if ( pHost != NULL )
-			{
+		if ( pHost != NULL )
+		{
 			memcpy(&m_mreq.imr_interface,pHost->h_addr_list[0],pHost->h_length);
 			//char* sIp = inet_ntoa(m_mreq.imr_interface);	debugging
-			}
-			else
-			{
-				WSAGetLastError(); // error handling
-				goodInit = -7;
-			}
 		}
+		else
+		{
+			WSAGetLastError(); // error handling
+			goodInit = -7;
+		}
+	}
 	else
 	{
 		WSAGetLastError(); // error handling

@@ -86,7 +86,7 @@ AH_VERBATIM([__STDC_WANT_SECURE_LIB__],
 AC_LANG_PUSH([C])
 AC_CHECK_HEADERS([assert.h ctype.h errno.h fcntl.h float.h limits.h math.h memory.h stdarg.h stddef.h stdint.h stdio.h stdlib.h string.h strings.h sys/time.h sys/timeb.h sys/types.h time.h unistd.h])
 AM_COND_IF([OS_MSYS], [
-	AC_CHECK_HEADERS([process.h tchar.h winerror.h])
+	AC_CHECK_HEADERS([olectl.h process.h tchar.h winerror.h])
 ])
 AM_COND_IF([OS_LINUX], [
 	AC_CHECK_HEADERS([arpa/inet.h dirent.h netdb.h net/if.h netinet/in.h pthread.h semaphore.h sys/ioctl.h sys/socket.h  sys/stat.h termios.h ])
@@ -146,6 +146,7 @@ GLOBAL_CXXFLAGS=""
 AM_COND_IF([OS_MSYS],
 	[
 		GLOBAL_CXXFLAGS+=" -mwindows "
+		#EXTSUBDIRS="Draw/VGDI WorkbenchWin"
 		EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
 		NO_UNDEFINED="-no-undefined"
 		WS2_32="-lWs2_32"
@@ -163,6 +164,7 @@ AC_SUBST([NO_UNDEFINED])
 AC_SUBST([WS2_32])
 AC_SUBST([EXTSUBDIRS])
 AC_SUBST([GLOBAL_CXXFLAGS])
+AC_SUBST([XLIBDIR])
 # AC_SUBST([OSCONFFILES])
 
 AM_CONDITIONAL([DEBUG], [test -n $(echo "$CXXFLAGS" | grep '\-g[gdb0-9]*' 2>/dev/null)])

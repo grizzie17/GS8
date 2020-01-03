@@ -148,8 +148,8 @@ CSocket::CSocket
 		(
 		SOCKETHDL	nSockDesc
 		)
-		: m_nSockDesc( nSockDesc ),
-		m_nError( 0 )
+		: m_nSockDesc( nSockDesc )
+		, m_nError( 0 )
 {
 }
 
@@ -157,8 +157,8 @@ CSocket::CSocket
 		(
 		const CSocket&	//r
 		)
-		: m_nSockDesc( 0 ),
-		m_nError( 0 )
+		: m_nSockDesc( 0 )
+		, m_nError( 0 )
 {
 }
 
@@ -168,8 +168,8 @@ CSocket::CSocket
 		int type,
 		int protocol
 		)
-		: m_nSockDesc( 0 ),
-		m_nError( 0 )
+		: m_nSockDesc( 0 )
+		, m_nError( 0 )
 {
 #if defined( OS_MSWIN )
 	if ( ! g_bInitialized )
@@ -436,9 +436,9 @@ CSocketCommunicate::CSocketCommunicate
 		int type,
 		int protocol
 		)
-		: inherited( type, protocol ),
-		m_sForeignAddress(),
-		m_nForeignPort( 0 )
+		: inherited( type, protocol )
+		, m_sForeignAddress()
+		, m_nForeignPort( 0 )
 {
 }
 
@@ -447,9 +447,9 @@ CSocketCommunicate::CSocketCommunicate
 		(
 		SOCKETHDL nNewConnSD
 		)
-		: inherited( nNewConnSD ),
-		m_sForeignAddress(),
-		m_nForeignPort( 0 )
+		: inherited( nNewConnSD )
+		, m_sForeignAddress()
+		, m_nForeignPort( 0 )
 {
 }
 
@@ -1003,9 +1003,9 @@ CSocketICMP::CSocketICMP
 		(
 		void
 		)
-		: inherited( SOCK_RAW, IPPROTO_ICMP ),
-		m_sForeignAddress(),
-		m_nForeignPort( 0 )
+		: inherited( SOCK_RAW, IPPROTO_ICMP )
+		, m_sForeignAddress()
+		, m_nForeignPort( 0 )
 {
 }
 
@@ -1045,4 +1045,3 @@ CSocketICMP::~CSocketICMP
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

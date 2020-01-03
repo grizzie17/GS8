@@ -66,18 +66,23 @@
         },
         {
             "name": "Win32",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "compilerPath": "/usr/bin/gcc",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe",
             "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64"
+            "cppStandard": "c++14",
+            "defines": [
+                "CONFNAME=Win32",
+                "_DEBUG",
+                "DEVROOT=${workspaceFolder}"
+            ],
+            "includePath": [
+                ".",
+                "${workspaceFolder}",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**",
+                "C:/msys64/mingw64/include/freetype2"
+			]
         }
     ],
     "version": 4

@@ -1,7 +1,7 @@
 
 
-#ifndef H_IPicture
-#define H_IPicture
+#ifndef H_IXPicture
+#define H_IXPicture
 
 
 #include "ISupports.h"
@@ -11,13 +11,13 @@
 namespace Yogi { namespace Common {
 
 
-typedef interface_ IPicture*	IPicturePtr;
+typedef interface_ IXPicture*	IXPicturePtr;
 
 extern const IXID	IXID_IPicture;
 
 
 
-interface_ IPicture : public ISupports
+interface_ IXPicture : public ISupports
 {
 
 };

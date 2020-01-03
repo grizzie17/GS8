@@ -34,6 +34,7 @@
 
 #include "TDictionaryIndexed.h"
 #include "IDrawWin32.h"
+#include "CCharString.h"
 #include "CVariantData.h"
 #include "THash.h"
 
@@ -86,15 +87,15 @@ public:
 
 	bool	CreateFont( HDC& rDC, const char* sFontname, int nFontHeight );
 	bool	DrawTextString
-		(
-		int				xPosition,
-		int				yPosition,
-		IDraw::EAlignments		eAlign,
-		IDraw::EVerticalAlignments	eVertAlign,
-		const CColor&	clr,
-		const char*		sString,
-		long			nCount = -1
-		);
+			(
+			int				xPosition,
+			int				yPosition,
+			IDraw::EAlignments		eAlign,
+			IDraw::EVerticalAlignments	eVertAlign,
+			const CColor&	clr,
+			const char*		sString,
+			long			nCount = -1
+			);
 
 	bool	operator == ( const CBitmapFont& r ) const;
 	unsigned long	GetHash() const;
@@ -110,7 +111,7 @@ private:
 
 template <>
 inline
-index_t	THashValueFromKey<CBitmapFont>
+index_t	Yogi::Common::THashValueFromKey<CBitmapFont>
 		(
 		const CBitmapFont&	key
 		)
@@ -188,27 +189,28 @@ protected:
 	bool	FontHaloSelect( void );
 	void	FontDestroy( void );
 
-	bool	PieBase(
-                GFLOAT	xAxis,
-		GFLOAT	yAxis,
-		GFLOAT	nRadius,
-		GFLOAT	fStartAngle,
-		GFLOAT	fEndAngle,
-		GLenum mode
-		);
+	bool	PieBase
+			(
+            GFLOAT	xAxis,
+			GFLOAT	yAxis,
+			GFLOAT	nRadius,
+			GFLOAT	fStartAngle,
+			GFLOAT	fEndAngle,
+			GLenum mode
+			);
 
 	bool	CircleBase
-		(
-		GFLOAT	cx,
-		GFLOAT	cy,
-		GFLOAT	r,
-		GLenum mode
-		);
+			(
+			GFLOAT	cx,
+			GFLOAT	cy,
+			GFLOAT	r,
+			GLenum mode
+			);
 
 	bool	EndPolygonBase
-		(
-		GLenum mode
-		);
+			(
+			GLenum mode
+			);
 
 //	protected data  -----------------------------------------------------
 
@@ -217,7 +219,7 @@ protected:
 	HGLRC	m_hRC;
 
 	RECT	m_tUpdateRect;
-	CColor		m_clrNone;
+	CColor	m_clrNone;
 
 	GLuint	m_nFboApplication;
 	GLuint	m_nFboBackground;

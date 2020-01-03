@@ -7,7 +7,8 @@ AM_CPPFLAGS += \
 
 deplibs = \
 		$(top_builddir)/Common/libcommon.la \
-		$(top_builddir)/Platform/libplatform.la
+		$(top_builddir)/Platform/libplatform.la \
+		$(top_builddir)/Draw/VDraw/libvdraw.la
 
 
 lib_LTLIBRARIES = CDrawWin.la
@@ -19,12 +20,12 @@ CDrawWin_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
 CDrawWin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 		-Wl,--whole-archive \
 		$(top_builddir)/Draw/VGDI/libvgdi.la \
+		$(top_builddir)/Draw/VDraw/libvdraw.la \
 		-Wl,--no-whole-archive \
 		$(deplibs)
 CDrawWin_la_LIBADD = \
-		-lole32 \
 		-loleaut32 \
-		-luuid.a \
+		-lole32 \
 		-lgdi32 \
 		-ladvapi32 \
 		-lstdc++ \
@@ -34,4 +35,3 @@ CDrawWin_la_LIBADD = \
 CDrawWin_la_DEPENDENCIES = \
 		$(top_builddir)/Draw/VGDI/libvgdi.la \
 		$(deplibs)
-
