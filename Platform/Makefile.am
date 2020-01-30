@@ -35,6 +35,19 @@ libplatform_la_LIBADD = $(WS2_32) -lpthread -lstdc++ -lc
 
 
 
+# TESTS = Platform_tests
+# check_PROGRAMS = Platform_tests
+# EXTRA_Platform_tests_DEPENDENCIES = libplatform.la
+
+# Platform_tests_CPPFLAGS = $(BOOST_CPPFLAGS) \
+# 	$(CPPFLAGS) $(AM_CPPFLAGS)
+# Platform_tests_LDFLAGS = $(BOOST_LDFLAGS) \
+# 	$(LDFLAGS) $(AM_LDFLAGS)
+# Platform_tests_LDADD = $(BOOST_UNIT_TEST_FRAMEWORK_LIB)
+# Platform_tests_SOURCES = \
+# 	test/runner.cpp \
+# 	\
+# 	test/CCharDescriptor_tests.cpp
 
 
 

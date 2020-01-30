@@ -4,7 +4,7 @@
 
 namespace Yogi { namespace Common {
 
-const IXID	IXID_IPicture( "Yogi::Common::IPicture" );
+const IXID	IXID_IXPicture( "Yogi::Common::IXPicture" );
 
 
 

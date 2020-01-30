@@ -266,13 +266,13 @@ void	CXMLSampleLoader::UpdateActivePage
 	{
 		while( pDictEnum->MoveNext() )
 		{
-			Yogi::Core::CCharString	sKey = pDictEnum->Key();
+			CCharString	sKey = pDictEnum->Key();
 
 			if ( sKey == "VEHICLE SHUTDOWN"
 				||	sKey == "Alerts Active" )
 				continue;
 
-			Yogi::Core::CCharString	sLabel;
+			CCharString	sLabel;
 			GFLOAT		fDur = 20.0f;
 			GFLOAT		fFreq = 200.0f;
 
@@ -361,8 +361,8 @@ void	CXMLSampleLoader::UpdateActivePage
 	{
 		while( pDictEnum->MoveNext() )
 		{
-			Yogi::Core::CCharString	sKey = pDictEnum->Key();
-			Yogi::Core::CCharString	sLabel;
+			CCharString	sKey = pDictEnum->Key();
+			CCharString	sLabel;
 			long		nWave = 2;
 			GFLOAT		fFreq = 10.0f;
 			ConstCVariantDataPtr	pvHigh = 0;

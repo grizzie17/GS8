@@ -13,9 +13,9 @@
 		"activityBar.background": "#462b2b"
 	},
 
-	"uncrustify.configPath.linux": "uncrustify.cfg",
-	"uncrustify.executablePath.linux": "/usr/bin/uncrustify",
-	//"uncrustify.configPath": "uncrustify.cfg",
+	// "uncrustify.configPath.linux": "uncrustify.cfg",
+	// "uncrustify.executablePath.linux": "/usr/bin/uncrustify",
+	// "uncrustify.configPath": "uncrustify.cfg",
 
 	"github.repositories": [
 		"grizzie17/GS8"
@@ -30,6 +30,7 @@
 	],
 	"files.associations": {
 		"stdexcept": "cpp"
-	}
+	},
+	"editor.defaultFormatter": "ms-vscode.cpptools"
 
 }

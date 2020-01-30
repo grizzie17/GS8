@@ -13,7 +13,7 @@ namespace Yogi { namespace Common {
 
 typedef interface_ IXPicture*	IXPicturePtr;
 
-extern const IXID	IXID_IPicture;
+extern const IXID	IXID_IXPicture;
 
 
 
@@ -26,4 +26,4 @@ interface_ IXPicture : public ISupports
 
 }}
 
-#endif // H_IPicture
+#endif // H_IXPicture

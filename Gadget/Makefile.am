@@ -188,6 +188,7 @@ libgadget_la_SOURCES = \
 libgadget_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
 libgadget_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) -DSHLIB_GADGET
 libgadget_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) \
+		$(top_builddir)/Draw/VDraw/libvdraw.la \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la
 libgadget_la_LIBADD = \
@@ -195,6 +196,7 @@ libgadget_la_LIBADD = \
 		-lstdc++ \
 		-lc
 libgadget_la_DEPENDENCIES = \
+		$(top_builddir)/Draw/VDraw/libvdraw.la \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la
 
@@ -206,6 +208,7 @@ TESTS = Gadget_specs
 bin_PROGRAMS = Gadget_specs
 EXTRA_Gadget_specs_DEPENDENCIES = \
 		libgadget.la \
+		$(top_builddir)/Draw/VDraw/libvdraw.la \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la
 
@@ -216,7 +219,8 @@ CHKCPPFLAGS = \
 CHKLDFLAGS = \
 		-L$(top_builddir)/Common \
 		-L$(top_builddir)/Platform \
-		-L$(top_builddir)/Gadget
+		-L$(top_builddir)/Gadget \
+		-L$(top_builddir)/Draw/VDraw
 
 Gadget_specs_SOURCES = \
 	test/Gadget_specs.cpp \
@@ -227,6 +231,7 @@ Gadget_specs_SOURCES = \
 Gadget_specs_CXXFLAGS = $(CHECK_FLAGS) $(CXXFLAGS) $(AM_CXXFLAGS)
 Gadget_specs_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS) $(CHKCPPFLAGS)
 Gadget_specs_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(CHKLDFLAGS) \
+		$(top_builddir)/Draw/VDraw/libvdraw.la \
 		$(top_builddir)/Gadget/libgadget.la \
 		$(top_builddir)/Common/libcommon.la \
 		$(top_builddir)/Platform/libplatform.la

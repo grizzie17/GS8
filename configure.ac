@@ -32,6 +32,7 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_SED
 
+
 # AM_COND_IF([OS_MSYS], [
 # LT_INIT([shared,pic-only,win32-dll])
 # ])
@@ -47,7 +48,8 @@ LT_INIT([shared,pic-only])
 
 AC_LANG([C++])
 
-AX_CXX_COMPILE_STDCXX_14([noext],[mandatory])
+AX_CXX_COMPILE_STDCXX_17([noext],[mandatory])
+# AX_BOOST_UNIT_TEST_FRAMEWORK
 
 
 

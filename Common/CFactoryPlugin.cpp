@@ -53,6 +53,7 @@
 |	Local defines / constants											|
 |																		|
 \\+---------------------------------------------------------------------*/
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -157,9 +158,9 @@ ISupportsArray*
 			pSubConfig = tFolder.Value();
 			if ( pSubConfig )
 			{
-				Yogi::Core::CCharString	sClass = pSubConfig->GetClass();
-				Yogi::Core::CCharString	sGroup = pSubConfig->GetGroup();
-				Yogi::Core::CCharString	sID = pSubConfig->GetID();
+				CCharString	sClass = pSubConfig->GetClass();
+				CCharString	sGroup = pSubConfig->GetGroup();
+				CCharString	sID = pSubConfig->GetID();
 
 				pLib->SetRelativeFolder( sGroup.Pointer() );
 
@@ -211,7 +212,7 @@ CPluginConfigurationPtr
 
 	if ( OpenFile( sName ) )
 	{
-		Yogi::Core::CCharDescriptor	tName;
+		CCharDescriptor	tName;
 		XMLIterator		it( this );
 
 		while ( it.NextChild() )
@@ -272,8 +273,8 @@ CPluginConfigurationPtr
 	{
 
 		XMLIterator		it( pIt );
-		Yogi::Core::CCharDescriptor	tName;
-		Yogi::Core::CCharDescriptor	tValue;
+		CCharDescriptor	tName;
+		CCharDescriptor	tValue;
 		bool			bResult = false;
 
 		while ( it.NextChild() )
@@ -330,8 +331,8 @@ bool	CFactoryPlugin::PluginInclude
 	{
 
 		XMLIterator		it( pIt );
-		Yogi::Core::CCharDescriptor	tName;
-		Yogi::Core::CCharDescriptor	tValue;
+		CCharDescriptor	tName;
+		CCharDescriptor	tValue;
 
 		while ( it.NextChild() )
 		{
@@ -386,11 +387,11 @@ bool	CFactoryPlugin::Plugin
 	{
 
 		XMLIterator		it( pIt );
-		Yogi::Core::CCharDescriptor	tName;
-		Yogi::Core::CCharDescriptor	tValue;
-		Yogi::Core::CCharString		sID;
-		Yogi::Core::CCharString		sClass;
-		Yogi::Core::CCharString		sGroup;
+		CCharDescriptor	tName;
+		CCharDescriptor	tValue;
+		CCharString		sID;
+		CCharString		sClass;
+		CCharString		sGroup;
 
 		CPluginConfigurationPtr	pNode;
 
@@ -497,8 +498,8 @@ bool	CFactoryPlugin::Parameters
 	{
 
 		XMLIterator		it( pIt );
-		Yogi::Core::CCharDescriptor	tName;
-		Yogi::Core::CCharDescriptor	tValue;
+		CCharDescriptor	tName;
+		CCharDescriptor	tValue;
 
 		while ( it.NextChild() )
 		{
@@ -564,10 +565,10 @@ bool	CFactoryPlugin::Param
 {
 	bool	bResult = false;
 
-	Yogi::Core::CCharDescriptor	tValue;
-	Yogi::Core::CCharDescriptor	tName;
+	CCharDescriptor	tValue;
+	CCharDescriptor	tName;
 
-	Yogi::Core::CCharDescriptor	tID;
+	CCharDescriptor	tID;
 
 
 	char	sData[128] = { 0 };
@@ -587,7 +588,7 @@ bool	CFactoryPlugin::Param
 		{
 			char	sUnits[40];
 			tValue.CopyTo( sUnits, sizeof(sUnits) );
-			tValue = Yogi::Core::CCharDescriptor( sUnits, tValue.Length() );
+			tValue = CCharDescriptor( sUnits, tValue.Length() );
 			tValue.ConvertLowercase();
 
 			CUnitsOfMeasure	units;
@@ -671,14 +672,14 @@ bool	CFactoryPlugin::Param
 				nValue = tValue.ParseInt( &n );
 				if ( 0 < n )
 				{
-					Yogi::Core::CColor	c;
+					CColor	c;
 					c.SetColorLong( nValue );
 					v = c;
 					bResult = true;
 				}
 				else
 				{
-					Yogi::Core::CColor	c = Yogi::Core::CColor::ColorFromName( tValue );
+					CColor	c = CColor::ColorFromName( tValue );
 					if ( ! c.IsNonColor() )
 					{
 						v = c;
@@ -693,7 +694,7 @@ bool	CFactoryPlugin::Param
 			break;
 		case CVariantData::T_DATETIME:
 			{
-				Yogi::Core::CDateTime	d;
+				CDateTime	d;
 				if ( d.Parse( tValue ) )
 				{
 					v = d;
@@ -779,12 +780,12 @@ bool	CFactoryPlugin::IncludeFile
 
 	if ( 0 < pIt->AttributeCount() )
 	{
-		Yogi::Core::CCharDescriptor	tValue;
+		CCharDescriptor	tValue;
 
 		tValue = pIt->AttributeValue( "File" );
 		if ( 0 < tValue.Length() )
 		{
-			Yogi::Core::CCharString	sPath;
+			CCharString	sPath;
 			char		sXML[128];
 
 			tValue.CopyTo( sXML, sizeof(sXML) );
@@ -841,4 +842,3 @@ bool	CFactoryPlugin::IncludeFile
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

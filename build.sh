@@ -80,7 +80,7 @@ esac
 
 pushd $THISDIR/build$ARGDIR >/dev/null
 
-	make -j4 $ARGFILE 2>&1  |  tee $THISDIR/build/build.log  | tweak_paths
+	make -j8 $ARGFILE 2>&1  |  tee $THISDIR/build/build.log  | tweak_paths
 	sts=${PIPESTATUS[0]}
 
 popd >/dev/null

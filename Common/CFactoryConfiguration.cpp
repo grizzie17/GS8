@@ -67,6 +67,8 @@
 |	Local defines / constants											|
 |																		|
 \+---------------------------------------------------------------------*/
+
+using namespace Yogi::Core;
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -150,7 +152,7 @@ DECL_API(VConfigurationPtr)
 
 	if ( OpenFile( sName ) )
 	{
-		Yogi::Core::CCharDescriptor	tName;
+		CCharDescriptor	tName;
 		XMLIterator	it( this );
 
 		while ( it.NextChild() )
@@ -208,8 +210,8 @@ DECL_API(VConfigurationPtr)
 	{
 
 		XMLIterator	it( this );
-		Yogi::Core::CCharDescriptor	tName;
-		Yogi::Core::CCharDescriptor	tValue;
+		CCharDescriptor	tName;
+		CCharDescriptor	tValue;
 		bool		bResult = false;
 
 		while ( it.NextChild() )
@@ -265,8 +267,8 @@ DECL_API(bool)
 {
 	bool	bResult = false;
 
-	Yogi::Core::CCharDescriptor	tValue;
-	Yogi::Core::CCharDescriptor	tName;
+	CCharDescriptor	tValue;
+	CCharDescriptor	tName;
 
 
 	char		sID[80] = { 0 };
@@ -288,7 +290,7 @@ DECL_API(bool)
 		{
 			char	sUnits[40];
 			tValue.CopyTo( sUnits, sizeof(sUnits) );
-			tValue = Yogi::Core::CCharDescriptor( sUnits, tValue.Length() );
+			tValue = CCharDescriptor( sUnits, tValue.Length() );
 			tValue.ConvertLowercase();
 
 			CUnitsOfMeasure	units;
@@ -367,14 +369,14 @@ DECL_API(bool)
 				long	nValue = tValue.ParseInt( &n );
 				if ( 0 < n )
 				{
-					Yogi::Core::CColor	c;
+					CColor	c;
 					c.SetColorLong( nValue );
 					v = c;
 					bResult = true;
 				}
 				else
 				{
-					Yogi::Core::CColor	c = Yogi::Core::CColor::ColorFromName( tValue );
+					CColor	c = CColor::ColorFromName( tValue );
 					if ( ! c.IsNonColor() )
 					{
 						v = c;
@@ -389,7 +391,7 @@ DECL_API(bool)
 			break;
 		case CVariantData::T_DATETIME:
 			{
-				Yogi::Core::CDateTime	d;
+				CDateTime	d;
 				if ( d.Parse( tValue ) )
 				{
 					v = d;
@@ -474,15 +476,15 @@ DECL_API(bool)
 
 	if ( 0 < pIt->AttributeCount() )
 	{
-		Yogi::Core::CCharDescriptor	tValue;
+		CCharDescriptor	tValue;
 
 		tValue = pIt->AttributeValue( "File" );
 		if ( 0 < tValue.Length() )
 		{
-			Yogi::Core::CCharString	sFile = tValue;
+			CCharString	sFile = tValue;
 
 			CFactoryConfiguration	factory;
-			Yogi::Core::CCharString	sRelPath = this->GetRelativePath();
+			CCharString	sRelPath = this->GetRelativePath();
 			factory.SetRelativePath( sRelPath.Pointer() );
 			factory.SetVariableIF( m_pVariable );
 			factory.SetExternalXMLIF( this->m_pIExternalXML );
@@ -536,11 +538,11 @@ DECL_API(Yogi::Core::CCharString)
 		Yogi::Core::ConstCCharDescriptorRef r
 		)
 {
-	Yogi::Core::CCharString	sResult;
+	CCharString	sResult;
 
 	if ( m_pConfig )
 	{
-		Yogi::Core::CCharString	s = r;
+		CCharString	s = r;
 		sResult = m_pConfig->GetEntryAsString( s.Pointer() );
 	}
 	return sResult;

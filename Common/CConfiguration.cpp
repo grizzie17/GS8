@@ -409,7 +409,7 @@ DECL_API(long)
 			{
 				EnumDatumPtr	pDatum = pEnumList;
 				EnumDatumPtr	pDatumEnd = pEnumList + nEnumCount;
-				Yogi::Core::CCharString		s = pv->GetValueString();
+				CCharString		s = pv->GetValueString();
 				while ( pDatum < pDatumEnd )
 				{
 					if ( 0 == s.CompareIgnoreCase( pDatum->sKey ) )

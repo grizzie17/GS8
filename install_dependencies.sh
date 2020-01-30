@@ -13,10 +13,12 @@ elif [ -n "$(command -v yum)" ]; then
 	sudo yum install gtk2-devel wxGTK-devel gtk+ glib2-devel cmake clang
 elif [ -n "$(command -v pacman)" ]; then
 	PFX="mingw-w64-x86_64-"
+	PFXD="mingw-w64-x86-64-"
 	pacman -S -yy \
 		base-devel \
 		$AUTOTOOLS \
 		libutil-linux-devel \
+		${PFX}gnutls \
 		${PFX}boost \
 		${PFX}python2 ${PFX}python3 \
 		${PFX}gtk2 ${PFX}gtk3 \

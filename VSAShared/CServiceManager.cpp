@@ -227,7 +227,7 @@ bool	CServiceManager::StopServices
 		void
 		)
 {
-	THashTableEnumerator< Yogi::Core::CCharString, IServicePtr>
+	THashTableEnumerator< CCharString, IServicePtr>
 		enumSvcs = m_aList.GetEnumerator();
 
 	while ( enumSvcs.MoveNext() )
@@ -257,7 +257,7 @@ IServicePtr
 {
 	IServicePtr			pSup = 0;
 	const IServicePtr*	hSup = 0;
-	Yogi::Core::CCharString		tKey( sName );
+	CCharString			tKey( sName );
 
 	hSup = m_aList.Find( tKey );
 	if ( hSup )
@@ -282,7 +282,7 @@ ISupportsPtr
 		)
 {
 	ISupportsPtr	pIf = 0;
-	THashTableEnumerator<Yogi::Core::CCharString, IServicePtr>	tEnum = m_aList.GetEnumerator();
+	THashTableEnumerator<CCharString, IServicePtr>	tEnum = m_aList.GetEnumerator();
 
 	while ( tEnum.MoveNext() )
 	{

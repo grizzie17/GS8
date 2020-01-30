@@ -3,8 +3,8 @@
 ACLOCAL_AMFLAGS = -I m4 --install
 SUBDIRS = \
 	Platform \
-	Draw/VDraw \
 	Common \
+	Draw/VDraw \
 	Draw/CDrawTmxWin \
 	Gadget \
 	VSAShared \
@@ -26,5 +26,3 @@ SUBDIRS = \
 	CmdPlugins/CmdTouchCalibrate \
 	CmdPlugins/CmdVehicleDataLoader \
 	CmdPlugins/CmdVehicleDataSample
-
-

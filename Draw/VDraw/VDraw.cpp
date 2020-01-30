@@ -124,7 +124,7 @@ VXDraw::VXDraw
 	::strcpy_s( m_sFontMonospace, sizeof( m_sFontMonospace ), "Courier New" );
 	m_tPointList.SetBlockSize( 16 );
 	m_tFillColor.SetNonColor( true );
-	m_tBackgroundColor = Yogi::Core::CColor::ColorFromName( "background" );
+	m_tBackgroundColor = CColor::ColorFromName( "background" );
 }
 
 
@@ -156,7 +156,7 @@ VXDraw::VXDraw
 	::strcpy_s( m_sFontMonospace, sizeof( m_sFontMonospace ), "Courier New" );
 	m_tPointList.SetBlockSize( 16 );
 	m_tFillColor.SetNonColor( true );
-	m_tBackgroundColor = Yogi::Core::CColor::ColorFromName( "background" );
+	m_tBackgroundColor = CColor::ColorFromName( "background" );
 }
 
 
@@ -189,7 +189,7 @@ VXDraw::VXDraw
 	::strcpy_s( m_sFontMonospace, sizeof( m_sFontMonospace ), "Courier New" );
 	m_tPointList.SetBlockSize( 16 );
 	m_tFillColor.SetNonColor( true );
-	m_tBackgroundColor = Yogi::Core::CColor::ColorFromName( "background" );
+	m_tBackgroundColor = CColor::ColorFromName( "background" );
 }
 
 
@@ -624,7 +624,7 @@ bool	VXDraw::LineWidth
 \+---------------------------------------------------------------------*/
 bool	VXDraw::LineColor
 		(
-		Yogi::Core::ConstCColorRef	rColor
+		ConstCColorRef	rColor
 		)
 {
 	if ( m_tLineColor != rColor )
@@ -645,7 +645,7 @@ bool	VXDraw::LineColor
 \+---------------------------------------------------------------------*/
 bool	VXDraw::FillColor
 		(
-		Yogi::Core::ConstCColorRef	rColor
+		ConstCColorRef	rColor
 		)
 {
 	if ( m_tFillColor != rColor )
@@ -667,7 +667,7 @@ bool	VXDraw::FillColor
 \+---------------------------------------------------------------------*/
 bool	VXDraw::HaloColor
 		(
-		Yogi::Core::ConstCColorRef	rColor
+		ConstCColorRef	rColor
 		)
 {
 	if ( m_tHaloColor != rColor )
@@ -689,7 +689,7 @@ bool	VXDraw::HaloColor
 \+---------------------------------------------------------------------*/
 bool	VXDraw::BackgroundColor
 		(
-		Yogi::Core::ConstCColorRef	rColor
+		ConstCColorRef	rColor
 		)
 {
 	if ( m_tBackgroundColor != rColor )
