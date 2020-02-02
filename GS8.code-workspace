@@ -11,8 +11,8 @@
 		"recommendations": [
 			"ms-vscode.cpptools",
 			"maelvalais.autoconf",
-			"laurenttreguier.uncrustify",
-			"github.vscode-pull-request-github"
+			"github.vscode-pull-request-github",
+			"laurenttreguier.uncrustify"
 		]
 	},
 	"settings": {
@@ -22,7 +22,8 @@
 			// "titleBar.inactiveBackground": "#413030",
 			"activityBar.background": "#462b2b"
 		},
-		//"uncrustify.configPath": "uncrustify.cfg",
+		"C_Cpp.formatting": "Disabled",
+		"uncrustify.configPath.windows": "uncrustify.cfg",
 
 		//==Terminal====================
 		//------------------------------
@@ -79,6 +80,5 @@
 		// "doxdocgen.c.triggerSequence": "///",
 		// "doxdocgen.generic.briefTemplate": "{text}",
 		"editor.tabCompletion": "on"
-
 	}
 }

@@ -74,8 +74,8 @@ VPlugin::VPlugin
 		(
 		void
 		)
-		: VSupports(),
-		m_sID()
+		: VSupports()
+		, m_sID()
 {
 }
 
@@ -83,8 +83,8 @@ VPlugin::VPlugin
 		(
 		ISupportsPtr	pOwner
 		)
-		: VSupports( pOwner ),
-		m_sID()
+		: VSupports( pOwner )
+		, m_sID()
 {
 }
 
@@ -93,8 +93,8 @@ VPlugin::VPlugin
 		const char*		sName,
 		ISupportsPtr	pOwner
 		)
-		: VSupports( sName, pOwner ),
-		m_sID()
+		: VSupports( sName, pOwner )
+		, m_sID()
 {
 }
 
@@ -242,4 +242,3 @@ void*
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

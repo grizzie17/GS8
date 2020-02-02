@@ -30,7 +30,7 @@
 	],
 	"files.associations": {
 		"stdexcept": "cpp"
-	},
-	"editor.defaultFormatter": "ms-vscode.cpptools"
+	}//,
+	//"editor.defaultFormatter": "ms-vscode.cpptools"
 
 }

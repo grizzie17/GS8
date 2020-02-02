@@ -2,8 +2,11 @@ AM_CPPFLAGS += \
 		-I$(abs_top_srcdir)/Common \
 		-I$(abs_top_srcdir)/Platform \
 		-I$(abs_top_srcdir)/Draw/VDraw \
-		-I$(abs_top_srcdir)/Draw/VGDI
+		-I$(abs_top_srcdir)/Draw/VGDI \
+		-I/mingw64/x86_64-w64-mingw32/include
 #AM_CXXFLAGS += -fPIC
+AM_LDFLAGS += \
+		-L/mingw64/x86_64-w64-mingw32/lib
 
 deplibs = \
 		$(abs_top_builddir)/Common/libcommon.la \
@@ -29,9 +32,9 @@ CDrawWin_la_LIBADD = \
 		-lole32 \
 		-lgdi32 \
 		-ladvapi32 \
+		-luuid \
 		-lstdc++ \
 		-lc
-#		# -luuid \#
 
 CDrawWin_la_DEPENDENCIES = \
 		$(abs_top_builddir)/Draw/VGDI/libvgdi.la \

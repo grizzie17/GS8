@@ -40,7 +40,8 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**",
                 "${workspaceFolder}/**/**/**",
-                "C:/msys64/mingw64/include/freetype2"
+				"C:/msys64/mingw64/include/freetype2",
+				"C:/msys64/mingw64/x86_64-w64-mingw32/include"
             ]
         },
         {
