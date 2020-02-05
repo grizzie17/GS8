@@ -8,19 +8,19 @@
 			"name": "gdb workbench",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/build/bin/workbench.exe",
+			"program": "${workspaceFolder}/usrlocal/mingw64/bin/workbench.exe",
 			"args": [],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"externalConsole": false,
 			"MIMode": "gdb",
 			"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
-			"environment": [
-				{
-					"name": "sandbox",
-					"value": "C:/Users/johng/LocalDocuments/GS8"
-				}
-			],
+			// "environment": [
+			// 	{
+			// 		"name": "sandbox",
+			// 		"value": "C:/Users/johng/LocalDocuments/GS8"
+			// 	}
+			// ],
 			"sourceFileMap": {
 				"${workspaceFolder}/build": "${workspaceFolder}"
 			},
@@ -29,6 +29,12 @@
 					"description": "Enable pretty-printing for gdb",
 					"text": "set print pretty on",
 					"ignoreFailures": true
+				},
+				{
+					"text": "set solib-search-path ${workspaceFolder}/usrlocal/mingw64/lib"
+				},
+				{
+					"text": "directory ${workspaceFolder}/usrlocal/mingw64/lib"
 				}
 				// {
 				// 	"text": "set solib-search-path C:/Users/johng/LocalDocuments/GS8/build/Common/.libs;C:/Users/johng/LocalDocuments/GS8/build/Platform/.libs"
@@ -90,19 +96,19 @@
 			"name": "gdb Common_specs",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/build/bin/Common_specs.exe",
+			"program": "${workspaceFolder}/usrlocal/mingw64/bin/Common_specs.exe",
 			"args": [],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"externalConsole": false,
 			"MIMode": "gdb",
 			"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
-			"environment": [
-				{
-					"name": "sandbox",
-					"value": "C:/Users/johng/LocalDocuments/GS8"
-				}
-			],
+			// "environment": [
+			// 	{
+			// 		"name": "sandbox",
+			// 		"value": "C:/Users/johng/LocalDocuments/GS8"
+			// 	}
+			// ],
 			"sourceFileMap": {
 				"${workspaceFolder}/build": "${workspaceFolder}"
 			},
@@ -172,18 +178,18 @@
 			"name": "gdb Platorm_specs",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/build/Platform/.libs/Platform_specs.exe",
+			"program": "${workspaceFolder}/usrlocal/mingw64/bin/Platform_specs.exe",
 			"args": [],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"externalConsole": false,
 			"MIMode": "gdb",
-			"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+			"miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
 			"environment": [
-				{
-					"name": "sandbox",
-					"value": "C:/Users/johng/LocalDocuments/GS8"
-				}
+				// {
+				// 	"name": "sandbox",
+				// 	"value": "C:/Users/johng/LocalDocuments/Development/GS8"
+				// }
 			],
 			"sourceFileMap": {
 				"${workspaceFolder}/build": "${workspaceFolder}"
@@ -195,7 +201,7 @@
 					"ignoreFailures": true
 				},
 				{
-					"text": "set solib-search-path C:/Users/johng/LocalDocuments/GS8/build/Platform/.libs"
+					"text": "set solib-search-path ${workspaceFolder}/usrlocal/mingw64/lib"
 				},
 				// {
 				// 	"text": "set solib-search-path C:/Users/johng/LocalDocuments/GS8/build/Platform"
@@ -207,7 +213,7 @@
 				// 	"text": "directory C:/Users/johng/LocalDocuments/GS8/Platform"
 				// },
 				{
-					"text": "directory C:/Users/johng/LocalDocuments/GS8/build/Platform/.libs"
+					"text": "directory ${workspaceFolder}/usrlocal/mingw64/lib"
 				}
 				// {
 				// 	"text": "directory C:/Users/johng/LocalDocuments/GS8/build/Platform/test"

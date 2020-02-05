@@ -52,6 +52,7 @@ libplatform_la_LIBADD = $(WS2_32) -lpthread -lstdc++ -lc
 
 
 TESTS = Platform_specs
+bin_PROGRAMS = Platform_specs
 check_PROGRAMS = Platform_specs
 EXTRA_Platform_specs_DEPENDENCIES = libplatform.la
 

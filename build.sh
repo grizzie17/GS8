@@ -42,7 +42,7 @@ if [ -n "$2" ]; then
 	elif [ "X-install" = "X$2" ]; then
 		ARGFILE="install"
 		ARGDIR=""
-		export DESTDIR="$THISDIR/build"
+		export DESTDIR="$THISDIR/usrlocal"
 	fi
 fi
 

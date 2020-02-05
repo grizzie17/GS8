@@ -1,10 +1,10 @@
 #!/bin/bash
-THISFILE=${BASH_SOURCE[0]}
-THISDIR=$(cd -P `dirname $THISFILE` && pwd -P)
+THISFILE1=${BASH_SOURCE[0]}
+THISDIR1=$(cd -P `dirname $THISFILE1` && pwd -P)
 
 echo "cleaning..."
 
-pushd $THISDIR >/dev/null
+pushd $THISDIR1 >/dev/null
 
 
 	for f in `find $THISDIR -name Makefile.am`
@@ -17,7 +17,7 @@ pushd $THISDIR >/dev/null
 
 	rm -rf \
 		aclocal.m4 ar-lib autom4te.cache \
-		build \
+		build runtime usrlocal \
 		compile configure config.guess \
 		config.sub config.log config.status config.h.in config.h.in~ \
 		depcomp .deps */.deps \

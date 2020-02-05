@@ -13,17 +13,21 @@ esac
 
 source $THISDIR/build-common.inc
 
+USRLOCAL=$THISDIR/usrlocal
+
 
 pushd $THISDIR >/dev/null
 
 	$THISDIR/autogen.sh  ||  exit $?
 
 
-	mkdir -p $THISDIR/build  ||  exit $?
-	mkdir -p $THISDIR/build/lib  ||  exit $?
+	mkdir -p $USRLOCAL  ||  exit $?
+	mkdir -p $USRLOCAL/lib  ||  exit $?
+	mkdir -p $USRLOCAL/bin  ||  exit $?
+	mkdir -p $THISDIR/build		||	exit $?
 	pushd $THISDIR/build >/dev/null
 		echo ":::configure:::"
-		$THISDIR/configure --prefix=$THISDIR/build/  ||  exit $?
+		$THISDIR/configure  ||  exit $?
 		case `uname -o` in
 		[Mm]sys | cygwin* )
 			#echo "patching libtool for Msys"

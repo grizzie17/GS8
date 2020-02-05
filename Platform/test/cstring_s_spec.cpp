@@ -7,7 +7,7 @@
 using namespace igloo;
 
 
-Context(cstring_s)
+Context(cstring_s_class)
 {
 	Spec(should_define_STDC_SECURE_LIB)
 	{

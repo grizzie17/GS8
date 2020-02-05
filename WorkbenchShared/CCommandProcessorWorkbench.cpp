@@ -177,7 +177,7 @@ bool	CCommandProcessorWorkbench::ProcessRequest
 {
 	bool			bResult = true;
 	CVariantData	v = vData;
-		bResult = inherited::ProcessRequest( sel, vData );
+	bResult = inherited::ProcessRequest( sel, vData );
 	return bResult;
 
 }

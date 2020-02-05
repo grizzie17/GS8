@@ -1,33 +1,10 @@
 {
-	//==Terminal====================
-	//------------------------------
-	// WSL
-	//------------------------------
-	//"terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
-	//==End-Terminal=================
 
-
-	"workbench.colorCustomizations": {
-		// "titleBar.activeBackground": "#523232",
-		// "titleBar.inactiveBackground": "#413030",
-		"activityBar.background": "#462b2b"
-	},
 
 	// "uncrustify.configPath.linux": "uncrustify.cfg",
 	// "uncrustify.executablePath.linux": "/usr/bin/uncrustify",
 	// "uncrustify.configPath": "uncrustify.cfg",
 
-	"github.repositories": [
-		"grizzie17/GS8"
-	],
-	"github.host": "github.com",
-	"github.username": "grizzie17",
-	"githubPullRequests.hosts": [
-		{
-			"host": "https://github.com",
-			"username": "grizzie17"
-		}
-	],
 	"files.associations": {
 		"stdexcept": "cpp"
 	}//,
