@@ -31,9 +31,9 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "stdafx.h"
+//#include "stdafx.h"
 #ifndef __STDC_WANT_SECURE_LIB__
-#define __STDC_WANT_SECURE_LIB__ 1
+#define __STDC_WANT_SECURE_LIB__
 #endif
 #include <string.h>
 #include <assert.h>
@@ -294,4 +294,3 @@ errno_t	strncat_sx
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

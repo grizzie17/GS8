@@ -27,6 +27,7 @@
 |
 \+---------------------------------------------------------------------*/
 #include "CGDIBrush.h"
+#if defined( GL_GDI )
 
 using namespace Yogi::Core;
 namespace Yogi { namespace Common {
@@ -35,6 +36,8 @@ namespace Yogi { namespace Common {
 |	Local defines / constants
 |
 \+---------------------------------------------------------------------*/
+
+
 /*---------------------------------------------------------------------+\
 |
 |	Local Type Definitions
@@ -289,6 +292,8 @@ bool	CGDIBrush::Deselect
 
 
 }}
+
+#endif
 
 
 /*---------------------------------------------------------------------+\

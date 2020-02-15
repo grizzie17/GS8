@@ -11,14 +11,16 @@
                 "_DEBUG",
                 "OPENGL",
                 "UNICODE",
-                "LINUX"
+				"LINUX",
+				"__linux__"
             ],
             "includePath": [
                 ".",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**"
+				"${workspaceFolder}/**/**/**",
+				"/usr/include/freetype2"
             ]
         },
         {

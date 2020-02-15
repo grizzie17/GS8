@@ -7,9 +7,9 @@
 #include "UWarnings.h"
 
 
-#if defined( _DEBUG )  &&  0
+#if defined( _DEBUG )
 // enable memory leak detection
-#	if (defined( _WIN32 )  ||  defined( _WIN64 ))  &&  ( ! defined(__GNUC__) )
+#	if (defined( _WIN32 )  ||  defined( _WIN64 ))  // &&  ( ! defined(__GNUC__) )
 #		ifndef _WIN32_WCE
 #			define _CRTDBG_MAP_ALLOC
 #			include <stdlib.h>
@@ -56,9 +56,9 @@ public:
 
 	~Leaks()
 	{
-#if 0
+//#if 0
 		HasLeaks();
-#endif
+//#endif
 	}
 
 	bool	HasLeaks()

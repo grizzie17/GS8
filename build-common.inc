@@ -20,7 +20,8 @@ case `uname -o` in
 	export CC="${ARCH_PREFIX}gcc"
 	export CXX="${ARCH_PREFIX}g++"
 	export CXXFLAGS="-g -ggdb -O0"
-	export CPPFLAGS="-D_DEBUG"
+	export XINCDIR="/$MINGX/$ARCH/include"
+	export CPPFLAGS="-D_DEBUG -I$XINCDIR"
 	#export LDFLAGS="-g -ggdb -Wl,--discard-none -Wl,--gc-keep-exported -L/$MINGX/$ARCH/lib"
 	export XLIBDIR="/$MINGX/$ARCH/lib"
 	export LDFLAGS="-g -ggdb -L$XLIBDIR"
@@ -40,4 +41,5 @@ unset WXX
 unset XMACHINE
 
 echo "ARCH=$ARCH"
+echo "CPPFLAGS=$CPPFLAGS"
 echo "LDFLAGS=$LDFLAGS"

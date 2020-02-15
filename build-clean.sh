@@ -20,8 +20,8 @@ pushd $THISDIR1 >/dev/null
 		build runtime usrlocal \
 		compile configure config.guess \
 		config.sub config.log config.status config.h.in config.h.in~ \
-		depcomp .deps */.deps \
-		install-sh install.sh \
+		depcomp .deps */.deps */*/.deps \
+		install-sh install.sh libtool stamp-h1 config.h \
 		ltmain.sh \
 		m4 missing \
 		test-driver \

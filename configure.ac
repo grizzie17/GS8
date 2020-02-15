@@ -34,6 +34,7 @@ AC_PROG_MAKE_SET
 AC_PROG_SED
 
 
+
 # AM_COND_IF([OS_MSYS], [
 # LT_INIT([shared,pic-only,win32-dll])
 # ])
@@ -120,7 +121,7 @@ AC_CHECK_TYPES([ptrdiff_t])
 AC_FUNC_MALLOC
 AC_FUNC_MKTIME
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([clock_gettime floor ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memset pow select socket sqrt strchr strerror strpbrk strrchr strspn strstr strtol tzset])
+AC_CHECK_FUNCS([clock_gettime floor fopen_s ftime getcwd gethostbyname gethostname gettimeofday inet_ntoa memcpy_s memset pow select socket sprintf_s sqrt strcat_s strchr strcpy_s strerror strncpy_s strpbrk strrchr strspn strstr strtol tzset vsnprintf_s])
 
 #GLOBAL_CXXFLAGS=" -std=c++17 -Werror -Wall"
 GLOBAL_CXXFLAGS=""
@@ -158,7 +159,9 @@ AM_COND_IF([OS_LINUX],
 	[
 		EXTSUBDIRS="Draw/VDrawOpenGL Draw/CDrawOpenGL WorkbenchGLUT"
 		NO_UNDEFINED=""
-		WS2_32=""
+		WS2_32="-ldl"
+		ARFLAGS="cr"
+		AR_FLAGS="cr"
 	])
 
 AC_SUBST([AM_CPPFLAGS])

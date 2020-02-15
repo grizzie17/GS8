@@ -15,7 +15,7 @@ makefile
 configure
 ipch
 .codelite
-.deps
+.deps/
 *.db
 *.tags
 *.workspace.*
@@ -27,7 +27,6 @@ ipch
 *.vcxproj.*
 *.opensdf
 m4/
-runtime/
 ftp-sync.json
 
 

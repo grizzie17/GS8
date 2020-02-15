@@ -24,7 +24,8 @@
 		{
 			"label": "c++ predefined variables",
 			"type": "shell",
-			"command": "echo | x86_64-w64-mingw32-gcc -xc++ -dM -E - | sort",
+			"command": "${workspaceFolder}/build-variables.sh",
+			//"command": "echo | x86_64-w64-mingw32-gcc -xc++ -dM -E - | sort",
 			//"command": "echo | x86_64-w64-mingw32-gcc -xc++ -dM -E -mwindows - | sort",
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
@@ -32,7 +33,7 @@
 		{
 			"label": "c++ predefined include paths",
 			"type": "shell",
-			"command": "echo | x86_64-w64-mingw32-gcc -xc++ -E -v - ",
+			"command": "${workspaceFolder}/build-includes.sh",
 			//"args": ["${env:CONFNAME}"],
 			"problemMatcher": []
 		},

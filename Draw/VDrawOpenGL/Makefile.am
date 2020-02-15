@@ -3,14 +3,13 @@ AM_CPPFLAGS += \
 		-I$(top_srcdir)/Platform \
 		-I$(top_srcdir)/Draw/VDraw \
 		-I$(top_srcdir)/Gadget \
-		-I$(top_srcdir)/VSAShared \
-		-I$(top_srcdir)/LogFile
+		-I$(top_srcdir)/VSAShared
 AM_CXXFLAGS += -fPIC
 
 
-lib_LIBRARIES = libvdrawopengl.a
+lib_LTLIBRARIES = libvdrawopengl.la
 
-libvdrawopengl_a_SOURCES = VDrawOpenGL.cpp
+libvdrawopengl_la_SOURCES = VDrawOpenGL.cpp
 
-libvdrawopengl_a_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
-libvdrawopengl_a_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
+libvdrawopengl_la_CXXFLAGS = $(CXXFLAGS) $(AM_CXXFLAGS)
+libvdrawopengl_la_CPPFLAGS = $(CPPFLAGS) $(AM_CPPFLAGS)
