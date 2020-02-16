@@ -14,7 +14,7 @@ do
 				sed -e 's@^[0-9a-f]* T @@g' -e '/__x86\./d'`
 			;;
 		*.so | *.so.* )
-			cache=`objdump -T -C $t | \
+			cache=`objdump -T -C $t 2>/dev/null | \
 				sed -e 's@^[0-9a-f]*[1-9a-f][0-9a-f]* g  *DF  *\.text [0-9a-f]*  *Base  *@@g' \
 					-e 's@^__imp_@@g'`
 			;;
@@ -34,5 +34,3 @@ do
 		;;
 	esac
 done < <(find /usr/lib /lib -name '*.a' -o -name '*.so' -o -name '*.so.*')
-
-

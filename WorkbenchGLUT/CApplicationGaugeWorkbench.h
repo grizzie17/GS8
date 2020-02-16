@@ -99,13 +99,17 @@ private:
 public:
 	//virtual bool		OnDraw( void );
 
-	virtual bool		WindowTitle( ConstCCharDescriptorRef rChar );
+	virtual bool		WindowTitle( Yogi::Core::ConstCCharDescriptorRef rChar );
 	virtual bool		PostCalculateNeeded( void );
 
 protected:
-	virtual VDrawPtr	MakeDraw( void );
-	virtual VConfigurationPtr
-						MakeConfiguration( void );
+	virtual
+	Yogi::Common::VDrawPtr
+			MakeDraw( void );
+
+	virtual
+	Yogi::Common::VConfigurationPtr
+			MakeConfiguration( void );
 
 };
 

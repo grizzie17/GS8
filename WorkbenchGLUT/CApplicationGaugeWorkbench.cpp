@@ -47,6 +47,9 @@
 #include "CDictionary.h"
 #include "CFactoryScreen.h"
 #include "CFactoryConfiguration.h"
+
+using namespace Yogi::Core;
+using namespace Yogi::Common;
 namespace Yogi { namespace Gadget {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -264,7 +267,7 @@ VConfigurationPtr
 	VConfigurationPtr	pConfig = factory.Make( sName.Pointer() );
 
 	CCharString		sOS = OS_NAME;
-	CVariantData	v = sOS;
+	CVariantData	v = sOS.c_str();
 	pConfig->AddEntry( "OS", v );
 
 	return pConfig;
