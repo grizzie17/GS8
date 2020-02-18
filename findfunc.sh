@@ -2,6 +2,14 @@
 
 symbols="$*"
 
+LIBDIRS=
+for t in /mingw64/lib /mingw64/x86_64-w64-mingw32/lib /usr/lib /lib
+do
+	if [ -d $t ]; then
+		LIBDIRS=`echo $LIBDIRS $t`
+	fi
+done
+
 while read t
 do
 	ftype=`file $t | tr ' ' '-'`
@@ -33,4 +41,4 @@ do
 		fi
 		;;
 	esac
-done < <(find /usr/lib /lib -name '*.a' -o -name '*.so' -o -name '*.so.*')
+done < <(find $LIBDIRS -name '*.a' -o -name '*.so' -o -name '*.so.*')

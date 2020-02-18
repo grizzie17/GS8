@@ -6,7 +6,8 @@ AM_CPPFLAGS += \
 		-I/mingw64/x86_64-w64-mingw32/include
 #AM_CXXFLAGS += -fPIC
 AM_LDFLAGS += \
-		-L/mingw64/x86_64-w64-mingw32/lib
+		-L/mingw64/x86_64-w64-mingw32/lib \
+		-L/lib/x86_64-linux-gnu
 
 deplibs = \
 		$(abs_top_builddir)/Common/libcommon.la \

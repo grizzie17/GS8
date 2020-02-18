@@ -15,7 +15,8 @@ case `uname -o` in
 		WXX="w32"
 		;;
 	esac
-	export ARCH="${XMACHINE}-${WXX}-mingw32"
+	export ARCH="$MINGW_CHOST"
+	#export ARCH="${XMACHINE}-${WXX}-mingw32"
 	export ARCH_PREFIX="${ARCH}-"
 	export CC="${ARCH_PREFIX}gcc"
 	export CXX="${ARCH_PREFIX}g++"
