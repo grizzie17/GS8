@@ -10,7 +10,7 @@
 			"request": "launch",
 			"program": "${workspaceFolder}/usrlocal/mingw64/bin/workbench.exe",
 			"args": [],
-			"stopAtEntry": true,
+			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"externalConsole": false,
 			"MIMode": "gdb",

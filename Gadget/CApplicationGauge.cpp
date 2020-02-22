@@ -2116,7 +2116,7 @@ VDictionaryPageServerPtr
 	CCharString		sSettingsPath = "dictionary/";
 	CVariantDataPtr	pv = m_pConfiguration->GetEntry( "Dictionary Settings" );
 	if ( pv )
-		sSettings = (CCharDescriptorRef)*pv;
+		sSettings = (const CCharDescriptor)(*pv);
 	else
 		sSettings = "Settings";
 	sSettingsPath += sSettings;

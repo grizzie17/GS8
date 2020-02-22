@@ -243,15 +243,15 @@ public:
 				unsigned int a
 				);
 
-	
+
 	//!	SetColorLong - set the color value based on the COLORLONG convention
 	//!
 	//!	value is treated as AARRGGBB - AA-Alpha, RR-Red, GG-Green, BB-Blue
 	//!
-	void		SetColorLong
-				(
-				long n		//!< please note this is not the same as COLORDATA
-				);
+	void	SetColorLong
+			(
+			long n		//!< please note this is not the same as COLORDATA
+			);
 
 
 	//!	GetValue
@@ -373,7 +373,7 @@ inline void
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline 
+inline
 ConstCColorRef
 		CColor::operator =
 		(

@@ -230,17 +230,15 @@ DECL_API(VConfigurationPtr)
 				}
 				break;
 			case XMLLite::NODE_COMMENT:
-				//bResult = true;
 				break;
 			default:
 				//bResult = false;
 				break;
 			}
-			if ( ! bResult )
-			{
-				pNode = NULL;
-				break;
-			}
+		}
+		if ( ! bResult )
+		{
+			pNode = NULL;
 		}
 	}
 
@@ -532,10 +530,10 @@ DECL_API(bool)
  * ResolveVariable -
 
 \+---------------------------------------------------------------------*/
-DECL_API(Yogi::Core::CCharString)
+DECL_API(CCharString)
 		CFactoryConfiguration::ResolveVariable
 		(
-		Yogi::Core::ConstCCharDescriptorRef r
+		ConstCCharDescriptorRef r
 		)
 {
 	CCharString	sResult;

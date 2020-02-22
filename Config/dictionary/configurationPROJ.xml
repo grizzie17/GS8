@@ -7,10 +7,10 @@
 	<!--<Item ID="PROJ" Type="STRING">ESAV</Item>-->
 	<!--<Item ID="PROJ" Type="STRING">ESS</Item>-->
 	<!--<Item ID="PROJ" Type="STRING">JD</Item>-->
-	<!--<Item ID="PROJ" Type="STRING">LAV3</Item>-->
+	<Item ID="PROJ" Type="STRING">LAV3</Item>
 	<!--<Item ID="PROJ" Type="STRING">M1200</Item>-->
 	<!--<Item ID="PROJ" Type="STRING">MO</Item>-->
-	<Item ID="PROJ" Type="STRING">MPC</Item>
+	<!-- <Item ID="PROJ" Type="STRING">MPC</Item> -->
 	<!--<Item ID="PROJ" Type="STRING">TEST</Item>-->
 	<!--<Item ID="PROJ" Type="STRING">TUNE</Item>-->
 

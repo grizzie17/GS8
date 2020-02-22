@@ -30,6 +30,8 @@
 #include "UMachine.h"
 #include "CCharDescriptor.h"
 
+using namespace Yogi::Core;
+
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -136,7 +138,7 @@ CPluginLibrary::~CPluginLibrary
 
 		while ( p < pEnd )
 		{
-			Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
+			CMutexLocker	locker( &this->m_oMutex );
 			if ( p->m_pFactory )
 				p->m_pFactory->DestroyFactory();
 
@@ -164,7 +166,7 @@ ISupportsPtr
 		ISupportsPtr	pOwner	// = 0
 		)
 {
-	Yogi::Core::CCharDescriptor	tLib( (char*)sLibraryname );
+	CCharDescriptor	tLib( (char*)sLibraryname );
 	return Create( tLib, pOwner );
 }
 
@@ -177,7 +179,7 @@ ISupportsPtr
 ISupportsPtr
 		CPluginLibrary::Create
 		(
-		Yogi::Core::ConstCCharDescriptorRef rLibraryname,
+		ConstCCharDescriptorRef rLibraryname,
 		ISupportsPtr	pOwner	// = 0
 		)
 {
@@ -221,7 +223,7 @@ void	CPluginLibrary::SetRelativeFolder
 {
 	const char	sSep[] = { FOLDER_SEPARATOR, 0 };
 
-	Yogi::Core::CCharString	sNewFolder = m_sBaseFolder;
+	CCharString	sNewFolder = m_sBaseFolder;
 	if ( sFolder )
 	{
 		sNewFolder += sSep;
@@ -244,12 +246,12 @@ void	CPluginLibrary::SetRelativeFolder
 VPluginFactoryPtr
 		CPluginLibrary::GetFactory
 		(
-		Yogi::Core::ConstCCharDescriptorRef rLibraryname
+		ConstCCharDescriptorRef rLibraryname
 		)
 {
-	VPluginFactoryPtr		p = 0;
-	Yogi::Core::CCharString	sLib = rLibraryname;
-	FactoryCampus*			h = m_aContent.Find( sLib );
+	VPluginFactoryPtr	p = 0;
+	CCharString			sLib = rLibraryname;
+	FactoryCampus*		h = m_aContent.Find( sLib );
 	if ( ! h )
 	{
 		ULibraryHdl	hLib;
@@ -257,7 +259,7 @@ VPluginFactoryPtr
 		p = m_tLoader.LoadFactory( sLib.Pointer(), &hLib );
 		if ( p )
 		{
-			Yogi::Core::CMutexLocker	locker( &this->m_oMutex );
+			CMutexLocker	locker( &this->m_oMutex );
 			FactoryCampus	campus;
 			campus.m_hLibrary = hLib;
 			campus.m_pFactory = p;
@@ -364,4 +366,3 @@ void	CPluginLibrary::FinalRelease
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

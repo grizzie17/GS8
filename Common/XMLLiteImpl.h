@@ -346,7 +346,7 @@ protected:
 
 	FILE*	m_pFile;
 	size_t	m_nSize;
-	char	m_sName[128];
+	char	m_sName[512];
 
 
 

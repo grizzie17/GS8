@@ -237,8 +237,11 @@ VConfigurationPtr
 	factory.SetRelativePath( "dictionary" );
 	VConfigurationPtr	pConfig = factory.Make( sName.Pointer() );
 
-	CVariantData	v(OS_NAME);
-	pConfig->AddEntry( "OS", v );
+	if ( pConfig )
+	{
+		CVariantData	v(OS_NAME);
+		pConfig->AddEntry( "OS", v );
+	}
 
 	return pConfig;
 }

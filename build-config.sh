@@ -22,8 +22,6 @@ pushd $THISDIR >/dev/null
 
 
 	mkdir -p $USRLOCAL  ||  exit $?
-	mkdir -p $USRLOCAL/lib  ||  exit $?
-	mkdir -p $USRLOCAL/bin  ||  exit $?
 	mkdir -p $THISDIR/build		||	exit $?
 	pushd $THISDIR/build >/dev/null
 		echo ":::configure:::"

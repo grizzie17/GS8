@@ -27,6 +27,7 @@
 |
 \+---------------------------------------------------------------------*/
 #include "CGDIPen.h"
+#if defined( GL_GDI )
 
 using namespace Yogi::Core;
 namespace Yogi { namespace Common {
@@ -299,6 +300,7 @@ bool	CGDIPen::Deselect
 
 }}
 
+#endif // GL_GDI
 
 /*---------------------------------------------------------------------+\
 
