@@ -30,7 +30,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "CCharString.h"
+#include "CVariantData.h"
 #include "THash.h"
+#include "VPluginConfiguration.h"
 #include "UTypes.h"
 
 /*---------------------------------------------------------------------+\
@@ -38,7 +40,7 @@
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
-namespace Yogi { namespace Core {
+namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
@@ -70,17 +72,18 @@ namespace Yogi { namespace Core {
 //		const CCharString&	key
 //		);
 
-//template<>
+template<>
 inline
 uintmax_t
-		THashValueFromKey //<CCharString>
+		THashTable<Yogi::Core::CCharString, CVariantData>::THashValueFromKey
 		(
-		const CCharString&	key
-		)
+		const Yogi::Core::CCharString&	key
+		) const
 {
 	uintmax_t	nHash = key.Hash();
 	return nHash;
 }
+
 
 /*=====================================================================+\
 ||																		|
@@ -93,4 +96,3 @@ uintmax_t
 
 
 #endif /* _H_CCharStringHash */
-

@@ -154,6 +154,8 @@ AM_COND_IF([OS_MSYS],
 		EXTSUBDIRS="Draw/VGDI Draw/CDrawWin WorkbenchWin"
 		NO_UNDEFINED="-no-undefined"
 		WS2_32="-lWs2_32"
+		DYLIBEXT=".dll"
+		MINGWPREFIX="/mingw64/x86_64-w64-mingw32"
 	])
 AM_COND_IF([OS_LINUX],
 	[
@@ -162,6 +164,8 @@ AM_COND_IF([OS_LINUX],
 		WS2_32="-ldl"
 		ARFLAGS="cr"
 		AR_FLAGS="cr"
+		DYLIBEXT=".so"
+		MINGWPREFIX="/usr"
 	])
 
 AC_SUBST([AM_CPPFLAGS])
@@ -169,7 +173,9 @@ AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([AM_LDFLAGS])
 AC_SUBST([NO_UNDEFINED])
 AC_SUBST([WS2_32])
+AC_SUBST([MINGWPREFIX])
 AC_SUBST([EXTSUBDIRS])
+AC_SUBST([DYLIBEXT])
 AC_SUBST([GLOBAL_CXXFLAGS])
 AC_SUBST([XLIBDIR])
 # AC_SUBST([OSCONFFILES])
@@ -197,9 +203,10 @@ AM_COND_IF([DEBUG],
 
 AC_CONFIG_FILES(
 	[Platform/Makefile
-	Draw/VDraw/Makefile
 	Common/Makefile
+	Draw/VDraw/Makefile
 	Draw/CDrawTmxWin/Makefile
+	Draw/CDrawWorkbench/Makefile
 	Gadget/Makefile
 	VSAShared/Makefile
 	WorkbenchShared/Makefile

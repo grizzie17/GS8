@@ -21,3 +21,7 @@ CDrawTmxWin_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS)  $(NO_UNDEFINED) -module \
 CDrawTmxWin_la_LIBADD = -lstdc++ -lc
 CDrawTmxWin_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CDrawTmxWin-0$(DYLIBEXT) CDrawTmxWin$(DYLIBEXT)

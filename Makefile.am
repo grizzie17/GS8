@@ -5,12 +5,13 @@ SUBDIRS = \
 	Platform \
 	Common \
 	Draw/VDraw \
-	Draw/CDrawTmxWin \
 	Gadget \
 	VSAShared \
 	WorkbenchShared \
 	Config \
 	$(EXTSUBDIRS) \
+	Draw/CDrawTmxWin \
+	Draw/CDrawWorkbench \
 	\
 	Services/ServiceVehicleDataSample \
 	Services/ServiceVehicleDirectLoad \

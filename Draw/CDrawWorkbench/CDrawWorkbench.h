@@ -30,6 +30,7 @@
 #include "VPluginWithAggregate.h"
 #include "IDraw.h"
 #include "IApplicationUser.h"
+#include "CCharStringHash.h"
 
 #include "Chronos.h"
 
@@ -58,7 +59,7 @@ typedef const class CDrawWorkbench&	ConstCDrawWorkbenchRef;
 \+---------------------------------------------------------------------*/
 
 class CDrawWorkbench : public VPluginWithAggregate,
-						implements_ IApplicationUser,
+						implements_ Yogi::Gadget::IApplicationUser,
 						implements_ IDraw
 {
 //	class lifecycle  ----------------------------------------------------
@@ -75,7 +76,7 @@ public:
 	virtual
 	bool	SetApplication
 			(
-			CApplicationGaugePtr	p	// IN:	application pointer
+			Yogi::Gadget::CApplicationGaugePtr	p	// IN:	application pointer
 			);
 
 
@@ -95,13 +96,14 @@ protected:
 //	protected data  -----------------------------------------------------
 
 
-	IDrawPtr				m_pDraw;
+	IDrawPtr	m_pDraw;
 
-	CApplicationGaugePtr	m_pApplication;
-	int						m_nFeed;
+	Yogi::Gadget::CApplicationGaugePtr
+				m_pApplication;
+	int			m_nFeed;
 
 	THashTable< Yogi::Core::CCharString, VImagePtr >	m_oVideoCache;
-	Chronos					m_oChronos;
+	Chronos		m_oChronos;
 
 
 private:
@@ -244,9 +246,9 @@ public:
 	// --- Style properties ---
 
 	virtual bool	LineWidth( short nWidth );
-	virtual bool	LineColor( Yogi::Core::CColorRef rColor );
-	virtual bool	FillColor( Yogi::Core::CColorRef rColor );
-	virtual bool	HaloColor( Yogi::Core::CColorRef rColor );
+	virtual bool	LineColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	FillColor( Yogi::Core::ConstCColorRef rColor );
+	virtual bool	HaloColor( Yogi::Core::ConstCColorRef rColor );
 
 	virtual bool	BackgroundColor( Yogi::Core::ConstCColorRef rColor );	// identify color to be used for background
 	virtual bool	NightColor( ENightColorModes eMode );

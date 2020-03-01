@@ -22,3 +22,7 @@ CServiceVehicleDataSample_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) 
 CServiceVehicleDataSample_la_LIBADD = -lstdc++ -lc
 CServiceVehicleDataSample_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CServiceVehicleDataSample-0$(DYLIBEXT) CServiceVehicleDataSample$(DYLIBEXT)

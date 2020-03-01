@@ -23,3 +23,7 @@ CmdVehicleDataLoader_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -modu
 CmdVehicleDataLoader_la_LIBADD = -lstdc++ -lc
 CmdVehicleDataLoader_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CmdVehicleDataLoader-0$(DYLIBEXT) CmdVehicleDataLoader$(DYLIBEXT)

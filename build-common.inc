@@ -3,6 +3,7 @@
 XMACHINE=`uname -m`
 XLIBDIR=
 
+
 case `uname -o` in
 [Mm]sys | cygwin* )
 	case "$XMACHINE" in

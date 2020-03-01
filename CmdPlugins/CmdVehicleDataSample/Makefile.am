@@ -23,3 +23,7 @@ CmdVehicleDataSample_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -modu
 CmdVehicleDataSample_la_LIBADD = -lstdc++ -lc
 CmdVehicleDataSample_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CmdVehicleDataSample-0$(DYLIBEXT) CmdVehicleDataSample$(DYLIBEXT)

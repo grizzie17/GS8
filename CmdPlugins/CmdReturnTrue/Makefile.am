@@ -23,3 +23,7 @@ CmdReturnTrue_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 CmdReturnTrue_la_LIBADD = -lstdc++ -lc
 CmdReturnTrue_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CmdReturnTrue-0$(DYLIBEXT) CmdReturnTrue$(DYLIBEXT)

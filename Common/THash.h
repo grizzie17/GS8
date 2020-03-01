@@ -228,6 +228,14 @@ public:
 	THashTableEnumerator< TKey, TData >
 					GetEnumerator( void ) const;
 
+	// template< class TKey >
+	// static
+	uintmax_t
+			THashValueFromKey
+			(
+			const TKey& key
+			) const;
+
 protected:
 //	protected types  ----------------------------------------------------
 
@@ -258,15 +266,6 @@ private:
 ||	Function Prototypes													|
 ||																		|
 \+=====================================================================*/
-template < typename TKey >
-uintmax_t
-		THashValueFromKey
-		(
-		const TKey&	//key
-		)
-{
-	return 0;
-}
 /*=====================================================================+\
 ||																		|
 ||	Inline Functions													|
@@ -794,8 +793,21 @@ uintmax_t
 		const TKey&	key
 		) const
 {
-	return THashValueFromKey<TKey>( key );
+	return THashValueFromKey( key );
 }
+
+
+template < class TKey, class TData >
+inline
+uintmax_t
+		THashTable<TKey, TData>::THashValueFromKey
+		(
+		const TKey&	//key
+		) const
+{
+	return 0;
+}
+
 
 /*---------------------------------------------------------------------+\
 
@@ -909,4 +921,3 @@ THashTableEnumerator< TKey, TData >
 
 
 #endif /* _H_THash */
-

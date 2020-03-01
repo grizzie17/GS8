@@ -22,3 +22,7 @@ CServiceVehicleDirectLoad_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) 
 CServiceVehicleDirectLoad_la_LIBADD = -lstdc++ -lc
 CServiceVehicleDirectLoad_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CServiceVehicleDirectLoad-0$(DYLIBEXT) CServiceVehicleDirectLoad$(DYLIBEXT)

@@ -201,7 +201,11 @@ Yogi::Core::CCharString
 #if defined( DLL_UNISTD )
 	strcat_s( sBuffer, sizeof(sBuffer), ".so" );
 #elif defined( DLL_WINDOWS )
-	strcat_s( sBuffer, sizeof(sBuffer), ".dll" );
+	#if defined( OS_MSWIN_MINGW )
+		strcat_s( sBuffer, sizeof(sBuffer), "-0.dll" );
+	#else
+		strcat_s( sBuffer, sizeof(sBuffer), ".dll" );
+	#endif
 #endif
 	return Yogi::Core::CCharString( sBuffer );
 }
@@ -227,4 +231,3 @@ Yogi::Core::CCharString
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

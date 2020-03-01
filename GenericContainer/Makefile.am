@@ -22,3 +22,7 @@ GenericContainer_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 GenericContainer_la_LIBADD = -lstdc++ -lc
 GenericContainer_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/GenericContainer-0$(DYLIBEXT) GenericContainer$(DYLIBEXT)

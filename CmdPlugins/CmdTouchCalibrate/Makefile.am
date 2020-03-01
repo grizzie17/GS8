@@ -23,3 +23,7 @@ CmdTouchCalibrate_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module 
 CmdTouchCalibrate_la_LIBADD = -lstdc++ -lc
 CmdTouchCalibrate_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CmdTouchCalibrate-0$(DYLIBEXT) CmdTouchCalibrate$(DYLIBEXT)

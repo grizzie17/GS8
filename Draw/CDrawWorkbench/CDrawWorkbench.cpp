@@ -32,6 +32,8 @@
 #include "TPointer.h"
 #include "LogFile.h"
 
+using namespace Yogi::Core;
+using namespace Yogi::Gadget;
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
 |																		|
@@ -133,7 +135,7 @@ CDrawWorkbench::~CDrawWorkbench
 
 	while ( e.MoveNext() )
 	{
-		VImagePtr*	ppImage = e.Current();
+		const VImagePtr*	ppImage = e.Current();
 		if ( ppImage )
 		{
 			VImagePtr	pImage = *ppImage;
@@ -155,7 +157,7 @@ CDrawWorkbench::~CDrawWorkbench
 \+---------------------------------------------------------------------*/
 bool	CDrawWorkbench::SetApplication
 		(
-		CApplicationGaugePtr p
+		Yogi::Gadget::CApplicationGaugePtr p
 		)
 {
 	m_pApplication = p;
@@ -559,7 +561,7 @@ bool	CDrawWorkbench::LineWidth
 \+---------------------------------------------------------------------*/
 bool	CDrawWorkbench::LineColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return m_pDraw->LineColor( rColor );
@@ -572,7 +574,7 @@ bool	CDrawWorkbench::LineColor
 \+---------------------------------------------------------------------*/
 bool	CDrawWorkbench::FillColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 	return m_pDraw->FillColor( rColor );
@@ -586,7 +588,7 @@ bool	CDrawWorkbench::FillColor
 \+---------------------------------------------------------------------*/
 bool	CDrawWorkbench::HaloColor
 		(
-		CColorRef rColor
+		ConstCColorRef rColor
 		)
 {
 #if 0
@@ -904,7 +906,7 @@ bool	CDrawWorkbench::Video
 	}
 
 	IDraw::VImagePtr	pImage = 0;
-	IDraw::VImagePtr*	ppImage = 0;
+	const IDraw::VImagePtr*	ppImage = 0;
 
 	ppImage = m_oVideoCache.Find( sImageName );
 	if ( ! ppImage )

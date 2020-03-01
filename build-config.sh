@@ -25,7 +25,7 @@ pushd $THISDIR >/dev/null
 	mkdir -p $THISDIR/build		||	exit $?
 	pushd $THISDIR/build >/dev/null
 		echo ":::configure:::"
-		$THISDIR/configure  ||  exit $?
+		$THISDIR/configure --prefix=$USRLOCAL  ||  exit $?
 		case `uname -o` in
 		[Mm]sys | cygwin* )
 			#echo "patching libtool for Msys"

@@ -26,7 +26,7 @@
         {
             "name": "MSYS",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe",
+            "compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "defines": [
@@ -70,7 +70,7 @@
         {
             "name": "Win32",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe",
+            "compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "defines": [
@@ -87,7 +87,20 @@
                 "C:/msys64/mingw64/include/freetype2",
 				"C:/msys64/mingw64/x86_64-w64-mingw32/include"
 			]
-        }
+		},
+		{
+			"name": "MSBuild",
+			"compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.22.27905\\bin\\Hostx64\\x64\\cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+			"includePath": [
+                ".",
+                "${workspaceFolder}",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**"
+			]
+		}
     ],
     "version": 4
 }

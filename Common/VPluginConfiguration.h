@@ -35,6 +35,7 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include "CCharString.h"
+#include "CCharStringHash.h"
 #include "CCharDescriptor.h"
 #include "CDateTime.h"
 #include "CVariantData.h"
@@ -304,6 +305,17 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
+template<>
+inline
+uintmax_t
+		THashTable<Yogi::Core::CCharString, VPluginConfiguration*>::THashValueFromKey
+		(
+		const Yogi::Core::CCharString&	key
+		) const
+{
+	uintmax_t	nHash = key.Hash();
+	return nHash;
+}
 
 }}
 

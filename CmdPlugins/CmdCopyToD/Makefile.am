@@ -23,3 +23,7 @@ CmdCopyToD_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 CmdCopyToD_la_LIBADD = -lstdc++ -lc
 CmdCopyToD_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CmdCopyToD-0$(DYLIBEXT) CmdCopyToD$(DYLIBEXT)

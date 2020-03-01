@@ -8,7 +8,7 @@
 			"name": "gdb workbench",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/usrlocal/mingw64/bin/workbench.exe",
+			"program": "${workspaceFolder}/usrlocal/bin/workbench.exe",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -31,10 +31,16 @@
 					"ignoreFailures": true
 				},
 				{
-					"text": "set solib-search-path ${workspaceFolder}/usrlocal/mingw64/lib"
+					"text": "set solib-search-path ${workspaceFolder}/usrlocal/lib"
 				},
 				{
-					"text": "directory ${workspaceFolder}/usrlocal/mingw64/lib"
+					"text": "set solib-search-path ${workspaceFolder}/usrlocal/bin"
+				},
+				{
+					"text": "directory ${workspaceFolder}/usrlocal/lib"
+				},
+				{
+					"text": "directory ${workspaceFolder}/usrlocal/bin"
 				}
 				// {
 				// 	"text": "set solib-search-path C:/Users/johng/LocalDocuments/GS8/build/Common/.libs;C:/Users/johng/LocalDocuments/GS8/build/Platform/.libs"
@@ -96,7 +102,7 @@
 			"name": "gdb Common_specs",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/usrlocal/mingw64/bin/Common_specs.exe",
+			"program": "${workspaceFolder}/usrlocal/bin/Common_specs.exe",
 			"args": [],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",

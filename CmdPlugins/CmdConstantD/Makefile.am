@@ -23,3 +23,7 @@ CmdConstantD_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 CmdConstantD_la_LIBADD = -lstdc++ -lc
 CmdConstantD_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CmdConstantD-0$(DYLIBEXT) CmdConstantD$(DYLIBEXT)

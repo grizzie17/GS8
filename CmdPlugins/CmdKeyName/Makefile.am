@@ -23,3 +23,7 @@ CmdKeyName_la_LDFLAGS = $(LDFLAGS) $(AM_LDFLAGS) $(NO_UNDEFINED) -module \
 CmdKeyName_la_LIBADD = -lstdc++ -lc
 CmdKeyName_la_DEPENDENCIES = \
 		$(deplibs)
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	$(LN_S) $(DESTDIR)$(libdir)/CmdKeyName-0$(DYLIBEXT) CmdKeyName$(DYLIBEXT)
