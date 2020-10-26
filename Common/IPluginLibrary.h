@@ -29,8 +29,8 @@
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
-#include "CCharString.h"
 #include "CCharDescriptor.h"
+#include "CCharString.h"
 #include "CVariantData.h"
 
 #include "UDeclCommon.h"
@@ -47,9 +47,9 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef interface_ IPluginLibrary*	IPluginLibraryPtr;
+typedef interface_ IPluginLibrary* IPluginLibraryPtr;
 
-extern const IXID DECL_CLASS		IXID_IPluginLibrary;
+extern const IXID COMMON_CLASS IXID_IPluginLibrary;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -59,32 +59,15 @@ extern const IXID DECL_CLASS		IXID_IPluginLibrary;
 
 interface_ IPluginLibrary : public ISupports
 {
-	virtual
-	ISupportsPtr
-			Create
-			(
-			const char*		sLibraryname,
-			ISupportsPtr	pOwner = 0
-			) PURE;
-	virtual
-	ISupportsPtr
-			Create
-			(
-			Yogi::Core::ConstCCharDescriptorRef rLibraryname,
-			ISupportsPtr	pOwner = 0
-			) PURE;
+    virtual ISupportsPtr Create(
+            const char* sLibraryname, ISupportsPtr pOwner = 0 ) PURE;
+    virtual ISupportsPtr Create(
+            Yogi::Core::ConstCCharDescriptorRef rLibraryname,
+            ISupportsPtr                        pOwner = 0 ) PURE;
 
-	virtual
-	void	SetBaseFolder
-			(
-			const char* sFolder
-			) PURE;
+    virtual void SetBaseFolder( const char* sFolder ) PURE;
 
-	virtual
-	void	SetRelativeFolder
-			(
-			const char*	sFolder
-			) PURE;
+    virtual void SetRelativeFolder( const char* sFolder ) PURE;
 };
 
 
@@ -105,7 +88,7 @@ interface_ IPluginLibrary : public ISupports
 \+=====================================================================*/
 
 
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_IPluginLibrary */

@@ -74,13 +74,9 @@ namespace Yogi { namespace Common {
  * CConfiguration - constructor
 
 \+---------------------------------------------------------------------*/
-CConfiguration::CConfiguration
-		(
-		void
-		)
-		: m_aContent()
-{
-}
+CConfiguration::CConfiguration( void )
+        : m_aContent()
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -88,17 +84,12 @@ CConfiguration::CConfiguration
  * ~CConfiguration - destructor
 
 \+---------------------------------------------------------------------*/
-CConfiguration::~CConfiguration
-		(
-		void
-		)
-{
-}
+CConfiguration::~CConfiguration( void )
+{}
 
 /*=====================================================================+\
 ||	 public member functions											|
 \+=====================================================================*/
-
 
 
 /*---------------------------------------------------------------------+\
@@ -106,20 +97,16 @@ CConfiguration::~CConfiguration
  * AddEntry -
 
 \+---------------------------------------------------------------------*/
-bool	CConfiguration::AddEntry
-		(
-		const char*				sName,
-		ConstCVariantDataRef	rData
-		)
+bool
+CConfiguration::AddEntry( const char* sName, ConstCVariantDataRef rData )
 {
-	bool		bResult = false;
-	CCharString	tName( sName );
+    bool        bResult = false;
+    CCharString tName( sName );
 
-	bResult = m_aContent.Add( tName, rData );
+    bResult = m_aContent.Add( tName, rData );
 
-	return bResult;
+    return bResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -127,19 +114,14 @@ bool	CConfiguration::AddEntry
  * AddAlias -
 
 \+---------------------------------------------------------------------*/
-bool	CConfiguration::AddAlias
-		(
-		ConstCCharDescriptorRef	rKey,
-		ConstCCharDescriptorRef	rAlias
-		)
+bool
+CConfiguration::AddAlias(
+        ConstCCharDescriptorRef rKey, ConstCCharDescriptorRef rAlias )
 {
-	CCharString	tKey( rKey );
-	CCharString	tAlias( rAlias );
-	return m_aContent.AddAlias( tKey, tAlias );
+    CCharString tKey( rKey );
+    CCharString tAlias( rAlias );
+    return m_aContent.AddAlias( tKey, tAlias );
 }
-
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -147,25 +129,21 @@ bool	CConfiguration::AddAlias
  * PutData -
 
 \+---------------------------------------------------------------------*/
-bool	CConfiguration::PutData
-		(
-		index_t				nSel,
-		const CVariantData*	pData
-		)
+bool
+CConfiguration::PutData( index_t nSel, const CVariantData* pData )
 {
-	bool	bResult = false;
-	CVariantDataPtr	p = m_aContent.ItemAtIndex( nSel );
-	if ( p )
-	{
-		if ( *p != *pData )
-		{
-			*p = *pData;
-			bResult = true;
-		}
-	}
-	return bResult;
+    bool            bResult = false;
+    CVariantDataPtr p = m_aContent.ItemAtIndex( nSel );
+    if ( p )
+    {
+        if ( *p != *pData )
+        {
+            *p = *pData;
+            bResult = true;
+        }
+    }
+    return bResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -174,14 +152,11 @@ bool	CConfiguration::PutData
 
 \+---------------------------------------------------------------------*/
 Yogi::Core::CCharString
-		CConfiguration::ResolveVariable
-		(
-		ConstCCharDescriptorRef r
-		)
+CConfiguration::ResolveVariable( ConstCCharDescriptorRef r )
 {
-	CCharString	s = r;
+    CCharString s = r;
 
-	return GetEntryAsString( s.Pointer() );
+    return GetEntryAsString( s.Pointer() );
 }
 
 
@@ -190,30 +165,10 @@ Yogi::Core::CCharString
  * LocateEntry -
 
 \+---------------------------------------------------------------------*/
-long	CConfiguration::LocateEntry
-		(
-		ConstCCharStringRef	rName
-		) const
+long
+CConfiguration::LocateEntry( ConstCCharStringRef rName ) const
 {
-	return long(m_aContent.IndexOf( rName ));
-}
-
-
-
-
-/*---------------------------------------------------------------------+\
-
- * GetEntry -
-
-\+---------------------------------------------------------------------*/
-CVariantDataPtr
-		CConfiguration::GetEntry
-		(
-		const char*	sKey
-		) const
-{
-	CCharString	tName( sKey );
-	return GetEntry( tName );
+    return long( m_aContent.IndexOf( rName ) );
 }
 
 
@@ -223,12 +178,22 @@ CVariantDataPtr
 
 \+---------------------------------------------------------------------*/
 CVariantDataPtr
-		CConfiguration::GetEntry
-		(
-		ConstCCharStringRef	sKey
-		) const
+CConfiguration::GetEntry( const char* sKey ) const
 {
-	return m_aContent.Find( sKey );
+    CCharString tName( sKey );
+    return GetEntry( tName );
+}
+
+
+/*---------------------------------------------------------------------+\
+
+ * GetEntry -
+
+\+---------------------------------------------------------------------*/
+CVariantDataPtr
+CConfiguration::GetEntry( ConstCCharStringRef sKey ) const
+{
+    return m_aContent.Find( sKey );
 }
 
 
@@ -238,14 +203,10 @@ CVariantDataPtr
 
 \+---------------------------------------------------------------------*/
 ConstCVariantDataPtr
-		CConfiguration::GetData
-		(
-		index_t	nSel
-		) const
+CConfiguration::GetData( index_t nSel ) const
 {
-	return m_aContent.ItemAtIndex( nSel );
+    return m_aContent.ItemAtIndex( nSel );
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -253,23 +214,22 @@ ConstCVariantDataPtr
  * GetParameterAsInteger -
 
 \+---------------------------------------------------------------------*/
-long	CConfiguration::GetEntryAsInteger
-		(
-		const char*	sKey,
-		long		nDefault	//=0
-		) const
+long
+CConfiguration::GetEntryAsInteger( const char* sKey,
+        long                                   nDefault  //=0
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		long	n = pv->GetValueInteger();
-		return n;
-	}
-	else
-	{
-		return nDefault;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        long n = pv->GetValueInteger();
+        return n;
+    }
+    else
+    {
+        return nDefault;
+    }
 }
 
 /*---------------------------------------------------------------------+\
@@ -278,23 +238,21 @@ long	CConfiguration::GetEntryAsInteger
 
 \+---------------------------------------------------------------------*/
 unsigned long
-		CConfiguration::GetEntryAsUnsigned
-		(
-		const char*		sKey,
-		unsigned long	nDefault	//=0
-		) const
+CConfiguration::GetEntryAsUnsigned( const char* sKey,
+        unsigned long                           nDefault  //=0
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		unsigned long	n = static_cast<unsigned long>(pv->GetValueInteger());
-		return n;
-	}
-	else
-	{
-		return nDefault;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        unsigned long n = static_cast<unsigned long>( pv->GetValueInteger() );
+        return n;
+    }
+    else
+    {
+        return nDefault;
+    }
 }
 
 /*---------------------------------------------------------------------+\
@@ -303,23 +261,21 @@ unsigned long
 
 \+---------------------------------------------------------------------*/
 GFLOAT
-		CConfiguration::GetEntryAsFloat
-		(
-		const char*	sKey,
-		GFLOAT		fDefault	//=0
-		) const
+CConfiguration::GetEntryAsFloat( const char* sKey,
+        GFLOAT                               fDefault  //=0
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		GFLOAT	f = pv->GetValueFloat();
-		return f;
-	}
-	else
-	{
-		return fDefault;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        GFLOAT f = pv->GetValueFloat();
+        return f;
+    }
+    else
+    {
+        return fDefault;
+    }
 }
 
 
@@ -328,34 +284,30 @@ GFLOAT
  * GetParameterAsFloatUnits -
 
 \+---------------------------------------------------------------------*/
-DECL_API(GFLOAT)
-		CConfiguration::GetEntryAsFloatUnits
-		(
-		const char*	sKey,
-		const char*	sUnitName,
-		GFLOAT		fDefault	//=0
-		) const
+GFLOAT
+CConfiguration::GetEntryAsFloatUnits( const char* sKey, const char* sUnitName,
+        GFLOAT fDefault  //=0
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		if ( 0 < pv->GetUnits()
-				&&	sUnitName )
-		{
-			CUnitsOfMeasure	u;
-			u.SetUsingString( sUnitName );
-			return pv->GetValueFloatAsUnits( u );
-		}
-		else
-		{
-			return pv->GetValueFloat();
-		}
-	}
-	else
-	{
-		return fDefault;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        if ( 0 < pv->GetUnits() && sUnitName )
+        {
+            CUnitsOfMeasure u;
+            u.SetUsingString( sUnitName );
+            return pv->GetValueFloatAsUnits( u );
+        }
+        else
+        {
+            return pv->GetValueFloat();
+        }
+    }
+    else
+    {
+        return fDefault;
+    }
 }
 
 
@@ -364,25 +316,23 @@ DECL_API(GFLOAT)
  * GetParameterAsString -
 
 \+---------------------------------------------------------------------*/
-DECL_API(Yogi::Core::CCharString)
-		CConfiguration::GetEntryAsString
-		(
-		const char*	sKey,
-		const char*	sDefault	//=0
-		) const
+Yogi::Core::CCharString
+CConfiguration::GetEntryAsString( const char* sKey,
+        const char*                           sDefault  //=0
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		CCharString	s = pv->GetValueString();
-		return s;
-	}
-	else
-	{
-		CCharString	s( sDefault );
-		return s;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        CCharString s = pv->GetValueString();
+        return s;
+    }
+    else
+    {
+        CCharString s( sDefault );
+        return s;
+    }
 }
 
 
@@ -391,51 +341,48 @@ DECL_API(Yogi::Core::CCharString)
  * GetEntryAsEnum -
 
 \+---------------------------------------------------------------------*/
-DECL_API(long)
-		CConfiguration::GetEntryAsEnum
-		(
-		const char*			sKey,
-		const VConfiguration::EnumDatumPtr	pEnumList,
-		const long			nEnumCount,
-		const long			nDefault,	//= 0
-		const long			nError		//= 0
-		) const
+long
+CConfiguration::GetEntryAsEnum( const char* sKey,
+        const VConfiguration::EnumDatumPtr pEnumList, const long nEnumCount,
+        const long nDefault,  //= 0
+        const long nError     //= 0
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		if ( CVariantData::T_STRING == pv->GetType() )
-		{
-			if ( pEnumList )
-			{
-				EnumDatumPtr	pDatum = pEnumList;
-				EnumDatumPtr	pDatumEnd = pEnumList + nEnumCount;
-				CCharString		s = pv->GetValueString();
-				while ( pDatum < pDatumEnd )
-				{
-					if ( 0 == s.CompareIgnoreCase( pDatum->sKey ) )
-					{
-						return pDatum->nValue;
-					}
-					++pDatum;
-				}
-				return nError;	// not found
-			}
-			else
-			{
-				return nError;
-			}
-		}
-		else
-		{
-			return pv->GetValueInteger();
-		}
-	}
-	else
-	{
-		return nDefault;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        if ( CVariantData::T_STRING == pv->GetType() )
+        {
+            if ( pEnumList )
+            {
+                EnumDatumPtr pDatum = pEnumList;
+                EnumDatumPtr pDatumEnd = pEnumList + nEnumCount;
+                CCharString  s = pv->GetValueString();
+                while ( pDatum < pDatumEnd )
+                {
+                    if ( 0 == s.CompareIgnoreCase( pDatum->sKey ) )
+                    {
+                        return pDatum->nValue;
+                    }
+                    ++pDatum;
+                }
+                return nError;  // not found
+            }
+            else
+            {
+                return nError;
+            }
+        }
+        else
+        {
+            return pv->GetValueInteger();
+        }
+    }
+    else
+    {
+        return nDefault;
+    }
 }
 
 
@@ -444,23 +391,21 @@ DECL_API(long)
  * GetEntryAsBool -
 
 \+---------------------------------------------------------------------*/
-DECL_API(bool)
-		CConfiguration::GetEntryAsBool
-		(
-		const char*		sKey,
-		const bool		bDefault	//= false
-		) const
+bool
+CConfiguration::GetEntryAsBool( const char* sKey,
+        const bool                          bDefault  //= false
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		return pv->GetValueBool();
-	}
-	else
-	{
-		return bDefault;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        return pv->GetValueBool();
+    }
+    else
+    {
+        return bDefault;
+    }
 }
 
 
@@ -469,23 +414,21 @@ DECL_API(bool)
  * GetEntryAsColor -
 
 \+---------------------------------------------------------------------*/
-DECL_API(Yogi::Core::CColor)
-		CConfiguration::GetEntryAsColor
-		(
-		const char*					sKey,
-		const Yogi::Core::CColor	cDefault	//= CColor(0,0,0)
-		) const
+Yogi::Core::CColor
+CConfiguration::GetEntryAsColor( const char* sKey,
+        const Yogi::Core::CColor             cDefault  //= CColor(0,0,0)
+) const
 {
-	CVariantDataPtr	pv;
-	pv = GetEntry( sKey );
-	if ( pv )
-	{
-		return pv->GetValueColor();
-	}
-	else
-	{
-		return cDefault;
-	}
+    CVariantDataPtr pv;
+    pv = GetEntry( sKey );
+    if ( pv )
+    {
+        return pv->GetValueColor();
+    }
+    else
+    {
+        return cDefault;
+    }
 }
 
 
@@ -494,16 +437,11 @@ DECL_API(Yogi::Core::CColor)
  * GetEnumerator -
 
 \+---------------------------------------------------------------------*/
-DECL_API(CConfiguration::Enumerator)
-		CConfiguration::GetEnumerator
-		(
-		void
-		)
+CConfiguration::Enumerator
+CConfiguration::GetEnumerator( void )
 {
-	return m_aContent.GetEnumerator();
+    return m_aContent.GetEnumerator();
 }
-
-
 
 
 /*=====================================================================+\
@@ -521,7 +459,7 @@ DECL_API(CConfiguration::Enumerator)
 \+=====================================================================*/
 
 
-}}
+}}  // namespace Yogi::Common
 
 
 /*---------------------------------------------------------------------+\

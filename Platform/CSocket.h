@@ -25,12 +25,13 @@
 \+---------------------------------------------------------------------*/
 #include "UMachine.h"
 #if defined( OS_MSWIN )
-#	include <winsock2.h>
-#	include <windows.h>
+#    include <windows.h>
+#    include <winsock2.h>
 #endif
 #include "UPlatform.h"
 
 #include "CCharString.h"
+
 #include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
@@ -40,11 +41,11 @@ namespace Yogi { namespace Core {
 |																		|
 \+---------------------------------------------------------------------*/
 #if defined( OS_MSWIN )
-#	define IS_SOCKETHDL( h )	(h)
-#	define NOT_SOCKETHDL( h )	(! (h))
+#    define IS_SOCKETHDL( h )  ( h )
+#    define NOT_SOCKETHDL( h ) ( ! ( h ) )
 #else
-#	define IS_SOCKETHDL( h )	(0 <= (h))
-#	define NOT_SOCKETHDL( h )	((h) < 0)
+#    define IS_SOCKETHDL( h )  ( 0 <= ( h ) )
+#    define NOT_SOCKETHDL( h ) ( ( h ) < 0 )
 #endif
 
 /*---------------------------------------------------------------------+\
@@ -54,32 +55,30 @@ namespace Yogi { namespace Core {
 \+---------------------------------------------------------------------*/
 
 
-typedef class CSocketTCP*		CSocketTCPPtr;
-typedef class CSocketTCP&		CSocketTCPRef;
-typedef const class CSocketTCP&	ConstCSocketTCPRef;
+typedef class CSocketTCP*       CSocketTCPPtr;
+typedef class CSocketTCP&       CSocketTCPRef;
+typedef const class CSocketTCP& ConstCSocketTCPRef;
 
 
-typedef class CSocketTCPServer*			CSocketTCPServerPtr;
-typedef class CSocketTCPServer&			CSocketTCPServerRef;
-typedef const class CSocketTCPServer&	ConstCSocketTCPServerRef;
+typedef class CSocketTCPServer*       CSocketTCPServerPtr;
+typedef class CSocketTCPServer&       CSocketTCPServerRef;
+typedef const class CSocketTCPServer& ConstCSocketTCPServerRef;
 
 
-typedef class CSocketUDP*		CSocketUDPPtr;
-typedef class CSocketUDP&		CSocketUDPRef;
-typedef const class CSocketUDP&	ConstCSocketUDPRef;
+typedef class CSocketUDP*       CSocketUDPPtr;
+typedef class CSocketUDP&       CSocketUDPRef;
+typedef const class CSocketUDP& ConstCSocketUDPRef;
 
 
-typedef class CSocketICMP*			CSocketICMPPtr;
-typedef class CSocketICMP&			CSocketICMPRef;
-typedef const class CSocketICMP&	ConstCSocketICMPRef;
-
-
+typedef class CSocketICMP*       CSocketICMPPtr;
+typedef class CSocketICMP&       CSocketICMPRef;
+typedef const class CSocketICMP& ConstCSocketICMPRef;
 
 
 #if defined( OS_MSWIN )
-	typedef	SOCKET	SOCKETHDL;
+typedef SOCKET SOCKETHDL;
 #else
-	typedef	int		SOCKETHDL;
+typedef int SOCKETHDL;
 #endif
 
 
@@ -90,112 +89,86 @@ typedef const class CSocketICMP&	ConstCSocketICMPRef;
 \+---------------------------------------------------------------------*/
 
 
-
 /*---------------------------------------------------------------------+\
 |	CSocket
 \+---------------------------------------------------------------------*/
 
-class CSocket // BaseClass
+class CORE_CLASS CSocket  // BaseClass
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-
-	///	Close and deallocate this socket
-	virtual	~CSocket();
+    ///	Close and deallocate this socket
+    virtual ~CSocket();
 
 protected:
-
-			CSocket( int type, int protocol );
-			CSocket( SOCKETHDL nSockDesc );
+    CSocket( int type, int protocol );
+    CSocket( SOCKETHDL nSockDesc );
 
 private:
-	// prevent copy semantics
-			CSocket( const CSocket& r );
-	void	operator=( const CSocket& r );
+    // prevent copy semantics
+    CSocket( const CSocket& r );
+    void
+    operator=( const CSocket& r );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 
-	//!	GetLocalAddress
-	//!
-	//!	Get the local address of the socket
-	//!
-	CCharString
-			GetLocalAddress		//!@return the local address of the socket
-			(
-			void
-			);
+    //!	GetLocalAddress
+    //!
+    //!	Get the local address of the socket
+    //!
+    CCharString GetLocalAddress  //!@return the local address of the socket
+            ( void );
 
 
-	unsigned short
-			GetLocalPort
-			(
-			void
-			);
+    unsigned short
+    GetLocalPort( void );
 
-	void	SetLocalPort
-			(
-			unsigned short	n
-			);
+    void
+    SetLocalPort( unsigned short n );
 
-	void	SetLocalAddressAndPort
-			(
-			ConstCCharStringRef	rAddress,
-			unsigned short		nPort = 0
-			);
+    void
+    SetLocalAddressAndPort(
+            ConstCCharStringRef rAddress, unsigned short nPort = 0 );
 
-	int		LastError
-			(
-			void
-			);
+    int
+    LastError( void );
 
-	static
-	void	CleanUp
-			(
-			void
-			);
+    static void
+    CleanUp( void );
 
-	static
-	unsigned short
-			ResolveService
-			(
-			ConstCCharStringRef	rService,
-			ConstCCharStringRef	rProtocol = "tcp"
-			);
+    static unsigned short
+    ResolveService( ConstCCharStringRef rService,
+            ConstCCharStringRef         rProtocol = "tcp" );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	int		InternalError
-			(
-			void
-			);
+    int
+    InternalError( void );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	SOCKETHDL	m_nSockDesc;
-	int			m_nError;
+    SOCKETHDL m_nSockDesc;
+    int       m_nError;
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	//typedef BaseClass	inherited;
+    //typedef BaseClass	inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-	static bool	g_bInitialized;
-
-
+    static bool g_bInitialized;
 };
-
 
 
 /*---------------------------------------------------------------------+\
@@ -203,85 +176,67 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketCommunicate : public CSocket
+class CORE_CLASS CSocketCommunicate : public CSocket
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-
-	virtual	~CSocketCommunicate();
+    virtual ~CSocketCommunicate();
 
 protected:
-			CSocketCommunicate( int type, int protocol );
-			CSocketCommunicate( SOCKETHDL nNewConnSD );
+    CSocketCommunicate( int type, int protocol );
+    CSocketCommunicate( SOCKETHDL nNewConnSD );
 
 private:
-	// prevent copy semantics
-	CSocketCommunicate( const CSocketCommunicate& r );
-	void	operator=(const CSocketCommunicate& r);
+    // prevent copy semantics
+    CSocketCommunicate( const CSocketCommunicate& r );
+    void
+    operator=( const CSocketCommunicate& r );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	void	Connect
-			(
-			ConstCCharStringRef	sForeignAddress,
-			unsigned short		nForeignPort
-			);
+    void
+    Connect( ConstCCharStringRef sForeignAddress, unsigned short nForeignPort );
 
-	void	Send
-			(
-			const void*	pBuffer,
-			size_t		nBufferLength
-			);
+    void
+    Send( const void* pBuffer, size_t nBufferLength );
 
-	int		Recv
-			(
-			void*	pBuffer,
-			size_t	nBufferLength
-			);
+    int
+    Recv( void* pBuffer, size_t nBufferLength );
 
-	CCharStringRef
-			GetForeignAddress
-			(
-			void
-			);
+    CCharStringRef
+    GetForeignAddress( void );
 
-	unsigned short
-			GetForeignPort
-			(
-			void
-			);
+    unsigned short
+    GetForeignPort( void );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	CCharString		m_sForeignAddress;
-	unsigned short	m_nForeignPort;
+    CCharString    m_sForeignAddress;
+    unsigned short m_nForeignPort;
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef CSocket	inherited;
+    typedef CSocket inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -289,61 +244,55 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketTCP : public CSocketCommunicate
+class CORE_CLASS CSocketTCP : public CSocketCommunicate
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSocketTCP();
+    CSocketTCP();
 
-			CSocketTCP
-				(
-				ConstCCharStringRef	rForeignAddress,
-				unsigned short		nForeignPort
-				);
+    CSocketTCP(
+            ConstCCharStringRef rForeignAddress, unsigned short nForeignPort );
 
-	virtual	~CSocketTCP();
+    virtual ~CSocketTCP();
 
 private:
+    CSocketTCP( SOCKETHDL nNewConnSD );
 
-	CSocketTCP( SOCKETHDL nNewConnSD );
+    friend class CSocketTCPServer;
 
-	friend class CSocketTCPServer;
-
-	// prevent copy semantics
-	CSocketTCP( const CSocketTCP& r );
-	void	operator=(const CSocketTCP& r);
+    // prevent copy semantics
+    CSocketTCP( const CSocketTCP& r );
+    void
+    operator=( const CSocketTCP& r );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef CSocketCommunicate	inherited;
+    typedef CSocketCommunicate inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -351,72 +300,57 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketTCPServer : public CSocket
+class CORE_CLASS CSocketTCPServer : public CSocket
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSocketTCPServer
-			(
-			unsigned short	nLocalPort,
-			int				nQueueLen = 5
-			);
+    CSocketTCPServer( unsigned short nLocalPort, int nQueueLen = 5 );
 
-			CSocketTCPServer
-			(
-			ConstCCharStringRef	rLocalAddress,
-			unsigned short		nLocalPort,
-			int					nQueueLen = 5
-			);
+    CSocketTCPServer( ConstCCharStringRef rLocalAddress,
+            unsigned short nLocalPort, int nQueueLen = 5 );
 
-	virtual	~CSocketTCPServer();
+    virtual ~CSocketTCPServer();
 
 private:
-	// prevent copy semantics
-	CSocketTCPServer( const CSocketTCPServer& r );
-	void	operator=(const CSocketTCPServer& r);
+    // prevent copy semantics
+    CSocketTCPServer( const CSocketTCPServer& r );
+    void
+    operator=( const CSocketTCPServer& r );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	CSocketTCP*
-			Accept
-			(
-			void
-			);
+    CSocketTCP*
+    Accept( void );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef CSocket	inherited;
+    typedef CSocket inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-	void	SetListen
-			(
-			int	nQueueLen
-			);
+    void
+    SetListen( int nQueueLen );
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -424,109 +358,80 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketUDP : public CSocketCommunicate
+class CORE_CLASS CSocketUDP : public CSocketCommunicate
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSocketUDP();
+    CSocketUDP();
 
-			CSocketUDP
-			(
-			unsigned short	nLocalPort,
-			bool			bSharePort = false
-			);
+    CSocketUDP( unsigned short nLocalPort, bool bSharePort = false );
 
-			CSocketUDP
-			(
-			ConstCCharStringRef	rLocalAddress,
-			unsigned short		nLocalPort,
-			bool				bSharedPort = false
-			);
+    CSocketUDP( ConstCCharStringRef rLocalAddress, unsigned short nLocalPort,
+            bool bSharedPort = false );
 
-	virtual	~CSocketUDP();
+    virtual ~CSocketUDP();
 
 private:
-	// prevent copy semantics
-	CSocketUDP( const CSocketUDP& r );
-	void	operator=(const CSocketUDP& r);
+    // prevent copy semantics
+    CSocketUDP( const CSocketUDP& r );
+    void
+    operator=( const CSocketUDP& r );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	void	Disconnect
-			(
-			void
-			);
+    void
+    Disconnect( void );
 
 
-	void	SendTo
-			(
-			const void*		pBuffer,
-			int				nBufferLen,
-			ConstCCharStringRef	rForeignAddress,
-			unsigned short	nForeignPort
-			);
+    void
+    SendTo( const void* pBuffer, int nBufferLen,
+            ConstCCharStringRef rForeignAddress, unsigned short nForeignPort );
 
-	int		RecvFrom
-			(
-			void*			pBuffer,
-			size_t			nBufferLen,
-			CCharStringPtr	psSourceAddress,
-			unsigned short*	pnSourcePort
-			);
+    int
+    RecvFrom( void* pBuffer, size_t nBufferLen, CCharStringPtr psSourceAddress,
+            unsigned short* pnSourcePort );
 
-	void	SetMulticastTTL
-			(
-			unsigned char	cMulticastTTL
-			);
+    void
+    SetMulticastTTL( unsigned char cMulticastTTL );
 
-	void	JoinGroup
-			(
-			ConstCCharStringRef	rMulticastGroup
-			);
+    void
+    JoinGroup( ConstCCharStringRef rMulticastGroup );
 
-	void	LeaveGroup
-			(
-			ConstCCharStringRef	rMulticastGroup
-			);
+    void
+    LeaveGroup( ConstCCharStringRef rMulticastGroup );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef CSocketCommunicate	inherited;
+    typedef CSocketCommunicate inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-	void	SetBroadcast
-			(
-			void
-			);
+    void
+    SetBroadcast( void );
 
-	void	SetSharedPort
-			(
-			void
-			);
+    void
+    SetSharedPort( void );
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
-
 
 
 /*---------------------------------------------------------------------+\
@@ -534,86 +439,68 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSocketICMP : public CSocket
+class CORE_CLASS CSocketICMP : public CSocket
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSocketICMP();
-	virtual	~CSocketICMP();
+    CSocketICMP();
+    virtual ~CSocketICMP();
 
 protected:
-			CSocketICMP( int type, int protocol );
-			CSocketICMP( int nNewConnSD );
+    CSocketICMP( int type, int protocol );
+    CSocketICMP( int nNewConnSD );
 
 private:
-	// prevent copy semantics
-	CSocketICMP( const CSocketICMP& r );
-	void	operator=(const CSocketICMP& r);
+    // prevent copy semantics
+    CSocketICMP( const CSocketICMP& r );
+    void
+    operator=( const CSocketICMP& r );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	void	Connect
-			(
-			ConstCCharStringRef	sForeignAddress,
-			unsigned short		nForeignPort
-			);
+    void
+    Connect( ConstCCharStringRef sForeignAddress, unsigned short nForeignPort );
 
-	void	Send
-			(
-			const void*	pBuffer,
-			int			nBufferLength
-			);
+    void
+    Send( const void* pBuffer, int nBufferLength );
 
-	int		Recv
-			(
-			void*	pBuffer,
-			int		nBufferLength
-			);
+    int
+    Recv( void* pBuffer, int nBufferLength );
 
-	CCharStringRef
-			GetForeignAddress
-			(
-			void
-			);
+    CCharStringRef
+    GetForeignAddress( void );
 
-	unsigned short
-			GetForeignPort
-			(
-			void
-			);
+    unsigned short
+    GetForeignPort( void );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	CCharString		m_sForeignAddress;
-	unsigned short	m_nForeignPort;
+    CCharString    m_sForeignAddress;
+    unsigned short m_nForeignPort;
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef CSocket	inherited;
+    typedef CSocket inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
-
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -632,8 +519,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CSocket */

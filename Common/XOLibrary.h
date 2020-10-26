@@ -54,69 +54,62 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS XOLibrary : public VSupports//,
-					//implements_ IInterface
+class COMMON_CLASS XOLibrary
+        : public VSupports  //,
+                            //implements_ IInterface
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOLibrary );
+    COM_LIFECYCLE( XOLibrary );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-	typedef THashTable< CCharString, ISupportsPtr >	XOParseList;
+    typedef THashTable<CCharString, ISupportsPtr> XOParseList;
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	// named lists: (factories)
-	//	* Type
-	//	* Property
-	//	* Set
-
+    // named lists: (factories)
+    //	* Type
+    //	* Property
+    //	* Set
 
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef VSupports	inherited;
+    typedef VSupports inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 /*---------------------------------------------------------------------+\
@@ -136,7 +129,7 @@ protected:
 \+=====================================================================*/
 
 
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_XOLibrary */

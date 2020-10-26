@@ -37,13 +37,13 @@
 |																		|
 \+---------------------------------------------------------------------*/
 //#include "stdafx.h"
-#include "CDrawOpenGL.h"
-#include "VPluginFactory.h"
-#include "LogFile.h"
-
 #include "UMachine.h"
 
 #if defined( GL_OPENGL )	// brackets whole file
+
+#include "CDrawOpenGL.h"
+#include "VPluginFactory.h"
+#include "LogFile.h"
 
 
 #include <GL/gl.h>

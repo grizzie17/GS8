@@ -30,9 +30,9 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "VSupports.h"
 #include "IPlugin.h"
 #include "IPluginLoadConfiguration.h"
+#include "VSupports.h"
 
 #include "ISupportsLocal.h"
 
@@ -49,95 +49,74 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class VPlugin*			VPluginPtr;
-typedef class VPlugin&			VPluginRef;
-typedef const class VPlugin&	ConstVPluginRef;
+typedef class VPlugin*       VPluginPtr;
+typedef class VPlugin&       VPluginRef;
+typedef const class VPlugin& ConstVPluginRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VPlugin 
-				: public VSupports
-				, implements_ IPlugin
-				, implements_ IPluginLoadConfiguration
-				, implements_ ISupportsLocal
+class COMMON_CLASS VPlugin
+        : public VSupports
+        , implements_ IPlugin
+        , implements_ IPluginLoadConfiguration
+        , implements_ ISupportsLocal
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( VPlugin );
+    COM_LIFECYCLE( VPlugin );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
-	//	IPlugin
-	virtual
-	const char*
-			ClassName
-			(
-			void
-			) const throw();
+    //	IPlugin
+    virtual const char*
+    ClassName( void ) const throw();
 
-	virtual
-	const char*
-			ID
-			(
-			void
-			) const throw();
+    virtual const char*
+    ID( void ) const throw();
 
 
-	//	IPluginLoadConfiguration
-	virtual
-	bool	Load
-			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
-			);
+    //	IPluginLoadConfiguration
+    virtual bool
+    Load( VPluginConfigurationPtr pConfig, VPluginLibraryPtr pLib );
 
-	//	ISupportsLocal
-	virtual
-	void*	QueryInterfaceLocal
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult = 0
-			);
+    //	ISupportsLocal
+    virtual void*
+    QueryInterfaceLocal(
+            ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult = 0 );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	Yogi::Core::CCharString		m_sID;
+    Yogi::Core::CCharString m_sID;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 /*---------------------------------------------------------------------+\
@@ -156,8 +135,7 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_VPlugin */

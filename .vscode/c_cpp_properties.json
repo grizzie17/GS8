@@ -1,106 +1,76 @@
 {
-    "configurations": [
-        {
-            "name": "wsl",
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "defines": [
-                "CONFNAME=wsl",
-                "_DEBUG",
-                "OPENGL",
-                "UNICODE",
+	"configurations": [
+		{
+			"name": "Win32",
+			"intelliSenseMode": "msvc-x64",
+			"compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.22.27905/bin/Hostx64/x64/cl.exe",
+			"cStandard": "c11",
+			"cppStandard": "c++17",
+			"defines": [
+				"CONFNAME=Win32",
+				"_DEBUG",
+				"DEVROOT=${workspaceFolder}",
+				"_WINSOCK_DEPRECATED_NO_WARNINGS=1",
+				"CMAKE_BUILD_TYPE=Debug"
+			],
+			"includePath": [
+				".",
+				"${workspaceFolder}",
+				"${workspaceFolder}/**",
+				"${workspaceFolder}/**/**",
+				"${workspaceFolder}/**/**/**",
+				"${workspaceFolder}/**/**/**/**",
+				"${workspaceFolder}/**/**/**/**/**",
+				"${workspaceFolder}/googletest/googletest/include"
+			],
+			"configurationProvider": "ms-vscode.cmake-tools"
+		},
+		{
+			"name": "wsl",
+			"intelliSenseMode": "gcc-x64",
+			"compilerPath": "/usr/bin/gcc",
+			"cStandard": "c11",
+			"cppStandard": "c++17",
+			"defines": [
+				"CONFNAME=wsl",
+				"_DEBUG",
+				"OPENGL",
+				"UNICODE",
 				"LINUX",
 				"__linux__"
-            ],
-            "includePath": [
-                ".",
-                "${workspaceFolder}",
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**",
+			],
+			"includePath": [
+				".",
+				"${workspaceFolder}",
+				"${workspaceFolder}/**",
+				"${workspaceFolder}/**/**",
 				"${workspaceFolder}/**/**/**",
 				"/usr/include/freetype2"
-            ]
-        },
-        {
-            "name": "MSYS",
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "defines": [
-                "CONFNAME=MSYS",
-                "_DEBUG",
-                "DEVROOT=${workspaceFolder}",
-                "OPENGL",
-                "GLUT"
-            ],
-            "includePath": [
-                ".",
-                "${workspaceFolder}",
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**",
-				"C:/msys64/mingw64/include/freetype2",
-				"C:/msys64/mingw64/x86_64-w64-mingw32/include"
-            ]
-        },
-        {
-            "name": "linux",
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "LINUX",
-                "OPENGL",
-                "GLUT"
-            ],
-            "includePath": [
-                ".",
-                "${workspaceFolder}",
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**"
-            ]
-        },
-        {
-            "name": "Win32",
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "defines": [
-                "CONFNAME=Win32",
-                "_DEBUG",
-                "DEVROOT=${workspaceFolder}"
-            ],
-            "includePath": [
-                ".",
-                "${workspaceFolder}",
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**",
-                "C:/msys64/mingw64/include/freetype2",
-				"C:/msys64/mingw64/x86_64-w64-mingw32/include"
 			]
 		},
 		{
-			"name": "MSBuild",
-			"compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.22.27905\\bin\\Hostx64\\x64\\cl.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
+			"name": "MSYS",
+			"intelliSenseMode": "gcc-x64",
+			"compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
+			"cStandard": "c11",
+			"cppStandard": "c++17",
+			"defines": [
+				"CONFNAME=MSYS",
+				"_DEBUG",
+				"DEVROOT=${workspaceFolder}",
+				"OPENGL",
+				"GLUT"
+			],
 			"includePath": [
-                ".",
-                "${workspaceFolder}",
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**"
+				".",
+				"${workspaceFolder}",
+				"${workspaceFolder}/**",
+				"${workspaceFolder}/**/**",
+				"${workspaceFolder}/**/**/**",
+				"C:/msys64/mingw64/include/freetype2",
+				"C:/msys64/mingw64/x86_64-w64-mingw32/include"
 			]
 		}
-    ],
-    "version": 4
+	],
+	"version": 4
 }

@@ -40,7 +40,7 @@
 #include <ctype.h>
 
 #include "TCharDescriptor.h"
-//#include "UDeclPlatform.h"
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+|
@@ -53,12 +53,12 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-class CCharString;	// forward reference
+class CCharString;  // forward reference
 
-typedef class CCharDescriptor*			CCharDescriptorPtr;
-typedef class CCharDescriptor&			CCharDescriptorRef;
-typedef const class CCharDescriptor&	ConstCCharDescriptorRef;
-typedef const class CCharDescriptor*	ConstCCharDescriptorPtr;
+typedef class CCharDescriptor*       CCharDescriptorPtr;
+typedef class CCharDescriptor&       CCharDescriptorRef;
+typedef const class CCharDescriptor& ConstCCharDescriptorRef;
+typedef const class CCharDescriptor* ConstCCharDescriptorPtr;
 /*---------------------------------------------------------------------+|
 |																		|
 |	Class Definitions													|
@@ -70,73 +70,70 @@ typedef const class CCharDescriptor*	ConstCCharDescriptorPtr;
 //!
 //!	Specialization of TCharDescriptor
 //!
-class CCharDescriptor : public TCharDescriptor<char>
+class CORE_CLASS CCharDescriptor : public TCharDescriptor<char>
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CCharDescriptor();
-			CCharDescriptor( ConstCCharDescriptorRef r );	// copy constructor
-			CCharDescriptor( const TCharDescriptor<char>& r );
-			CCharDescriptor( const char* s, size_t n );
-			CCharDescriptor( char* s, size_t n );
-			CCharDescriptor( const char* s );
-			CCharDescriptor( char* s );	// search for null and set Length
-	virtual	~CCharDescriptor();
+    CCharDescriptor();
+    CCharDescriptor( ConstCCharDescriptorRef r );  // copy constructor
+    CCharDescriptor( const TCharDescriptor<char>& r );
+    CCharDescriptor( const char* s, size_t n );
+    CCharDescriptor( char* s, size_t n );
+    CCharDescriptor( const char* s );
+    CCharDescriptor( char* s );  // search for null and set Length
+    virtual ~CCharDescriptor();
 
 
-	friend class CCharString;
+    friend class CCharString;
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	int		CompareIgnoreCase( const TCharDescriptor<char>& r ) const;
-	int		CompareIgnoreCase( const char* s, size_t n ) const;
-	int		CompareIgnoreCase( const char* s ) const;
+    int
+    CompareIgnoreCase( const TCharDescriptor<char>& r ) const;
+    int
+    CompareIgnoreCase( const char* s, size_t n ) const;
+    int
+    CompareIgnoreCase( const char* s ) const;
 
-	void	ConvertUppercase( void );
-	void	ConvertLowercase( void );
+    void
+    ConvertUppercase( void );
+    void
+    ConvertLowercase( void );
 
-	CCharDescriptorRef
-			operator = ( const TCharDescriptor<char>& r );
+    CCharDescriptorRef
+    operator=( const TCharDescriptor<char>& r );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-	typedef	TCharDescriptor<char>	inherited;
+    typedef TCharDescriptor<char> inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
 
 
-
-
-template<>
-inline
-char	TCharDescriptorCompareFilter<char>
-		(
-		char	c
-		)
+template <>
+inline char
+TCharDescriptorCompareFilter<char>( char c )
 {
-	return static_cast<char>(::toupper( c ));
+    return static_cast<char>( ::toupper( c ) );
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -161,75 +158,36 @@ char	TCharDescriptorCompareFilter<char>
  * CCharDescriptor - constructors
 
 \+---------------------------------------------------------------------*/
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		void
-		)
-		: TCharDescriptor<char>()
-{
-}
+inline CCharDescriptor::CCharDescriptor( void )
+        : TCharDescriptor<char>()
+{}
 
 
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		ConstCCharDescriptorRef	r
-		)
-		: TCharDescriptor<char>( r )
-{
-}
+inline CCharDescriptor::CCharDescriptor( ConstCCharDescriptorRef r )
+        : TCharDescriptor<char>( r )
+{}
 
 
-
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		const TCharDescriptor<char>&	r
-		)
-		: TCharDescriptor<char>( r )
-{
-}
+inline CCharDescriptor::CCharDescriptor( const TCharDescriptor<char>& r )
+        : TCharDescriptor<char>( r )
+{}
 
 
+inline CCharDescriptor::CCharDescriptor( char* s, size_t n )
+        : TCharDescriptor<char>( s, n )
+{}
 
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		char*	s,
-		size_t	n
-		)
-		: TCharDescriptor<char>( s, n )
-{
-}
+inline CCharDescriptor::CCharDescriptor( const char* s, size_t n )
+        : TCharDescriptor<char>( (char*)s, n )
+{}
 
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		const char*	s,
-		size_t	n
-		)
-		: TCharDescriptor<char>( (char*)s, n )
-{
-}
+inline CCharDescriptor::CCharDescriptor( char* s )
+        : TCharDescriptor<char>( s )
+{}
 
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		char*	s
-		)
-		: TCharDescriptor<char>( s )
-{
-}
-
-inline
-CCharDescriptor::CCharDescriptor
-		(
-		const char*	s
-		)
-		: TCharDescriptor<char>( (char*)s )
-{
-}
+inline CCharDescriptor::CCharDescriptor( const char* s )
+        : TCharDescriptor<char>( (char*)s )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -237,13 +195,8 @@ CCharDescriptor::CCharDescriptor
  * ~CCharDescriptor - destructor
 
 \+---------------------------------------------------------------------*/
-inline
-CCharDescriptor::~CCharDescriptor
-		(
-		void
-		)
-{
-}
+inline CCharDescriptor::~CCharDescriptor( void )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -410,39 +363,28 @@ bool	operator>=
 #endif
 
 
-
 /*---------------------------------------------------------------------+\
 
  * CompareIgnoreCase - ignore case comparison
 
 \+---------------------------------------------------------------------*/
-inline
-int		CCharDescriptor::CompareIgnoreCase
-		(
-		const TCharDescriptor<char>& r
-		) const
+inline int
+CCharDescriptor::CompareIgnoreCase( const TCharDescriptor<char>& r ) const
 {
-	return CompareFiltered( r );
+    return CompareFiltered( r );
 }
 
 
-inline
-int		CCharDescriptor::CompareIgnoreCase
-		(
-		const char*	s,
-		size_t		n
-		) const
+inline int
+CCharDescriptor::CompareIgnoreCase( const char* s, size_t n ) const
 {
-	return CompareFiltered( s, n );
+    return CompareFiltered( s, n );
 }
 
-inline
-int		CCharDescriptor::CompareIgnoreCase
-		(
-		const char*	s
-		) const
+inline int
+CCharDescriptor::CompareIgnoreCase( const char* s ) const
 {
-	return CompareFiltered( s );
+    return CompareFiltered( s );
 }
 
 /*---------------------------------------------------------------------+\
@@ -450,17 +392,12 @@ int		CCharDescriptor::CompareIgnoreCase
  * operator = - assignment
 
 \+---------------------------------------------------------------------*/
-inline
-CCharDescriptorRef
-		CCharDescriptor::operator =
-		(
-		const TCharDescriptor<char>& r
-		)
+inline CCharDescriptorRef
+CCharDescriptor::operator=( const TCharDescriptor<char>& r )
 {
-	TCharDescriptor<char>::operator =( r );
-	return *this;
+    TCharDescriptor<char>::operator=( r );
+    return *this;
 }
-
 
 
 //inline
@@ -480,44 +417,28 @@ CCharDescriptorRef
  * strcmp - compatible with string library
 
 \+---------------------------------------------------------------------*/
-inline
-int		strcmp
-		(
-		const CCharDescriptor&	a,
-		const CCharDescriptor&	b
-		)
+inline int
+strcmp( const CCharDescriptor& a, const CCharDescriptor& b )
 {
-	return a.Compare( b );
+    return a.Compare( b );
 }
 
-inline
-int		strcmp
-		(
-		const CCharDescriptor&	a,
-		const char*				b
-		)
+inline int
+strcmp( const CCharDescriptor& a, const char* b )
 {
-	return a.Compare( b );
+    return a.Compare( b );
 }
 
 
-inline
-int		strcmp
-		(
-		const char*				a,
-		const CCharDescriptor&	b
-		)
+inline int
+strcmp( const char* a, const CCharDescriptor& b )
 {
-	const CCharDescriptor	x( (char*)a );
-	return x.Compare( b );
+    const CCharDescriptor x( (char*)a );
+    return x.Compare( b );
 }
 
 
-
-
-
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CCharDescriptor */

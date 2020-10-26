@@ -4,34 +4,70 @@
 #define UDeclSpec_H
 
 
-
-
-#ifndef DECLSPECEXPORT
-#	if defined( _WIN32 )
-#		define	DECLSPECEXPORT	__declspec(dllexport)
-#	else
-#		define	DECLSPECEXPORT
-#	endif
+#if defined( _WIN32 ) || defined( __CYGWIN__ )
+#    if defined( __GNUC__ )
+#        define DLLEXPORT __attribute__( ( dllexport ) )
+#        define DLLIMPORT __attribute__( ( dllimport ) )
+#        define CDECL
+#        define STD_CALL
+#    else
+#        if defined( SHLIB )
+#            define DLLEXPORT __declspec( dllexport )
+#            define DLLIMPORT __declspec( dllimport )
+#        else
+#            define DLLEXPORT
+#            define DLLIMPORT
+#        endif
+#        ifndef CDECL
+#            define CDECL __cdecl
+#        endif
+#        define STD_CALL __stdcall
+#    endif
+#    define DLLPRIVATE
+#else  // linux
+#    if 4 <= __GNUC__
+#        define DLLEXPORT  __attribute__( ( visibility( "default" ) ) )
+#        define DLLPRIVATE __attribute__( ( visibility( "hidden" ) ) )
+#    else
+#        define DLLEXPORT
+#        define DLLPRIVATE
+#    endif
+#    define DLLIMPORT
+#    define CDECL
+#    define STD_CALL
 #endif
-#define SHLIB_EXPORT	DECLSPECEXPORT
 
-#ifndef DECLSPECIMPORT
-#	if defined( _WIN32 )
-#		define	DECLSPECIMPORT	__declspec(dllimport)
-#	else
-#		define	DECLSPECIMPORT
-#	endif
-#endif
 
-#if defined( _WIN32 )
-#	ifndef CDECL
-#		define	CDECL		__cdecl
-#	endif
-#	define	STD_CALL	__stdcall
-#else
-#	define	CDECL
-#	define	STD_CALL
-#endif
+// #ifndef DECLSPECEXPORT
+// #    if defined( _WIN32 )
+// #        define DECLSPECEXPORT __declspec( dllexport )
+// #    else
+// #        define DECLSPECEXPORT
+// #    endif
+// #endif
+// #define SHLIB_EXPORT DECLSPECEXPORT
+
+// #ifndef DECLSPECIMPORT
+// #    if defined( _WIN32 )
+// #        define DECLSPECIMPORT __declspec( dllimport )
+// #    else
+// #        define DECLSPECIMPORT
+// #    endif
+// #endif
+
+// #if defined( _WIN32 )
+// #    ifndef CDECL
+// #        define CDECL __cdecl
+// #    endif
+// #    define STD_CALL __stdcall
+// #else
+// #    define CDECL
+// #    define STD_CALL
+// #endif
+
+
+// #undef STD_CALL
+// #define STD_CALL
 
 // #if defined( BUILDING_SHAREDLIB )
 // #	define DECL_SHLIB	DECLSPECEXPORT
@@ -42,12 +78,12 @@
 // #	define DECL_API(t)	t DECLSPECIMPORT
 // #	define DECL_CLASS	DECLSPECIMPORT
 // #endif
-#define DEF_API(t)	STD_CALL t
+// #define DEF_API( t ) STD_CALL t
 
-#undef DECLSPECEXPORT
-#undef DECLSPECIMPORT
-#define DECLSPECEXPORT
-#define DECLSPECIMPORT
+// #undef DECLSPECEXPORT
+// #undef DECLSPECIMPORT
+// #define DECLSPECEXPORT
+// #define DECLSPECIMPORT
 
 
 // The following ifdef block is the standard way of creating macros which make exporting
@@ -72,6 +108,4 @@
 // #endif
 
 
-
-
-#endif // UDeclSpec_H
+#endif  // UDeclSpec_H

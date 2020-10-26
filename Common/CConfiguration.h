@@ -23,13 +23,14 @@
 |																		|
 \+---------------------------------------------------------------------*/
 
-#include "TDictionaryIndexed.h"
 #include "CCharString.h"
 #include "CCharStringHash.h"
 #include "CVariantData.h"
+#include "TDictionaryIndexed.h"
 #include "UTypes.h"
 
 #include "VConfiguration.h"
+
 #include "UDeclCommon.h"
 
 namespace Yogi { namespace Common {
@@ -43,173 +44,106 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CConfiguration*		CConfigurationPtr;
-typedef class CConfiguration&		CConfigurationRef;
-typedef const class CConfiguration&	ConstCConfigurationRef;
+typedef class CConfiguration*       CConfigurationPtr;
+typedef class CConfiguration&       CConfigurationRef;
+typedef const class CConfiguration& ConstCConfigurationRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CConfiguration : public VConfiguration
+class COMMON_CLASS CConfiguration : public VConfiguration
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					CConfiguration();
-	virtual			~CConfiguration();
+    CConfiguration();
+    virtual ~CConfiguration();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-	typedef
-		TDictionaryIndexedEnumerator< Yogi::Core::CCharString, CVariantData >
-		Enumerator;
+    typedef TDictionaryIndexedEnumerator<Yogi::Core::CCharString, CVariantData>
+            Enumerator;
 
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	virtual long
-			LocateEntry
-			(
-			Yogi::Core::ConstCCharStringRef rName
-			) const;
+    virtual long
+    LocateEntry( Yogi::Core::ConstCCharStringRef rName ) const;
 
-	virtual ConstCVariantDataPtr
-			GetData
-			(
-			index_t nSel
-			) const;
-	virtual bool
-			PutData
-			(
-			index_t nSel,
-			const Yogi::Common::CVariantData* pData
-			);
+    virtual ConstCVariantDataPtr
+    GetData( index_t nSel ) const;
+    virtual bool
+    PutData( index_t nSel, const Yogi::Common::CVariantData* pData );
 
-	virtual bool
-			AddAlias
-			(
-			Yogi::Core::ConstCCharDescriptorRef rKey,
-			Yogi::Core::ConstCCharDescriptorRef rAlias
-			);
+    virtual bool
+    AddAlias( Yogi::Core::ConstCCharDescriptorRef rKey,
+            Yogi::Core::ConstCCharDescriptorRef   rAlias );
 
-	virtual Enumerator
-			GetEnumerator( void );
+    virtual Enumerator
+    GetEnumerator( void );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< Yogi::Core::CCharString, CVariantData>	m_aContent;
+    TDictionaryIndexed<Yogi::Core::CCharString, CVariantData> m_aContent;
 
-	//THashTable< CCharString, CVariantData >	m_aContent;
+    //THashTable< CCharString, CVariantData >	m_aContent;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VVariable
+    //============================== Overrides ==============================
+    //	VVariable
 public:
-	virtual
-	Yogi::Core::CCharString
-			ResolveVariable
-			(
-			Yogi::Core::ConstCCharDescriptorRef	r
-			);
+    virtual Yogi::Core::CCharString
+    ResolveVariable( Yogi::Core::ConstCCharDescriptorRef r );
 
-	//	VConfiguration
+    //	VConfiguration
 public:
-	virtual
-	bool	AddEntry
-			(
-			const char* sKey,
-			ConstCVariantDataRef rData
-			);
+    virtual bool
+    AddEntry( const char* sKey, ConstCVariantDataRef rData );
 
-	virtual
-	CVariantDataPtr
-			GetEntry
-			(
-			const char* sKey
-			) const;
+    virtual CVariantDataPtr
+    GetEntry( const char* sKey ) const;
 
-	virtual
-	CVariantDataPtr
-			GetEntry
-			(
-			Yogi::Core::ConstCCharStringRef sKey
-			) const;
+    virtual CVariantDataPtr
+    GetEntry( Yogi::Core::ConstCCharStringRef sKey ) const;
 
-	virtual
-	long	GetEntryAsInteger
-			(
-			const char*	sKey,
-			long		nDefault = 0
-			) const;
+    virtual long
+    GetEntryAsInteger( const char* sKey, long nDefault = 0 ) const;
 
-	virtual
-	unsigned long
-			GetEntryAsUnsigned
-			(
-			const char*		sKey,
-			unsigned long	nDefault = 0
-			) const;
+    virtual unsigned long
+    GetEntryAsUnsigned( const char* sKey, unsigned long nDefault = 0 ) const;
 
-	virtual
-	GFLOAT	GetEntryAsFloat
-			(
-			const char*	sKey,
-			GFLOAT		fDefault = 0.0f
-			) const;
+    virtual GFLOAT
+    GetEntryAsFloat( const char* sKey, GFLOAT fDefault = 0.0f ) const;
 
-	virtual
-	GFLOAT	GetEntryAsFloatUnits
-			(
-			const char*	sKey,
-			const char*	sUnitName,
-			GFLOAT		fDefault = 0.0f
-			) const;
+    virtual GFLOAT
+    GetEntryAsFloatUnits( const char* sKey, const char* sUnitName,
+            GFLOAT fDefault = 0.0f ) const;
 
-	virtual
-	Yogi::Core::CCharString
-			GetEntryAsString
-			(
-			const char*	sKey,
-			const char*	sDefault = 0
-			) const;
+    virtual Yogi::Core::CCharString
+    GetEntryAsString( const char* sKey, const char* sDefault = 0 ) const;
 
-	virtual
-	long	GetEntryAsEnum
-			(
-			const char*			sKey,
-			const EnumDatumPtr	pEnumList,
-			const long			nEnumCount,
-			const long			nDefault = 0,
-			const long			nError = 0
-			) const;
+    virtual long
+    GetEntryAsEnum( const char* sKey, const EnumDatumPtr pEnumList,
+            const long nEnumCount, const long nDefault = 0,
+            const long nError = 0 ) const;
 
-	virtual
-	bool	GetEntryAsBool
-			(
-			const char*	sKey,
-			const bool	bDefault = false
-			) const;
+    virtual bool
+    GetEntryAsBool( const char* sKey, const bool bDefault = false ) const;
 
-	virtual
-	Yogi::Core::CColor
-			GetEntryAsColor
-			(
-			const char*		sKey,
-			const Yogi::Core::CColor	cDefault = Yogi::Core::CColor()
-			) const;
-
-
+    virtual Yogi::Core::CColor
+    GetEntryAsColor( const char*     sKey,
+            const Yogi::Core::CColor cDefault = Yogi::Core::CColor() ) const;
 };
 
 /*---------------------------------------------------------------------+\
@@ -228,8 +162,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CConfiguration */

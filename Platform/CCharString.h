@@ -39,7 +39,9 @@
 |																		|
 \+---------------------------------------------------------------------*/
 #include <string>
+
 #include "CCharDescriptor.h"
+
 #include "UDeclPlatform.h"
 
 /*---------------------------------------------------------------------+\
@@ -53,109 +55,146 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CCharString*			CCharStringPtr;
-typedef class CCharString&			CCharStringRef;
-typedef const class CCharString&	ConstCCharStringRef;
-typedef const class CCharString*	ConstCCharStringPtr;
+typedef class CCharString*       CCharStringPtr;
+typedef class CCharString&       CCharStringRef;
+typedef const class CCharString& ConstCCharStringRef;
+typedef const class CCharString* ConstCCharStringPtr;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CCharString : public std::string
+class CORE_CLASS CCharString : public std::string
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CCharString();
-			CCharString( ConstCCharStringRef r );	// copy constructor
-			CCharString( ConstCCharDescriptorRef r );
-			CCharString( const char* s );
-			CCharString( const char* s, size_t n );
-			CCharString( const std::string& r );
-	virtual	~CCharString();
+    CCharString();
+    CCharString( ConstCCharStringRef r );  // copy constructor
+    CCharString( ConstCCharDescriptorRef r );
+    CCharString( const char* s );
+    CCharString( const char* s, size_t n );
+    CCharString( const std::string& r );
+    virtual ~CCharString();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	ConstCCharStringRef	operator=( ConstCCharStringRef r );		// assignment
-	ConstCCharStringRef	operator=( ConstCCharDescriptorRef r );
-	ConstCCharStringRef	operator=( const char* s );
-	ConstCCharStringRef	operator=( const std::string& r );
-	ConstCCharStringRef	operator+=( ConstCCharDescriptorRef r );
-	ConstCCharStringRef	operator+=( const char* s );
+    ConstCCharStringRef
+    operator=( ConstCCharStringRef r );  // assignment
+    ConstCCharStringRef
+    operator=( ConstCCharDescriptorRef r );
+    ConstCCharStringRef
+    operator=( const char* s );
+    ConstCCharStringRef
+    operator=( const std::string& r );
+    ConstCCharStringRef
+    operator+=( ConstCCharDescriptorRef r );
+    ConstCCharStringRef
+    operator+=( const char* s );
 
-	const std::string& toString( void ) const;
-	operator const CCharDescriptor ( void ) const;
+    const std::string&
+    toString( void ) const;
+    operator const CCharDescriptor( void ) const;
 
-	size_t		Length( void ) const;
-	const char*	Pointer( index_t n = 0 ) const;
-	char		AtIndex( index_t n ) const;
+    size_t
+    Length( void ) const;
+    const char*
+    Pointer( index_t n = 0 ) const;
+    char
+    AtIndex( index_t n ) const;
 
-	bool	Append( const char* s );
-	bool	Append( ConstCCharStringRef r );
-	bool	Append( ConstCCharDescriptorRef r );
-	bool	Append(	float	f);
-	bool	AppendFormat( const char* sFormat, ... );
+    bool
+    Append( const char* s );
+    bool
+    Append( ConstCCharStringRef r );
+    bool
+    Append( ConstCCharDescriptorRef r );
+    bool
+    Append( float f );
+    bool
+    AppendFormat( const char* sFormat, ... );
 
-	bool	CopyTo( char* s, size_t n ) const;
-	bool	ConcatenateTo( char* s, size_t n ) const;
+    bool
+    CopyTo( char* s, size_t n ) const;
+    bool
+    ConcatenateTo( char* s, size_t n ) const;
 
-	int		Compare( ConstCCharStringRef r ) const;
-	int		Compare( ConstCCharDescriptorRef r ) const;
-	int		Compare( const char* s, size_t n ) const;
-	int		Compare( const char* s ) const;
-	int		Compare( const std::string& r ) const;
+    int
+    Compare( ConstCCharStringRef r ) const;
+    int
+    Compare( ConstCCharDescriptorRef r ) const;
+    int
+    Compare( const char* s, size_t n ) const;
+    int
+    Compare( const char* s ) const;
+    int
+    Compare( const std::string& r ) const;
 
-	int		CompareIgnoreCase( ConstCCharStringRef r ) const;
-	int		CompareIgnoreCase( ConstCCharDescriptorRef r ) const;
-	int		CompareIgnoreCase( const char* s, size_t n ) const;
-	int		CompareIgnoreCase( const char* s ) const;
+    int
+    CompareIgnoreCase( ConstCCharStringRef r ) const;
+    int
+    CompareIgnoreCase( ConstCCharDescriptorRef r ) const;
+    int
+    CompareIgnoreCase( const char* s, size_t n ) const;
+    int
+    CompareIgnoreCase( const char* s ) const;
 
-	void	ConvertUppercase( void );
-	void	ConvertLowercase( void );
+    void
+    ConvertUppercase( void );
+    void
+    ConvertLowercase( void );
 
 
-	CCharStringRef	Format( const char* sFormat, ... );
+    CCharStringRef
+    Format( const char* sFormat, ... );
 
 
-	void	ClearString( void );
-	bool	LoadCCharString( ConstCCharStringRef r );
-	bool	LoadCCharDescriptor( ConstCCharDescriptorRef r );
-	bool	LoadStringData( const char* s, index_t n = -1 );
-	bool	AppendStringData( const char* s, index_t n );
+    void
+    ClearString( void );
+    bool
+    LoadCCharString( ConstCCharStringRef r );
+    bool
+    LoadCCharDescriptor( ConstCCharDescriptorRef r );
+    bool
+    LoadStringData( const char* s, index_t n = -1 );
+    bool
+    AppendStringData( const char* s, index_t n );
 
-	//!	parse the descriptor
-	long		ParseInt( size_t* pParseCount ) const;
-	GFLOAT		ParseFloat( size_t* pParseCount ) const;
+    //!	parse the descriptor
+    long
+    ParseInt( size_t* pParseCount ) const;
+    GFLOAT
+    ParseFloat( size_t* pParseCount ) const;
 
-	uintmax_t	Hash( void ) const;
+    uintmax_t
+    Hash( void ) const;
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
 
-	bool	ValidAddr( const char*	s );
+    bool
+    ValidAddr( const char* s );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-	typedef	std::string	inherited;
+    typedef std::string inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
 
 /*---------------------------------------------------------------------+\
@@ -179,55 +218,36 @@ private:
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline
-ConstCCharStringRef
-		CCharString::operator=
-		(
-		ConstCCharStringRef	r
-		)
+inline ConstCCharStringRef
+CCharString::operator=( ConstCCharStringRef r )
 {
-	LoadCCharString( r );
-	return *this;
+    LoadCCharString( r );
+    return *this;
 }
 
 
-inline
-ConstCCharStringRef
-		CCharString::operator=
-		(
-		ConstCCharDescriptorRef	r
-		)
+inline ConstCCharStringRef
+CCharString::operator=( ConstCCharDescriptorRef r )
 {
-	LoadCCharDescriptor( r );
-	return *this;
+    LoadCCharDescriptor( r );
+    return *this;
 }
 
 
-inline
-ConstCCharStringRef
-		CCharString::operator=
-		(
-		const char* s
-		)
+inline ConstCCharStringRef
+CCharString::operator=( const char* s )
 {
-	LoadStringData( s );
-	return *this;
+    LoadStringData( s );
+    return *this;
 }
 
 
-inline
-ConstCCharStringRef
-		CCharString::operator=
-		(
-		const std::string&	r
-		)
+inline ConstCCharStringRef
+CCharString::operator=( const std::string& r )
 {
-	this->assign( r );
-	return *this;
+    this->assign( r );
+    return *this;
 }
-
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -235,26 +255,18 @@ ConstCCharStringRef
  * operator+= - append operator
 
 \+---------------------------------------------------------------------*/
-inline
-ConstCCharStringRef
-		CCharString::operator +=
-		(
-		ConstCCharDescriptorRef r
-		)
+inline ConstCCharStringRef
+CCharString::operator+=( ConstCCharDescriptorRef r )
 {
-	Append( r );
-	return *this;
+    Append( r );
+    return *this;
 }
 
-inline
-ConstCCharStringRef
-		CCharString::operator +=
-		(
-		const char* s
-		)
+inline ConstCCharStringRef
+CCharString::operator+=( const char* s )
 {
-	Append( s );
-	return *this;
+    Append( s );
+    return *this;
 }
 
 
@@ -263,59 +275,37 @@ ConstCCharStringRef
  * operator== - Equality
 
 \+---------------------------------------------------------------------*/
-inline
-bool	operator==
-		(
-		ConstCCharStringRef	lhs,
-		ConstCCharStringRef	rhs
-		)
+inline bool
+operator==( ConstCCharStringRef lhs, ConstCCharStringRef rhs )
 {
-	return 0 == lhs.Compare(rhs);
+    return 0 == lhs.Compare( rhs );
 }
 
 
-inline
-bool	operator==
-		(
-		ConstCCharStringRef	lhs,
-		const char*			rhs
-		)
+inline bool
+operator==( ConstCCharStringRef lhs, const char* rhs )
 {
-	return 0 == lhs.Compare(rhs);
+    return 0 == lhs.Compare( rhs );
 }
 
-inline
-bool	operator==
-		(
-		const char*			lhs,
-		ConstCCharStringRef	rhs
-		)
+inline bool
+operator==( const char* lhs, ConstCCharStringRef rhs )
 {
-	return 0 == rhs.Compare(lhs);
+    return 0 == rhs.Compare( lhs );
 }
 
-inline
-bool	operator==
-		(
-		ConstCCharStringRef	lhs,
-		const std::string&	rhs
-		)
+inline bool
+operator==( ConstCCharStringRef lhs, const std::string& rhs )
 {
-	return 0 == lhs.Compare(rhs.c_str());
+    return 0 == lhs.Compare( rhs.c_str() );
 }
 
 
-inline
-bool	operator==
-		(
-		ConstCCharStringRef		lhs,
-		ConstCCharDescriptorRef	rhs
-		)
+inline bool
+operator==( ConstCCharStringRef lhs, ConstCCharDescriptorRef rhs )
 {
-	return 0 == lhs.Compare(rhs);
+    return 0 == lhs.Compare( rhs );
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -323,45 +313,29 @@ bool	operator==
  * operator!= - Non-Equality
 
 \+---------------------------------------------------------------------*/
-inline
-bool	operator!=
-		(
-		ConstCCharStringRef	lhs,
-		ConstCCharStringRef	rhs
-		)
+inline bool
+operator!=( ConstCCharStringRef lhs, ConstCCharStringRef rhs )
 {
-	return 0 != lhs.Compare(rhs);
+    return 0 != lhs.Compare( rhs );
 }
 
 
-inline
-bool	operator!=
-		(
-		ConstCCharStringRef	lhs,
-		const char*			rhs
-		)
+inline bool
+operator!=( ConstCCharStringRef lhs, const char* rhs )
 {
-	return 0 != lhs.Compare(rhs);
+    return 0 != lhs.Compare( rhs );
 }
 
-inline
-bool	operator!=
-		(
-		const char*			lhs,
-		ConstCCharStringRef	rhs
-		)
+inline bool
+operator!=( const char* lhs, ConstCCharStringRef rhs )
 {
-	return 0 != rhs.Compare(lhs);
+    return 0 != rhs.Compare( lhs );
 }
 
-inline
-bool	operator!=
-		(
-		ConstCCharStringRef	lhs,
-		const std::string&	rhs
-		)
+inline bool
+operator!=( ConstCCharStringRef lhs, const std::string& rhs )
 {
-	return 0 != lhs.Compare(rhs.c_str());
+    return 0 != lhs.Compare( rhs.c_str() );
 }
 
 
@@ -370,40 +344,25 @@ bool	operator!=
  * operator &lt; - Less-Than
 
 \+---------------------------------------------------------------------*/
-inline
-bool	operator <
-		(
-		const CCharString&	lhs,
-		const CCharString&	rhs
-		)
+inline bool
+operator<( const CCharString& lhs, const CCharString& rhs )
 {
-	return 0 > lhs.Compare( rhs );
+    return 0 > lhs.Compare( rhs );
 }
 
 
-inline
-bool	operator <
-		(
-		const CCharString&	a,
-		const char*			b
-		)
+inline bool
+operator<( const CCharString& a, const char* b )
 {
-	return 0 > a.Compare( b );
+    return 0 > a.Compare( b );
 }
 
 
-
-inline
-bool	operator <
-		(
-		const char*			a,
-		const CCharString&	b
-		)
+inline bool
+operator<( const char* a, const CCharString& b )
 {
-	return 0 < b.Compare( a );
+    return 0 < b.Compare( a );
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -438,47 +397,34 @@ bool	operator <
 //	return (CCharDescriptorPtr) this;
 //}
 
-inline
-CCharString::operator const CCharDescriptor
-		(
-		void
-		) const
+inline CCharString::operator const CCharDescriptor( void ) const
 {
-	return CCharDescriptor( c_str(), length() );
+    return CCharDescriptor( c_str(), length() );
 }
 
-inline
-const std::string& 
-CCharString::toString
-		(
-		void
-		) const
+inline const std::string&
+CCharString::toString( void ) const
 {
-	return *this;
+    return *this;
 }
 
-inline
-const char*
-		CCharString::Pointer
-		(
-		index_t	n
-		) const
+inline const char*
+CCharString::Pointer( index_t n ) const
 {
-	if ( 0 <= n  &&  n < index_t(length()) )
-		return c_str() + n;
-	else
-		return NULL;
+    if ( 0 <= n && n < index_t( length() ) )
+        return c_str() + n;
+    else
+        return NULL;
 }
 
-inline
-size_t CCharString::Length( void ) const
+inline size_t
+CCharString::Length( void ) const
 {
-	return length();
+    return length();
 }
 
 
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CCharString */

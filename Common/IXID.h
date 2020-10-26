@@ -45,9 +45,9 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef class IXID*			IXIDPtr;
-typedef class IXID&			IXIDRef;
-typedef const class IXID&	ConstIXIDRef;
+typedef class IXID*       IXIDPtr;
+typedef class IXID&       IXIDRef;
+typedef const class IXID& ConstIXIDRef;
 
 
 /*---------------------------------------------------------------------+\
@@ -55,14 +55,12 @@ typedef const class IXID&	ConstIXIDRef;
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-template< size_t N >
-constexpr size_t conststrlen( char const (&)[N] )
+template <size_t N>
+constexpr size_t
+conststrlen( char const ( & )[N] )
 {
-	return N-1;
+    return N - 1;
 }
-
-
-
 
 
 // This code is released under the terms of the "CC0" license.  Full terms and conditions
@@ -77,15 +75,18 @@ static constexpr unsigned long long basis = 14695981039346656037ULL;
 static constexpr unsigned long long prime = 1099511628211ULL;
 
 // compile-time hash helper function
-constexpr unsigned long long hash_one(char c, const char* remain, unsigned long long value)
+constexpr unsigned long long
+hash_one( char c, const char* remain, unsigned long long value )
 {
-	return c == 0 ? value : hash_one(remain[0], remain + 1, (value ^ c) * prime);
+    return c == 0 ? value
+                  : hash_one( remain[0], remain + 1, ( value ^ c ) * prime );
 }
 
 // compile-time hash
-constexpr unsigned long long hash_const(const char* str)
+constexpr unsigned long long
+hash_const( const char* str )
 {
-	return hash_one(str[0], str + 1, basis);
+    return hash_one( str[0], str + 1, basis );
 }
 
 // run-time hash
@@ -104,7 +105,7 @@ constexpr unsigned long long hash_const(const char* str)
 template <unsigned long long NUM>
 struct test_const
 {
-	static const unsigned long long value = NUM;
+    static const unsigned long long value = NUM;
 };
 
 // test
@@ -123,47 +124,50 @@ struct test_const
 //#define IXID(s) IXXID<s>
 
 
-
-
-class DECL_CLASS IXID
+class COMMON_CLASS IXID
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-	IXID( const char* constString ) : m_iid(constString), m_iidHash(hash_const(constString)) {};
-	IXID( const IXID& rIID ) : m_iid( rIID.m_iid ), m_iidHash( rIID.m_iidHash ) {};
+    IXID( const char* constString )
+            : m_iid( constString )
+            , m_iidHash( hash_const( constString ) ) {};
+    IXID( const IXID& rIID )
+            : m_iid( rIID.m_iid )
+            , m_iidHash( rIID.m_iidHash ) {};
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	//IXIDRef	operator=( ConstIXIDRef r );		// assignment
+    //IXIDRef	operator=( ConstIXIDRef r );		// assignment
 
-	bool	operator==( ConstIXIDRef r ) const;
-	bool	operator==( const char* s ) const;
+    bool
+    operator==( ConstIXIDRef r ) const;
+    bool
+    operator==( const char* s ) const;
 
-	bool	Equals( ConstIXIDRef r ) const;
-	bool	Equals( const char* s ) const;
+    bool
+    Equals( ConstIXIDRef r ) const;
+    bool
+    Equals( const char* s ) const;
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	const char*	m_iid; // = constString;
-	const unsigned long long m_iidHash; // = hash_const( constString );
+    const char*              m_iid;      // = constString;
+    const unsigned long long m_iidHash;  // = hash_const( constString );
 
 private:
-	ConstIXIDRef	operator=(ConstIXIDRef ) { return *this; };
+    ConstIXIDRef operator=( ConstIXIDRef )
+    {
+        return *this;
+    };
 };
-
-
-
-
-
-
 
 
 #if 0
@@ -206,7 +210,7 @@ private:
 
 };
 
-#endif // 0
+#endif  // 0
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -236,55 +240,33 @@ private:
 //	return *this;
 //}
 
-inline
-bool
-IMPL_SHLIB
-		IXID::operator ==
-		(
-		ConstIXIDRef	r
-		) const
+inline bool
+IXID::operator==( ConstIXIDRef r ) const
 {
-	return Equals( r );
+    return Equals( r );
 }
 
-inline
-bool 
-IMPL_SHLIB
-		IXID::operator ==
-		(
-		const char*	s
-		) const
+inline bool
+IXID::operator==( const char* s ) const
 {
-	return Equals( s );
+    return Equals( s );
 }
 
 
-
-inline
-bool
-IMPL_SHLIB
-		IXID::Equals
-		(
-		ConstIXIDRef r
-		) const
+inline bool
+IXID::Equals( ConstIXIDRef r ) const
 {
-	if ( m_iidHash != r.m_iidHash )
-		return false;
-	else
-		return 0 == ::strcmp(m_iid, r.m_iid);
+    if ( m_iidHash != r.m_iidHash )
+        return false;
+    else
+        return 0 == ::strcmp( m_iid, r.m_iid );
 }
 
 
-
-inline
-bool 
-IMPL_SHLIB
-		IXID::Equals
-		(
-		const char*	s
-		) const
+inline bool
+IXID::Equals( const char* s ) const
 {
-	return 0 == ::strcmp( m_iid, s );
+    return 0 == ::strcmp( m_iid, s );
 }
 
 
@@ -342,8 +324,7 @@ inline unsigned int conststrlen(const char* string, size_t nLen = 0)
 //	return *string ? 1 + constslen(string + 1) : 0;
 //}
 
-#endif // 0
-
+#endif  // 0
 
 
 #if 0
@@ -434,14 +415,10 @@ bool	IXID::Equals
 }
 
 
-#endif // 0
+#endif  // 0
 
 
-
-
-
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_IXID */

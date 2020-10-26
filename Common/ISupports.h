@@ -36,24 +36,26 @@
 \+---------------------------------------------------------------------*/
 
 
-#ifndef	interface_
-	//! macro to make interface declaration more readable
-#	define	interface_	struct /**/
+#ifndef interface_
+//! macro to make interface declaration more readable
+#    define interface_ struct /**/
 #endif
 
-#ifndef	implements_
-	//! macro to make interface implementation more readable
-#	define	implements_	public virtual
+#ifndef implements_
+//! macro to make interface implementation more readable
+#    define implements_ \
+    public              \
+        virtual
 #endif
-
 
 
 #ifndef PURE
-#	define	PURE	= 0
+#    define PURE = 0
 #endif
 
 
-#define QI_( pobj, ifname )	static_cast<ifname*>((pobj)->QueryInterface( IXID_##ifname ))
+#define QI_( pobj, ifname ) \
+    static_cast<ifname*>( ( pobj )->QueryInterface( IXID_##ifname ) )
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -62,18 +64,18 @@
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Common {
 
-typedef	unsigned long	NRefCount;
+typedef unsigned long NRefCount;
 
 
-typedef interface_ ISupports*		ISupportsPtr;
-typedef interface_ ISupports&		ISupportsRef;
-typedef const interface_ ISupports&	ConstISupportsRef;
+typedef interface_ ISupports* ISupportsPtr;
+typedef interface_ ISupports& ISupportsRef;
+typedef const interface_ ISupports& ConstISupportsRef;
 
-extern const IXID DECL_CLASS	IXID_ISupports;
+extern const IXID IXID_ISupports;
 
 //! this is a special ID that should always return the controlling
 //!	ISupports of the local object (not the owner).
-extern const IXID DECL_CLASS	IXID_IRootSupports;
+extern const IXID IXID_IRootSupports;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -84,35 +86,24 @@ extern const IXID DECL_CLASS	IXID_IRootSupports;
 //!	Base Interface for all other interfaces
 interface_ ISupports
 {
-	//!	find the supported interface
-	virtual
-	void*	QueryInterface						//!@return pointer to interface
-			(
-			ConstIXIDRef			rIID,		//!< [in] reference to requested interface ID
-			Yogi::Core::NResultPtr	pResult = 0	//!< [out] optional result
-			) PURE;
+    //!	find the supported interface
+    virtual void* QueryInterface  //!@return pointer to interface
+            ( ConstIXIDRef rIID,  //!< [in] reference to requested interface ID
+                    Yogi::Core::NResultPtr pResult
+                    = 0  //!< [out] optional result
+                    ) PURE;
 
-	//!	call to bump reference count
-	//!
-	//!	@note	automatically called by QueryInterface
-	virtual
-	NRefCount
-			AddRef			//!@return current reference count
-			(
-			void
-			) PURE;
+    //!	call to bump reference count
+    //!
+    //!	@note	automatically called by QueryInterface
+    virtual NRefCount AddRef  //!@return current reference count
+            ( void ) PURE;
 
-	//!	decrement reference count (self destruct when zero)
-	//!
-	//!	@note	call when you are finished with the interface/component
-	virtual
-	NRefCount
-			Release			//!@return current reference count
-			(
-			void
-			) PURE;
-
-
+    //!	decrement reference count (self destruct when zero)
+    //!
+    //!	@note	call when you are finished with the interface/component
+    virtual NRefCount Release  //!@return current reference count
+            ( void ) PURE;
 };
 
 /*---------------------------------------------------------------------+\
@@ -131,8 +122,7 @@ interface_ ISupports
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_ISupports */

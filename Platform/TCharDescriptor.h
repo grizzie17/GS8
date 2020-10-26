@@ -56,10 +56,10 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
+#include "UFloat.h"
 #include <ctype.h>
 #include <math.h>
 #include <stdexcept>
-#include "UFloat.h"
 //#include "LogFile.h"
 #include "UPlatform.h"
 #include "UTypes.h"
@@ -99,132 +99,136 @@ namespace Yogi { namespace Core {
 //!		and a length (number of characters, not a byte count).
 //!		The length does not include any terminating null (if present).
 //!
-template < class T >
+template <class T>
 class TCharDescriptor
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			TCharDescriptor();
-			TCharDescriptor( const TCharDescriptor<T>& r );	// copy constructor
-			TCharDescriptor( T* s );	// search for null and set Length
-			TCharDescriptor( T* s, size_t n );
-	virtual	~TCharDescriptor();
+    TCharDescriptor();
+    TCharDescriptor( const TCharDescriptor<T>& r );  // copy constructor
+    TCharDescriptor( T* s );  // search for null and set Length
+    TCharDescriptor( T* s, size_t n );
+    virtual ~TCharDescriptor();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	//! assignment operators
-	//!
-	//!	note: this is not a copy operation but initializes the
-	//!		descriptor so that it points to the characters
-	//!		and identifies the length
-	//!
-	TCharDescriptor<T>&	operator=( const TCharDescriptor<T>& r );
-	TCharDescriptor<T>&	operator=( const T* s );
-
-
-	T		AtIndex		//!@return the character identified by the index
-			(
-			index_t	n	//!< [in] requested index (zero based)
-			) const;
+    //! assignment operators
+    //!
+    //!	note: this is not a copy operation but initializes the
+    //!		descriptor so that it points to the characters
+    //!		and identifies the length
+    //!
+    TCharDescriptor<T>&
+    operator=( const TCharDescriptor<T>& r );
+    TCharDescriptor<T>&
+    operator=( T* s );
 
 
-	const T*
-			Pointer			//!@return const pointer to character at index
-			(
-			index_t n = 0	//!< [in] requested index
-			) const;
+    T AtIndex            //!@return the character identified by the index
+            ( index_t n  //!< [in] requested index (zero based)
+            ) const;
 
 
-	size_t	Length			//!@return number of characters identified by descriptor
-			(
-			void
-			) const;
+    const T* Pointer         //!@return const pointer to character at index
+            ( index_t n = 0  //!< [in] requested index
+            ) const;
 
-	//! CopyTo
-	//!
-	//!	@note copies the data described by the current descriptor
-	//!			to the destination buffer.  If their is enough
-	//!			room it is null terminated.  If the target buffer
-	//!			is too small then false is returned and no data
-	//!			is copied.
-	//!
-	bool	CopyTo		//!@return result of copy operation
-			(
-			T*		s,	//!< [in] address of target buffer to fill
-			size_t	n	//!< [in] size of target buffer
-			) const;
 
-	//!	ConcatenateTo
-	//!
-	//!	@see CopyTo
-	//!
-	bool	ConcatenateTo	//!@return result of concatenate operation
-			(
-			T*		s,		//!< [in] address of target buffer to append
-			size_t	n		//!< [in] size of target buffer
-			) const;
+    size_t Length  //!@return number of characters identified by descriptor
+            ( void ) const;
 
-	//!	Compare
-	//!
-	//!	compare the contents of this descriptor with the arguments passed in.
-	//!	Operates similarly to strcmp function
-	//!
-	//!	@return 0 if equal, positive if this greater, negative if arg greater
-	//!
-	int		Compare( const TCharDescriptor<T>& r ) const;
-	int		Compare( const T* s, size_t n ) const;
-	int		Compare( const T* s ) const;
+    //! CopyTo
+    //!
+    //!	@note copies the data described by the current descriptor
+    //!			to the destination buffer.  If their is enough
+    //!			room it is null terminated.  If the target buffer
+    //!			is too small then false is returned and no data
+    //!			is copied.
+    //!
+    bool CopyTo                //!@return result of copy operation
+            ( T*           s,  //!< [in] address of target buffer to fill
+                    size_t n   //!< [in] size of target buffer
+            ) const;
 
-	// create a TCharDescriptorCompareFilter function of the same
-	//	template type.  This is most frequently used to do compare
-	//	while ignoring case.
-	int		CompareFiltered( const TCharDescriptor<T>& r ) const;
-	int		CompareFiltered( const T* s, size_t n ) const;
-	int		CompareFiltered( const T* s ) const;
+    //!	ConcatenateTo
+    //!
+    //!	@see CopyTo
+    //!
+    bool ConcatenateTo         //!@return result of concatenate operation
+            ( T*           s,  //!< [in] address of target buffer to append
+                    size_t n   //!< [in] size of target buffer
+            ) const;
 
-	//!	parse the descriptor
-	long	ParseInt( size_t* pParseCount ) const;
-	GFLOAT	ParseFloat( size_t* pParseCount ) const;
+    //!	Compare
+    //!
+    //!	compare the contents of this descriptor with the arguments passed in.
+    //!	Operates similarly to strcmp function
+    //!
+    //!	@return 0 if equal, positive if this greater, negative if arg greater
+    //!
+    int
+    Compare( const TCharDescriptor<T>& r ) const;
+    int
+    Compare( const T* s, size_t n ) const;
+    int
+    Compare( const T* s ) const;
 
-	uintmax_t	Hash( void ) const;
+    // create a TCharDescriptorCompareFilter function of the same
+    //	template type.  This is most frequently used to do compare
+    //	while ignoring case.
+    int
+    CompareFiltered( const TCharDescriptor<T>& r ) const;
+    int
+    CompareFiltered( const T* s, size_t n ) const;
+    int
+    CompareFiltered( const T* s ) const;
+
+    //!	parse the descriptor
+    long
+    ParseInt( size_t* pParseCount ) const;
+    GFLOAT
+    ParseFloat( size_t* pParseCount ) const;
+
+    uintmax_t
+    Hash( void ) const;
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	//! @return number of characters before null; -1 if no null found
-	index_t		FindPossibleNull( size_t nMaxChars );
+    //! @return number of characters before null; -1 if no null found
+    index_t
+    FindPossibleNull( size_t nMaxChars );
 
-	//! @return index of character or -1 if not found
-	index_t		FindCharacter( const T* s, T ch, size_t nMaxChars ) const;
+    //! @return index of character or -1 if not found
+    index_t
+    FindCharacter( const T* s, T ch, size_t nMaxChars ) const;
 
-	int			DiffCharacters( T t1, T t2 ) const;
+    int
+    DiffCharacters( T t1, T t2 ) const;
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	T*			m_s;	//!< pointer to data
-	size_t		m_n;	//!< data count (without null)
+    T*     m_s;  //!< pointer to data
+    size_t m_n;  //!< data count (without null)
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
+    //	private data  -------------------------------------------------------
 };
 
 
-template < typename T >
-T		TCharDescriptorCompareFilter
-		(
-		T	c
-		)
+template <typename T>
+T
+TCharDescriptorCompareFilter( T c )
 {
-	return c;
+    return c;
 }
 
 
@@ -239,26 +243,33 @@ T		TCharDescriptorCompareFilter
 ||																		|
 \+=====================================================================*/
 
-template < typename T >
-long	ParseIntT( const T* s, size_t n, size_t* pParseCount = 0 );
+template <typename T>
+long
+ParseIntT( const T* s, size_t n, size_t* pParseCount = 0 );
 
-template < typename T >
-long	ParseDecT( const T* s, size_t n, size_t* pParseCount = 0 );
+template <typename T>
+long
+ParseDecT( const T* s, size_t n, size_t* pParseCount = 0 );
 
-template < typename T >
-long	ParseDecDigitsT( const T* s, size_t n, size_t* pParseCount = 0 );
+template <typename T>
+long
+ParseDecDigitsT( const T* s, size_t n, size_t* pParseCount = 0 );
 
-template < typename T >
-long	ParseHexT( const T* s, size_t n, size_t* pParseCount = 0 );
+template <typename T>
+long
+ParseHexT( const T* s, size_t n, size_t* pParseCount = 0 );
 
-template < typename T >
-long	ParseHexDigitsT( const T* s, size_t n, size_t* pParseCount = 0 );
+template <typename T>
+long
+ParseHexDigitsT( const T* s, size_t n, size_t* pParseCount = 0 );
 
-template < typename T >
-GFLOAT	ParseFloatT( const T* s, size_t n, size_t* pParseCount = 0 );
+template <typename T>
+GFLOAT
+ParseFloatT( const T* s, size_t n, size_t* pParseCount = 0 );
 
-template < typename T >
-GFLOAT	ParseSimpleFloatT( const T* s, size_t n, size_t* pParseCount = 0 );
+template <typename T>
+GFLOAT
+ParseSimpleFloatT( const T* s, size_t n, size_t* pParseCount = 0 );
 
 
 /*=====================================================================+\
@@ -277,16 +288,11 @@ GFLOAT	ParseSimpleFloatT( const T* s, size_t n, size_t* pParseCount = 0 );
  * TCharDescriptor - constructor
 
 \+--------------------------------------------------------------------**/
-template < class T >
-TCharDescriptor< T >::TCharDescriptor
-		(
-		void
-		)
-		: m_s( 0 )
-		, m_n( 0 )
-{
-}
-
+template <class T>
+TCharDescriptor<T>::TCharDescriptor( void )
+        : m_s( 0 )
+        , m_n( 0 )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -294,15 +300,11 @@ TCharDescriptor< T >::TCharDescriptor
  * TCharDescriptor - constructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TCharDescriptor< T >::TCharDescriptor
-		(
-		const TCharDescriptor<T>&	r
-		)
-		: m_s( r.m_s )
-		, m_n( r.m_n )
-{
-}
+template <class T>
+TCharDescriptor<T>::TCharDescriptor( const TCharDescriptor<T>& r )
+        : m_s( r.m_s )
+        , m_n( r.m_n )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -310,19 +312,16 @@ TCharDescriptor< T >::TCharDescriptor
  * TCharDescriptor - constructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TCharDescriptor< T >::TCharDescriptor
-		(
-		T*	s
-		)
-		: m_s( s )
-		, m_n( 0 )
+template <class T>
+TCharDescriptor<T>::TCharDescriptor( T* s )
+        : m_s( s )
+        , m_n( 0 )
 {
-	index_t	n = FindPossibleNull( 32000 );		// TODO: change to #define
-	if ( n < 0 )
-		m_n = 0;
-	else
-		m_n = (size_t)n;
+    index_t n = FindPossibleNull( 32000 );  // TODO: change to #define
+    if ( n < 0 )
+        m_n = 0;
+    else
+        m_n = (size_t)n;
 }
 
 
@@ -331,16 +330,11 @@ TCharDescriptor< T >::TCharDescriptor
  * TCharDescriptor - constructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TCharDescriptor< T >::TCharDescriptor
-		(
-		T*		s,
-		size_t	n
-		)
-		: m_s( s )
-		, m_n( n )
-{
-}
+template <class T>
+TCharDescriptor<T>::TCharDescriptor( T* s, size_t n )
+        : m_s( s )
+        , m_n( n )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -348,13 +342,9 @@ TCharDescriptor< T >::TCharDescriptor
  * ~TCharDescriptor - destructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TCharDescriptor< T >::~TCharDescriptor
-		(
-		void
-		)
-{
-}
+template <class T>
+TCharDescriptor<T>::~TCharDescriptor( void )
+{}
 
 
 /*=====================================================================+\
@@ -367,19 +357,14 @@ TCharDescriptor< T >::~TCharDescriptor
  * operator = - assignment operator
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 TCharDescriptor<T>&
-		TCharDescriptor<T>::operator =
-		(
-		const TCharDescriptor<T>&	r
-		)
+TCharDescriptor<T>::operator=( const TCharDescriptor<T>& r )
 {
-	m_s = r.m_s;
-	m_n = r.m_n;
-	return *this;
+    m_s = r.m_s;
+    m_n = r.m_n;
+    return *this;
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -387,21 +372,18 @@ TCharDescriptor<T>&
  * operator = - assignment operator
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 TCharDescriptor<T>&
-		TCharDescriptor<T>::operator =
-		(
-		const T*	s
-		)
+TCharDescriptor<T>::operator=( T* s )
 {
-	m_s = s;
+    m_s = s;
 
-	index_t	n = FindPossibleNull( 32000 );
-	if ( n < 0 )
-		m_n = 0;
-	else
-		m_n = n;
-	return *this;
+    index_t n = FindPossibleNull( 32000 );
+    if ( n < 0 )
+        m_n = 0;
+    else
+        m_n = n;
+    return *this;
 }
 
 
@@ -410,41 +392,27 @@ TCharDescriptor<T>&
  * operator== - Equality
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-bool	operator==
-		(
-		const TCharDescriptor<T>&	lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator==( const TCharDescriptor<T>& lhs, const TCharDescriptor<T>& rhs )
 {
-	return 0 == lhs.Compare(rhs);
+    return 0 == lhs.Compare( rhs );
 }
 
 
-template < class T >
-inline
-bool	operator==
-		(
-		const TCharDescriptor<T>&	lhs,
-		const T*					rhs
-		)
+template <class T>
+inline bool
+operator==( const TCharDescriptor<T>& lhs, const T* rhs )
 {
-	return 0 == lhs.Compare(rhs);
+    return 0 == lhs.Compare( rhs );
 }
 
-template < class T >
-inline
-bool	operator==
-		(
-		const T*					lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator==( const T* lhs, const TCharDescriptor<T>& rhs )
 {
-	return 0 == rhs.Compare(lhs);
+    return 0 == rhs.Compare( lhs );
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -452,39 +420,26 @@ bool	operator==
  * operator!= - Non-Equality
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-bool	operator!=
-		(
-		const TCharDescriptor<T>&	lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator!=( const TCharDescriptor<T>& lhs, const TCharDescriptor<T>& rhs )
 {
-	return 0 != lhs.Compare( rhs );
+    return 0 != lhs.Compare( rhs );
 }
 
-template < class T >
-inline
-bool	operator!=
-		(
-		const TCharDescriptor<T>&	lhs,
-		const char*					rhs
-		)
+template <class T>
+inline bool
+operator!=( const TCharDescriptor<T>& lhs, const char* rhs )
 {
-	return 0 != lhs.Compare( rhs );
+    return 0 != lhs.Compare( rhs );
 }
 
-template < class T >
-inline
-bool	operator!=
-		(
-		const char*					lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator!=( const char* lhs, const TCharDescriptor<T>& rhs )
 {
-	return 0 != rhs.Compare( lhs );
+    return 0 != rhs.Compare( lhs );
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -492,40 +447,27 @@ bool	operator!=
  * operator &lt; - Less-Than
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-bool	operator <
-		(
-		const TCharDescriptor<T>&	lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator<( const TCharDescriptor<T>& lhs, const TCharDescriptor<T>& rhs )
 {
-	return 0 > lhs.Compare( rhs );
+    return 0 > lhs.Compare( rhs );
 }
 
 
-template < class T >
-inline
-bool	operator <
-		(
-		const TCharDescriptor<T>&	a,
-		const T*					b
-		)
+template <class T>
+inline bool
+operator<( const TCharDescriptor<T>& a, const T* b )
 {
-	return 0 > a.Compare( b );
+    return 0 > a.Compare( b );
 }
 
 
-
-template < class T >
-inline
-bool	operator <
-		(
-		const T*					a,
-		const TCharDescriptor<T>&	b
-		)
+template <class T>
+inline bool
+operator<( const T* a, const TCharDescriptor<T>& b )
 {
-	return 0 < b.Compare( a );
+    return 0 < b.Compare( a );
 }
 
 
@@ -534,40 +476,27 @@ bool	operator <
  * operator &le; - Less-Than-Or-Equal
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-bool	operator <=
-		(
-		const TCharDescriptor<T>&	lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator<=( const TCharDescriptor<T>& lhs, const TCharDescriptor<T>& rhs )
 {
-	return ! (lhs > rhs);
+    return ! ( lhs > rhs );
 }
 
 
-template < class T >
-inline
-bool	operator <=
-		(
-		const TCharDescriptor<T>&	a,
-		const T*					b
-		)
+template <class T>
+inline bool
+operator<=( const TCharDescriptor<T>& a, const T* b )
 {
-	return ! ( a > b );
+    return ! ( a > b );
 }
 
 
-
-template < class T >
-inline
-bool	operator <=
-		(
-		const T*					a,
-		const TCharDescriptor<T>&	b
-		)
+template <class T>
+inline bool
+operator<=( const T* a, const TCharDescriptor<T>& b )
 {
-	return ! ( a > b );
+    return ! ( a > b );
 }
 
 
@@ -576,40 +505,27 @@ bool	operator <=
  * operator &gt; - Greater-Than
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-bool	operator >
-		(
-		const TCharDescriptor<T>&	lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator>( const TCharDescriptor<T>& lhs, const TCharDescriptor<T>& rhs )
 {
-	return 0 < lhs.Compare( rhs );
+    return 0 < lhs.Compare( rhs );
 }
 
 
-template < class T >
-inline
-bool	operator >
-		(
-		const TCharDescriptor<T>&	a,
-		const T*					b
-		)
+template <class T>
+inline bool
+operator>( const TCharDescriptor<T>& a, const T* b )
 {
-	return 0 < a.Compare( b );
+    return 0 < a.Compare( b );
 }
 
 
-
-template < class T >
-inline
-bool	operator >
-		(
-		const T*					a,
-		const TCharDescriptor<T>&	b
-		)
+template <class T>
+inline bool
+operator>( const T* a, const TCharDescriptor<T>& b )
 {
-	return 0 > b.Compare( a );
+    return 0 > b.Compare( a );
 }
 
 /*---------------------------------------------------------------------+\
@@ -617,43 +533,28 @@ bool	operator >
  * operator &ge; - Greater-Than-Or-Equal
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-bool	operator >=
-		(
-		const TCharDescriptor<T>&	lhs,
-		const TCharDescriptor<T>&	rhs
-		)
+template <class T>
+inline bool
+operator>=( const TCharDescriptor<T>& lhs, const TCharDescriptor<T>& rhs )
 {
-	return ! (lhs < rhs);
+    return ! ( lhs < rhs );
 }
 
 
-template < class T >
-inline
-bool	operator >=
-		(
-		const TCharDescriptor<T>&	a,
-		const T*					b
-		)
+template <class T>
+inline bool
+operator>=( const TCharDescriptor<T>& a, const T* b )
 {
-	return ! ( a < b );
+    return ! ( a < b );
 }
 
 
-
-template < class T >
-inline
-bool	operator >=
-		(
-		const T*					a,
-		const TCharDescriptor<T>&	b
-		)
+template <class T>
+inline bool
+operator>=( const T* a, const TCharDescriptor<T>& b )
 {
-	return ! ( a < b );
+    return ! ( a < b );
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -661,16 +562,14 @@ bool	operator >=
  * AtIndex -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-T		TCharDescriptor<T>::AtIndex
-		(
-		index_t	n
-		) const
+template <class T>
+T
+TCharDescriptor<T>::AtIndex( index_t n ) const
 {
-	if ( n < index_t(m_n) )
-		return *(m_s + n);
-	else
-		return 0;
+    if ( n < index_t( m_n ) )
+        return *( m_s + n );
+    else
+        return 0;
 }
 
 
@@ -679,18 +578,14 @@ T		TCharDescriptor<T>::AtIndex
  * Pointer -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-const T*
-		TCharDescriptor<T>::Pointer
-		(
-		index_t	n
-		) const
+template <class T>
+inline const T*
+TCharDescriptor<T>::Pointer( index_t n ) const
 {
-	if ( n < index_t(m_n) )
-		return m_s + n;
-	else
-		return 0;
+    if ( n < index_t( m_n ) )
+        return m_s + n;
+    else
+        return 0;
 }
 
 
@@ -699,49 +594,46 @@ const T*
  * CopyTo - copy data from descriptor to target buffer
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TCharDescriptor<T>::CopyTo
-		(
-		T*		t,
-		size_t	tc
-		) const
+template <class T>
+bool
+TCharDescriptor<T>::CopyTo( T* t, size_t tc ) const
 {
-	bool	bResult = true;
+    bool bResult = true;
 
-	if ( tc < m_n+1 )	// add one for null
-	{
-		bResult = false;
-	}
-	else
-	{
-		const T*	s = m_s;
-		const T*	sEnd = s + m_n;
-		T*			tEnd = t + tc;
+    if ( tc < m_n + 1 )  // add one for null
+    {
+        bResult = false;
+    }
+    else
+    {
+        const T* s = m_s;
+        const T* sEnd = s + m_n;
+        T*       tEnd = t + tc;
 
-		while ( t < tEnd )
-		{
-			if ( s < sEnd )
-			{
-				if ( *s )
-				{
-					*t++ = *s++;
-				}
-				else
-				{
-					*t = *s;
-					break;
-				}
-			}
-			else
-			{
-				// we null terminate if there is room
-				*t = 0;
-				break;
-			}
-		}
-	}
+        while ( t < tEnd )
+        {
+            if ( s < sEnd )
+            {
+                if ( *s )
+                {
+                    *t++ = *s++;
+                }
+                else
+                {
+                    *t = *s;
+                    break;
+                }
+            }
+            else
+            {
+                // we null terminate if there is room
+                *t = 0;
+                break;
+            }
+        }
+    }
 
-	return bResult;
+    return bResult;
 }
 
 
@@ -750,27 +642,24 @@ bool	TCharDescriptor<T>::CopyTo
  * ConcatenateTo - copy data from descriptor to target buffer
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TCharDescriptor<T>::ConcatenateTo
-		(
-		T*		t,
-		size_t	tc
-		) const
+template <class T>
+bool
+TCharDescriptor<T>::ConcatenateTo( T* t, size_t tc ) const
 {
-	bool	bResult = false;
-	index_t	tn = FindCharacter( t, 0, tc );
-	if ( -1 < tn )
-	{
-		if ( tn < index_t(tc) )
-		{
-			t += tn;
-			tc -= tn;
-			if ( m_n <= tc )
-				bResult = CopyTo( t, tc );
-		}
-	}
+    bool    bResult = false;
+    index_t tn = FindCharacter( t, 0, tc );
+    if ( -1 < tn )
+    {
+        if ( tn < index_t( tc ) )
+        {
+            t += tn;
+            tc -= tn;
+            if ( m_n <= tc )
+                bResult = CopyTo( t, tc );
+        }
+    }
 
-	return bResult;
+    return bResult;
 }
 
 
@@ -779,14 +668,11 @@ bool	TCharDescriptor<T>::ConcatenateTo
  * Compare -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-int		TCharDescriptor<T>::Compare
-		(
-		const TCharDescriptor<T>&	r
-		) const
+template <class T>
+inline int
+TCharDescriptor<T>::Compare( const TCharDescriptor<T>& r ) const
 {
-	return Compare( r.m_s, r.m_n );
+    return Compare( r.m_s, r.m_n );
 }
 
 
@@ -795,74 +681,71 @@ int		TCharDescriptor<T>::Compare
  * Compare -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-int		TCharDescriptor<T>::Compare
-		(
-		const T*	s,
-		size_t		n
-		) const
+template <class T>
+int
+TCharDescriptor<T>::Compare( const T* s, size_t n ) const
 {
-	int			nResult = 0;	// assume equal
-	const T*	p1 = m_s;
-	const T*	p1End = p1 + m_n;
-	T			t1;
-	const T*	p2 = s;
-	const T*	p2End = p2 + n;
-	T			t2;
+    int      nResult = 0;  // assume equal
+    const T* p1 = m_s;
+    const T* p1End = p1 + m_n;
+    T        t1;
+    const T* p2 = s;
+    const T* p2End = p2 + n;
+    T        t2;
 
-	if ( p1  &&  p2 )	// check for null
-	{
-		while ( p1 < p1End )
-		{
-			if ( p2 < p2End )
-			{
-				try
-				{
-					t1 = *p1++;
-					t2 = *p2++;
-					nResult = DiffCharacters( t1, t2 );
-					if ( nResult )
-						return nResult;
-				}
-				catch ( std::exception const& e )
-				{
-					//DbgPrint( "***** Memory addressing error in Compare ***** \n");
-					//DbgPrint( "%s", e.what() );
-					std::exception ex = e;
-					ex = ex;
-					nResult = -1;
-					return nResult;
-				}
-				BEGIN_IGNORE_WARNING(4571)
-				catch (...)
-				{
-					//DbgPrint( "***** Memory addressing error in Compare ***** \n");
-					throw;
-				}
-				END_IGNORE_WARNING
-			}
-			else
-			{
-				return 1;
-			}
-		}
-		if ( p2 < p2End )
-			return -1;
-		else
-			return 0;
-	}
-	else if ( p2 )
-	{
-		return -1;
-	}
-	else if ( p1 )
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+    if ( p1 && p2 )  // check for null
+    {
+        while ( p1 < p1End )
+        {
+            if ( p2 < p2End )
+            {
+                try
+                {
+                    t1 = *p1++;
+                    t2 = *p2++;
+                    nResult = DiffCharacters( t1, t2 );
+                    if ( nResult )
+                        return nResult;
+                }
+                catch ( std::exception const& e )
+                {
+                    //DbgPrint( "***** Memory addressing error in Compare ***** \n");
+                    //DbgPrint( "%s", e.what() );
+                    std::exception ex = e;
+                    ex = ex;
+                    nResult = -1;
+                    return nResult;
+                }
+                BEGIN_IGNORE_WARNING( 4571 )
+                catch ( ... )
+                {
+                    //DbgPrint( "***** Memory addressing error in Compare ***** \n");
+                    throw;
+                }
+                END_IGNORE_WARNING
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        if ( p2 < p2End )
+            return -1;
+        else
+            return 0;
+    }
+    else if ( p2 )
+    {
+        return -1;
+    }
+    else if ( p1 )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
@@ -871,70 +754,51 @@ int		TCharDescriptor<T>::Compare
  * Compare -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-int		TCharDescriptor<T>::Compare
-		(
-		const T*	s
-		) const
+template <class T>
+int
+TCharDescriptor<T>::Compare( const T* s ) const
 {
-	int			nResult = 0;	// assume equal
-	const T*	p1 = m_s;
-	const T*	p1End = p1 + m_n;
-	T			t1;
-	const T*	p2 = s;
-	T			t2;
+    int      nResult = 0;  // assume equal
+    const T* p1 = m_s;
+    const T* p1End = p1 + m_n;
+    T        t1;
+    const T* p2 = s;
+    T        t2;
 
-	if ( p1  &&  p2 )
-	{
-		while ( p1 < p1End )
-		{
-			t2 = *p2++;
-			if ( t2 )
-			{
-				t1 = *p1++;
-				nResult = DiffCharacters( t1, t2 );
-				if ( nResult )
-					return nResult;
-			}
-			else
-			{
-				return 1;
-			}
-		}
-		if ( *p2 )
-			return -1;
-		else
-			return 0;
-	}
-	else if ( p2 )
-	{
-		return -1;
-	}
-	else if ( p1 )
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-
-
-
-/*---------------------------------------------------------------------+\
-
- * CompareFiltered -
-
-\+---------------------------------------------------------------------*/
-template < class T >
-inline
-int		TCharDescriptor<T>::CompareFiltered
-		(
-		const TCharDescriptor<T>&	r
-		) const
-{
-	return CompareFiltered( r.m_s, r.m_n );
+    if ( p1 && p2 )
+    {
+        while ( p1 < p1End )
+        {
+            t2 = *p2++;
+            if ( t2 )
+            {
+                t1 = *p1++;
+                nResult = DiffCharacters( t1, t2 );
+                if ( nResult )
+                    return nResult;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        if ( *p2 )
+            return -1;
+        else
+            return 0;
+    }
+    else if ( p2 )
+    {
+        return -1;
+    }
+    else if ( p1 )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
@@ -943,55 +807,11 @@ int		TCharDescriptor<T>::CompareFiltered
  * CompareFiltered -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-int		TCharDescriptor<T>::CompareFiltered
-		(
-		const T*	s,
-		size_t		n
-		) const
+template <class T>
+inline int
+TCharDescriptor<T>::CompareFiltered( const TCharDescriptor<T>& r ) const
 {
-	int			nResult = 0;	// assume equal
-	const T*	p1 = m_s;
-	const T*	p1End = p1 + m_n;
-	T			t1;
-	const T*	p2 = s;
-	const T*	p2End = p2 + n;
-	T			t2;
-
-	if ( p1  &&  p2 )	// check for null
-	{
-		while ( p1 < p1End )
-		{
-			if ( p2 < p2End )
-			{
-				t1 = TCharDescriptorCompareFilter( *p1++ );
-				t2 = TCharDescriptorCompareFilter( *p2++ );
-				nResult = DiffCharacters( t1, t2 );
-				if ( nResult )
-					return nResult;
-			}
-			else
-			{
-				return 1;
-			}
-		}
-		if ( p2 < p2End )
-			return -1;
-		else
-			return 0;
-	}
-	else if ( p2 )
-	{
-		return -1;
-	}
-	else if ( p1 )
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+    return CompareFiltered( r.m_s, r.m_n );
 }
 
 
@@ -1000,53 +820,105 @@ int		TCharDescriptor<T>::CompareFiltered
  * CompareFiltered -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-int		TCharDescriptor<T>::CompareFiltered
-		(
-		const T*	s
-		) const
+template <class T>
+int
+TCharDescriptor<T>::CompareFiltered( const T* s, size_t n ) const
 {
-	int			nResult = 0;	// assume equal
-	const T*	p1 = m_s;
-	const T*	p1End = p1 + m_n;
-	T			t1;
-	const T*	p2 = s;
-	T			t2;
+    int      nResult = 0;  // assume equal
+    const T* p1 = m_s;
+    const T* p1End = p1 + m_n;
+    T        t1;
+    const T* p2 = s;
+    const T* p2End = p2 + n;
+    T        t2;
 
-	if ( p1  &&  p2 )
-	{
-		while ( p1 < p1End )
-		{
-			t2 = TCharDescriptorCompareFilter( *p2++ );
-			if ( t2 )
-			{
-				t1 = TCharDescriptorCompareFilter( *p1++ );
-				nResult = DiffCharacters( t1, t2 );
-				if ( nResult )
-					return nResult;
-			}
-			else
-			{
-				return 1;
-			}
-		}
-		if ( *p2 )
-			return -1;
-		else
-			return 0;
-	}
-	else if ( p2 )
-	{
-		return -1;
-	}
-	else if ( p1 )
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+    if ( p1 && p2 )  // check for null
+    {
+        while ( p1 < p1End )
+        {
+            if ( p2 < p2End )
+            {
+                t1 = TCharDescriptorCompareFilter( *p1++ );
+                t2 = TCharDescriptorCompareFilter( *p2++ );
+                nResult = DiffCharacters( t1, t2 );
+                if ( nResult )
+                    return nResult;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        if ( p2 < p2End )
+            return -1;
+        else
+            return 0;
+    }
+    else if ( p2 )
+    {
+        return -1;
+    }
+    else if ( p1 )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+
+/*---------------------------------------------------------------------+\
+
+ * CompareFiltered -
+
+\+---------------------------------------------------------------------*/
+template <class T>
+int
+TCharDescriptor<T>::CompareFiltered( const T* s ) const
+{
+    int      nResult = 0;  // assume equal
+    const T* p1 = m_s;
+    const T* p1End = p1 + m_n;
+    T        t1;
+    const T* p2 = s;
+    T        t2;
+
+    if ( p1 && p2 )
+    {
+        while ( p1 < p1End )
+        {
+            t2 = TCharDescriptorCompareFilter( *p2++ );
+            if ( t2 )
+            {
+                t1 = TCharDescriptorCompareFilter( *p1++ );
+                nResult = DiffCharacters( t1, t2 );
+                if ( nResult )
+                    return nResult;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        if ( *p2 )
+            return -1;
+        else
+            return 0;
+    }
+    else if ( p2 )
+    {
+        return -1;
+    }
+    else if ( p1 )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
@@ -1055,13 +927,11 @@ int		TCharDescriptor<T>::CompareFiltered
  * ParseInt -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TCharDescriptor<T>::ParseInt
-		(
-		size_t*	pParseCount
-		) const
+template <class T>
+long
+TCharDescriptor<T>::ParseInt( size_t* pParseCount ) const
 {
-	return ParseIntT<T>( m_s, m_n, pParseCount );
+    return ParseIntT<T>( m_s, m_n, pParseCount );
 }
 
 
@@ -1070,25 +940,21 @@ long	TCharDescriptor<T>::ParseInt
  * ParseInt -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	ParseIntT
-		(
-		const T*	s,
-		size_t		n,
-		size_t*		pParseCount
-		)
+template <class T>
+long
+ParseIntT( const T* s, size_t n, size_t* pParseCount )
 {
-	long	nValue = 0;
-	size_t	nCount;
+    long   nValue = 0;
+    size_t nCount;
 
-	nValue = ParseHexT<T>( s, n, &nCount );
-	if ( nCount < 1 )
-		nValue = ParseDecT<T>( s, n, &nCount );
+    nValue = ParseHexT<T>( s, n, &nCount );
+    if ( nCount < 1 )
+        nValue = ParseDecT<T>( s, n, &nCount );
 
-	if ( pParseCount )
-		*pParseCount = nCount;
+    if ( pParseCount )
+        *pParseCount = nCount;
 
-	return nValue;
+    return nValue;
 }
 
 
@@ -1097,44 +963,40 @@ long	ParseIntT
  * ParseDec -
 
 \+---------------------------------------------------------------------*/
-template < typename T >
-long	ParseDecT
-		(
-		const T*	s,
-		size_t		n,
-		size_t*		pParseCount
-		)
+template <typename T>
+long
+ParseDecT( const T* s, size_t n, size_t* pParseCount )
 {
-	long		nValue = 0;
-	size_t		nCount;
-	const T*	sEnd = s + n;
-	const T*	sStart = s;
-	long		nSign = 1;
+    long     nValue = 0;
+    size_t   nCount;
+    const T* sEnd = s + n;
+    const T* sStart = s;
+    long     nSign = 1;
 
-	if ( s < sEnd )
-	{
-		if ( '-' == *s )
-		{
-			nSign = -1;
-			++s;
-		}
-	}
+    if ( s < sEnd )
+    {
+        if ( '-' == *s )
+        {
+            nSign = -1;
+            ++s;
+        }
+    }
 
-	nValue = ParseDecDigitsT<T>( s, (size_t)(sEnd - s), &nCount );
-	if ( 0 < nCount )
-	{
-		s += nCount;
-		nValue *= nSign;
-	}
-	else
-	{
-		s = sStart;
-		nValue = 0;
-	}
-	if ( pParseCount )
-		*pParseCount = (size_t)(s - sStart);
+    nValue = ParseDecDigitsT<T>( s, ( size_t )( sEnd - s ), &nCount );
+    if ( 0 < nCount )
+    {
+        s += nCount;
+        nValue *= nSign;
+    }
+    else
+    {
+        s = sStart;
+        nValue = 0;
+    }
+    if ( pParseCount )
+        *pParseCount = ( size_t )( s - sStart );
 
-	return nValue;
+    return nValue;
 }
 
 
@@ -1143,31 +1005,27 @@ long	ParseDecT
  * ParseDecDigits -
 
 \+---------------------------------------------------------------------*/
-template < typename T >
-long	ParseDecDigitsT
-		(
-		const T*	s,
-		size_t		n,
-		size_t*		pParseCount
-		)
+template <typename T>
+long
+ParseDecDigitsT( const T* s, size_t n, size_t* pParseCount )
 {
-	long		nValue = 0;
-	const T*	sEnd = s + n;
-	const T*	sStart = s;
+    long     nValue = 0;
+    const T* sEnd = s + n;
+    const T* sStart = s;
 
-	while ( s < sEnd )
-	{
-		if ( *s < '0'  ||  '9' < *s )
-			break;
-		else
-			nValue = nValue * 10 + (*s - '0');
-		++s;
-	}
+    while ( s < sEnd )
+    {
+        if ( *s < '0' || '9' < *s )
+            break;
+        else
+            nValue = nValue * 10 + ( *s - '0' );
+        ++s;
+    }
 
-	if ( pParseCount )
-		*pParseCount = (size_t)(s - sStart);
+    if ( pParseCount )
+        *pParseCount = ( size_t )( s - sStart );
 
-	return nValue;
+    return nValue;
 }
 
 
@@ -1176,45 +1034,38 @@ long	ParseDecDigitsT
  * ParseHex -
 
 \+---------------------------------------------------------------------*/
-template < typename T >
-long	ParseHexT
-		(
-		const T*	s,
-		size_t		n,
-		size_t*		pParseCount
-		)
+template <typename T>
+long
+ParseHexT( const T* s, size_t n, size_t* pParseCount )
 {
-	long		nValue = 0;
-	size_t		nCount;
-	const T*	sEnd = s + n;
-	const T*	sStart = s;
+    long     nValue = 0;
+    size_t   nCount;
+    const T* sEnd = s + n;
+    const T* sStart = s;
 
-	if ( '0' == *s )
-	{
-		++s;
-		if ( 'x' == ::tolower(*s) )
-		{
-			++s;
-			nValue = ParseHexDigitsT<T>( s, (size_t)(sEnd - s), &nCount );
-			if ( 0 < nCount )
-			{
-				s += nCount;
-			}
-			else
-			{
-				s = sStart;
-			}
-		}
-	}
+    if ( '0' == *s )
+    {
+        ++s;
+        if ( 'x' == ::tolower( *s ) )
+        {
+            ++s;
+            nValue = ParseHexDigitsT<T>( s, ( size_t )( sEnd - s ), &nCount );
+            if ( 0 < nCount )
+            {
+                s += nCount;
+            }
+            else
+            {
+                s = sStart;
+            }
+        }
+    }
 
-	if ( pParseCount )
-		*pParseCount = (size_t)(s - sStart);
+    if ( pParseCount )
+        *pParseCount = ( size_t )( s - sStart );
 
-	return nValue;
+    return nValue;
 }
-
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -1222,36 +1073,31 @@ long	ParseHexT
  * ParseHexDigits -
 
 \+---------------------------------------------------------------------*/
-template < typename T >
-long	ParseHexDigitsT
-		(
-		const T*	s,
-		size_t		n,
-		size_t*		pParseCount
-		)
+template <typename T>
+long
+ParseHexDigitsT( const T* s, size_t n, size_t* pParseCount )
 {
-	long		nValue = 0;
-	const T*	sEnd = s + n;
-	const T*	sStart = s;
-	char		c;
+    long     nValue = 0;
+    const T* sEnd = s + n;
+    const T* sStart = s;
+    char     c;
 
-	while ( s < sEnd )
-	{
-		nValue *= 16;
-		c = static_cast<char>(::toupper( *s ));
-		if ( '0' <= c  &&  c <= '9' )
-			nValue += c - '0';
-		else if ( 'A' <= c &&  c <= 'F' )
-			nValue += c - 'A' + 10;
-		++s;
-	}
+    while ( s < sEnd )
+    {
+        nValue *= 16;
+        c = static_cast<char>( ::toupper( *s ) );
+        if ( '0' <= c && c <= '9' )
+            nValue += c - '0';
+        else if ( 'A' <= c && c <= 'F' )
+            nValue += c - 'A' + 10;
+        ++s;
+    }
 
-	if ( pParseCount )
-		*pParseCount = (size_t)(s - sStart);
+    if ( pParseCount )
+        *pParseCount = ( size_t )( s - sStart );
 
-	return nValue;
+    return nValue;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -1259,125 +1105,115 @@ long	ParseHexDigitsT
  * ParseFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-GFLOAT	TCharDescriptor<T>::ParseFloat
-		(
-		size_t*	pParseCount
-		) const
+template <class T>
+GFLOAT
+TCharDescriptor<T>::ParseFloat( size_t* pParseCount ) const
 {
-	return ParseFloatT<T>( m_s, m_n, pParseCount );
+    return ParseFloatT<T>( m_s, m_n, pParseCount );
 }
 
 
-template < typename T >
-GFLOAT	ParseSimpleFloatT
-		(
-		const T*	s,
-		size_t		n,
-		size_t*		pParseCount
-		)
+template <typename T>
+GFLOAT
+ParseSimpleFloatT( const T* s, size_t n, size_t* pParseCount )
 {
-	GFLOAT		fValue = GFLOAT_0;
-	GFLOAT		fSign = GFLOAT_1;
-	size_t		nParseCount = 0;
-	const T*	sStart = s;
-	size_t		c;		// count
+    GFLOAT   fValue = GFLOAT_0;
+    GFLOAT   fSign = GFLOAT_1;
+    size_t   nParseCount = 0;
+    const T* sStart = s;
+    size_t   c;  // count
 
-	do_sequence
-	{
-		fValue = static_cast<GFLOAT>(ParseDecT<T>( s, n, &c ));
-		if ( c < 1 )
-			break;
+    do_sequence
+    {
+        fValue = static_cast<GFLOAT>( ParseDecT<T>( s, n, &c ) );
+        if ( c < 1 )
+            break;
 
-		s += c;
-		n -= c;
-		if ( '.' != *s )
-			break;
+        s += c;
+        n -= c;
+        if ( '.' != *s )
+            break;
 
-		++s;
-		--n;
-		long	nFrac = ParseDecDigitsT<T>( s, n, &c );
+        ++s;
+        --n;
+        long nFrac = ParseDecDigitsT<T>( s, n, &c );
 
-		if ( c < 1 )
-			break;
+        if ( c < 1 )
+            break;
 
-		s += c;
-		n -= c;
+        s += c;
+        n -= c;
 
-		if ( fValue < GFLOAT_0 )
-		{
-			fSign = GFLOAT_NEG1;
-			fValue *= GFLOAT_NEG1;
-		}
+        if ( fValue < GFLOAT_0 )
+        {
+            fSign = GFLOAT_NEG1;
+            fValue *= GFLOAT_NEG1;
+        }
 
-		nParseCount = (size_t)(s - sStart);
+        nParseCount = ( size_t )( s - sStart );
 
-		fValue += powf( GFLOAT_10, -static_cast<GFLOAT>(c) ) * static_cast<GFLOAT>( nFrac );
-		fValue *= fSign;
-	}
+        fValue += powf( GFLOAT_10, -static_cast<GFLOAT>( c ) )
+                * static_cast<GFLOAT>( nFrac );
+        fValue *= fSign;
+    }
 
-	if ( pParseCount )
-		*pParseCount = nParseCount;
+    if ( pParseCount )
+        *pParseCount = nParseCount;
 
-	return fValue;
+    return fValue;
 }
 
 
-template < typename T >
-GFLOAT	ParseFloatT
-		(
-		const T*	s,
-		size_t		n,
-		size_t*		pParseCount
-		)
+template <typename T>
+GFLOAT
+ParseFloatT( const T* s, size_t n, size_t* pParseCount )
 {
-	GFLOAT		fValue = GFLOAT_0;
-	size_t		nParseCount = 0;
-	const T*	sStart = s;
-	size_t		c;		// count
+    GFLOAT   fValue = GFLOAT_0;
+    size_t   nParseCount = 0;
+    const T* sStart = s;
+    size_t   c;  // count
 
-	do_sequence
-	{
-		fValue = ParseSimpleFloatT<T>( s, n, &c );
-		if ( c < 1 )
-		{
-			fValue = static_cast<GFLOAT>(ParseDecT<T>( s, n, &c ));
-			if ( c < 1 )
-				break;
-		}
+    do_sequence
+    {
+        fValue = ParseSimpleFloatT<T>( s, n, &c );
+        if ( c < 1 )
+        {
+            fValue = static_cast<GFLOAT>( ParseDecT<T>( s, n, &c ) );
+            if ( c < 1 )
+                break;
+        }
 
-		s += c;
-		n -= c;
-		int	ce = tolower( *s );
-		if ( 'e' == ce  ||  'f' == ce )
-		{
-			++s;
-			--n;
-			long	nExp = ParseDecT<T>( s, n, &c );
-			if ( c < 1 )
-				break;
+        s += c;
+        n -= c;
+        int ce = tolower( *s );
+        if ( 'e' == ce || 'f' == ce )
+        {
+            ++s;
+            --n;
+            long nExp = ParseDecT<T>( s, n, &c );
+            if ( c < 1 )
+                break;
 
-			GFLOAT	fSign = GFLOAT_1;
-			if ( fValue < GFLOAT_0 )
-			{
-				fSign = GFLOAT_NEG1;
-				fValue *= GFLOAT_NEG1;
-			}
+            GFLOAT fSign = GFLOAT_1;
+            if ( fValue < GFLOAT_0 )
+            {
+                fSign = GFLOAT_NEG1;
+                fValue *= GFLOAT_NEG1;
+            }
 
-			s += c;
-			n -= c;
-			fValue = powf( GFLOAT_10, static_cast<GFLOAT>(nExp) ) * fValue;
-			fValue *= fSign;
-		}
-		nParseCount = (size_t)(s - sStart);
-	}
+            s += c;
+            n -= c;
+            fValue = powf( GFLOAT_10, static_cast<GFLOAT>( nExp ) ) * fValue;
+            fValue *= fSign;
+        }
+        nParseCount = ( size_t )( s - sStart );
+    }
 
-	if ( pParseCount )
-		*pParseCount = nParseCount;
+    if ( pParseCount )
+        *pParseCount = nParseCount;
 
-	return fValue;
+    return fValue;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -1385,14 +1221,11 @@ GFLOAT	ParseFloatT
  * Length -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-size_t	TCharDescriptor<T>::Length
-		(
-		void
-		) const
+template <class T>
+inline size_t
+TCharDescriptor<T>::Length( void ) const
 {
-	return m_n;
+    return m_n;
 }
 
 
@@ -1401,48 +1234,51 @@ size_t	TCharDescriptor<T>::Length
  * Hash -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 uintmax_t
-		TCharDescriptor<T>::Hash
-		(
-		void
-		) const
+TCharDescriptor<T>::Hash( void ) const
 {
-	uintmax_t hash = 5381;
+    uintmax_t hash = 5381;
 
-	T*		arKey = m_s;
-	size_t	nKeyLength = m_n;
+    T*     arKey = m_s;
+    size_t nKeyLength = m_n;
 
-	/* variant with the hash unrolled eight times */
-	for (; 8 <= nKeyLength; nKeyLength -= 8)
-	{
-		hash = ((hash << 5) + hash) + *arKey++;
-		hash = ((hash << 5) + hash) + *arKey++;
-		hash = ((hash << 5) + hash) + *arKey++;
-		hash = ((hash << 5) + hash) + *arKey++;
-		hash = ((hash << 5) + hash) + *arKey++;
-		hash = ((hash << 5) + hash) + *arKey++;
-		hash = ((hash << 5) + hash) + *arKey++;
-		hash = ((hash << 5) + hash) + *arKey++;
-	}
-	switch (nKeyLength)
-	{
-	case 7: hash = ((hash << 5) + hash) + *arKey++; /* fallthrough... */
-	case 6: hash = ((hash << 5) + hash) + *arKey++; /* fallthrough... */
-	case 5: hash = ((hash << 5) + hash) + *arKey++; /* fallthrough... */
-	case 4: hash = ((hash << 5) + hash) + *arKey++; /* fallthrough... */
-	case 3: hash = ((hash << 5) + hash) + *arKey++; /* fallthrough... */
-	case 2: hash = ((hash << 5) + hash) + *arKey++; /* fallthrough... */
-	case 1: hash = ((hash << 5) + hash) + *arKey++;
-		break;
-	case 0:
-		break;
-	default:
-		break;
-	}
-	return hash;
+    /* variant with the hash unrolled eight times */
+    for ( ; 8 <= nKeyLength; nKeyLength -= 8 )
+    {
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+    }
+    switch ( nKeyLength )
+    {
+    case 7:
+        hash = ( ( hash << 5 ) + hash ) + *arKey++; /* fallthrough... */
+    case 6:
+        hash = ( ( hash << 5 ) + hash ) + *arKey++; /* fallthrough... */
+    case 5:
+        hash = ( ( hash << 5 ) + hash ) + *arKey++; /* fallthrough... */
+    case 4:
+        hash = ( ( hash << 5 ) + hash ) + *arKey++; /* fallthrough... */
+    case 3:
+        hash = ( ( hash << 5 ) + hash ) + *arKey++; /* fallthrough... */
+    case 2:
+        hash = ( ( hash << 5 ) + hash ) + *arKey++; /* fallthrough... */
+    case 1:
+        hash = ( ( hash << 5 ) + hash ) + *arKey++;
+        break;
+    case 0:
+        break;
+    default:
+        break;
+    }
+    return hash;
 }
-
 
 
 /*=====================================================================+\
@@ -1455,14 +1291,11 @@ uintmax_t
  * FindPossibleNull -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-index_t	TCharDescriptor< T >::FindPossibleNull
-		(
-		size_t	nMaxChars
-		)
+template <class T>
+inline index_t
+TCharDescriptor<T>::FindPossibleNull( size_t nMaxChars )
 {
-	return FindCharacter( m_s, 0, nMaxChars );
+    return FindCharacter( m_s, 0, nMaxChars );
 }
 
 
@@ -1471,35 +1304,32 @@ index_t	TCharDescriptor< T >::FindPossibleNull
  * FindCharacter -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-index_t	TCharDescriptor< T >::FindCharacter
-		(
-		const T*	sString,
-		T			cSearch,
-		size_t		nMaxChars
-		) const
+template <class T>
+index_t
+TCharDescriptor<T>::FindCharacter(
+        const T* sString, T cSearch, size_t nMaxChars ) const
 {
-	if ( sString )
-	{
-		const T*	pBegin = sString;
-		const T*	p = pBegin;
-		const T*	pEnd = p + nMaxChars;
+    if ( sString )
+    {
+        const T* pBegin = sString;
+        const T* p = pBegin;
+        const T* pEnd = p + nMaxChars;
 
-		while ( p < pEnd )
-		{
-			if ( *p == cSearch )
-				break;
-			++p;
-		}
-		if ( p < pEnd )
-			return long(p - pBegin);
-		else
-			return -1;
-	}
-	else
-	{
-		return -1;
-	}
+        while ( p < pEnd )
+        {
+            if ( *p == cSearch )
+                break;
+            ++p;
+        }
+        if ( p < pEnd )
+            return long( p - pBegin );
+        else
+            return -1;
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 
@@ -1508,25 +1338,16 @@ index_t	TCharDescriptor< T >::FindCharacter
 * FindCharacter -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-int		TCharDescriptor< T >::DiffCharacters
-		(
-		T	t1,
-		T	t2
-		) const
+template <class T>
+inline int
+TCharDescriptor<T>::DiffCharacters( T t1, T t2 ) const
 {
-	const int mask = ~0 >> 1;
-	return ((int)t1 & mask) - ((int)t2 & mask);
+    const int mask = ~0 >> 1;
+    return ( (int)t1 & mask ) - ( (int)t2 & mask );
 }
 
 
-
-
-
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_TCharDescriptor */
-

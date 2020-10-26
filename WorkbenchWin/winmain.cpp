@@ -122,7 +122,7 @@ INT WINAPI
 			return 1;
 
 		// This determines if we're allowed to run and instantiates the VTWin32Dlg app.
-		if (!g_pApplication->InitInstance(hInstance, TEXT(APPLICATION_NAME))) 
+		if (!g_pApplication->InitInstance(hInstance, TEXT(APPLICATION_NAME)))
 		{
 			Yogi::Core::DbgPrint( "Application did not initialize\n" );
 			return 1;
@@ -132,9 +132,9 @@ INT WINAPI
 		g_pApplication->Start();
 
 		// Main message loop:
-		while (GetMessage(&msg, NULL, 0, 0)) 
+		while ( TRUE == GetMessage(&msg, NULL, 0, 0))
 		{
-			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) 
+			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
 			{
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);

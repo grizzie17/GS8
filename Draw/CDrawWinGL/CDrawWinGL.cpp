@@ -33,19 +33,20 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "stdafx.h"
+//#include "stdafx.h"
+#include "UMachine.h"
+
+#if defined( OS_MSWIN )  && defined( GL_OPENGL )	// brackets whole file
+
 #include "CDrawWinGL.h"
 #include "VPluginFactory.h"
-
-#include "UMachine.h"
 #include "LogFile.h"
-
-#if defined( OS_MSWIN )	// brackets whole file
 
 #	include <math.h>
 #	include <float.h>
 
 #	include "SOIL.h"
+#	include "TDrawOpenGL-inl.h"
 
 
 /*---------------------------------------------------------------------+\

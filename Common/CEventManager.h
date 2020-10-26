@@ -30,8 +30,8 @@
 |	Include Files
 |
 \+---------------------------------------------------------------------*/
-#include "VObject.h"
 #include "UDeclCommon.h"
+#include "VObject.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -44,52 +44,52 @@ namespace Yogi { namespace Common {
 |	Type Definitions
 |
 \+---------------------------------------------------------------------*/
-typedef class CEventManager*			CEventManagerPtr;
-typedef class CEventManager&			CEventManagerRef;
-typedef const class CEventManager&	ConstCEventManagerRef;
+typedef class CEventManager*       CEventManagerPtr;
+typedef class CEventManager&       CEventManagerRef;
+typedef const class CEventManager& ConstCEventManagerRef;
 /*---------------------------------------------------------------------+\
 |
 |	Class Definitions
 |
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CEventManager : public VObject
+class COMMON_CLASS CEventManager : public VObject
 {
-	//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-	CEventManager();
-	CEventManager(ConstCEventManagerRef r);	// copy constructor
-	virtual			~CEventManager();
+    CEventManager();
+    CEventManager( ConstCEventManagerRef r );  // copy constructor
+    virtual ~CEventManager();
 
 public:
-	//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-	//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	CEventManagerRef	operator=(ConstCEventManagerRef r);		// assignment
+    CEventManagerRef
+    operator=( ConstCEventManagerRef r );  // assignment
 
 protected:
-	//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-	//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-	//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef VObject	inherited;
+    typedef VObject inherited;
 
-	//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-	//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-	//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
 
 /*---------------------------------------------------------------------+\
@@ -108,8 +108,7 @@ private:
 ||
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CEventManager */

@@ -21,21 +21,21 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "UOSIncludes.h"
 #include "UDeclPlatform.h"
+#include "UOSIncludes.h"
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
 |																		|
 \+---------------------------------------------------------------------*/
 #if ! defined( MAXPATH )
-#	if defined( PATH_MAX )
-#		define MAXPATH	PATH_MAX
-#	elif defined( MAXPATHLEN )
-#		define MAXPATH	MAXPATHLEN
-#	else
-#		define MAXPATH	1024
-#	endif
+#    if defined( PATH_MAX )
+#        define MAXPATH PATH_MAX
+#    elif defined( MAXPATHLEN )
+#        define MAXPATH MAXPATHLEN
+#    else
+#        define MAXPATH 1024
+#    endif
 #endif
 /*---------------------------------------------------------------------+\
 |																		|
@@ -56,28 +56,27 @@ namespace Yogi { namespace Core {
 
 //!	deterimine if file exists
 //!
-bool	FileExists				//!@return true if file exists, false otherwise
-		(
-		const char*	sFilePath	//!< [in] file to check
-		);
+CORE_API( bool )
+FileExists                       //!@return true if file exists, false otherwise
+        ( const char* sFilePath  //!< [in] file to check
+        );
 
 //!	determine if a folder exists
 //!
-bool	FolderExists			//!@return true if folder exists, false otherwise
-		(
-		const char*	sFilePath	//!< [in] folder to check
-		);
+CORE_API( bool )
+FolderExists  //!@return true if folder exists, false otherwise
+        ( const char* sFilePath  //!< [in] folder to check
+        );
 
 //! add onto an existing path
 //!
-bool	PathBuild					//!@return false if error
-		(
-		char*		sBuffer,		//!< [out] buffer to receive new path
-		size_t		nSizeBuffer,	//!< [in] size of output buffer
-		const char*	sBasePath,		//!< [in] first part of path
-		const char*	sAddPath		//!< [in] path to append to base-path
-		);
-
+CORE_API( bool )
+PathBuild                                 //!@return false if error
+        ( char*             sBuffer,      //!< [out] buffer to receive new path
+                size_t      nSizeBuffer,  //!< [in] size of output buffer
+                const char* sBasePath,    //!< [in] first part of path
+                const char* sAddPath      //!< [in] path to append to base-path
+        );
 
 
 /*=====================================================================+\
@@ -86,7 +85,7 @@ bool	PathBuild					//!@return false if error
 ||																		|
 \+=====================================================================*/
 
-}}
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_UFile */

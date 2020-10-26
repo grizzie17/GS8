@@ -1,17 +1,9 @@
-/*---------------------------------------------------------------------+\
-|
-|	CDrawOpenGL.h  --  brief description of what CDrawOpenGL.h is for
-|
-|	Purpose:
-|
-| optional topics (delete if not used)
-|	Restrictions/Warnings:
-|	Formats:
-|	References:
-|	Notes:
-|
-\+---------------------------------------------------------------------*/
-/*---------------------------------------------------------------------+\
+//===================================================================
+///	@file: CDrawOpenGL.h
+///
+///	Provide 2d draw support using OpenGL
+//===================================================================
+/*-----------------------------------------------------------------+\
 |
 |	Revision History:					(most recent entries first)
 |
@@ -26,7 +18,7 @@
 	25-Jun-2009			J.Griswold
 		Initial Revision
 |
-\+---------------------------------------------------------------------*/
+\+-----------------------------------------------------------------*/
 #ifndef _H_CDrawOpenGL_Common
 #define _H_CDrawOpenGL_Common
 #pragma once
@@ -89,6 +81,7 @@ namespace Yogi { namespace Common {
 
 typedef class CDrawOpenGL*			CDrawOpenGLPtr;
 typedef class CDrawOpenGL&			CDrawOpenGLRef;
+typedef const class CDrawOpenGL*	ConstCDrawOpenGLPtr;
 typedef const class CDrawOpenGL&	ConstCDrawOpenGLRef;
 /*---------------------------------------------------------------------+\
 |																		|

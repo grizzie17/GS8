@@ -20,15 +20,15 @@
 |	Include Files
 |
 \+---------------------------------------------------------------------*/
-#include <stdio.h>
-#include "UTypes.h"
 #include "UDeclPlatform.h"
+#include "UTypes.h"
+#include <stdio.h>
 /*---------------------------------------------------------------------+\
 |
 |	Defines
 |
 \+---------------------------------------------------------------------*/
-#define	HAS_STDIO_SX
+#define HAS_STDIO_SX
 /*---------------------------------------------------------------------+\
 |
 |	Type Definitions
@@ -46,39 +46,21 @@
 ||
 \+=====================================================================*/
 
-int
-		fopen_sx
-		(
-		FILE**		hFile,
-		const char*	sName,
-		const char* sMode
-		);
+CORE_API( int )
+fopen_sx( FILE** hFile, const char* sName, const char* sMode );
 
-errno_t
-		getenv_sx
-		(
-		size_t*		pReturnValue,
-		char*		pTarget,
-		size_t		nTargetSize,
-		const char*	sName
-		);
+CORE_API( errno_t )
+getenv_sx( size_t* pReturnValue, char* pTarget, size_t nTargetSize,
+        const char* sName );
 
-errno_t
-		sprintf_sx
-		(
-		char*		sBuffer,
-		size_t		nSizeBuffer,
-		const char*	sFormat,
-		...
-		);
+CORE_API( errno_t )
+sprintf_sx( char* sBuffer, size_t nSizeBuffer, const char* sFormat, ... );
 
 /*=====================================================================+\
 ||
 ||	Inline Functions
 ||
 \+=====================================================================*/
-
-
 
 
 #endif /* _H_stdio_sx */

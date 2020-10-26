@@ -46,9 +46,9 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef interface_ ISupportsLocal*		ISupportsLocalPtr;
+typedef interface_ ISupportsLocal* ISupportsLocalPtr;
 
-extern const IXID DECL_CLASS	IXID_ISupportsLocal;
+extern const IXID COMMON_CLASS IXID_ISupportsLocal;
 
 
 /*---------------------------------------------------------------------+\
@@ -59,16 +59,8 @@ extern const IXID DECL_CLASS	IXID_ISupportsLocal;
 
 interface_ ISupportsLocal : public ISupports
 {
-
-	virtual
-	void*	QueryInterfaceLocal
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult = 0
-			) PURE;
-
-
-
+    virtual void* QueryInterfaceLocal(
+            ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult = 0 ) PURE;
 };
 
 /*---------------------------------------------------------------------+\
@@ -87,8 +79,7 @@ interface_ ISupportsLocal : public ISupports
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_ISupportsLocal */

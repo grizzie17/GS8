@@ -25,20 +25,20 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "stdafx.h"
 
 #include "CMutex.h"
 //#include "TPointer.h"
 #include "LogFile.h"
 #include "UPlatform.h"
 #include "UPlatformString.h"
-#if defined(OS_MSWIN)
-#	if defined(OS_WIN32_WCE)
-#		include <winbase.h>
-#	else
-#		include <process.h>
-#	endif
+#if defined( OS_MSWIN )
+#    if defined( OS_WIN32_WCE )
+#        include <winbase.h>
+#    else
+#        include <process.h>
+#    endif
 #endif
+#include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -53,7 +53,7 @@ namespace Yogi { namespace Core {
 // change the comment below to allow printing of the local information
 
 //#define	LOCAL_PRINT( fmt, ... )	DbgPrint( fmt, ## __VA_ARGS__ )
-#define	LOCAL_PRINT( fmt, ... )
+#define LOCAL_PRINT( fmt, ... ) ( 0 )
 
 
 /*---------------------------------------------------------------------+\
@@ -89,36 +89,32 @@ namespace Yogi { namespace Core {
  * CMutex - constructor
 
 \+---------------------------------------------------------------------*/
-DECL_CLASS
-CMutex::CMutex
-		(
-		void
-		)
-		: m_bCreated( true )
+CMutex::CMutex( void )
+        : m_bCreated( true )
 {
-#if defined(OS_MSWIN)
-	sprintf_s( m_sName, sizeof(m_sName), "mut-%p", this );
-#	if defined( OS_MSWIN_WCE )
-		TArrayPointer<WCHAR>	wsName = WideStringFromString( m_sName );
-#		if defined( USE_EVENTS )
-			m_mutex = CreateEvent( 0, FALSE, FALSE, wsName );
-#		else
-			m_mutex = CreateMutex( NULL, FALSE, wsName );
-#		endif
-#	else
-#		if defined( USE_EVENTS )
-			m_mutex = CreateEventA( 0, FALSE, FALSE, m_sName );
-#		else
-			m_mutex = CreateMutexA( NULL, FALSE, m_sName );
-#		endif
-#	endif
-	if ( ! m_mutex )
-		m_bCreated = false;
+#if defined( OS_MSWIN )
+    sprintf_s( m_sName, sizeof( m_sName ), "mut-%p", this );
+#    if defined( OS_MSWIN_WCE )
+    TArrayPointer<WCHAR> wsName = WideStringFromString( m_sName );
+#        if defined( USE_EVENTS )
+    m_mutex = CreateEvent( 0, FALSE, FALSE, wsName );
+#        else
+    m_mutex = CreateMutex( NULL, FALSE, wsName );
+#        endif
+#    else
+#        if defined( USE_EVENTS )
+    m_mutex = CreateEventA( 0, FALSE, FALSE, m_sName );
+#        else
+    m_mutex = CreateMutexA( NULL, FALSE, m_sName );
+#        endif
+#    endif
+    if ( ! m_mutex )
+        m_bCreated = false;
 #else
-	pthread_mutexattr_t	mAttr;
+    pthread_mutexattr_t mAttr;
 
-	pthread_mutexattr_init( &mAttr );
-	pthread_mutex_init( &m_mutex, &mAttr );
+    pthread_mutexattr_init( &mAttr );
+    pthread_mutex_init( &m_mutex, &mAttr );
 #endif
 }
 
@@ -128,24 +124,20 @@ CMutex::CMutex
  * ~CMutex - destructor
 
 \+---------------------------------------------------------------------*/
-DECL_CLASS
-CMutex::~CMutex
-		(
-		void
-		)
+CMutex::~CMutex( void )
 {
-	if ( m_bCreated )
-	{
+    if ( m_bCreated )
+    {
 #if defined( OS_MSWIN )
-		WaitForSingleObject( m_mutex, INFINITE );
-		CloseHandle( m_mutex );
+        WaitForSingleObject( m_mutex, INFINITE );
+        CloseHandle( m_mutex );
 #else
-		pthread_mutex_lock( &m_mutex );
-		pthread_mutex_unlock( &m_mutex );
-		pthread_mutex_destroy( &m_mutex );
+        pthread_mutex_lock( &m_mutex );
+        pthread_mutex_unlock( &m_mutex );
+        pthread_mutex_destroy( &m_mutex );
 #endif
-		m_bCreated = false;
-	}
+        m_bCreated = false;
+    }
 }
 
 /*=====================================================================+\
@@ -157,23 +149,19 @@ CMutex::~CMutex
  * Lock - lock mutex
 
 \+---------------------------------------------------------------------*/
-DECL_SHLIB
-void	CMutex::Lock
-		(
-		void
-		)
+void
+CMutex::Lock( void )
 {
-	if ( m_bCreated )
-	{
+    if ( m_bCreated )
+    {
 #if defined( OS_MSWIN )
-		LOCAL_PRINT( "CMutex[%0X] Lock\n", m_mutex );
-		WaitForSingleObject( m_mutex, INFINITE );
+        LOCAL_PRINT( "CMutex[%0X] Lock\n", m_mutex );
+        WaitForSingleObject( m_mutex, INFINITE );
 #else
-		pthread_mutex_lock( &m_mutex );
+        pthread_mutex_lock( &m_mutex );
 #endif
-	}
+    }
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -181,25 +169,22 @@ void	CMutex::Lock
  * Unlock - release mutex lock
 
 \+---------------------------------------------------------------------*/
-DECL_SHLIB
-void	CMutex::Unlock
-		(
-		void
-		)
+void
+CMutex::Unlock( void )
 {
-	if ( m_bCreated )
-	{
+    if ( m_bCreated )
+    {
 #if defined( OS_MSWIN )
-		LOCAL_PRINT( "CMutex[%0X] Unlock\n", m_mutex );
-#	if defined( USE_EVENTS )
-		SetEvent( m_mutex );
-#	else
-		ReleaseMutex( m_mutex );
-#	endif
+        LOCAL_PRINT( "CMutex[%0X] Unlock\n", m_mutex );
+#    if defined( USE_EVENTS )
+        SetEvent( m_mutex );
+#    else
+        ReleaseMutex( m_mutex );
+#    endif
 #else
-		pthread_mutex_unlock( &m_mutex );
+        pthread_mutex_unlock( &m_mutex );
 #endif
-	}
+    }
 }
 
 /*=====================================================================+\
@@ -217,7 +202,7 @@ void	CMutex::Unlock
 \+=====================================================================*/
 
 
-}}
+}}  // namespace Yogi::Core
 
 
 /*---------------------------------------------------------------------+\
@@ -225,4 +210,3 @@ void	CMutex::Unlock
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

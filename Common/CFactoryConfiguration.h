@@ -36,8 +36,8 @@
 
 #include "CConfiguration.h"
 #include "CVariables.h"
-#include "TPointer.h"
 #include "TArray.h"
+#include "TPointer.h"
 
 #include "UDeclCommon.h"
 
@@ -54,86 +54,63 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef class CFactoryConfiguration*		CFactoryConfigurationPtr;
-typedef class CFactoryConfiguration&		CFactoryConfigurationRef;
-typedef const class CFactoryConfiguration&	ConstCFactoryConfigurationRef;
+typedef class CFactoryConfiguration*       CFactoryConfigurationPtr;
+typedef class CFactoryConfiguration&       CFactoryConfigurationRef;
+typedef const class CFactoryConfiguration& ConstCFactoryConfigurationRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CFactoryConfiguration : public VFactoryLite,
-							public virtual VVariable
+class COMMON_CLASS CFactoryConfiguration
+        : public VFactoryLite
+        , public virtual VVariable
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CFactoryConfiguration();
-	virtual	~CFactoryConfiguration();
+    CFactoryConfiguration();
+    virtual ~CFactoryConfiguration();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	virtual
-	VConfigurationPtr
-			Make
-			(
-			const char*			sName,
-			VConfigurationPtr	pConfig = 0
-			);
-
+    virtual VConfigurationPtr
+    Make( const char* sName, VConfigurationPtr pConfig = 0 );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	VConfigurationPtr
-			Configuration
-			(
-			VConfigurationPtr pConfig
-			);
+    VConfigurationPtr
+    Configuration( VConfigurationPtr pConfig );
 
-	bool	Item
-			(
-			VConfigurationPtr	pConfig,
-			XMLIteratorPtr		pIt
-			);
+    bool
+    Item( VConfigurationPtr pConfig, XMLIteratorPtr pIt );
 
-	bool	IncludeFile
-			(
-			VConfigurationPtr	pConfig,
-			XMLIteratorPtr		pIt
-			);
+    bool
+    IncludeFile( VConfigurationPtr pConfig, XMLIteratorPtr pIt );
 
 
+    //	protected data  -----------------------------------------------------
 
-//	protected data  -----------------------------------------------------
-
-	VConfigurationPtr	m_pConfig;
-
+    VConfigurationPtr m_pConfig;
 
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
+    //============================== Overrides ==============================
 public:
-
-	virtual
-	Yogi::Core::CCharString
-			ResolveVariable
-			(
-			Yogi::Core::ConstCCharDescriptorRef	r
-			);
-
-
+    virtual Yogi::Core::CCharString
+    ResolveVariable( Yogi::Core::ConstCCharDescriptorRef r );
 };
 
 /*---------------------------------------------------------------------+\
@@ -151,7 +128,7 @@ public:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CFactoryConfiguration */

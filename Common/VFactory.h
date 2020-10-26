@@ -40,8 +40,8 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "XMLLiteImpl.h"
 #include "XMLLiteExtImpl.h"
+#include "XMLLiteImpl.h"
 
 #include "TPointer.h"
 #include "UFloat.h"
@@ -59,18 +59,18 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class VFactory*			VFactoryPtr;
-typedef class VFactory&			VFactoryRef;
-typedef const class VFactory&	ConstVFactoryRef;
+typedef class VFactory*       VFactoryPtr;
+typedef class VFactory&       VFactoryRef;
+typedef const class VFactory& ConstVFactoryRef;
 
 
-typedef	Yogi::XMLLite::TTokenizerExt<char>	XMLParser;
-typedef XMLParser*							XMLParserPtr;
-typedef	Yogi::XMLLite::TTokenizerExt<char>	XMLTokenizer;
-typedef	XMLTokenizer*						XMLTokenizerPtr;
+typedef Yogi::XMLLite::TTokenizerExt<char> XMLParser;
+typedef XMLParser*                         XMLParserPtr;
+typedef Yogi::XMLLite::TTokenizerExt<char> XMLTokenizer;
+typedef XMLTokenizer*                      XMLTokenizerPtr;
 
-typedef Yogi::XMLLite::TIteratorExt<char,XMLTokenizer>	XMLIterator;
-typedef	XMLIterator*						XMLIteratorPtr;
+typedef Yogi::XMLLite::TIteratorExt<char, XMLTokenizer> XMLIterator;
+typedef XMLIterator*                                    XMLIteratorPtr;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -78,51 +78,53 @@ typedef	XMLIterator*						XMLIteratorPtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VFactory : public XMLParser
+class COMMON_CLASS VFactory : public XMLParser
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					VFactory();
-	virtual			~VFactory();
+    VFactory();
+    virtual ~VFactory();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	//example derived function
-	/*
+    //example derived function
+    /*
 	CGaugePtr	Make( char* sName );
 	*/
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-	typedef Yogi::XMLLite::VTokenizer<char>	XTokenizer;
+    typedef Yogi::XMLLite::VTokenizer<char> XTokenizer;
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
 
-	// special function to eat nodes that we are not processing
-	bool		EatNode( void );
+    // special function to eat nodes that we are not processing
+    bool
+    EatNode( void );
 
-	// make the xml parser/tokenizer
-	bool		MakeXML( void );
+    // make the xml parser/tokenizer
+    bool
+    MakeXML( void );
 
-	const char*	ApplicationFolder( void );
+    const char*
+    ApplicationFolder( void );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	//XMLTokenizerPtr	m_pXML;
+    //XMLTokenizerPtr	m_pXML;
 
-	static char	g_sApplicationFolder[];
+    static char g_sApplicationFolder[];
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -141,8 +143,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_VFactory */

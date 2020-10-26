@@ -42,63 +42,54 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class VPluginWithAggregate*			VPluginWithAggregatePtr;
-typedef class VPluginWithAggregate&			VPluginWithAggregateRef;
-typedef const class VPluginWithAggregate&	ConstVPluginWithAggregateRef;
+typedef class VPluginWithAggregate*       VPluginWithAggregatePtr;
+typedef class VPluginWithAggregate&       VPluginWithAggregateRef;
+typedef const class VPluginWithAggregate& ConstVPluginWithAggregateRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VPluginWithAggregate : public VPlugin
+class COMMON_CLASS VPluginWithAggregate : public VPlugin
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( VPluginWithAggregate );
+    COM_LIFECYCLE( VPluginWithAggregate );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	ISupportsPtr	m_pAggregate;
+    ISupportsPtr m_pAggregate;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
+    //============================== Overrides ==============================
 
 protected:
-	//	VSupports
+    //	VSupports
 
-	virtual
-	void*	FindExternalInterface
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult
-			);
+    virtual void*
+    FindExternalInterface( ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult );
 
 public:
-	//	IPluginLoadConfiguration
+    //	IPluginLoadConfiguration
 
-	virtual
-	bool	Load
-			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
-			);
-
+    virtual bool
+    Load( VPluginConfigurationPtr pConfig, VPluginLibraryPtr pLib );
 };
 
 /*---------------------------------------------------------------------+\
@@ -117,8 +108,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_VPluginWithAggregate */

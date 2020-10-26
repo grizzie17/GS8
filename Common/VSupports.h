@@ -37,27 +37,26 @@
 //!
 //!	Use this macro to create components and return the controlling ISupports
 //!
-#define NEW_OBJECT( classname )	\
-		ROOT_ISUPPORTS( new classname() )
+#define NEW_OBJECT( classname ) ROOT_ISUPPORTS( new classname() )
 
 
 //!	INTERFACE_THIS
 //!
 //!	Helper macro for the FindInternalInterface implementation
 //!
-#define	INTERFACE_THIS( ifptr )	\
-	BEGIN_IGNORE_WARNING(4946) \
-	reinterpret_cast< Yogi::Common::ISupportsPtr>( static_cast<ifptr>( this ) ) \
-	END_IGNORE_WARNING
+#define INTERFACE_THIS( ifptr )                                                \
+    BEGIN_IGNORE_WARNING( 4946 )                                               \
+    reinterpret_cast<Yogi::Common::ISupportsPtr>( static_cast<ifptr>( this ) ) \
+            END_IGNORE_WARNING
 
 
-#define	ROOT_ISUPPORTS( pThis )	\
-		((Yogi::Common::ISupportsPtr)(Yogi::Common::ISupportsNonDelegatingPtr)(pThis))
+#define ROOT_ISUPPORTS( pThis )       \
+    ( ( Yogi::Common::ISupportsPtr )( \
+            Yogi::Common::ISupportsNonDelegatingPtr )( pThis ) )
 
 
-#define	QI_THIS_( ifname )	static_cast<ifname*>(ThisQueryInterface( IXID_##ifname ))
-
-
+#define QI_THIS_( ifname ) \
+    static_cast<ifname*>( ThisQueryInterface( IXID_##ifname ) )
 
 
 //!	COM_LIFECYCLE
@@ -66,41 +65,38 @@
 //!
 //!	Notice the copy constructor is disabled
 //!
-#define	COM_LIFECYCLE( sClassName )	\
-public:								\
-			sClassName();			\
-			sClassName( Yogi::Common::ISupportsPtr pOwner );	\
-			sClassName( const char* sName, Yogi::Common::ISupportsPtr pOwner );	\
-protected:							\
-	virtual	~sClassName();			\
-private:							\
-			sClassName( const sClassName& r )
-
+#define COM_LIFECYCLE( sClassName )                                     \
+public:                                                                 \
+    sClassName();                                                       \
+    sClassName( Yogi::Common::ISupportsPtr pOwner );                    \
+    sClassName( const char* sName, Yogi::Common::ISupportsPtr pOwner ); \
+                                                                        \
+protected:                                                              \
+    virtual ~sClassName();                                              \
+                                                                        \
+private:                                                                \
+    sClassName( const sClassName& r )
 
 
 //!	DECLARE_ISUPORTS
 //!
 //!	Helper macro for declaring component class' implments section
 //!
-#define	DECLARE_ISUPPORTS			\
-public:								\
-virtual								\
-void*	QueryInterface( Yogi::Common::ConstIXIDRef rIID,  Yogi::Core::NResultPtr pResult = 0 )	\
-{									\
-	return GetOwner()->QueryInterface( rIID, pResult );	\
-};									\
-virtual								\
-Yogi::Common::NRefCount	\
-		AddRef( void )			\
-{									\
-	return GetOwner()->AddRef();	\
-};									\
-virtual								\
-Yogi::Common::NRefCount	\
-		Release( void )			\
-{									\
-	return GetOwner()->Release();	\
-}
+#define DECLARE_ISUPPORTS                                                  \
+public:                                                                    \
+    virtual void* QueryInterface( Yogi::Common::ConstIXIDRef rIID,         \
+            Yogi::Core::NResultPtr                           pResult = 0 ) \
+    {                                                                      \
+        return GetOwner()->QueryInterface( rIID, pResult );                \
+    };                                                                     \
+    virtual Yogi::Common::NRefCount AddRef( void )                         \
+    {                                                                      \
+        return GetOwner()->AddRef();                                       \
+    };                                                                     \
+    virtual Yogi::Common::NRefCount Release( void )                        \
+    {                                                                      \
+        return GetOwner()->Release();                                      \
+    }
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -109,12 +105,12 @@ Yogi::Common::NRefCount	\
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Common {
 
-typedef class VSupports*		VSupportsPtr;
-typedef class VSupports&		VSupportsRef;
-typedef const class VSupports&	ConstVSupportsRef;
+typedef class VSupports*       VSupportsPtr;
+typedef class VSupports&       VSupportsRef;
+typedef const class VSupports& ConstVSupportsRef;
 
 // notice that we don't support an IXID for the Non-Delegating i/f
-typedef interface_ ISupportsNonDelegating*	ISupportsNonDelegatingPtr;
+typedef interface_ ISupportsNonDelegating* ISupportsNonDelegatingPtr;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Interface Definitions												|
@@ -127,27 +123,13 @@ typedef interface_ ISupportsNonDelegating*	ISupportsNonDelegatingPtr;
 //	the VSupports implementation.
 interface_ ISupportsNonDelegating
 {
+    virtual void* InternalQueryInterface(
+            ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult = 0 )
+            = 0;
 
-	virtual
-	void*	InternalQueryInterface
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult = 0
-			) = 0;
+    virtual NRefCount InternalAddRef( void ) = 0;
 
-	virtual
-	NRefCount
-			InternalAddRef
-			(
-			void
-			) = 0;
-
-	virtual
-	NRefCount
-			InternalRelease
-			(
-			void
-			) = 0;
+    virtual NRefCount InternalRelease( void ) = 0;
 };
 
 /*---------------------------------------------------------------------+\
@@ -156,147 +138,123 @@ interface_ ISupportsNonDelegating
 |																		|
 \+---------------------------------------------------------------------*/
 
-class VBaseComObject
+class COMMON_CLASS VBaseComObject
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-	VBaseComObject( const char* sName );
+    VBaseComObject( const char* sName );
+
 private:
-	// disable the copy constructor
-	VBaseComObject( const VBaseComObject& r );
-	//disable assignment operator
-	void	operator = ( const VBaseComObject& r );
+    // disable the copy constructor
+    VBaseComObject( const VBaseComObject& r );
+    //disable assignment operator
+    void
+    operator=( const VBaseComObject& r );
+
 protected:
-	virtual		~VBaseComObject();
+    virtual ~VBaseComObject();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	static long		ObjectsActive( void ) { return g_nObjectCount; };
+    static long
+    ObjectsActive( void )
+    {
+        return g_nObjectCount;
+    };
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	static long		g_nObjectCount;
+    static long g_nObjectCount;
 
 #if defined( _DEBUG )
-	unsigned long	m_nCookie;
+    unsigned long m_nCookie;
 #endif
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 //!	Base class used for all COM implementations
-class VSupports : public ISupportsNonDelegating
+class COMMON_CLASS VSupports : public ISupportsNonDelegating
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( VSupports );
+    COM_LIFECYCLE( VSupports );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupportsNonDelegating
-	virtual
-	void*	InternalQueryInterface
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult = 0
-			);
+    //	ISupportsNonDelegating
+    virtual void*
+    InternalQueryInterface(
+            ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult = 0 );
 
-	virtual
-	NRefCount
-			InternalAddRef
-			(
-			void
-			);
+    virtual NRefCount
+    InternalAddRef( void );
 
-	virtual
-	NRefCount
-			InternalRelease
-			(
-			void
-			);
+    virtual NRefCount
+    InternalRelease( void );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	static long		ObjectsActive( void ) { return g_nObjectCount; };
+    static long
+    ObjectsActive( void )
+    {
+        return g_nObjectCount;
+    };
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	void*	ThisQueryInterface
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult = 0
-			);
+    void*
+    ThisQueryInterface( ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult = 0 );
 
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 
-	virtual
-	void*	FindExternalInterface
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult
-			);
+    virtual void*
+    FindExternalInterface( ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult );
 
-	virtual
-	void	FinalRelease
-			(
-			void
-			);
+    virtual void
+    FinalRelease( void );
 
 
-	ISupportsPtr
-			GetOwner
-			(
-			void
-			) const;
+    ISupportsPtr
+    GetOwner( void ) const;
 
 
-	ISupportsPtr
-			GetRoot
-			(
-			void
-			);
+    ISupportsPtr
+    GetRoot( void );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	volatile
-	NRefCount		m_nRefCount;
-	ISupportsPtr	m_pOwner;
+    volatile NRefCount m_nRefCount;
+    ISupportsPtr       m_pOwner;
 
-	static long		g_nObjectCount;
+    static long g_nObjectCount;
 
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -314,29 +272,20 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-inline
-ISupportsPtr
-		VSupports::GetOwner
-		(
-		void
-		) const
+inline ISupportsPtr
+VSupports::GetOwner( void ) const
 {
-	return m_pOwner;
+    return m_pOwner;
 }
 
 
-inline
-ISupportsPtr
-		VSupports::GetRoot
-		(
-		void
-		)
+inline ISupportsPtr
+VSupports::GetRoot( void )
 {
-	return ROOT_ISUPPORTS(this);
+    return ROOT_ISUPPORTS( this );
 }
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_VSupports */

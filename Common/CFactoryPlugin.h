@@ -25,12 +25,12 @@
 #include "VFactoryLite.h"
 
 #include "CPluginConfiguration.h"
-#include "VPluginLibrary.h"
-#include "VPluginFilter.h"
-#include "TPointer.h"
-#include "TArray.h"
 #include "ISupports.h"
+#include "TArray.h"
+#include "TPointer.h"
 #include "UDeclCommon.h"
+#include "VPluginFilter.h"
+#include "VPluginLibrary.h"
 
 namespace Yogi { namespace Common {
 
@@ -45,102 +45,70 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef	Yogi::Core::TArray<ISupportsPtr>	ISupportsArray;
+typedef Yogi::Core::TArray<ISupportsPtr> ISupportsArray;
 
 
-typedef class CFactoryPlugin*		CFactoryPluginPtr;
-typedef class CFactoryPlugin&		CFactoryPluginRef;
-typedef const class CFactoryPlugin&	ConstCFactoryPluginRef;
+typedef class CFactoryPlugin*       CFactoryPluginPtr;
+typedef class CFactoryPlugin&       CFactoryPluginRef;
+typedef const class CFactoryPlugin& ConstCFactoryPluginRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CFactoryPlugin : public VFactoryLite
+class COMMON_CLASS CFactoryPlugin : public VFactoryLite
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					CFactoryPlugin();
-	virtual			~CFactoryPlugin();
+    CFactoryPlugin();
+    virtual ~CFactoryPlugin();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	virtual
-	ISupportsArray*	Make
-					(
-					const char*			sNameXML,
-					VPluginLibraryPtr	pLib,
-					VPluginFilterPtr	pFilter = 0
-					);
+    virtual ISupportsArray*
+    Make( const char* sNameXML, VPluginLibraryPtr pLib,
+            VPluginFilterPtr pFilter = 0 );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	virtual
-	CPluginConfigurationPtr
-					MakeConfiguration
-					(
-					const char*	sName,
-					CPluginConfigurationPtr	pConfig = 0
-					);
+    virtual CPluginConfigurationPtr
+    MakeConfiguration( const char* sName, CPluginConfigurationPtr pConfig = 0 );
 
-	CPluginConfigurationPtr
-					Plugins
-					(
-					CPluginConfigurationPtr pConfig,
-					XMLIteratorPtr		pIt
-					);
-	bool			PluginInclude
-					(
-					CPluginConfigurationPtr	pConfig,
-					XMLIteratorPtr		pIt
-					);
+    CPluginConfigurationPtr
+    Plugins( CPluginConfigurationPtr pConfig, XMLIteratorPtr pIt );
+    bool
+    PluginInclude( CPluginConfigurationPtr pConfig, XMLIteratorPtr pIt );
 
-	bool			Plugin
-					(
-					CPluginConfigurationPtr	pConfig,
-					XMLIteratorPtr		pIt
-					);
-	bool			Parameters
-					(
-					CPluginConfigurationPtr	pConfig,
-					XMLIteratorPtr		pIt
-					);
+    bool
+    Plugin( CPluginConfigurationPtr pConfig, XMLIteratorPtr pIt );
+    bool
+    Parameters( CPluginConfigurationPtr pConfig, XMLIteratorPtr pIt );
 
-	bool			Param
-					(
-					CPluginConfigurationPtr	pConfig,
-					XMLIteratorPtr		pIt
-					);
+    bool
+    Param( CPluginConfigurationPtr pConfig, XMLIteratorPtr pIt );
 
-	bool			IncludeFile
-					(
-					CPluginConfigurationPtr	pConfig,
-					XMLIteratorPtr		pIt
-					);
+    bool
+    IncludeFile( CPluginConfigurationPtr pConfig, XMLIteratorPtr pIt );
 
 
-
-//	protected data  -----------------------------------------------------
-
+    //	protected data  -----------------------------------------------------
 
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-
-
+    //============================== Overrides ==============================
 };
 
 /*---------------------------------------------------------------------+\
@@ -158,7 +126,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CFactoryPlugin */

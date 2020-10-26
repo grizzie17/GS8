@@ -27,8 +27,8 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "VPlugin.h"
 #include "TArray.h"
+#include "VPlugin.h"
 
 #include "UDeclCommon.h"
 
@@ -43,66 +43,57 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class VPluginWithAggregateList*			VPluginWithAggregateListPtr;
-typedef class VPluginWithAggregateList&			VPluginWithAggregateListRef;
-typedef const class VPluginWithAggregateList&	ConstVPluginWithAggregateListRef;
+typedef class VPluginWithAggregateList*       VPluginWithAggregateListPtr;
+typedef class VPluginWithAggregateList&       VPluginWithAggregateListRef;
+typedef const class VPluginWithAggregateList& ConstVPluginWithAggregateListRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VPluginWithAggregateList : public VPlugin
+class COMMON_CLASS VPluginWithAggregateList : public VPlugin
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( VPluginWithAggregateList );
+    COM_LIFECYCLE( VPluginWithAggregateList );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	Yogi::Core::TArray<ISupportsPtr>	m_aAggregateList;
+    Yogi::Core::TArray<ISupportsPtr> m_aAggregateList;
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef VPlugin		inherited;
+    typedef VPlugin inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
+    //============================== Overrides ==============================
 protected:
-	//	VSupports
+    //	VSupports
 
-	virtual
-	void*	FindExternalInterface
-			(
-			ConstIXIDRef			rIID,
-			Yogi::Core::NResultPtr	pResult
-			);
+    virtual void*
+    FindExternalInterface( ConstIXIDRef rIID, Yogi::Core::NResultPtr pResult );
 
 public:
-	//	IPluginLoadConfiguration
+    //	IPluginLoadConfiguration
 
-	virtual
-	bool	Load
-			(
-			VPluginConfigurationPtr	pConfig,
-			VPluginLibraryPtr		pLib
-			);
-
+    virtual bool
+    Load( VPluginConfigurationPtr pConfig, VPluginLibraryPtr pLib );
 };
 
 /*---------------------------------------------------------------------+\
@@ -121,8 +112,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_VPluginWithAggregateList */

@@ -25,7 +25,7 @@
 
 #include "UPlatform.h"
 #if ! defined( OS_MSWIN )
-#include <pthread.h>
+#    include <pthread.h>
 #endif
 #include "UDeclPlatform.h"
 
@@ -40,64 +40,64 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CMutex*		CMutexPtr;
-typedef class CMutex&		CMutexRef;
-typedef const class CMutex&	ConstCMutexRef;
+typedef class CMutex*       CMutexPtr;
+typedef class CMutex&       CMutexRef;
+typedef const class CMutex& ConstCMutexRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CMutex
+class CORE_CLASS CMutex
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CMutex();
-			~CMutex();
+    CMutex();
+    ~CMutex();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	//!	Lock code section
-	//!
-	//!	Bounded code will only execute a single thread
-	//!
-	void	Lock( void );
+    //!	Lock code section
+    //!
+    //!	Bounded code will only execute a single thread
+    //!
+    void
+    Lock( void );
 
-	//!	Unlock the previously locked mutex
-	//!
-	void	Unlock( void );
+    //!	Unlock the previously locked mutex
+    //!
+    void
+    Unlock( void );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-#if defined(OS_MSWIN)
-	typedef	HANDLE			XMUTEX;
+#if defined( OS_MSWIN )
+    typedef HANDLE XMUTEX;
 #else
-	typedef pthread_mutex_t	XMUTEX;
+    typedef pthread_mutex_t XMUTEX;
 #endif
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	XMUTEX		m_mutex;
-	bool		m_bCreated;
+    XMUTEX m_mutex;
+    bool   m_bCreated;
 #if defined( OS_MSWIN )
-	char		m_sName[32];
+    char m_sName[32];
 #endif
 
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
+    //	private data  -------------------------------------------------------
 };
-
 
 
 /**
@@ -121,26 +121,23 @@ private:
 
  *	@endcode
  */
-class CMutexLocker
+class CORE_CLASS CMutexLocker
 {
 public:
-	inline
-	CMutexLocker( CMutexPtr p )
-			: m_pMutex( p )
-	{
-		m_pMutex->Lock();
-	}
+    inline CMutexLocker( CMutexPtr p )
+            : m_pMutex( p )
+    {
+        m_pMutex->Lock();
+    }
 
-	inline
-	~CMutexLocker()
-	{
-		if ( m_pMutex )
-			m_pMutex->Unlock();
-	}
+    inline ~CMutexLocker()
+    {
+        if ( m_pMutex )
+            m_pMutex->Unlock();
+    }
 
 protected:
-	CMutexPtr	m_pMutex;
-
+    CMutexPtr m_pMutex;
 };
 
 /*---------------------------------------------------------------------+\
@@ -159,8 +156,7 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CMutex */

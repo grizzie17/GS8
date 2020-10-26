@@ -899,7 +899,7 @@ bool	VXDraw::ArcStrokeAsPolyline
 		num_segments = nSeg;
 
 		GFLOAT	theta = arc_angle / float(num_segments - 1);//theta is now calculated from the arc angle instead, the - 1 bit comes from the fact that the arc is open
-		GFLOAT	tangetial_factor = tanf(theta);
+		GFLOAT	tangential_factor = tanf(theta);
 		GFLOAT	radial_factor = cosf(theta);
 
 		GFLOAT x = r * cosf(start_angle);	//we now start at the start angle
@@ -913,8 +913,8 @@ bool	VXDraw::ArcStrokeAsPolyline
 			tx = -y;
 			ty = x;
 
-			x += tx * tangetial_factor;
-			y += ty * tangetial_factor;
+			x += tx * tangential_factor;
+			y += ty * tangential_factor;
 
 			x *= radial_factor;
 			y *= radial_factor;
@@ -1125,7 +1125,7 @@ bool	VXDraw::PieStrokeAsPolygon
 		num_segments = nSeg;
 
 		GFLOAT	theta = arc_angle / float(num_segments - 1);//theta is now calculated from the arc angle instead, the - 1 bit comes from the fact that the arc is open
-		GFLOAT	tangetial_factor = tanf(theta);
+		GFLOAT	tangential_factor = tanf(theta);
 		GFLOAT	radial_factor = cosf(theta);
 
 		GFLOAT x = r * cosf(start_angle);	//we now start at the start angle
@@ -1140,8 +1140,8 @@ bool	VXDraw::PieStrokeAsPolygon
 			tx = -y;
 			ty = x;
 
-			x += tx * tangetial_factor;
-			y += ty * tangetial_factor;
+			x += tx * tangential_factor;
+			y += ty * tangential_factor;
 
 			x *= radial_factor;
 			y *= radial_factor;

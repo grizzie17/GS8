@@ -31,10 +31,10 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include <stdio.h>
-#include <errno.h>
-#include "UTypes.h"
 #include "UDeclPlatform.h"
+#include "UTypes.h"
+#include <errno.h>
+#include <stdio.h>
 /*---------------------------------------------------------------------+\
 |																		|
 |	Defines																|
@@ -62,51 +62,21 @@
 ||																		|
 \+=====================================================================*/
 
-errno_t	memcpy_sx
-		(
-		void*		t,
-		size_t		tc,
-		const void*	s,
-		size_t		sc
-		);
+CORE_API( errno_t ) memcpy_sx( void* t, size_t tc, const void* s, size_t sc );
 
-errno_t	strcpy_sx
-		(
-		char*		t,
-		size_t		tc,
-		const char*	s
-		);
+CORE_API( errno_t ) strcpy_sx( char* t, size_t tc, const char* s );
 
-errno_t	strncpy_sx
-		(
-		char*		t,
-		size_t		tc,
-		const char*	s,
-		size_t		sc
-		);
+CORE_API( errno_t ) strncpy_sx( char* t, size_t tc, const char* s, size_t sc );
 
-errno_t	strcat_sx
-		(
-		char*		t,
-		size_t		tc,
-		const char*	s
-		);
+CORE_API( errno_t ) strcat_sx( char* t, size_t tc, const char* s );
 
-errno_t	strncat_sx
-		(
-		char*		t,
-		size_t		tc,
-		const char*	s,
-		size_t		sc
-		);
+CORE_API( errno_t ) strncat_sx( char* t, size_t tc, const char* s, size_t sc );
 
 /*=====================================================================+\
 ||																		|
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-
-
 
 
 #endif /* _H_string_sx */

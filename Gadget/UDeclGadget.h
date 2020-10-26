@@ -3,17 +3,17 @@
 
 #include "UDeclSpec.h"
 
-#undef DECL_API
-#undef DECL_CLASS
-#undef DECL_SHLIB
+
+#undef GADGET_API
+#undef GADGET_CLASS
+
 #if defined( SHLIB_GADGET )
-#	define DECL_API(t)	t DECLSPECEXPORT
-#	define DECL_CLASS	DECLSPECEXPORT
-#	define DECL_SHLIB	DECLSPECEXPORT
+#    define GADGET_DLLEXPORT DLLEXPORT
 #else
-#	define DECL_API(t)	t DECLSPECIMPORT
-#	define DECL_CLASS	DECLSPECIMPORT
-#	define DECL_SHLIB	DECLSPECIMPORT
+#    define GADGET_DLLEXPORT DLLIMPORT
 #endif
 
-#endif // UDeclGadget_H
+#define GADGET_CLASS    GADGET_DLLEXPORT
+#define GADGET_API( t ) GADGET_DLLEXPORT t CDECL
+
+#endif  // UDeclGadget_H

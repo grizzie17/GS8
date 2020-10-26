@@ -27,9 +27,9 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "VSupports.h"
 #include "IXOParse.h"
 #include "UDeclCommon.h"
+#include "VSupports.h"
 
 namespace Yogi { namespace Common {
 /*---------------------------------------------------------------------+\
@@ -42,351 +42,305 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class XOParse*			XOParsePtr;
-typedef class XOParse&			XOParseRef;
-typedef const class XOParse&	ConstXOParseRef;
+typedef class XOParse*       XOParsePtr;
+typedef class XOParse&       XOParseRef;
+typedef const class XOParse& ConstXOParseRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS XOParse : public VSupports,
-					implements_ IXOParse
+class COMMON_CLASS XOParse
+        : public VSupports
+        , implements_ IXOParse
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOParse );
+    COM_LIFECYCLE( XOParse );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 
-
-class DECL_CLASS XOParseType : public VSupports,
-					implements_ IXOParse
+class DECL_CLASS XOParseType
+        : public VSupports
+        , implements_ IXOParse
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOParseType );
+    COM_LIFECYCLE( XOParseType );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 
-
-
-class DECL_CLASS XOParseAttribute : public VSupports,
-					implements_ IXOParse
+class DECL_CLASS XOParseAttribute
+        : public VSupports
+        , implements_ IXOParse
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOParseAttribute );
+    COM_LIFECYCLE( XOParseAttribute );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 
-
-class DECL_CLASS XOParseRoot : public VSupports,
-					implements_ IXOParse
+class DECL_CLASS XOParseRoot
+        : public VSupports
+        , implements_ IXOParse
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOParseRoot );
+    COM_LIFECYCLE( XOParseRoot );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
-class DECL_CLASS XOParseSet : public VSupports,
-					implements_ IXOParse
+class DECL_CLASS XOParseSet
+        : public VSupports
+        , implements_ IXOParse
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOParseSet );
+    COM_LIFECYCLE( XOParseSet );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 
-class DECL_CLASS XOParseProperty : public VSupports,
-					implements_ IXOParse
+class DECL_CLASS XOParseProperty
+        : public VSupports
+        , implements_ IXOParse
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOParseProperty );
+    COM_LIFECYCLE( XOParseProperty );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 
-class DECL_CLASS XOParseNProperty : public VSupports,
-					implements_ IXOParse
+class DECL_CLASS XOParseNProperty
+        : public VSupports
+        , implements_ IXOParse
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( XOParseNProperty );
+    COM_LIFECYCLE( XOParseNProperty );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IInterface
-	virtual
-	NResult	SomeFunction
-			(
-			SomeType	arg1,	// OUT:	description of arg1
-			AnotherType	arg2	// IN:	description of arg2
-			);
+    //	IInterface
+    virtual NResult
+    SomeFunction( SomeType arg1,  // OUT:	description of arg1
+            AnotherType    arg2   // IN:	description of arg2
+    );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 };
 
 /*---------------------------------------------------------------------+\
@@ -404,7 +358,7 @@ protected:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_XOParse */

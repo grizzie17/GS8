@@ -29,8 +29,8 @@
 \+---------------------------------------------------------------------*/
 //#include "ISupports.h"
 
-#include "CCharString.h"
 #include "CCharDescriptor.h"
+#include "CCharString.h"
 
 #include "UDeclCommon.h"
 
@@ -45,12 +45,12 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CVariables*		CVariablesPtr;
-typedef class CVariables&		CVariablesRef;
-typedef const class CVariables&	ConstCVariablesRef;
+typedef class CVariables*       CVariablesPtr;
+typedef class CVariables&       CVariablesRef;
+typedef const class CVariables& ConstCVariablesRef;
 
 
-typedef class VVariable*		VVariablePtr;
+typedef class VVariable* VVariablePtr;
 
 
 /*---------------------------------------------------------------------+\
@@ -59,16 +59,12 @@ typedef class VVariable*		VVariablePtr;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VVariable
+class COMMON_CLASS VVariable
 {
 public:
-
-	virtual
-	Yogi::Core::CCharString
-			ResolveVariable
-			(
-			Yogi::Core::ConstCCharDescriptorRef	r
-			) = 0;
+    virtual Yogi::Core::CCharString
+    ResolveVariable( Yogi::Core::ConstCCharDescriptorRef r )
+            = 0;
 };
 
 /*---------------------------------------------------------------------+\
@@ -77,59 +73,45 @@ public:
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CVariables
+class COMMON_CLASS CVariables
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CVariables();
-			CVariables( VVariablePtr pVariable );
-	virtual	~CVariables();
+    CVariables();
+    CVariables( VVariablePtr pVariable );
+    virtual ~CVariables();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	Yogi::Core::CCharString
-			Substitute
-			(
-			Yogi::Core::ConstCCharDescriptorRef	rSource
-			);
+    Yogi::Core::CCharString
+    Substitute( Yogi::Core::ConstCCharDescriptorRef rSource );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	long	SpanConstant
-			(
-			const char*	pStart,
-			const char*	pEnd
-			);
+    long
+    SpanConstant( const char* pStart, const char* pEnd );
 
-	long	SpanVariable
-			(
-			const char*	pStart,
-			const char*	pEnd
-			);
+    long
+    SpanVariable( const char* pStart, const char* pEnd );
 
-	Yogi::Core::CCharString
-			ProcessVariable
-			(
-			Yogi::Core::ConstCCharDescriptorRef	rVar
-			);
+    Yogi::Core::CCharString
+    ProcessVariable( Yogi::Core::ConstCCharDescriptorRef rVar );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	VVariablePtr	m_pVariable;
+    VVariablePtr m_pVariable;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -148,8 +130,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CVariables */

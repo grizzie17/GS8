@@ -191,7 +191,7 @@
 #if defined( winNT )  || defined( WINNT )			\
 		||	defined( _WIN32 )  ||  defined( WIN32 )	\
 		||	defined( _WIN64 )  ||  defined( WIN64 )	\
-		||	defined( _WIN32_WCE )
+		||	defined( _WIN32_WCE )  ||  defined( _MSC_VER )
 
 
 #	ifdef		msdos	/* we don't do no dos */

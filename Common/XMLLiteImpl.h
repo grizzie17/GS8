@@ -79,12 +79,12 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include <stdio.h>
 #include <ctype.h>
 #include <math.h>
+#include <stdio.h>
 
-#include "XMLLite.h"
 #include "TCharDescriptor.h"
+#include "XMLLite.h"
 
 #include "LogFile.h"
 #include "UPlatform.h"
@@ -114,272 +114,325 @@ namespace Yogi { namespace XMLLite {
 |	template TTokenizer													|
 \+---------------------------------------------------------------------*/
 
-template < class T >
-class TTokenizer : public VTokenizer<T>
+template <class T>
+class COMMON_CLASS TTokenizer : public VTokenizer<T>
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					TTokenizer();
-	virtual			~TTokenizer();
+    TTokenizer();
+    virtual ~TTokenizer();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-	// we create this typedef to get around a limitation on g++
-	typedef Yogi::Core::TCharDescriptor<T>  TCD;
+    // we create this typedef to get around a limitation on g++
+    typedef Yogi::Core::TCharDescriptor<T> TCD;
 
-	typedef struct AttributeInfo
-	{
-		Yogi::Core::TCharDescriptor<T>	tName;
-		Yogi::Core::TCharDescriptor<T>	tValue;
-	} AttributeInfo;
+    typedef struct AttributeInfo
+    {
+        Yogi::Core::TCharDescriptor<T> tName;
+        Yogi::Core::TCharDescriptor<T> tValue;
+    } AttributeInfo;
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	void				IdentifyTargetFormat( void );
-	void				Reset( void );
-	void				PushNode( Yogi::Core::TCharDescriptor<T>& r );
-	Yogi::Core::TCharDescriptor<T>	PopNode( void );
-
-
-	bool				ReadFromCallBack( void );
-
-	bool				IsBlank( T c );
-	long				SpanByteOrderMarks( T* s, T* sEnd = 0 );
-	long				SpanBlanks( const T* s, const T* sEnd = 0 );
-	long				SpanCharEntity( T* s, T* sEnd = 0, T* nChar = 0 );
-	long				SpanName( T* s, T* sEnd = 0 );
-	long				SpanEqual( T* s, T* sEnd = 0 );
-	long				SpanQuote( T* s, T* sEnd = 0 );
-	long				SpanNumber( const T* s, const T* sEnd = 0, long* pNumber = 0 );
-	long				SpanFloat( const T* s, const T* sEnd = 0, GFLOAT* pNumber = 0 );
-
-	T					SpecialCharacters( const T* s, long& n );
-	long				NumberFromHex( const T* s, size_t n );
-	long				NumberFromDec( const T* s, size_t n );
-	GFLOAT				NumberFromFlt( const T* s, size_t n );
-
-	long				ParseAttributes( T* s, T* sEnd = 0 );
-	long				ParseOneAttribute( T* s );
-	Yogi::Core::TCharDescriptor<T>	ParseAttributeValue( T* s, size_t n );
-
-	bool				ParseNode( void );
-
-	bool				ParseHeader( void );
-	bool				ParseElement( void );
-	bool				ParseEndElement( void );
-	bool				ParseElementValue( const Yogi::Core::TCharDescriptor<T>& rName );
-	bool				ParseElementValueEnd( const Yogi::Core::TCharDescriptor<T>& rName );
-	bool				ParseCData( void );
-	bool				ParseText( void );
-	bool				ParseEntity( void );
-	bool				ParseProcessingInstruction( void );
-	bool				ParseComment( void );
-	bool				ParseDoctype( void );
-	bool				ParseNotation( void );
+    void
+    IdentifyTargetFormat( void );
+    void
+    Reset( void );
+    void
+    PushNode( Yogi::Core::TCharDescriptor<T>& r );
+    Yogi::Core::TCharDescriptor<T>
+    PopNode( void );
 
 
-//	protected data  -----------------------------------------------------
+    bool
+    ReadFromCallBack( void );
 
-	bool							m_bHeaderRequired;	// allow <?xml?> to be optional
-	XMLLite::VReadCallBack*			m_pReadCallBack;
-	Yogi::Core::TArray<T>			m_sStream;
-	Yogi::Core::TArray<char>		m_sStreamName;
-	Yogi::Core::TCharDescriptor<T>	m_tFullStream;
+    bool
+    IsBlank( T c );
+    long
+    SpanByteOrderMarks( T* s, T* sEnd = 0 );
+    long
+    SpanBlanks( const T* s, const T* sEnd = 0 );
+    long
+    SpanCharEntity( T* s, T* sEnd = 0, T* nChar = 0 );
+    long
+    SpanName( T* s, T* sEnd = 0 );
+    long
+    SpanEqual( T* s, T* sEnd = 0 );
+    long
+    SpanQuote( T* s, T* sEnd = 0 );
+    long
+    SpanNumber( const T* s, const T* sEnd = 0, long* pNumber = 0 );
+    long
+    SpanFloat( const T* s, const T* sEnd = 0, GFLOAT* pNumber = 0 );
 
-	Yogi::Core::TArray<TCD>			m_aNodeStack;
-	int								m_nNodeStack;	// size of stack
-	Yogi::Core::TArray<AttributeInfo>	m_aAttributes;
+    T
+    SpecialCharacters( const T* s, long& n );
+    long
+    NumberFromHex( const T* s, size_t n );
+    long
+    NumberFromDec( const T* s, size_t n );
+    GFLOAT
+    NumberFromFlt( const T* s, size_t n );
 
-	ENODETYPE						m_eNodeType;
-	Yogi::Core::TCharDescriptor<T>	m_tNodeName;	// name of current element
-	Yogi::Core::TCharDescriptor<T>	m_tNodeValue;
+    long
+    ParseAttributes( T* s, T* sEnd = 0 );
+    long
+    ParseOneAttribute( T* s );
+    Yogi::Core::TCharDescriptor<T>
+    ParseAttributeValue( T* s, size_t n );
 
-	T*								m_pCurrentPosition;
-	T*								m_pEndPosition;		// actually one past the end
+    bool
+    ParseNode( void );
 
-	index_t							m_nErrorLine;
-	Yogi::Core::TCharDescriptor<T>	m_tErrorToken;
-	Yogi::Core::TArray<char>		m_sErrorString;
+    bool
+    ParseHeader( void );
+    bool
+    ParseElement( void );
+    bool
+    ParseEndElement( void );
+    bool
+    ParseElementValue( const Yogi::Core::TCharDescriptor<T>& rName );
+    bool
+    ParseElementValueEnd( const Yogi::Core::TCharDescriptor<T>& rName );
+    bool
+    ParseCData( void );
+    bool
+    ParseText( void );
+    bool
+    ParseEntity( void );
+    bool
+    ParseProcessingInstruction( void );
+    bool
+    ParseComment( void );
+    bool
+    ParseDoctype( void );
+    bool
+    ParseNotation( void );
 
-	ETEXT_FORMAT					m_eTargetFormat;
-	ETEXT_FORMAT					m_eSourceFormat;
+
+    //	protected data  -----------------------------------------------------
+
+    bool                     m_bHeaderRequired;  // allow <?xml?> to be optional
+    XMLLite::VReadCallBack*  m_pReadCallBack;
+    Yogi::Core::TArray<T>    m_sStream;
+    Yogi::Core::TArray<char> m_sStreamName;
+    Yogi::Core::TCharDescriptor<T> m_tFullStream;
+
+    Yogi::Core::TArray<TCD>           m_aNodeStack;
+    int                               m_nNodeStack;  // size of stack
+    Yogi::Core::TArray<AttributeInfo> m_aAttributes;
+
+    ENODETYPE                      m_eNodeType;
+    Yogi::Core::TCharDescriptor<T> m_tNodeName;  // name of current element
+    Yogi::Core::TCharDescriptor<T> m_tNodeValue;
+
+    T* m_pCurrentPosition;
+    T* m_pEndPosition;  // actually one past the end
+
+    index_t                        m_nErrorLine;
+    Yogi::Core::TCharDescriptor<T> m_tErrorToken;
+    Yogi::Core::TArray<char>       m_sErrorString;
+
+    ETEXT_FORMAT m_eTargetFormat;
+    ETEXT_FORMAT m_eSourceFormat;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VTokenizer
+    //============================== Overrides ==============================
+    //	VTokenizer
 public:
+    virtual bool
+    HeaderRequired( bool bRequired );
 
-	virtual bool		HeaderRequired( bool bRequired );
+    virtual bool
+    ProcessCallBack( XMLLite::VReadCallBack* pCallBack );
 
-	virtual bool		ProcessCallBack( XMLLite::VReadCallBack* pCallBack );
+    virtual bool
+    Read( void );
 
-	virtual bool		Read( void );
-
-	virtual
-	void					Error( const char* s );
-	virtual
-	index_t					ErrorLineNumber( void );
-	virtual
-	Yogi::Core::TCharDescriptor<char>	ErrorString( void );
-	virtual
-	Yogi::Core::TCharDescriptor<T>		ErrorToken( void );
-	virtual
-	Yogi::Core::TCharDescriptor<char>	ErrorStreamName( void );
+    virtual void
+    Error( const char* s );
+    virtual index_t
+    ErrorLineNumber( void );
+    virtual Yogi::Core::TCharDescriptor<char>
+    ErrorString( void );
+    virtual Yogi::Core::TCharDescriptor<T>
+    ErrorToken( void );
+    virtual Yogi::Core::TCharDescriptor<char>
+    ErrorStreamName( void );
 
 
-	virtual int			NestDepth( void );
+    virtual int
+    NestDepth( void );
 
-	virtual ENODETYPE			NodeType( void );
-	virtual Yogi::Core::TCharDescriptor<T>	NodeName( void );
-	virtual bool				NodeEmpty( void );
-	virtual Yogi::Core::TCharDescriptor<T>	NodeValue( void );
+    virtual ENODETYPE
+    NodeType( void );
+    virtual Yogi::Core::TCharDescriptor<T>
+    NodeName( void );
+    virtual bool
+    NodeEmpty( void );
+    virtual Yogi::Core::TCharDescriptor<T>
+    NodeValue( void );
 
-	virtual long				NodeValueAsInt( void );
-	virtual GFLOAT				NodeValueAsFloat( void );
+    virtual long
+    NodeValueAsInt( void );
+    virtual GFLOAT
+    NodeValueAsFloat( void );
 
-	virtual int					AttributeCount( void );
-	virtual Yogi::Core::TCharDescriptor<T>	AttributeName( int idx );
-	virtual Yogi::Core::TCharDescriptor<T>	AttributeValue( int idx );
-	virtual Yogi::Core::TCharDescriptor<T>	AttributeValue( const T* sName );
+    virtual int
+    AttributeCount( void );
+    virtual Yogi::Core::TCharDescriptor<T>
+    AttributeName( int idx );
+    virtual Yogi::Core::TCharDescriptor<T>
+    AttributeValue( int idx );
+    virtual Yogi::Core::TCharDescriptor<T>
+    AttributeValue( const T* sName );
 
-	virtual long				AttributeValueAsInt( const char* sName );
-	virtual long				AttributeValueAsInt( int idx );
-	virtual GFLOAT				AttributeValueAsFloat( const char* sName );
-	virtual GFLOAT				AttributeValueAsFloat( int idx );
-
+    virtual long
+    AttributeValueAsInt( const char* sName );
+    virtual long
+    AttributeValueAsInt( int idx );
+    virtual GFLOAT
+    AttributeValueAsFloat( const char* sName );
+    virtual GFLOAT
+    AttributeValueAsFloat( int idx );
 };
-
 
 
 /*---------------------------------------------------------------------+\
 |	template TIterator													|
 \+---------------------------------------------------------------------*/
 
-template < class T, class TTok >
-class TIterator : public VIterator<T,TTok>
+template <class T, class TTok>
+class COMMON_CLASS TIterator : public VIterator<T, TTok>
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-				TIterator( TTok* pTokenizer );
-				TIterator( VIterator<T,TTok>* p );
-				TIterator( VIterator<T,TTok>& r );
-	virtual		~TIterator();
+    TIterator( TTok* pTokenizer );
+    TIterator( VIterator<T, TTok>* p );
+    TIterator( VIterator<T, TTok>& r );
+    virtual ~TIterator();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
-
+    //	public functions  ---------------------------------------------------
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	TTok*		m_pTokenizer;
-	int			m_nNestDepth;
+    TTok* m_pTokenizer;
+    int   m_nNestDepth;
 
-//============================== Overrides ==============================
-	//	VTokenizer
+    //============================== Overrides ==============================
+    //	VTokenizer
 public:
-	virtual bool				NextChild( void );
+    virtual bool
+    NextChild( void );
 
-	virtual ENODETYPE			NodeType( void );
-	virtual Yogi::Core::TCharDescriptor<T>	NodeName( void );
-	virtual bool				NodeEmpty( void );
-	virtual Yogi::Core::TCharDescriptor<T>	NodeValue( void );
+    virtual ENODETYPE
+    NodeType( void );
+    virtual Yogi::Core::TCharDescriptor<T>
+    NodeName( void );
+    virtual bool
+    NodeEmpty( void );
+    virtual Yogi::Core::TCharDescriptor<T>
+    NodeValue( void );
 
-	virtual long				NodeValueAsInt( void );
-	virtual GFLOAT				NodeValueAsFloat( void );
+    virtual long
+    NodeValueAsInt( void );
+    virtual GFLOAT
+    NodeValueAsFloat( void );
 
-	virtual int					AttributeCount( void );
-	virtual Yogi::Core::TCharDescriptor<T>	AttributeName( int idx );
-	virtual Yogi::Core::TCharDescriptor<T>	AttributeValue( int idx );
-	virtual Yogi::Core::TCharDescriptor<T>	AttributeValue( const char* sName );
+    virtual int
+    AttributeCount( void );
+    virtual Yogi::Core::TCharDescriptor<T>
+    AttributeName( int idx );
+    virtual Yogi::Core::TCharDescriptor<T>
+    AttributeValue( int idx );
+    virtual Yogi::Core::TCharDescriptor<T>
+    AttributeValue( const char* sName );
 
-	virtual long				AttributeValueAsInt( const char* sName );
-	virtual long				AttributeValueAsInt( int idx );
-	virtual GFLOAT				AttributeValueAsFloat( const char* sName );
-	virtual GFLOAT				AttributeValueAsFloat( int idx );
+    virtual long
+    AttributeValueAsInt( const char* sName );
+    virtual long
+    AttributeValueAsInt( int idx );
+    virtual GFLOAT
+    AttributeValueAsFloat( const char* sName );
+    virtual GFLOAT
+    AttributeValueAsFloat( int idx );
 
-	virtual void				Error( const char* sMessage );
+    virtual void
+    Error( const char* sMessage );
 
-	virtual TTok*				Tokenizer( void );
+    virtual TTok*
+    Tokenizer( void );
 };
-
-
-
 
 
 /*---------------------------------------------------------------------+\
 |	CReadFile															|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CReadFile : public XMLLite::VReadCallBack
+class COMMON_CLASS CReadFile : public XMLLite::VReadCallBack
 {
 public:
-			CReadFile();
-	virtual ~CReadFile();
+    CReadFile();
+    virtual ~CReadFile();
 
 public:
-	bool	Open( const char* sFilename );
-	bool	Close( void );
+    bool
+    Open( const char* sFilename );
+    bool
+    Close( void );
 
 
 protected:
+    void
+    CalculateSize( void );
 
-	void	CalculateSize( void );
-
-	FILE*	m_pFile;
-	size_t	m_nSize;
-	char	m_sName[512];
+    FILE*  m_pFile;
+    size_t m_nSize;
+    char   m_sName[512];
 
 
-
-//============================== Overrides ==============================
-	//	XMLLite::VReadCallBack
+    //============================== Overrides ==============================
+    //	XMLLite::VReadCallBack
 public:
-	virtual
-	size_t	Read					// RTN:	returns number of bytes actually read
-			(
-			void*			pBuffer,		// OUT: buffer to receive data
-			size_t			nBytesToRead,	// IN:	number of bytes to read
-			ETEXT_FORMAT	eFmt			// IN:	target format
-			);
+    virtual size_t Read  // RTN:	returns number of bytes actually read
+            ( void*              pBuffer,       // OUT: buffer to receive data
+                    size_t       nBytesToRead,  // IN:	number of bytes to read
+                    ETEXT_FORMAT eFmt           // IN:	target format
+            );
 
-	/*
+    /*
 		Gets the size of the file (steam)
 	*/
-	virtual
-	size_t	GetSize		// RTN:	return file (stream) size in bytes
-			(
-			void
-			);
+    virtual size_t GetSize  // RTN:	return file (stream) size in bytes
+            ( void );
 
-	virtual
-	size_t	GetName					// RTN:	string length of name
-			(
-			char*			sTarget,	// OUT:	buffer to receive name
-			size_t			nSizeTarget	// IN:	size of target
-			);
+    virtual size_t GetName              // RTN:	string length of name
+            ( char*        sTarget,     // OUT:	buffer to receive name
+                    size_t nSizeTarget  // IN:	size of target
+            );
 };
-
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -408,15 +461,12 @@ public:
  * TIterator - Constructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIterator<T,TTok>::TIterator
-		(
-		TTok*	p
-		)
-		: m_pTokenizer( p ),
-		m_nNestDepth( 0 )
+template <class T, class TTok>
+TIterator<T, TTok>::TIterator( TTok* p )
+        : m_pTokenizer( p )
+        , m_nNestDepth( 0 )
 {
-	m_nNestDepth = p->NestDepth();
+    m_nNestDepth = p->NestDepth();
 }
 
 /*---------------------------------------------------------------------+\
@@ -424,15 +474,12 @@ TIterator<T,TTok>::TIterator
  * TIterator - Constructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIterator<T,TTok>::TIterator
-		(
-		VIterator<T,TTok>*	p
-		)
-		: m_pTokenizer( p->Tokenizer() ),
-		m_nNestDepth( 0 )
+template <class T, class TTok>
+TIterator<T, TTok>::TIterator( VIterator<T, TTok>* p )
+        : m_pTokenizer( p->Tokenizer() )
+        , m_nNestDepth( 0 )
 {
-	m_nNestDepth = p->Tokenizer()->NestDepth();
+    m_nNestDepth = p->Tokenizer()->NestDepth();
 }
 
 /*---------------------------------------------------------------------+\
@@ -440,15 +487,12 @@ TIterator<T,TTok>::TIterator
  * TIterator - Constructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIterator<T,TTok>::TIterator
-		(
-		VIterator<T,TTok>&	r
-		)
-		: m_pTokenizer( r.Tokenizer() ),
-		m_nNestDepth( 0 )
+template <class T, class TTok>
+TIterator<T, TTok>::TIterator( VIterator<T, TTok>& r )
+        : m_pTokenizer( r.Tokenizer() )
+        , m_nNestDepth( 0 )
 {
-	m_nNestDepth = r.Tokenizer()->NestDepth();
+    m_nNestDepth = r.Tokenizer()->NestDepth();
 }
 
 /*---------------------------------------------------------------------+\
@@ -456,13 +500,9 @@ TIterator<T,TTok>::TIterator
  * ~TIterator - Destructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIterator<T,TTok>::~TIterator
-		(
-		void
-		)
-{
-}
+template <class T, class TTok>
+TIterator<T, TTok>::~TIterator( void )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -470,24 +510,22 @@ TIterator<T,TTok>::~TIterator
  * NextChild -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-bool	TIterator<T,TTok>::NextChild
-		(
-		void
-		)
+template <class T, class TTok>
+bool
+TIterator<T, TTok>::NextChild( void )
 {
-	bool	bResult = false;
-	int		nNest = m_pTokenizer->NestDepth();
-	if ( m_nNestDepth <= nNest )
-	{
-		bResult = m_pTokenizer->Read();
-		if ( bResult )
-		{
-			if ( m_pTokenizer->NestDepth() < m_nNestDepth )
-				bResult = false;
-		}
-	}
-	return bResult;
+    bool bResult = false;
+    int  nNest = m_pTokenizer->NestDepth();
+    if ( m_nNestDepth <= nNest )
+    {
+        bResult = m_pTokenizer->Read();
+        if ( bResult )
+        {
+            if ( m_pTokenizer->NestDepth() < m_nNestDepth )
+                bResult = false;
+        }
+    }
+    return bResult;
 }
 
 
@@ -496,15 +534,11 @@ bool	TIterator<T,TTok>::NextChild
  * NodeType -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-ENODETYPE
-		TIterator<T,TTok>::NodeType
-		(
-		void
-		)
+template <class T, class TTok>
+inline ENODETYPE
+TIterator<T, TTok>::NodeType( void )
 {
-	return m_pTokenizer->NodeType();
+    return m_pTokenizer->NodeType();
 }
 
 /*---------------------------------------------------------------------+\
@@ -512,15 +546,11 @@ ENODETYPE
  * NodeName -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-Yogi::Core::TCharDescriptor<T>
-		TIterator<T,TTok>::NodeName
-		(
-		void
-		)
+template <class T, class TTok>
+inline Yogi::Core::TCharDescriptor<T>
+TIterator<T, TTok>::NodeName( void )
 {
-	return m_pTokenizer->NodeName();
+    return m_pTokenizer->NodeName();
 }
 
 
@@ -529,14 +559,11 @@ Yogi::Core::TCharDescriptor<T>
  * NodeEmpty -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-bool	TIterator<T,TTok>::NodeEmpty
-		(
-		void
-		)
+template <class T, class TTok>
+inline bool
+TIterator<T, TTok>::NodeEmpty( void )
 {
-	return m_pTokenizer->NodeEmpty();
+    return m_pTokenizer->NodeEmpty();
 }
 
 
@@ -545,15 +572,11 @@ bool	TIterator<T,TTok>::NodeEmpty
  * NodeValue -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-Yogi::Core::TCharDescriptor<T>
-		TIterator<T,TTok>::NodeValue
-		(
-		void
-		)
+template <class T, class TTok>
+inline Yogi::Core::TCharDescriptor<T>
+TIterator<T, TTok>::NodeValue( void )
 {
-	return m_pTokenizer->NodeValue();
+    return m_pTokenizer->NodeValue();
 }
 
 
@@ -562,14 +585,11 @@ Yogi::Core::TCharDescriptor<T>
  * NodeValueAsInt -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-long	TIterator<T,TTok>::NodeValueAsInt
-		(
-		void
-		)
+template <class T, class TTok>
+inline long
+TIterator<T, TTok>::NodeValueAsInt( void )
 {
-	return m_pTokenizer->NodeValueAsInt();
+    return m_pTokenizer->NodeValueAsInt();
 }
 
 
@@ -578,15 +598,11 @@ long	TIterator<T,TTok>::NodeValueAsInt
  * NodeValueAsFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-GFLOAT
-		TIterator<T,TTok>::NodeValueAsFloat
-		(
-		void
-		)
+template <class T, class TTok>
+inline GFLOAT
+TIterator<T, TTok>::NodeValueAsFloat( void )
 {
-	return m_pTokenizer->NodeValueAsFloat();
+    return m_pTokenizer->NodeValueAsFloat();
 }
 
 
@@ -595,14 +611,11 @@ GFLOAT
  * AttributeCount -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-int		TIterator<T,TTok>::AttributeCount
-		(
-		void
-		)
+template <class T, class TTok>
+inline int
+TIterator<T, TTok>::AttributeCount( void )
 {
-	return m_pTokenizer->AttributeCount();
+    return m_pTokenizer->AttributeCount();
 }
 
 
@@ -611,15 +624,11 @@ int		TIterator<T,TTok>::AttributeCount
  * AttributeName -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-Yogi::Core::TCharDescriptor<T>
-		TIterator<T,TTok>::AttributeName
-		(
-		int	idx
-		)
+template <class T, class TTok>
+inline Yogi::Core::TCharDescriptor<T>
+TIterator<T, TTok>::AttributeName( int idx )
 {
-	return m_pTokenizer->AttributeName( idx );
+    return m_pTokenizer->AttributeName( idx );
 }
 
 
@@ -628,15 +637,11 @@ Yogi::Core::TCharDescriptor<T>
  * AttributeValue -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-Yogi::Core::TCharDescriptor<T>
-		TIterator<T,TTok>::AttributeValue
-		(
-		int	idx
-		)
+template <class T, class TTok>
+inline Yogi::Core::TCharDescriptor<T>
+TIterator<T, TTok>::AttributeValue( int idx )
 {
-	return m_pTokenizer->AttributeValue( idx );
+    return m_pTokenizer->AttributeValue( idx );
 }
 
 
@@ -645,15 +650,11 @@ Yogi::Core::TCharDescriptor<T>
  * AttributeValue -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-Yogi::Core::TCharDescriptor<T>
-		TIterator<T,TTok>::AttributeValue
-		(
-		const char* sName
-		)
+template <class T, class TTok>
+inline Yogi::Core::TCharDescriptor<T>
+TIterator<T, TTok>::AttributeValue( const char* sName )
 {
-	return m_pTokenizer->AttributeValue( sName );
+    return m_pTokenizer->AttributeValue( sName );
 }
 
 
@@ -662,14 +663,11 @@ Yogi::Core::TCharDescriptor<T>
  * AttributeValueAsInt -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-long	TIterator<T,TTok>::AttributeValueAsInt
-		(
-		int	idx
-		)
+template <class T, class TTok>
+inline long
+TIterator<T, TTok>::AttributeValueAsInt( int idx )
 {
-	return m_pTokenizer->AttributeValueAsInt( idx );
+    return m_pTokenizer->AttributeValueAsInt( idx );
 }
 
 
@@ -678,14 +676,11 @@ long	TIterator<T,TTok>::AttributeValueAsInt
  * AttributeValueAsInt -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-long	TIterator<T,TTok>::AttributeValueAsInt
-		(
-		const char* sName
-		)
+template <class T, class TTok>
+inline long
+TIterator<T, TTok>::AttributeValueAsInt( const char* sName )
 {
-	return m_pTokenizer->AttributeValueAsInt( sName );
+    return m_pTokenizer->AttributeValueAsInt( sName );
 }
 
 
@@ -694,15 +689,11 @@ long	TIterator<T,TTok>::AttributeValueAsInt
  * AttributeValueAsFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-GFLOAT
-		TIterator<T,TTok>::AttributeValueAsFloat
-		(
-		int	idx
-		)
+template <class T, class TTok>
+inline GFLOAT
+TIterator<T, TTok>::AttributeValueAsFloat( int idx )
 {
-	return m_pTokenizer->AttributeValueAsFloat( idx );
+    return m_pTokenizer->AttributeValueAsFloat( idx );
 }
 
 
@@ -711,15 +702,11 @@ GFLOAT
  * AttributeValueAsFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-GFLOAT
-		TIterator<T,TTok>::AttributeValueAsFloat
-		(
-		const char* sName
-		)
+template <class T, class TTok>
+inline GFLOAT
+TIterator<T, TTok>::AttributeValueAsFloat( const char* sName )
 {
-	return m_pTokenizer->AttributeValueAsFloat( sName );
+    return m_pTokenizer->AttributeValueAsFloat( sName );
 }
 
 /*---------------------------------------------------------------------+\
@@ -727,14 +714,11 @@ GFLOAT
  * Error - identify error condition
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-void	TIterator<T,TTok>::Error
-		(
-		const char*	sMessage
-		)
+template <class T, class TTok>
+inline void
+TIterator<T, TTok>::Error( const char* sMessage )
 {
-	m_pTokenizer->Error( sMessage );
+    m_pTokenizer->Error( sMessage );
 }
 
 
@@ -743,17 +727,12 @@ void	TIterator<T,TTok>::Error
  * Tokenizer - get tokenizer pointer
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-inline
-TTok*	TIterator<T,TTok>::Tokenizer
-		(
-		void
-		)
+template <class T, class TTok>
+inline TTok*
+TIterator<T, TTok>::Tokenizer( void )
 {
-	return m_pTokenizer;
+    return m_pTokenizer;
 }
-
-
 
 
 /*=====================================================================+\
@@ -766,35 +745,30 @@ TTok*	TIterator<T,TTok>::Tokenizer
  * TTokenizer - Constructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TTokenizer<T>::TTokenizer
-		(
-		void
-		)
-		: m_bHeaderRequired( true )
-		, m_pReadCallBack( 0 )
-		, m_sStream()
-		, m_sStreamName()
-		, m_tFullStream()
-		, m_aNodeStack()
-		, m_nNodeStack( 0 )
-		, m_aAttributes()
-		, m_eNodeType( NODE_NONE )
-		, m_tNodeName()
-		, m_tNodeValue()
-		, m_pCurrentPosition( 0 )
-		, m_pEndPosition( 0 )
-		, m_nErrorLine( 0 )
-		, m_tErrorToken()
-		, m_sErrorString()
-		, m_eTargetFormat( ETF_ASCII )
-		, m_eSourceFormat( ETF_ASCII )
+template <class T>
+TTokenizer<T>::TTokenizer( void )
+        : m_bHeaderRequired( true )
+        , m_pReadCallBack( 0 )
+        , m_sStream()
+        , m_sStreamName()
+        , m_tFullStream()
+        , m_aNodeStack()
+        , m_nNodeStack( 0 )
+        , m_aAttributes()
+        , m_eNodeType( NODE_NONE )
+        , m_tNodeName()
+        , m_tNodeValue()
+        , m_pCurrentPosition( 0 )
+        , m_pEndPosition( 0 )
+        , m_nErrorLine( 0 )
+        , m_tErrorToken()
+        , m_sErrorString()
+        , m_eTargetFormat( ETF_ASCII )
+        , m_eSourceFormat( ETF_ASCII )
 {
-	IdentifyTargetFormat();
-	Reset();
+    IdentifyTargetFormat();
+    Reset();
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -802,13 +776,9 @@ TTokenizer<T>::TTokenizer
  * ~TTokenizer - Destructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TTokenizer<T>::~TTokenizer
-		(
-		void
-		)
-{
-}
+template <class T>
+TTokenizer<T>::~TTokenizer( void )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -816,24 +786,23 @@ TTokenizer<T>::~TTokenizer
  * IdentifyTargetFormat -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-void	TTokenizer<T>::IdentifyTargetFormat
-		(
-		void
-		)
+template <class T>
+void
+TTokenizer<T>::IdentifyTargetFormat( void )
 {
-	switch ( sizeof(T) )
-	{
-	case 1:
-		m_eTargetFormat = ETF_ASCII;	// assume ASCII but look at the header later
-		break;
-	case 2:
-		m_eTargetFormat = ETF_UTF16;
-		break;
-	default:
-		m_eTargetFormat = ETF_ASCII;
-		break;
-	}
+    switch ( sizeof( T ) )
+    {
+    case 1:
+        m_eTargetFormat
+                = ETF_ASCII;  // assume ASCII but look at the header later
+        break;
+    case 2:
+        m_eTargetFormat = ETF_UTF16;
+        break;
+    default:
+        m_eTargetFormat = ETF_ASCII;
+        break;
+    }
 }
 
 
@@ -842,31 +811,29 @@ void	TTokenizer<T>::IdentifyTargetFormat
  * Reset -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-void	TTokenizer<T>::Reset
-		(
-		void
-		)
+template <class T>
+void
+TTokenizer<T>::Reset( void )
 {
-	m_sStream.Truncate();
-	m_tFullStream = Yogi::Core::TCharDescriptor<T>();
-	m_sStreamName[0] = 0;
-	m_sStreamName.Truncate();
+    m_sStream.Truncate();
+    m_tFullStream = Yogi::Core::TCharDescriptor<T>();
+    m_sStreamName[0] = 0;
+    m_sStreamName.Truncate();
 
-	m_aNodeStack.Truncate();
-	m_nNodeStack = 0;
+    m_aNodeStack.Truncate();
+    m_nNodeStack = 0;
 
-	m_aAttributes.Truncate();
+    m_aAttributes.Truncate();
 
-	m_eNodeType = NODE_NONE;
-	m_tNodeName = Yogi::Core::TCharDescriptor<T>();
-	m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
+    m_eNodeType = NODE_NONE;
+    m_tNodeName = Yogi::Core::TCharDescriptor<T>();
+    m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
 
-	m_pCurrentPosition = 0;
+    m_pCurrentPosition = 0;
 
-	m_nErrorLine = 0;
-	m_tErrorToken = Yogi::Core::TCharDescriptor<T>();
-	m_sErrorString.Truncate();
+    m_nErrorLine = 0;
+    m_tErrorToken = Yogi::Core::TCharDescriptor<T>();
+    m_sErrorString.Truncate();
 }
 
 
@@ -875,18 +842,16 @@ void	TTokenizer<T>::Reset
  * PushNode -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-void	TTokenizer<T>::PushNode
-		(
-		Yogi::Core::TCharDescriptor<T>&	r
-		)
+template <class T>
+void
+TTokenizer<T>::PushNode( Yogi::Core::TCharDescriptor<T>& r )
 {
-	Yogi::Core::TCharDescriptor<T>*	p = m_aNodeStack.PointItem( m_nNodeStack );
-	if ( p )
-	{
-		m_nNodeStack++;
-		(*p) = r;
-	}
+    Yogi::Core::TCharDescriptor<T>* p = m_aNodeStack.PointItem( m_nNodeStack );
+    if ( p )
+    {
+        m_nNodeStack++;
+        ( *p ) = r;
+    }
 }
 
 
@@ -895,19 +860,16 @@ void	TTokenizer<T>::PushNode
  * PopNode -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::PopNode
-		(
-		void
-		)
+TTokenizer<T>::PopNode( void )
 {
-	if ( 0 < m_nNodeStack )
-		--m_nNodeStack;
+    if ( 0 < m_nNodeStack )
+        --m_nNodeStack;
 
     Yogi::Core::TCharDescriptor<T>* p = m_aNodeStack.PointItem( m_nNodeStack );
     if ( p )
-	    return *p;
+        return *p;
     else
         return Yogi::Core::TCharDescriptor<T>();
 }
@@ -918,26 +880,24 @@ Yogi::Core::TCharDescriptor<T>
  * ReadFromCallBack -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ReadFromCallBack
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ReadFromCallBack( void )
 {
-	size_t	nSize = m_pReadCallBack->GetSize();
+    size_t nSize = m_pReadCallBack->GetSize();
 
-	m_sStream.Truncate();
-	m_sStream.AdjustUsed( nSize );
-	size_t	n = m_pReadCallBack->GetName( m_sStreamName.PointArray(), 0 );
-	m_sStreamName.AdjustUsed( n + 1 );
-	m_pReadCallBack->GetName( m_sStreamName.PointArray(), n+1 );
+    m_sStream.Truncate();
+    m_sStream.AdjustUsed( nSize );
+    size_t n = m_pReadCallBack->GetName( m_sStreamName.PointArray(), 0 );
+    m_sStreamName.AdjustUsed( n + 1 );
+    m_pReadCallBack->GetName( m_sStreamName.PointArray(), n + 1 );
 
-	T*	p = m_sStream.PointArray();
-	nSize = m_pReadCallBack->Read( p, nSize, m_eTargetFormat );
-	m_pCurrentPosition = p;
-	m_pEndPosition = p + nSize;
-	m_tFullStream = Yogi::Core::TCharDescriptor<T>( p, nSize );
-	return true;
+    T* p = m_sStream.PointArray();
+    nSize = m_pReadCallBack->Read( p, nSize, m_eTargetFormat );
+    m_pCurrentPosition = p;
+    m_pEndPosition = p + nSize;
+    m_tFullStream = Yogi::Core::TCharDescriptor<T>( p, nSize );
+    return true;
 }
 
 
@@ -946,18 +906,15 @@ bool	TTokenizer<T>::ReadFromCallBack
  * IsBlank -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-bool	TTokenizer<T>::IsBlank
-		(
-		T	c
-		)
+template <class T>
+inline bool
+TTokenizer<T>::IsBlank( T c )
 {
-	// please note that NULL is considered a blank character
-	return  c < 0x0021;			// standard space, CR, LF, TAB, etc
+    // please note that NULL is considered a blank character
+    return c < 0x0021;  // standard space, CR, LF, TAB, etc
 
-//			||	0x00A0 == wc		// non-breaking space
-//			||	(0x2002 <= wc && wc <= 0x200C);	// unicode spacers
+    //			||	0x00A0 == wc		// non-breaking space
+    //			||	(0x2002 <= wc && wc <= 0x200C);	// unicode spacers
 }
 
 
@@ -966,29 +923,26 @@ bool	TTokenizer<T>::IsBlank
  * SpanByteOrderMarks -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::SpanByteOrderMarks
-		(
-		T*	s,
-		T*	sEnd
-		)
+template <class T>
+long
+TTokenizer<T>::SpanByteOrderMarks( T* s, T* sEnd )
 {
-	const T*	sStart = s;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    const T* sStart = s;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	if ( static_cast<T>(0x00EFu) == *s
-		&&  static_cast<T>(0x00BBu) == *(s+1)
-		&&	static_cast<T>(0x00BFu) == *(s+2) )
-		s += 3;
-	else if ( static_cast<T>(0x00FFu) == *s
-		&&	static_cast<T>(0x00FEu) == *(s+1) )
-		s += 2;
-	else if ( static_cast<T>(0x00FEu) == *s
-		&&	static_cast<T>(0x00FFu) == *(s+1) )
-		s += 2;
+    if ( static_cast<T>( 0x00EFu ) == *s
+            && static_cast<T>( 0x00BBu ) == *( s + 1 )
+            && static_cast<T>( 0x00BFu ) == *( s + 2 ) )
+        s += 3;
+    else if ( static_cast<T>( 0x00FFu ) == *s
+            && static_cast<T>( 0x00FEu ) == *( s + 1 ) )
+        s += 2;
+    else if ( static_cast<T>( 0x00FEu ) == *s
+            && static_cast<T>( 0x00FFu ) == *( s + 1 ) )
+        s += 2;
 
-	return long(s - sStart);
+    return long( s - sStart );
 }
 
 
@@ -997,24 +951,21 @@ long	TTokenizer<T>::SpanByteOrderMarks
  * SpanBlanks -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::SpanBlanks
-		(
-		const T*	s,
-		const T*	sEnd
-		)
+template <class T>
+long
+TTokenizer<T>::SpanBlanks( const T* s, const T* sEnd )
 {
-	const T*	sStart = s;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    const T* sStart = s;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	while ( s < sEnd )
-	{
-		if ( ! IsBlank( *s ) )
-			break;
-		++s;
-	}
-	return long(s - sStart);
+    while ( s < sEnd )
+    {
+        if ( ! IsBlank( *s ) )
+            break;
+        ++s;
+    }
+    return long( s - sStart );
 }
 
 
@@ -1023,75 +974,73 @@ long	TTokenizer<T>::SpanBlanks
  * SpanEntity -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::SpanCharEntity
-		(
-		T*	s,
-		T*	sEnd,	// =0
-		T*	pChar	// =0
-		)
+template <class T>
+long
+TTokenizer<T>::SpanCharEntity( T* s,
+        T*                        sEnd,  // =0
+        T*                        pChar  // =0
+)
 {
-	T*		sStart = s;
-	T		nChar = 0;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    T* sStart = s;
+    T  nChar = 0;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	if ( '&' == *s )
-	{
-		++s;
-		T*	sTemp = s;
+    if ( '&' == *s )
+    {
+        ++s;
+        T* sTemp = s;
 
-		while ( sTemp < sEnd  &&  ';' != *sTemp )
-			++sTemp;
+        while ( sTemp < sEnd && ';' != *sTemp )
+            ++sTemp;
 
-		if ( ';' == *sTemp )
-		{
-			if ( '#' == *s )
-			{
-				long	n;
-				long	i;
-				++s;
-				i = SpanNumber( s, sTemp, &n );
-				if ( i == sTemp - s )
-				{
-					nChar = static_cast<T>(n);
-					s = sTemp + 1;
-				}
-				else
-				{
-					nChar = 0;
-				}
-			}
-			else
-			{
-				s = sTemp + 1;
-				Yogi::Core::TCharDescriptor<T>	tEntity( s, sTemp - s );
-				if ( tEntity == "apos" )
-					nChar = '\'';
-				else if ( tEntity == "amp" )
-					nChar = '&';
-				else if ( tEntity == "gt" )
-					nChar = '>';
-				else if ( tEntity == "lt" )
-					nChar = '<';
-				else if ( tEntity == "quot" )
-					nChar = '"';
-				else
-					nChar = 0;
-			}
-		}
-		else
-		{
-			s = sStart;
-		}
+        if ( ';' == *sTemp )
+        {
+            if ( '#' == *s )
+            {
+                long n;
+                long i;
+                ++s;
+                i = SpanNumber( s, sTemp, &n );
+                if ( i == sTemp - s )
+                {
+                    nChar = static_cast<T>( n );
+                    s = sTemp + 1;
+                }
+                else
+                {
+                    nChar = 0;
+                }
+            }
+            else
+            {
+                s = sTemp + 1;
+                Yogi::Core::TCharDescriptor<T> tEntity( s, sTemp - s );
+                if ( tEntity == "apos" )
+                    nChar = '\'';
+                else if ( tEntity == "amp" )
+                    nChar = '&';
+                else if ( tEntity == "gt" )
+                    nChar = '>';
+                else if ( tEntity == "lt" )
+                    nChar = '<';
+                else if ( tEntity == "quot" )
+                    nChar = '"';
+                else
+                    nChar = 0;
+            }
+        }
+        else
+        {
+            s = sStart;
+        }
+    }
+    if ( 0 == nChar )
+        s = sStart;
+    if ( pChar )
+        *pChar = nChar;
 
-	}
-	if ( 0 == nChar )
-		s = sStart;
-	if ( pChar )
-		*pChar = nChar;
-
-	return long(s - sStart);
+    return long( s - sStart );
 }
 
 
@@ -1100,41 +1049,38 @@ long	TTokenizer<T>::SpanCharEntity
  * SpanQuote -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::SpanQuote
-		(
-		T*	s,
-		T*	sEnd
-		)
+template <class T>
+long
+TTokenizer<T>::SpanQuote( T* s, T* sEnd )
 {
-	long	nResult = 0;
-	T*		sStart = s;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    long nResult = 0;
+    T*   sStart = s;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
 
-	if ( '"' == *s  ||  '\'' == *s )
-	{
-		T	cQ = *s;
-		//T	cOther = ('"' == *s) ? '\'' : '"';
+    if ( '"' == *s || '\'' == *s )
+    {
+        T cQ = *s;
+        //T	cOther = ('"' == *s) ? '\'' : '"';
 
-		++s;
+        ++s;
 
-		while ( s < sEnd )
-		{
-			if ( cQ == *s )
-			{
-				nResult = long(s - sStart + 1);
-				break;
-			}
-			else if ( '>' == *s  ||  '<' == *s )
-			{
-				break;
-			}
-			++s;
-		}
-	}
-	return nResult;
+        while ( s < sEnd )
+        {
+            if ( cQ == *s )
+            {
+                nResult = long( s - sStart + 1 );
+                break;
+            }
+            else if ( '>' == *s || '<' == *s )
+            {
+                break;
+            }
+            ++s;
+        }
+    }
+    return nResult;
 }
 
 
@@ -1143,27 +1089,22 @@ long	TTokenizer<T>::SpanQuote
  * SpanNumber -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::SpanNumber
-		(
-		const T*	s,
-		const T*	sEnd,
-		long*		pNumber
-		)
+template <class T>
+long
+TTokenizer<T>::SpanNumber( const T* s, const T* sEnd, long* pNumber )
 {
-	size_t	nResult = 0;
-	long	nValue = 0;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    size_t nResult = 0;
+    long   nValue = 0;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	nValue = Yogi::Core::ParseIntT( s, (size_t)(sEnd - s), &nResult );
+    nValue = Yogi::Core::ParseIntT( s, ( size_t )( sEnd - s ), &nResult );
 
-	if ( pNumber )
-		*pNumber = nValue;
+    if ( pNumber )
+        *pNumber = nValue;
 
-	return (long)nResult;
+    return (long)nResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -1171,28 +1112,23 @@ long	TTokenizer<T>::SpanNumber
  * SpanFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::SpanFloat
-		(
-		const T*	s,
-		const T*	sEnd,
-		GFLOAT*		pNumber
-		)
+template <class T>
+long
+TTokenizer<T>::SpanFloat( const T* s, const T* sEnd, GFLOAT* pNumber )
 {
-	size_t	nResult = 0;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    size_t nResult = 0;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	GFLOAT	fValue;
+    GFLOAT fValue;
 
-	fValue = Yogi::Core::ParseFloatT( s, (size_t)(sEnd - s), &nResult );
+    fValue = Yogi::Core::ParseFloatT( s, ( size_t )( sEnd - s ), &nResult );
 
-	if ( pNumber )
-		*pNumber = fValue;
+    if ( pNumber )
+        *pNumber = fValue;
 
-	return (long)nResult;
+    return (long)nResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -1200,32 +1136,29 @@ long	TTokenizer<T>::SpanFloat
  * SpanEqual - handle equals sign
 
 \+---------------------------------------------------------------------*/
-template < class T >
-inline
-long	TTokenizer<T>::SpanEqual
-		(
-		T*	s,
-		T*	sEnd
-		)
+template <class T>
+inline long
+TTokenizer<T>::SpanEqual( T* s, T* sEnd )
 {
-	long	nResult = 0;
-	T*		sStart = s;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    long nResult = 0;
+    T*   sStart = s;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	do	// Sequence
-	{
-		s += SpanBlanks( s, sEnd );
+    do  // Sequence
+    {
+        s += SpanBlanks( s, sEnd );
 
-		if ( '=' != *s )
-			break;
-		++s;
+        if ( '=' != *s )
+            break;
+        ++s;
 
-		s += SpanBlanks( s, sEnd );
+        s += SpanBlanks( s, sEnd );
 
-		nResult = long(s - sStart);
-	} sequence;	// End Sequence
-	return nResult;
+        nResult = long( s - sStart );
+    }
+    sequence;  // End Sequence
+    return nResult;
 }
 
 
@@ -1234,60 +1167,60 @@ long	TTokenizer<T>::SpanEqual
  * SpecialCharacters - translate special characters
 
 \+---------------------------------------------------------------------*/
-template < class T >
-T		TTokenizer<T>::SpecialCharacters
-		(
-		const T*	s,
-		long&		n
-		)
+template <class T>
+T
+TTokenizer<T>::SpecialCharacters( const T* s, long& n )
 {
-	T			c = 0;
-	const T*	sStart = s;
+    T        c = 0;
+    const T* sStart = s;
 
-	n = 0;
-	if ( '&' == *s )
-	{
-		// &#x0000;
-		bool		bFound = false;
-		const T*	sEnd = s + 8;
-		while ( s < sEnd )
-		{
-			if ( ';' == *s )
-			{
-				bFound = true;
-				++s;
-				break;
-			}
-			++s;
-		}
-		if ( bFound )
-		{
-			if ( '#' == *(sStart+1) )
-			{
-				if ( 'x' == *(sStart+2) )
-					c = (T)NumberFromHex( sStart+3, (size_t)(s-sStart-3) );
-				else
-					c = (T)NumberFromDec( sStart+2, (size_t)(s-sStart-2) );
-			}
-			else
-			{
-				Yogi::Core::TCharDescriptor<T>	special( (T*)sStart, (size_t)(s-sStart) );
-				if ( special == "&amp;" )
-					c = '&';
-				else if ( special == "&lt;" )
-					c = '<';
-				else if ( special == "&gt;" )
-					c = '>';
-				else if ( special == "&apos;" )
-					c = '\'';
-				else if ( special == "&quot;" )
-					c = '"';
-			}
-			if ( c )
-				n = long(s - sStart);
-		}
-	}
-	return c;
+    n = 0;
+    if ( '&' == *s )
+    {
+        // &#x0000;
+        bool     bFound = false;
+        const T* sEnd = s + 8;
+        while ( s < sEnd )
+        {
+            if ( ';' == *s )
+            {
+                bFound = true;
+                ++s;
+                break;
+            }
+            ++s;
+        }
+        if ( bFound )
+        {
+            if ( '#' == *( sStart + 1 ) )
+            {
+                if ( 'x' == *( sStart + 2 ) )
+                    c = (T)NumberFromHex(
+                            sStart + 3, ( size_t )( s - sStart - 3 ) );
+                else
+                    c = (T)NumberFromDec(
+                            sStart + 2, ( size_t )( s - sStart - 2 ) );
+            }
+            else
+            {
+                Yogi::Core::TCharDescriptor<T> special(
+                        (T*)sStart, ( size_t )( s - sStart ) );
+                if ( special == "&amp;" )
+                    c = '&';
+                else if ( special == "&lt;" )
+                    c = '<';
+                else if ( special == "&gt;" )
+                    c = '>';
+                else if ( special == "&apos;" )
+                    c = '\'';
+                else if ( special == "&quot;" )
+                    c = '"';
+            }
+            if ( c )
+                n = long( s - sStart );
+        }
+    }
+    return c;
 }
 
 /*---------------------------------------------------------------------+\
@@ -1295,20 +1228,17 @@ T		TTokenizer<T>::SpecialCharacters
  * NumberFromDec -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::NumberFromDec
-		(
-		const T*	s,
-		size_t		n
-		)
+template <class T>
+long
+TTokenizer<T>::NumberFromDec( const T* s, size_t n )
 {
-	long		nValue = 0;
-	const T*	sEnd = s + n;
-	long		nUsed = SpanNumber( s, sEnd, &nValue );
-	if ( (size_t)nUsed == n )
-		return nValue;
-	else
-		return 0;
+    long     nValue = 0;
+    const T* sEnd = s + n;
+    long     nUsed = SpanNumber( s, sEnd, &nValue );
+    if ( (size_t)nUsed == n )
+        return nValue;
+    else
+        return 0;
 }
 
 
@@ -1317,14 +1247,11 @@ long	TTokenizer<T>::NumberFromDec
  * NumberFromHex -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::NumberFromHex
-		(
-		const T*	s,
-		size_t		n
-		)
+template <class T>
+long
+TTokenizer<T>::NumberFromHex( const T* s, size_t n )
 {
-	return Yogi::Core::ParseHexDigitsT( s, n );
+    return Yogi::Core::ParseHexDigitsT( s, n );
 }
 
 
@@ -1333,15 +1260,11 @@ long	TTokenizer<T>::NumberFromHex
  * NumberFromFlt -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 GFLOAT
-		TTokenizer<T>::NumberFromFlt
-		(
-		const T*	s,
-		size_t		n
-		)
+TTokenizer<T>::NumberFromFlt( const T* s, size_t n )
 {
-	return Yogi::Core::ParseFloatT( s, n );
+    return Yogi::Core::ParseFloatT( s, n );
 }
 
 
@@ -1350,31 +1273,25 @@ GFLOAT
  * SpanName -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::SpanName
-		(
-		T*	s,
-		T*	sEnd
-		)
+template <class T>
+long
+TTokenizer<T>::SpanName( T* s, T* sEnd )
 {
-	T*	sStart = s;
-	T	c;
+    T* sStart = s;
+    T  c;
 
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	while ( s < sEnd )
-	{
-		c = *s;
-		if ( IsBlank( c )
-			||  '/' == c  ||  '?' == c
-			||	'<' == c  ||  '>' == c
-			||  '=' == c
-			)
-			break;
-		++s;
-	}
-	return long(s - sStart);
+    while ( s < sEnd )
+    {
+        c = *s;
+        if ( IsBlank( c ) || '/' == c || '?' == c || '<' == c || '>' == c
+                || '=' == c )
+            break;
+        ++s;
+    }
+    return long( s - sStart );
 }
 
 
@@ -1383,63 +1300,61 @@ long	TTokenizer<T>::SpanName
  * ParseNode -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseNode
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseNode( void )
 {
-	bool	bResult = false;
-	T*		s = m_pCurrentPosition;
-//	T		c = 0;
+    bool bResult = false;
+    T*   s = m_pCurrentPosition;
+    //	T		c = 0;
 
-	s += SpanBlanks( s );
-	m_pCurrentPosition = s;
+    s += SpanBlanks( s );
+    m_pCurrentPosition = s;
 
-//	if ( '<' == *s )
-//	{
-//		c = *(s+1);
-//	}
+    //	if ( '<' == *s )
+    //	{
+    //		c = *(s+1);
+    //	}
 
-	if ( NODE_NONE == m_eNodeType )
-	{
-		s += SpanByteOrderMarks( s );
-		m_pCurrentPosition = s;
+    if ( NODE_NONE == m_eNodeType )
+    {
+        s += SpanByteOrderMarks( s );
+        m_pCurrentPosition = s;
 
-		bResult = ParseHeader();
-		if ( ! bResult )
-		{
-			if ( ! m_bHeaderRequired )
-			{
-				m_eNodeType = NODE_UNKNOWN;
-				bResult = true;
-			}
-		}
-	}
-	else
-	{
-		if ( 0 < m_nNodeStack )
-		{
-			bResult = ParseEndElement();
-		}
-		else
-		{
-			bResult = ParseProcessingInstruction();
-			if ( ! bResult )
-			{
-				bResult = ParseNotation();
-			}
-		}
-		if ( ! bResult )
-		{
-			bResult = ParseElement();
-			if ( ! bResult )
-			{
-				bResult = ParseComment();
-			}
-		}
-	}
-	return bResult;
+        bResult = ParseHeader();
+        if ( ! bResult )
+        {
+            if ( ! m_bHeaderRequired )
+            {
+                m_eNodeType = NODE_UNKNOWN;
+                bResult = true;
+            }
+        }
+    }
+    else
+    {
+        if ( 0 < m_nNodeStack )
+        {
+            bResult = ParseEndElement();
+        }
+        else
+        {
+            bResult = ParseProcessingInstruction();
+            if ( ! bResult )
+            {
+                bResult = ParseNotation();
+            }
+        }
+        if ( ! bResult )
+        {
+            bResult = ParseElement();
+            if ( ! bResult )
+            {
+                bResult = ParseComment();
+            }
+        }
+    }
+    return bResult;
 }
 
 
@@ -1448,34 +1363,31 @@ bool	TTokenizer<T>::ParseNode
  * ParseAttributes -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::ParseAttributes
-		(
-		T*	sStart,
-		T*	sEnd
-		)
+template <class T>
+long
+TTokenizer<T>::ParseAttributes( T* sStart, T* sEnd )
 {
-	long	n;
-	T*		s = sStart;
-	if ( ! sEnd )
-		sEnd = m_pEndPosition;
+    long n;
+    T*   s = sStart;
+    if ( ! sEnd )
+        sEnd = m_pEndPosition;
 
-	m_aAttributes.Truncate();
+    m_aAttributes.Truncate();
 
-	while ( s < sEnd )
-	{
-		s += SpanBlanks( s, sEnd );
-		if ( '?' == *s )
-			break;
-		if ( '/' == *s )
-			break;
-		if ( '>' == *s )
-			break;
-		n = ParseOneAttribute( s );
-		s += 0 < n ? n : 1;
-	}
+    while ( s < sEnd )
+    {
+        s += SpanBlanks( s, sEnd );
+        if ( '?' == *s )
+            break;
+        if ( '/' == *s )
+            break;
+        if ( '>' == *s )
+            break;
+        n = ParseOneAttribute( s );
+        s += 0 < n ? n : 1;
+    }
 
-	return long(s - sStart);
+    return long( s - sStart );
 }
 
 
@@ -1484,54 +1396,52 @@ long	TTokenizer<T>::ParseAttributes
  * ParseOneAttribute -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::ParseOneAttribute
-		(
-		T*	sStart
-		)
+template <class T>
+long
+TTokenizer<T>::ParseOneAttribute( T* sStart )
 {
-	long	nResult = 0;
-	T*		s = sStart;
-	long	n;
-	Yogi::Core::TCharDescriptor<T>	tName;
-	Yogi::Core::TCharDescriptor<T>	tValue;
+    long                           nResult = 0;
+    T*                             s = sStart;
+    long                           n;
+    Yogi::Core::TCharDescriptor<T> tName;
+    Yogi::Core::TCharDescriptor<T> tValue;
 
-	do	// sequence
-	{
-		n = SpanBlanks( s );
-		s += n;
+    do  // sequence
+    {
+        n = SpanBlanks( s );
+        s += n;
 
-		n = SpanName( s );
-		if ( 0 == n )
-			break;
+        n = SpanName( s );
+        if ( 0 == n )
+            break;
 
-		tName = Yogi::Core::TCharDescriptor<T>( s, (size_t)n );
-		s += n;
+        tName = Yogi::Core::TCharDescriptor<T>( s, (size_t)n );
+        s += n;
 
-		n = SpanEqual( s );
-		if ( n < 1 )
-			break;
-		s += n;
+        n = SpanEqual( s );
+        if ( n < 1 )
+            break;
+        s += n;
 
-		n = SpanQuote( s );
-		if ( n < 2 )
-			break;
+        n = SpanQuote( s );
+        if ( n < 2 )
+            break;
 
-		tValue = ParseAttributeValue( s, (size_t)n );
-		s += n;
+        tValue = ParseAttributeValue( s, (size_t)n );
+        s += n;
 
-		AttributeInfo*	pInfo = m_aAttributes.AppendArray();
-		if ( ! pInfo )
-			break;
+        AttributeInfo* pInfo = m_aAttributes.AppendArray();
+        if ( ! pInfo )
+            break;
 
-		pInfo->tName = tName;
-		pInfo->tValue = tValue;
+        pInfo->tName = tName;
+        pInfo->tValue = tValue;
 
-		nResult = long(s - sStart);
+        nResult = long( s - sStart );
+    }
+    sequence;  // end sequence
 
-	} sequence;	// end sequence
-
-	return nResult;
+    return nResult;
 }
 
 
@@ -1540,53 +1450,48 @@ long	TTokenizer<T>::ParseOneAttribute
  * ParseAttributeValue -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::ParseAttributeValue
-		(
-		T*		s,
-		size_t	n
-		)
+TTokenizer<T>::ParseAttributeValue( T* s, size_t n )
 {
-	Yogi::Core::TCharDescriptor<T>	tResult;
-	T*		sStart = s;
-	T*		sEnd = s + n - 1;	// back-off one because of closing quote
-	if ( '"' == *s  ||  '\'' == *s )
-	{
-		//T	cQ = *s;
-		//T	cOther = ('"' == *s) ? '\'' : '"';
+    Yogi::Core::TCharDescriptor<T> tResult;
+    T*                             sStart = s;
+    T* sEnd = s + n - 1;  // back-off one because of closing quote
+    if ( '"' == *s || '\'' == *s )
+    {
+        //T	cQ = *s;
+        //T	cOther = ('"' == *s) ? '\'' : '"';
 
-		++s;
-		sStart = s;
-		T*		st = s;
-		T		c;
-		long	j;
+        ++s;
+        sStart = s;
+        T*   st = s;
+        T    c;
+        long j;
 
-		while ( s < sEnd )
-		{
-			if ( '&' == *s )
-			{
-				c = SpecialCharacters( s, j );
-				if ( c )
-				{
-					*st++ = c;
-					s += j;
-				}
-				else
-				{
-					*st++ = *s++;
-				}
-			}
-			else
-			{
-				*st++ = *s++;
-			}
-		}
-		n = (size_t)(st - sStart);
-	}
-	return Yogi::Core::TCharDescriptor<T>( sStart, n );
+        while ( s < sEnd )
+        {
+            if ( '&' == *s )
+            {
+                c = SpecialCharacters( s, j );
+                if ( c )
+                {
+                    *st++ = c;
+                    s += j;
+                }
+                else
+                {
+                    *st++ = *s++;
+                }
+            }
+            else
+            {
+                *st++ = *s++;
+            }
+        }
+        n = ( size_t )( st - sStart );
+    }
+    return Yogi::Core::TCharDescriptor<T>( sStart, n );
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -1594,63 +1499,60 @@ Yogi::Core::TCharDescriptor<T>
  * ParseHeader -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseHeader
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseHeader( void )
 {
-	bool	bResult = false;
-	long	n;
-	T*		s = m_pCurrentPosition;
-	T*		sXML;
+    bool bResult = false;
+    long n;
+    T*   s = m_pCurrentPosition;
+    T*   sXML;
 
-	do	// sequence
-	{
-		//s += SpanByteOrderMarks( s );
+    do  // sequence
+    {
+        //s += SpanByteOrderMarks( s );
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		if ( '<' != *s )
-			break;
-		++s;
+        if ( '<' != *s )
+            break;
+        ++s;
 
-		if ( '?' != *s )
-			break;
-		++s;
-
-
-		if ( Yogi::Core::TCharDescriptor<T>( s, 3 ) != "xml" )
-			break;
-		sXML = s;
-		s += 3;
-
-		s += SpanBlanks( s );
-
-		n = ParseAttributes( s );
-		s += n;
-
-		s += SpanBlanks( s );
-
-		if ( '?' != *s )
-			break;
-		++s;
-
-		if ( '>' != *s )
-			break;
-		++s;
-
-		m_tNodeName = Yogi::Core::TCharDescriptor<T>( sXML, 3 );
-		m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
-		m_pCurrentPosition = s;
-		m_eNodeType = NODE_HEADER;
-
-		bResult = true;
+        if ( '?' != *s )
+            break;
+        ++s;
 
 
-	} sequence;	// end sequence
+        if ( Yogi::Core::TCharDescriptor<T>( s, 3 ) != "xml" )
+            break;
+        sXML = s;
+        s += 3;
 
-	return bResult;
+        s += SpanBlanks( s );
+
+        n = ParseAttributes( s );
+        s += n;
+
+        s += SpanBlanks( s );
+
+        if ( '?' != *s )
+            break;
+        ++s;
+
+        if ( '>' != *s )
+            break;
+        ++s;
+
+        m_tNodeName = Yogi::Core::TCharDescriptor<T>( sXML, 3 );
+        m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
+        m_pCurrentPosition = s;
+        m_eNodeType = NODE_HEADER;
+
+        bResult = true;
+    }
+    sequence;  // end sequence
+
+    return bResult;
 }
 
 
@@ -1659,81 +1561,80 @@ bool	TTokenizer<T>::ParseHeader
  * ParseElement -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseElement
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseElement( void )
 {
-	bool	bResult = false;
-	long	n;
-	T*		s = m_pCurrentPosition;
+    bool bResult = false;
+    long n;
+    T*   s = m_pCurrentPosition;
 
-	do	// sequence
-	{
-		if ( '<' != *s )
-			break;
-		++s;
+    do  // sequence
+    {
+        if ( '<' != *s )
+            break;
+        ++s;
 
-		//s += SpanBlanks( s );
+        //s += SpanBlanks( s );
 
-		if ( '!' == *s  ||  '?' == *s  ||  '/' == *s )
-			break;
+        if ( '!' == *s || '?' == *s || '/' == *s )
+            break;
 
-		n = SpanName( s );
-		if ( n < 1 )
-			break;
+        n = SpanName( s );
+        if ( n < 1 )
+            break;
 
-		Yogi::Core::TCharDescriptor<T>	tNodeName( s, (size_t)n );
-		s += n;
+        Yogi::Core::TCharDescriptor<T> tNodeName( s, (size_t)n );
+        s += n;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		n = ParseAttributes( s );
-		s += n;
+        n = ParseAttributes( s );
+        s += n;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		bool	bBegin = true;
-		if ( '/' == *s )
-		{
-			bBegin = false;
-			++s;
-		}
+        bool bBegin = true;
+        if ( '/' == *s )
+        {
+            bBegin = false;
+            ++s;
+        }
 
-		//s += SpanBlanks( s );
+        //s += SpanBlanks( s );
 
-		if ( '>' != *s )
-			break;
-		++s;
+        if ( '>' != *s )
+            break;
+        ++s;
 
-		m_tNodeName = tNodeName;
-		m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
-		m_pCurrentPosition = s;
-		if ( bBegin )
-		{
-			if ( ParseElementValue( tNodeName ) )
-			{
-				m_eNodeType = NODE_ELEMENT;
-			}
-			else
-			{
-				Yogi::Core::TCharDescriptor<T>*	p = m_aNodeStack.PointItem( m_nNodeStack );
-				*p = tNodeName;
-				++m_nNodeStack;
-				m_eNodeType = NODE_ELEMENT_BEGIN;
-			}
-		}
-		else
-		{
-			m_eNodeType = NODE_ELEMENT;
-		}
+        m_tNodeName = tNodeName;
+        m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
+        m_pCurrentPosition = s;
+        if ( bBegin )
+        {
+            if ( ParseElementValue( tNodeName ) )
+            {
+                m_eNodeType = NODE_ELEMENT;
+            }
+            else
+            {
+                Yogi::Core::TCharDescriptor<T>* p
+                        = m_aNodeStack.PointItem( m_nNodeStack );
+                *p = tNodeName;
+                ++m_nNodeStack;
+                m_eNodeType = NODE_ELEMENT_BEGIN;
+            }
+        }
+        else
+        {
+            m_eNodeType = NODE_ELEMENT;
+        }
 
-		bResult = true;
+        bResult = true;
+    }
+    sequence;  // end sequence
 
-	} sequence;	// end sequence
-
-	return bResult;
+    return bResult;
 }
 
 
@@ -1742,66 +1643,63 @@ bool	TTokenizer<T>::ParseElement
  * ParseEndElement -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseEndElement
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseEndElement( void )
 {
-	bool	bResult = false;
-	long	n;
-	T*		s = m_pCurrentPosition;
+    bool bResult = false;
+    long n;
+    T*   s = m_pCurrentPosition;
 
-	do	// sequence
-	{
-		if ( '<' != *s )
-			break;
-		++s;
+    do  // sequence
+    {
+        if ( '<' != *s )
+            break;
+        ++s;
 
-		//s += SpanBlanks( s );
+        //s += SpanBlanks( s );
 
-		if ( '/' != *s )
-			break;
-		++s;
+        if ( '/' != *s )
+            break;
+        ++s;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		n = SpanName( s );
-		if ( n < 1 )
-			break;
+        n = SpanName( s );
+        if ( n < 1 )
+            break;
 
-		Yogi::Core::TCharDescriptor<T>	tNodeName( s, (size_t)n );
-		s += n;
+        Yogi::Core::TCharDescriptor<T> tNodeName( s, (size_t)n );
+        s += n;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		if ( '>' != *s )
-			break;
-		++s;
+        if ( '>' != *s )
+            break;
+        ++s;
 
-		n = m_nNodeStack - 1;
-		Yogi::Core::TCharDescriptor<T>*	p = m_aNodeStack.PointArray( n );
-		if ( tNodeName != *p )
-		{
-			Error( "Unbalanced tag" );
-			m_tErrorToken = tNodeName;
-			break;
-		}
+        n = m_nNodeStack - 1;
+        Yogi::Core::TCharDescriptor<T>* p = m_aNodeStack.PointArray( n );
+        if ( tNodeName != *p )
+        {
+            Error( "Unbalanced tag" );
+            m_tErrorToken = tNodeName;
+            break;
+        }
 
-		m_nNodeStack = n;
+        m_nNodeStack = n;
 
-		m_tNodeName = tNodeName;
-		m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
-		m_pCurrentPosition = s;
-		m_eNodeType = NODE_ELEMENT_END;
+        m_tNodeName = tNodeName;
+        m_tNodeValue = Yogi::Core::TCharDescriptor<T>();
+        m_pCurrentPosition = s;
+        m_eNodeType = NODE_ELEMENT_END;
 
-		bResult = true;
+        bResult = true;
+    }
+    sequence;  // end sequence
 
-	} sequence;	// end sequence
-
-	return bResult;
+    return bResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -1809,56 +1707,55 @@ bool	TTokenizer<T>::ParseEndElement
  * ParseElementValueEnd -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseElementValueEnd
-		(
-		const Yogi::Core::TCharDescriptor<T>&	rName
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseElementValueEnd(
+        const Yogi::Core::TCharDescriptor<T>& rName )
 {
-	bool	bResult = false;
-	long	n;
-	T*		s = m_pCurrentPosition;
+    bool bResult = false;
+    long n;
+    T*   s = m_pCurrentPosition;
 
-	do	// sequence
-	{
-		s += SpanBlanks( s );
+    do  // sequence
+    {
+        s += SpanBlanks( s );
 
 
-		if ( '<' != *s )
-			break;
-		++s;
+        if ( '<' != *s )
+            break;
+        ++s;
 
-		//s += SpanBlanks( s );
+        //s += SpanBlanks( s );
 
-		if ( '/' != *s )
-			break;
-		++s;
+        if ( '/' != *s )
+            break;
+        ++s;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		n = SpanName( s );
-		if ( n < 1 )
-			break;
+        n = SpanName( s );
+        if ( n < 1 )
+            break;
 
-		Yogi::Core::TCharDescriptor<T>	tNodeName( s, (size_t)n );
-		s += n;
+        Yogi::Core::TCharDescriptor<T> tNodeName( s, (size_t)n );
+        s += n;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		if ( '>' != *s )
-			break;
-		++s;
+        if ( '>' != *s )
+            break;
+        ++s;
 
-		if ( tNodeName != rName )
-			break;
+        if ( tNodeName != rName )
+            break;
 
-		m_pCurrentPosition = s;
+        m_pCurrentPosition = s;
 
-		bResult = true;
+        bResult = true;
+    }
+    sequence;  // end sequence
 
-	} sequence;	// end sequence
-
-	return bResult;
+    return bResult;
 }
 
 
@@ -1867,23 +1764,21 @@ bool	TTokenizer<T>::ParseElementValueEnd
  * ParseElementValue -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseElementValue
-		(
-		const Yogi::Core::TCharDescriptor<T>& rName
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseElementValue( const Yogi::Core::TCharDescriptor<T>& rName )
 {
-	bool	bResult = false;
-	bResult = ParseCData();
-	if ( bResult )
-	{
-		bResult = ParseElementValueEnd( rName );
-		return bResult;
-	}
+    bool bResult = false;
+    bResult = ParseCData();
+    if ( bResult )
+    {
+        bResult = ParseElementValueEnd( rName );
+        return bResult;
+    }
 
-	bResult = ParseText();
-	bResult = ParseElementValueEnd( rName );
-	return bResult;
+    bResult = ParseText();
+    bResult = ParseElementValueEnd( rName );
+    return bResult;
 }
 
 
@@ -1892,40 +1787,39 @@ bool	TTokenizer<T>::ParseElementValue
  * ParseCData -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseCData
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseCData( void )
 {
-	bool	bResult = false;
-	T*		s = m_pCurrentPosition;
-	T*		sEnd = m_pEndPosition;
+    bool bResult = false;
+    T*   s = m_pCurrentPosition;
+    T*   sEnd = m_pEndPosition;
 
-	s += SpanBlanks( s );
+    s += SpanBlanks( s );
 
-	if ( Yogi::Core::TCharDescriptor<T>( s, 9 ) == "<![CDATA[" )
-	{
-		s += 9;
-		T*	sData = s;
+    if ( Yogi::Core::TCharDescriptor<T>( s, 9 ) == "<![CDATA[" )
+    {
+        s += 9;
+        T* sData = s;
 
-		while ( s < sEnd )
-		{
-			if ( ']' == *s )
-			{
-				if ( Yogi::Core::TCharDescriptor<T>( s, 3 ) == "]]>" )
-				{
-					m_tNodeValue = Yogi::Core::TCharDescriptor<T>( sData, (size_t)(s - sData) );
-					m_pCurrentPosition = s + 3;
-					m_eNodeType = NODE_CDATA;
-					bResult = true;
-					break;
-				}
-			}
-			++s;
-		}
-	}
-	return bResult;
+        while ( s < sEnd )
+        {
+            if ( ']' == *s )
+            {
+                if ( Yogi::Core::TCharDescriptor<T>( s, 3 ) == "]]>" )
+                {
+                    m_tNodeValue = Yogi::Core::TCharDescriptor<T>(
+                            sData, ( size_t )( s - sData ) );
+                    m_pCurrentPosition = s + 3;
+                    m_eNodeType = NODE_CDATA;
+                    bResult = true;
+                    break;
+                }
+            }
+            ++s;
+        }
+    }
+    return bResult;
 }
 
 
@@ -1934,39 +1828,38 @@ bool	TTokenizer<T>::ParseCData
  * ParseText -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseText
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseText( void )
 {
-	bool	bResult = false;
-	T*		s = m_pCurrentPosition;
-	T*		sEnd = m_pEndPosition;
+    bool bResult = false;
+    T*   s = m_pCurrentPosition;
+    T*   sEnd = m_pEndPosition;
 
-	s += SpanBlanks( s );
+    s += SpanBlanks( s );
 
-	T*		sBegin = s;
-	while ( s < sEnd )
-	{
-		if ( '<' == *s )
-		{
-			if ( sBegin < s )
-			{
-				m_pCurrentPosition = s;
-				m_eNodeType = NODE_TEXT;
+    T* sBegin = s;
+    while ( s < sEnd )
+    {
+        if ( '<' == *s )
+        {
+            if ( sBegin < s )
+            {
+                m_pCurrentPosition = s;
+                m_eNodeType = NODE_TEXT;
 
-				// strip trailing spaces
-				while ( IsBlank( *(s-1) ) )
-					--s;
-				m_tNodeValue = Yogi::Core::TCharDescriptor<T>( sBegin, (size_t)(s - sBegin) );
-				bResult = true;
-			}
-			break;
-		}
-		++s;
-	}
-	return bResult;
+                // strip trailing spaces
+                while ( IsBlank( *( s - 1 ) ) )
+                    --s;
+                m_tNodeValue = Yogi::Core::TCharDescriptor<T>(
+                        sBegin, ( size_t )( s - sBegin ) );
+                bResult = true;
+            }
+            break;
+        }
+        ++s;
+    }
+    return bResult;
 }
 
 
@@ -1975,59 +1868,57 @@ bool	TTokenizer<T>::ParseText
  * ParseProcessingInstruction -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseProcessingInstruction
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseProcessingInstruction( void )
 {
-	bool	bResult = false;
-	long	n;
-	T*		s = m_pCurrentPosition;
-	T*		sEnd = m_pEndPosition;
+    bool bResult = false;
+    long n;
+    T*   s = m_pCurrentPosition;
+    T*   sEnd = m_pEndPosition;
 
-	do	// sequence
-	{
-		if ( '<' != *s )
-			break;
-		++s;
+    do  // sequence
+    {
+        if ( '<' != *s )
+            break;
+        ++s;
 
-		if ( '?' != *s )
-			break;
-		++s;
+        if ( '?' != *s )
+            break;
+        ++s;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		n = SpanName( s );
-		if ( n < 1 )
-			break;
+        n = SpanName( s );
+        if ( n < 1 )
+            break;
 
-		Yogi::Core::TCharDescriptor<T>	tName( s, (size_t)n );
-		s += n;
+        Yogi::Core::TCharDescriptor<T> tName( s, (size_t)n );
+        s += n;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		T*	pValue = s;
+        T* pValue = s;
 
-		while ( s < sEnd )
-		{
-			if ( '?' == *s  &&  '>' == *(s+1) )
-			{
-				m_tNodeName = tName;
-				m_tNodeValue = Yogi::Core::TCharDescriptor<T>( pValue, (size_t)(s - pValue) );
-				s += 2;
-				m_pCurrentPosition = s;
-				m_eNodeType = NODE_PROCESSING_INSTRUCTION;
-				bResult = true;
-				break;
-			}
-			++s;
-		}
+        while ( s < sEnd )
+        {
+            if ( '?' == *s && '>' == *( s + 1 ) )
+            {
+                m_tNodeName = tName;
+                m_tNodeValue = Yogi::Core::TCharDescriptor<T>(
+                        pValue, ( size_t )( s - pValue ) );
+                s += 2;
+                m_pCurrentPosition = s;
+                m_eNodeType = NODE_PROCESSING_INSTRUCTION;
+                bResult = true;
+                break;
+            }
+            ++s;
+        }
+    }
+    sequence;  // end sequence
 
-
-	} sequence;	// end sequence
-
-	return bResult;
+    return bResult;
 }
 
 
@@ -2036,47 +1927,44 @@ bool	TTokenizer<T>::ParseProcessingInstruction
  * ParseComment -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseComment
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseComment( void )
 {
-	bool	bResult = false;
-	T*		s = m_pCurrentPosition;
-	T*		sEnd = m_pEndPosition;
+    bool bResult = false;
+    T*   s = m_pCurrentPosition;
+    T*   sEnd = m_pEndPosition;
 
-	if ( Yogi::Core::TCharDescriptor<T>( s, 4 ) == "<!--" )
-	{
-		// name will be "!--"
-		m_tNodeName = Yogi::Core::TCharDescriptor<T>( s+1, 3 );
+    if ( Yogi::Core::TCharDescriptor<T>( s, 4 ) == "<!--" )
+    {
+        // name will be "!--"
+        m_tNodeName = Yogi::Core::TCharDescriptor<T>( s + 1, 3 );
 
-		s += 4;
+        s += 4;
 
-		s += SpanBlanks( s );
+        s += SpanBlanks( s );
 
-		T*	sBegin = s;
+        T* sBegin = s;
 
-		while ( s < sEnd )
-		{
-			if ( '-' == *s )
-			{
-				if ( Yogi::Core::TCharDescriptor<T>( s, 3 ) == "-->" )
-				{
-					m_tNodeValue = Yogi::Core::TCharDescriptor<T>( sBegin, (size_t)(s - sBegin) );
-					m_eNodeType = NODE_COMMENT;
-					m_pCurrentPosition = s + 3;
-					bResult = true;
-					break;
-				}
-			}
-			++s;
-		}
-	}
-	return bResult;
+        while ( s < sEnd )
+        {
+            if ( '-' == *s )
+            {
+                if ( Yogi::Core::TCharDescriptor<T>( s, 3 ) == "-->" )
+                {
+                    m_tNodeValue = Yogi::Core::TCharDescriptor<T>(
+                            sBegin, ( size_t )( s - sBegin ) );
+                    m_eNodeType = NODE_COMMENT;
+                    m_pCurrentPosition = s + 3;
+                    bResult = true;
+                    break;
+                }
+            }
+            ++s;
+        }
+    }
+    return bResult;
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -2084,72 +1972,67 @@ bool	TTokenizer<T>::ParseComment
  * ParseNotation -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ParseNotation
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::ParseNotation( void )
 {
-	bool	bResult = false;
-	T*		s = m_pCurrentPosition;
-	T*		sEnd = m_pEndPosition;
+    bool bResult = false;
+    T*   s = m_pCurrentPosition;
+    T*   sEnd = m_pEndPosition;
 
-	if ( '<' == *s )
-	{
-		++s;
-		s += SpanBlanks( s );
-		if ( '!' == *s  &&  '-' != *(s+1) )
-		{
-			long	nNest = 0;
-			long	n;
-			++s;
-			s += SpanBlanks( s );
-			n = SpanName( s );
-			Yogi::Core::TCharDescriptor<T>	tName( s, (size_t)n );
-			s += n;
+    if ( '<' == *s )
+    {
+        ++s;
+        s += SpanBlanks( s );
+        if ( '!' == *s && '-' != *( s + 1 ) )
+        {
+            long nNest = 0;
+            long n;
+            ++s;
+            s += SpanBlanks( s );
+            n = SpanName( s );
+            Yogi::Core::TCharDescriptor<T> tName( s, (size_t)n );
+            s += n;
 
-			s += SpanBlanks( s );
+            s += SpanBlanks( s );
 
-			T*	sValue = s;
+            T* sValue = s;
 
-			while ( s < sEnd )
-			{
-				if ( nNest < 1 )
-				{
-					if ( '>' == *s )
-					{
-						m_tNodeName = tName;
-						m_tNodeValue = Yogi::Core::TCharDescriptor<T>( sValue, (size_t)(s - sValue) );
-						++s;
-						m_pCurrentPosition = s;
-						m_eNodeType = NODE_NOTATION;
-						//m_bInsideElement = false;
-						bResult = true;
-						break;
-					}
-					else if ( '<' == *s )
-					{
-						++nNest;
-					}
-				}
-				else
-				{
-					if ( '>' == *s )
-						--nNest;
-				}
-				++s;
-			}
-		}
-	}
-	return bResult;
+            while ( s < sEnd )
+            {
+                if ( nNest < 1 )
+                {
+                    if ( '>' == *s )
+                    {
+                        m_tNodeName = tName;
+                        m_tNodeValue = Yogi::Core::TCharDescriptor<T>(
+                                sValue, ( size_t )( s - sValue ) );
+                        ++s;
+                        m_pCurrentPosition = s;
+                        m_eNodeType = NODE_NOTATION;
+                        //m_bInsideElement = false;
+                        bResult = true;
+                        break;
+                    }
+                    else if ( '<' == *s )
+                    {
+                        ++nNest;
+                    }
+                }
+                else
+                {
+                    if ( '>' == *s )
+                        --nNest;
+                }
+                ++s;
+            }
+        }
+    }
+    return bResult;
 }
 
 
-
-
-
 //-------------- Overridden Functions -----------------
-
 
 
 /*---------------------------------------------------------------------+\
@@ -2157,15 +2040,13 @@ bool	TTokenizer<T>::ParseNotation
  * HeaderRequired -
 
 \+---------------------------------------------------------------------*/
-template< class T >
-bool	TTokenizer<T>::HeaderRequired
-		(
-		bool	bRequired
-		)
+template <class T>
+bool
+TTokenizer<T>::HeaderRequired( bool bRequired )
 {
-	bool	b = m_bHeaderRequired;
-	m_bHeaderRequired = bRequired;
-	return b;
+    bool b = m_bHeaderRequired;
+    m_bHeaderRequired = bRequired;
+    return b;
 }
 
 
@@ -2174,23 +2055,19 @@ bool	TTokenizer<T>::HeaderRequired
  * ProcessCallBack -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::ProcessCallBack
-		(
-		XMLLite::VReadCallBack*	pCallBack
-		)
+template <class T>
+bool
+TTokenizer<T>::ProcessCallBack( XMLLite::VReadCallBack* pCallBack )
 {
-	bool	bResult = false;
-	if ( pCallBack )
-	{
-		Reset();
-		m_pReadCallBack = pCallBack;
-		bResult = ReadFromCallBack();
-	}
-	return bResult;
+    bool bResult = false;
+    if ( pCallBack )
+    {
+        Reset();
+        m_pReadCallBack = pCallBack;
+        bResult = ReadFromCallBack();
+    }
+    return bResult;
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -2198,22 +2075,20 @@ bool	TTokenizer<T>::ProcessCallBack
  * Read -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::Read
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::Read( void )
 {
-	T*	s = m_pCurrentPosition;
-	s += SpanBlanks( s );
-	if ( s < m_pEndPosition )
-	{
-		return ParseNode();
-	}
-	else
-	{
-		return false;
-	}
+    T* s = m_pCurrentPosition;
+    s += SpanBlanks( s );
+    if ( s < m_pEndPosition )
+    {
+        return ParseNode();
+    }
+    else
+    {
+        return false;
+    }
 }
 
 
@@ -2222,57 +2097,53 @@ bool	TTokenizer<T>::Read
  * Error -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-void	TTokenizer<T>::Error
-		(
-		const char* s
-		)
+template <class T>
+void
+TTokenizer<T>::Error( const char* s )
 {
-	if ( 0 == m_nErrorLine )
-	{
-		size_t	n = ::strlen( s );
-		m_sErrorString.AdjustUsed( n + 1 );
-		strcpy_s( m_sErrorString.PointArray(),
-					n + 1,
-					s );
+    if ( 0 == m_nErrorLine )
+    {
+        size_t n = ::strlen( s );
+        m_sErrorString.AdjustUsed( n + 1 );
+        strcpy_s( m_sErrorString.PointArray(), n + 1, s );
 
-		// calculate the line number
-		const T*	p = m_tFullStream.Pointer();
-		const T*	pEnd = p + m_tFullStream.Length();
-		const T*	pTarget = m_tNodeName.Pointer();
-		n = 1;
-		while ( p < pEnd )
-		{
-			if ( pTarget <= p )
-				break;
-			if ( '\r' == *p  &&  '\n' == *(p+1) )
-			{
-				++n;
-				++p;
-			}
-			else if ( '\n' == *p  ||  '\r' == *p )
-			{
-				++n;
-			}
-			++p;
-		}
+        // calculate the line number
+        const T* p = m_tFullStream.Pointer();
+        const T* pEnd = p + m_tFullStream.Length();
+        const T* pTarget = m_tNodeName.Pointer();
+        n = 1;
+        while ( p < pEnd )
+        {
+            if ( pTarget <= p )
+                break;
+            if ( '\r' == *p && '\n' == *( p + 1 ) )
+            {
+                ++n;
+                ++p;
+            }
+            else if ( '\n' == *p || '\r' == *p )
+            {
+                ++n;
+            }
+            ++p;
+        }
 
-		m_nErrorLine = (index_t)n;
-		m_tErrorToken = m_tNodeName;
+        m_nErrorLine = (index_t)n;
+        m_tErrorToken = m_tNodeName;
 
 #ifdef _DEBUG
-		Yogi::Core::DbgPrint( "Error in XML: %s\n", s );
-		Yogi::Core::DbgPrint( "-- Line # %ld\n", m_nErrorLine );
-		char	sTemp[128];
-		m_tErrorToken.CopyTo( sTemp, sizeof(sTemp) );
-		Yogi::Core::DbgPrint( "-- Token: %s\n", sTemp );
+        Yogi::Core::DbgPrint( "Error in XML: %s\n", s );
+        Yogi::Core::DbgPrint( "-- Line # %ld\n", m_nErrorLine );
+        char sTemp[128];
+        m_tErrorToken.CopyTo( sTemp, sizeof( sTemp ) );
+        Yogi::Core::DbgPrint( "-- Token: %s\n", sTemp );
 #endif
 
 
-		// force us to get out.
-		m_pCurrentPosition = m_pEndPosition;
-		m_nNodeStack = 0;
-	}
+        // force us to get out.
+        m_pCurrentPosition = m_pEndPosition;
+        m_nNodeStack = 0;
+    }
 }
 
 
@@ -2281,15 +2152,12 @@ void	TTokenizer<T>::Error
  * ErrorLineNumber -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-index_t	TTokenizer<T>::ErrorLineNumber
-		(
-		void
-		)
+template <class T>
+index_t
+TTokenizer<T>::ErrorLineNumber( void )
 {
-	return m_nErrorLine;
+    return m_nErrorLine;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -2297,22 +2165,19 @@ index_t	TTokenizer<T>::ErrorLineNumber
  * ErrorString -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<char>
-		TTokenizer<T>::ErrorString
-		(
-		void
-		)
+TTokenizer<T>::ErrorString( void )
 {
-	if ( 0 < m_nErrorLine )
-	{
-		char*	s = m_sErrorString.PointArray();
-		return Yogi::Core::TCharDescriptor<char>( s, ::strlen(s) );
-	}
-	else
-	{
-		return Yogi::Core::TCharDescriptor<char>();
-	}
+    if ( 0 < m_nErrorLine )
+    {
+        char* s = m_sErrorString.PointArray();
+        return Yogi::Core::TCharDescriptor<char>( s, ::strlen( s ) );
+    }
+    else
+    {
+        return Yogi::Core::TCharDescriptor<char>();
+    }
 }
 
 
@@ -2321,14 +2186,11 @@ Yogi::Core::TCharDescriptor<char>
  * ErrorToken -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::ErrorToken
-		(
-		void
-		)
+TTokenizer<T>::ErrorToken( void )
 {
-	return m_tErrorToken;
+    return m_tErrorToken;
 }
 
 
@@ -2337,19 +2199,15 @@ Yogi::Core::TCharDescriptor<T>
  * ErrorStreamName -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<char>
-		TTokenizer<T>::ErrorStreamName
-		(
-		void
-		)
+TTokenizer<T>::ErrorStreamName( void )
 {
-	char*	s = m_sStreamName.PointArray();
-	size_t	n = ::strlen( s );
-	Yogi::Core::TCharDescriptor<char>	tName( s, n );
-	return tName;
+    char*                             s = m_sStreamName.PointArray();
+    size_t                            n = ::strlen( s );
+    Yogi::Core::TCharDescriptor<char> tName( s, n );
+    return tName;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -2357,13 +2215,11 @@ Yogi::Core::TCharDescriptor<char>
  * NestDepth -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-int		TTokenizer<T>::NestDepth
-		(
-		void
-		)
+template <class T>
+int
+TTokenizer<T>::NestDepth( void )
 {
-	return m_nNodeStack;
+    return m_nNodeStack;
 }
 
 
@@ -2372,14 +2228,11 @@ int		TTokenizer<T>::NestDepth
  * NodeType -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 ENODETYPE
-		TTokenizer<T>::NodeType
-		(
-		void
-		)
+TTokenizer<T>::NodeType( void )
 {
-	return m_eNodeType;
+    return m_eNodeType;
 }
 
 
@@ -2388,14 +2241,11 @@ ENODETYPE
  * NodeName -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::NodeName
-		(
-		void
-		)
+TTokenizer<T>::NodeName( void )
 {
-	return m_tNodeName;
+    return m_tNodeName;
 }
 
 
@@ -2404,52 +2254,50 @@ Yogi::Core::TCharDescriptor<T>
  * NodeEmpty -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-bool	TTokenizer<T>::NodeEmpty
-		(
-		void
-		)
+template <class T>
+bool
+TTokenizer<T>::NodeEmpty( void )
 {
-	bool	bResult = false;
+    bool bResult = false;
 
-	switch ( m_eNodeType )
-	{
-	case NODE_NONE:		// starting state
-		bResult = true;
-		break;
+    switch ( m_eNodeType )
+    {
+    case NODE_NONE:  // starting state
+        bResult = true;
+        break;
 
-	case NODE_ELEMENT:		// empty element "<tagname/>" or "<tagname>text</tagname>"
-		if ( m_tNodeValue.Length() < 1 )
-			bResult = true;
-		break;
-	case NODE_ELEMENT_BEGIN:	// begining element "<tagname>"
-		bResult = false;
-		break;
-	case NODE_ELEMENT_END:	// ending element "</tagname>"
-		bResult = true;
-		break;
+    case NODE_ELEMENT:  // empty element "<tagname/>" or "<tagname>text</tagname>"
+        if ( m_tNodeValue.Length() < 1 )
+            bResult = true;
+        break;
+    case NODE_ELEMENT_BEGIN:  // begining element "<tagname>"
+        bResult = false;
+        break;
+    case NODE_ELEMENT_END:  // ending element "</tagname>"
+        bResult = true;
+        break;
 
-	case NODE_TEXT:
-	case NODE_CDATA:
-		bResult = false;
-		break;
+    case NODE_TEXT:
+    case NODE_CDATA:
+        bResult = false;
+        break;
 
-	case NODE_COMMENT:
-		bResult = true;
-		break;
+    case NODE_COMMENT:
+        bResult = true;
+        break;
 
-	case NODE_HEADER:		// <?xml ...?>
-	//NODE_ENTITY,
-	case NODE_PROCESSING_INSTRUCTION:
-	//NODE_DOCTYPE,
-	case NODE_NOTATION:
+    case NODE_HEADER:  // <?xml ...?>
+    //NODE_ENTITY,
+    case NODE_PROCESSING_INSTRUCTION:
+    //NODE_DOCTYPE,
+    case NODE_NOTATION:
 
-	case NODE_UNKNOWN:		// other
-	case NODE_BLANKS:			// spaces between nodes (currently never returned)
-		bResult = true;
-		break;
-	}
-	return bResult;
+    case NODE_UNKNOWN:  // other
+    case NODE_BLANKS:   // spaces between nodes (currently never returned)
+        bResult = true;
+        break;
+    }
+    return bResult;
 }
 
 
@@ -2458,14 +2306,11 @@ bool	TTokenizer<T>::NodeEmpty
  * NodeValue -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::NodeValue
-		(
-		void
-		)
+TTokenizer<T>::NodeValue( void )
 {
-	return m_tNodeValue;
+    return m_tNodeValue;
 }
 
 /*---------------------------------------------------------------------+\
@@ -2473,21 +2318,19 @@ Yogi::Core::TCharDescriptor<T>
  * NodeValueAsInt -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::NodeValueAsInt
-		(
-		void
-		)
+template <class T>
+long
+TTokenizer<T>::NodeValueAsInt( void )
 {
-	Yogi::Core::TCharDescriptor<T>	cd = NodeValue();
-	if ( 0 < cd.Length() )
-	{
-		return NumberFromDec( cd.Pointer(), cd.Length() );
-	}
-	else
-	{
-		return 0;
-	}
+    Yogi::Core::TCharDescriptor<T> cd = NodeValue();
+    if ( 0 < cd.Length() )
+    {
+        return NumberFromDec( cd.Pointer(), cd.Length() );
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
@@ -2496,24 +2339,20 @@ long	TTokenizer<T>::NodeValueAsInt
  * NodeValueAsFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 GFLOAT
-		TTokenizer<T>::NodeValueAsFloat
-		(
-		void
-		)
+TTokenizer<T>::NodeValueAsFloat( void )
 {
-	Yogi::Core::TCharDescriptor<T>	cd = NodeValue();
-	if ( 0 < cd.Length() )
-	{
-		return NumberFromFlt( cd.Pointer(), cd.Length() );
-	}
-	else
-	{
-		return 0;
-	}
+    Yogi::Core::TCharDescriptor<T> cd = NodeValue();
+    if ( 0 < cd.Length() )
+    {
+        return NumberFromFlt( cd.Pointer(), cd.Length() );
+    }
+    else
+    {
+        return 0;
+    }
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -2521,13 +2360,11 @@ GFLOAT
  * AttributeCount -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-int		TTokenizer<T>::AttributeCount
-		(
-		void
-		)
+template <class T>
+int
+TTokenizer<T>::AttributeCount( void )
 {
-	return int(m_aAttributes.Length());
+    return int( m_aAttributes.Length() );
 }
 
 
@@ -2536,18 +2373,15 @@ int		TTokenizer<T>::AttributeCount
  * AttributeName -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::AttributeName
-		(
-		int	idx
-		)
+TTokenizer<T>::AttributeName( int idx )
 {
-	AttributeInfo*	p = m_aAttributes.PointArray( idx );
-	if ( p )
-		return p->tName;
-	else
-		return Yogi::Core::TCharDescriptor<T>();
+    AttributeInfo* p = m_aAttributes.PointArray( idx );
+    if ( p )
+        return p->tName;
+    else
+        return Yogi::Core::TCharDescriptor<T>();
 }
 
 
@@ -2556,18 +2390,15 @@ Yogi::Core::TCharDescriptor<T>
  * AttributeValue -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::AttributeValue
-		(
-		int	idx
-		)
+TTokenizer<T>::AttributeValue( int idx )
 {
-	AttributeInfo*	p = m_aAttributes.PointArray( idx );
-	if ( p )
-		return p->tValue;
-	else
-		return Yogi::Core::TCharDescriptor<T>();
+    AttributeInfo* p = m_aAttributes.PointArray( idx );
+    if ( p )
+        return p->tValue;
+    else
+        return Yogi::Core::TCharDescriptor<T>();
 }
 
 
@@ -2576,30 +2407,25 @@ Yogi::Core::TCharDescriptor<T>
  * AttributeValue -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::TCharDescriptor<T>
-		TTokenizer<T>::AttributeValue
-		(
-		const T*	sName
-		)
+TTokenizer<T>::AttributeValue( const T* sName )
 {
-	AttributeInfo*	p = m_aAttributes.PointArray();
-	if ( p )
-	{
-		AttributeInfo*	pEnd = p + m_aAttributes.Length();
-		while ( p < pEnd )
-		{
-			if ( p->tName == sName )
-			{
-				return p->tValue;
-			}
-			++p;
-		}
-	}
-	return Yogi::Core::TCharDescriptor<T>();
-
+    AttributeInfo* p = m_aAttributes.PointArray();
+    if ( p )
+    {
+        AttributeInfo* pEnd = p + m_aAttributes.Length();
+        while ( p < pEnd )
+        {
+            if ( p->tName == sName )
+            {
+                return p->tValue;
+            }
+            ++p;
+        }
+    }
+    return Yogi::Core::TCharDescriptor<T>();
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -2607,21 +2433,19 @@ Yogi::Core::TCharDescriptor<T>
  * AttributeValueAsInt -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::AttributeValueAsInt
-		(
-		int idx
-		)
+template <class T>
+long
+TTokenizer<T>::AttributeValueAsInt( int idx )
 {
-	Yogi::Core::TCharDescriptor<T>	cd = AttributeValue( idx );
-	if ( 0 < cd.Length() )
-	{
-		return NumberFromDec( cd.Pointer(), cd.Length() );
-	}
-	else
-	{
-		return 0;
-	}
+    Yogi::Core::TCharDescriptor<T> cd = AttributeValue( idx );
+    if ( 0 < cd.Length() )
+    {
+        return NumberFromDec( cd.Pointer(), cd.Length() );
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 /*---------------------------------------------------------------------+\
@@ -2629,21 +2453,19 @@ long	TTokenizer<T>::AttributeValueAsInt
  * AttributeValueAsInt -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizer<T>::AttributeValueAsInt
-		(
-		const char*	sName
-		)
+template <class T>
+long
+TTokenizer<T>::AttributeValueAsInt( const char* sName )
 {
-	Yogi::Core::TCharDescriptor<T>	cd = AttributeValue( sName );
-	if ( 0 < cd.Length() )
-	{
-		return NumberFromDec( cd.Pointer(), cd.Length() );
-	}
-	else
-	{
-		return 0;
-	}
+    Yogi::Core::TCharDescriptor<T> cd = AttributeValue( sName );
+    if ( 0 < cd.Length() )
+    {
+        return NumberFromDec( cd.Pointer(), cd.Length() );
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
@@ -2652,22 +2474,19 @@ long	TTokenizer<T>::AttributeValueAsInt
  * AttributeValueAsFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 GFLOAT
-		TTokenizer<T>::AttributeValueAsFloat
-		(
-		int idx
-		)
+TTokenizer<T>::AttributeValueAsFloat( int idx )
 {
-	Yogi::Core::TCharDescriptor<T>	cd = AttributeValue( idx );
-	if ( 0 < cd.Length() )
-	{
-		return NumberFromFlt( cd.Pointer(), cd.Length() );
-	}
-	else
-	{
-		return 0;
-	}
+    Yogi::Core::TCharDescriptor<T> cd = AttributeValue( idx );
+    if ( 0 < cd.Length() )
+    {
+        return NumberFromFlt( cd.Pointer(), cd.Length() );
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
@@ -2676,37 +2495,23 @@ GFLOAT
  * AttributeValueAsFloat -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 GFLOAT
-		TTokenizer<T>::AttributeValueAsFloat
-		(
-		const char*	sName
-		)
+TTokenizer<T>::AttributeValueAsFloat( const char* sName )
 {
-	Yogi::Core::TCharDescriptor<T>	cd = AttributeValue( sName );
-	if ( 0 < cd.Length() )
-	{
-		return NumberFromFlt( cd.Pointer(), cd.Length() );
-	}
-	else
-	{
-		return 0;
-	}
+    Yogi::Core::TCharDescriptor<T> cd = AttributeValue( sName );
+    if ( 0 < cd.Length() )
+    {
+        return NumberFromFlt( cd.Pointer(), cd.Length() );
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
-
-
-
-
-
-
-
-
-
-}}
-
-
+}}  // namespace Yogi::XMLLite
 
 
 #endif /* _H_XMLLiteImpl */

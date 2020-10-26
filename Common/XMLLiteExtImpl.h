@@ -47,6 +47,8 @@
 
 #include "CDateTime.h"
 
+#include "UDeclCommon.h"
+
 
 namespace Yogi { namespace XMLLite {
 
@@ -66,87 +68,93 @@ namespace Yogi { namespace XMLLite {
 |																		|
 \+---------------------------------------------------------------------*/
 
-template < class T >
-class TTokenizerExt : public TTokenizer<T>
+template <class T>
+class COMMON_CLASS TTokenizerExt : public TTokenizer<T>
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					TTokenizerExt();
-	virtual			~TTokenizerExt();
+    TTokenizerExt();
+    virtual ~TTokenizerExt();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	virtual Yogi::Core::CDateTime	NodeValueAsDate( void );
+    virtual Yogi::Core::CDateTime
+    NodeValueAsDate( void );
 
-	virtual long		NodeValueAsIntegerArray( long* pArray, long nSize );
-	virtual long		NodeValueAsFloatArray( GFLOAT* pArray, long nSize );
+    virtual long
+    NodeValueAsIntegerArray( long* pArray, long nSize );
+    virtual long
+    NodeValueAsFloatArray( GFLOAT* pArray, long nSize );
 
-	virtual Yogi::Core::CDateTime	AttributeValueAsDate( const char* sName );
-	virtual Yogi::Core::CDateTime	AttributeValueAsDate( int idx );
+    virtual Yogi::Core::CDateTime
+    AttributeValueAsDate( const char* sName );
+    virtual Yogi::Core::CDateTime
+    AttributeValueAsDate( int idx );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	Yogi::Core::CDateTime	DateFromDescriptor( Yogi::Core::TCharDescriptor<T>& r );
+    Yogi::Core::CDateTime
+    DateFromDescriptor( Yogi::Core::TCharDescriptor<T>& r );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
-
 
 
 /*---------------------------------------------------------------------+\
 |	template TIteratorExt												|
 \+---------------------------------------------------------------------*/
 
-template < class T, class TTok >
+template <class T, class TTok>
 class TIteratorExt : public TIterator<T, TTok>
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			TIteratorExt( TTok* pTokenizer );
-			TIteratorExt( VIterator<T, TTok>* p );
-			TIteratorExt( VIterator<T, TTok>& r );
-	virtual	~TIteratorExt();
+    TIteratorExt( TTok* pTokenizer );
+    TIteratorExt( VIterator<T, TTok>* p );
+    TIteratorExt( VIterator<T, TTok>& r );
+    virtual ~TIteratorExt();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	virtual Yogi::Core::CDateTime	NodeValueAsDate( void );
+    virtual Yogi::Core::CDateTime
+    NodeValueAsDate( void );
 
-	virtual long		NodeValueAsIntegerArray( long* pArray, long nSize );
-	virtual long		NodeValueAsFloatArray( GFLOAT* pArray, long nSize );
+    virtual long
+    NodeValueAsIntegerArray( long* pArray, long nSize );
+    virtual long
+    NodeValueAsFloatArray( GFLOAT* pArray, long nSize );
 
-	virtual Yogi::Core::CDateTime	AttributeValueAsDate( const char* sName );
-	virtual Yogi::Core::CDateTime	AttributeValueAsDate( int idx );
+    virtual Yogi::Core::CDateTime
+    AttributeValueAsDate( const char* sName );
+    virtual Yogi::Core::CDateTime
+    AttributeValueAsDate( int idx );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -176,14 +184,10 @@ private:
  * TIteratorExt - constructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIteratorExt<T,TTok>::TIteratorExt
-		(
-		TTok*	pTokenizer
-		)
-		: TIterator<T,TTok>( pTokenizer )
-{
-}
+template <class T, class TTok>
+TIteratorExt<T, TTok>::TIteratorExt( TTok* pTokenizer )
+        : TIterator<T, TTok>( pTokenizer )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -191,14 +195,10 @@ TIteratorExt<T,TTok>::TIteratorExt
  * TIteratorExt - copy constructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIteratorExt<T,TTok>::TIteratorExt
-		(
-		VIterator<T,TTok>&	r
-		)
-		: TIterator<T,TTok>( r )
-{
-}
+template <class T, class TTok>
+TIteratorExt<T, TTok>::TIteratorExt( VIterator<T, TTok>& r )
+        : TIterator<T, TTok>( r )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -206,14 +206,10 @@ TIteratorExt<T,TTok>::TIteratorExt
  * TIteratorExt - constructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIteratorExt<T,TTok>::TIteratorExt
-		(
-		VIterator<T,TTok>*	p
-		)
-		: TIterator<T,TTok>( p )
-{
-}
+template <class T, class TTok>
+TIteratorExt<T, TTok>::TIteratorExt( VIterator<T, TTok>* p )
+        : TIterator<T, TTok>( p )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -221,13 +217,9 @@ TIteratorExt<T,TTok>::TIteratorExt
  * ~TIteratorExt - destructor
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-TIteratorExt<T,TTok>::~TIteratorExt
-		(
-		void
-		)
-{
-}
+template <class T, class TTok>
+TIteratorExt<T, TTok>::~TIteratorExt( void )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -235,14 +227,11 @@ TIteratorExt<T,TTok>::~TIteratorExt
  * NodeValueAsDate -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
+template <class T, class TTok>
 Yogi::Core::CDateTime
-		TIteratorExt<T,TTok>::NodeValueAsDate
-		(
-		void
-		)
+TIteratorExt<T, TTok>::NodeValueAsDate( void )
 {
-	return this->m_pTokenizer->NodeValueAsDate();
+    return this->m_pTokenizer->NodeValueAsDate();
 }
 
 
@@ -251,14 +240,11 @@ Yogi::Core::CDateTime
  * NodeValueAsIntegerArray -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-long	TIteratorExt<T,TTok>::NodeValueAsIntegerArray
-		(
-		long*	pArray,
-		long	nSize
-		)
+template <class T, class TTok>
+long
+TIteratorExt<T, TTok>::NodeValueAsIntegerArray( long* pArray, long nSize )
 {
-	return this->m_pTokenizer->NodeValueAsIntegerArray( pArray, nSize );
+    return this->m_pTokenizer->NodeValueAsIntegerArray( pArray, nSize );
 }
 
 
@@ -267,14 +253,11 @@ long	TIteratorExt<T,TTok>::NodeValueAsIntegerArray
  * NodeValueAsFloatArray -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
-long	TIteratorExt<T,TTok>::NodeValueAsFloatArray
-		(
-		GFLOAT*	pArray,
-		long	nSize
-		)
+template <class T, class TTok>
+long
+TIteratorExt<T, TTok>::NodeValueAsFloatArray( GFLOAT* pArray, long nSize )
 {
-	return this->m_pTokenizer->NodeValueAsFloatArray( pArray, nSize );
+    return this->m_pTokenizer->NodeValueAsFloatArray( pArray, nSize );
 }
 
 
@@ -283,14 +266,11 @@ long	TIteratorExt<T,TTok>::NodeValueAsFloatArray
  * AttributeValueAsDate -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
+template <class T, class TTok>
 Yogi::Core::CDateTime
-		TIteratorExt<T,TTok>::AttributeValueAsDate
-		(
-		int	idx
-		)
+TIteratorExt<T, TTok>::AttributeValueAsDate( int idx )
 {
-	return this->m_pTokenizer->AttributeValueAsDate( idx );
+    return this->m_pTokenizer->AttributeValueAsDate( idx );
 }
 
 
@@ -299,14 +279,11 @@ Yogi::Core::CDateTime
  * AttributeValueAsDate -
 
 \+---------------------------------------------------------------------*/
-template < class T, class TTok >
+template <class T, class TTok>
 Yogi::Core::CDateTime
-		TIteratorExt<T,TTok>::AttributeValueAsDate
-		(
-		const char*	sName
-		)
+TIteratorExt<T, TTok>::AttributeValueAsDate( const char* sName )
 {
-	return this->m_pTokenizer->AttributeValueAsDate( sName );
+    return this->m_pTokenizer->AttributeValueAsDate( sName );
 }
 
 
@@ -315,33 +292,24 @@ Yogi::Core::CDateTime
 \+=====================================================================*/
 
 
-
 /*---------------------------------------------------------------------+\
 
  * TTokenizerExt - constructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TTokenizerExt<T>::TTokenizerExt
-		(
-		void
-		)
-		: TTokenizer<T>()
-{
-}
+template <class T>
+TTokenizerExt<T>::TTokenizerExt( void )
+        : TTokenizer<T>()
+{}
 
 /*---------------------------------------------------------------------+\
 
  * ~TTokenizerExt - destructor
 
 \+---------------------------------------------------------------------*/
-template < class T >
-TTokenizerExt<T>::~TTokenizerExt
-		(
-		void
-		)
-{
-}
+template <class T>
+TTokenizerExt<T>::~TTokenizerExt( void )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -349,20 +317,17 @@ TTokenizerExt<T>::~TTokenizerExt
  * NodeValueAsDate -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::CDateTime
-		TTokenizerExt<T>::NodeValueAsDate
-		(
-		void
-		)
+TTokenizerExt<T>::NodeValueAsDate( void )
 {
-	Yogi::Core::CDateTime			tResult;
-	Yogi::Core::TCharDescriptor<T>	tValue;
-	tValue = this->NodeValue();
-	if ( 0 < tValue.Length() )
-		return DateFromDescriptor( tValue );
-	else
-		return tResult;
+    Yogi::Core::CDateTime          tResult;
+    Yogi::Core::TCharDescriptor<T> tValue;
+    tValue = this->NodeValue();
+    if ( 0 < tValue.Length() )
+        return DateFromDescriptor( tValue );
+    else
+        return tResult;
 }
 
 
@@ -371,53 +336,49 @@ Yogi::Core::CDateTime
  * NodeValueAsIntegerArray -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizerExt<T>::NodeValueAsIntegerArray
-		(
-		long*	pArray,
-		long	nSize
-		)
+template <class T>
+long
+TTokenizerExt<T>::NodeValueAsIntegerArray( long* pArray, long nSize )
 {
-	long	nResult = 0;
-	long*	pStart = pArray;
-	long*	pEnd = pStart + nSize;
-	Yogi::Core::TCharDescriptor<T>	tValue;
-	tValue = this->NodeValue();
-	const T*	s = tValue.Pointer();
-	const T*	sEnd = s + tValue.Length();
-	long	nValue;
-	long	n;
+    long                           nResult = 0;
+    long*                          pStart = pArray;
+    long*                          pEnd = pStart + nSize;
+    Yogi::Core::TCharDescriptor<T> tValue;
+    tValue = this->NodeValue();
+    const T* s = tValue.Pointer();
+    const T* sEnd = s + tValue.Length();
+    long     nValue;
+    long     n;
 
-	while ( s < sEnd )
-	{
-		s += this->SpanBlanks( s, sEnd );
+    while ( s < sEnd )
+    {
+        s += this->SpanBlanks( s, sEnd );
 
-		n = this->SpanNumber( s, sEnd, &nValue );
-		if ( 0 < n )
-		{
-			if ( pArray < pEnd )
-			{
-				*pArray = nValue;
-				++pArray;
-			}
-			++nResult;
-		}
-		s += n;
+        n = this->SpanNumber( s, sEnd, &nValue );
+        if ( 0 < n )
+        {
+            if ( pArray < pEnd )
+            {
+                *pArray = nValue;
+                ++pArray;
+            }
+            ++nResult;
+        }
+        s += n;
 
-		s += this->SpanBlanks( s, sEnd );
+        s += this->SpanBlanks( s, sEnd );
 
-		if ( ',' == *s  ||  ';' == *s )
-			++s;
-		else
-			break;
-	}
+        if ( ',' == *s || ';' == *s )
+            ++s;
+        else
+            break;
+    }
 
-	if ( s < sEnd )
-		nResult = 0;
+    if ( s < sEnd )
+        nResult = 0;
 
-	return nResult;
+    return nResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -425,53 +386,49 @@ long	TTokenizerExt<T>::NodeValueAsIntegerArray
  * NodeValueAsFloatArray -
 
 \+---------------------------------------------------------------------*/
-template < class T >
-long	TTokenizerExt<T>::NodeValueAsFloatArray
-		(
-		GFLOAT*	pArray,
-		long	nSize
-		)
+template <class T>
+long
+TTokenizerExt<T>::NodeValueAsFloatArray( GFLOAT* pArray, long nSize )
 {
-	long		nResult = 0;
-	GFLOAT*		pStart = pArray;
-	GFLOAT*		pEnd = pStart + nSize;
-	Yogi::Core::TCharDescriptor<T>	tValue;
-	tValue = this->NodeValue();
-	const T*	s = tValue.Pointer();
-	const T*	sEnd = s + tValue.Length();
-	GFLOAT		fValue;
-	long		n;
+    long                           nResult = 0;
+    GFLOAT*                        pStart = pArray;
+    GFLOAT*                        pEnd = pStart + nSize;
+    Yogi::Core::TCharDescriptor<T> tValue;
+    tValue = this->NodeValue();
+    const T* s = tValue.Pointer();
+    const T* sEnd = s + tValue.Length();
+    GFLOAT   fValue;
+    long     n;
 
-	while ( s < sEnd )
-	{
-		s += this->SpanBlanks( s, sEnd );
+    while ( s < sEnd )
+    {
+        s += this->SpanBlanks( s, sEnd );
 
-		n = this->SpanFloat( s, sEnd, &fValue );
-		if ( 0 < n )
-		{
-			if ( pArray < pEnd )
-			{
-				*pArray = fValue;
-				++pArray;
-			}
-			++nResult;
-		}
-		s += n;
+        n = this->SpanFloat( s, sEnd, &fValue );
+        if ( 0 < n )
+        {
+            if ( pArray < pEnd )
+            {
+                *pArray = fValue;
+                ++pArray;
+            }
+            ++nResult;
+        }
+        s += n;
 
-		s += this->SpanBlanks( s, sEnd );
+        s += this->SpanBlanks( s, sEnd );
 
-		if ( ',' == *s  ||  ';' == *s )
-			++s;
-		else
-			break;
-	}
+        if ( ',' == *s || ';' == *s )
+            ++s;
+        else
+            break;
+    }
 
-	if ( s < sEnd )
-		nResult = 0;
+    if ( s < sEnd )
+        nResult = 0;
 
-	return nResult;
+    return nResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -479,22 +436,18 @@ long	TTokenizerExt<T>::NodeValueAsFloatArray
  * AttributeValueAsDate -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::CDateTime
-		TTokenizerExt<T>::AttributeValueAsDate
-		(
-		const char*	sName
-		)
+TTokenizerExt<T>::AttributeValueAsDate( const char* sName )
 {
-	Yogi::Core::TCharDescriptor<T>	tValue;
+    Yogi::Core::TCharDescriptor<T> tValue;
 
-	tValue = this->AttributeValue( sName );
-	if ( 0 < tValue.Length() )
-		return DateFromDescriptor( tValue );
-	else
-		return Yogi::Core::CDateTime();
+    tValue = this->AttributeValue( sName );
+    if ( 0 < tValue.Length() )
+        return DateFromDescriptor( tValue );
+    else
+        return Yogi::Core::CDateTime();
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -502,22 +455,18 @@ Yogi::Core::CDateTime
  * AttributeValueAsDate -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::CDateTime
-		TTokenizerExt<T>::AttributeValueAsDate
-		(
-		int idx
-		)
+TTokenizerExt<T>::AttributeValueAsDate( int idx )
 {
-	Yogi::Core::TCharDescriptor<T>	tValue;
+    Yogi::Core::TCharDescriptor<T> tValue;
 
-	tValue = this->AttributeValue( idx );
-	if ( 0 < tValue.Length() )
-		return DateFromDescriptor( tValue );
-	else
-		return Yogi::Core::CDateTime();
+    tValue = this->AttributeValue( idx );
+    if ( 0 < tValue.Length() )
+        return DateFromDescriptor( tValue );
+    else
+        return Yogi::Core::CDateTime();
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -525,24 +474,19 @@ Yogi::Core::CDateTime
  * DateFromDescriptor -
 
 \+---------------------------------------------------------------------*/
-template < class T >
+template <class T>
 Yogi::Core::CDateTime
-		TTokenizerExt<T>::DateFromDescriptor
-		(
-		Yogi::Core::TCharDescriptor<T>&	r
-		)
+TTokenizerExt<T>::DateFromDescriptor( Yogi::Core::TCharDescriptor<T>& r )
 {
-	Yogi::Core::CDateTime	tTime;
+    Yogi::Core::CDateTime tTime;
 
-	tTime.Parse( r.Pointer() );
+    tTime.Parse( r.Pointer() );
 
-	return tTime;
+    return tTime;
 }
 
 
-
-}}
-
+}}  // namespace Yogi::XMLLite
 
 
 #endif /* _H_XMLLiteExtImpl */

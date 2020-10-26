@@ -52,39 +52,39 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CUnitsOfMeasure*			CUnitsOfMeasurePtr;
-typedef class CUnitsOfMeasure&			CUnitsOfMeasureRef;
-typedef const class CUnitsOfMeasure&	ConstCUnitsOfMeasureRef;
+typedef class CUnitsOfMeasure*       CUnitsOfMeasurePtr;
+typedef class CUnitsOfMeasure&       CUnitsOfMeasureRef;
+typedef const class CUnitsOfMeasure& ConstCUnitsOfMeasureRef;
 
 typedef enum UNITFAMILY
 {
-	UF_UNDEFINED = 0,
-	UF_DISTANCE,
-	UF_AREA,
-	UF_VOLUME,
-	UF_VOLUMERATE,
-	UF_FUELCONSUMPTION,
-	UF_TEMPERATURE,
-	UF_ANGLE,
-	UF_GLOBALPOSITION,
-	UF_ANGULARVELOCITY,
-	UF_SPEED,
-	UF_ACCELERATION,
-	UF_TIME,
-	UF_FREQUENCY,
-	UF_POWER,
-	UF_DATE,
-	UF_WEIGHT,
-	UF_WEIGHTRATE,
-	UF_ELECTRICAL_CURRENT,
-	UF_ELECTRICAL_POTENTIAL,
-	UF_DENSITY,
-	UF_PRESSURE,
-	UF_TORQUE,
-	UF_SOUND,
-	UF_LIGHT,
-	UF_PERCENT,
-	UF_SPECIAL
+    UF_UNDEFINED = 0,
+    UF_DISTANCE,
+    UF_AREA,
+    UF_VOLUME,
+    UF_VOLUMERATE,
+    UF_FUELCONSUMPTION,
+    UF_TEMPERATURE,
+    UF_ANGLE,
+    UF_GLOBALPOSITION,
+    UF_ANGULARVELOCITY,
+    UF_SPEED,
+    UF_ACCELERATION,
+    UF_TIME,
+    UF_FREQUENCY,
+    UF_POWER,
+    UF_DATE,
+    UF_WEIGHT,
+    UF_WEIGHTRATE,
+    UF_ELECTRICAL_CURRENT,
+    UF_ELECTRICAL_POTENTIAL,
+    UF_DENSITY,
+    UF_PRESSURE,
+    UF_TORQUE,
+    UF_SOUND,
+    UF_LIGHT,
+    UF_PERCENT,
+    UF_SPECIAL
 } UNITFAMILY;
 
 
@@ -94,70 +94,90 @@ typedef enum UNITFAMILY
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CUnitsOfMeasure
+class COMMON_CLASS CUnitsOfMeasure
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-				CUnitsOfMeasure();
-				CUnitsOfMeasure( ConstCUnitsOfMeasureRef r );	// copy constructor
-				CUnitsOfMeasure( int n );
-				CUnitsOfMeasure( const char* sString );
-				CUnitsOfMeasure( Yogi::Core::ConstCCharDescriptorRef r );
-	virtual		~CUnitsOfMeasure();
+    CUnitsOfMeasure();
+    CUnitsOfMeasure( ConstCUnitsOfMeasureRef r );  // copy constructor
+    CUnitsOfMeasure( int n );
+    CUnitsOfMeasure( const char* sString );
+    CUnitsOfMeasure( Yogi::Core::ConstCCharDescriptorRef r );
+    virtual ~CUnitsOfMeasure();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	CUnitsOfMeasureRef	operator=( ConstCUnitsOfMeasureRef r );		// assignment
+    CUnitsOfMeasureRef
+    operator=( ConstCUnitsOfMeasureRef r );  // assignment
 
-	bool		operator == ( ConstCUnitsOfMeasureRef r ) const;
-	bool		operator == ( int n ) const;
-	bool		operator != ( ConstCUnitsOfMeasureRef r ) const;
-	bool		operator != ( int n ) const;
-				operator int ( void ) const;
+    bool
+    operator==( ConstCUnitsOfMeasureRef r ) const;
+    bool
+    operator==( int n ) const;
+    bool
+    operator!=( ConstCUnitsOfMeasureRef r ) const;
+    bool
+    operator!=( int n ) const;
+    operator int( void ) const;
 
-	int			SetUsingString( const char* s );
-	int			SetUsingString( Yogi::Core::ConstCCharDescriptorRef r );
+    int
+    SetUsingString( const char* s );
+    int
+    SetUsingString( Yogi::Core::ConstCCharDescriptorRef r );
 
-	int			SetUsingName( const char* s );
-	int			SetUsingName( Yogi::Core::ConstCCharDescriptorRef r );
-	int			SetUsingPluralName( const char* s );
-	int			SetUsingPluralName( Yogi::Core::ConstCCharDescriptorRef r );
-	int			SetUsingAbbrev( const char* s );
-	int			SetUsingAbbrev( Yogi::Core::ConstCCharDescriptorRef r );
+    int
+    SetUsingName( const char* s );
+    int
+    SetUsingName( Yogi::Core::ConstCCharDescriptorRef r );
+    int
+    SetUsingPluralName( const char* s );
+    int
+    SetUsingPluralName( Yogi::Core::ConstCCharDescriptorRef r );
+    int
+    SetUsingAbbrev( const char* s );
+    int
+    SetUsingAbbrev( Yogi::Core::ConstCCharDescriptorRef r );
 
-	const char*	ToName( void );
-	const char*	ToPluralName( void );
-	const char*	ToAbbrevName( void );
+    const char*
+    ToName( void );
+    const char*
+    ToPluralName( void );
+    const char*
+    ToAbbrevName( void );
 
-	int			GetUnits( void ) const;
+    int
+    GetUnits( void ) const;
 
-	static GFLOAT	Convert( int nOutUnits, int nInUnits, GFLOAT fInValue );
-	static const char*	NameFromUnits( int nUnits );
-	static const char*	PluralNameFromUnits( int nUnits );
-	static const char*	AbbrevFromUnits( int nUnits );
+    static GFLOAT
+    Convert( int nOutUnits, int nInUnits, GFLOAT fInValue );
+    static const char*
+    NameFromUnits( int nUnits );
+    static const char*
+    PluralNameFromUnits( int nUnits );
+    static const char*
+    AbbrevFromUnits( int nUnits );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	static void	InitUnitTable( void );
+    static void
+    InitUnitTable( void );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	short		m_nUnits;		// actually index into UNITDATA array
+    short m_nUnits;  // actually index into UNITDATA array
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -180,14 +200,9 @@ private:
  * CUnitsOfMeasure - constructor
 
 \+---------------------------------------------------------------------*/
-inline
-CUnitsOfMeasure::CUnitsOfMeasure
-		(
-		void
-		)
-		: m_nUnits( 0 )
-{
-}
+inline CUnitsOfMeasure::CUnitsOfMeasure( void )
+        : m_nUnits( 0 )
+{}
 
 
 /*---------------------------------------------------------------------+\
@@ -195,33 +210,20 @@ CUnitsOfMeasure::CUnitsOfMeasure
  * CUnitsOfMeasure - constructor
 
 \+---------------------------------------------------------------------*/
-inline
-CUnitsOfMeasure::CUnitsOfMeasure
-		(
-		int		n
-		)
-		: m_nUnits( static_cast<short>(n) )
+inline CUnitsOfMeasure::CUnitsOfMeasure( int n )
+        : m_nUnits( static_cast<short>( n ) )
+{}
+
+inline CUnitsOfMeasure::CUnitsOfMeasure( const char* s )
+        : m_nUnits( 0 )
 {
+    SetUsingString( s );
 }
 
-inline
-CUnitsOfMeasure::CUnitsOfMeasure
-		(
-		const char* s
-		)
-		: m_nUnits( 0 )
+inline CUnitsOfMeasure::CUnitsOfMeasure( Yogi::Core::ConstCCharDescriptorRef r )
+        : m_nUnits( 0 )
 {
-	SetUsingString( s );
-}
-
-inline
-CUnitsOfMeasure::CUnitsOfMeasure
-		(
-		Yogi::Core::ConstCCharDescriptorRef	r
-		)
-		: m_nUnits( 0 )
-{
-	SetUsingString( r );
+    SetUsingString( r );
 }
 
 /*---------------------------------------------------------------------+\
@@ -229,27 +231,17 @@ CUnitsOfMeasure::CUnitsOfMeasure
  * CUnitsOfMeasure - copy constructor
 
 \+---------------------------------------------------------------------*/
-inline
-CUnitsOfMeasure::CUnitsOfMeasure
-		(
-		ConstCUnitsOfMeasureRef	r
-		)
-		: m_nUnits( r.m_nUnits )
-{
-}
+inline CUnitsOfMeasure::CUnitsOfMeasure( ConstCUnitsOfMeasureRef r )
+        : m_nUnits( r.m_nUnits )
+{}
 
 /*---------------------------------------------------------------------+\
 
  * ~CUnitsOfMeasure - destructor
 
 \+---------------------------------------------------------------------*/
-inline
-CUnitsOfMeasure::~CUnitsOfMeasure
-		(
-		void
-		)
-{
-}
+inline CUnitsOfMeasure::~CUnitsOfMeasure( void )
+{}
 
 
 /*----------------------------------------------------------------------+\
@@ -257,18 +249,12 @@ CUnitsOfMeasure::~CUnitsOfMeasure
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline
-CUnitsOfMeasureRef
-		CUnitsOfMeasure::operator=
-		(
-		ConstCUnitsOfMeasureRef	r
-		)
+inline CUnitsOfMeasureRef
+CUnitsOfMeasure::operator=( ConstCUnitsOfMeasureRef r )
 {
-	m_nUnits = r.m_nUnits;
-	return *this;
+    m_nUnits = r.m_nUnits;
+    return *this;
 }
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -276,38 +262,25 @@ CUnitsOfMeasureRef
  * ToAaaaa -
 
 \+---------------------------------------------------------------------*/
-inline
-const char*
-		CUnitsOfMeasure::ToName
-		(
-		void
-		)
+inline const char*
+CUnitsOfMeasure::ToName( void )
 {
-	return NameFromUnits( m_nUnits );
+    return NameFromUnits( m_nUnits );
 }
 
 
-inline
-const char*
-		CUnitsOfMeasure::ToPluralName
-		(
-		void
-		)
+inline const char*
+CUnitsOfMeasure::ToPluralName( void )
 {
-	return PluralNameFromUnits( m_nUnits );
+    return PluralNameFromUnits( m_nUnits );
 }
 
 
-inline
-const char*
-		CUnitsOfMeasure::ToAbbrevName
-		(
-		void
-		)
+inline const char*
+CUnitsOfMeasure::ToAbbrevName( void )
 {
-	return AbbrevFromUnits( m_nUnits );
+    return AbbrevFromUnits( m_nUnits );
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -315,13 +288,10 @@ const char*
  * GetUnits -
 
 \+---------------------------------------------------------------------*/
-inline
-int		CUnitsOfMeasure::GetUnits
-		(
-		void
-		) const
+inline int
+CUnitsOfMeasure::GetUnits( void ) const
 {
-	return m_nUnits;
+    return m_nUnits;
 }
 
 
@@ -330,23 +300,17 @@ int		CUnitsOfMeasure::GetUnits
  * operator == -
 
 \+---------------------------------------------------------------------*/
-inline
-bool	CUnitsOfMeasure::operator ==
-		(
-		ConstCUnitsOfMeasureRef r
-		) const
+inline bool
+CUnitsOfMeasure::operator==( ConstCUnitsOfMeasureRef r ) const
 {
-	return m_nUnits == r.m_nUnits;
+    return m_nUnits == r.m_nUnits;
 }
 
 
-inline
-bool	CUnitsOfMeasure::operator ==
-		(
-		int	n
-		) const
+inline bool
+CUnitsOfMeasure::operator==( int n ) const
 {
-	return m_nUnits == n;
+    return m_nUnits == n;
 }
 
 
@@ -355,23 +319,17 @@ bool	CUnitsOfMeasure::operator ==
  * operator != -
 
 \+---------------------------------------------------------------------*/
-inline
-bool	CUnitsOfMeasure::operator !=
-		(
-		ConstCUnitsOfMeasureRef r
-		) const
+inline bool
+CUnitsOfMeasure::operator!=( ConstCUnitsOfMeasureRef r ) const
 {
-	return m_nUnits != r.m_nUnits;
+    return m_nUnits != r.m_nUnits;
 }
 
 
-inline
-bool	CUnitsOfMeasure::operator !=
-		(
-		int	n
-		) const
+inline bool
+CUnitsOfMeasure::operator!=( int n ) const
 {
-	return m_nUnits != n;
+    return m_nUnits != n;
 }
 
 
@@ -380,19 +338,13 @@ bool	CUnitsOfMeasure::operator !=
  * operator int -
 
 \+---------------------------------------------------------------------*/
-inline
-CUnitsOfMeasure::operator int
-		(
-		void
-		) const
+inline CUnitsOfMeasure::operator int( void ) const
 {
-	return m_nUnits;
+    return m_nUnits;
 }
 
 
-
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CUnitsOfMeasure */

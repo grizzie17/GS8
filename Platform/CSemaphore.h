@@ -22,16 +22,14 @@
 \+---------------------------------------------------------------------*/
 #include "UPlatform.h"
 #if defined( SEMAPHORE_WINDOWS )
-#	if ! defined( OS_MSWIN_WCE )
-#		include <process.h>
-#	endif
-#elif defined ( SEMAPHORE_POSIX )  ||  defined( SEMAPHORE_MACINTOSH )
-#	include <pthread.h>
-#	include <semaphore.h>
+#    if ! defined( OS_MSWIN_WCE )
+#        include <process.h>
+#    endif
+#elif defined( SEMAPHORE_POSIX ) || defined( SEMAPHORE_MACINTOSH )
+#    include <pthread.h>
+#    include <semaphore.h>
 #endif
 #include "UDeclPlatform.h"
-
-
 
 
 namespace Yogi { namespace Core {
@@ -45,76 +43,71 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CSemaphore*		CSemaphorePtr;
-typedef class CSemaphore&		CSemaphoreRef;
-typedef const class CSemaphore&	ConstCSemaphoreRef;
+typedef class CSemaphore*       CSemaphorePtr;
+typedef class CSemaphore&       CSemaphoreRef;
+typedef const class CSemaphore& ConstCSemaphoreRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CSemaphore
+class CORE_CLASS CSemaphore
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSemaphore();
-	virtual	~CSemaphore();
+    CSemaphore();
+    virtual ~CSemaphore();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
-
-
-	//!	Wait for signal to be triggered
-	//!
-	bool	Wait						//!@return true=signal, false=timeout
-			(
-			unsigned	nTimeout = 0	//!< [in] milliseconds (0 == infinite)
-			);
+    //	public functions  ---------------------------------------------------
 
 
-	//! Signal a semaphore
-	//!
-	void	Signal
-			(
-			void
-			);
+    //!	Wait for signal to be triggered
+    //!
+    bool
+    Wait(                          //!@return true=signal, false=timeout
+            unsigned nTimeout = 0  //!< [in] milliseconds (0 == infinite)
+    );
 
+
+    //! Signal a semaphore
+    //!
+    void
+    Signal( void );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-#if defined(SEMAPHORE_WINDOWS)
-	typedef	HANDLE	XSEM;
-#elif defined(SEMAPHORE_POSIX)
-	typedef sem_t	XSEM;
-#elif defined(SEMAPHORE_MACINTOSH)
-	typedef sem_t*	XSEM;
+#if defined( SEMAPHORE_WINDOWS )
+    typedef HANDLE XSEM;
+#elif defined( SEMAPHORE_POSIX )
+    typedef sem_t XSEM;
+#elif defined( SEMAPHORE_MACINTOSH )
+    typedef sem_t* XSEM;
 #endif
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	XSEM	m_sem;
+    XSEM m_sem;
 
 #if defined( OS_MSWIN_WCE )
-	WCHAR	m_sName[32];
-#elif defined( SEMAPHORE_WINDOWS )  ||  defined( SEMAPHORE_MACINTOSH )
-	char	m_sName[32];
+    WCHAR m_sName[32];
+#elif defined( SEMAPHORE_WINDOWS ) || defined( SEMAPHORE_MACINTOSH )
+    char m_sName[32];
 #endif
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -133,8 +126,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CSemaphore */

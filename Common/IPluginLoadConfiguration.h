@@ -48,11 +48,12 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-extern const IXID DECL_CLASS	IXID_IPluginLoadConfiguration;
+extern const IXID COMMON_CLASS IXID_IPluginLoadConfiguration;
 
-typedef interface_ IPluginLoadConfiguration*		IPluginLoadConfigurationPtr;
-typedef interface_ IPluginLoadConfiguration&		IPluginLoadConfigurationRef;
-typedef const interface_ IPluginLoadConfiguration&	ConstIPluginLoadConfigurationRef;
+typedef interface_ IPluginLoadConfiguration* IPluginLoadConfigurationPtr;
+typedef interface_ IPluginLoadConfiguration& IPluginLoadConfigurationRef;
+typedef const interface_                     IPluginLoadConfiguration&
+                                             ConstIPluginLoadConfigurationRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Interface Definitions												|
@@ -61,17 +62,15 @@ typedef const interface_ IPluginLoadConfiguration&	ConstIPluginLoadConfiguration
 
 interface_ IPluginLoadConfiguration : public ISupports
 {
-	/**
+    /**
 	*	Load - load configuration information to correctly
 	*			initialize the object
 	*/
-	virtual
-	bool	Load								///@return true on success
-			(
-			VPluginConfigurationPtr	pConfig,	///< [in]
-			VPluginLibraryPtr		pLib		///< [in]
-			) = 0;
-
+    virtual bool Load                           ///@return true on success
+            ( VPluginConfigurationPtr pConfig,  ///< [in]
+                    VPluginLibraryPtr pLib      ///< [in]
+                    )
+            = 0;
 };
 
 /*---------------------------------------------------------------------+\
@@ -90,8 +89,7 @@ interface_ IPluginLoadConfiguration : public ISupports
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_IPluginLoadConfiguration */

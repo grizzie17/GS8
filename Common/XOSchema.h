@@ -32,11 +32,11 @@
 #include "XOParse.h"
 
 
-#include "VPluginLibrary.h"
-#include "VPluginFilter.h"
-#include "TPointer.h"
-#include "TArray.h"
 #include "ISupports.h"
+#include "TArray.h"
+#include "TPointer.h"
+#include "VPluginFilter.h"
+#include "VPluginLibrary.h"
 
 #include "UDeclCommon.h"
 
@@ -55,182 +55,119 @@ namespace Yogi { namespace Common {
 \+---------------------------------------------------------------------*/
 
 
-typedef	TArray<ISupportsPtr>	ISupportsArray;
+typedef TArray<ISupportsPtr> ISupportsArray;
 
 
-typedef class XOSchema*			XOSchemaPtr;
-typedef class XOSchema&			XOSchemaRef;
-typedef const class XOSchema&	ConstXOSchemaRef;
+typedef class XOSchema*       XOSchemaPtr;
+typedef class XOSchema&       XOSchemaRef;
+typedef const class XOSchema& ConstXOSchemaRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS XOSchema : public VFactoryLite
+class COMMON_CLASS XOSchema : public VFactoryLite
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					XOSchema();
-	virtual			~XOSchema();
+    XOSchema();
+    virtual ~XOSchema();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	virtual
-	XOParsePtr
-			Make
-			(
-			const char*			sNameXML,
-			VPluginLibraryPtr	pLib,
-			VPluginFilterPtr	pFilter = 0
-			);
+    virtual XOParsePtr
+    Make( const char* sNameXML, VPluginLibraryPtr pLib,
+            VPluginFilterPtr pFilter = 0 );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
 
-	XOParsePtr
-			Root
-			(
-			XMLIteratorPtr		pIt
-			);
+    XOParsePtr
+    Root( XMLIteratorPtr pIt );
 
 
-	bool	XmlObjects
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    XmlObjects( XMLIteratorPtr pIt );
 
-	bool	RootDef
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    RootDef( XMLIteratorPtr pIt );
 
 
+    bool
+    TypeDefs( XMLIteratorPtr pIt );
+
+    bool
+    TypeDef( XMLIteratorPtr pIt );
 
 
-	bool	TypeDefs
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    AttributeDefs( XMLIteratorPtr pIt );
 
-	bool	TypeDef
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    AttributeDef( XMLIteratorPtr pIt );
 
+    bool
+    Attribute( XMLIteratorPtr pIt );
 
 
+    bool
+    PropertyDefs( XMLIteratorPtr pIt );
 
-	bool	AttributeDefs
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    PropertyDef( XMLIteratorPtr pIt );
 
-	bool	AttributeDef
-			(
-			XMLIteratorPtr		pIt
-			);
-
-	bool	Attribute
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    Property( XMLIteratorPtr pIt );
 
 
+    bool
+    NPropertyDefs( XMLIteratorPtr pIt );
+
+    bool
+    NPropertyDef( XMLIteratorPtr pIt );
+
+    bool
+    NProperty( XMLIteratorPtr pIt );
 
 
+    bool
+    SetDefs( XMLIteratorPtr pIt );
 
-	bool	PropertyDefs
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    SetDef( XMLIteratorPtr pIt );
 
-	bool	PropertyDef
-			(
-			XMLIteratorPtr		pIt
-			);
-
-	bool	Property
-			(
-			XMLIteratorPtr		pIt
-			);
+    bool
+    Set( XMLIteratorPtr pIt );
 
 
+    bool
+    Include( XMLIteratorPtr pIt );
 
 
+    //	protected data  -----------------------------------------------------
 
-	bool	NPropertyDefs
-			(
-			XMLIteratorPtr		pIt
-			);
-
-	bool	NPropertyDef
-			(
-			XMLIteratorPtr		pIt
-			);
-
-	bool	NProperty
-			(
-			XMLIteratorPtr		pIt
-			);
-
-
-
-
-
-	bool	SetDefs
-			(
-			XMLIteratorPtr		pIt
-			);
-
-	bool	SetDef
-			(
-			XMLIteratorPtr		pIt
-			);
-
-	bool	Set
-			(
-			XMLIteratorPtr		pIt
-			);
-
-
-
-
-
-
-	bool	Include
-			(
-			XMLIteratorPtr		pIt
-			);
-
-
-
-//	protected data  -----------------------------------------------------
-
-	//TDictionaryIndexed< IXID, CXOTypes
-
+    //TDictionaryIndexed< IXID, CXOTypes
 
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef VFactoryLite	inherited;
+    typedef VFactoryLite inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-
-
+    //============================== Overrides ==============================
 };
 
 /*---------------------------------------------------------------------+\
@@ -248,7 +185,7 @@ private:
 ||	Inline Functions													|
 ||																		|
 \+=====================================================================*/
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_XOSchema */

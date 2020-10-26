@@ -130,67 +130,76 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CFilePath*		CFilePathPtr;
-typedef class CFilePath&		CFilePathRef;
-typedef const class CFilePath&	ConstCFilePathRef;
+typedef class CFilePath*       CFilePathPtr;
+typedef class CFilePath&       CFilePathRef;
+typedef const class CFilePath& ConstCFilePathRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CFilePath
+class CORE_CLASS CFilePath
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					CFilePath();
-					CFilePath( ConstCFilePathRef r );	// copy constructor
-	virtual			~CFilePath();
+    CFilePath();
+    CFilePath( ConstCFilePathRef r );  // copy constructor
+    virtual ~CFilePath();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	CFilePathRef	operator=( ConstCFilePathRef r );		// assignment
+    CFilePathRef
+    operator=( ConstCFilePathRef r );  // assignment
 
-	bool			Assign( ConstCCharDescriptorRef r );
-	bool			Assign( const char* s );
+    bool
+    Assign( ConstCCharDescriptorRef r );
+    bool
+    Assign( const char* s );
 
-	CCharDescriptorRef	GetProtocol( void );
-	CCharDescriptorRef	GetHost( void );
-	CCharDescriptorRef	GetDevice( void );
-	CCharDescriptorRef	GetDirectory( void );
-	CCharDescriptorRef	GetFile( void );
-	CCharDescriptorRef	GetType( void );
-	CCharDescriptorRef	GetVersion( void );
+    CCharDescriptorRef
+    GetProtocol( void );
+    CCharDescriptorRef
+    GetHost( void );
+    CCharDescriptorRef
+    GetDevice( void );
+    CCharDescriptorRef
+    GetDirectory( void );
+    CCharDescriptorRef
+    GetFile( void );
+    CCharDescriptorRef
+    GetType( void );
+    CCharDescriptorRef
+    GetVersion( void );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	CCharDescriptor		m_sProtocol;
-	CCharDescriptor		m_sHost;
-	CCharDescriptor		m_sDevice;
-	CCharDescriptor		m_sDirectory;
-	CCharDescriptor		m_sFile;
-	CCharDescriptor		m_sType;
-	CCharDescriptor		m_sVersion;
+    CCharDescriptor m_sProtocol;
+    CCharDescriptor m_sHost;
+    CCharDescriptor m_sDevice;
+    CCharDescriptor m_sDirectory;
+    CCharDescriptor m_sFile;
+    CCharDescriptor m_sType;
+    CCharDescriptor m_sVersion;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
 
 /*---------------------------------------------------------------------+\
@@ -209,8 +218,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CFilePath */

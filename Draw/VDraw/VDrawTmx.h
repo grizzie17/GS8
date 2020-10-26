@@ -43,15 +43,15 @@
 |	Include Files														|
 |																		|
 \+---------------------------------------------------------------------*/
-#include "VPluginWithAggregate.h"
 #include "IDrawTmx.h"
+#include "VPluginWithAggregate.h"
 
 #include "CColor.h"
 #include "CMatrix3x3.h"
 #include "TArray.h"
-#include "UMath.h"
 #include "UFloat.h"
 #include "UMachine.h"
+#include "UMath.h"
 
 #include "UDeclCommon.h"
 
@@ -69,25 +69,24 @@ namespace Yogi { namespace Common {
 \+---------------------------------------------------------------------*/
 
 
-typedef class VDrawTmx*			VDrawTmxPtr;
-typedef class VDrawTmx&			VDrawTmxRef;
-typedef const class VDrawTmx&	ConstVDrawTmxRef;
+typedef class VDrawTmx*       VDrawTmxPtr;
+typedef class VDrawTmx&       VDrawTmxRef;
+typedef const class VDrawTmx& ConstVDrawTmxRef;
 
-#if defined(OS_MSWIN)
+#if defined( OS_MSWIN )
 
-#	define	VDrawTmxPOINT	POINT
-#	define	VDrawTmxVALUE	LONG
-#	define	VDrawTmxCAST_VALUE( x )	intFromFloat( x )
+#    define VDrawTmxPOINT           POINT
+#    define VDrawTmxVALUE           LONG
+#    define VDrawTmxCAST_VALUE( x ) intFromFloat( x )
 
-#elif defined(OS_LINUX)
+#elif defined( OS_LINUX )
 
-#	define	VDrawTmxPOINT	VDrawTmx::FPoint
-#	define	VDrawTmxVALUE	float
-#	define	VDrawTmxCAST_VALUE( x )	((VDrawTmxVALUE)(x))
+#    define VDrawTmxPOINT           VDrawTmx::FPoint
+#    define VDrawTmxVALUE           float
+#    define VDrawTmxCAST_VALUE( x ) ( ( VDrawTmxVALUE )( x ) )
 
 #else
 #endif
-
 
 
 /*---------------------------------------------------------------------+\
@@ -96,132 +95,109 @@ typedef const class VDrawTmx&	ConstVDrawTmxRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VDrawTmx : public VPluginWithAggregate,
-				implements_ IDrawTmx
+class COMMON_CLASS VDrawTmx
+        : public VPluginWithAggregate
+        , implements_ IDrawTmx
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( VDrawTmx );
+    COM_LIFECYCLE( VDrawTmx );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
-	//	IDrawTmx
+    //	IDrawTmx
 
-	virtual bool	begin( void );
-	virtual bool	end( void );
+    virtual bool
+    begin( void );
+    virtual bool
+    end( void );
 
-	virtual bool	margin
-					(
-					int		nLeft,
-					int		nTop,
-					int		nRight,
-					int		nBottom
-					);
+    virtual bool
+    margin( int nLeft, int nTop, int nRight, int nBottom );
 
-	virtual bool	push
-					(
-					GFLOAT	xPosition,
-					GFLOAT	yPosition,
-					GFLOAT	xShift,
-					GFLOAT	yShift,
-					GFLOAT	xAxis,
-					GFLOAT	yAxis,
-					GFLOAT	rotation,
-					GFLOAT	scale
-					);
-	virtual bool	pop( void );
+    virtual bool
+    push( GFLOAT xPosition, GFLOAT yPosition, GFLOAT xShift, GFLOAT yShift,
+            GFLOAT xAxis, GFLOAT yAxis, GFLOAT rotation, GFLOAT scale );
+    virtual bool
+    pop( void );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-	typedef struct World
-	{
-		GFLOAT	xPosition;
-		GFLOAT	yPosition;
-		GFLOAT	xShift;
-		GFLOAT	yShift;
-		GFLOAT	xAxis;
-		GFLOAT	yAxis;
-		GFLOAT	rotation;
-		GFLOAT	scale;
-	} World;
+    typedef struct World
+    {
+        GFLOAT xPosition;
+        GFLOAT yPosition;
+        GFLOAT xShift;
+        GFLOAT yShift;
+        GFLOAT xAxis;
+        GFLOAT yAxis;
+        GFLOAT rotation;
+        GFLOAT scale;
+    } World;
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	virtual CMatrix3x3
-					InitialMatrix( void );
+    virtual CMatrix3x3
+    InitialMatrix( void );
 
-	virtual void	TransformPoint
-					(
-					GFLOAT&	rfXOut,
-					GFLOAT&	rfYOut,
-					GFLOAT	fXIn,
-					GFLOAT	fYIn
-					);
+    virtual void
+    TransformPoint( GFLOAT& rfXOut, GFLOAT& rfYOut, GFLOAT fXIn, GFLOAT fYIn );
 
-	virtual float	TransformLength
-					(
-					GFLOAT	fInLength
-					);
+    virtual float
+    TransformLength( GFLOAT fInLength );
 
-	virtual void	GenActiveMatrix( void );
-	void			ResetWorld( void );
+    virtual void
+    GenActiveMatrix( void );
+    void
+    ResetWorld( void );
 
-	int				intFromFloat( GFLOAT x );
-	GFLOAT			normalizeAngle( GFLOAT r );	// input is radians
+    int
+    intFromFloat( GFLOAT x );
+    GFLOAT
+    normalizeAngle( GFLOAT r );  // input is radians
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 
-	bool				m_bMatrixDirty;
-	bool				m_bMatrixAffine;
-	CMatrix3x3			m_tMatrixActive;
-	CMatrix3x3			m_tMatrixBase;
-	int					m_nMatrixTop;
-	Yogi::Core::TArray<CMatrix3x3>	m_tMatrixStack;
-	World				m_tWorld;
+    bool                           m_bMatrixDirty;
+    bool                           m_bMatrixAffine;
+    CMatrix3x3                     m_tMatrixActive;
+    CMatrix3x3                     m_tMatrixBase;
+    int                            m_nMatrixTop;
+    Yogi::Core::TArray<CMatrix3x3> m_tMatrixStack;
+    World                          m_tWorld;
 
-	// margin
-	int					m_nMarginLeft;
-	int					m_nMarginTop;
-	int					m_nMarginRight;
-	int					m_nMarginBottom;
+    // margin
+    int m_nMarginLeft;
+    int m_nMarginTop;
+    int m_nMarginRight;
+    int m_nMarginBottom;
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef VPluginWithAggregate	inherited;
+    typedef VPluginWithAggregate inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
-
-	//	IPluginLoadConfiguration
+    //	IPluginLoadConfiguration
 public:
-
-	virtual
-	bool	Load
-			(
-			VPluginConfigurationPtr pConfig,
-			VPluginLibraryPtr		pLib
-			);
-
-
+    virtual bool
+    Load( VPluginConfigurationPtr pConfig, VPluginLibraryPtr pLib );
 };
 
 /*---------------------------------------------------------------------+\
@@ -241,20 +217,14 @@ public:
 \+=====================================================================*/
 
 
-inline
-int		VDrawTmx::intFromFloat
-		(
-		GFLOAT	x
-		)
+inline int
+VDrawTmx::intFromFloat( GFLOAT x )
 {
-	return (int)(x + (x < GFLOAT_0 ? GFLOAT_NEG1_2 : GFLOAT_1_2 ));
+    return (int)( x + ( x < GFLOAT_0 ? GFLOAT_NEG1_2 : GFLOAT_1_2 ) );
 }
 
 
-
-
-
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_VDrawTmx */

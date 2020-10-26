@@ -20,9 +20,9 @@
 |	Include Files
 |
 \+---------------------------------------------------------------------*/
-#include "UOSIncludes.h"
-#include "UMachine.h"
 #include "UDeclPlatform.h"
+#include "UMachine.h"
+#include "UOSIncludes.h"
 
 /*---------------------------------------------------------------------+\
 |
@@ -37,19 +37,19 @@
 
 #if defined( THREADS_POSIX )
 
-	typedef	pthread_t	UThreadHdl;
+typedef pthread_t UThreadHdl;
 
-	typedef void*		UThreadRtn;
-	typedef	UThreadRtn	(*UThreadFunction)( void* pArg );
-#	define THREADAPI
+typedef void* UThreadRtn;
+typedef UThreadRtn ( *UThreadFunction )( void* pArg );
+#    define THREADAPI
 
 #elif defined( THREADS_WINDOWS )
 
-	typedef	HANDLE		UThreadHdl;
+typedef HANDLE UThreadHdl;
 
-	typedef	DWORD		UThreadRtn;
-	typedef UThreadRtn	(WINAPI *UThreadFunction)( void* pArg );
-#	define THREADAPI	WINAPI
+typedef DWORD UThreadRtn;
+typedef UThreadRtn( WINAPI* UThreadFunction )( void* pArg );
+#    define THREADAPI WINAPI
 
 #endif
 /*---------------------------------------------------------------------+\
@@ -74,21 +74,19 @@
 //!
 //! @see UThreadFunction
 //!
-UThreadHdl
-		ThreadCreate
-		(								//!@return handle to the thread
-		UThreadFunction	pFunc,			//!< [in] pointer to a UThreadFunction (see above)
-		void*			pArg,			//!< [in] pointer to be passed to pFunc
-		const char*		sName = NULL	//!< [in] optional name for thread
-		);
+CORE_API( UThreadHdl )
+ThreadCreate(  //!@return handle to the thread
+        UThreadFunction
+                    pFunc,  //!< [in] pointer to a UThreadFunction (see above)
+        void*       pArg,   //!< [in] pointer to be passed to pFunc
+        const char* sName = NULL  //!< [in] optional name for thread
+);
 
 //!	shutdown/close a thread
 //!
-void
-		ThreadClose
-		(
-		UThreadHdl	hThread		//!< [in] handle to thread to shutdown/close
-		);
+CORE_API( void )
+ThreadClose( UThreadHdl hThread  //!< [in] handle to thread to shutdown/close
+);
 
 
 /*=====================================================================+\
@@ -96,8 +94,6 @@ void
 ||	Inline Functions
 ||
 \+=====================================================================*/
-
-
 
 
 #endif /* _H_UPlatformThreads */

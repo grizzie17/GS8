@@ -31,22 +31,22 @@
 
 #if defined( SERIAL_POSIX )
 
-#include <termios.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <strings.h>
-#include <unistd.h>
-#include <sys/time.h>
-#include <sys/types.h>
+#    include <fcntl.h>
+#    include <stdio.h>
+#    include <strings.h>
+#    include <sys/time.h>
+#    include <sys/types.h>
+#    include <termios.h>
+#    include <unistd.h>
 
 #endif
 
 
 #include "CCharString.h"
-#include "TArray.h"
 #include "CMutex.h"
-#include "UNResult.h"
+#include "TArray.h"
 #include "UDeclPlatform.h"
+#include "UNResult.h"
 
 namespace Yogi { namespace Core {
 /*---------------------------------------------------------------------+\
@@ -55,13 +55,13 @@ namespace Yogi { namespace Core {
 |																		|
 \+---------------------------------------------------------------------*/
 #if defined( SERIAL_WINDOWS )
-	#ifndef SERIAL_DEFAULT_OVERLAPPED
-		#ifndef SERIAL_NO_OVERLAPPED
-		#	define SERIAL_DEFAULT_OVERLAPPED	true
-		#else
-		#	define SERIAL_DEFAULT_OVERLAPPED	false
-		#endif
-	#endif
+#    ifndef SERIAL_DEFAULT_OVERLAPPED
+#        ifndef SERIAL_NO_OVERLAPPED
+#            define SERIAL_DEFAULT_OVERLAPPED true
+#        else
+#            define SERIAL_DEFAULT_OVERLAPPED false
+#        endif
+#    endif
 #endif
 
 /*---------------------------------------------------------------------+\
@@ -69,13 +69,13 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CSerialPortSettings*			CSerialPortSettingsPtr;
-typedef class CSerialPortSettings&			CSerialPortSettingsRef;
-typedef const class CSerialPortSettings&	ConstCSerialPortSettingsRef;
+typedef class CSerialPortSettings*       CSerialPortSettingsPtr;
+typedef class CSerialPortSettings&       CSerialPortSettingsRef;
+typedef const class CSerialPortSettings& ConstCSerialPortSettingsRef;
 
-typedef class CSerial*			CSerialPtr;
-typedef class CSerial&			CSerialRef;
-typedef const class CSerial&	ConstCSerialRef;
+typedef class CSerial*       CSerialPtr;
+typedef class CSerial&       CSerialRef;
+typedef const class CSerial& ConstCSerialRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
@@ -87,80 +87,81 @@ typedef const class CSerial&	ConstCSerialRef;
 |	CSerialPortSettings													|
 \+---------------------------------------------------------------------*/
 
-class CSerialPortSettings
+class CORE_CLASS CSerialPortSettings
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSerialPortSettings();
-			CSerialPortSettings( ConstCSerialPortSettingsRef r );	// copy constructor
-	virtual	~CSerialPortSettings();
+    CSerialPortSettings();
+    CSerialPortSettings( ConstCSerialPortSettingsRef r );  // copy constructor
+    virtual ~CSerialPortSettings();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-	typedef enum EParitys
-	{
-		PAR_NONE,
-		PAR_ODD,
-		PAR_EVEN,
-		PAR_MARK,               //WINDOWS ONLY
-		PAR_SPACE
-	} EParitys;
+    typedef enum EParitys
+    {
+        PAR_NONE,
+        PAR_ODD,
+        PAR_EVEN,
+        PAR_MARK,  //WINDOWS ONLY
+        PAR_SPACE
+    } EParitys;
 
-	typedef enum EStopBits
-	{
-		STOP_1,
-		STOP_1_5,               //WINDOWS ONLY
-		STOP_2
-	} EStopBits;
+    typedef enum EStopBits
+    {
+        STOP_1,
+        STOP_1_5,  //WINDOWS ONLY
+        STOP_2
+    } EStopBits;
 
-	typedef enum EFlow
-	{
-		FLOW_OFF,
-		FLOW_HARDWARE,
-		FLOW_XONXOFF
-	} EFlow;
+    typedef enum EFlow
+    {
+        FLOW_OFF,
+        FLOW_HARDWARE,
+        FLOW_XONXOFF
+    } EFlow;
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	// properties
-	void	SetBaud( unsigned long n );
-	void	SetDataBits( unsigned int n );
-	void	SetParity( EParitys e );
-	void	SetStopBits( EStopBits e );
-	void	SetHandshaking( EFlow e );
+    // properties
+    void
+    SetBaud( unsigned long n );
+    void
+    SetDataBits( unsigned int n );
+    void
+    SetParity( EParitys e );
+    void
+    SetStopBits( EStopBits e );
+    void
+    SetHandshaking( EFlow e );
 
 
-	void	LoadSettings( ConstCSerialPortSettingsRef r );
-
-
+    void
+    LoadSettings( ConstCSerialPortSettingsRef r );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	CMutex			m_oMutex;
+    CMutex m_oMutex;
 
-	unsigned long	m_nBaud;
-	unsigned int	m_nDataBits;
-	EParitys		m_eParity;
-	EStopBits		m_eStopBits;
-	EFlow			m_eFlow;
+    unsigned long m_nBaud;
+    unsigned int  m_nDataBits;
+    EParitys      m_eParity;
+    EStopBits     m_eStopBits;
+    EFlow         m_eFlow;
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
-
 
 
 /*---------------------------------------------------------------------+\
@@ -168,123 +169,140 @@ private:
 \+---------------------------------------------------------------------*/
 
 
-class CSerial : public CSerialPortSettings
+class CORE_CLASS CSerial : public CSerialPortSettings
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSerial();
-			CSerial( ConstCSerialRef r );	// copy constructor
-			CSerial( ConstCSerialPortSettingsRef r );
-	virtual	~CSerial();
+    CSerial();
+    CSerial( ConstCSerialRef r );  // copy constructor
+    CSerial( ConstCSerialPortSettingsRef r );
+    virtual ~CSerial();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
 
-	typedef TArray<CCharString>	StringArray;
+    typedef TArray<CCharString> StringArray;
 
 
-	typedef enum EOpenMode
-	{
-		MODE_Readonly,
-		MODE_Writeonly,
-		MODE_ReadWrite
-	} EOpenMode;
+    typedef enum EOpenMode
+    {
+        MODE_Readonly,
+        MODE_Writeonly,
+        MODE_ReadWrite
+    } EOpenMode;
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	CSerialRef	operator=( ConstCSerialRef r );		// assignment
+    CSerialRef
+    operator=( ConstCSerialRef r );  // assignment
 
-	static
-	bool	CheckPort( const char* sName );
+    static bool
+    CheckPort( const char* sName );
 
-	static
-	NResult	EnumeratePorts( StringArray* pList );
+    static NResult
+    EnumeratePorts( StringArray* pList );
 
-	// properties
-	bool	SetPortName( const char* sName );
-	const char*	GetPortName( void ) const;
-	void	SetMinBytes( long n );
-	void	SetTimeout( unsigned long nMilli );
-	void	SetNonblocking( bool b );
+    // properties
+    bool
+    SetPortName( const char* sName );
+    const char*
+    GetPortName( void ) const;
+    void
+    SetMinBytes( long n );
+    void
+    SetTimeout( unsigned long nMilli );
+    void
+    SetNonblocking( bool b );
 
-	NResult	Open( EOpenMode eMode = MODE_Readonly );
-	NResult	Close( void );
+    NResult
+    Open( EOpenMode eMode = MODE_Readonly );
+    NResult
+    Close( void );
 
-	size_t	Read( unsigned char* pBuffer, size_t nMaxBytes );
-	size_t	Write( const unsigned char* pBuffer, size_t nCount );
-	size_t	Write( ConstCCharDescriptorRef rString );
-	NResult	Flush( void );
+    size_t
+    Read( unsigned char* pBuffer, size_t nMaxBytes );
+    size_t
+    Write( const unsigned char* pBuffer, size_t nCount );
+    size_t
+    Write( ConstCCharDescriptorRef rString );
+    NResult
+    Flush( void );
 
-	NResult	LastError( void );
+    NResult
+    LastError( void );
 
-	bool	IsOpen( void );
-	size_t	AvailableBytes( void );		// number of bytes available for read
+    bool
+    IsOpen( void );
+    size_t
+    AvailableBytes( void );  // number of bytes available for read
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
 #if defined( SERIAL_POSIX )
 
-	typedef	int		SERIALHDL;
+    typedef int SERIALHDL;
 
 #elif defined( SERIAL_WINDOWS )
 
-	typedef	HANDLE	SERIALHDL;
+    typedef HANDLE SERIALHDL;
 
-	// Internal helper class which wraps DCB structure
-	class CDCB : public DCB
-	{
-	public:
-		CDCB() { DCBlength = sizeof(DCB); }
-	};
+    // Internal helper class which wraps DCB structure
+    class CDCB : public DCB
+    {
+    public:
+        CDCB()
+        {
+            DCBlength = sizeof( DCB );
+        }
+    };
 #endif
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
 
-	NResult	GetLastOSError( void );
+    NResult
+    GetLastOSError( void );
 
 
+    //	protected data  -----------------------------------------------------
 
-//	protected data  -----------------------------------------------------
-
-	CCharString		m_sPort;
-	long			m_nMinBytes;
-	unsigned long	m_nTimeout;
-	bool			m_bNonblocking;
-	NResult			m_nLastError;
-	SERIALHDL		m_nFD;			// port descriptor/handle
+    CCharString   m_sPort;
+    long          m_nMinBytes;
+    unsigned long m_nTimeout;
+    bool          m_bNonblocking;
+    NResult       m_nLastError;
+    SERIALHDL     m_nFD;  // port descriptor/handle
 
 #if defined( SERIAL_POSIX )
 
-	struct termios	m_tTermOpt;
-	struct timeval	m_tv;
-	fd_set			m_fdsRead;
+    struct termios m_tTermOpt;
+    struct timeval m_tv;
+    fd_set         m_fdsRead;
 
 #elif defined( SERIAL_WINDOWS )
 
-	LONG	m_lLastError;		// Last serial error
-	//EEvent	m_eEvent;			// Event type
-	DWORD	m_dwEventMask;		// Event mask
-	DWORD	m_dwInQueue;
-	DWORD	m_dwOutQueue;
+    LONG m_lLastError;  // Last serial error
+    //EEvent	m_eEvent;			// Event type
+    DWORD m_dwEventMask;  // Event mask
+    DWORD m_dwInQueue;
+    DWORD m_dwOutQueue;
 
-#	ifndef SERIAL_NO_OVERLAPPED
-	HANDLE	m_hevtOverlapped;	// Event handle for internal overlapped operations
-#	endif
+#    ifndef SERIAL_NO_OVERLAPPED
+    HANDLE m_hevtOverlapped;  // Event handle for internal overlapped operations
+#    endif
 
 #endif
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef CSerialPortSettings	inherited;
+    typedef CSerialPortSettings inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -303,8 +321,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CSerial */

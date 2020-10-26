@@ -32,8 +32,8 @@
 \+---------------------------------------------------------------------*/
 #include "ISupports.h"
 
-#include "XMLLite.h"
 #include "CCharDescriptor.h"
+#include "XMLLite.h"
 
 #include "UDeclCommon.h"
 
@@ -50,11 +50,11 @@ namespace Yogi { namespace Common {
 |																		|
 \+---------------------------------------------------------------------*/
 
-typedef interface_ IExternalXML*			IExternalXMLPtr;
-typedef interface_ IExternalXMLServer*		IExternalXMLServerPtr;
+typedef interface_ IExternalXML* IExternalXMLPtr;
+typedef interface_ IExternalXMLServer* IExternalXMLServerPtr;
 
-extern const DECL_CLASS IXID	IXID_IExternalXML;
-extern const DECL_CLASS IXID	IXID_IExternalXMLServer;
+extern const IXID IXID_IExternalXML;
+extern const IXID IXID_IExternalXMLServer;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -64,45 +64,21 @@ extern const DECL_CLASS IXID	IXID_IExternalXMLServer;
 
 interface_ IExternalXML : public ISupports
 {
-	virtual
-	bool	Initialize
-			(
-			IExternalXMLServerPtr p
-			) PURE;
+    virtual bool Initialize( IExternalXMLServerPtr p ) PURE;
 
 
-	virtual
-	XMLLite::VReadCallBack*
-			GetCallBack
-			(
-			const char*	sArg
-			) PURE;
+    virtual XMLLite::VReadCallBack* GetCallBack( const char* sArg ) PURE;
 
-	virtual
-	XMLLite::VReadCallBack*
-			GetCallBack
-			(
-			Yogi::Core::ConstCCharDescriptorRef	rArg
-			) PURE;
+    virtual XMLLite::VReadCallBack* GetCallBack(
+            Yogi::Core::ConstCCharDescriptorRef rArg ) PURE;
 
-	virtual
-	void	ReleaseCallBack
-			(
-			XMLLite::VReadCallBack*	p
-			) PURE;
+    virtual void ReleaseCallBack( XMLLite::VReadCallBack * p ) PURE;
 };
-
-
 
 
 interface_ IExternalXMLServer : ISupports
 {
-	virtual
-	bool	Register
-			(
-			const char*		sName,
-			ISupportsPtr	pIF
-			) PURE;
+    virtual bool Register( const char* sName, ISupportsPtr pIF ) PURE;
 };
 
 
@@ -123,7 +99,7 @@ interface_ IExternalXMLServer : ISupports
 \+=====================================================================*/
 
 
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_IExternalXML */

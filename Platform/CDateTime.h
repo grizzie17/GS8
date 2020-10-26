@@ -43,8 +43,9 @@
 \+---------------------------------------------------------------------*/
 #include <time.h>
 
-#include "UMachine.h"
 #include "CCharDescriptor.h"
+#include "UMachine.h"
+
 #include "UDeclPlatform.h"
 
 namespace Yogi { namespace Core {
@@ -54,118 +55,134 @@ namespace Yogi { namespace Core {
 |																		|
 \+---------------------------------------------------------------------*/
 
-#define FORMAT_ISODATE	("%Y-%m-%d %H:%M:%S Z")
+#define FORMAT_ISODATE ( "%Y-%m-%d %H:%M:%S Z" )
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CDateTime*		CDateTimePtr;
-typedef class CDateTime&		CDateTimeRef;
-typedef const class CDateTime&	ConstCDateTimeRef;
+typedef class CDateTime*       CDateTimePtr;
+typedef class CDateTime&       CDateTimeRef;
+typedef const class CDateTime& ConstCDateTimeRef;
+
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CDateTime
+class CORE_CLASS CDateTime
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CDateTime();
-			CDateTime( ConstCDateTimeRef r );	// copy constructor
-			CDateTime( int nYear, int nMon, int nDay, int nHour, int nMin, int nSec );
-			CDateTime( const char* s );
-			CDateTime( ConstCCharDescriptorRef r );
-			CDateTime( time_t t );
-			~CDateTime();
+    CDateTime();
+    CDateTime( ConstCDateTimeRef r );  // copy constructor
+    CDateTime( int nYear, int nMon, int nDay, int nHour, int nMin, int nSec );
+    CDateTime( const char* s );
+    CDateTime( ConstCCharDescriptorRef r );
+    CDateTime( time_t t );
+    ~CDateTime();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	ConstCDateTimeRef	operator=( ConstCDateTimeRef r );		// assignment
-	ConstCDateTimeRef	operator=( const time_t t );
-	ConstCDateTimeRef	operator=( const char* s );
+    ConstCDateTimeRef
+    operator=( ConstCDateTimeRef r );  // assignment
+    ConstCDateTimeRef
+    operator=( const time_t t );
+    ConstCDateTimeRef
+    operator=( const char* s );
 
-	bool			operator==( ConstCDateTimeRef r ) const;
-	bool			operator==( const time_t t ) const;
-	bool			operator==( const char* s ) const;
+    bool
+    operator==( ConstCDateTimeRef r ) const;
+    bool
+    operator==( const time_t t ) const;
+    bool
+    operator==( const char* s ) const;
 
-					operator time_t( void ) const;
+    operator time_t( void ) const;
 
-	bool			Parse( const char* s );
-	bool			Parse( ConstCCharDescriptorRef r );
-	bool			Load(
-						int	nYear,
-						int	nMon,
-						int	nDay,
-						int	nHour,
-						int	nMin,
-						int	nSec
-						);
+    bool
+    Parse( const char* s );
+    bool
+    Parse( ConstCCharDescriptorRef r );
+    bool
+    Load( int nYear, int nMon, int nDay, int nHour, int nMin, int nSec );
 
-	bool			IsBadTime( void ) const;
+    bool
+    IsBadTime( void ) const;
 
-	time_t			ToTime_t( void ) const;
+    time_t
+    ToTime_t( void ) const;
 
-	//bool			ToTM
+    //bool			ToTM
 
-	// uses the formatting of strftime
-	void			FormatGMT( char* sBuffer, size_t nBufSize, const char* sFormat );
-	void			FormatLocal( char* sBuffer, size_t nBufSize, const char* sFormat );
-	void			FormatISO( char* sBuffer, size_t nBufSize, bool bLocal = false );
+    // uses the formatting of strftime
+    void
+    FormatGMT( char* sBuffer, size_t nBufSize, const char* sFormat );
+    void
+    FormatLocal( char* sBuffer, size_t nBufSize, const char* sFormat );
+    void
+    FormatISO( char* sBuffer, size_t nBufSize, bool bLocal = false );
 
-	// deltas used for timezone or timezone + daylight-savings
-	long			TimezoneOffset( void );
-	long			TimeAdjustOffset( void );
+    // deltas used for timezone or timezone + daylight-savings
+    long
+    TimezoneOffset( void );
+    long
+    TimeAdjustOffset( void );
 
-	static
-	CDateTime		CurrentTime( void );
+    static CDateTime
+    CurrentTime( void );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	long			ParseDate( const char* s, const char* sEnd,
-								long* pYear, long* pMonth, long* pDay );
-	long			ParseTime( const char* s, const char* sEnd,
-								long* pHour, long* pMinute, long* pSecond );
-	long			ParseFracSeconds( const char*s, const char* sEnd );
-	long			ParseZone( const char* s, const char* sEnd,
-								long* pSecondsOffset );
+    long
+    ParseDate( const char* s, const char* sEnd, long* pYear, long* pMonth,
+            long* pDay );
+    long
+    ParseTime( const char* s, const char* sEnd, long* pHour, long* pMinute,
+            long* pSecond );
+    long
+    ParseFracSeconds( const char* s, const char* sEnd );
+    long
+    ParseZone( const char* s, const char* sEnd, long* pSecondsOffset );
 
-	void			FormatTM( char* sBuffer, size_t nBufSize,
-							const char* sFormat,
-							struct tm* pTm );
+    void
+    FormatTM( char* sBuffer, size_t nBufSize, const char* sFormat,
+            struct tm* pTm );
 
 
-	// returns number of chracters processed
-	long			SpanNumber( const char* s, const char* sEnd, long* nValue );
-	long			SpanBlanks( const char* s, const char* sEnd );
+    // returns number of chracters processed
+    long
+    SpanNumber( const char* s, const char* sEnd, long* nValue );
+    long
+    SpanBlanks( const char* s, const char* sEnd );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	time_t		m_t;
+    time_t m_t;
 
-	static long		g_nTimezoneOffset;
-	static int		g_nDaylight;
-	static time_t	g_nBadTimeValue;
+    long g_nTimezoneOffset = ~0;
+    int  g_nDaylight = 0;
+
+    const time_t g_nBadTimeValue = ~0;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
 
 /*---------------------------------------------------------------------+\
@@ -185,43 +202,30 @@ private:
 \+=====================================================================*/
 
 
-
 /*----------------------------------------------------------------------+\
 
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline
-ConstCDateTimeRef
-		CDateTime::operator=
-		(
-		ConstCDateTimeRef	r
-		)
+inline ConstCDateTimeRef
+CDateTime::operator=( ConstCDateTimeRef r )
 {
-	m_t = r.m_t;
-	return *this;
+    m_t = r.m_t;
+    return *this;
 }
 
-inline
-ConstCDateTimeRef
-		CDateTime::operator =
-		(
-		const time_t t
-		)
+inline ConstCDateTimeRef
+CDateTime::operator=( const time_t t )
 {
-	m_t = t;
-	return *this;
+    m_t = t;
+    return *this;
 }
 
-inline
-ConstCDateTimeRef
-		CDateTime::operator =
-		(
-		const char*	s
-		)
+inline ConstCDateTimeRef
+CDateTime::operator=( const char* s )
 {
-	Parse( s );
-	return *this;
+    Parse( s );
+    return *this;
 }
 
 /*---------------------------------------------------------------------+\
@@ -229,34 +233,25 @@ ConstCDateTimeRef
  * operator== - equality
 
 \+---------------------------------------------------------------------*/
-inline
-bool	CDateTime::operator==
-		(
-		ConstCDateTimeRef	r
-		) const
+inline bool
+CDateTime::operator==( ConstCDateTimeRef r ) const
 {
-	return m_t == r.m_t;
+    return m_t == r.m_t;
 }
 
 
-inline
-bool	CDateTime::operator==
-		(
-		const char*	s
-		) const
+inline bool
+CDateTime::operator==( const char* s ) const
 {
-	CDateTime	t( s );
-	return m_t == t;
+    CDateTime t( s );
+    return m_t == t;
 }
 
 
-inline
-bool	CDateTime::operator==
-		(
-		const time_t	t
-		) const
+inline bool
+CDateTime::operator==( const time_t t ) const
 {
-	return m_t == t;
+    return m_t == t;
 }
 
 
@@ -265,15 +260,10 @@ bool	CDateTime::operator==
  * operator time_t - operator
 
 \+---------------------------------------------------------------------*/
-inline
-CDateTime::operator time_t
-		(
-		void
-		) const
+inline CDateTime::operator time_t( void ) const
 {
-	return m_t;
+    return m_t;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -281,37 +271,24 @@ CDateTime::operator time_t
  * ToTime_t -
 
 \+---------------------------------------------------------------------*/
-inline
-time_t	CDateTime::ToTime_t
-		(
-		void
-		) const
+inline time_t
+CDateTime::ToTime_t( void ) const
 {
-	return m_t;
+    return m_t;
 }
 
 
-inline
-bool	CDateTime::IsBadTime
-		(
-		void
-		) const
+inline bool
+CDateTime::IsBadTime( void ) const
 {
-	if ( 0 == m_t  ||  g_nBadTimeValue == m_t )
-		return true;
-	else
-		return false;
+    if ( 0 == m_t || g_nBadTimeValue == m_t )
+        return true;
+    else
+        return false;
 }
 
 
-
-
-
-
-
-
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CDateTime */

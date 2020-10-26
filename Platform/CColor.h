@@ -59,29 +59,29 @@ namespace Yogi { namespace Core {
 
 // deal with internal representation which stores the values as
 //	0xAABBGGRR
-#define	COLORDATA_V_RED		0	// Shift value
-#define COLORDATA_V_GREEN	8
-#define	COLORDATA_V_BLUE	16
-#define	COLORDATA_V_ALPHA	24
+#define COLORDATA_V_RED   0  // Shift value
+#define COLORDATA_V_GREEN 8
+#define COLORDATA_V_BLUE  16
+#define COLORDATA_V_ALPHA 24
 
-#define	COLORDATA_M_RED		0x000000FF		// low order byte
-#define	COLORDATA_M_GREEN	0x0000FF00
-#define COLORDATA_M_BLUE	0x00FF0000
-#define	COLORDATA_M_ALPHA	0xFF000000
+#define COLORDATA_M_RED   0x000000FF  // low order byte
+#define COLORDATA_M_GREEN 0x0000FF00
+#define COLORDATA_M_BLUE  0x00FF0000
+#define COLORDATA_M_ALPHA 0xFF000000
 
-#define	COLORDATA_M_RGB		(COLORDATA_M_RED | COLORDATA_M_GREEN | COLORDATA_M_BLUE)
+#define COLORDATA_M_RGB \
+    ( COLORDATA_M_RED | COLORDATA_M_GREEN | COLORDATA_M_BLUE )
 
 // these values are used when dealing with an input longword
 //	where the values are ordered in memory as 0x00RRGGBB
-#define COLORLONG_V_ALPHA	24
-#define COLORLONG_V_RED		16
-#define COLORLONG_V_GREEN	8
-#define	COLORLONG_V_BLUE	0
-#define COLORLONG_M_ALPHA	0xFF000000
-#define	COLORLONG_M_RED		0x00FF0000
-#define	COLORLONG_M_GREEN	0x0000FF00
-#define	COLORLONG_M_BLUE	0x000000FF
-
+#define COLORLONG_V_ALPHA 24
+#define COLORLONG_V_RED   16
+#define COLORLONG_V_GREEN 8
+#define COLORLONG_V_BLUE  0
+#define COLORLONG_M_ALPHA 0xFF000000
+#define COLORLONG_M_RED   0x00FF0000
+#define COLORLONG_M_GREEN 0x0000FF00
+#define COLORLONG_M_BLUE  0x000000FF
 
 
 /*---------------------------------------------------------------------+\
@@ -91,76 +91,75 @@ namespace Yogi { namespace Core {
 \+---------------------------------------------------------------------*/
 
 // ColorData
-typedef unsigned long	COLORDATA;
+typedef unsigned long COLORDATA;
 
 typedef struct RGBColorWord
 {
-	unsigned short	red;
-	unsigned short	green;
-	unsigned short	blue;
+    unsigned short red;
+    unsigned short green;
+    unsigned short blue;
 } RGBColorWord;
-typedef RGBColorWord*		RGBColorWordPtr;
-typedef RGBColorWord&		RGBColorWordRef;
-typedef const RGBColorWord&	ConstRGBColorWordRef;
-
+typedef RGBColorWord*       RGBColorWordPtr;
+typedef RGBColorWord&       RGBColorWordRef;
+typedef const RGBColorWord& ConstRGBColorWordRef;
 
 
 typedef struct RGBColorByte
 {
-	unsigned char	red;
-	unsigned char	green;
-	unsigned char	blue;
+    unsigned char red;
+    unsigned char green;
+    unsigned char blue;
 } RGBColorByte;
-typedef	RGBColorByte*		RGBColorBytePtr;
-typedef	RGBColorByte&		RGBColorByteRef;
-typedef	const RGBColorByte&	ConstRGBColorByteRef;
+typedef RGBColorByte*       RGBColorBytePtr;
+typedef RGBColorByte&       RGBColorByteRef;
+typedef const RGBColorByte& ConstRGBColorByteRef;
 
 // this struct is used to enumerate the named colors
 typedef struct ColorName
 {
-	const char*		sName;
-	RGBColorByte	value;
+    const char*  sName;
+    RGBColorByte value;
 } ColorName;
 
 
 typedef struct RGBAColorByte
 {
-	unsigned char	red;
-	unsigned char	green;
-	unsigned char	blue;
-	unsigned char	alpha;		// degree of translucency
+    unsigned char red;
+    unsigned char green;
+    unsigned char blue;
+    unsigned char alpha;  // degree of translucency
 } RGBAColorByte;
-typedef	RGBAColorByte*		RGBAColorBytePtr;
-typedef	RGBAColorByte&		RGBAColorByteRef;
-typedef	const RGBAColorByte&	ConstRGBAColorByteRef;
+typedef RGBAColorByte*       RGBAColorBytePtr;
+typedef RGBAColorByte&       RGBAColorByteRef;
+typedef const RGBAColorByte& ConstRGBAColorByteRef;
 
 
 typedef struct HSVColorFloat
 {
-	float	hue;
-	float	saturation;
-	float	value;
+    float hue;
+    float saturation;
+    float value;
 } HSVColorFloat;
-typedef HSVColorFloat*		HSVColorFloatPtr;
+typedef HSVColorFloat* HSVColorFloatPtr;
 
 
 typedef struct HSLColorByte
 {
-	unsigned char	hue;
-	unsigned char	saturation;
-	unsigned char	light;
-	unsigned char	pad;
+    unsigned char hue;
+    unsigned char saturation;
+    unsigned char light;
+    unsigned char pad;
 } HSLColorByte;
-typedef HSLColorByte*	HSLColorBytePtr;
+typedef HSLColorByte* HSLColorBytePtr;
 
 
 //class CColor;				// forward reference
 //class CColorEnumerator;		// forward reference
 
 
-typedef class CColor*		CColorPtr;
-typedef class CColor&		CColorRef;
-typedef const class CColor&	ConstCColorRef;
+typedef class CColor*       CColorPtr;
+typedef class CColor&       CColorRef;
+typedef const class CColor& ConstCColorRef;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -168,158 +167,182 @@ typedef const class CColor&	ConstCColorRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CColorEnumerator : public TEnumerator<const ColorName>
+class CORE_CLASS CColorEnumerator : public TEnumerator<const ColorName>
 {
 public:
-			CColorEnumerator( void );
-	virtual	~CColorEnumerator( void );
+    CColorEnumerator( void );
+    virtual ~CColorEnumerator( void );
 
 public:
-	virtual bool				MoveNext( void );
-	virtual void				Reset( void );
-	virtual	const ColorName*	Current( void );
+    virtual bool
+    MoveNext( void );
+    virtual void
+    Reset( void );
+    virtual const ColorName*
+    Current( void );
 
 protected:
-	const ColorName*	m_pBegin;
-	const ColorName*	m_pEnd;
-	const ColorName*	m_pCurrent;
-
+    const ColorName* m_pBegin;
+    const ColorName* m_pEnd;
+    const ColorName* m_pCurrent;
 };
 
 
-
-class CColor
+class CORE_CLASS CColor
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CColor();
-			CColor( ConstCColorRef r );	// copy constructor
-			CColor( unsigned int r, unsigned int g, unsigned int b );
-			CColor( unsigned int r, unsigned int g, unsigned int b, unsigned int a );
-			CColor( ConstRGBColorByteRef a );
-			CColor( ConstRGBAColorByteRef a );
-			CColor( const COLORDATA& a );
-			CColor( const char* sName );
-			CColor( const char* sName, unsigned int a );
-	virtual	~CColor();
+    CColor();
+    CColor( ConstCColorRef r );  // copy constructor
+    CColor( unsigned int r, unsigned int g, unsigned int b );
+    CColor( unsigned int r, unsigned int g, unsigned int b, unsigned int a );
+    CColor( ConstRGBColorByteRef a );
+    CColor( ConstRGBAColorByteRef a );
+    CColor( const COLORDATA& a );
+    CColor( const char* sName );
+    CColor( const char* sName, unsigned int a );
+    virtual ~CColor();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	/**
+    /**
 	 * SetRGB - assign based on Red, Green, Blue values
 	 *
 	 * r,g,b are assumed to be byte values
 	 *
 	 * this function will set the alpha to zero
 	 */
-	void		SetRGB
-				(
-				unsigned int r,		///< [in] Red	0..255
-				unsigned int g,		///< [in] Green
-				unsigned int b		///< [in] Blue
-				);
+    void
+    SetRGB( unsigned int r,  ///< [in] Red	0..255
+            unsigned int g,  ///< [in] Green
+            unsigned int b   ///< [in] Blue
+    );
 
-	/**
+    /**
 	 * 	SetRGBA - indentify R,G,B values with the alpha value
 	 *
 	 * 	all values are assumed to be byte values (0..255)
 	 */
-	void		SetRGBA
-				(
-				unsigned int r,
-				unsigned int g,
-				unsigned int b,
-				unsigned int a		///< [in] Alpha
-				);
+    void
+    SetRGBA( unsigned int r, unsigned int g, unsigned int b,
+            unsigned int a  ///< [in] Alpha
+    );
 
-	/**
+    /**
 	 * 	SetAlpha - set/modify the alpha value
 	 */
-	void		SetAlpha
-				(
-				unsigned int a
-				);
+    void
+    SetAlpha( unsigned int a );
 
 
-	//!	SetColorLong - set the color value based on the COLORLONG convention
-	//!
-	//!	value is treated as AARRGGBB - AA-Alpha, RR-Red, GG-Green, BB-Blue
-	//!
-	void	SetColorLong
-			(
-			long n		//!< please note this is not the same as COLORDATA
-			);
+    //!	SetColorLong - set the color value based on the COLORLONG convention
+    //!
+    //!	value is treated as AARRGGBB - AA-Alpha, RR-Red, GG-Green, BB-Blue
+    //!
+    void
+    SetColorLong( long n  //!< please note this is not the same as COLORDATA
+    );
 
 
-	//!	GetValue
-	//!
-	unsigned int	GetRed( void ) const;	//!@return red component of color
-	unsigned int	GetGreen( void ) const;	//!@return green component of color
-	unsigned int	GetBlue( void ) const;	//!@return blue component of color
-	unsigned int	GetAlpha( void ) const;	//!@return alpha component of color
+    //!	GetValue
+    //!
+    unsigned int
+    GetRed( void ) const;  //!@return red component of color
+    unsigned int
+    GetGreen( void ) const;  //!@return green component of color
+    unsigned int
+    GetBlue( void ) const;  //!@return blue component of color
+    unsigned int
+    GetAlpha( void ) const;  //!@return alpha component of color
 
-	void		SetColorByte( ConstRGBColorByteRef a );
-	void		SetColorByte( ConstRGBAColorByteRef a );
-	COLORDATA	GetData( void ) const;
-	void		SetData( const COLORDATA& a );
-	void		SetData( const char* sName );
-	void		SetNonColor( bool b );
-	bool		IsNonColor( void ) const;
+    void
+    SetColorByte( ConstRGBColorByteRef a );
+    void
+    SetColorByte( ConstRGBAColorByteRef a );
+    COLORDATA
+    GetData( void ) const;
+    void
+    SetData( const COLORDATA& a );
+    void
+    SetData( const char* sName );
+    void
+    SetNonColor( bool b );
+    bool
+    IsNonColor( void ) const;
 
-	ConstCColorRef	operator=( ConstCColorRef r );		// assignment
-	ConstCColorRef	operator=( const COLORDATA& r );
-	ConstCColorRef	operator=( ConstRGBColorByteRef r );
-	ConstCColorRef	operator=( ConstRGBAColorByteRef r );
-	ConstCColorRef	operator=( const char* sName );
-				operator COLORDATA( void ) const;
-				operator RGBColorByte( void );
-				operator RGBAColorByte( void );
+    ConstCColorRef
+    operator=( ConstCColorRef r );  // assignment
+    ConstCColorRef
+    operator=( const COLORDATA& r );
+    ConstCColorRef
+    operator=( ConstRGBColorByteRef r );
+    ConstCColorRef
+    operator=( ConstRGBAColorByteRef r );
+    ConstCColorRef
+    operator=( const char* sName );
+    operator COLORDATA( void ) const;
+    operator RGBColorByte( void );
+    operator RGBAColorByte( void );
 
-	bool		Equals( const CColor& r ) const;
-	bool		Equals( const COLORDATA& cr ) const;
-	bool		operator==( const CColor& r ) const;
-	bool		operator==( const COLORDATA& r ) const;
-	bool		operator!=( const CColor& r ) const;
-	bool		operator!=( const COLORDATA& r ) const;
+    bool
+    Equals( const CColor& r ) const;
+    bool
+    Equals( const COLORDATA& cr ) const;
+    bool
+    operator==( const CColor& r ) const;
+    bool
+    operator==( const COLORDATA& r ) const;
+    bool
+    operator!=( const CColor& r ) const;
+    bool
+    operator!=( const COLORDATA& r ) const;
 
-	static CColor	ColorFromName( const char* sName );
-	static CColor	ColorFromName( ConstCCharDescriptorRef rName );
-	static CColor	ColorFromNameAlpha( const char* sName, unsigned int alpha );
-	static CColor	ColorFromNameAlpha( ConstCCharDescriptorRef rName, unsigned int alpha );
-	static CColor	BackgroundColor( void );
-	static CColor	ErrorColor( void );
+    static CColor
+    ColorFromName( const char* sName );
+    static CColor
+    ColorFromName( ConstCCharDescriptorRef rName );
+    static CColor
+    ColorFromNameAlpha( const char* sName, unsigned int alpha );
+    static CColor
+    ColorFromNameAlpha( ConstCCharDescriptorRef rName, unsigned int alpha );
+    static CColor
+    BackgroundColor( void );
+    static CColor
+    ErrorColor( void );
 
-	static void		HSVfromRGB( HSVColorFloatPtr pHSV, RGBColorBytePtr pRGB );
-	static void		RGBfromHSV( RGBColorBytePtr pRGB, HSVColorFloatPtr pHSV );
-	static void		HSLfromRGB( HSLColorBytePtr pHSL, RGBColorBytePtr pRGB );
-	static CColorEnumerator
-					GetEnumerator( void );
+    static void
+    HSVfromRGB( HSVColorFloatPtr pHSV, RGBColorBytePtr pRGB );
+    static void
+    RGBfromHSV( RGBColorBytePtr pRGB, HSVColorFloatPtr pHSV );
+    static void
+    HSLfromRGB( HSLColorBytePtr pHSL, RGBColorBytePtr pRGB );
+    static CColorEnumerator
+    GetEnumerator( void );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	COLORDATA	m_tColor;
+    COLORDATA m_tColor;
 
-	static CColor	g_tErrorColor;
+    static CColor g_tErrorColor;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	// -- delete this section if this is a root class --
-	//	root
-	//	BaseClass-1
-	//	BaseClass
-
+    //============================== Overrides ==============================
+    // -- delete this section if this is a root class --
+    //	root
+    //	BaseClass-1
+    //	BaseClass
 };
 
 
@@ -345,12 +368,9 @@ private:
 
 \+---------------------------------------------------------------------*/
 inline COLORDATA
-		CColor::GetData
-		(
-		void
-		) const
+CColor::GetData( void ) const
 {
-	return m_tColor;
+    return m_tColor;
 }
 
 /*---------------------------------------------------------------------+\
@@ -359,12 +379,9 @@ inline COLORDATA
 
 \+---------------------------------------------------------------------*/
 inline void
-		CColor::SetData
-		(
-		const COLORDATA &a
-		)
+CColor::SetData( const COLORDATA& a )
 {
-	m_tColor = a;
+    m_tColor = a;
 }
 
 
@@ -373,15 +390,11 @@ inline void
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline
-ConstCColorRef
-		CColor::operator =
-		(
-		ConstCColorRef r
-		)
+inline ConstCColorRef
+CColor::operator=( ConstCColorRef r )
 {
-	m_tColor = r.m_tColor;
-	return *this;
+    m_tColor = r.m_tColor;
+    return *this;
 }
 
 /*----------------------------------------------------------------------+\
@@ -389,17 +402,12 @@ ConstCColorRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline
-ConstCColorRef
-		CColor::operator =
-		(
-		const COLORDATA&	r
-		)
+inline ConstCColorRef
+CColor::operator=( const COLORDATA& r )
 {
-	SetData( r );
-	return *this;
+    SetData( r );
+    return *this;
 }
-
 
 
 /*----------------------------------------------------------------------+\
@@ -407,15 +415,11 @@ ConstCColorRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline
-ConstCColorRef
-		CColor::operator =
-		(
-		ConstRGBColorByteRef r
-		)
+inline ConstCColorRef
+CColor::operator=( ConstRGBColorByteRef r )
 {
-	SetColorByte( r );
-	return *this;
+    SetColorByte( r );
+    return *this;
 }
 
 /*----------------------------------------------------------------------+\
@@ -423,15 +427,11 @@ ConstCColorRef
  * operator= - assignment operator
 
 \+---------------------------------------------------------------------*/
-inline
-ConstCColorRef
-		CColor::operator=
-		(
-		const char*	sName
-		)
+inline ConstCColorRef
+CColor::operator=( const char* sName )
 {
-	SetData( sName );
-	return *this;
+    SetData( sName );
+    return *this;
 }
 
 /*---------------------------------------------------------------------+\
@@ -439,72 +439,49 @@ ConstCColorRef
  * operator COLORDATA -
 
 \+---------------------------------------------------------------------*/
-inline 	CColor::operator COLORDATA
-		(
-		void
-		) const
+inline CColor::operator COLORDATA( void ) const
 {
-	return m_tColor;
+    return m_tColor;
 }
 
 
-inline
-bool	CColor::operator==
-		(
-		const CColor&	r
-		) const
+inline bool
+CColor::operator==( const CColor& r ) const
 {
-	return Equals( r );
+    return Equals( r );
 }
 
 
-inline
-bool	CColor::operator==
-		(
-		const COLORDATA&	r
-		) const
+inline bool
+CColor::operator==( const COLORDATA& r ) const
 {
-	return Equals( r );
+    return Equals( r );
 }
 
 
-inline
-bool	CColor::operator!=
-		(
-		const CColor&	r
-		) const
+inline bool
+CColor::operator!=( const CColor& r ) const
 {
-	return ! Equals( r );
+    return ! Equals( r );
 }
 
-inline
-bool	CColor::operator!=
-		(
-		const COLORDATA&	r
-		) const
+inline bool
+CColor::operator!=( const COLORDATA& r ) const
 {
-	return ! Equals( r );
+    return ! Equals( r );
 }
 
-inline
-bool	operator==
-		(
-		const COLORDATA&	a,
-		const CColor&		b
-		)
+inline bool
+operator==( const COLORDATA& a, const CColor& b )
 {
-	return b.Equals( a );
+    return b.Equals( a );
 }
 
 
-inline
-bool	operator!=
-		(
-		const COLORDATA&	a,
-		const CColor&		b
-		)
+inline bool
+operator!=( const COLORDATA& a, const CColor& b )
 {
-	return ! b.Equals( a );
+    return ! b.Equals( a );
 }
 
 
@@ -513,14 +490,10 @@ bool	operator!=
  * GetRed -
 
 \+---------------------------------------------------------------------*/
-inline
-unsigned int
-		CColor::GetRed
-		(
-		void
-		) const
+inline unsigned int
+CColor::GetRed( void ) const
 {
-	return (m_tColor & COLORDATA_M_RED) >> COLORDATA_V_RED;
+    return ( m_tColor & COLORDATA_M_RED ) >> COLORDATA_V_RED;
 }
 
 /*---------------------------------------------------------------------+\
@@ -528,14 +501,10 @@ unsigned int
  * GetGreen -
 
 \+---------------------------------------------------------------------*/
-inline
-unsigned int
-		CColor::GetGreen
-		(
-		void
-		) const
+inline unsigned int
+CColor::GetGreen( void ) const
 {
-	return (m_tColor & COLORDATA_M_GREEN) >> COLORDATA_V_GREEN;
+    return ( m_tColor & COLORDATA_M_GREEN ) >> COLORDATA_V_GREEN;
 }
 
 /*---------------------------------------------------------------------+\
@@ -543,14 +512,10 @@ unsigned int
  * GetBlue -
 
 \+---------------------------------------------------------------------*/
-inline
-unsigned int
-		CColor::GetBlue
-		(
-		void
-		) const
+inline unsigned int
+CColor::GetBlue( void ) const
 {
-	return (m_tColor & COLORDATA_M_BLUE) >> COLORDATA_V_BLUE;
+    return ( m_tColor & COLORDATA_M_BLUE ) >> COLORDATA_V_BLUE;
 }
 
 
@@ -559,21 +524,14 @@ unsigned int
  * GetAlpha -
 
 \+---------------------------------------------------------------------*/
-inline
-unsigned int
-		CColor::GetAlpha
-		(
-		void
-		) const
+inline unsigned int
+CColor::GetAlpha( void ) const
 {
-	return (m_tColor & COLORDATA_M_ALPHA) >> COLORDATA_V_ALPHA;
+    return ( m_tColor & COLORDATA_M_ALPHA ) >> COLORDATA_V_ALPHA;
 }
 
 
-
-
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CColor */

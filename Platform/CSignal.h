@@ -31,7 +31,7 @@
 \+---------------------------------------------------------------------*/
 #include "UPlatform.h"
 #if defined( SIGNAL_POSIX )
-#	include <pthread.h>
+#    include <pthread.h>
 #endif
 #include "UDeclPlatform.h"
 
@@ -46,60 +46,62 @@ namespace Yogi { namespace Core {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CSignal*			CSignalPtr;
-typedef class CSignal&			CSignalRef;
-typedef const class CSignal&	ConstCSignalRef;
+typedef class CSignal*       CSignalPtr;
+typedef class CSignal&       CSignalRef;
+typedef const class CSignal& ConstCSignalRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CSignal
+class CORE_CLASS CSignal
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-			CSignal();
-	virtual	~CSignal();
+    CSignal();
+    virtual ~CSignal();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	void	Set();
+    void
+    Set();
 
-	bool	Wait();
+    bool
+    Wait();
 
-	void	Clear();
+    void
+    Clear();
 
-	bool	IsCreated();
+    bool
+    IsCreated();
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-	bool			m_bCreated;
+    bool m_bCreated;
 
 #if defined( SIGNAL_WINDOWS )
-	HANDLE			m_hEvent;
-	char			m_sName[32];
+    HANDLE m_hEvent;
+    char   m_sName[32];
 #elif defined( SIGNAL_POSIX )
-	pthread_cond_t	m_ready;
-	pthread_mutex_t	m_lock;
+    pthread_cond_t  m_ready;
+    pthread_mutex_t m_lock;
 #endif
-
-
 };
 
 /*---------------------------------------------------------------------+\
@@ -118,8 +120,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Core
 
 
 #endif /* _H_CSignal */

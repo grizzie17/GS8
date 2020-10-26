@@ -31,17 +31,17 @@
 
 #include "VPluginLibrary.h"
 
-#include "VPluginFactory.h"
 #include "CPluginLoader.h"
-#include "ISupports.h"
 #include "IPluginLibrary.h"
+#include "ISupports.h"
+#include "VPluginFactory.h"
 
-#include "TDictionaryIndexed.h"
-#include "CCharString.h"
 #include "CCharDescriptor.h"
+#include "CCharString.h"
 #include "CCharStringHash.h"
-#include "CVariantData.h"
 #include "CMutex.h"
+#include "CVariantData.h"
+#include "TDictionaryIndexed.h"
 
 #include "UDeclCommon.h"
 
@@ -56,121 +56,94 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CPluginLibrary*		CPluginLibraryPtr;
-typedef class CPluginLibrary&		CPluginLibraryRef;
-typedef const class CPluginLibrary&	ConstCPluginLibraryRef;
+typedef class CPluginLibrary*       CPluginLibraryPtr;
+typedef class CPluginLibrary&       CPluginLibraryRef;
+typedef const class CPluginLibrary& ConstCPluginLibraryRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CPluginLibrary : public VSupports,
-					implements_ IPluginLibrary
+class COMMON_CLASS CPluginLibrary
+        : public VSupports
+        , implements_ IPluginLibrary
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 
-	COM_LIFECYCLE( CPluginLibrary );
+    COM_LIFECYCLE( CPluginLibrary );
 
 public:
-//	supported interfaces  -----------------------------------------------
+    //	supported interfaces  -----------------------------------------------
 
-	//	ISupports
-	DECLARE_ISUPPORTS;
+    //	ISupports
+    DECLARE_ISUPPORTS;
 
 
-	//	IPluginLibrary
-	virtual
-	ISupportsPtr	Create
-					(
-					const char*		sLibraryname,
-					ISupportsPtr	pOwner = 0
-					);
-	virtual
-	ISupportsPtr	Create
-					(
-					Yogi::Core::ConstCCharDescriptorRef rLibraryname,
-					ISupportsPtr	pOwner = 0
-					);
+    //	IPluginLibrary
+    virtual ISupportsPtr
+    Create( const char* sLibraryname, ISupportsPtr pOwner = 0 );
+    virtual ISupportsPtr
+    Create( Yogi::Core::ConstCCharDescriptorRef rLibraryname,
+            ISupportsPtr                        pOwner = 0 );
 
-	virtual
-	void			SetBaseFolder
-					(
-					const char* sFolder
-					);
+    virtual void
+    SetBaseFolder( const char* sFolder );
 
-	virtual
-	void			SetRelativeFolder
-					(
-					const char*	sFolder
-					);
-
+    virtual void
+    SetRelativeFolder( const char* sFolder );
 
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-	typedef struct FactoryCampus
-	{
-		VPluginFactoryPtr	m_pFactory;
-		ULibraryHdl			m_hLibrary;
-	} FactoryCampus;
+    typedef struct FactoryCampus
+    {
+        VPluginFactoryPtr m_pFactory;
+        ULibraryHdl       m_hLibrary;
+    } FactoryCampus;
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	VPluginFactoryPtr	GetFactory( Yogi::Core::ConstCCharDescriptorRef rLibraryname );
+    VPluginFactoryPtr
+    GetFactory( Yogi::Core::ConstCCharDescriptorRef rLibraryname );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	TDictionaryIndexed< Yogi::Core::CCharString, FactoryCampus>	m_aContent;
-	Yogi::Core::CCharString	m_sBaseFolder;
-	CPluginLoader			m_tLoader;
-	Yogi::Core::CMutex		m_oMutex;
+    TDictionaryIndexed<Yogi::Core::CCharString, FactoryCampus> m_aContent;
+    Yogi::Core::CCharString                                    m_sBaseFolder;
+    CPluginLoader                                              m_tLoader;
+    Yogi::Core::CMutex                                         m_oMutex;
 
 private:
-//	private types  ------------------------------------------------------
+    //	private types  ------------------------------------------------------
 
-	typedef	VSupports	inherited;
+    typedef VSupports inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
-	//	VSupports
+    //============================== Overrides ==============================
+    //	VSupports
 protected:
-
-	virtual
-	void*	FindInternalInterface
-			(
-			ConstIXIDRef	rIID
-			);
+    virtual void*
+    FindInternalInterface( ConstIXIDRef rIID );
 
 #ifdef _DEBUG
-	virtual
-	void	FinalRelease
-			(
-			void
-			);
+    virtual void
+    FinalRelease( void );
 
-	virtual
-	NRefCount
-			InternalAddRef
-			(
-			void
-			);
+    virtual NRefCount
+    InternalAddRef( void );
 
-	virtual
-	NRefCount
-			InternalRelease
-			(
-			void
-			);
+    virtual NRefCount
+    InternalRelease( void );
 #endif
 };
 
@@ -191,8 +164,7 @@ protected:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CPluginLibrary */

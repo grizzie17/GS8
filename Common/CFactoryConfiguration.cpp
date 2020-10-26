@@ -56,9 +56,9 @@
 //#include "stdafx.h"
 #include <float.h>
 
-#include "UPlatform.h"
 #include "CCharString.h"
 #include "CUnitsOfMeasure.h"
+#include "UPlatform.h"
 
 #include "CFactoryConfiguration.h"
 #include "UDeclCommon.h"
@@ -103,15 +103,11 @@ namespace Yogi { namespace Common {
  * CFactoryConfiguration - constructor
 
 \+---------------------------------------------------------------------*/
-DECL_CLASS
-		CFactoryConfiguration::CFactoryConfiguration
-		(
-		void
-		)
-		: VFactoryLite()
-		, m_pConfig( 0 )
+CFactoryConfiguration::CFactoryConfiguration( void )
+        : VFactoryLite()
+        , m_pConfig( 0 )
 {
-	m_pVariable = (VVariablePtr)this;
+    m_pVariable = (VVariablePtr)this;
 }
 
 
@@ -120,13 +116,8 @@ DECL_CLASS
  * ~CFactoryConfiguration - destructor
 
 \+---------------------------------------------------------------------*/
-DECL_CLASS
-		CFactoryConfiguration::~CFactoryConfiguration
-		(
-		void
-		)
-{
-}
+CFactoryConfiguration::~CFactoryConfiguration( void )
+{}
 
 
 /*=====================================================================+\
@@ -139,45 +130,39 @@ DECL_CLASS
  * Make -
 
 \+---------------------------------------------------------------------*/
-DECL_API(VConfigurationPtr)
-		CFactoryConfiguration::Make
-		(
-		const char*			sName,
-		VConfigurationPtr	pConfig
-		)
+VConfigurationPtr
+CFactoryConfiguration::Make( const char* sName, VConfigurationPtr pConfig )
 {
-	VConfigurationPtr	pNode = 0;
+    VConfigurationPtr pNode = 0;
 
-	m_pConfig = pConfig;
+    m_pConfig = pConfig;
 
-	if ( OpenFile( sName ) )
-	{
-		CCharDescriptor	tName;
-		XMLIterator	it( this );
+    if ( OpenFile( sName ) )
+    {
+        CCharDescriptor tName;
+        XMLIterator     it( this );
 
-		while ( it.NextChild() )
-		{
-			switch ( it.NodeType() )
-			{
-			case XMLLite::NODE_ELEMENT_BEGIN:
-				tName = it.NodeName();
-				if ( tName == "Configuration" )
-				{
-					pNode = Configuration( pConfig );
-					if ( ! pNode )
-						return NULL;
-				}
-				break;
-			default:
-				break;
-			}
-		}
-	}
+        while ( it.NextChild() )
+        {
+            switch ( it.NodeType() )
+            {
+            case XMLLite::NODE_ELEMENT_BEGIN:
+                tName = it.NodeName();
+                if ( tName == "Configuration" )
+                {
+                    pNode = Configuration( pConfig );
+                    if ( ! pNode )
+                        return NULL;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
 
-	return pNode;
+    return pNode;
 }
-
-
 
 
 /*=====================================================================+\
@@ -185,68 +170,58 @@ DECL_API(VConfigurationPtr)
 \+=====================================================================*/
 
 
-
-
-
 /*---------------------------------------------------------------------+\
 
  * Configuration -
 
 \+---------------------------------------------------------------------*/
-DECL_API(VConfigurationPtr)
-		CFactoryConfiguration::Configuration
-		(
-		VConfigurationPtr	pConfig
-		)
+VConfigurationPtr
+CFactoryConfiguration::Configuration( VConfigurationPtr pConfig )
 {
-	VConfigurationPtr	pNode = 0;
+    VConfigurationPtr pNode = 0;
 
-	if ( pConfig )
-		pNode = pConfig;
-	else
-		pNode = new CConfiguration;
-	m_pConfig = pNode;
-	if ( pNode )
-	{
+    if ( pConfig )
+        pNode = pConfig;
+    else
+        pNode = new CConfiguration;
+    m_pConfig = pNode;
+    if ( pNode )
+    {
+        XMLIterator     it( this );
+        CCharDescriptor tName;
+        CCharDescriptor tValue;
+        bool            bResult = false;
 
-		XMLIterator	it( this );
-		CCharDescriptor	tName;
-		CCharDescriptor	tValue;
-		bool		bResult = false;
+        while ( it.NextChild() )
+        {
+            switch ( it.NodeType() )
+            {
+            case XMLLite::NODE_ELEMENT:
+                tName = it.NodeName();
+                if ( tName == "Item" )
+                {
+                    bResult = Item( pNode, &it );
+                }
+                else if ( tName == "Include" )
+                {
+                    bResult = IncludeFile( pNode, &it );
+                }
+                break;
+            case XMLLite::NODE_COMMENT:
+                break;
+            default:
+                //bResult = false;
+                break;
+            }
+        }
+        if ( ! bResult )
+        {
+            pNode = NULL;
+        }
+    }
 
-		while ( it.NextChild() )
-		{
-			switch ( it.NodeType() )
-			{
-			case XMLLite::NODE_ELEMENT:
-				tName = it.NodeName();
-				if ( tName == "Item" )
-				{
-					bResult = Item( pNode, &it );
-				}
-				else if ( tName == "Include" )
-				{
-					bResult = IncludeFile( pNode, &it );
-				}
-				break;
-			case XMLLite::NODE_COMMENT:
-				break;
-			default:
-				//bResult = false;
-				break;
-			}
-		}
-		if ( ! bResult )
-		{
-			pNode = NULL;
-		}
-	}
-
-	return pNode;
+    return pNode;
 }
-
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -256,203 +231,193 @@ DECL_API(VConfigurationPtr)
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
 
-DECL_API(bool)
-		CFactoryConfiguration::Item
-		(
-		VConfigurationPtr	pConfig,
-		XMLIteratorPtr		pit
-		)
+bool
+CFactoryConfiguration::Item( VConfigurationPtr pConfig, XMLIteratorPtr pit )
 {
-	bool	bResult = false;
+    bool bResult = false;
 
-	CCharDescriptor	tValue;
-	CCharDescriptor	tName;
-
-
-	char		sID[80] = { 0 };
-	char		sData[128] = { 0 };
-	int			nUnits = 0;
-	CVariantData::V_TYPE	eType = CVariantData::T_UNDEFINED;
-	CVariantData	v;
-
-	bResult = true;
+    CCharDescriptor tValue;
+    CCharDescriptor tName;
 
 
-	tName = pit->AttributeValue( "ID" );
-	if ( 0 < tName.Length() )
-	{
-		tName.CopyTo( sID, sizeof(sID) );
+    char                 sID[80] = { 0 };
+    char                 sData[128] = { 0 };
+    int                  nUnits = 0;
+    CVariantData::V_TYPE eType = CVariantData::T_UNDEFINED;
+    CVariantData         v;
 
-		tValue = pit->AttributeValue( "Units" );
-		if ( 0 < tValue.Length() )
-		{
-			char	sUnits[40];
-			tValue.CopyTo( sUnits, sizeof(sUnits) );
-			tValue = CCharDescriptor( sUnits, tValue.Length() );
-			tValue.ConvertLowercase();
+    bResult = true;
 
-			CUnitsOfMeasure	units;
-			if ( ! units.SetUsingAbbrev( sUnits ) )
-			{
-				if ( ! units.SetUsingName( sUnits ) )
-					units.SetUsingPluralName( sUnits );
-			}
-			nUnits = units.GetUnits();
-		}
 
-		tValue = pit->AttributeValue( "Type" );
-		if ( 0 < tValue.Length() )
-		{
-			if ( tValue == "BOOLEAN"  ||  tValue == "BOOL" )
-			{
-				eType = CVariantData::T_BOOL;
-			}
-			else if ( tValue == "INTEGER"  ||  tValue == "INT" )
-			{
-				eType = CVariantData::T_INTEGER;
-			}
-			else if ( tValue == "FLOAT" )
-			{
-				eType = CVariantData::T_FLOAT;
-			}
-			else if ( tValue == "TEXT"
-				||	tValue == "STRING"
-				||	tValue == "ENUM" )
-			{
-				eType = CVariantData::T_STRING;
-			}
-			else if ( tValue == "DATETIME"  ||  tValue == "DATE" )
-			{
-				eType = CVariantData::T_DATETIME;
-			}
-			else if ( tValue == "COLOR" )
-			{
-				eType = CVariantData::T_COLOR;
-			}
-			else
-			{
-				bResult = false;
-			}
-		}
-		else
-		{
-			bResult = false;
-		}
+    tName = pit->AttributeValue( "ID" );
+    if ( 0 < tName.Length() )
+    {
+        tName.CopyTo( sID, sizeof( sID ) );
 
-	}
-	else
-	{
-		bResult = false;
-	}
-	if ( bResult )
-	{
-		tValue = pit->NodeValue();
-		v.SetUnits( nUnits );
+        tValue = pit->AttributeValue( "Units" );
+        if ( 0 < tValue.Length() )
+        {
+            char sUnits[40];
+            tValue.CopyTo( sUnits, sizeof( sUnits ) );
+            tValue = CCharDescriptor( sUnits, tValue.Length() );
+            tValue.ConvertLowercase();
 
-		switch ( eType )
-		{
-		case CVariantData::T_BOOL:
-			{
-				tValue.CopyTo( sData, sizeof(sData) );
-				bool	b = false;
-				char	c = static_cast<char>(::tolower( *sData ));
-				if ( ::strchr( "yt1", c ) )
-					b = true;
-				v = b;
-			}
-			break;
-		case CVariantData::T_COLOR:
-			{
-				size_t	n;
-				long	nValue = tValue.ParseInt( &n );
-				if ( 0 < n )
-				{
-					CColor	c;
-					c.SetColorLong( nValue );
-					v = c;
-					bResult = true;
-				}
-				else
-				{
-					CColor	c = CColor::ColorFromName( tValue );
-					if ( ! c.IsNonColor() )
-					{
-						v = c;
-					}
-					else
-					{
-						pit->Error( "Unrecognized color name" );
-						bResult = false;
-					}
-				}
-			}
-			break;
-		case CVariantData::T_DATETIME:
-			{
-				CDateTime	d;
-				if ( d.Parse( tValue ) )
-				{
-					v = d;
-				}
-				else
-				{
-					pit->Error( "Unrecognized date/time" );
-					bResult = false;
-				}
-			}
-			break;
-		case CVariantData::T_FLOAT:
-			{
-				size_t	n;
-				GFLOAT	f = tValue.ParseFloat( &n );
-				if ( tValue.Length() == n )
-				{
-					v = f;
-				}
-				else
-				{
-					v = 0.0f;
-					pit->Error( "Unrecognized character in float" );
-					bResult = false;
-				}
-			}
-			break;
-		case CVariantData::T_INTEGER:
-			{
-				size_t	n;
-				long	nData = tValue.ParseInt( &n );
-				if ( tValue.Length() == n )
-				{
-					v = nData;
-				}
-				else
-				{
-					v = 0L;
-					pit->Error( "Unrecognized character in integer" );
-					bResult = false;
-				}
-			}
-			break;
-		case CVariantData::T_STRING:
-			{
-				v = tValue;
-			}
-			break;
-		default:
-			break;
-		}
+            CUnitsOfMeasure units;
+            if ( ! units.SetUsingAbbrev( sUnits ) )
+            {
+                if ( ! units.SetUsingName( sUnits ) )
+                    units.SetUsingPluralName( sUnits );
+            }
+            nUnits = units.GetUnits();
+        }
 
-		pConfig->AddEntry( sID, v );
-	}
+        tValue = pit->AttributeValue( "Type" );
+        if ( 0 < tValue.Length() )
+        {
+            if ( tValue == "BOOLEAN" || tValue == "BOOL" )
+            {
+                eType = CVariantData::T_BOOL;
+            }
+            else if ( tValue == "INTEGER" || tValue == "INT" )
+            {
+                eType = CVariantData::T_INTEGER;
+            }
+            else if ( tValue == "FLOAT" )
+            {
+                eType = CVariantData::T_FLOAT;
+            }
+            else if ( tValue == "TEXT" || tValue == "STRING"
+                    || tValue == "ENUM" )
+            {
+                eType = CVariantData::T_STRING;
+            }
+            else if ( tValue == "DATETIME" || tValue == "DATE" )
+            {
+                eType = CVariantData::T_DATETIME;
+            }
+            else if ( tValue == "COLOR" )
+            {
+                eType = CVariantData::T_COLOR;
+            }
+            else
+            {
+                bResult = false;
+            }
+        }
+        else
+        {
+            bResult = false;
+        }
+    }
+    else
+    {
+        bResult = false;
+    }
+    if ( bResult )
+    {
+        tValue = pit->NodeValue();
+        v.SetUnits( nUnits );
 
-	return bResult;
+        switch ( eType )
+        {
+        case CVariantData::T_BOOL:
+            {
+                tValue.CopyTo( sData, sizeof( sData ) );
+                bool b = false;
+                char c = static_cast<char>( ::tolower( *sData ) );
+                if ( ::strchr( "yt1", c ) )
+                    b = true;
+                v = b;
+            }
+            break;
+        case CVariantData::T_COLOR:
+            {
+                size_t n;
+                long   nValue = tValue.ParseInt( &n );
+                if ( 0 < n )
+                {
+                    CColor c;
+                    c.SetColorLong( nValue );
+                    v = c;
+                    bResult = true;
+                }
+                else
+                {
+                    CColor c = CColor::ColorFromName( tValue );
+                    if ( ! c.IsNonColor() )
+                    {
+                        v = c;
+                    }
+                    else
+                    {
+                        pit->Error( "Unrecognized color name" );
+                        bResult = false;
+                    }
+                }
+            }
+            break;
+        case CVariantData::T_DATETIME:
+            {
+                CDateTime d;
+                if ( d.Parse( tValue ) )
+                {
+                    v = d;
+                }
+                else
+                {
+                    pit->Error( "Unrecognized date/time" );
+                    bResult = false;
+                }
+            }
+            break;
+        case CVariantData::T_FLOAT:
+            {
+                size_t n;
+                GFLOAT f = tValue.ParseFloat( &n );
+                if ( tValue.Length() == n )
+                {
+                    v = f;
+                }
+                else
+                {
+                    v = 0.0f;
+                    pit->Error( "Unrecognized character in float" );
+                    bResult = false;
+                }
+            }
+            break;
+        case CVariantData::T_INTEGER:
+            {
+                size_t n;
+                long   nData = tValue.ParseInt( &n );
+                if ( tValue.Length() == n )
+                {
+                    v = nData;
+                }
+                else
+                {
+                    v = 0L;
+                    pit->Error( "Unrecognized character in integer" );
+                    bResult = false;
+                }
+            }
+            break;
+        case CVariantData::T_STRING:
+            {
+                v = tValue;
+            }
+            break;
+        default:
+            break;
+        }
+
+        pConfig->AddEntry( sID, v );
+    }
+
+    return bResult;
 }
 
 //END_OVERRUN_WARNING
-
-
-
-
 
 
 /*---------------------------------------------------------------------+\
@@ -462,56 +427,44 @@ DECL_API(bool)
 \+---------------------------------------------------------------------*/
 //BEGIN_OVERRUN_WARNING
 
-DECL_API(bool)
-		CFactoryConfiguration::IncludeFile
-		(
-		VConfigurationPtr	pConfig,
-		XMLIteratorPtr		pIt
-		)
+bool
+CFactoryConfiguration::IncludeFile(
+        VConfigurationPtr pConfig, XMLIteratorPtr pIt )
 {
-	bool				bResult = false;
-	VConfigurationPtr	pNode = 0;
+    bool              bResult = false;
+    VConfigurationPtr pNode = 0;
 
-	if ( 0 < pIt->AttributeCount() )
-	{
-		CCharDescriptor	tValue;
+    if ( 0 < pIt->AttributeCount() )
+    {
+        CCharDescriptor tValue;
 
-		tValue = pIt->AttributeValue( "File" );
-		if ( 0 < tValue.Length() )
-		{
-			CCharString	sFile = tValue;
+        tValue = pIt->AttributeValue( "File" );
+        if ( 0 < tValue.Length() )
+        {
+            CCharString sFile = tValue;
 
-			CFactoryConfiguration	factory;
-			CCharString	sRelPath = this->GetRelativePath();
-			factory.SetRelativePath( sRelPath.Pointer() );
-			factory.SetVariableIF( m_pVariable );
-			factory.SetExternalXMLIF( this->m_pIExternalXML );
-			pNode = factory.Make( sFile.Pointer(), pConfig );
-		}
-	}
+            CFactoryConfiguration factory;
+            CCharString           sRelPath = this->GetRelativePath();
+            factory.SetRelativePath( sRelPath.Pointer() );
+            factory.SetVariableIF( m_pVariable );
+            factory.SetExternalXMLIF( this->m_pIExternalXML );
+            pNode = factory.Make( sFile.Pointer(), pConfig );
+        }
+    }
 
-	if ( ! pNode )
-	{
-		pIt->Error( "Problem with Include Tag" );
-	}
-	else
-	{
-		bResult = true;
-	}
+    if ( ! pNode )
+    {
+        pIt->Error( "Problem with Include Tag" );
+    }
+    else
+    {
+        bResult = true;
+    }
 
-	return bResult;
+    return bResult;
 }
 
 //END_OVERRUN_WARNING
-
-
-
-
-
-
-
-
-
 
 
 /*=====================================================================+\
@@ -530,25 +483,21 @@ DECL_API(bool)
  * ResolveVariable -
 
 \+---------------------------------------------------------------------*/
-DECL_API(CCharString)
-		CFactoryConfiguration::ResolveVariable
-		(
-		ConstCCharDescriptorRef r
-		)
+CCharString
+CFactoryConfiguration::ResolveVariable( ConstCCharDescriptorRef r )
 {
-	CCharString	sResult;
+    CCharString sResult;
 
-	if ( m_pConfig )
-	{
-		CCharString	s = r;
-		sResult = m_pConfig->GetEntryAsString( s.Pointer() );
-	}
-	return sResult;
+    if ( m_pConfig )
+    {
+        CCharString s = r;
+        sResult = m_pConfig->GetEntryAsString( s.Pointer() );
+    }
+    return sResult;
 }
 
 
-
-}}
+}}  // namespace Yogi::Common
 
 /*---------------------------------------------------------------------+\
 

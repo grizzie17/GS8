@@ -24,8 +24,8 @@
 \+---------------------------------------------------------------------*/
 
 
-#include "UMachine.h"
 #include "UDeclPlatform.h"
+#include "UMachine.h"
 
 namespace Yogi { namespace Core {
 
@@ -36,19 +36,16 @@ namespace Yogi { namespace Core {
 \+---------------------------------------------------------------------*/
 // the following controls whether or not DbgPrint actually prints.
 #if defined( _DEBUG )
-	// comment out following line to hide DbgPrint
-#	define DBG_PRINT	1
+// comment out following line to hide DbgPrint
+#    define DBG_PRINT 1
 #else
-#	if defined( DBG_PRINT )
-#		undef DBG_PRINT
-#	endif
+#    if defined( DBG_PRINT )
+#        undef DBG_PRINT
+#    endif
 #endif
 
 //comment out the following line to hide LogPrint
 //#define	LOG_PRINT		1
-
-
-
 
 
 // The following ifdef block is the standard way of creating macros which make exporting
@@ -58,7 +55,7 @@ namespace Yogi { namespace Core {
 // LOGFILE_API functions as being imported from a DLL, whereas this DLL sees symbols
 // defined with this macro as being exported.
 
-#define LOGFILE_API(t)		DECL_API(t)
+#define LOGFILE_API( t ) DECL_API( t )
 // #if defined( MSC_VER )
 // #	define DCL	__cdecl
 // #	if defined( LOGFILE_EXPORTS )
@@ -91,83 +88,62 @@ namespace Yogi { namespace Core {
 \+=====================================================================*/
 
 
-
-
-
 //!	DbgPrint - print string to console
 //!
 //!	string will also be logged if logging is enabled
 //!
-#ifdef  DBG_PRINT
-LOGFILE_API(void)
-		DbgPrint
-		(
-		char const*	sFormat,	//!< [in] printf compatible format string
-		...						//!< [in] arguments to format string
-		);
+#ifdef DBG_PRINT
+CORE_API( void )
+DbgPrint( char const* sFormat,  //!< [in] printf compatible format string
+        ...                     //!< [in] arguments to format string
+);
 
 #else
-inline
-void	DbgPrint
-		(
-		char const*,//sFormat,
-		...
-		)
+inline void
+DbgPrint( char const*,  //sFormat,
+        ... )
 {
-	;//	do nothing
+    ;  //	do nothing
 }
 #endif
-
 
 
 //!	DbgAssert
 //!
 //!	optionally raise assert and print to console
 //!
-#if defined(_DEBUG)
-LOGFILE_API(void)
-		DbgAssert
-		(
-		bool		bAssertion,	//!< [in] if false then print
-		char const*	sFormat,	//!< [in] printf compatible format string
-		...						//!< [in] arguments to format string
-		);
+#if defined( _DEBUG )
+CORE_API( void )
+DbgAssert( bool     bAssertion,  //!< [in] if false then print
+        char const* sFormat,     //!< [in] printf compatible format string
+        ...                      //!< [in] arguments to format string
+);
 #else
-inline
-void	DbgAssert
-		(
-		bool,//bAssertion,
-		char const*,//sFormat,
-		...
-		)
+inline void
+DbgAssert( bool,      //bAssertion,
+        char const*,  //sFormat,
+        ... )
 {
-	;// do nothing
+    ;  // do nothing
 }
 #endif
-
-
 
 
 //!	LogPrint - print to the logfile
 //!
 //!	Print to the logfile
 //!
-#if defined(LOG_PRINT)
-LOGFILE_API(void)
-		LogPrint
-		(
-		char const*	sFormat,	//!< [in] printf compatible format string
-		...						//!< [in] arguments to format string
-		);
+#if defined( LOG_PRINT )
+CORE_API( void )
+LogPrint( char const* sFormat,  //!< [in] printf compatible format string
+        ...                     //!< [in] arguments to format string
+);
 #else
-inline
-void	LogPrint
-		(
-		char const*,//sFormat,
-		...
-		)
+inline void
+LogPrint( char const*,  //sFormat,
+        ... )
 {
-	;//	do nothing
+    ;  //	do nothing
 }
 #endif
 
@@ -178,7 +154,6 @@ void	LogPrint
 \+=====================================================================*/
 
 
+}}  // namespace Yogi::Core
 
-}}
-
-#endif // _H_LogFile
+#endif  // _H_LogFile

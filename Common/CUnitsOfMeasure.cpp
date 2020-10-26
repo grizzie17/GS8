@@ -58,11 +58,11 @@
 #include "stdafx.h"
 #include <string.h>
 
-#include "CUnitsOfMeasure.h"
 #include "CCharDescriptor.h"
+#include "CUnitsOfMeasure.h"
 
-#include "UMath.h"
 #include "UFloat.h"
+#include "UMath.h"
 
 namespace Yogi { namespace Common {
 
@@ -78,13 +78,13 @@ namespace Yogi { namespace Common {
 \+---------------------------------------------------------------------*/
 typedef struct UNITDATA
 {
-	const char*	sName;			//	eg. Meter
-	const char*	sPlural;		//	eg. Meters
-	const char*	sAbbrev;		//	eg. m
-	UNITFAMILY	eFamily;
-	int			nBaseIndex;		// index of base conversion
-	GFLOAT		fConversion;	// scale to base
-	GFLOAT		fOffset;		// amount to shift in conversion
+    const char* sName;    //	eg. Meter
+    const char* sPlural;  //	eg. Meters
+    const char* sAbbrev;  //	eg. m
+    UNITFAMILY  eFamily;
+    int         nBaseIndex;   // index of base conversion
+    GFLOAT      fConversion;  // scale to base
+    GFLOAT      fOffset;      // amount to shift in conversion
 } UNITDATA;
 
 /*---------------------------------------------------------------------+\
@@ -93,302 +93,164 @@ typedef struct UNITDATA
 |																		|
 \+---------------------------------------------------------------------*/
 
-static bool	g_bInitUnits = false;
+static bool g_bInitUnits = false;
 
-UNITDATA g_aUnitTable[]
-= {
-	//sName,sPlural,sAbbrev, eFamily, nBaseIndex, fConversion, fShift
-	{"*",	"*",	"*",	UF_UNDEFINED,	0,	0.0f,			0.0f },
+UNITDATA g_aUnitTable[] = {
+    //sName,sPlural,sAbbrev, eFamily, nBaseIndex, fConversion, fShift
+    { "*", "*", "*", UF_UNDEFINED, 0, 0.0f, 0.0f },
 
-	//Distance
-	{"meter",
-		"meters",
-		"m",				UF_DISTANCE,	0,	1.0f,			0.0f },
-	{"millimeter",
-		"millimeters",
-		"mm",				UF_DISTANCE,	0,	0.001f,			0.0f },
-	{"centimeter",
-		"centimeters",
-		"cm",				UF_DISTANCE,	0,	0.01f,			0.0f },
-	{"kilometer",
-		"kilometers",
-		"km",				UF_DISTANCE,	0,	1000.0f,		0.0f },
-	{"yard",
-		"yards",
-		"yd",				UF_DISTANCE,	0,	0.9144f,		0.0f },
-	{"foot",
-		"feet",
-		"ft",				UF_DISTANCE,	0,	0.30479999999f,	0.0f },
-	{"inch",
-		"inches",
-		"in",				UF_DISTANCE,	0,	0.0254f,		0.0f },
-	{"mile",
-		"miles",
-		"mi",				UF_DISTANCE,	0,	1609.347218694f,0.0f },
-	{"league",
-		"leagues",
-		"lg",				UF_DISTANCE,	0,	4828.032f,		0.0f },
+    //Distance
+    { "meter", "meters", "m", UF_DISTANCE, 0, 1.0f, 0.0f },
+    { "millimeter", "millimeters", "mm", UF_DISTANCE, 0, 0.001f, 0.0f },
+    { "centimeter", "centimeters", "cm", UF_DISTANCE, 0, 0.01f, 0.0f },
+    { "kilometer", "kilometers", "km", UF_DISTANCE, 0, 1000.0f, 0.0f },
+    { "yard", "yards", "yd", UF_DISTANCE, 0, 0.9144f, 0.0f },
+    { "foot", "feet", "ft", UF_DISTANCE, 0, 0.30479999999f, 0.0f },
+    { "inch", "inches", "in", UF_DISTANCE, 0, 0.0254f, 0.0f },
+    { "mile", "miles", "mi", UF_DISTANCE, 0, 1609.347218694f, 0.0f },
+    { "league", "leagues", "lg", UF_DISTANCE, 0, 4828.032f, 0.0f },
 
-	//Area
-	{"square meter",
-		"square meters",
-		"sq m",				UF_AREA,		0,	1.0f,			0.0f },
-	{"square centimeter",
-		"square centimeters",
-		"sq cm",			UF_AREA,		0,	0.0001f,		0.0f },
-	{"square foot",
-		"square feet",
-		"sq ft",			UF_AREA,		0,	0.09290304f,	0.0f },
-	{"square inch",
-		"square inches",
-		"sq in",			UF_AREA,		0,	0.00064516f,	0.0f },
+    //Area
+    { "square meter", "square meters", "sq m", UF_AREA, 0, 1.0f, 0.0f },
+    { "square centimeter", "square centimeters", "sq cm", UF_AREA, 0, 0.0001f,
+            0.0f },
+    { "square foot", "square feet", "sq ft", UF_AREA, 0, 0.09290304f, 0.0f },
+    { "square inch", "square inches", "sq in", UF_AREA, 0, 0.00064516f, 0.0f },
 
-	//Volume
-	{"liter",
-		"liters",
-		"L",				UF_VOLUME,		0,	1.0f,			0.0f },
-	{"cubic centimeter",
-		"cubic centimeters",
-		"cu cm",			UF_VOLUME,		0,	0.001f,			0.0f },
-	{"cubic meter",
-		"cubic meters",
-		"cu m",				UF_VOLUME,		0,	1000.0f,		0.0f },
-	{"cubic inch",
-		"cubic inches",
-		"cu in", 			UF_VOLUME,		0,	0.016387064f,	0.0f },
-	{"cubic foot",
-		"cubic feet",
-		"cu ft", 			UF_VOLUME,		0,	28.316846592f,	0.0f },
-	{"gallon",
-		"gallons",
-		"gal",				UF_VOLUME,		0,	3.785411784f,	0.0f },
-	{"quart",
-		"quarts",
-		"qt",				UF_VOLUME,		0,	0.946352946f,	0.0f },
+    //Volume
+    { "liter", "liters", "L", UF_VOLUME, 0, 1.0f, 0.0f },
+    { "cubic centimeter", "cubic centimeters", "cu cm", UF_VOLUME, 0, 0.001f,
+            0.0f },
+    { "cubic meter", "cubic meters", "cu m", UF_VOLUME, 0, 1000.0f, 0.0f },
+    { "cubic inch", "cubic inches", "cu in", UF_VOLUME, 0, 0.016387064f, 0.0f },
+    { "cubic foot", "cubic feet", "cu ft", UF_VOLUME, 0, 28.316846592f, 0.0f },
+    { "gallon", "gallons", "gal", UF_VOLUME, 0, 3.785411784f, 0.0f },
+    { "quart", "quarts", "qt", UF_VOLUME, 0, 0.946352946f, 0.0f },
 
-	//Volume Rate
-	{"liter per hour",
-		"liters per hour",
-		"L/h",				UF_VOLUMERATE,	0,	1.0f,			0.0f },
-	{"gallon per hour",
-		"gallons per hour",
-		"gal/h",			UF_VOLUMERATE,	0,	0.26417205237f, 0.0f },
+    //Volume Rate
+    { "liter per hour", "liters per hour", "L/h", UF_VOLUMERATE, 0, 1.0f,
+            0.0f },
+    { "gallon per hour", "gallons per hour", "gal/h", UF_VOLUMERATE, 0,
+            0.26417205237f, 0.0f },
 
-	//Fuel Consumption
-	{"kilometer per liter",
-		"kilometers per liter",
-		"km/L",				UF_FUELCONSUMPTION,
-											0,	1.0f,			0.0f },
-	{"mile per liter",
-		"miles per liter",
-		"mi/L",				UF_FUELCONSUMPTION,
-											0,	1.609344f,		0.0f },
-	{"mile per gallon",
-		"miles per gallon",
-		"mpg",			UF_FUELCONSUMPTION,
-											0,	0.425143707f,	0.0f },
+    //Fuel Consumption
+    { "kilometer per liter", "kilometers per liter", "km/L", UF_FUELCONSUMPTION,
+            0, 1.0f, 0.0f },
+    { "mile per liter", "miles per liter", "mi/L", UF_FUELCONSUMPTION, 0,
+            1.609344f, 0.0f },
+    { "mile per gallon", "miles per gallon", "mpg", UF_FUELCONSUMPTION, 0,
+            0.425143707f, 0.0f },
 
-	//Temperature
-	{"celsius",
-		"centigrade",
-		"C",				UF_TEMPERATURE,	0,	1.0f,			0.0f },
-	{"fahrenheit",
-		"fahrenheit",
-		"F",				UF_TEMPERATURE,	0,	5.0f/9.0f,		-32.0f },
-	{"kelvin",
-		"kelvin",
-		"K",				UF_TEMPERATURE,	0,	1.0f,			-273.15f },
-	{"rankine",
-		"rankine",
-		"Ra",				UF_TEMPERATURE,	0,	1.0f/1.8f,		-32.0f - 459.67f },
+    //Temperature
+    { "celsius", "centigrade", "C", UF_TEMPERATURE, 0, 1.0f, 0.0f },
+    { "fahrenheit", "fahrenheit", "F", UF_TEMPERATURE, 0, 5.0f / 9.0f, -32.0f },
+    { "kelvin", "kelvin", "K", UF_TEMPERATURE, 0, 1.0f, -273.15f },
+    { "rankine", "rankine", "Ra", UF_TEMPERATURE, 0, 1.0f / 1.8f,
+            -32.0f - 459.67f },
 
-	//Angle
-	{"radian",
-		"radians",
-		"rad",				UF_ANGLE,		0, 	1.0f, 			0.0f },
-	{"degree",
-		"degrees",
-		"deg",				UF_ANGLE,		0,	kPI/180.0f, 	0.0f },
-	{"grad",
-		"grads",
-		"grd",				UF_ANGLE,		0,	kPI/200.0f, 	0.0f },
+    //Angle
+    { "radian", "radians", "rad", UF_ANGLE, 0, 1.0f, 0.0f },
+    { "degree", "degrees", "deg", UF_ANGLE, 0, kPI / 180.0f, 0.0f },
+    { "grad", "grads", "grd", UF_ANGLE, 0, kPI / 200.0f, 0.0f },
 
-	//Global Position
-	{"degree latitude",
-		"degrees latitude",
-		"deg lat",			UF_GLOBALPOSITION,	0,	1.0f,	0.0f },
-	{"degree longitude",
-		"degrees longitude",
-		"deg lng",			UF_GLOBALPOSITION,	0,	1.0f,	0.0f },
+    //Global Position
+    { "degree latitude", "degrees latitude", "deg lat", UF_GLOBALPOSITION, 0,
+            1.0f, 0.0f },
+    { "degree longitude", "degrees longitude", "deg lng", UF_GLOBALPOSITION, 0,
+            1.0f, 0.0f },
 
-	//Angular Velocity
-	{"revolution per minute",
-		"revolutions per minute",
-		"rpm",				UF_ANGULARVELOCITY,	0, 1.0f,		0.0f },
-	{"radian per second",
-		"radians per second",
-		"rad/s",			UF_ANGULARVELOCITY, 0, 9.549296586f,0.0f },
-	{"degree per second",
-		"degrees per second",
-		"dps",				UF_ANGULARVELOCITY, 0, 0.166666667f,0.0f },
+    //Angular Velocity
+    { "revolution per minute", "revolutions per minute", "rpm",
+            UF_ANGULARVELOCITY, 0, 1.0f, 0.0f },
+    { "radian per second", "radians per second", "rad/s", UF_ANGULARVELOCITY, 0,
+            9.549296586f, 0.0f },
+    { "degree per second", "degrees per second", "dps", UF_ANGULARVELOCITY, 0,
+            0.166666667f, 0.0f },
 
-	//Speed
-	{"kilometer per hour",
-		"kilometers per hour",
-		"km/h",				UF_SPEED,		0,	1.0f,			0.0f },
-	{"meter per second",
-		"meters per second",
-		"m/s",				UF_SPEED,		0,	3.6f,			0.0f },
-	{"mile per hour",
-		"miles per hour",
-		"mph",				UF_SPEED,		0,	1.609344f,		0.0f },
-	{"foot per second",
-		"feet per second",
-		"fps",				UF_SPEED,		0,	1.09728f,		0.0f },
+    //Speed
+    { "kilometer per hour", "kilometers per hour", "km/h", UF_SPEED, 0, 1.0f,
+            0.0f },
+    { "meter per second", "meters per second", "m/s", UF_SPEED, 0, 3.6f, 0.0f },
+    { "mile per hour", "miles per hour", "mph", UF_SPEED, 0, 1.609344f, 0.0f },
+    { "foot per second", "feet per second", "fps", UF_SPEED, 0, 1.09728f,
+            0.0f },
 
-	//Acceleration
+    //Acceleration
 
-	//Time
-	{"second",
-		"seconds",
-		"sec",				UF_TIME,		0,	1.0f,			0.0f },
-	{"millisecond",
-		"milliseconds",
-		"ms",				UF_TIME,		0,	1.0f/1000.0f,	0.0f },
-	{"microsecond",
-		"microseconds",
-		"us",				UF_TIME,		0,	1.0f/1000000.0f,0.0f },
-	{"minute",
-		"minutes",
-		"min",				UF_TIME,		0,	60.0f, 			0.0f },
-	{"hour",
-		"hours",
-		"hr",				UF_TIME,		0,	(60.0f * 60.0f), 0.0f },
-	{"day",
-		"days",
-		"dy",				UF_TIME,		0,	(60.0f * 60.0f * 24.0f), 0.0f  },
+    //Time
+    { "second", "seconds", "sec", UF_TIME, 0, 1.0f, 0.0f },
+    { "millisecond", "milliseconds", "ms", UF_TIME, 0, 1.0f / 1000.0f, 0.0f },
+    { "microsecond", "microseconds", "us", UF_TIME, 0, 1.0f / 1000000.0f,
+            0.0f },
+    { "minute", "minutes", "min", UF_TIME, 0, 60.0f, 0.0f },
+    { "hour", "hours", "hr", UF_TIME, 0, ( 60.0f * 60.0f ), 0.0f },
+    { "day", "days", "dy", UF_TIME, 0, ( 60.0f * 60.0f * 24.0f ), 0.0f },
 
-	//Frequency
-	{"Hertz",
-		"Hertz",
-		"Hz",				UF_FREQUENCY,
-											0,	1.0f,			0.0f },
+    //Frequency
+    { "Hertz", "Hertz", "Hz", UF_FREQUENCY, 0, 1.0f, 0.0f },
 
-	//Date
-	{"universal time coordinated",
-		"universal time coordinated",
-		"UTC",				UF_DATE,		0,	1.0f,			0.0f },
+    //Date
+    { "universal time coordinated", "universal time coordinated", "UTC",
+            UF_DATE, 0, 1.0f, 0.0f },
 
-	//Weight
-	{"kilogram",
-		"kilograms",
-		"kg",				UF_WEIGHT,		0,	1.0f, 			0.0f },
-	{"gram",
-		"grams",
-		"g",				UF_WEIGHT,		0,	0.001f, 		0.0f },
-	{"pound",
-		"pounds",
-		"lb",				UF_WEIGHT,		0,	0.45359237f, 	0.0f },
-	{"slug",
-		"slugs",
-		"slug",				UF_WEIGHT,		0,	14.593902937f, 	0.0f },
-	{"ounce",
-		"ounces",
-		"oz",				UF_WEIGHT,		0,	0.028349523125f,0.0f },
+    //Weight
+    { "kilogram", "kilograms", "kg", UF_WEIGHT, 0, 1.0f, 0.0f },
+    { "gram", "grams", "g", UF_WEIGHT, 0, 0.001f, 0.0f },
+    { "pound", "pounds", "lb", UF_WEIGHT, 0, 0.45359237f, 0.0f },
+    { "slug", "slugs", "slug", UF_WEIGHT, 0, 14.593902937f, 0.0f },
+    { "ounce", "ounces", "oz", UF_WEIGHT, 0, 0.028349523125f, 0.0f },
 
-	//Weight Rate
+    //Weight Rate
 
-	//Power
-	{"Watt",
-		"Watts",
-		"W",				UF_POWER,
-											0,	1.0f,			0.0f },
+    //Power
+    { "Watt", "Watts", "W", UF_POWER, 0, 1.0f, 0.0f },
 
-	//Electrical Current
-	{"ampere",
-		"amperes",
-		"amps",				UF_ELECTRICAL_CURRENT,
-											0,	1.0f,			0.0f },
+    //Electrical Current
+    { "ampere", "amperes", "amps", UF_ELECTRICAL_CURRENT, 0, 1.0f, 0.0f },
 
-	//Electrical Potential
-	{"volt",
-		"volts",
-		"V",				UF_ELECTRICAL_POTENTIAL,
-											0,	1.0f,			0.0f },
+    //Electrical Potential
+    { "volt", "volts", "V", UF_ELECTRICAL_POTENTIAL, 0, 1.0f, 0.0f },
 
-	//Density
+    //Density
 
 
-	//Pressure
-	{"pascal",
-		"pascals",
-		"Pa",				UF_PRESSURE,	0,	1.0f,			0.0f },
-	{"kilopascal",
-		"kilopascals",
-		"kPa",				UF_PRESSURE,	0,	1000.0f,		0.0f },
-	{"pound-force per square inch",
-		"pounds per square inch",
-		"psi",				UF_PRESSURE,	0,	6894.757293178f,0.0f },
+    //Pressure
+    { "pascal", "pascals", "Pa", UF_PRESSURE, 0, 1.0f, 0.0f },
+    { "kilopascal", "kilopascals", "kPa", UF_PRESSURE, 0, 1000.0f, 0.0f },
+    { "pound-force per square inch", "pounds per square inch", "psi",
+            UF_PRESSURE, 0, 6894.757293178f, 0.0f },
 
-	//Torque
-	{"dyne meter",
-		"dyne meters",
-		"dyn*m",			UF_TORQUE,		0,	1.0f,			0.0f },
+    //Torque
+    { "dyne meter", "dyne meters", "dyn*m", UF_TORQUE, 0, 1.0f, 0.0f },
 
-	//Sound
-	{"decibel",
-		"decibels",
-		"dB",				UF_SOUND,		0,	1.0f,			0.0f },
-	{"bel",
-		"bels",
-		"B",				UF_SOUND,		0,	10.0f,			0.0f },
+    //Sound
+    { "decibel", "decibels", "dB", UF_SOUND, 0, 1.0f, 0.0f },
+    { "bel", "bels", "B", UF_SOUND, 0, 10.0f, 0.0f },
 
-	//Light
+    //Light
 
-	//Percent
-	{"percent",				// 0 .. 100
-		"percentage",
-		"%",				UF_PERCENT,		0,	1.0f,			0.0f },
-	{"percent over 100",	// 0 .. 1
-		"percent over 100",
-		"%/100",			UF_PERCENT,		0,	100.0f,			0.0f },
-	{"permille",			// 0 .. 1000
-		"permille",
-		"permille",			UF_PERCENT,		0,	0.01f,			0.0f },
+    //Percent
+    { "percent",  // 0 .. 100
+            "percentage", "%", UF_PERCENT, 0, 1.0f, 0.0f },
+    { "percent over 100",  // 0 .. 1
+            "percent over 100", "%/100", UF_PERCENT, 0, 100.0f, 0.0f },
+    { "permille",  // 0 .. 1000
+            "permille", "permille", UF_PERCENT, 0, 0.01f, 0.0f },
 
-	//Special
-	{"ratio",
-		"ratio",
-		"ratio",			UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"enum",
-		"enumeration",
-		"enum",				UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"number",
-		"numbers",
-		"#",				UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"bool",
-		"boolean",
-		"bool",				UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"mask",
-		"mask",
-		"mask",				UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"flag",
-		"flags",
-		"flag",				UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"string",
-		"strings",
-		"string",			UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"text",
-		"text",
-		"text",				UF_SPECIAL,		0,	1.0f,			0.0f },
-	{"color",
-		"colors",
-		"clr",				UF_SPECIAL,		0,	1.0f,			0.0f },
+    //Special
+    { "ratio", "ratio", "ratio", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "enum", "enumeration", "enum", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "number", "numbers", "#", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "bool", "boolean", "bool", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "mask", "mask", "mask", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "flag", "flags", "flag", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "string", "strings", "string", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "text", "text", "text", UF_SPECIAL, 0, 1.0f, 0.0f },
+    { "color", "colors", "clr", UF_SPECIAL, 0, 1.0f, 0.0f },
 
-	{0,0,0,UF_UNDEFINED,0,0,0}
+    { 0, 0, 0, UF_UNDEFINED, 0, 0, 0 }
 
 };
-
 
 
 /*---------------------------------------------------------------------+\
@@ -419,33 +281,29 @@ UNITDATA g_aUnitTable[]
  * SetUsingName -
 
 \+---------------------------------------------------------------------*/
-int		CUnitsOfMeasure::SetUsingName
-		(
-		const char*	s
-		)
+int
+CUnitsOfMeasure::SetUsingName( const char* s )
 {
-	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
-	return SetUsingName( tName );
+    Yogi::Core::CCharDescriptor tName( s, ::strlen( s ) );
+    return SetUsingName( tName );
 }
 
-int		CUnitsOfMeasure::SetUsingName
-		(
-		Yogi::Core::ConstCCharDescriptorRef	r
-		)
+int
+CUnitsOfMeasure::SetUsingName( Yogi::Core::ConstCCharDescriptorRef r )
 {
-	int		nResult = 0;
-	UNITDATA*	p = g_aUnitTable;
-	UNITDATA*	pEnd = p + (sizeof(g_aUnitTable) / sizeof(UNITDATA) );
-	while ( p < pEnd )
-	{
-		if ( 0 == r.CompareIgnoreCase( p->sName ) )
-		{
-			nResult = m_nUnits = static_cast<short>(p - g_aUnitTable);
-			break;
-		}
-		++p;
-	}
-	return nResult;
+    int       nResult = 0;
+    UNITDATA* p = g_aUnitTable;
+    UNITDATA* pEnd = p + ( sizeof( g_aUnitTable ) / sizeof( UNITDATA ) );
+    while ( p < pEnd )
+    {
+        if ( 0 == r.CompareIgnoreCase( p->sName ) )
+        {
+            nResult = m_nUnits = static_cast<short>( p - g_aUnitTable );
+            break;
+        }
+        ++p;
+    }
+    return nResult;
 }
 
 
@@ -454,33 +312,29 @@ int		CUnitsOfMeasure::SetUsingName
  * SetUsingPluralName -
 
 \+---------------------------------------------------------------------*/
-int		CUnitsOfMeasure::SetUsingPluralName
-		(
-		const char*	s
-		)
+int
+CUnitsOfMeasure::SetUsingPluralName( const char* s )
 {
-	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
-	return SetUsingPluralName( tName );
+    Yogi::Core::CCharDescriptor tName( s, ::strlen( s ) );
+    return SetUsingPluralName( tName );
 }
 
-int		CUnitsOfMeasure::SetUsingPluralName
-		(
-		Yogi::Core::ConstCCharDescriptorRef	r
-		)
+int
+CUnitsOfMeasure::SetUsingPluralName( Yogi::Core::ConstCCharDescriptorRef r )
 {
-	int			nResult = 0;
-	UNITDATA*	p = g_aUnitTable;
-	UNITDATA*	pEnd = p + (sizeof(g_aUnitTable) / sizeof(UNITDATA) );
-	while ( p < pEnd )
-	{
-		if ( 0 == r.CompareIgnoreCase( p->sPlural ) )
-		{
-			nResult = m_nUnits = static_cast<short>(p - g_aUnitTable);
-			break;
-		}
-		++p;
-	}
-	return nResult;
+    int       nResult = 0;
+    UNITDATA* p = g_aUnitTable;
+    UNITDATA* pEnd = p + ( sizeof( g_aUnitTable ) / sizeof( UNITDATA ) );
+    while ( p < pEnd )
+    {
+        if ( 0 == r.CompareIgnoreCase( p->sPlural ) )
+        {
+            nResult = m_nUnits = static_cast<short>( p - g_aUnitTable );
+            break;
+        }
+        ++p;
+    }
+    return nResult;
 }
 
 
@@ -489,33 +343,29 @@ int		CUnitsOfMeasure::SetUsingPluralName
  * SetUsingAbbrev -
 
 \+---------------------------------------------------------------------*/
-int		CUnitsOfMeasure::SetUsingAbbrev
-		(
-		const char*	s
-		)
+int
+CUnitsOfMeasure::SetUsingAbbrev( const char* s )
 {
-	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
-	return SetUsingAbbrev( tName );
+    Yogi::Core::CCharDescriptor tName( s, ::strlen( s ) );
+    return SetUsingAbbrev( tName );
 }
 
-int		CUnitsOfMeasure::SetUsingAbbrev
-		(
-		Yogi::Core::ConstCCharDescriptorRef	r
-		)
+int
+CUnitsOfMeasure::SetUsingAbbrev( Yogi::Core::ConstCCharDescriptorRef r )
 {
-	int		nResult = 0;
-	UNITDATA*	p = g_aUnitTable;
-	UNITDATA*	pEnd = p + (sizeof(g_aUnitTable) / sizeof(UNITDATA) );
-	while ( p < pEnd )
-	{
-		if ( 0 == r.CompareIgnoreCase( p->sAbbrev ) )
-		{
-			nResult = m_nUnits = static_cast<short>(p - g_aUnitTable);
-			break;
-		}
-		++p;
-	}
-	return nResult;
+    int       nResult = 0;
+    UNITDATA* p = g_aUnitTable;
+    UNITDATA* pEnd = p + ( sizeof( g_aUnitTable ) / sizeof( UNITDATA ) );
+    while ( p < pEnd )
+    {
+        if ( 0 == r.CompareIgnoreCase( p->sAbbrev ) )
+        {
+            nResult = m_nUnits = static_cast<short>( p - g_aUnitTable );
+            break;
+        }
+        ++p;
+    }
+    return nResult;
 }
 
 
@@ -524,38 +374,33 @@ int		CUnitsOfMeasure::SetUsingAbbrev
  * SetUsingString -
 
 \+---------------------------------------------------------------------*/
-int		CUnitsOfMeasure::SetUsingString
-		(
-		const char*	s
-		)
+int
+CUnitsOfMeasure::SetUsingString( const char* s )
 {
-	Yogi::Core::CCharDescriptor	tName( s, ::strlen( s ) );
-	return SetUsingString( tName );
+    Yogi::Core::CCharDescriptor tName( s, ::strlen( s ) );
+    return SetUsingString( tName );
 }
 
 
-int		CUnitsOfMeasure::SetUsingString
-		(
-		Yogi::Core::ConstCCharDescriptorRef	r
-		)
+int
+CUnitsOfMeasure::SetUsingString( Yogi::Core::ConstCCharDescriptorRef r )
 {
-	int		nResult = 0;
-	UNITDATA*	p = g_aUnitTable;
-	UNITDATA*	pEnd = p + (sizeof(g_aUnitTable) / sizeof(UNITDATA) );
-	while ( p < pEnd )
-	{
-		if ( 0 == r.CompareIgnoreCase( p->sName )
-			||	0 == r.CompareIgnoreCase( p->sPlural )
-			||	0 == r.CompareIgnoreCase( p->sAbbrev ) )
-		{
-			nResult = m_nUnits = static_cast<short>(p - g_aUnitTable);
-			break;
-		}
-		++p;
-	}
-	return nResult;
+    int       nResult = 0;
+    UNITDATA* p = g_aUnitTable;
+    UNITDATA* pEnd = p + ( sizeof( g_aUnitTable ) / sizeof( UNITDATA ) );
+    while ( p < pEnd )
+    {
+        if ( 0 == r.CompareIgnoreCase( p->sName )
+                || 0 == r.CompareIgnoreCase( p->sPlural )
+                || 0 == r.CompareIgnoreCase( p->sAbbrev ) )
+        {
+            nResult = m_nUnits = static_cast<short>( p - g_aUnitTable );
+            break;
+        }
+        ++p;
+    }
+    return nResult;
 }
-
 
 
 /*---------------------------------------------------------------------+\
@@ -564,40 +409,34 @@ int		CUnitsOfMeasure::SetUsingString
 
 \+---------------------------------------------------------------------*/
 //static
-GFLOAT	CUnitsOfMeasure::Convert
-		(
-		int		nOutUnits,
-		int		nInUnits,
-		GFLOAT	fInValue
-		)
+GFLOAT
+CUnitsOfMeasure::Convert( int nOutUnits, int nInUnits, GFLOAT fInValue )
 {
-	GFLOAT	fResult = fInValue;
-	if ( nOutUnits != nInUnits )
-	{
-		const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof(UNITDATA);
+    GFLOAT fResult = fInValue;
+    if ( nOutUnits != nInUnits )
+    {
+        const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof( UNITDATA );
 
-		if ( ! g_bInitUnits )
-			InitUnitTable();
+        if ( ! g_bInitUnits )
+            InitUnitTable();
 
-		if ( nOutUnits < kMaxIndex
-				&&	nInUnits < kMaxIndex )
-		{
-			UNITDATA*	pOut = &g_aUnitTable[nOutUnits];
-			UNITDATA*	pIn = &g_aUnitTable[nInUnits];
-			if ( pOut->eFamily == pIn->eFamily )
-			{
-				if ( 0 != pOut->nBaseIndex
-					&&	0 != pIn->nBaseIndex )
-				{
-					GFLOAT		fBase;
+        if ( nOutUnits < kMaxIndex && nInUnits < kMaxIndex )
+        {
+            UNITDATA* pOut = &g_aUnitTable[nOutUnits];
+            UNITDATA* pIn = &g_aUnitTable[nInUnits];
+            if ( pOut->eFamily == pIn->eFamily )
+            {
+                if ( 0 != pOut->nBaseIndex && 0 != pIn->nBaseIndex )
+                {
+                    GFLOAT fBase;
 
-					fBase = (fInValue + pIn->fOffset) * pIn->fConversion;
-					fResult = fBase / pOut->fConversion - pOut->fOffset;
-				}
-			}
-		}
-	}
-	return fResult;
+                    fBase = ( fInValue + pIn->fOffset ) * pIn->fConversion;
+                    fResult = fBase / pOut->fConversion - pOut->fOffset;
+                }
+            }
+        }
+    }
+    return fResult;
 }
 
 
@@ -608,20 +447,17 @@ GFLOAT	CUnitsOfMeasure::Convert
 \+---------------------------------------------------------------------*/
 //static
 const char*
-		CUnitsOfMeasure::NameFromUnits
-		(
-		int nUnits
-		)
+CUnitsOfMeasure::NameFromUnits( int nUnits )
 {
-	const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof(UNITDATA);
-	if ( nUnits < 0  ||  kMaxIndex < nUnits )
-	{
-		return 0;
-	}
-	else
-	{
-		return g_aUnitTable[nUnits].sName;
-	}
+    const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof( UNITDATA );
+    if ( nUnits < 0 || kMaxIndex < nUnits )
+    {
+        return 0;
+    }
+    else
+    {
+        return g_aUnitTable[nUnits].sName;
+    }
 }
 
 
@@ -632,20 +468,17 @@ const char*
 \+---------------------------------------------------------------------*/
 //static
 const char*
-		CUnitsOfMeasure::PluralNameFromUnits
-		(
-		int nUnits
-		)
+CUnitsOfMeasure::PluralNameFromUnits( int nUnits )
 {
-	const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof(UNITDATA);
-	if ( nUnits < 0  ||  kMaxIndex < nUnits )
-	{
-		return 0;
-	}
-	else
-	{
-		return g_aUnitTable[nUnits].sPlural;
-	}
+    const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof( UNITDATA );
+    if ( nUnits < 0 || kMaxIndex < nUnits )
+    {
+        return 0;
+    }
+    else
+    {
+        return g_aUnitTable[nUnits].sPlural;
+    }
 }
 
 
@@ -656,20 +489,17 @@ const char*
 \+---------------------------------------------------------------------*/
 //static
 const char*
-		CUnitsOfMeasure::AbbrevFromUnits
-		(
-		int nUnits
-		)
+CUnitsOfMeasure::AbbrevFromUnits( int nUnits )
 {
-	const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof(UNITDATA);
-	if ( nUnits < 0  ||  kMaxIndex < nUnits )
-	{
-		return 0;
-	}
-	else
-	{
-		return g_aUnitTable[nUnits].sAbbrev;
-	}
+    const int kMaxIndex = sizeof( g_aUnitTable ) / sizeof( UNITDATA );
+    if ( nUnits < 0 || kMaxIndex < nUnits )
+    {
+        return 0;
+    }
+    else
+    {
+        return g_aUnitTable[nUnits].sAbbrev;
+    }
 }
 
 
@@ -683,30 +513,28 @@ const char*
 
 \+---------------------------------------------------------------------*/
 //static
-void	CUnitsOfMeasure::InitUnitTable
-		(
-		void
-		)
+void
+CUnitsOfMeasure::InitUnitTable( void )
 {
-	if ( ! g_bInitUnits )
-	{
-		g_bInitUnits = true;
+    if ( ! g_bInitUnits )
+    {
+        g_bInitUnits = true;
 
-		UNITDATA*	p = g_aUnitTable;
-		UNITDATA*	pEnd = p + (sizeof(g_aUnitTable) / sizeof(UNITDATA));
-		UNITFAMILY	eFamily = UF_UNDEFINED;
-		int			nIndex = 0;
-		while ( p < pEnd )
-		{
-			if ( eFamily != p->eFamily )
-			{
-				eFamily = p->eFamily;
-				nIndex = int(p - g_aUnitTable);
-			}
-			p->nBaseIndex = nIndex;
-			++p;
-		}
-	}
+        UNITDATA*  p = g_aUnitTable;
+        UNITDATA*  pEnd = p + ( sizeof( g_aUnitTable ) / sizeof( UNITDATA ) );
+        UNITFAMILY eFamily = UF_UNDEFINED;
+        int        nIndex = 0;
+        while ( p < pEnd )
+        {
+            if ( eFamily != p->eFamily )
+            {
+                eFamily = p->eFamily;
+                nIndex = int( p - g_aUnitTable );
+            }
+            p->nBaseIndex = nIndex;
+            ++p;
+        }
+    }
 }
 
 /*=====================================================================+\
@@ -719,7 +547,7 @@ void	CUnitsOfMeasure::InitUnitTable
 ||																		|
 \+=====================================================================*/
 
-}}
+}}  // namespace Yogi::Common
 
 
 /*---------------------------------------------------------------------+\
@@ -727,4 +555,3 @@ void	CUnitsOfMeasure::InitUnitTable
  * someFunction -
 
 \+---------------------------------------------------------------------*/
-

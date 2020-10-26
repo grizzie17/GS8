@@ -46,51 +46,51 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CPluginLoader*		CPluginLoaderPtr;
-typedef class CPluginLoader&		CPluginLoaderRef;
-typedef const class CPluginLoader&	ConstCPluginLoaderRef;
+typedef class CPluginLoader*       CPluginLoaderPtr;
+typedef class CPluginLoader&       CPluginLoaderRef;
+typedef const class CPluginLoader& ConstCPluginLoaderRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS CPluginLoader
+class COMMON_CLASS CPluginLoader
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-					CPluginLoader();
-	virtual			~CPluginLoader();
+    CPluginLoader();
+    virtual ~CPluginLoader();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
-	void				SetPath( const char* sPath );
-	VPluginFactoryPtr	LoadFactory( const char* sClass, ULibraryHdl* phLib );
+    void
+    SetPath( const char* sPath );
+    VPluginFactoryPtr
+    LoadFactory( const char* sClass, ULibraryHdl* phLib );
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-	typedef	VPluginFactoryPtr
-						(*FactoryCreateFunction)( void );
+    typedef VPluginFactoryPtr ( *FactoryCreateFunction )( void );
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	Yogi::Core::CCharString		BuildLibraryPath( const char* sClass );
+    Yogi::Core::CCharString
+    BuildLibraryPath( const char* sClass );
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	Yogi::Core::CCharString		m_sPath;
-	Yogi::Core::CMutex			m_oMutex;
+    Yogi::Core::CCharString m_sPath;
+    Yogi::Core::CMutex      m_oMutex;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -109,8 +109,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_CPluginLoader */

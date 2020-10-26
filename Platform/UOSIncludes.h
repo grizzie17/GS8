@@ -46,11 +46,11 @@
 #	if defined( __MINGW__ )
 #		include <_mingw.h>
 #	endif
-//#	include <winsock2.h>
+#	include <winsock2.h>
 #	include <windows.h>
 	BEGIN_IGNORE_WARNING(4820)
 #	include <wtypes.h>
-#	include <ws2def.h>
+// #	include <ws2def.h>
 	END_IGNORE_WARNING
 //#	include <crtdefs.h>
 #	include <winerror.h>
@@ -111,4 +111,3 @@ END_IGNORE_WARNING	// empty space in packed struct
 
 
 #endif /* _H_UOSIncludes */
-

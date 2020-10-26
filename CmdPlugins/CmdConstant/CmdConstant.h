@@ -30,10 +30,12 @@
 \+---------------------------------------------------------------------*/
 #include "VPluginCommand.h"
 
-#include "THash.h"
 #include "CCharString.h"
 #include "CCharStringHash.h"
 #include "CVariantData.h"
+#include "THash.h"
+
+#include "UDeclGadget.h"
 
 
 namespace Yogi { namespace Gadget {
@@ -47,71 +49,61 @@ namespace Yogi { namespace Gadget {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class CmdConstant*			CmdConstantPtr;
-typedef class CmdConstant&			CmdConstantRef;
-typedef const class CmdConstant&	ConstCmdConstantRef;
+typedef class CmdConstant*       CmdConstantPtr;
+typedef class CmdConstant&       CmdConstantRef;
+typedef const class CmdConstant& ConstCmdConstantRef;
 /*---------------------------------------------------------------------+\
 |																		|
 |	Class Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
 
-class CmdConstant : public VPluginCommand
+class GADGET_CLASS CmdConstant : public VPluginCommand
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-
-	COM_LIFECYCLE(CmdConstant);
+    COM_LIFECYCLE( CmdConstant );
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-//	protected data  -----------------------------------------------------
+    //	protected data  -----------------------------------------------------
 
-	Yogi::Common::THashTable<Yogi::Core::CCharString, Yogi::Common::CVariantData>	m_aList;
+    Yogi::Common::THashTable<Yogi::Core::CCharString,
+            Yogi::Common::CVariantData>
+            m_aList;
 
 private:
-//	private types  ----------------------------------------------------
+    //	private types  ----------------------------------------------------
 
-	typedef VPluginCommand inherited;
+    typedef VPluginCommand inherited;
 
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
+    //	private data  -------------------------------------------------------
 
-//============================== Overrides ==============================
+    //============================== Overrides ==============================
 public:
-	//	ICommandPlugin
-	virtual
-	bool	Initialize
-			(
-			CApplicationGaugePtr	pApplication,
-			VCommandSetupPtr		pCommandSetup
-			);
+    //	ICommandPlugin
+    virtual bool
+    Initialize(
+            CApplicationGaugePtr pApplication, VCommandSetupPtr pCommandSetup );
 
-	virtual
-	bool	ProcessRequest
-			(
-			VDictionary::Selector				selCommand,
-			Yogi::Common::ConstCVariantDataRef	vData
-			);
+    virtual bool
+    ProcessRequest( VDictionary::Selector      selCommand,
+            Yogi::Common::ConstCVariantDataRef vData );
 
-	//	IPluginLoadConfiguration
-	virtual
-	bool	Load
-			(
-			Yogi::Common::VPluginConfigurationPtr	pConfig,
-			Yogi::Common::VPluginLibraryPtr			pLib
-			);
-
-
+    //	IPluginLoadConfiguration
+    virtual bool
+    Load( Yogi::Common::VPluginConfigurationPtr pConfig,
+            Yogi::Common::VPluginLibraryPtr     pLib );
 };
 
 /*---------------------------------------------------------------------+\
@@ -130,8 +122,7 @@ public:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Gadget
 
 
 #endif /* _H_CmdConstant */

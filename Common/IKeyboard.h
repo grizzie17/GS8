@@ -43,9 +43,9 @@ namespace Yogi { namespace Common {
 |
 \+---------------------------------------------------------------------*/
 
-typedef interface_ IKeyboard*	IKeyboardPtr;
+typedef interface_ IKeyboard* IKeyboardPtr;
 
-extern const IXID DECL_CLASS	IXID_IKeyboard;
+extern const IXID IXID_IKeyboard;
 
 /*---------------------------------------------------------------------+\
 |
@@ -55,21 +55,9 @@ extern const IXID DECL_CLASS	IXID_IKeyboard;
 
 interface_ IKeyboard
 {
-	virtual
-		bool	KeyDown
-				(
-				int nKeycode,
-				int mModifier,
-				int nRepeat
-				) PURE;
+    virtual bool KeyDown( int nKeycode, int mModifier, int nRepeat ) PURE;
 
-	virtual
-		bool	KeyUp
-				(
-				int nKeycode,
-				int mModifier,
-				int nRepeat
-				) PURE;
+    virtual bool KeyUp( int nKeycode, int mModifier, int nRepeat ) PURE;
 };
 
 
@@ -90,7 +78,7 @@ interface_ IKeyboard
 \+=====================================================================*/
 
 
-}}
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_IKeyboard */

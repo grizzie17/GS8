@@ -48,15 +48,15 @@
 \+---------------------------------------------------------------------*/
 namespace Yogi { namespace Common {
 
-#define XML_LITE		1
+#define XML_LITE 1
 /*---------------------------------------------------------------------+\
 |																		|
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef class VFactoryLite*			VFactoryLitePtr;
-typedef class VFactoryLite&			VFactoryLiteRef;
-typedef const class VFactoryLite&	ConstVFactoryLiteRef;
+typedef class VFactoryLite*       VFactoryLitePtr;
+typedef class VFactoryLite&       VFactoryLiteRef;
+typedef const class VFactoryLite& ConstVFactoryLiteRef;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -64,52 +64,55 @@ typedef const class VFactoryLite&	ConstVFactoryLiteRef;
 |																		|
 \+---------------------------------------------------------------------*/
 
-class DECL_CLASS VFactoryLite : public VFactory
+class COMMON_CLASS VFactoryLite : public VFactory
 {
-//	class lifecycle  ----------------------------------------------------
+    //	class lifecycle  ----------------------------------------------------
 public:
-				VFactoryLite();
-	virtual		~VFactoryLite();
+    VFactoryLite();
+    virtual ~VFactoryLite();
 
 public:
-//	public types  -------------------------------------------------------
+    //	public types  -------------------------------------------------------
 
-//	public functions  ---------------------------------------------------
+    //	public functions  ---------------------------------------------------
 
 
-	void		SetRelativePath( const char* s );
-	Yogi::Core::CCharString
-				GetRelativePath( void );
+    void
+    SetRelativePath( const char* s );
+    Yogi::Core::CCharString
+    GetRelativePath( void );
 
-	void		SetVariableIF( VVariablePtr p );
-	void		SetExternalXMLIF( ISupportsPtr p );
+    void
+    SetVariableIF( VVariablePtr p );
+    void
+    SetExternalXMLIF( ISupportsPtr p );
 
 
 protected:
-//	protected types  ----------------------------------------------------
+    //	protected types  ----------------------------------------------------
 
-//	protected functions  ------------------------------------------------
+    //	protected functions  ------------------------------------------------
 
-	//	This function assumes that the input file-path is
-	//	relative to the GaugesXML folder.
-	bool		OpenFile( const char*	sName );
-
-
-	Yogi::Core::CCharString	BuildFilePath( const char* sName );
+    //	This function assumes that the input file-path is
+    //	relative to the GaugesXML folder.
+    bool
+    OpenFile( const char* sName );
 
 
-//	protected data  -----------------------------------------------------
+    Yogi::Core::CCharString
+    BuildFilePath( const char* sName );
 
-	Yogi::Core::CCharString	m_sRelativePath;
-	VVariablePtr			m_pVariable;
-	IExternalXMLPtr			m_pIExternalXML;
+
+    //	protected data  -----------------------------------------------------
+
+    Yogi::Core::CCharString m_sRelativePath;
+    VVariablePtr            m_pVariable;
+    IExternalXMLPtr         m_pIExternalXML;
 
 private:
-//	private functions  --------------------------------------------------
+    //	private functions  --------------------------------------------------
 
-//	private data  -------------------------------------------------------
-
-
+    //	private data  -------------------------------------------------------
 };
 
 /*---------------------------------------------------------------------+\
@@ -128,8 +131,7 @@ private:
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_VFactoryLite */

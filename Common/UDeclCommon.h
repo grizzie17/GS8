@@ -3,19 +3,15 @@
 
 #include "UDeclSpec.h"
 
-#undef DECL_API
-#undef DECL_CLASS
-#undef DECL_SHLIB
-#if defined( SHLIB_COMMON )
-#	define DECL_API(t)	t DECLSPECEXPORT
-#	define DECL_CLASS	DECLSPECEXPORT
-#	define DECL_SHLIB	DECLSPECEXPORT
-#	define IMPL_SHLIB	DECLSPECIMPORT
-#else
-#	define DECL_API(t)	t DECLSPECIMPORT
-#	define DECL_CLASS	DECLSPECIMPORT
-#	define DECL_SHLIB	DECLSPECIMPORT
-#	define IMPL_SHLIB
-#endif
+#undef COMMON_API
+#undef COMMON_CLASS
 
-#endif // UDeclCommon_H
+#if defined( SHLIB_COMMON )
+#    define COMMON_DLLEXPORT DLLEXPORT
+#else
+#    define COMMON_DLLEXPORT DLLIMPORT
+#endif
+#define COMMON_CLASS    COMMON_DLLEXPORT
+#define COMMON_API( t ) COMMON_DLLEXPORT t CDECL
+
+#endif  // UDeclCommon_H

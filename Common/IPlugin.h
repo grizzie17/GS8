@@ -46,9 +46,9 @@ namespace Yogi { namespace Common {
 |	Type Definitions													|
 |																		|
 \+---------------------------------------------------------------------*/
-typedef interface_ IPlugin*		IPluginPtr;
+typedef interface_ IPlugin* IPluginPtr;
 
-extern const IXID DECL_CLASS	IXID_IPlugin;
+extern const IXID IXID_IPlugin;
 
 /*---------------------------------------------------------------------+\
 |																		|
@@ -58,21 +58,13 @@ extern const IXID DECL_CLASS	IXID_IPlugin;
 
 interface_ IPlugin : public ISupports
 {
+    virtual const char* ClassName  ///@return pointer to class name
+            ( void ) const throw()
+            = 0;
 
-	virtual
-	const char*
-			ClassName		///@return pointer to class name
-			(
-			void
-			) const throw() = 0;
-
-	virtual
-	const char*
-			ID				///@return pointer to ID name
-			(
-			void
-			) const throw() = 0;
-
+    virtual const char* ID  ///@return pointer to ID name
+            ( void ) const throw()
+            = 0;
 };
 
 /*---------------------------------------------------------------------+\
@@ -91,8 +83,7 @@ interface_ IPlugin : public ISupports
 ||																		|
 \+=====================================================================*/
 
-}}
-
+}}  // namespace Yogi::Common
 
 
 #endif /* _H_IPlugin */
